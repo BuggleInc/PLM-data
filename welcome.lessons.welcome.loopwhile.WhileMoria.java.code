@@ -110,7 +110,11 @@ public void run() {
 		setDirection(Direction.EAST);
 		forward();
 		dropBaggle();
-		forward();
+		forward(); {
+			while (isFacingWall() == true) {
+				right();
+			}
+		}
 	}
 	while (isOverBaggle() == false) {
 		forward();
