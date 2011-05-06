@@ -192,9 +192,6 @@ public void run() {
 		dropBaggle();
 		forward();
 	}
-	while (isFacingWall() == true) {
-		right();
-	}
 	while (isOverBaggle() == false) {
 		forward();
 	}
@@ -209,6 +206,10 @@ public void run() {
 		setDirection(Direction.EAST);
 		forward();
 		dropBaggle();
-		forward();
+		forward(); {
+			while (isFacingWall() == true) {
+				right();
+			}
+		}
 	}
 }
