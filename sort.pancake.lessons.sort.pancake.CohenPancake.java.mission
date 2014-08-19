@@ -1,0 +1,69 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Faster Burned Pancake Sorting</h1>
+
+<p>The Gates' algorithm that we saw in the previous exercise quickly sort a stack of unburnt pancakes 
+by increasing the size of the blocks of sorted pancakes. This is much faster that the naive algorithm 
+which moves at each step the largest pancake to the bottom of still unsorted pancakes. Gates' algorithm 
+manages to sort a stack of <i>n</i> pancakes in less than <i>(5n + 5)/3</i> steps in the worst case, 
+while the naive algorithm requires at most <i>3n</i> steps. Gates is thus almost twice faster in the 
+worst case.</p>
+
+<p>In this exercise, we will explore an adaptation of the same idea to burnt pancakes. This was first 
+published by David X. Cohen and Manuel Blum. David Cohen co-founded a few years later the Futurama TV 
+show bursted with jokes inspired from scientific facts. Definitively, interesting people studied that 
+little pancake problem...</p>
+
+<p>The Cohen's algorithm is slightly easier than the Gates' one since it distinguishes less cases:</p>
+
+<p><b>Case 1:</b> At least one pancake is rightside up in the stack. Let <i>p</i> be the largest such pancake. 
+ Note that <i>p + 1</i> must therefore be upside down, unless <i>p = n</i> (in which case there is no <i>p + 1</i> pancake).</p>
+
+<ul>
+  <li><b>Case 1.a:</b> <i>p+1</i> is lower in the stack than <i>p</i>.  <div align="center"><img src="img/cohen-1a.png"/></div><br/></li>
+  <li><b>Case 1.b:</b> <i>p+1</i> is higher in the stack than <i>p</i>. <div align="center"><img src="img/cohen-1b.png"/></div><br/></li>
+  <li><b>Case 1.c:</b> There is no <i>p+1</i> because <i>p</i> is the largest stack, that is because <i>p = n</i>.
+     <div align="center"><img src="img/cohen-1c.png"/></div></li>
+</ul>
+   
+<p>As you can see, we can achieve a join in 2 flips if there is at least one pancake upside.</p>
+ 
+<p><b>Case 2:</b> All pancakes are downside. Again, we distinguish two sub-cases.</p>
+  
+<ul>
+ <li><b>Case 2.a:</b> There is at least one <i>p</i> for which <i>p+1</i> is higher than <i>p</i> 
+   (if there is several such <i>p</i>, take the largest one).
+   <div align="center"><img src="img/cohen-2a.png"/></div>
+ </li>
+ <li><b>Case 2.b:</b> Any pancake <i>p</i> is lower than pancake <i>p+1</i>. In that case, we must have that setting:
+    <div align="center"><img src="img/cohen-2b.png"/></div>
+ </li>
+</ul>
+
+<p>In case 2.b, it is not possible to achieve a join in only 2 flips. The following algorithm allows 
+  to sort correctly the whole stack provided that the stack is in the configuration 2.b. It may sound 
+  somehow magic, but it actually works. Test it on a few examples (or code it and then run it step after steps), 
+  and you will see.</p>
+  
+<pre>
+   Repeat n times
+       Flip the whole stack of n pancakes
+       Flip the top (n-1) pancakes
+</pre>
+ 
+</body></html>
