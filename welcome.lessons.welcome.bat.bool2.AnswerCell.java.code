@@ -1,6 +1,9 @@
 boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-    if ( !isAsleep && (isMorning && isMom ))
-        return true;
-    else
+    if ( isAsleep )
         return false;
+    if ( !isMorning() )
+        return true;
+    if ( isMom )
+        return true;
+    return false;
 }
