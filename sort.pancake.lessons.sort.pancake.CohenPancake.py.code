@@ -1,0 +1,17 @@
+def getRankOf(size):
+	for rank in range(getStackSize()):
+		if getPancakeRadius(rank) == size:
+			return rank
+	return -99 # be robust to border cases
+
+def showStack(nl):
+    print("{")
+    for rank in range(getStackSize()):
+        if isPancakeUpsideDown(rank):
+            print("-")
+        print(pancakeGetRadius(rank)+", ")
+    print("}")
+    if nl:
+        print("\n")
+        
+showStack(False)
