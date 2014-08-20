@@ -15,7 +15,8 @@ def showStack():
     print(s)
 
 maxPos = getStackSize()
-while True:
+keepGoing = True
+while keepGoing:
     if isSelected() and debug:
         showStack()
         
@@ -68,7 +69,7 @@ while True:
                 if maxPos>1:
                     flip(maxPos-1)
                 showStack()
-            break
+            keepGoing = False
         else:
 			pPlus1 = getRankOf(getStackSize()+1)
 			p = 0
