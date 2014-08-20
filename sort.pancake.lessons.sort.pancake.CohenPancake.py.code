@@ -5,12 +5,16 @@ def getRankOf(size):
 	return -99 # be robust to border cases
 
 def showStack():
-    s = "{"
+    s = "maxPos:"+str(maxPos)+" {"
     for rank in range(getStackSize()):
         if isPancakeUpsideDown(rank):
             s = s + "-"
         s = s + str(getPancakeRadius(rank)) + ", "
     s = s + "}"
     print(s)
-        
-showStack()
+
+maxPos = getStackSize()
+while False:
+    if isSelected():
+        showStack()
+
