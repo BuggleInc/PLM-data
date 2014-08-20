@@ -36,63 +36,51 @@ while True:
 		break;
 
     if maxupside != -1: # Case 1. 
+    	pPlus1 = getRankOf(maxupside+1)
 		if maxupside == maxPos: # Case 1.C
 			if debug:
 				print("Case 1.C; maxupsidePos = "+str(maxupsidePos)+", maxupside = "+str(maxupside))
-					if (maxupsidePos+1 != maxPos) {
-						flip(maxupsidePos+1);
-						flip(maxPos);
-					}
-					maxPos--;
-				} else {
-					int pPlus1 = getRankOf(maxupside+1);
-					if (pPlus1 > maxupsidePos) {
-						if (debug > 0) 
-							System.out.println("Case 1.A; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);
-						flip(pPlus1+1);showStack(true);
-						flip(pPlus1-maxupsidePos);
-					} else {
-						if (debug > 0) 
-							System.out.println("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);						
-						flip(maxupsidePos+1);
-						flip(maxupsidePos-pPlus1);
-					}
-				}
-			} else { // Case 2. All pancakes are upside down.
-				boolean reverted = true;
-				for (int pos=0; reverted && pos<maxPos; pos++) 
-					if (getPancakeRadius(pos)!=pos+1)
-						reverted = false;
+			if maxupsidePos+1 != maxPos:
+				flip(maxupsidePos+1);
+				flip(maxPos);
+			maxPos--
+		elif pPlus1 > maxupsidePos:
+			if debug:
+				print("Case 1.A; maxupsidePos = "+str(maxupsidePos)+", maxupside = "+str(maxupside)+", pPlus1 = "+str(pPlus1))
+			flip(pPlus1+1)
+			flip(pPlus1-maxupsidePos);
+		else:
+			if debug:
+				System.out.println("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);						
+			flip(maxupsidePos+1);
+			flip(maxupsidePos-pPlus1);
+	else: # Case 2. All pancakes are upside down.
+		reverted = True
+		for pos in range(maxPos):
+			if getPancakeRadius(pos)!=pos+1:
+				reverted = False
 				
-				if (reverted) {
-					if (debug > 0) 
-						System.out.println("Case 2.B");
-					for (int i=0; i<maxPos; i++) {
-						flip(maxPos);
-						if (maxPos>1)
-							flip(maxPos-1);
-						showStack(true);
-					}
-				} else { 
-					
-					int pPlus1 = getRankOf(getStackSize()+1);
-					int p;
-					for (int radius=maxPos; radius > 0; radius--) {
-						p = getRankOf(radius);
-						if (p>maxPos)
-							p=-99;
-						if (pPlus1!=-99 && pPlus1<p) { // we've got the larger p such that p+1 is above p and both are upsideof
-							if (debug > 0) 
-								System.out.println("Case 2.A; p="+p+", radius="+radius+", pPlus1="+pPlus1);
-							flip(p+1);
-							if (pPlus1!=0)
-								flip(pPlus1+1);
-							radius = -1; // We're done with this iteration of the loop
-						}
-						pPlus1 = p; // shift downward
-					}
-				}
-			}
-		}
-        
-    break
+		if reverted:
+			if debug:
+				print("Case 2.B")
+			for i in range(maxPos):
+				flip(maxPos)
+				if maxPos>1:
+					flip(maxPos-1)
+				showStack()
+            break
+        else:
+			pPlus1 = getRankOf(getStackSize()+1)
+			p = 0
+			for radius in range(0,maxPos,-1):
+				p = getRankOf(radius);
+				if p>maxPos:
+					p=-99
+				if (pPlus1!=-99 and pPlus1<p): # we've got the larger p such that p+1 is above p and both are upsideof
+					if debug:
+						print("Case 2.A; p="+str(p)+", radius="+str(radius)+", pPlus1="+str(pPlus1))
+					flip(p+1)
+					if (pPlus1!=0)
+						flip(pPlus1+1)
+					radius = -1 # We're done with this iteration of the loop
+				pPlus1 = p # look downward
