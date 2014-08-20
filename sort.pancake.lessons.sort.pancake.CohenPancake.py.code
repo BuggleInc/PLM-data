@@ -4,7 +4,7 @@ def getRankOf(size):
             return rank
     return -99 # be robust to border cases
 
-debug = True
+debug = isSelected()
 def showStack():
     s = "maxPos:"+str(maxPos)+" {"
     for rank in range(getStackSize()):
@@ -53,7 +53,7 @@ while keepGoing:
             flip(pPlus1-maxupsidePos);
         else:
             if debug:
-                print("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);                        
+                print("Case 1.B; maxupsidePos = "+str(maxupsidePos)+", maxupside = "+str(maxupside)+", pPlus1 = "+str(pPlus1));
             flip(maxupsidePos+1);
             flip(maxupsidePos-pPlus1);
     else: # Case 2. All pancakes are upside down.
