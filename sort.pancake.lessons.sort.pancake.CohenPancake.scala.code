@@ -1,12 +1,11 @@
 
-if (isSelected())
-  debug = 1
+debug = isSelected()
 def solve() {
 		/* BEGIN SOLUTION */
 		var maxPos = getStackSize();
 		while (true) {
 					
-			if (debug>0)
+			if (debug)
 				System.out.print("maxPos:"+maxPos+" ");
 			showStack(false);
 			
@@ -25,14 +24,14 @@ def solve() {
 			}
 			
 			if (sorted) { // we are done, no need to continue
-				if (debug > 0) 
+				if (debug) 
 					System.out.println("It's sorted now. Get out of here\n");
 				return;
 			}
 			
 			if (maxupside != -1) { // Case 1. 
 				if (maxupside == maxPos) { // Case 1.C
-					if (debug > 0) 
+					if (debug) 
 						System.out.println("Case 1.C; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside);
 					if (maxupsidePos+1 != maxPos) {
 						flip(maxupsidePos+1);
@@ -42,12 +41,12 @@ def solve() {
 				} else {
 					val pPlus1 = getRankOf(maxupside+1);
 					if (pPlus1 > maxupsidePos) {
-						if (debug > 0) 
+						if (debug) 
 							System.out.println("Case 1.A; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);
 						flip(pPlus1+1);showStack(true);
 						flip(pPlus1-maxupsidePos);
 					} else {
-						if (debug > 0) 
+						if (debug) 
 							System.out.println("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);						
 						flip(maxupsidePos+1);
 						flip(maxupsidePos-pPlus1);
@@ -60,7 +59,7 @@ def solve() {
 						reverted = false;
 				
 				if (reverted) {
-					if (debug > 0) 
+					if (debug) 
 						System.out.println("Case 2.B");
 					for (i <- 0 to maxPos) {
 						flip(maxPos);
@@ -79,7 +78,7 @@ def solve() {
 						if (p>maxPos)
 							p = -99
 						if (pPlus1 != -99 && pPlus1<p) { // we've got the larger p such that p+1 is above p and both are upsideof
-							if (debug > 0) 
+							if (debug) 
 								System.out.println("Case 2.A; p="+p+", radius="+radius+", pPlus1="+pPlus1);
 							flip(p+1);
 							if (pPlus1!=0)
