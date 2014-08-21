@@ -5,9 +5,9 @@ def getLandingZone():
     for point in getGround():
         if (point != lastPoint):
             if lastPoint.y == point.y:
-                return Segment(lastPoint,point)
+                print "found"
+                return (lastPoint,point)
         lastPoint = point
-    return null;
     # END SOLUTION
 # END TEMPLATE 
 
@@ -16,11 +16,7 @@ targetStart = 0;
 targetEnd = 0;
 
 def init():
-    landingZone = getLandingZone();
-    targetStart = landingZone.start().x();
-    targetEnd = landingZone.end().x();
-    print(targetStart)
-    print(targetEnd)
+    (targetStart, targetEnd) = getLandingZone()
 
 def step():
     if (getX() < targetStart):
