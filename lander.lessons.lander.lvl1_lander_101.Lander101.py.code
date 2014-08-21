@@ -1,5 +1,8 @@
 def step():
-    if getSpeedY() < -9:
-        setDesiredThrust(4)
-    else:
-        setDesiredThrust(3)
+    lastPoint = getGround()[0]
+    for point in getGround():
+        if (point != lastPoint):
+            if lastPoint.y == point.y:
+                return new Segment(lastPoint,point)
+        lastPoint = point
+    return null;
