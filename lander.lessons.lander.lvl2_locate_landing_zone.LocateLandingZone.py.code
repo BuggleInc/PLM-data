@@ -1,9 +1,9 @@
 def getLandingZone():
     lastPoint = getGround()[0]
     for point in getGround():
-        print ("point:"+str(point.x())+","+str(point.y()))
+        print ("point:"+str(point.x())+","+str(point.y())+"\n")
         if (point != lastPoint):
-            if lastPoint.y == point.y:
+            if lastPoint.y() == point.y():
                 print "found"
                 return Segment(lastPoint,point)
         lastPoint = point
