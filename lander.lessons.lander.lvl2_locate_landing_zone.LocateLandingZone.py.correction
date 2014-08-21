@@ -20,14 +20,24 @@ def init():
 
 def step():
     if (getX() < targetStart):
+        if isSelected():
+            print("to right")
         setDesiredAngle(-30)
     elif (getX() > targetEnd):
+        if isSelected():
+            print("to left")
         setDesiredAngle(30)
     elif (getSpeedX() > 5):
+        if isSelected():
+            print("too fast right")
         setDesiredAngle(25)
     elif (getSpeedX() < -5):
+        if isSelected():
+            print("too fast left")
         setDesiredAngle(-25)
     else:
+        if isSelected():
+            print("all right")
         setDesiredAngle(0);
         
     if (getSpeedY() <-9):
