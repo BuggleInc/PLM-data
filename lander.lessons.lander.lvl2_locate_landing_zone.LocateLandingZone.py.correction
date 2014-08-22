@@ -13,14 +13,14 @@ def getLandingZone():
 targetStart = 0;
 targetEnd = 0;
 
-def pyinit():
+def initialize():
     global targetStart
     global targetEnd
     (targetStart, targetEnd) = getLandingZone()
     if (targetStart > targetEnd):
         print ("Your starting point is after your ending point ("+str(targetStart)+">"+str(targetEnd)+"). Bad things will happen")
 
-def pystep():
+def step():
     if (getX() < targetStart):
         setDesiredAngle(-30)
     elif (getX() > targetEnd):
@@ -37,7 +37,7 @@ def pystep():
     else:
         setDesiredThrust(3)
 
-pyinit()
+initialize()
 while isFlying():
-  pystep()
+  step()
   simulateStep()
