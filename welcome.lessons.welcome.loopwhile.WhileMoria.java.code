@@ -1,14 +1,17 @@
 public void run() {
-	while(!isOverBaggle())
+	for(int i = 0 ; i < 11 ; i++)
 	{
+		while(!isOverBaggle())
+		{
+			backward();
+		}
+		pickupBaggle();
+		while(!isOverBaggle())
+		{
+			forward();
+		}
+		backward();
+		dropBaggle();
 		backward();
 	}
-	pickupBaggle();
-	while(!isOverBaggle())
-	{
-		forward();
-	}
-	backward();
-	dropBaggle();
-	backward();
 }
