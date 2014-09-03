@@ -14,34 +14,42 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Locate a Landing Zone</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Repérer une zone plate</h2>
 
-<p>After 200 days of travelling space and eating cereals you finally reach
-Mars. Time to land at last!</p>
+<p>Après 200 jours de voyage intersidéral à manger des céréales, vous êtes
+enfin parvenu à la planète rouge. Il est enfin temps de se poser !</p>
 
-<p>The lander is on autopilot and all you have to do is look around and tell it
-where to land. The lander must <b>land on a flat zone</b> it you want to remain
-in one piece. You indicate the lander where to land by modifying the
-<code>getLandingZone</code> function so that it returns a <code>Segment</code>
-representing the zone of your choice.
+<p>Le module est en pilote automatique, et vous n'avez qu'à regarder autour de
+vous pour sélectionner une zone d'alunissage. Vous devez vous poser sur
+<b>une zone plate</b> si vous ne voulez pas vous scratcher. Vous indiquez au
+pilote automatique où se poser en modifiant la fonction
+<code>getLandingZone</code> de façon à ce qu'elle retourne un
+Segment représentant la zone de votre choix.
 
-<p>A segment is composed of two <code>Point</code>s, each of them composed of
-two <code>double</code>s. A segment is built via the <code>Segment(Point start,
-Point end)</code> constructor. A point is built via the <code>Point(double x,
-double y)</code> constructor. A point's coordinates are accessible via its
-<code>double x()</code> and <code>double y()</code> methods.</p>
+<p>Un Segment est composé de deux <code>Point</code>s, chacun composé de deux
+doubles. On construit un nouveau segment de la façon suivante :
+<code>Segment(Point debut, Point
+fin)</code>. Pour créer de nouveaux points, il faut
+utiliser le constructeur <code>Point(double x,
+double y)</code>. Les coordonnées d'un point
+sont accessibles grâce à ses méthodes <code>double
+x()</code> et <code>double
+y()</code>.</p> 
 
-<p>In order to dertermine which zone to return, you'll need to call
-<code>Iterable<Point> getGround()</code>, which returns the vertices of the
-ground's profile from left to right.</p>
+<p>Pour déterminer la zone cible, vous devez appeler
+<code>List&lt;Point&gt; getSol()</code>,
+qui retourne les points qui composent la surface sous la forme d'une list de
+<code>Point</code> .</p>
 
-<p>One more thing: your function should return a valid flat zone in any kind of
-situation, not just for this particular one. That's why it will be not only be
-tested against the <i>Challenging Terrain, Simple Configuration</i> world, but
-also against the <i>Simple Terrain, Simple Configuration</i> one from the
-previous exercise.</p>
+<p>Une dernière chose : votre fonction doit retourner une zone valide dans
+toutes les situations, pas seulement celle que l'on voit en ce moment. C'est
+que votre code sera utilisé dans ce cas, mais également dans la
+configuration que nous avions dans l'exercice précédent. Comme d'habitude,
+vous pouvez voir les autres mondes en les sélectionnant dans le combobox au
+dessus de la vue du monde.</p>
 
-<p>Have a safe landing! Don't forget to put on your space suit on your way
-out.</p>
+<p>Bon alunissage ! N'oubliez pas de mettre votre combinaison spatiale en
+sortant.</p>
 </body></html>
