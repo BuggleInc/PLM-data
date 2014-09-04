@@ -14,44 +14,46 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Methods with parameters</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Méthodes avec paramètres</h2>
 
-<p>Don't you get tired of writing again and again the code to move by a fixed
-amount of steps? On the other hand, writing <tt>forward2()</tt>,
-<tt>forward3()</tt>, <tt>forward4()</tt>, as well as <tt>backward2()</tt>,
-<tt>backward3()</tt>, <tt>backward4()</tt>, and so on does not really help, 
-to say the less.</p>
+<p>N'êtes vous pas fatigué d'écrire encore et encore le code qui permet
+d'avancer ou de reculer d'un nombre prédéterminé de pas ? Oui, mais écrire
+les méthode <tt>avance2()</tt>, <tt>avance3()</tt>, <tt>avance4()</tt>, et
+<tt>recule2()</tt>, <tt>recule3()</tt>, <tt>recule4()</tt>, et ainsi de
+suite, ça ne constitue pas un réel gain de temps. Et puis, c'est carrément
+moche !</p>
 
-<p>Luckily, it is possible to pass <b>parameters</b> to your methods. You have
-to specify their type and name between the parenthesis after the method
-name. Then, you can use them in the method body as if it were variables
-defined in there, and which initial value is what the caller specified.</p>
+<p>Heureusement, il est possible de donner des <b>paramètres</b> à vos
+méthodes. Il faut marquer leur type et leur nom entre les parenthèses qui
+suivent le nom de la méthode. Ensuite, on peut les utiliser dans le corps de
+la fonction comme s'il s'agissait de variables définies ici.</p>
 
-<pre>divideByTwo(x: Double): Double = {
+<pre>diviseParDeux(x: Double): Double = {
      return x / 2
 }</pre>
 
-<p>As caller, you have to specify the initial value of this "variables" between
-the call's parenthesis.</p>
-<pre>val result = divideByTwo(3.14)</pre>
+<p>À l'usage, il faut indiquer les valeurs qu'elles doivent prendre entre les
+parenthèses de l'appel.</p>
+<pre>val resultat = diviseParDeux(3.14)</pre>
 
-<p>If you want several parameters, you need to separate them with comas (,)
-both in the declaration and calls.</p>
+<p>Si on veut avoir plusieurs paramètres, il faut les séparer par des virgules,
+lors de la déclaration comme lors de l'appel.</p>
 
 <pre>
-def divide(x:Double, y:Double): Double = {
+def divise(x:Double, y:Double): Double = {
 
      return x / y
 }</pre>
 <pre>
-val res = divide(3.14 , 1.5)
+val res = divise(3.14 , 1.5)
 </pre>
 
 
-<p>In Scala, you can declare several methods of the same name as long as
-they don't have the same <b>signature</b>, that is, the same amount of 
-parameters and the same parameters' types.</p>
+<p>En Scala, il est possible d'avoir plusieurs méthodes du même nom, à
+condition qu'elles n'aient pas la même <b>signature</b>, c'est à dire le
+même nombre de paramètres et les mêmes types de paramètres.</p>
 
 <pre>def max(x:Double, y:Double): Double = {
   if (x > y) {
@@ -74,24 +76,27 @@ def max(x:Int, y:Int, z:Int): Int = {
   return z;
 }</pre>
 
-<p>Observe that we omitted the <tt>else</tt> branches of each <tt>if</tt>. It
-works anyway because a <tt>return</tt> interrupts the method execution. If
-we arrive to the last line of <code>max(Int,Int):Int</code>,
-we know that <code>x&lt;=y</code> because otherwise, the <tt>return</tt> of line
-2 would have stopped the execution.</p>
-
-
+<p>Remarquez que nous avons ici laissé de coté les <tt>else</tt> de chaque
+alternative. Cela fonctionne tout de même car un <tt>return</tt> interrompt
+l'exécution de la méthode. Si on arrive à la dernière ligne de
+<code>max(Int,Int):Int</code>, on est
+donc sûr que <code>x&lt;=y</code> car dans le cas contraire, le
+<tt>return</tt> de la deuxième ligne aurait arrêté l'exécution de la
+fonction.</p>
 <!-- introduce default value for parameters in Python language -->
 
-<h3>Exercise goal</h3>
-<p>This time, you have to write a <code>
 
-move(stepCount: Int,forward: Boolean)
 
-</code> method which moves forward by <code>stepCount</code> steps if
-<code>forward</code> is true, and moves back of that amount of steps if the
-boolean is false.</p>
 
-<p>This time, there is only one world but seven buggles, all sharing the same code.
-This code should not be really problematic for you to write, actually.</p>
+<h3>Objectif de cet exercice</h3>
+<p>Cette fois, vous devez écrire une méthode
+<code> versLAvant)[/!]
+move(nbPas: Int,versLAvant: Boolean)
+ </code> qui se déplace de
+<code>nbPas</code> pas. Si <code>versLAvant</code> est vrai, il faut avancer
+de ce nombre de pas; dans le cas contraire, il faut reculer.</p>
+
+<p>Cette fois, il y a un seul monde, et sept buggles, qui exécutent toutes le
+code que vous allez écrire.
+Cet exercice ne devrait pas vous poser de problème particulier.</p>
 </body></html>
