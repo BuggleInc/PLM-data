@@ -1,6 +1,9 @@
 var nbBagels = 0;
 do {
 	avance();
+	if(estSurBiscuit()) {
+		nbBagels += 1;
+	}
 	if(croisement()) {
 		if(nbBagels < 3) {
 			droite();
@@ -9,9 +12,6 @@ do {
 			gauche();
 		}
 		nbBagels = 0;
-	}
-	if(estSurBiscuit()) {
-		nbBagels += 1;
 	}
 } while(!sortieTrouvee())
 avance();
