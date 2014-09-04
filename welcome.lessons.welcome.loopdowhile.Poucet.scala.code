@@ -1,9 +1,17 @@
-
+var nbBagles = 0;
 do {
 	 if(croisement()) {
 	 	if(nbBagels < 3) {
-	 		
+	 		droite();
 	 	}
+	 	else {
+	 		gauche();
+	 	}
+	 	nbBagels = 0;
+	 }
+	 avance();
+	 if(estSurBiscuit()) {
+	 	nbBagels += 1;
 	 }
 } while(!sortieTrouvee())
 avance();
