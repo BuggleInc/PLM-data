@@ -1,0 +1,74 @@
+var fini:Boolean = false;
+var message:String = null;
+
+"I"
+Se retourner (demi-tour) et avancer d'une case
+Inverse
+"A"
+Avancer d'une case
+Première lettre de l'alphabet
+"B"
+Avancer de deux cases
+Deuxième lettre de l'alphabet
+"C"
+Avancer de trois cases
+Troisième lettre de l'alphabet
+"Z"
+Reculer d'une case
+A une lettre de la fin de l'alphabet
+"Y"
+Reculer de deux cases
+A deux lettres de la fin de l'alphabet
+"X"
+Reculer de trois cases
+A trois lettres de la fin de l'alphabet
+
+while(estSurMessage()) {
+	message = litMessage();
+	if(message == "R") {
+		droite();
+		avance();
+	}
+	else {
+		if(message == "L") {
+			gauche();
+			avance();
+			
+		}
+		else {
+			if(message == "I") {
+				retourne();
+				avance();
+			}
+			else {
+				if(message == "A") {
+					avance();
+				}
+				else {
+					if(message == "B") {
+						avance(2);	
+					}
+					else {
+						if(message == "C") {
+							avance(3);	
+						}
+						else {
+							if(message == "Z") {
+								recule();
+							}
+							else {
+								if(message == "Y") {
+									recule(2);	
+								}
+								else {
+									if(message == "X") {
+										recule(3);	
+									}
+								}
+							}
+					}
+				}
+			}
+		}
+	}
+}
