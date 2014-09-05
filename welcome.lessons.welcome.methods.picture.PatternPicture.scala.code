@@ -12,6 +12,25 @@ override def run() {
 	faireMotif1(Color.green);
 }
 
+
+/**
+ * Permet de dessiner le motif suivant :
+ * 		
+ * 		-	X	X	-
+ * 		X	-	-	X
+ * 		X	- 	-	X
+ * 		-	X	X	-
+ * 	
+ */
+def faireMotif() {
+	faireMotif1(Color.red);
+	avance(2);
+	faireMotif2(Color.blue);
+	recule(2);
+	gauche();
+	avance(2);
+}
+
 /**
  * Permet de dessiner le motif suivant :
  * 		
@@ -21,16 +40,7 @@ override def run() {
  * 	c:Color : couleur du motif dessiné
  */
 def faireMotif1(c:Color) {
-	var i:Int = 0;
-	var j:Int = 0;
-	setCouleurBrosse(c);
-	for(i <- 1 to 2) {
-		marquerSol();
-		for(j <- 1 to 2) {
-			gauche();
-			avance();
-		}
-	}
+	
 }
 
 /**
@@ -42,20 +52,7 @@ def faireMotif1(c:Color) {
  * 	c:Color : couleur du motif dessiné
  */
 def faireMotif2(c:Color) {
-	var i:Int = 0;
-	var j:Int = 0;
 	
-	setCouleurBrosse(c);
-	marquerSol();
-	avance();
-	gauche();
-	avance();
-	marquerSol();
-	gauche();
-	avance();
-	gauche();
-	avance();
-	gauche();
 }
 
 def marquerSol() {
