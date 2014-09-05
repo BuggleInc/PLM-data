@@ -1,29 +1,51 @@
 override def run() {
 	avance();
-	faireMotif(Color.red, "gauche");
+	faireMotif1(Color.red);
 	avance();
-	faireMotif(Color.blue, "gauche");
+	faireMotif2(Color.blue);
 }
 
 /**
- * c:Color : couleur du motif dessiné
- * direction:String : direction dans laquelle la buggle doit tourner
- * 	"gauche" ou "droite"
+ * Permet de dessiner le motif suivant :
+ * 		
+ * 		X	- 
+ * 		-	X
+ * 	
+ * 	c:Color : couleur du motif dessiné
  */
-def faireMotif(c:Color, direction:String) {
+def faireMotif1(c:Color) {
 	var i:Int = 0;
 	var j:Int = 0;
 	setCouleurBrosse(c);
 	for(i <- 1 to 2) {
 		marquerSol();
 		for(j <- 1 to 2) {
-			if(direction == "gauche") {
-				gauche();	
-			}
-			else if(direction == "droite") {
-				droite();
-			}
+			gauche();
 			avance();
+		}
+	}
+}
+
+/**
+ * Permet de dessiner le motif suivant :
+ * 		
+ * 		-	X 
+ * 		X	-
+ * 	
+ * 	c:Color : couleur du motif dessiné
+ */
+def faireMotif2(c:Color) {
+	var i:Int = 0;
+	var j:Int = 0;
+	
+	setCouleurBrosse(c);
+	marquerSol();
+	gauche();
+	for(i <- 1 to 2) {
+		marquerSol();
+		for(j <- 1 to 2) {
+			avance();
+			droite();
 		}
 	}
 }
