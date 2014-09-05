@@ -1,2 +1,30 @@
 override def run() {
 }
+
+/**
+ * c:Color : couleur du motif dessiné
+ * direction:String : direction dans laquelle la buggle doit tourner
+ * 	"gauche" ou "droite"
+ */
+def faireMotif(c:Color, direction:String) {
+	var i:Int = 0;
+	var j:Int = 0;
+	setCouleurBrosse(c);
+	for(i <- 1 to 2) {
+		marquerSol();
+		for(j <- 1 to 2) {
+			if(direction == "gauche") {
+				gauche();	
+			}
+			else if(direction == "droite") {
+				droite();
+			}
+			avance();
+		}
+	}
+}
+
+def marquerSol() {
+	baisseBrosse();
+	leveBrosse();	
+}
