@@ -1,7 +1,26 @@
 override def run() {
-	faireMotifComplet();
+	faireFigure(2, 2);
 }
 
+def faireFigure(nbLignes:Int, nbMotifs:Int) {
+	var i:Int =0;
+	var j:Int =0;
+	for(i <- 1 to nbLignes) {
+		faireLigne(nbMotifs);
+		gauche();
+		avance(4);
+		droite();
+	}
+}
+
+def faireLigne(nbMotifs:Int) {
+	var i:Int =0;
+	for(i <- 1 to nbMotifs) {
+		faireMotifComplet();
+		avance(4);
+	}
+	recule(4*nbMotifs);
+}
 
 /**
  * Permet de dessiner le motif suivant :
@@ -23,6 +42,10 @@ def faireMotifComplet() {
 	faireMotif(Color.yellow, false);
 	avance(2);
 	faireMotif(Color.green, true);
+	recule(2);
+	droite();
+	avance(2);
+	gauche();
 }
 
 /**
