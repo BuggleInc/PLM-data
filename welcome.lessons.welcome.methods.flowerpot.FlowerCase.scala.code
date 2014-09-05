@@ -1,5 +1,12 @@
 def growFlowers() {
 	grow4Flowers();
+	goToNewLine(-2);
+	grow3Flowers();
+	recule();
+	gauche();
+	avance(2);
+	droite();
+	recule(2);
 }
 
 def grow2Flowers(b:Boolean) {
@@ -21,19 +28,34 @@ def grow2Flowers(b:Boolean) {
 
 def grow4Flowers() {
 	grow2Flowers(true);
-	droite();
-	avance(4);
-	gauche();
+	goToNewLine(4);
 	grow2Flowers(false);
 }
 
 def grow3Flowers() {
-	
+	var nbFlowers:Int = 1;
+	var c:Color = null;
+	do {
+		avance(2);
+		if(nbFlowers%2 == 0) {
+			c = Color.orange;
+		}
+		else {
+			c = Color.blue;
+		}
+		growFlower(c);
+		nbFlowers += 1;
+	} while(nbFlowers!=3)
 }
 
-def goToNewLine() {
+def goToNewLine(nbPas:int) {
 	droite();
-	avance(2);
+	if(nbPas < 0) {
+		recule(nbPas);	
+	}
+	else if(nbPas > 0) {
+		avance(nbPas);
+	}
 	gauche();
 }
 
