@@ -1,14 +1,5 @@
 def flower(c:Color) {
-	setCouleurBrosse(c);
-	baisseBrosse();
-	for (petale <- 1 to 4) {
-		avance();
-		recule();
-		gauche();
-	}
-	setCouleurBrosse(Color.YELLOW);
-	leveBrosse();
-}
+	
 def move(nbPas : Int, versLAvant : Boolean) {
 	for (pas <- 1 to nbPas) {
 		if (versLAvant) {
@@ -19,24 +10,7 @@ def move(nbPas : Int, versLAvant : Boolean) {
 	}
 }
 def growFlowers() {
-	avance();
-	flower(Color.RED);
-	move(4,true);
-	droite();
-	flower(Color.CYAN);
-	move(4,true);
-	droite();
-	flower(Color.GREEN);
-	move(4,true);
-	droite();
-	flower(Color.PINK);
-	move(2,true);
-	droite();
-	move(2,true);
-	flower(Color.ORANGE);
-	move(3, false)
+	move(3,true)
 	droite();
 	move(2,true)
-	gauche();
 }
-	
