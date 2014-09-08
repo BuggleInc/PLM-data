@@ -39,5 +39,29 @@ override def run() {
 		droite();
 		deux();
 	}
-	motif();
+	def place(j,i) {
+		if (i!=3) {
+			droite();
+			avance();
+			avance();
+			avance();
+			avance();
+			gauche();
+			avance();
+		} else if (j!=3) {
+			gauche();
+			avance();
+			gauche();
+			for (k<- 1 to 14) {
+				avance();
+			}
+			retourne();
+		}
+	}
+	for (i<-1 to 3) {
+		for (j<- 1 to 3) {
+			motif();
+			place(i,j);
+		}
+	}
 }
