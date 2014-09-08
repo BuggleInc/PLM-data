@@ -1,2 +1,31 @@
 override def run() {
+	var colors:Array[Color] = new Array[Color](getMondeHauteur());
+	var i:Int = 0;
+	var j:Int = 0;
+	var decalage:Int = 0;
+	
+	for(i <- 0 to getMondeHauteur()-1) {
+		colors(i) = getCouleurSol();
+		avance();
+	}
+
+	recule(getMondeHauteur()-1);
+
+	for(i <- 1 to getMondeLargeur()-1) {
+		gauche();
+		avance();
+		droite();
+		decalage = litMessage().toInt;
+		
+		for(j <- colors) {
+			marqueSol((j+getMondeHauteur()-1)%decalage);
+			avance();
+		}
+	}
+}
+
+def marqueSol(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
 }
