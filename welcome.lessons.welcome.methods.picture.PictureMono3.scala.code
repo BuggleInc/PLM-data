@@ -1,2 +1,47 @@
 override def run() {
+	def marque(){
+		baisseBrosse();
+		leveBrosse();
+	}
+	def faireV(){
+		avance();
+		marque();
+		gauche();
+		avance();
+		droite();
+		avance();
+		marque();
+		avance();
+		droite();
+		avance();
+		gauche();
+		marque();
+		avance();
+		gauche();
+	}
+	def faireMotif(){
+	     for(i <- 1 to 4){
+		    faireV();	
+	     }
+	}
+	def faireLigne(){
+		for(l <- 0 to 8){
+			setX(l*5);
+			faireMotif();
+		}
+		setX(0)
+	}
+	def retour(){
+		gauche()
+		avance()
+		avance()
+		avance()
+		avance()
+		avance()
+		droite()
+	}
+	for (c <- 1 to 9){
+		faireLigne()
+		retour()
+	}
 }
