@@ -13,6 +13,12 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
+.Java   {visibility: visible; color:#FF0000}
+.java   {visibility: visible; color:#FF0000}
+.python {visibility: visible; color:#008000}
+.Python {visibility: visible; color:#008000}
+.scala  {visibility: visible; color:#0000FF}
+.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -30,43 +36,43 @@ méthodes. Il faut marquer leur type et leur nom entre les parenthèses qui
 suivent le nom de la méthode. Ensuite, on peut les utiliser dans le corps de
 la fonction comme s'il s'agissait de variables définies ici.</p>
 
-<pre>double diviseParDeux(double x) {
-     return x / 2;
-}</pre>
+<pre><font color="FFFF00">double </font>diviseParDeux(<font color="FFFF00">double </font>x<font color="0000FF">: Double</font>)<font color="0000FF">: Double =</font> <font color="EEEEEE">{</font><font color="008000">:</font>
+     return x / 2<font color="FFFF00">;</font>
+<font color="EEEEEE">}</font></pre>
 
 <p>À l'usage, il faut indiquer les valeurs qu'elles doivent prendre entre les
 parenthèses de l'appel.</p>
-<pre>double resultat = diviseParDeux(3.14);</pre>
+<pre><font color="FFFF00">double </font><font color="0000FF">val </font>resultat = diviseParDeux(3.14)<font color="FFFF00">;</font></pre>
 
 <p>Si on veut avoir plusieurs paramètres, il faut les séparer par des virgules,
 lors de la déclaration comme lors de l'appel.</p>
 
-<pre>double divise(double x, double y) {
+<pre><font color="FFFF00">double divise(double x, double y) {</font>
+<font color="0000FF">def divise(x:Double, y:Double): Double = {</font>
+<font color="008000">def divise(x, y):</font>
+     return x / y<font color="FFFF00">;</font>
+<font color="EEEEEE">}</font></pre>
+<pre><font color="FFFF00">double res = divise(3.14 , 1.5);</font>
+<font color="0000FF">val res = divise(3.14 , 1.5)</font>
+<font color="008000">res = divise(3.14 , 1.5)</font></pre>
 
-
-     return x / y;
-}</pre>
-<pre>double res = divise(3.14 , 1.5);
-
-</pre>
-
-
-<p>En Java, il est possible d'avoir plusieurs méthodes du même nom, à
+<font color="FF00FF">
+<p>En <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>, il est possible d'avoir plusieurs méthodes du même nom, à
 condition qu'elles n'aient pas la même <b>signature</b>, c'est à dire le
 même nombre de paramètres et les mêmes types de paramètres.</p>
 
-<pre>double max(double x, double y) {
+<pre><font color="FF0000">double max(double x, double y)</font><font color="0000FF">def max(x:Double, y:Double): Double =</font> {
   if (x > y) {
     return x;
   }
   return y;
-}int max(int x, int y) {
+}<font color="FF0000">int max(int x, int y)</font><font color="0000FF">def max(x:Int, y:Int): Int =</font> {
   if (x > y) {
     return x;
   }
   return y;
 }
-int max(int x, int y; int z) {
+<font color="FF0000">int max(int x, int y; int z)</font><font color="0000FF">def max(x:Int, y:Int, z:Int): Int =</font> {
   if (x > y && x > z) {
     return x;
   }
@@ -79,20 +85,20 @@ int max(int x, int y; int z) {
 <p>Remarquez que nous avons ici laissé de coté les <tt>else</tt> de chaque
 alternative. Cela fonctionne tout de même car un <tt>return</tt> interrompt
 l'exécution de la méthode. Si on arrive à la dernière ligne de
-<code>max(int,int)</code>, on est
+<code><font color="FF0000">max(int,int)</font><font color="0000FF">max(Int,Int):Int</font></code>, on est
 donc sûr que <code>x&lt;=y</code> car dans le cas contraire, le
 <tt>return</tt> de la deuxième ligne aurait arrêté l'exécution de la
 fonction.</p>
 <!-- introduce default value for parameters in Python language -->
-
+</font>
 
 
 
 <h3>Objectif de cet exercice</h3>
 <p>Cette fois, vous devez écrire une méthode
-<code>move(int nbPas,boolean versLAvant)
-
- </code> qui se déplace de
+<code><font color="FF0000">move(int nbPas,[!java]boolean</font><font color="00FF00">int</font> versLAvant)[/!]
+<font color="0000FF">move(nbPas: Int,versLAvant: Boolean)</font>
+<font color="008000">move(nbPas,versLAvant)</font> </code> qui se déplace de
 <code>nbPas</code> pas. Si <code>versLAvant</code> est vrai, il faut avancer
 de ce nombre de pas; dans le cas contraire, il faut reculer.</p>
 
