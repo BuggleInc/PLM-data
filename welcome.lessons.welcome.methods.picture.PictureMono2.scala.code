@@ -1,2 +1,18 @@
+def marqueSol() {
+	baisseBrosse();leveBrosse();
+}
+
+def faireV() {
+	avance(); marqueSol();
+	avance(); gauche(); avance(); marqueSol();
+	droite(); avance(); droite(); avance(); marqueSol();
+	gauche(); avance(); gauche();
+}
+
+def faireMotif() { 
+	for (x <- 1 to 4) {faireV()}
+}
+
 override def run() {
+	for (x <- 1 to 9) {faireMotif()}
 }
