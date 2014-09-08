@@ -1,4 +1,14 @@
-Variables:7: error: type mismatch;
+Variables:5: error: type mismatch;
+ found   : Unit
+ required: ?{def x: ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method any2Ensuring in object Predef of type [A](x: A)Ensuring[A]
+ and method any2ArrowAssoc in object Predef of type [A](x: A)ArrowAssoc[A]
+ are possible conversion functions from Unit to ?{def x: ?}
+	avance() x=x+1
+              ^Variables:5: error: value x is not a member of Unit
+	avance() x=x+1
+                 ^Variables:7: error: type mismatch;
  found   : Boolean
  required: Int
 	while(x=0==false){
