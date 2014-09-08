@@ -19,7 +19,9 @@ override def run() {
 		
 		for(j <- 0 to colors.length-1) {
 			marqueSol(colors((j+decalage)%getMondeHauteur()));
-			avance();
+			if(!estFaceMur()) {
+				avance();
+			}
 		}
 		recule(getMondeHauteur()-1);
 	}
