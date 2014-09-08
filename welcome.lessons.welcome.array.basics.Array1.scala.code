@@ -12,7 +12,7 @@ override def run() {
 		gauche();
 		avance();
 		droite();
-		for (pas <- 1 to H-1) {
+		for (pas <- 1 to H) {
 			
 			x = pas-colonne
 			if (x<0) {
@@ -21,7 +21,10 @@ override def run() {
 			setCouleurBrosse(T (x));
 			baisseBrosse();
 			leveBrosse();
-			avance();
+			if (!estFaceMur) {
+				avance();
+			}
+			}
 		}
 		
 	}
