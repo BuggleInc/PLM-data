@@ -1,0 +1,21 @@
+var sortie=false;
+var nbBagel=0;
+while (sortie=false) {
+	for (compteur <- 1 to 5) {
+	avance();
+	if (estSurBiscuit()) {
+		nbBagel=nbBagel+1;
+	}
+	}
+	if (nbBagel>=3) {
+		gauche();
+		nbBagel=0;
+	}
+	else if (nbBagel<=2) {
+		droite();
+		nbBagel=0;
+	}
+	if (estSurOrange()) {
+		sortie=true;
+	}
+}
