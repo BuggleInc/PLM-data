@@ -14,9 +14,12 @@ override def run() {
 		droite();
 		for (pas <- 1 to H) {
 			
-			x = pas-colonne-1
+			x = pas-colonne+1
 			while (x<0) {
 				x=x+H
+			}
+			while (x>H) {
+				x=x-H
 			}
 			setCouleurBrosse(T (x));
 			baisseBrosse();
