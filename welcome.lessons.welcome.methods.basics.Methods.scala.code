@@ -1,0 +1,23 @@
+var nbPas = 0
+var recule = 0
+var biscuit = 1
+def goAndGet() {
+	while(!estSurBiscuit){
+		avance()
+		nbPas = nbPas +1
+	}
+	prendBiscuit()
+	for (recule <- 1 to nbPas){
+		recule()
+	}
+	if(biscuit<7){
+		droite()
+		avance()
+		gauche()
+	}
+}
+
+for (biscuit <- 1 to 7){
+	goAndGet()
+}
+
