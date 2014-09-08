@@ -1,16 +1,17 @@
 do {
 	var nbBiscuits: Int = 0
 	avance()
+	for (pas <- 1 to 5) {
 	if (estSurBiscuit()) {
+		avance()
 		nbBiscuits = nbBiscuits + 1 ;
 	}
-	if (croisement()) {
-		if (nbBiscuits >= 3) {
-			gauche()
+	}
+	if (nbBiscuits >= 3) {
+		gauche()
 		}
-		if (nbBiscuits <= 2) {
-			droite()
+	if (nbBiscuits <= 2) {
+		droite()
 		}
 	}
-	nbBiscuits = 0
 } while (!sortieTrouvee())
