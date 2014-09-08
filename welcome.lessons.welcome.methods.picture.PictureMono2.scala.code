@@ -1,2 +1,38 @@
 override def run() {
+	def faireV() {
+		avance()
+		baisseBrosse()
+		leveBrosse()
+		avance()
+		gauche()
+		avance()
+		baisseBrosse()
+		leveBrosse()
+		droite()
+		droite()
+		avance()
+		gauche()
+		avance()
+		baisseBrosse()
+		leveBrosse()
+		avance()
+	}
+	def faireMotif() {
+		for (i <- 1 to 4) {
+			faireV()
+			gauche()
+		}
+	}
+	def faireMetaMotif() {
+		for (i <- 1 to 3) {
+			faireMotif()
+			for (j <- 1 to 5) avance()
+		}
+		gauche()
+		for (j <- 1 to 5) avance()
+		droite()
+	}
+	for (i <- 1 to 3) {
+		faireMetaMotif()
+	}
 }
