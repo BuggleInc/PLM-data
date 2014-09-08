@@ -1,7 +1,16 @@
+var compteur = 0
 do { 
-	if (!estFaceMur()){
+	if (!croisement()){
 		avance();
-	}
-	else droite();
+		if (estSurBaggle()){
+			compteur = compteur + 1
+		}
+	
+	   else 
+        if (compteur <= 2){
+        	droite();        	
+        }
+        else gauche();
+	}    
 } while( !sortieTrouvee())
 avance();
