@@ -1,2 +1,19 @@
 def goAndGet() {
+	var nbPas = 0
+	while(!estSurBiscuit()){
+		avance();
+		nbPas = nbPas +1;
+	}
+	prendBiscuit()
+	for(i <- 1 to nbPas){
+		recule();
+	}
+	poseBiscuit()
 }
+for(c <- 1 to 6){
+	goAndGet();
+	droite();
+	avance();
+	gauche();
+}
+goAndGet()
