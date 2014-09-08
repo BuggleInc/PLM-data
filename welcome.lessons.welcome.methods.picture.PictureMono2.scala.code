@@ -1,2 +1,39 @@
-override def run() {
+override def run() 
+{
+	def brosse()
+	{
+		baisseBrosse(); leveBrosse()
+	}
+	def faireV()
+	{
+		avance(); brosse(); avance(); gauche(); avance(); brosse(); recule(); droite()
+		avance(); brosse(); avance(); gauche()
+	}
+
+	def motif()
+	{
+		for(j <- 1 to 3)
+		{
+			for(i <- 1 to 4)
+			{
+				faireV()
+			}
+			for(i <- 1 to 5)
+			{
+				avance()
+			}
+		}
+		gauche()
+		for(j <- 1 to 5)
+		{
+			avance()
+		}
+		droite()
+	}
+
+	for(i <- 1 to 3)
+	{
+		motif()
+	}
 }
+
