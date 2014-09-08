@@ -18,7 +18,7 @@ override def run() {
 		decalage = litMessage().toInt;
 		
 		for(j <- 0 to getMondeHauteur()-1) {
-			marqueSol(colors((j+getMondeHauteur())%decalage));
+			marqueSol(colors((j+decalage())%getMondeHauteur()));
 			avance();
 		}
 		recule(getMondeHauteur()-1);
