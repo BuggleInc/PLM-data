@@ -7,15 +7,18 @@ var caseOrange:Int = 0
 		if (!estSurBiscuit && !estSurOrange) {
 			avance()
 		} 
-		if (estSurBiscuit) {
+		if (estSurBiscuit && !estSurOrange) {
 			avance()
 			biscuit = biscuit + 1;
 		}
-		if (estSurOrange) {
+		if (estSurOrange && !estSurBiscuit) {
 			avance()
 			caseOrange = caseOrange + 1;
 		}
-		if 
+		if (estSurOrange && estSurBiscuit)
+			avance()
+			biscuit = biscuit + 1;
+			caseOrange = caseOrange + 1;
 	}
 	recule()
 }
