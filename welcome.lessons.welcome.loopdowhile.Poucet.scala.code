@@ -1,7 +1,17 @@
-for (i <- 1 to 15){
+var nbBuggles= 0
+while(!sortieTrouvee()){
+
+while(!croisement()) {
+	nbBuggles=0;
+	if (estSurBiscuit()){
+	nbBuggles=nbBuggles+1 }
 	avance();
 }
-droite();
-for (i<- 1 to 12){
+if(croisement()&&(nbBuggles < 3)){
+	droite();
 	avance();
 }
+if(croisement()&&(nbBuggles > 2)){
+	gauche();
+	avance();
+}}
