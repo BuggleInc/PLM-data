@@ -1,11 +1,14 @@
 override def run() {
-	avance();
-	avance();
+	move(2, true);
 	gauche();
-	avance();
-	avance();
-	for (carre <- 1 to 3) 
-		if (carre>1)
+	move(2,true);
+	for (carre <- 1 to 3) {
+		if (carre>1){
+			droite();
+			move(5,true)
+			gauche();
+		}
+	}
 			
 }
 
@@ -36,3 +39,12 @@ def faireCarre() {
 	faireV(Color.RED)
 }
 
+def move(nbPas : Int, versLAvant : Boolean) {
+	for (pas <- 1 to nbPas) {
+		if (versLAvant) {
+			avance();
+		} else { 
+			recule();
+		}
+	}
+}
