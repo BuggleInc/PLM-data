@@ -1,5 +1,17 @@
 while (!estFaceMur())
-	if (!estSurBiscuit())
-		then {recule()}
-		else if porteBiscuit()
-				then {recule(); poseBiscuit()}
+	{if ((!estSurBiscuit()))
+		then {if (!porteBiscuit()
+				then	{recule()}
+				else	{avance()}
+			}
+		else	{if (!porteBiscuit())
+				then {prendBiscuit()}
+				else	{recule();
+					poseBiscuit()}
+			}
+	
+	}
+gauche()
+avance()
+gauche()
+avance()
