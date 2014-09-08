@@ -1,3 +1,4 @@
+var nbvirages = 0
 while(!sortieTrouvee)
 {
 	if(!estFaceMur)
@@ -7,7 +8,14 @@ while(!sortieTrouvee)
 	if(estFaceMur)
 	{
 		gauche()
+		nbvirages = nbvirages + 1
 	}
 }
-avance()
-
+if(nbvirages > 1)
+{
+recule()
+}
+else
+{
+	avance()
+}
