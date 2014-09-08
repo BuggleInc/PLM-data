@@ -1,11 +1,12 @@
 var nbBiscuit:Int = 0;
 
-while(getCouleurSol() != Color.orange){
-nbBiscuit = 0;
+while(!sortieTrouvee()){
+	
+	nbBiscuit = 0;
 
 	do{
 	avance();
-	if(estSurBiscuit()){
+	if(estSurBiscuit() && !croisement()){
 
 	nbBiscuit = nbBiscuit + 1;
 		
@@ -15,7 +16,6 @@ nbBiscuit = 0;
 
 	
 	}while(!croisement())
-	nbBiscuit = nbBiscuit + 1;
 if(nbBiscuit < 3){
 
 	droite();
