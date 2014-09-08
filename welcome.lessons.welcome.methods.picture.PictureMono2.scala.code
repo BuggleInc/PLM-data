@@ -31,9 +31,17 @@ override def run() {
 		}
 		setX(0)
 	}
-	for(c <- 2 downto 0){
-		setY(c*5);
-		faireLigne();
+	def retour(){
+		gauche()
+		avance()
+		avance()
+		avance()
+		avance()
+		avance()
+		droite()
 	}
-	setY(0)
+	for (c <- 1 to 3){
+		faireLigne()
+		retour()
+	}
 }
