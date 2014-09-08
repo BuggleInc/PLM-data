@@ -1,2 +1,67 @@
 override def run() {
+motif()
+}
+def motif() {
+	move(2, true);
+	gauche();
+	move(2,true);
+	for (lignes<-1 to 3) {
+		if (lignes>1) {
+			move(5,true)
+			gauche();
+			move(10,true)
+			droite();
+		}
+		for (carre <- 1 to 3) {
+		if (carre>1){
+			droite();
+			move(5,true)
+			gauche();
+		}
+		faireCarre();
+		}
+		
+	}
+	move(12, false)
+	droite();
+	move(12, false)
+	
+			
+}
+
+def faireV(c:Color) {
+	avance();
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+	avance();
+	gauche();
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	recule();
+	recule();
+	baisseBrosse();
+	leveBrosse();
+	avance();
+	droite();
+	recule();
+	recule();
+	gauche();
+}
+def faireCarre() {
+	faireV(Color.BLUE);
+	faireV(Color.GREEN);
+	faireV(Color.YELLOW)
+	faireV(Color.RED)
+}
+
+def move(nbPas : Int, versLAvant : Boolean) {
+	for (pas <- 1 to nbPas) {
+		if (versLAvant) {
+			avance();
+		} else { 
+			recule();
+		}
+	}
 }
