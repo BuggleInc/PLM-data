@@ -1,27 +1,27 @@
 droite()
 droite()
-while (!estSurBiscuit())
+while (!estSurBiscuit() && ! estFaceMur())
 {
 	avance();
 
-if (estSurBiscuit())
-{
-	prendBiscuit();
-	while (!estSurBiscuit())
+	if (estSurBiscuit())
 	{
-		recule();
+		prendBiscuit();
+		while (!estSurBiscuit())
+		{
+			recule();
+		}
+		avance();
+		poseBiscuit;
+		avance();
 	}
-	avance();
-	poseBiscuit;
-	avance();
+
 }
-	if(estFaceMur())
+
+if(estFaceMur())
 {
 	droite();
 	avance();
 	gauche();
 	avance();
 }
-
-}
-
