@@ -1,0 +1,22 @@
+override def run() {
+	baisseBrosse();
+	while (!testFin()) {
+		
+		if (!estFaceMur()) {
+			avance();
+		} else { if (getDirection() == Direction.EST) {
+				gauche();	
+			} else { 
+				droite();
+			}
+		}
+	}
+}
+def testFin() {
+	if (getDirection() == Direction.EST) {
+		gauche();
+	} else { 
+		droite();
+	}
+	return estFaceMur()
+}
