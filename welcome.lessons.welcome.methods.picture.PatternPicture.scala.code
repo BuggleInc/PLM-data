@@ -3,7 +3,7 @@ override def run() {
 	gauche();
 	avance();
 	gauche();
-	faireCarre16()
+	faireCarre64()
 }
 def faireCarre4(c:Color) {
 	setCouleurBrosse(c)
@@ -23,4 +23,15 @@ def faireCarre16() {
 	faireCarre4(Color.YELLOW)
 	faireCarre4(Color.GREEN)
 	faireCarre4(Color.BLUE)
+}
+def faireCarre64() {
+	faireCarre16()
+	move(4,false)
+	faireCarre16()
+	droite();
+	move(4,true)
+	gauche();
+	faireCarre16()
+	move(4,true)
+	faireCarre16()	
 }
