@@ -1,5 +1,45 @@
+def marquer()
+{
+	baisseBrosse()
+	leveBrosse()
+}
 def hunt() {
-    // Write your code here
+    while(!porteBiscuit())
+    {	
+    		marquer()
+    		if(isFacingTrail())
+    			avance()
+    		else
+    		{
+    			gauche()
+    			if(isFacingTrail())
+    				avance()
+    			else
+    			{
+    				gauche()
+    				gauche()
+    				avance()
+    			}
+    		}
+    }
 }
 
 // Copy your isFacingTrail() here
+def isFacingTrail():Boolean = {
+	if(estFaceMur())
+    		return false
+    	else
+    	{
+    		avance()
+    		if(getCouleurSol()==Color.green)
+    		{
+    			recule()
+    			return true
+    		}
+    		else
+    		{
+    			recule()
+    			return false
+    		}
+    	}
+}        
