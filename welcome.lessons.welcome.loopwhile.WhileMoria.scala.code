@@ -1,19 +1,26 @@
-droite()
-droite()
-while(!estSurBiscuit)
+while(!estDosMur()) 
 {
-	avance()
+	while (!estSurBiscuit() && !estDosMur())
+{ 
+	recule()
 }
-	if(estSurBiscuit)
-	{	
-	
+	if (!estDosMur())
+{
 	prendBiscuit()
-	porteBiscuit()
-	droite();droite();
-	}
-	
-	
+}
+	while (!estSurBiscuit() && !estDosMur())
+{
+avance()
+} 
+	if (!estDosMur()) 
+{
+recule()
+poseBiscuit() 
+recule() 
+}
+}
 
-
-
-
+gauche()
+avance()
+gauche() 
+avance()
