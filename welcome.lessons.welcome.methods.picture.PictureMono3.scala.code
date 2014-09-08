@@ -60,12 +60,30 @@ override def run() {
 	}
 	droite();
 	}
-	for (dalles <- 1 to 3) {
+	for (lignes<-1to3) {
+		for (dalles <- 1 to 3) {
 		if (dalles>1) {
 			for (i <- 1 to 15) {
 				avance();
 			}
 		}
 		faireDalle();
+		}
+		if (lignes<3) {
+			droite();
+			for (i<- 1 to 45) {
+				recule();
+				if (i==15) {
+					droite();
+				}
+			}
+		} else { 
+			for (i <- 1 to 60) {
+				recule();
+				if (i==30) {
+					gauche();
+				}
+			}
+		}
 	}
 }
