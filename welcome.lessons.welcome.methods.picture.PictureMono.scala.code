@@ -1,0 +1,34 @@
+override def run() {
+def marqueSol() {     // Fonction marqueSol
+	baisseBrosse();
+	leveBrosse();
+}
+def branche1V() {   //Une branche du V
+	for (n <- 1 to 3) {
+	marqueSol();
+	avance();
+	gauche();
+	avance();
+	droite();	
+	}
+}
+def branche2V() {   // L'autre branche du V
+	for (n <- 1 to 4) {
+		marqueSol();
+		avance();
+		droite();
+		avance();
+		gauche();
+	}
+}
+def faireV() {
+	branche1V();
+	droite();
+	for (n <- 1 to 4) {
+		avance();
+	}
+	droite();
+	branche2V();
+	droite();
+	droite();
+}
