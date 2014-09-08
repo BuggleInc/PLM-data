@@ -1,11 +1,11 @@
-var x=1
+var x=5
 var c=""
 do {
 	avance();
 	for (c<-1 to 4) {
-		if (estSurBiscuit()) {
+		if (!estSurBiscuit()) {
 			avance();
-			x=x+1;
+			x=x-1;
 		} else {
 			avance();
 		}
@@ -13,9 +13,8 @@ do {
 	
 	if (x<3) {
 		droite();
-		x=0
 	} else if (x>2) {
 		gauche();
-		x=0
 	}
+	x=5
 }while (!sortieTrouvee())
