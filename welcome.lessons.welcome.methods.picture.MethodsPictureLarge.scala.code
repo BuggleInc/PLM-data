@@ -1,2 +1,54 @@
 override def run() {
+	for(k<-1 to 9)
+	{
+		ligne_motif(9)
+		gauche()
+		avancer(5)
+		droite()
+	}
 }
+def marquer()
+{
+	baisseBrosse()
+	leveBrosse()
+}
+def faireV(c:Color)
+{
+	setCouleurBrosse(c)
+	marquer()
+	avance()
+	gauche()
+	avance()
+	marquer()
+	droite()
+	avance()
+	droite()
+	avance()
+	marquer()
+	gauche()
+	avance()
+	gauche()
+	avance()
+	
+}
+def motif()
+{
+	avance()
+	faireV(Color.YELLOW)
+	faireV(Color.RED)
+	faireV(Color.BLUE)
+	faireV(Color.GREEN)
+	recule()
+}
+def avancer(n:Int)
+{
+	for(k<-1 to n)
+		avance()
+}
+def ligne_motif(n:Int)
+{
+	for(k<-1 to n)
+	{
+		motif()
+		avancer(5)
+	}
