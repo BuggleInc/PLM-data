@@ -1,0 +1,24 @@
+var dance=false//passe en true quand la danse s'arrete (passage sur une case vide)
+var x = ""//introduit la variable qui va servir a prendre la valeur de lit message
+while (dance==false) {
+	if (estSurMessage()) {
+		x = litMessage();//on assigne x a la valeur litmessage
+		x match {    //traduction des instructions données par chaques lettres
+			case (x == "R") => droite() avance()
+			case (x == "L") => gauche() avance()
+			case (x == "I") =>	gauche() gauche() avance()
+			case (x == "A") => avance()
+			case (x == "B") => avance() avance()
+			case (x == "C") => avance() avance() avance()
+			case (x == "Z") => recule()
+			case (x == "Y") => recule() recule()
+			case (x == "X") => recule() recule() recule()
+			case (x == "D") => avance() avance() avance() avance()
+			case (x == "E") => avance() avance() avance() avance() avance()
+			case (x == "F") => avance() avance() avance() avance() avance() avance()
+			case (x == "W") => recule() recule() recule() recule()
+			case (x == "V") => recule() recule() recule() recule() recule()
+			case (x == "U") => recule() recule() recule() recule() recule() recule()
+			case _ => dance=true
+		}
+}
