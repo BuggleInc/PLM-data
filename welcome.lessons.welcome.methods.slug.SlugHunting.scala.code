@@ -1,12 +1,14 @@
 def hunt() {
 	var piste = false;
-	piste=isFacingTrail();
 	while (!estSurBiscuit()) {
+		piste=isFacingTrail();
 		while (!piste) {
 			gauche();
 			piste=isFacingTrail();
 		}
 		avance();
+		baisseBrosse();
+		leveBrosse();
 	}
 	prendBiscuit();
 }
