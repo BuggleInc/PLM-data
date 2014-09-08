@@ -1,2 +1,55 @@
 override def run() {
+	def marquer() {
+		baisseBrosse();
+		leveBrosse();
+	}
+	def faireI(c:Color) {
+		setCouleurBrosse(c);
+		avance();
+		marquer();
+		recule();
+		gauche();
+		avance();
+		marquer();
+		recule();
+		droite();
+		avance();
+		avance();
+		avance();
+		gauche();
+	}
+	def place1() {
+		for (k<- 1 to 4) {
+			avance();
+		}
+	}
+	def place2() {
+		gauche();
+		for (k<- 1 to 4) {
+			avance();
+		}
+		droite();
+		for (k<- 1 to 4) {
+			avance();
+		}
+	}
+	for (i<-1 to 2) {
+		for (j<- 1 to 2) {
+			for (i<- 1 to 4) {
+				if (i==4)
+					faireI(Color.YELLOW);
+				if (i==1)
+					faireI(Color.RED);
+				if (i==2)
+					faireI(Color.BLUE);
+				if (i==3)
+					faireI(Color.GREEN);
+			}
+			if (j!=3){
+				place1();
+			} else if (i!=3) {
+				place2();
+			}
+		}
+	}
 }
