@@ -1,16 +1,20 @@
 override def run() {
 	baisseBrosse();
+	var H = getMondeHauteur()
 	while (!testFin()) {
-		
-		if (!estFaceMur()) {
+	if (estFaceMur) {
+		if (getDirection == Direction.EST) {
+			gauche();
 			avance();
-		} else { if (getDirection() == Direction.EST) {
-				gauche();	
-			} else { 
-				droite();
-			}
+			gauche():
+		} else { 
+			droite();
+			avance();
+			droite();
 		}
 	}
+	move(H, true)
+	}	
 }
 def testFin() {
 	if (getDirection() == Direction.EST) {
@@ -19,4 +23,13 @@ def testFin() {
 		droite();
 	}
 	return estFaceMur()
+}
+def move(nbPas : Int, versLAvant : Boolean) {
+	for (pas <- 1 to nbPas) {
+		if (versLAvant) {
+			avance();
+		} else { 
+			recule();
+		}
+	}
 }
