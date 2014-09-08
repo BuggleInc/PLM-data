@@ -13,20 +13,21 @@ override def run() {
 			droite();
 		}
 	}
-	move(H, true)
+	move(H-1, true)
 	}	
 }
 def fonctionTest():Boolean = {
+	var bool=false
 	if (getDirection() == Direction.EST) {
 		gauche();
-		return estFaceMur();
+		bool=estFaceMur();
 		droite();
 	} else { 
 		droite();
-		return estFaceMur();
+		bool=estFaceMur();
 		gauche();
 	}
-	return estFaceMur();
+	return bool;
 }
 def move(nbPas : Int, versLAvant : Boolean) {
 	for (pas <- 1 to nbPas) {
