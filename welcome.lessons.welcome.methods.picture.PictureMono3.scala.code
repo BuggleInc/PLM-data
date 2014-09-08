@@ -1,2 +1,53 @@
 override def run() {
+def point(){
+	baisseBrosse();
+	leveBrosse();	
+}
+def faireV(){
+	avance()
+	point();
+	avance();
+	gauche();
+	avance();
+	point();
+	recule();
+	droite();
+	avance();
+	point();
+	avance();
+}
+def faireMotif(){
+var i: Int = 0;
+for(i <- 1 to 3){
+	faireV();
+	gauche();
+}
+}
+def faireRangee(){
+var i: Int = 0;
+for(i <- 1 to 9){
+	faireMotif();
+	avance();
+	avance();
+	avance();
+	avance();
+	avance();
+}
+}
+var n: Int = 0;
+for(n <- 1 to 3){
+	faireRangee();
+	avance();
+	avance();
+	avance();
+	avance();
+	avance();
+	gauche();
+	avance();
+	avance();
+	avance();
+	avance();
+	avance();	
+	droite();
+}
 }
