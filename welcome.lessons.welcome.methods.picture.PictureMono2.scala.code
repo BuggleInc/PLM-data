@@ -1,0 +1,16 @@
+def faireV() {
+	avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche(); avance(); baisseBrosse(); leveBrosse()
+	recule(); droite(); avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche()
+}
+def faireMotif { 
+	for (x <- 1 to 4) {
+		faireV()
+	}
+}
+override def run() { 
+	for (y <- 1 to 9) {
+		faireMotif()
+	}
+}
