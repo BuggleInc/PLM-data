@@ -41,9 +41,29 @@ def motif()
 	avance(2)
 	DiagHautGauche(Color.GREEN)
 	recule()
-	DiagHautDroite
+	DiagHautDroite(Color.YELLOW)
+	recule(2)
+	gauche()
+	avance(2)
+	DiagHautDroite(Color.BLUE)
+	avance(2)
+	setDirection(EST)
+	
+}
+def ligne_motif(n:Int)
+{
+	for(k<1 to n)
+	{
+		motif()
+		avance(4)
+	}
 }
 
-
 override def run() {
+	for(k<-1 to 2)
+	{
+		ligne_motif(2)
+		gauche()
+		avance(4)
+	}
 }
