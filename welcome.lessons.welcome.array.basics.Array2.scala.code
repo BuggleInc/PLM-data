@@ -1,2 +1,40 @@
 override def run() {
+	var H = getMondeHauteur()
+	var T = new Array [Color] (H)
+	var x = 0 
+	for (pas <- 0 to H-2) {
+		T (pas) = getCouleurSol()
+		avance();
+	}
+	T(H-1) = getCouleurSol()
+	for (colonne <- 2 to H) {
+		move(H-1,false);
+		gauche();
+		avance();
+		droite();
+		for (pas <- 1 to H) {
+			
+			x = pas-colonne+1-litMessage()
+			if (x<0) {
+				x=x+H
+			}
+			setCouleurBrosse(T (x));
+			baisseBrosse();
+			leveBrosse();
+			if (pas<H) {
+				avance();
+			}
+		}
+	}
+		
+	}
+
+def move(nbPas : Int, versLAvant : Boolean) {
+	for (pas <- 1 to nbPas) {
+		if (versLAvant) {
+			avance();
+		} else { 
+			recule();
+		}
+	}
 }
