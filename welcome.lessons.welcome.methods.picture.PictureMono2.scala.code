@@ -26,14 +26,29 @@ override def run() {
 		gauche()
 	     }
 	}
-	for (i <- 1 to 3) {
-		if (i>1) {
-			avance();
-			avance();
-			avance();
-			avance();
-			avance();
+	for (lignes <- 1 to 3) {
+		if (lignes<2) {
+			gauche();
+			for (i<- 1 to 15) {
+				avance();
+				if (i==5) {
+					gauche();
+				}
+				if (i==15) {
+					gauche();
+					gauche();
+				}
+			}
+		}		
+		for (cases <- 1 to 3) {
+			if (cases>1) {
+				avance();
+				avance();
+				avance();
+				avance();
+				avance();
+			}
+			faireMotif();
 		}
-		faireMotif();
 	}
 }
