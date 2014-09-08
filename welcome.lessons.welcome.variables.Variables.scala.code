@@ -4,20 +4,21 @@ var reculePas = 0
 while(!estSurBiscuit)
 {
 	nbPas = 0
+	reculePas = 0
 
 	avance()
 	nbPas = nbPas + 1
+
+	if(estSurBiscuit())
+	{		
+		prendBiscuit()
+		while(reculePas != nbPas)
+		{
+			recule()
+			reculePas = reculePas + 1
+		}
+		poseBiscuit()
+	}
 }
 
-if(estSurBiscuit())
-{
-	reculePas = 0
-	
-	prendBiscuit()
-	while(reculePas != nbPas)
-	{
-		recule()
-		reculePas = reculePas + 1
-	}
-	poseBiscuit()
-}
+
