@@ -1,2 +1,62 @@
 override def run() {
+	def faireMotif() {
+def marqueSol() {     // Fonction marqueSol
+	baisseBrosse();
+	leveBrosse();
 }
+def branche1V() {   //Une branche du V
+	for (n <- 1 to 2) {
+	marqueSol();
+	avance();
+	gauche();
+	avance();
+	droite();
+	}
+	marqueSol();
+}
+def branche2V() {   // L'autre branche du V
+	for (n <- 1 to 2) {
+		marqueSol();
+		avance();
+		droite();
+		avance();
+		gauche();
+	}
+	marqueSol();
+}
+def faireV() {
+	branche1V(); //premiere branche
+	droite();
+	for (n <- 1 to 4) {   // placement pour l'autre branche
+		avance();
+	}
+	droite();
+	branche2V(); // 2eme branche
+	droite();
+	droite();
+}
+
+avance();
+gauche();
+avance();
+avance();
+droite();
+for (r <- 1 to 4) {
+	faireV();
+	avance();
+	droite();
+	avance();
+	droite();
+	droite();
+}
+droite();
+avance();
+avance();
+droite();
+avance();
+droite();
+droite();
+}
+}
+
+faireMotif();
