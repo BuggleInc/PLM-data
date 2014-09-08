@@ -1,7 +1,22 @@
 override def run() {
-motif()
+	for (lignes <- 1 to 3) {
+		for (motif <- 1 to 3) {
+			if (motif>1) {
+				move(15,true)
+			}
+			faireMotif()
+		}
+		move(30,false);
+		gauche();
+		if (ligne<3) {
+			move(15, true);		
+		} else {
+			move(30,false)
+		}
+		droite();
+	}
 }
-def motif() {
+def faireMotif() {
 	move(2, true);
 	gauche();
 	move(2,true);
