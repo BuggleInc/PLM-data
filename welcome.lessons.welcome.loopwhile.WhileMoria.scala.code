@@ -9,18 +9,19 @@ while (!estSurBiscuit) {
 }
 avance()
 poseBiscuit()//1er biscuit posé
-while (estSurBiscuit) {
+while (estSurBiscuit && !estFaceMur) {
 	avance();
-	while (!estSurBiscuit) {
-   	 avance();
+	if(estSurBiscuit) {
+	 while (!estSurBiscuit) {
+   	  avance();
+	 }
+	 prendBiscuit()
+	 while (!estSurBiscuit) {
+    	 recule();
+	 }
+	 avance()
+	 poseBiscuit()
 	}
-	prendBiscuit()
-	while (!estSurBiscuit) {
-    	recule();
-	}
-	avance()
-	poseBiscuit()
-}
  if (estFaceMur) {
  	      droite()
  	       avance()
@@ -28,3 +29,4 @@ while (estSurBiscuit) {
 	      avance()
 	      gauche();
  }
+}
