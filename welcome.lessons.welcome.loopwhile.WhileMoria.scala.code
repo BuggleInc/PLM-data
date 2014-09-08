@@ -1,26 +1,25 @@
 gauche()
 gauche()
 while (!estfaceMur) {
-	while (estSurBiscuit) {
-		prendBiscuit()
-		recule()
-		recule()
-		recule()
-		recule()
-		recule()
-		poseBiscuit()
-		avance()
-		
+	if (porteBiscuit) {
+		if (estSurBiscuit) {
+			recule()
+			poseBiscuit()
+		} else {
+			avance()
+		}
 	} else {
 		avance()
+		if (estSurBiscuit) {
+			prendBiscuit
+		}
 	}
-	
-} else {
+}
 	droite()
 	avance()
 	gauche()
 	avance()
 	gauche()
-}
+
 	
 
