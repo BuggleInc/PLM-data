@@ -1,37 +1,46 @@
 override def run() {
-def faireMotif(){
-	var i = 0
-	var j = 0
-def marquerSol(){
-	baisseBrosse()
-	leveBrosse()
+	def faireMotif(){
+		var i = 0
+		var j = 0
+		var k = 0
+	def marquerSol(){
+		baisseBrosse()
+		leveBrosse()
+	}
+	def faireV(){
+		avance()
+		marquerSol()
+		gauche()
+		avance()
+		droite()
+		avance()
+		marquerSol()
+		avance()
+		droite()
+		avance()
+		marquerSol()
+		gauche()
+		avance()
+		gauche()
+	}
+	for (i<-1 to 4){
+		faireV()
+	}
+	}
+	def faireLigne(){
+		for(j<- 1 to 3){
+			faireLigne()
+			avance();avance();avance();avance();avance()
+		}
+	}
+	def monter(){
+		gauche()
+		avance();avance();avance();avance();avance()
+		droite()
+	}
+	for(i <- 1 to 3){
+		faireLigne()
+		monter()
+	}
 }
-def faireV(){
-	avance()
-	marquerSol()
-	gauche()
-	avance()
-	droite()
-	avance()
-	marquerSol()
-	avance()
-	droite()
-	avance()
-	marquerSol()
-	gauche()
-	avance()
-	gauche()
-}
-for (i<-1 to 4){
-	faireV()
-}
-}
-for(j <- 1 to 9){
-	faireMotif()
-	avance();
-	avance();
-	avance();
-	avance();
-	avance();
-}
-}
+
