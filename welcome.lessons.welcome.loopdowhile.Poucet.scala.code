@@ -1,9 +1,10 @@
-do {
-	var compteur:Int = 0;
+do {var compteur:Int = 0;
 	avance()
 	for (pas <- 1 to 5) {
 	if (estSurBiscuit()) {
 		(compteur = compteur + 1);
+		avance();
+	} else { 
 		avance();
 	}
 	}
@@ -13,6 +14,7 @@ do {
 		} else {
 			droite();
 		}
+		compteur = 0;
 	}
 
 } while (!sortieTrouvée)
