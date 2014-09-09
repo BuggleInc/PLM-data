@@ -1,0 +1,15 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class fizzBuzz extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( fizzBuzz( t.getParameter(0).asInstanceOf[Int]) )
+   }
+def fizzBuzz(a:Int):String = {
+	(a%5, a%3) match {	    case (0,0) => return "FizzBuzz"
+	    case (_,0) => return "Buzz"
+ 	    case (0,_) => return "Fizz"
+	    case _     => return ""+a
+    }
+}
+ }
