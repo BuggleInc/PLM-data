@@ -1,2 +1,65 @@
 override def run() {
+def marquage() {
+	avance()
+	baisseBrosse()
+	leveBrosse()
+}
+def ga(){
+	gauche()
+	avance()
+	gauche()
+}
+def dr(){
+	droite()
+	avance()
+	droite()
+}
+var k=0
+def faireV() {
+	for (i <- 1 to 4) {
+		marquage()
+		ga()
+		marquage()
+		dr()
+		marquage()
+		ga()
+		dr()
+		recule()
+		droite()
+	}
+	avance()
+	avance()
+	avance()
+	avance()
+	avance()
+	k = k+1;
+}
+def motifV() {
+	for (i <- 1 to 4) {
+		while(k!=8) {
+			faireV()
+		}
+		}
+		avance()
+		avance()
+		avance()
+		avance()
+		gauche()
+}
+def incre() {
+	avance()
+	avance()
+	avance()
+	avance()
+	avance()
+	gauche()
+	avance()
+	avance()
+	avance()
+	avance()
+	avance()
+	droite()
+}
+motifV()
+incre()
 }
