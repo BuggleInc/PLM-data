@@ -6,6 +6,7 @@ override def run() {
 		var cpas: Int = 0;
 		var cl: Int = 0;
 		var cc: Int = 0;
+		var cour: Int = 0;
 
 		def courir(nbPas: Int){
 			for(cpas <- 1 to nbPas){
@@ -39,7 +40,12 @@ override def run() {
 			for(cl <- 1 to nbColonne){
 				faireMotif();
 				if(!estFaceMur()){
-					courir(4);
+					for(cour <- 1 to 4){
+						if(!estFaceMur){
+							avance();
+						}
+					}
+					
 				}
 			}
 		}
