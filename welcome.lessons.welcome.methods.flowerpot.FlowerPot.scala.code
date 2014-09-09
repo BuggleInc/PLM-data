@@ -1,0 +1,34 @@
+def growFlower() {
+	coeur(); petale(Color.YELLOW);
+	avance(4);
+	coeur(); petale(Color.CYAN);
+	droite();
+	avance(4);
+	coeur(); petale(Color.GREEN);
+	recule(2);
+	droite();
+	avance(2);
+	coeur(); petale(Color.ORANGE);
+	avance(4); gauche(); avance(2); gauche();
+	coeur(); petale(Color.PINK);
+	recule();
+}
+def dessiner() {
+	baisseBrosse();
+	leveBrosse();
+}
+def coeur(){
+	setChangeColor(Color.YELLOW); avance(); dessiner();
+}
+def petale(c:Color) {
+	setChangeColor(c); avance(); dessiner(); recule(); recule(); dessiner();
+	avance(); gauche(); avance(); dessiner(); recule(); recule(); dessiner(); avance();
+}
+def avance(x:Int);
+	for (i<- 1 to x) {
+		avance();
+	}
+def recule(x:Int);
+	for (i<- 1 to x) {
+		recule();
+	}
