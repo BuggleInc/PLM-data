@@ -1,2 +1,29 @@
-override def run() {
+override def run() 
+{
+	def brosse(c:Color)
+	{
+		setCouleurBrosse(c); poseBrosse(); leveBrosse()
+	}
+
+	def colonne()
+	{
+		brosse(Color.RED)
+		avance()
+		brosse(Color.CYAN)
+		avance()
+		brosse(Color.GREEN)
+		avance()
+		brosse(Color.PURPLE)
+		avance()
+		brosse(Color.YELLOW)
+		avance()
+		brosse(Color.PINK)
+		avance()
+	}
+
+	for(i <- 1 to 5)
+	{
+		avance(); gauche(); avance(); droite()
+		colonne()
+	}
 }
