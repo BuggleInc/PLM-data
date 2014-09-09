@@ -1,0 +1,37 @@
+
+override def run() {
+def marquerLeSol() {
+	baisseBrosse()
+	leveBrosse()
+}
+def faireDiago(c:Color) {
+	setCouleurBrosse(c)
+	avance()
+	marquerLeSol()
+	recule()
+	gauche()
+	avance()
+	marquerLeSol()
+	recule()
+	droite()
+	
+}
+def faireMotif() {
+	faireDiago(Color.red)
+	avance(3)
+	faireDiago(Color.blue)
+	avance(3)
+	faireDiago(Color.vert)
+	avance(3)
+	faireDiago(Color.yellow)
+	avance(3)
+	
+}
+def faireLigne() {for (j <- 1 to 2) {faireMotif()}}
+for (k <- 1 to 2) {faireLigne()
+gauche()
+avance(4)
+droite()
+recule(4)
+}
+}
