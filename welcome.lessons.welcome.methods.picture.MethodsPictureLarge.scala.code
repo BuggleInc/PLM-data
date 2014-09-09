@@ -1,13 +1,16 @@
-override def run() {def faireV(c:Color) { avance()
-setCouleurBrosse(c);marquersol()
+override def run() {
+// 15 cases
+
+def faireV() { avance()
+marquersol()
 gauche()
 avance()
 droite()
 avance()
-setCouleurBrosse(c);marquersol()
+marquersol()
 avance()
 droite()
-avance();setCouleurBrosse(c);marquersol
+avance();marquersol
 gauche()
 avance()
 
@@ -16,22 +19,12 @@ gauche()
 def marquersol() {baisseBrosse();leveBrosse()}
 
 def petitcar() {
-faireV(Color.yellow)
- faireV(Color.red)
- faireV(Color.blue)
- faireV(Color.green)
- }
+for (i <- 1 to 4) {
+faireV()}
+               }
+def dephaut2(){gauche();for (a<- 1 to 5){avance()};droite()}
+def col2() {for (n<-1 to 9){petitcar();dephaut2()}}
 
-def dephaut() {gauche()
-for (i<- 1 to 9){avance()};droite()} 
-def col() { 
-for (a <- 1 to 3) {petitcar();dephaut()} 
-          }
-def mono2() {
-for (b <- 1 to 3) { col()
-for (c <- 1 to 5) {avance()}
-	
-                   }
-            }
-mono2()
+def mono2(){for (r<- 1 to 9){col2();for (x<- 1 to 5){avance()}}}  
+mono2()          
 }
