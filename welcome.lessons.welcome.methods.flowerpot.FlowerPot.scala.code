@@ -1,4 +1,19 @@
-defdef growFlowers()
+def brosse(c:Color)
 {
+	setCouleurBrosse(c)
+	baisseBrosse(); leveBrosse()
+}
+
+def miniMotif(c:Color)
+{
+	brosse(c); avance(); brosse(Color.Yellow); gauche(); avance(); brosse(c)
+	droite(); droite()
+}
 	
+def growFlowers(c:Color)
+{
+	for(i <- 1 to 4)
+	{
+		miniMotif(c)
+	}
 }
