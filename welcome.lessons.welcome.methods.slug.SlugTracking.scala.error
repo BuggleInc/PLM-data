@@ -1,13 +1,27 @@
-SlugTracking:2: error: type mismatch;
- found   : Int(0)
- required: Boolean
-var vert:Boolean = 0
-                   ^SlugTracking:10: error: type mismatch;
+SlugTracking:4: error: ambiguous reference to overloaded definition,
+both method vert in class SlugTracking of type => Boolean
+and  method vert in class SlugTracking of type => Boolean
+match expected type ?
+	if (getCouleurSol() == Color.green) {vert =  true}
+                                             ^SlugTracking:5: error: ambiguous reference to overloaded definition,
+both method vert in class SlugTracking of type => Boolean
+and  method vert in class SlugTracking of type => Boolean
+match expected type ?
+	else {vert = false}
+              ^SlugTracking:9: error: ambiguous reference to overloaded definition,
+both method vert in class SlugTracking of type => Boolean
+and  method vert in class SlugTracking of type => Boolean
+match expected type ?
+  if (vert==true) {return true;
+      ^SlugTracking:10: error: type mismatch;
  found   : Unit
  required: Boolean
-  if (vert==false) {recule()}
-                          ^SlugTracking:11: error: type mismatch;
+  recule()}
+        ^SlugTracking:14: error: type mismatch;
  found   : Unit
  required: Boolean
-  else return
-       ^
+  else {return}
+        ^SlugTracking:3: error: method vert is defined twice
+  conflicting symbols both originated in file 'plm.runtime61.SlugTracking'
+def vert:Boolean = {
+    ^
