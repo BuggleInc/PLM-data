@@ -13,7 +13,7 @@ def fleur(c:Color) {
 	recule()
 	}
 
-def growFlowers() {
+def pot() {
 	fleur(Color.RED)
 	for (i<-1 to 4) avance()
 	fleur(Color.CYAN)
@@ -31,8 +31,9 @@ def growFlowers() {
 	fleur(Color.PINK)
 }
 
+
 def champs() {
-	growFlowers() //Pot gauche
+	pot() //Pot gauche
 	for (i<-1 to 6) avance()
 	gauche()
 	for (i<-1 to 3) avance()
@@ -42,5 +43,17 @@ def champs() {
 	gauche()
 	avance();avance()
 	droite()
-	growFlowers() //Pot droite
+	pot() //Pot droite
+}
+
+def growFlowers() {
+	champs()
+	droite()
+	avance()
+	droite()
+	for (i<-1 to 8) avance()
+	gauche()
+	for (i<-1 to 3) avance()
+	gauche()
+	champs()
 }
