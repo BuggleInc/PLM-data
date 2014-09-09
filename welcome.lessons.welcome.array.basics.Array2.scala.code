@@ -1,2 +1,24 @@
 override def run() {
+var tab = new Array[Color](getMondeHauteur())
+for (i <- 0 to getMondeHauteur()-1){
+	 tab(i) =getCouleurSol()
+	avance()
+}
+recule(getMondeHauteur()-1)
+def paint() {
+	gauche()
+	avance()
+	droite()
+	val decalage = litMessage().toInt
+for (i <- 0 to getMondeHauteur()-1){
+	baisseBrosse()
+	setCouleurBrosse(tab((i+decalage)%(getMondeHauteur()-1)))
+	leveBrosse()
+	avance()
+}
+}
+for (i <- 0 to getMondeLargeur()-2){
+	paint()	
+}
+
 }
