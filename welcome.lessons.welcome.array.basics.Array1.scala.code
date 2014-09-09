@@ -1,0 +1,30 @@
+override def run() {
+	var T:Array[Color]; var T = new Array[Color](8);
+	lireSequence();
+	for (j<- 1 to 7) {
+		decalle();
+		reproduireMotif(T,j);
+	}
+	recule();
+}
+def lireSequence() {
+	for (i <= 0 to T.length-1) {
+		T(i) = getCouleurSol();
+		avance();
+	}
+}
+
+def dessiner() {
+	baisseBrosse();
+	leveBrosse();
+}
+def reproduireMotif (T:Array, j:Int) {
+	for (i<- 0 to T.length-1) {
+			setCouleurBrosse(T((i+j)%T.length-1));
+			dessiner();
+			avance();
+	}
+}
+def decalle() {
+	gauche(); avance(); droite();
+}
