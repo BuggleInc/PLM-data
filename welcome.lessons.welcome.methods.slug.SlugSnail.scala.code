@@ -1,9 +1,11 @@
-    
+    def marquerSol() {
+	baisseBrosse()
+	leveBrosse()
     
     def hunt(c:Color) {
         // Write your code here
          while (!estSurBiscuit()){
-    	while (!isFacingTrail()){gauche()}
+    	while (!isFacingTrail(c)){gauche()}
     	avance()
     	marquerSol()
     }
@@ -18,7 +20,7 @@
     	var couleur = getCouleurSol()
     	var r : Boolean = false
     	if (couleur
- == Color.green) (r=true)
+ == c) (r=true)
     	recule()
     	return r
     }
