@@ -9,42 +9,18 @@ override def run()
 		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
 	}
 
-	def colonne(T:Array[Color])
+	def colonne(Int decalage)
 	{
-		brosse(T(0))
+		brosse(T(decalage%T.lenght))
 		for(i <- 1 to T.length-1)
 		{	
 			avance()
-			brosse(T(i))
+			brosse(T((i+decalage)%T.lenght))
 		}
 		for(i <- 1 to T.length-1)
 		{
 			recule()
 		}
-	}
-
-	def rotatTableauDroite(T:Array[Color]):Array[Color] =
-	{
-		bouge = T(T.length-1)
-		for(i <- T.length-1 to 1)
-		{
-			T(i) = T(i-1)
-		}
-		T(0) = bouge
-
-		return T
-	}
-
-	def rotatTableauGauche(T:Array[Color]):Array[Color] =
-	{
-		bouge = T(0)
-		for(i <- 0 to T.length-2)
-		{
-			T(i) = T(i+1)
-		}
-		T(T.length-1) = bouge
-
-		return T
 	}
 
 	T(0) = getCouleurSol();		//Prend les couleurs
@@ -61,15 +37,8 @@ override def run()
 	for(i <- 1 to T.length-1)
 	{
 		gauche(); avance(); droite()
-		if(decalage == litMessage().toInt +1)
-		{
-			T = rotatTableauGauche(T)
-		}
-		else if(decalage == litMessage().toInt -1)
-		{
-			T = rotatTableauDroite(T)
-		}
-		colonne(T)
+		decalage = litMessage().toInt
+		colonne(decalage)
 	}
 }
 
