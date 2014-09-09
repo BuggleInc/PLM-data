@@ -1,35 +1,30 @@
 override def run() {
 	var y:Int=0
+
+	avance();
+	
 	def tache() {
-		avance();
 		baisseBrosse();
 		leveBrosse();
-		avance();
 	}
 
 	def fgauche() {
 		gauche();
 		avance()
-		baisseBrosse();
-		leveBrosse();
 		gauche();
+		tache()
 	}
 
 	def fdroite() {
 		droite();
 		avance();
-		baisseBrosse();
-		leveBrosse();
 		droite();
+		tache();
 	}
 
 	for (x<-1 to 3) {
+		avance();
 		tache();
-		tache();
-		fgauche();
-		tache();
-		tache();
-		fdroite();
 	}
 	
 }
