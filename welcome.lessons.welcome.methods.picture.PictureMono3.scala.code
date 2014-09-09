@@ -1,0 +1,47 @@
+override def run() {
+def quadrille() {
+	avance
+	baisseBrosse
+	leveBrosse
+} // colorie la case devant et releve la brosse
+def ligneType1() {
+	quadrille
+	avance
+	quadrille
+	avance
+} // ligne debutant par blanc
+def ligneType2() {
+	avance
+	quadrille
+	avance
+	quadrille
+}// ligne debutant par gris, ! ne colorie pas la 1ere case
+def faireMotif() {
+	for (nb <- 1 to 2) {
+		ligneType1
+		gauche
+		quadrille
+		gauche
+		ligneType2
+		droite
+		avance
+		droite
+	}
+	ligneType1
+}
+def carre3sur3() {
+	for (nb <- 1 to 3) {
+	 faireMotif()
+	 avance
+	 droite
+	 faireMotif
+	 gauche
+	 avance
+	 faireMotif
+	 gauche
+	 avance
+	 droite
+	 avance
+     }
+ }
+}
