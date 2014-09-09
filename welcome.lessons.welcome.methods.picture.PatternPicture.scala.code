@@ -4,26 +4,44 @@ dessineMotif();
 
 def dessineMotif(){
 
-dessineCarre();
-dessineCarre();
-	
+dessineL(Color.RED);
+avance();
+dessineLInv(Color.BLUE);
+gauche();
+avance();
+avance();
+dessineLInv(Color.GREEN);
+gauche();
+avance();
+avance();
 }
 
-def dessineCarre(){
+def dessineL(c : Color){
 
+gauche();
 avance();
-marqueSol(Color.RED);
-avance();
-marqueSol(Color.BLUE);
+marqueSol(c);
+recule();
 droite();
 avance();
-marqueSol(Color.GREEN);
+marqueSol(c);
+
+
+
+}
+def dessineLInv(c : Color){
+
+
+marqueSol(c);
+avance();
+gauche();
+avance();
+marqueSol();
+recule();
 droite();
-avance();
-marqueSol(Color.YELLOW);
-avance();
-avance();
-droite();
+
+
+
 
 }
 def marqueSol(c : Color){
