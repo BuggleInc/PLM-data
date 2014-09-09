@@ -31,6 +31,8 @@ override def run()
 			T(i) = T(i-1)
 		}
 		T(0) = bouge
+
+		return T
 	}
 
 	def rotatTableauGauche(T:Array[Color])
@@ -41,6 +43,8 @@ override def run()
 			T(i) = T(i+1)
 		}
 		T(T.length-1) = bouge
+
+		return T
 	}
 
 	T(0) = getCouleurSol();		//Prend les couleurs
@@ -59,11 +63,11 @@ override def run()
 		gauche(); avance(); droite()
 		if(decalage == litMessage().toInt +1)
 		{
-			rotatTableauGauche(T)
+			T = rotatTableauGauche(T)
 		}
 		else if(decalage == litMessage().toInt -1)
 		{
-			rotatTableauDroite(T)
+			T = rotatTableauDroite(T)
 		}
 		colonne()
 	}
