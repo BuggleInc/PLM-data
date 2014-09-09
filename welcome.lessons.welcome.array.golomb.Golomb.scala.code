@@ -1,16 +1,12 @@
 def golomb(num:Int): Int = {
 var suite = new Array[Int](num + 1);
 var sol = 0;
-var inc = 1;
 suite(1) = 1;
 for(i <-2 to num ){
 
 	if(suite(i-1) == nbOccurs(suite,i-1))
 	{	//Si i-1 apparait a(i-1) fois, on ajoute 1 à a(i) 
-		inc = inc + 2;
-		
 		suite(i) = suite(i-1) + 1;
-		suite(i) = inc;
 	}
 	else
 	{		
