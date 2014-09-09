@@ -2,5 +2,18 @@
         // Write your code here
     }
    
-    // here comes your isFacingTrail method   
+    def isFacingTrail():Boolean = {
+    var chemin:Boolean = false
+    if (!estFaceMur()) {
+    	avance();
+    if ((getCouleurSol()) == Color.pink) {
+    	recule();
+    	chemin = true;
+    } else {
+    	recule();
+    chemin = false;
+    }
+    }
+    return chemin;
+}        
 
