@@ -4,11 +4,12 @@ def marquerSol(c:Color)={
 	baisseBrosse()
 	leveBrosse()
 }
-var h = getMondeHauteur()
+var h = getMondeHauteur() -1
 var T = new Array[Color](h)
+T(0)=getCouleurSol()
 for (i<- 0 to h-1){
-	T(i)=getCouleurSol()
 	avance()
+	T(i)=getCouleurSol()
 }
 for (j <- 0 to h-2) {gauche();avance();droite();avance()
 			for(k<- 0 to h-1)
