@@ -1,4 +1,12 @@
 override def run() {
+
+	var j = 0
+
+	for (j <- 1 to 3)
+	{
+		faireligne();
+		proLi;
+	}
 }
 
 var c : Color=Color.blue
@@ -16,4 +24,32 @@ def faireV (c: Color)
 	point(c: Color);
 	avance; gauche; avance;point(c: Color);recule; droite;
 	avance; point(c: Color); avance; gauche;
+}
+
+def faireMotif() 
+{
+	faireV(Color.yellow)
+	faireV(Color.red)
+	faireV(Color.blue)
+	faireV(Color.green)
+}
+
+def faireLigne()
+{
+	var i = 0
+	for (i <- 1 to 3)
+	{
+		faireMotif;
+		ini;
+	}
+}
+
+def ini()
+{
+	avance;avance;avance;avance;avance;
+}
+
+def proLi()
+{
+	gauche; avance;avance;avance;avance;avance;droite;
 }
