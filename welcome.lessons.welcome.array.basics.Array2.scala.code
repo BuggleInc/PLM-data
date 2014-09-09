@@ -3,10 +3,14 @@ var T = new Array[java.awt.Color](getMondeHauteur())
 
 def marquer(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse();avance()}
 
-for (i<-1 to getMondeHauteur()) {
+//debut analyse
+for (i<-1 to getMondeHauteur()-1) {
 	T(i-1) = getCouleurSol()
 	avance()
 }
+T(getMondeHauteur()-1)=getCouleurSol() //fin analyse
+
+for (j<-1 to getMondeHauteur()) {recule()}
 
 def ligne() {
 	gauche();avance();droite();avance() //repositionnement
@@ -16,7 +20,6 @@ def ligne() {
 }
 
 for (k<-1 to getMondeLargeur()-1) {
-	ligne()
 }
 
 }
