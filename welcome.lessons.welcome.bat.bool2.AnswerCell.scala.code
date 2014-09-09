@@ -1,10 +1,14 @@
 def answerCell(isMorning:Boolean, isMom:Boolean, isAsleep:Boolean):Boolean = {
 	var rep = false
-	if(!isMorning)
+	if(!isMorning & !isAsleep)
 	{
 		rep = true
 		return rep
 	}
-	rep = (true, true, false)
+	if(isMorning & isMom & !isAsleep)
+	{
+		rep = true
+		return rep
+	}
 	return rep
 }
