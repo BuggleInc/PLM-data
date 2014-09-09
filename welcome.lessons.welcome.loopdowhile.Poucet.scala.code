@@ -1,13 +1,17 @@
 var bag = 1
-do { 
-	avance()	
-} while (sortieTrouvee()=="false")
-
+avance()	
+if(estSurBiscuit()) {
+		bag = bag + 1
+}	
 if(croisement()=="true") {
 		gauche()
 		avance()
 }
-if(estSurBiscuit()) {
-		bag = bag + 1
-		avance()
-}
+do {
+	if(bag>="3") {
+		droite()
+	}
+	if(bag<="2") {
+		gauche()
+	}
+} while (bag=="5")
