@@ -14,6 +14,8 @@ override def run() {
 		droite()
 	}
 
+	
+
 	def grandMotif(a:Color,b:Color,c:Color,d:Color) {
 		motif(a)
 		for (i<-1 to 3)
@@ -33,17 +35,22 @@ override def run() {
 		gauche()
 	}
 
+	
+
 	def ligne(a:Color,b:Color,c:Color,d:Color) { 
-		for (j<-1 to 2) {
-			grandMotif(a,b,c,d)
-			for (k<-1 to 4) avance()
-		}
+		grandMotif(a,b,c,d)
+		for (j<1 to 4) avance()
+		grandMotif(a,b,c,d)
 	}
 
-	for(l<-1 to 2) {
-		ligne(Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW)
-		gauche()
-		for (i<-1 to 4) avance()
-		droite()
-	}
+
+	
+
+	ligne(Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW)
+	for (i<-1 to 4) recule()
+	gauche()
+	for (i<-1 to 4) avance()
+	droite()
+	ligne(Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW)
+	
 }
