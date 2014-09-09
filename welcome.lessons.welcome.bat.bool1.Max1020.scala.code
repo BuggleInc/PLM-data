@@ -1,8 +1,8 @@
 def max1020(a:Int, b:Int):Int = {
-	(a,b) match {
-		case if (a>=10 && a<=20 && b>=10 && b<=20) => return Math.max(a,b)
-		case if (a>=10 && a<=20 && (b<10 || b>20)) => return a
-		case if (b>=10 && b<=20 && (a<10 || a>20)) => return b
-		case if (!(a>=10 && a<=20 && b>=10 && b<=20)) => return 0
+	if (a>=10 && a<=20) {
+		if (b>=10 && b<=20) return Math.max(a,b)
+		else return a
+	else if (b>=10 && b<=20) return b
+	else return 0
 	}
 }
