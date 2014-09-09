@@ -1,0 +1,56 @@
+def fleur(c:Color) {
+	setCouleurBrosse(c)
+	baisseBrosse()
+	avance();avance()
+	recule()
+	gauche()
+	avance()
+	recule();recule()
+	avance()
+	setCouleurBrosse(Color.YELLOW)
+	leveBrosse()
+	droite()
+	recule()
+	}
+
+def growFlowers() {
+	fleur(Color.RED)
+	for (i<-1 to 4) avance()
+	fleur(Color.CYAN)
+	droite()
+	avance();avance()
+	gauche()
+	recule();recule()
+	fleur(Color.ORANGE)
+	avance();avance()
+	droite()
+	avance();avance()
+	gauche()
+	fleur(Color.GREEN)
+	for (i<-1 to 4) recule()
+	fleur(Color.PINK)
+}
+
+def champs() {
+	growFlowers() //Pot gauche
+	for (i<-1 to 6) avance()
+	gauche()
+	for (i<-1 to 3) avance()
+	droite()
+	fleur(Color.BLUE) //Fleur bleue
+	avance();avance()
+	gauche()
+	avance();avance()
+	droite()
+	growFlowers() //Pot droite
+}
+
+champs()
+droite()
+avance()
+droite()
+for (i<-1 to 8) avance()
+gauche()
+for (i<-1 to 3) avance()
+gauche()
+champs()
