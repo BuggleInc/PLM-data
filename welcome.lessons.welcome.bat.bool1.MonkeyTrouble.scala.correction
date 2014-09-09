@@ -1,0 +1,10 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class monkeyTrouble extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( monkeyTrouble( t.getParameter(0).asInstanceOf[Boolean], t.getParameter(1).asInstanceOf[Boolean]) )
+   }
+def monkeyTrouble(aSmile:Boolean, bSmile:Boolean): Boolean = {
+   return ((aSmile && bSmile) || (!aSmile && !bSmile))
+} }
