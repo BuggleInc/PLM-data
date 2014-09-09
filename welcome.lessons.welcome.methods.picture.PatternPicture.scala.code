@@ -11,4 +11,28 @@ override def run() {
 		baisseBrosse();
 		leveBrosse();
 	}
+	def motif(c:Color) {
+		droite();
+		recule();
+		diago(c);
+		avance();
+		avance();
+		gauche();
+	}
+	def carre() {
+		motif(Color.RED);
+		motif(Color.BLUE);
+		motif(Color.GREEN);
+		motif(Color.YELLOW);
+	}
+	def sautDeLigne() {
+		droite();
+		for (j <- 1 to 4) {recule()}
+		gauche();
+	}
+	for (i <- 1 to 2) {carre()}
+	sautDeLigne();
+	for (k <- 1 to 2) {carre()}
+	for (l <- 1 to 4) {avance()}
+	}
 }
