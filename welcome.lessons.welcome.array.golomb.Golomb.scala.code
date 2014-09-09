@@ -1,13 +1,16 @@
 def golomb(num:Int): Int = {
-	var tab= new Array[Int](num); var k:Int=2
-	tab(0) = 1; tab(1) = 2; tab (2) = 2;
-	for (i<- 3 to num-1) {
-		for (j<- 1 to tab(i)) {
-			if (k+j<tab.length) {
-				tab(k+j) = i;
+	if (num>=3) {
+		var tab= new Array[Int](num); var k:Int=2
+		tab(0) = 1; tab(1) = 2; tab (2) = 2;
+		for (i<- 3 to num-1) {
+			for (j<- 1 to tab(i)) {
+				if (k+j<tab.length) {
+					tab(k+j) = i;
+				}
+			k = k+1;
 			}
-		k = k+1;
 		}
+		return tab(num-1);
 	}
-	return tab(num-1);
+	else return num;
 }
