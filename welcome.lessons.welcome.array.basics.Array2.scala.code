@@ -1,10 +1,13 @@
 override def run() {
 	def traceMotif(T:Array[Color],p:Int) {
-		for (i <- 0 to T.length - 1) {
+		setCouleurBrosse(T(p % T.length))
+		baisseBrosse()
+		leveBrosse()
+		for (i <- 1 to T.length - 1) {
+			avance()
 			setCouleurBrosse(T((i + p) % T.length))
 			baisseBrosse()
 			leveBrosse()
-			avance()
 		}
 	}
 	var T = new Array[Color](getMondeHauteur())
