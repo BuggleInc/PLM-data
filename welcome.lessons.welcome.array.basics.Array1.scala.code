@@ -1,2 +1,25 @@
 override def run() {
+	
+	var colorTable = new Array[Color](6);
+	var inc = 0;
+	for(i <- 0 to 5)
+	{
+		colorTable(i) = getCouleurSol();
+		avance();
+	}
+	for(i <- 0 to 5);
+	{
+	gauche();
+	avance();
+	droite();
+	avance();
+	for(i <- 0 to 5){
+	setCouleurBrosse(colorTable(i + inc % 6 -1));
+	baisseBrosse();
+	leveBrosse();
+	avance();
+	}
+	inc = inc + 1;
+	
+	}
 }
