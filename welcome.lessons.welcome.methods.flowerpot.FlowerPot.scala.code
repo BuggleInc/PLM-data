@@ -1,0 +1,17 @@
+def brossage() {
+	baisseBrosse();
+	leveBrosse();
+}
+def petale(c:Color) {
+	avance();
+	brossage(c);
+	recule();
+	droite();
+}
+def fleur(c:Color) {
+	avance();
+	setCouleurBrosse(Color.YELLOW);
+	brossage();
+	for (i <- 1 to 4) {petale(c)}
+	recule();
+} fleur(Color.RED)
