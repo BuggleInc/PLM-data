@@ -10,10 +10,9 @@ override def run() {
 }
 def lireSequence(T:Array[Color]) {
 	T(0)=getCouleurSol();
-	avance();
 	for (i <- 1 to T.length-1) {
-		T(i)=getCouleurSol();
 		avance();
+		T(i)=getCouleurSol();
 	}
 	recule(getMondeHauteur()-1);
 }
@@ -25,11 +24,11 @@ def dessiner() {
 def reproduireMotif (T:Array[Color], v:Int) {
 	var u:Int = (v % (T.length))
 			setCouleurBrosse(T(u));
-	for (i<- 1 to T.length-1) {
-			var u:Int = ((i+v) % (T.length))
-			setCouleurBrosse(T(u));
 			dessiner();
+	for (i<- 1 to T.length-1) {
 			avance();
+			var u:Int = ((i+v) % (T.length));
+			setCouleurBrosse(T(u));
 	}
 	recule(getMondeHauteur()-1);
 }
