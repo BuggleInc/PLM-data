@@ -1,0 +1,69 @@
+def peindre(c : Color) {
+	setCouleurBrosse(c : Color);
+	baisseBrosse();
+	leveBrosse();
+}
+
+def flower(c : Color) {
+	peindre(c : Color);
+	avance();
+	peindre(Color.YELLOW);
+	gauche();
+	avance();
+	peindre(c : Color);
+	recule();
+	recule();
+	peindre(c : Color);
+	avance();
+	droite();
+	avance();
+	peindre(c : Color);
+	recule();
+	recule();
+}
+
+def growFlowers(){
+	flower(Color.RED);
+	for (i <- 1 to 4) {
+		avance();
+	}
+	flower(Color.CYAN);
+	recule();
+	recule();
+	droite();
+	avance();
+	avance();
+	gauche();
+	flower(Color.ORANGE);
+	avance();
+	avance();
+	droite();
+	avance();
+	avance();
+	gauche();
+	flower(Color.GREEN);
+	for (j <- 1 to 4) {
+		recule();
+	}
+	flower(Color.PINK);
+}
+
+def demiJardin() {
+	growFlowers();
+	for (k <- 1 to 6) {
+		avance();
+	}
+	gauche();
+	avance();
+	avance();
+	droite();
+	flower(Color.BLUE);
+	avance();
+	avance();
+	gauche();
+	avance();
+	avance();
+	droite();
+	growFlowers();
+	}
+}
