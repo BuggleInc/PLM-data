@@ -1,14 +1,16 @@
-for (nbPas <- 0 to 6) {
-	
+if(estSurBiscuit==false){
+	for (nbPas <- 0 to 6){
 		avance();
-		if(estSurBiscuit){
-			prendBiscuit();
-			if(porteBiscuit){
-				recule();
-				if(estDosMur){
-					poseBiscuit();
-				}
-			}
+	}
+}
+if(estSurbiscuit==true){
+	prendBiscuit();
+	for ( i <- 0 to 6){
+		if(nbPas - i > 0){
+			recule();
 		}
-	
+		if(nbPas=i){
+			poseBiscuit();
+		}
+	}
 }
