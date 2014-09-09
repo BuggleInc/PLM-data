@@ -3,15 +3,21 @@ def hunt() {
 		if (isFacingTrail()) {
 			avance()
 			baisseBrosse()
+			leveBrosse()
 		} else {
 			gauche()
 			if (isFacingTrail()) {
-			avance()
-			baisseBrosse()
-		} else {
-			droite()
-			droite()
-		}
+				avance()
+				baisseBrosse()
+				leveBrosse()
+			} else {
+				droite()
+				droite()
+				if (isFacingTrail()) {
+				avance()
+				baisseBrosse()
+				leveBrosse()
+			}
 		}
 		
     // Write your code here
