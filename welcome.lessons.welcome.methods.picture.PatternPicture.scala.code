@@ -1,18 +1,33 @@
 override def run() {
 
-def faireMotif(c:Color) {
-	//se placer sur le premier carreau rouge
+def sePlacer() {
 	gauche()
 	avance()
 	droite()
 	droite()
-	//
-		
 }
 
-def faireCouleur(c:Color) {
-	//colorier les deux carreaux
-	setCouleurBrosse
+def faireMotif() {
+	//démarer sur le premier carreau composant le S
+	faireS(Color.RED)
+	faireS(Color.BLUE)
+	faireS(Color.GREEN)
+	faireS(Color.YELLOW)	
 }
+
+def faireS(c:Color) {
+	//colorier les deux carreaux (S)
+	setCouleurBrosse(c)
+	baisseBrosse()
+	leveBrosse()
+	avance()
+	gauche()
+	avance()
+	baisseBrosse()
+	leveBrosse()
+}
+
+sePlacer()
+faireMotif()
 	
 }
