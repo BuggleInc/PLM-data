@@ -1,11 +1,15 @@
-blueTicket:4: error: not found: value sum1
-sum1= a+b
-^blueTicket:5: error: not found: value sum2
-sum2= b+c
-^blueTicket:6: error: not found: value sum3
-sum3= c+d
-^blueTicket:7: error: not found: value sum1
-if (sum1=10 || sum2=10 || sum3=10) return 10;  
-    ^blueTicket:8: error: not found: value sum1
-if (sum1=sum2+10 ||sum1=sum3+10) return 5;
-    ^
+blueTicket:6: error: not found: value d
+var sumc= c+d
+            ^blueTicket:7: error: value || is not a member of Int
+if (suma=10 || sumb=10 || sumc=10) return 10;  
+            ^blueTicket:7: error: type mismatch;
+ found   : Unit
+ required: Boolean
+if (suma=10 || sumb=10 || sumc=10) return 10;  
+        ^blueTicket:8: error: value || is not a member of Int
+if (suma=sumb+10 ||suma=sumc+10) return 5;
+                 ^blueTicket:8: error: type mismatch;
+ found   : Unit
+ required: Boolean
+if (suma=sumb+10 ||suma=sumc+10) return 5;
+        ^
