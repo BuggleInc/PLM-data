@@ -3,7 +3,7 @@ override def run() {
 	var hau = hauteur -1;
 	var largeur = getMondeLargeur();
 	var lar = largeur-2;
-	var tab = new Array[Color] (hauteur)
+	var tab = new Array[Color] (hau)
 	for (i<- 0 to hau ) {
 		tab(i) = getCouleurSol();
 		if (!estFaceMur) {
@@ -21,7 +21,7 @@ override def run() {
 		setCouleurBrosse(tab(dec));baisseBrosse();leveBrosse();
 
 		for (h<- 1 to hau) {
-			avance();setCouleurBrosse(tab((h + dec) % hauteur)); baisseBrosse();leveBrosse()
+			avance();setCouleurBrosse(tab((h + dec) % hau)); baisseBrosse();leveBrosse()
 		}
 		recule(hau)
 	}
