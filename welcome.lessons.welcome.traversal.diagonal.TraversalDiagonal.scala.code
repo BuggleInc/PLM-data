@@ -1,7 +1,9 @@
 var cpt = 0
+var L = getMondeHauteur
 override def run() {
-	for (XY <- 0 to getMondeHauteur()-1) {
+	for (XY <- 0 to 2*L-1) {
 		for (x <- 0 to XY) {
+			if (x<L-1 && XY-x<L-1)
 			setPos(x,XY-x)
 			ecritMessage(cpt);
 			cpt=cpt+1;
