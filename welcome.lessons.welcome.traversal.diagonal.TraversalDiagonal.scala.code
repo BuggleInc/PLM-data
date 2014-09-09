@@ -1,15 +1,14 @@
-var cpt = 0
-var L = getMondeHauteur
 override def run() {
+	var cpt = 0;
+	var L = getMondeHauteur();
 	for (XY <- 0 to 2*L-1) {
 		for (x <- 0 to XY) {
-			if (x<L-1 && XY-x<L-1)
-			setPos(x,XY-x)
-			ecritMessage(cpt);
-			cpt=cpt+1;
+			if (x<L && XY-x<L) {
+				setPos(x,XY-x)
+				ecritMessage(cpt);
+				cpt=cpt+1;
+			}
 			
 		}
-	}
-	
-	
+	}	
 }
