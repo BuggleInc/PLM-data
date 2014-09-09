@@ -1,0 +1,52 @@
+override def run() {
+
+def colorier()
+{
+	baisseBrosse();
+	leveBrosse();
+}
+
+def faireV(c:Color)
+{
+	setCouleurBrosse(c);
+	avance();
+	colorier();
+	avance();
+	gauche();
+	avance();
+	colorier();
+	recule();
+	droite();
+	avance();
+	colorier();
+	avance();
+	gauche();
+}
+
+def avance5()
+{
+	for (i <- 1 to 5)
+		avance();
+}
+
+def motif()
+{
+	faireV(Color.Yellow);
+	faireV(Color.Red);
+	faireV(Color.Blue);
+	faireV(Color.Green);
+}
+
+for(i <- 1 to 3)
+{
+	for (j <- 1 to 3)
+	{
+		motif();
+		avance5();
+	}
+	gauche();
+	avance5();
+	droite();
+}
+
+}
