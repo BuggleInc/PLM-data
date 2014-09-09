@@ -1,0 +1,15 @@
+def isFacingTrail():Boolean = {
+	var col="";
+	while (!estSurBiscuit()) {
+		avance();
+		col=getCouleurSol();
+		if (col=!Color.green) {
+			recule();
+			gauche();
+		}
+		if (estFaceMur()) {
+			recule();
+			gauche();
+		}
+	}
+}        
