@@ -1,19 +1,9 @@
 def loneTeen(a:Int, b:Int):Boolean = {
-	def estAdo(v: Int): Boolean {
-		if (v<19 && v>13) {
+	if ((a<=19 && a>=13) && (b>=19 | b<=13)) {
 		return true;
 		}
-		else return false;
-	}
-	if (estAdo(a)) {
-		if (!estAdo(b)) {
-		return true;
-		}
-	}
-	else if (estAdo(b)) {
-		if (!estAdo(a)) {
+	else if ((b<=19 && b>=13) && (a>=19 | a<=13)) {
 			return true;
 		}
-	}
-	return false;
+	else return false;
 	}
