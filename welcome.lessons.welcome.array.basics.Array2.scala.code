@@ -3,7 +3,8 @@ override def run() {
 	lireSequence(T);
 	for (j<- 1 to (getMondeLargeur() - 1)) {
 		decalle();
-		reproduireMotif(T,litMessage().toInt);
+		var v:Int = litMessage().toInt
+		reproduireMotif(T,v);
 	}
 	recule();
 }
@@ -20,9 +21,9 @@ def dessiner() {
 	baisseBrosse();
 	leveBrosse();
 }
-def reproduireMotif (T:Array, litMessage().toInt:Int) {
+def reproduireMotif (T:Array, v) {
 	for (i<- 0 to T.length-1) {
-			var u:Int = (i+litMessage().toInt) % (T.length)
+			var u:Int = (i+v) % (T.length)
 			setCouleurBrosse(T(u));
 			dessiner();
 			avance();
