@@ -1,2 +1,32 @@
-override def run() {
+def faireV(c:color) {
+	avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche(); avance(); baisseBrosse(); leveBrosse()
+	recule(); droite(); avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche()
+}
+def faireMotif() { 
+	setCouleurBrosse(c)
+	faireV(Color.yellow)
+	faireV(color.red)
+	faireV(Color.blue)
+	faireV(Color.green)
+	for (y <- 1 to 5) { 
+		avance()
+	}
+}
+def faireTmotif() {
+	for (y <- 1 to 3) {
+		faireMotif()
+	}
+	gauche()
+	for (x <- 1 to 5) {
+		avance()
+	}
+	droite()
+}
+
+override def run() { 
+	for (y <- 1 to 3) {
+		faireTmotif()
+	}
 }
