@@ -1,0 +1,58 @@
+def growFlowers()
+{
+	fleur(Color.RED);
+	avancex(3);
+	fleur(Color.CYAN);
+	reculex(5);
+	droite();
+	avancex(4);
+	gauche();
+	fleur(Color.PINK);
+	avancex(3);
+	fleur(Color.GREEN);
+	reculex(3);
+	gauche();
+	avancex(2);
+	droite();
+	fleur(Color.ORANGE);
+	reculex(3);
+	droite();
+	avancex(2);
+	gauche();
+}
+
+def dessiner()
+{
+	baisseBrosse();
+	leveBrosse();
+}
+
+def avancex(x:Int)
+{
+	for (i <- 1 to x)
+		avance();
+}
+
+def reculex()
+{
+	for (i <- 1 to x)
+		recule();
+}
+
+def fleur(c:Color)
+{
+	setCouleurBrosse(c);
+	dessiner();
+	avance(2);
+	dessiner();
+	recule();
+	gauche();
+	avance();
+	dessiner();
+	reculex(2);
+	dessiner();
+	avance();
+	setCouleurBrosse(Color.YELLOW);
+	dessiner();
+	droite();
+}
