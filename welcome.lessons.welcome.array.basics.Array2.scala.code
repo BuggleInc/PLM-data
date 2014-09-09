@@ -1,11 +1,11 @@
-var T = new Array[Color](getMondeHauteur())
+
 
 def brosse(c:Color)
 	{
 		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
 	}
 
-def colonne(decalage:Int)
+/*def colonne(decalage:Int)
 {
 	brosse(T(decalage%T.lenght))
 	for(i <- 1 to getWorldHeight()-1 )
@@ -18,11 +18,11 @@ def colonne(decalage:Int)
 	{
 		recule()
 	}
-}
+}*/
 
 override def run() 
 {
-	
+	var T = new Array[Color](getMondeHauteur())
 	var bouge: Color = null
 	var decalage = 0
 
@@ -41,7 +41,7 @@ override def run()
 	{
 		gauche(); avance(); droite()
 		decalage = litMessage().toInt
-		colonne(decalage)
+		//colonne(decalage)
 	}
 }
 
