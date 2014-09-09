@@ -17,7 +17,7 @@ def fleur(c:Color) {
 	recule();
 } 
 
-def growFlowers() {
+def motif() {
 	fleur(Color.RED);
 	for (i <- 1 to 4) {avance()}
 	fleur(Color.CYAN);
@@ -33,4 +33,36 @@ def growFlowers() {
 	fleur(Color.GREEN);
 	for (i <- 1 to 4) {recule()}
 	fleur(Color.PINK);
+}
+def cheminBleu() {
+	for (i <- 1 to 6) {avance()}
+	gauche();
+	for (i <- 1 to 2) {avance()}
+	droite();
+}
+def cote() {
+	motif();
+	cheminBleu();
+	fleur(Color.BLUE);
+	for (i <- 1 to 2) {avance()}
+	gauche();
+	for (i <- 1 to 2) {avance()}
+	droite();
+	motif();
+}
+
+def teleportation() {
+	droite();
+	avance();
+	gauche();
+	for (i <- 1 to 8) {recule()}
+	droite();
+	for (i <- 1 to 3) {avance()}
+	gauche();
+}
+
+def growFlowers() {
+	cote();
+	teleportation();
+	cote();
 }
