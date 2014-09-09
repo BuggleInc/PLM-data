@@ -1,0 +1,64 @@
+def growFlowers() {
+	def marqueSol() {
+		baisseBrosse();
+		leveBrosse();
+	}
+	def faireFleur(c:Color) {
+		setCouleurBrosse(c);
+		baisseBrosse();
+		avance(2);
+		recule();
+		gauche(); //placé pour l'autre ligne
+		avance();
+		recule();
+		recule();
+		avance();
+		droite();//centré sur la croix
+		leveBrosse();
+		setCouleurBrosse(Color.yellow);
+		marqueSol();
+	}
+	def faireJardiniere() {
+	faireFleur(Color.red);
+	avance(3);
+	faireFleur(Color.cyan);
+	recule(3);
+	droite();
+	avance(2);
+	gauche();
+	faireFleur(Color.orange);
+	recule(3);
+	droite();
+	avance(2);
+	gauche();
+	faireFleur(Color.pink);
+	avance(3);
+	faireFleur(Color.green);
+	recule(5);
+	}
+
+		def faireLigne() {
+			faireJardiniere();
+			avance(6);
+			gauche();
+			avance();
+			droite();
+			faireFleur(Color.Blue);
+			avance();
+			gauche();
+			avance(2);
+			droite();
+			faireJardiniere();
+	}
+	def faireJardin() {
+		faireLigne();
+		droite();
+		avance();
+		gauche();
+		recule(8);
+		droite();
+		avance(3);
+		gauche();
+		faireLigne()
+	}
+}
