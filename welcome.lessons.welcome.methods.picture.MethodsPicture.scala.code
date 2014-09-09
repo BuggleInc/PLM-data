@@ -20,6 +20,7 @@ def faireV() {
 	avance(); //placé pour le V suivant
 }
 def faireMotif()  {
+	avance();
 	for (r <- 1 to 4) {
 		r match {
 			case 1 => setCouleurBrosse(Color.yellow);
@@ -30,6 +31,25 @@ def faireMotif()  {
 		faireV();
 	}
 }
-avance();
-faireMotif();
+
+def faireLigne() {
+	for (t <- 1 to 3) {
+		faireMotif();
+		for (y <- 1 to 5) {
+			avance();
+			}
+	}
+	gauche();
+	for (e <- 1 to 5) {
+		avance();
+	}
+	droite();
+}
+
+def faireGMotif() {
+	for (a <- 1 to 3) {
+		faireLigne();
+	}
+}
+faireGMotif();
 }
