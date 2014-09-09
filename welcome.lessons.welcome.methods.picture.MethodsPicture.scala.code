@@ -1,2 +1,36 @@
-override def run() {
+override def run() { 
+	def brossage() {
+}
+		baisseBrosse();
+		leveBrosse();
+	
+	def faireV(c:Color) {
+		setCouleurBrosse(c)
+		avance();
+		brossage();
+		avance();
+		gauche();
+		avance();
+		brossage();
+		droite();
+		avance();
+		gauche();
+		recule();
+		brossage();
+		droite();
+		avance();
+		gauche();
+}
+	def seq() {
+		faireV(Color.YELLOW);
+		faireV(Color.RED);
+		faireV(Color.BLUE);
+		faireV(Color.GREEN);
+	}
+	def ligne() {
+		for (j <- 1 to 3) {
+			for (i <- 1 to 5) {avance()}
+			seq();
+		}
+	}
 }
