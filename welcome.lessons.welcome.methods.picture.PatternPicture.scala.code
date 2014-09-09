@@ -1,0 +1,33 @@
+def faireCarre (c:color) {
+	setCouleurBrosse(c)
+	avance(); baisseBrosse(); leveBrosse()
+	gauche(); avance(); gauche(); 
+	avance(); baisseBrosse(); leveBrosse()
+	gauche(); avance(); gauche(); avance(); avance(); avance(); gauche()
+}
+
+def faireMotif() { 
+	faireV(Color.red)
+	faireV(Color.blue)
+	faireV(Color.green)
+	faireV(Color.yellow)
+	for (y <- 1 to 4) { 
+		avance()
+	}
+}
+def faireTmotif() {
+	for (y <- 1 to 3) {
+		faireMotif()
+	}
+	gauche()
+	for (x <- 1 to 5) {
+		avance()
+	}
+	droite()
+}
+
+override def run() { 
+	for (y <- 1 to 3) {
+		faireTmotif()
+	}
+}
