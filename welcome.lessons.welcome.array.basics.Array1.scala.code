@@ -6,7 +6,7 @@ override def run() {
 	def lireColonne(){
 		var n: Int = 0;
 		for(n <- 1 to hauteur){
-			res(n) = getCouleurSol();
+			res(n-1) = getCouleurSol();
 			avance();
 		}
 		retourne();
@@ -27,7 +27,7 @@ override def run() {
 		avance();
 		var n: Int = 0;
 		for(n<- 1 to hauteur){
-			setCouleurBrosse(res(n));
+			setCouleurBrosse(res(n-1));
 			baisseBrosse();
 			leveBrosse();
 			avance()
