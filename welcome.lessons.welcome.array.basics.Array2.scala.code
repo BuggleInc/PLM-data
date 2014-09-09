@@ -5,21 +5,24 @@ for (i <- 1 to getMondeHauteur()-1){
 	avance()
 	tab(i) =getCouleurSol()
 }
-
-
-
 recule(getMondeHauteur()-1)
 def paint() {
 	gauche()
 	avance()
 	droite()
 	val decalage = litMessage().toInt
-for (i <- 0 to getMondeHauteur()-1){
+	
+	baisseBrosse()
+	setCouleurBrosse(tab((decalage)%(getMondeHauteur())))
+	leveBrosse()
+	
+for (i <- 1 to getMondeHauteur()-1){
+	avance
 	baisseBrosse()
 	setCouleurBrosse(tab((i+decalage)%(getMondeHauteur())))
 	leveBrosse()
-	avance()
 }
+recule(getMondeHauteur()-1)
 }
 for (i <- 0 to getMondeLargeur()-2){
 	paint()	
