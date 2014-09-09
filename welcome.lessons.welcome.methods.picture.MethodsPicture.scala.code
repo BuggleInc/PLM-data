@@ -1,14 +1,22 @@
 override def run() {
 
 def FaireMotif() {
+	var j = Color.yYELLOW
+	var r = Color.RED
+	var b = Color.BLUE
+	var g = Color.GREEN
 	def FaireV(c:Color) {
-		avance();SetCouleurBrosse() = c; baisseBrosse();leveBrosse()
+		avance();SetCouleurBrosse(c); baisseBrosse();leveBrosse()
 		avance(); gauche(); avance(); baisseBrosse(); leveBrosse()
 		recule(); droite(); avance(); baisseBrosse;leveBrosse()
 		avance()
 	}
 	for (i <- 1 to 4)
-	{ FaireV(); gauche()}
+	 {if ( i == 1)
+		{FaireV(j); gauche()}
+	  else {if (i==2) {FaireV(r); gauche()}
+	  		else { if (i==3) {FaireV(b); gauche()}
+	  				else {FaireV(g); gauche()}}}}
 	avance(5)}
 	for (i <- 1 to 3)
  {for (y <- 1 to 3)
