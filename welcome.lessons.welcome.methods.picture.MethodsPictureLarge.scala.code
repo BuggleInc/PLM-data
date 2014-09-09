@@ -1,2 +1,60 @@
 override def run() {
+		// Variable Environnement
+		var nbLigne: Int = 9;
+		var nbColonne: Int = 9;
+		//Compteurs
+		var cpas: Int = 0;
+		var cl: Int = 0;
+		var cc: Int = 0;
+
+		def courir(nbPas: Int){
+			for(cpas <- 1 to nbPas){
+				avance();
+			}
+		}
+	
+		def faireV(c: Color){
+		setCouleurBrosse(c);
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		avance();
+		gauche();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		recule();
+		droite();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		avance();
+		gauche();
+	}
+
+		def faireMotif(){
+			faireV(Color.YELLOW);
+			faireV(Color.RED);
+			faireV(Color.BLUE);
+			faireV(Color.GREEN);
+		}
+
+		def faireLigne(){
+			for(cl <- 1 to nbColonne){
+				faireMotif();
+				courir(5);
+			}
+		}
+
+		def faireColonne(){
+			for(cc <- 1 to nbColonne){
+				faireLigne();
+				gauche();
+				courir(5);
+				droite();
+			}
+		
+		}
+
+		faireColonne();
 }
