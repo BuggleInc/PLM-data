@@ -3,6 +3,7 @@ override def run() {
 	var colorTable = new Array[Color](getMondeHauteur());
 	var decalage = 0;
 	var inc = 0;
+	
 	for(i <- 0 to getMondeHauteur() - 1)
 	{
 		colorTable(i) = getCouleurSol();
@@ -22,7 +23,7 @@ override def run() {
 		decalage = litMessage().toInt;
 	
 	for(j <- 0 to getMondeHauteur() - 1){
-	setCouleurBrosse(colorTable((j+ decalage)%6) );
+	setCouleurBrosse(colorTable((j + decalage +1)%6) );
 	baisseBrosse();
 	leveBrosse();
 	avance();
