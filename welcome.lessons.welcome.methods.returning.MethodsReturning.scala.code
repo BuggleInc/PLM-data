@@ -1,6 +1,13 @@
 def haveBaggle():Boolean = {
-  var vuBiscuit:Boolean=false
-  for (nb1 <- 1 to 6) {
+  if (vuBiscuit==false) {
+  	return false;
+  } else {
+  	return true;
+  }
+}
+def verifieC() {
+var vuBiscuit:Boolean=false
+for (nb1 <- 1 to 6) {
   	avance
   	if (estSurBiscuit) {
   		vuBiscuit=true
@@ -9,14 +16,12 @@ def haveBaggle():Boolean = {
   for (nb2 <- 1 to 6) {
   	recule
   }
-  if (vuBiscuit==false) {
-  	then return false;
-  } else {
-  	return true;
-  }
-}
+} // vérifie si ya un bagle sur la colonne
+
+
 while (haveBaggle!=false) {
 	droite
 	avance
 	gauche
+	verifieC
 }
