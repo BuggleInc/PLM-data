@@ -1,0 +1,15 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class dateFashion extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( dateFashion( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int]) )
+   }
+def dateFashion(you:Int, date:Int):Int = {
+	if (you <= 2 || date <= 2) 
+		return 0
+	else if (you >= 8 || date >= 8)
+		return 2
+	else
+		return 1
+} }
