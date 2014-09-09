@@ -1,0 +1,36 @@
+def brossage() {
+	baisseBrosse();
+	leveBrosse();
+}
+def petale(c:Color) {
+	avance();
+	setCouleurBrosse(c);
+	brossage();
+	recule();
+	droite();
+}
+def fleur(c:Color) {
+	avance();
+	setCouleurBrosse(Color.YELLOW);
+	brossage();
+	for (i <- 1 to 4) {petale(c)}
+	recule();
+} 
+
+def growFlowers() {
+	fleur(Color.RED);
+	for (i <- 1 to 4) {avance()}
+	fleur(Color.CYAN);
+	droite();
+	for (i <- 1 to 2) {avance()}
+	gauche();
+	for (i <- 1 to 2) {recule()}
+	fleur(Color.ORANGE);
+	for (i <- 1 to 2) {avance()}
+	droite();
+	for (i <- 1 to 2) {avance()}
+	gauche();
+	fleur(Color.GREEN);
+	for (i <- 1 to 4) {recule()}
+	fleur(Color.PINK);
+}
