@@ -1,9 +1,10 @@
 def isFacingTrail():Boolean = {
     // Write your code here
-	if (!estFaceMur) avance;
+	var FaceMur=false
+	if (!estFaceMur) {avance;FaceMur=true}
 	getCouleurSol() match{
 		case Color.green => {baisseBrosse;leveBrosse;}
-		case _ => recule;	
-	}	
+		case _ => if (FaceMur=false) recule;	
+	}
 	return estSurBiscuit
 }
