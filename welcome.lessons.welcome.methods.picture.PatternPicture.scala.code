@@ -1,0 +1,48 @@
+override def run() {
+
+def avancex(x:Int)
+{
+	for (i <- 1 to x)
+		avance();
+}
+
+def motif()
+{
+	petitMotif(Color.RED);
+	petitMotif(Color.YELLOW);
+	petitMotif(Color.GREEN);
+	petitMotif(Color.BLUE);
+}
+
+def colorier()
+{
+	baisseBrosse();
+	leveBrosse();
+}
+
+def petitMotif(c:Color)
+{
+	setCouleurBrosse(c);
+	avance();
+	colorier();
+	recule();
+	gauche();
+	avance();
+	colorier();
+	avance();
+	avance();
+	retourne();	
+}
+
+motif();
+avance(4);
+motif();
+avance(4);
+gauche();
+avance(4);
+droite();
+motif();
+avance(4);
+motif();
+
+}
