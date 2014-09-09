@@ -9,6 +9,21 @@ def faireV(c: Color) {
 	gauche(); avance(); gauche();
 }
 
-override def run() { 
-	for (x <- 1 to 4) {faireV()}
+def faireMotif() { 
+	faireV(Color.yellow)
+	faireV(Color.red)
+	faireV(Color.blue)
+	faireV(Color.breen);
+	for (y <- 1 to 5) {avance()};
+}
+
+def faireTriplemotif() {
+	for (x <- 1 to 3) {faireMotif()};
+	gauche();
+	for (y <- 1 to 5) {avance()};
+	droite()
+}
+
+override def run() {
+	for (x <- 1 to 3) {faireTriplemotif()}
 }
