@@ -1,0 +1,23 @@
+def golomb(num:Int): Int = {
+
+	var j:int = 1;
+	var k:Int = 0;
+	var actuel:int = 1;
+	
+	do
+	{
+		for (l <- 1 to j)
+		{
+			for (s <- 1 to j)
+			{
+				if (k != num) k = k + 1;
+			}
+
+			if (k != num) actuel = actuel + 1;
+		}
+
+		j = j + 1;
+	} while(k != num)
+
+	return actuel;
+}
