@@ -1,2 +1,31 @@
 override def run() {
+	var T = new Array[Color](getMondeHauteur());
+	lireSequence(T);
+	for (j<- 1 to (getMondeLargeur() - 1)) {
+		decalle();
+		reproduireMotif(T,j);
+	}
+	recule();
+}
+def lireSequence(T:Array[Color]) {
+	for (i <- 0 to T.length-1) {
+		T(i)=getCouleurSol();
+		avance();
+	}
+}
+
+def dessiner() {
+	baisseBrosse();
+	leveBrosse();
+}
+def reproduireMotif (T:Array[Color], j:Int) {
+	for (i<- 0 to T.length-1) {
+			var u:Int = (i+getMondeHauteur()+j) % (T.length)
+			setCouleurBrosse(T(u));
+			dessiner();
+			avance();
+	}
+}
+def decalle() {
+	gauche(); avance(); droite();
 }
