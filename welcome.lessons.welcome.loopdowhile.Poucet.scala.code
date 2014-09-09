@@ -1,11 +1,13 @@
 var bis:Int = 0
-avance()
-if (estSurBiscuit) {
-	bis = bis + 1
-}
-do { 
-	bis = 0
-	avance()
+
+while (! sortieTrouvee()) {
+	do {
+		avance()
+		if (estSurBiscuit) {
+			bis = bis + 1
+		}
+	} while(! croisement)
+
 	if (bis>=3) {
 		gauche()
 		avance()
@@ -14,5 +16,5 @@ do {
 		droite()
 		avance()
 	}
-	
-} while (croisement)
+	bis = 0;
+}
