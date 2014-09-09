@@ -2,5 +2,45 @@
         // Write your code here
     }
    
-    // here comes your isFacingTrail method   
+def isFacingTrail():Boolean = {
+    leveBrosse()
+    if(estFaceMur() == true)
+    {
+    	gauche()
+    }
+    else
+    {
+    avance()
+    if(getCouleurSol() == Color.green)
+    {
+    recule()
+    return true
+    }
+    else
+    {
+    recule()
+    gauche()
+    }
+    }
+    return false
+}       
+
+def hunt() {
+	var finit = false
+	while(finit == false)
+	{
+     if(isFacingTrail() == true)
+	{
+	baisseBrosse()
+	avance()
+	if(estSurBiscuit())
+	{
+	prendBiscuit()
+	finit = true
+	}
+	}
+	}
+}
+
+
 
