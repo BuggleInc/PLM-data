@@ -1,0 +1,22 @@
+override def run() {
+	def traceMotif(T:Array[Color]) {
+		for (i <- 0 to T.length - 1) {
+			setCouleurBrosse(T.(i))
+			baisseBrosse()
+			leveBrosse()
+			avance()
+		}
+	}
+	var T = new Array[Color](getHauteurMonde()
+	for (i <- 0 to T.length - 1) {
+		T(i) = getCouleurSol()
+		avance()
+	}
+	for (j <- 0 to getLargeurMonde()) {
+		gauche()
+		avance()
+		droite()
+		avance()
+		traceMotif(T)
+	}
+}
