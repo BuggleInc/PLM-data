@@ -1,2 +1,64 @@
 override def run() {
+
+def faireMotif() {
+
+	def marqueSol() {
+	
+		baisseBrosse()
+		leveBrosse()
+	
+	}
+
+	def faireV() {
+
+		avance()
+		marqueSol()
+		avance()
+		gauche()
+		avance()
+		marqueSol()
+		droite()
+		avance()
+		droite()
+		avance()
+		marqueSol()
+		gauche()
+		avance()
+		gauche()	
+	
+	}
+
+	for (compteur <- 1 to 4) {
+		faireV()
+	}
+		
 }
+
+def seReplacer() {
+	for (compteur1 <- 1 to 5) {
+		avance()
+	}
+}
+
+def faireLigne() {
+	
+	for (compteur2 <- 1 to 9) {
+		faireMotif()
+		seReplacer()
+	}
+}
+
+def changerLigne() {
+	gauche()
+	seReplacer()
+	droite()
+}
+
+for (compteur3 <- 1 to 9) {
+	faireLigne()
+	changerLigne()
+}
+
+	
+}
+
