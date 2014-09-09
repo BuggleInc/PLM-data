@@ -1,4 +1,11 @@
 override def run() {
+
+def marque(d:Color){
+	setCouleurBrosse(d)
+	baisseBrosse
+	leveBrosse
+}
+
 def motif(c:Color){
 	avance
 	marque(c)
@@ -12,8 +19,24 @@ def motif(c:Color){
 	gauche
 }
 
+def dessin(l:Int,L:Int){
+	for (x<-1 to l){
+		for (y<-1 to L){
+			motif(Color.red)
+			avance(3);gauche
+			motif(Color.blue)
+			avance(3);gauche
+			motif(Color.green)
+			avance(3);gauche
+			motif(Color.yellow)
+			avance(3);gauche
+			avance(4)
+		}
+		droite;avance(4);gauche
+	}
+	
+}
 
-
-
+dessin(2,2)
 
 }
