@@ -2,23 +2,22 @@ def changeColonne(){
 	droite();
 	avance();
 	gauche();
-}
+};
 
-
-
-
-
-
-
+var vuBiscuit = false;
 
 def haveBaggle():Boolean = {
- 	var vuBiscuit = false;
- 	for(c1<- 1 to 7){
+ 	for(c1<- 0 to 6){
+ 		avance();
  		if(estSurBiscuit){ 
  		vuBiscuit = true;
  	}
- 	avance();
  	}
 	return vuBiscuit
+}
+
+while(haveBaggle == false){
+	changeColonne();
+	haveBaggle();
 }
 
