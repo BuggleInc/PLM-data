@@ -7,14 +7,14 @@ def brosse(c:Color)
 
 def colonne(decalage:Int)
 {
-	brosse(T(decalage%T.lenght))
+	brosse(T(decalage%getMondeHauteur()))
 	for(i <- 1 to T.lenght-1)
 	{
 		avance()
-		brosse(T(i+decalage%T.lenght))
+		brosse(T(i+decalage%getMondeHauteur()))
 	}
 
-	for(i <- 1 to T.lenght-1)
+	for(i <- 1 to getMondeHauteur()-1)
 	{
 		recule()
 	}
