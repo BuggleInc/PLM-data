@@ -6,7 +6,8 @@ override def run() {
 	for(i <- 0 to getMondeHauteur() - 1)
 	{
 		colorTable(i) = getCouleurSol();
-		if(!estFaceMur){
+		if(!estFaceMur)
+		{
 			avance();
 		}
 	}
@@ -21,7 +22,7 @@ override def run() {
 		decalage = litMessage().toInt;
 	
 	for(j <- 0 to getMondeHauteur() - 1){
-	setCouleurBrosse(colorTable(j));
+	setCouleurBrosse((colorTable(j) + decalage)%6);
 	baisseBrosse();
 	leveBrosse();
 	avance();
