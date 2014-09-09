@@ -18,7 +18,10 @@ for (j <- 0 to (x-2)) {
 	avance()
 	droite()
 for (i <- 0 to x-1)
-{setCouleurBrosse(T((i+j)%(x-1)))
+{ 	var y = i
+	val decalage = litMessage().toInt
+	if (decalage < i) {y = y - decalage}
+	setCouleurBrosse(T((y+j)%(x-1)))
 	dessiner()
 	avance()	
 	}
