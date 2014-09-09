@@ -29,7 +29,15 @@ override def run() {
 			setCouleurBrosse(res(n-1));
 			baisseBrosse();
 			leveBrosse();
-			avance()
+			if(estFaceMur){
+				retourne();
+				courir(hauteur - 1);
+				retourne();
+				avance();
+			}
+			else{
+				avance();
+			}
 		}
 	}
 
