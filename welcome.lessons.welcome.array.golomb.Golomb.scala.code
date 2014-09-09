@@ -1,9 +1,24 @@
 def golomb(num:Int): Int = {
-var suite = new Array[Int](num);
-suite(0) = 1;
-nbOccurs(suite, 2);
+var suite = new Array[Int](num + 1);
+var sol = 0;
+suite(1) = 1;
 
-return 3;
+for(i<-2 to num+1){
+
+	if(suite(i-1) == nbOccurs(suite,i))
+	{ //Si i-1 apparait a(i-1) fois, on ajoute 1 à a(i) 
+		suite(i) = suite(i-1) + 1;
+	}
+	else
+	{
+		suite(i) = suite(i-1);
+	}
+sol = suite(num);
+return sol;
+	
+}
+
+
 }
 def nbOccurs(table : Array[Int], num:Int){
 
