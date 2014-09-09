@@ -2,4 +2,18 @@ def hunt() {
     // Write your code here
 }
 
-// Copy your isFacingTrail() here
+def isFacingTrail():Boolean = {
+	var c:Boolean = false
+	if ( estFaceMur() == false ) { 
+		avance() 
+		if (getCouleurSol() == Color.green) {
+			c = true
+		}
+		else { c = false }
+		recule()
+		if ( c == true ) { return true}
+		else { return false}
+	}
+	else { return false }
+}       
+
