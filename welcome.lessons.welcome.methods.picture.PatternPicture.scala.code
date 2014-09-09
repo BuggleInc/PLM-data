@@ -1,6 +1,6 @@
 override def run() 
 {
-	def faire2(c:Color)=
+	def faire2Gauche(c:Color)=
 	{
 		avance()
 		setCouleurBrosse(c)
@@ -12,32 +12,35 @@ override def run()
 		setCouleurBrosse(c)
 		baisseBrosse()
 		leveBrosse()
+		droite()
+		avance()
+		avance()
+	}
+	def faire2Droite(c:Color)=
+	{
+		avance()
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
 		recule()
 		droite()
+		avance()
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
+		gauche()
+		avance()
+		avance()
 	}
-	def faireMotif()=
+	def faireLigne()=
 	{
-			faire2(Color.red)
-			avance()
-			avance()
-			droite()
-			recule()
-			faire2(Color.blue)
-			recule()
-			recule()
-			droite()
-			recule()
-			faire2(Color.green)
-			avance()
-			avance()
-			droite()
-			recule()
-			faire2(Color.yellow)
-			avance()
-			avance()
-			droite()
-			recule()
+		for (n <- 1 to 2)
+		{
+			faire2Gauche(Color.red)
+			faire2Droit(Color.blue)
+		}
 	}
+	
 
 	for (n <- 1 to 2)
 	{
