@@ -18,10 +18,14 @@ replacement()
 
 def ligne(decalage:Int) {
 	for (n<-1 to getMondeHauteur()) {
-		marquer(T((n-1-decalage)%getMondeHauteur()))
+		marquer(T((n-1-decalage)%(getMondeHauteur()-1)))
 	}
 }
 
-
+for (k<-1 to getMondeLargeur()-1) {
+	val decalage = litMessage().toInt
+	ligne(decalage)
+	replacement()
+}
 
 }
