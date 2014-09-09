@@ -1,2 +1,45 @@
-override def run() {
+override def run(){
+def marquer(){
+	baisseBrosse();
+	leveBrosse();
+}
+def faireMotif()
+{
+	setCouleurBrosse(Color.yellow);
+	faireV();
+	setCouleurBrosse(Color.red);
+	faireV();
+	setCouleurBrosse(Color.blue);
+	faireV();
+	setCouleurBrosse(Color.green);
+	faireV();
+}
+
+def faireV(){
+	
+
+	avance();
+	marquer();
+	avance();
+	gauche();
+	avance();
+	marquer();
+	droite();
+	avance();
+	droite();
+	avance();
+	marquer();
+	gauche();
+	avance();
+	gauche();
+}
+def faireLigne()
+{
+for (i<- 1 to 9 ) 
+{
+	faireMotif();
+	avance(5);
+}
+}
+faireLigne();
 }
