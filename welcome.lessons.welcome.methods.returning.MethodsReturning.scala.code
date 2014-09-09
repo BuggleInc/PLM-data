@@ -1,13 +1,17 @@
 def haveBaggle():Boolean = {
 	var vuBiscuit:Boolean = false
-	if (estSurBiscuit()) { vuBiscuit = true; return}
+	if (estSurBiscuit()) { vuBiscuit = true; return vuBiscuit;
+	
+	}
 	else {
 		for (x <- 1 to 6) {
-		if (estSurBiscuit()) { vuBiscuit = true; return }
-		else { avance() }
-	}
-
-	}
+			avance();
+			if (estSurBiscuit()) { vuBiscuit = true};
+		};
+		for (x <- 1 to 6) {
+			recule()
+		};
+		return vuBiscuit;
 
 	
 }
