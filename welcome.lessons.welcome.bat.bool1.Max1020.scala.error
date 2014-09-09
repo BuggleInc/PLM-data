@@ -1,9 +1,9 @@
 max1020:3: error: not found: value &&
-		case a>=10 && a<=20 && b>=10 && b<=20 => return Math.max(a,b)
-                                             ^max1020:4: error: not found: value &&
-		case a>=10 && a<=20 && (b<10 || b>20) => return a
-                                    ^max1020:5: error: not found: value &&
-		case b>=10 && b<=20 && (a<10 || a>20) => return b
-                                    ^max1020:6: error: not found: value !
-		case !(a>=10 && a<=20 && b>=10 && b<=20) => return 0
-                     ^
+		case (a>=10 && a<=20 && b>=10 && b<=20) => return Math.max(a,b)
+                                              ^max1020:4: error: not found: value &&
+		case (a>=10 && a<=20 && (b<10 || b>20)) => return a
+                                     ^max1020:5: error: not found: value &&
+		case (b>=10 && b<=20 && (a<10 || a>20)) => return b
+                                     ^max1020:6: error: not found: value !
+		case (!(a>=10 && a<=20 && b>=10 && b<=20)) => return 0
+                      ^
