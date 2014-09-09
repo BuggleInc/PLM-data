@@ -3,6 +3,7 @@ def growFlowers() {
 }
 
 def marqueSol(c:Color) {
+	//colorier un carreau
 	setCouleurBrosse(c)
 	baisseBrosse()
 	leveBrosse()
@@ -10,9 +11,7 @@ def marqueSol(c:Color) {
 
 def faireS(c:Color) {
 	//colorier les deux carreaux (S)
-	setCouleurBrosse(c)
-	baisseBrosse()
-	leveBrosse()
+	marqueSol()
 	avance()
 	droite()
 	avance()
@@ -22,13 +21,13 @@ def faireS(c:Color) {
 }
 
 def flower(c:Color) {
-	//colorier les pétales, revenir à la position initiale
+	//colorier les fleurs
 	faireS(c)
 	gauche()
 	avance()
 	marqueSol(Color.YELLOW)
 	avance()
-	droite();
+	droite()
 	faireS(c)
 }
 
