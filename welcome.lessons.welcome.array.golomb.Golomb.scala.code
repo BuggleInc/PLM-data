@@ -1,7 +1,7 @@
 def golomb(num:Int): Int = {
 	var tab= new Array[Int](num); var k:Int=2
 	tab(0) = 1; tab(1) = 2; tab (2) = 3;
-	for (i<- 3 to ((num.length)-1)) {
+	for (i<- 3 to num-1) {
 		for (j<- 1 to tab(i)) {
 			if (k+j<tab.length) {
 				tab(k+j) = i;
@@ -9,5 +9,5 @@ def golomb(num:Int): Int = {
 		k = k+1;
 		}
 	}
-	return tab(tab.length-1);
+	return tab(num-1);
 }
