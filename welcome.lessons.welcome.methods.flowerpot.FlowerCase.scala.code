@@ -1,0 +1,79 @@
+def brosse(c:Color)
+{
+	setCouleurBrosse(c)
+	baisseBrosse(); leveBrosse()
+}
+
+def miniMotif(c:Color)
+{
+	brosse(c); avance(); brosse(Color.YELLOW); gauche(); avance(); brosse(c)
+	droite(); droite()
+}
+
+def faireUneFleur(c:Color)
+{
+	for(i <- 1 to 4)
+	{
+		miniMotif(c)
+	}
+}
+
+def autreFleur1()
+{
+	for(i <- 1 to 4)
+	{
+		avance()
+	}
+}
+
+def autreFleur2()
+{
+	recule(); recule()
+	droite();
+	avance(); avance()
+	gauche()
+}
+
+def fleureBleu()
+{
+	avance(); avance(); gauche(); avance(); avance(); droite()
+	faireUneFleur(Color.BLUE)
+	avance(); avance(); gauche(); avance(); avance(); droite()	
+}
+
+def grosMotif()
+{
+	faireUneFleur(Color.RED)
+	autreFleur1()
+	faireUneFleur(Color.CYAN)
+	autreFleur2()
+	faireUneFleur(Color.ORANGE)
+	autreFleur2()
+	faireUneFleur(Color.PINK)
+	autreFleur1()
+	faireUneFleur(Color.GREEN)
+}
+	
+def growFlowers()
+{
+	grosMotif()
+	fleureBleu()
+	grosMotif()
+
+	droite(); avance(); droite()
+	for(i <- 1 to 12)
+	{
+		avance()
+	}
+	gauche(); avance(); avance(); avance(); gauche()
+
+	grosMotif()
+	fleureBleu()
+	grosMotif()
+
+	for(i <- 1 to 4)
+	{
+		recule()
+	}
+}
+
