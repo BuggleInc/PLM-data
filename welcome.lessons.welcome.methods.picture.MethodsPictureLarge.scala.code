@@ -1,2 +1,55 @@
 override def run() {
+	def marqueSol() {
+		baisseBrosse();
+		leveBrosse();
+	}
+def faireV() {
+	marqueSol();
+	gauche();
+	avance();
+	droite();
+	avance();
+	marqueSol();
+	avance();
+	droite();
+	avance();
+	marqueSol();
+	gauche();
+	avance();
+	gauche();
+	avance(); //placé pour le V suivant
+}
+def faireMotif()  {
+	avance();
+	for (r <- 1 to 4) {
+		r match {
+			case 1 => setCouleurBrosse(Color.yellow);
+			case 2 => setCouleurBrosse(Color.red);
+			case 3 => setCouleurBrosse(Color.blue);
+			case 4 => setCouleurBrosse(Color.green);
+		}
+		faireV();
+	}
+}
+
+def faireLigne() {
+	for (t <- 1 to 3) {
+		faireMotif();
+		for (y <- 1 to 4) {
+			avance();
+			}
+	}
+	gauche();
+	for (e <- 1 to 5) {
+		avance();
+	}
+	droite();
+}
+
+def faireGMotif() {
+	for (a <- 1 to 3) {
+		faireLigne();
+	}
+}
+faireGMotif();
 }
