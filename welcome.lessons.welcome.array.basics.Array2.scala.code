@@ -1,4 +1,4 @@
-var T = new Array[java.awt.Color](getMondeHauteur())
+var T = new Array[Color](getMondeHauteur())
 
 def brosse(c:Color)
 	{
@@ -7,14 +7,14 @@ def brosse(c:Color)
 
 def colonne(decalage:Int)
 {
-	brosse(T(decalage%getMondeHauteur()))
+	brosse(T(decalage%T.lenght))
 	for(i <- 1 to T.lenght-1)
 	{
 		avance()
-		brosse(T(i+decalage%getMondeHauteur()))
+		brosse(T(i+decalage%T.lenght))
 	}
 
-	for(i <- 1 to getMondeHauteur()-1)
+	for(i <- 1 to T.lenght-1)
 	{
 		recule()
 	}
