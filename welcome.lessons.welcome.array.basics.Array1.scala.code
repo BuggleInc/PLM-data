@@ -8,7 +8,7 @@ override def run() {
 	recule();
 }
 def lireSequence(T:Array[Color]) {
-	for (i <- 0 to T.length) {
+	for (i <- 0 to T.length-1) {
 		T(i)=getCouleurSol();
 		avance();
 	}
@@ -20,7 +20,7 @@ def dessiner() {
 }
 def reproduireMotif (T:Array[Color], j:Int) {
 	for (i<- 0 to T.length-1) {
-			setCouleurBrosse(T((i+j) % (T.length-1)));
+			setCouleurBrosse(T((i-j) % (T.length-1)));
 			dessiner();
 			avance();
 	}
