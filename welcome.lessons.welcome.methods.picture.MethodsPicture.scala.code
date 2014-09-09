@@ -1,4 +1,17 @@
 override def run() {
+		// Variable Environnement
+		var nbLigne: Int = 3;
+		var nbColonne: Int = 3;
+		//Compteurs
+		var cpas: Int = 0;
+		var cl: Int = 0;
+
+		def courir(nbPas: Int){
+			for(cpas <- 1 nbPas){
+				avance();
+			}
+		}
+	
 		def faireV(c: Color){
 		setCouleurBrosse(c);
 		avance();
@@ -25,5 +38,11 @@ override def run() {
 			faireV(Color.GREEN);
 		}
 
-	faireMotif();
+		def faireLigne(){
+			for(cl <- 1 to nbColonne){
+				faireMotif();
+				courir(5);
+			}
+		}
+		
 }
