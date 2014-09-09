@@ -1,37 +1,44 @@
-def faireMarque(){
+def faireMarque()
+{
 	baisseBrosse();
 	leveBrosse();
 }
-def isFacingTrail():Boolean = {
+def isFacingTrail():Boolean = 
+{
 var color:Boolean= false;
-if (!estFaceMur()){
+if (!estFaceMur())
+{
 	avance();
 	
-    if(getCouleurSol==Color.pink || getCouleurSol==Color.orange){
+if(getCouleurSol==Color.pink || getCouleurSol==Color.orange)
+	{
     color = true 	;
     
-    }
+     }
    recule();
 }
 	
 return color     
 }
-def hunt(){
+def hunt()
+{
 	while(!estSurBiscuit()){
-if (isFacingTrail()){
+if (isFacingTrail())
+{
 	faireMarque();
 	avance();
-	}
+}
 
 else {gauche();
 }
 
     
 }
-if(estSurBiscuit()){
+if(estSurBiscuit())
+{
 	prendBiscuit();
 	faireMarque();
-	}
+}
 }
 	
 
