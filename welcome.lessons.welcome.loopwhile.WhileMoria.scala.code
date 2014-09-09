@@ -1,20 +1,19 @@
 right(); right(); // heading east
 
 while(!isFacingWall()) {
-	while(!isOverBaggle() || !isFacingWall()) {
+	while(!isOverBaggle() && !isFacingWall()) {
 		forward();
 	}
 	if(!isFacingWall()) {
-		break;
-	}
-	pickupBaggle();
-	backward();
-	while(!isOverBaggle()) {
+		pickupBaggle();
 		backward();
+		while(!isOverBaggle()) {
+			backward();
+		}
+		forward(); // to be next to right of left block of buggle
+		dropBaggle();
+		forward(); // to leave the buggle square
 	}
-	forward(); // to be next to right of left block of buggle
-	dropBaggle();
-	forward(); // to leave the buggle square
 }
 
 right();
