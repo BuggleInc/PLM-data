@@ -1,0 +1,50 @@
+def quadrille() {
+	avance
+	baisseBrosse
+	leveBrosse
+}
+def gogogo(cases:Int) {
+	for (nb <- 1 to cases)
+	avance
+}
+def oneFlower(c:Color) {
+	setCouleurBrosse(Color.YELLOW)
+	quadrille
+	setCouleurBrosse(c)
+	quadrille
+	gauche
+	for (nb <- 1 to 3) {
+		avance
+		gauche
+		quadrille
+	}
+}
+def growFlowers() {
+	oneFlower(Color.RED)
+	avance
+	droite
+	avance
+	gauche
+	oneFlower(Color.ORANGE)
+	avance
+	droite
+	avance
+	gauche
+	oneFlower(Color.GREEN)
+	gauche
+	gogogo(5)
+	gauche
+	avance
+	retourne
+	oneFlower(Color.CYAN)
+	droite
+	gogogo(3)
+	droite
+	gogogo(5)
+	retourne
+	oneFlower(Color.PINK)
+	recule
+	gauche
+	avance
+	droite
+}
