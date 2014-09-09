@@ -1,2 +1,30 @@
 override def run() {
+
+	var cpt:Int = 0;
+	var x:Int = 0;
+	var y:Int = 0;
+
+	while (!positionFinale)
+	{
+		ecritMessage(cpt);
+		if (x < 6)
+		{
+			x = x + 1;
+			cpt = cpt + 1;
+		}
+		else
+		{
+			x = 0;
+			y = y + 1;
+			cpt = cpt + 1;
+		}
+		setPos(x, y);
+	}
+
+	ecritMessage(cpt);
+}
+
+def positionFinale():Boolean = 
+{
+	return (getX() == getMondeLargeur() - 1) && (getY() == getMondeHauteur() - 1);
 }
