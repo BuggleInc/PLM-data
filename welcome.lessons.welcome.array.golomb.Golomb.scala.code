@@ -1,11 +1,9 @@
 def golomb(num:Int): Int = {
-	var tab = new Array[Int] 
-	var b=0
-	var c=0
-	for (i<- 0 to nums.length-1){
-		if (Math.abs(c-1-nums(i))<3  && b==c+5)  return true
-		c = b
-		b = nums(i)
+	var dim = 0
+	var ind = 0
+	while (dim < num+1){
+		dim = ind + dim
+		ind = ind+1
 	}
-	return false
+	return ind
 }
