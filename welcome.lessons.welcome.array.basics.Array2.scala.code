@@ -1,7 +1,7 @@
 override def run() {
 	
 	var T=new Array[Color](getMondeHauteur)
-	
+	var message:String=""
 	def aquisitionColonne(){
 		for(i<-0 to getMondeHauteur()-1){
 			 T(i)=getCouleurSol()
@@ -19,8 +19,9 @@ override def run() {
 	
 	aquisitionColonne
 	retour
+	message=litMessage
 	for(i<-0 to getMondeHauteur()-1){
-		setCouleurBrosse(T(i+(litMessage().toInt)))
+		setCouleurBrosse(T(i+(message.toInt)))
 		baisseBrosse
 		leveBrosse
 		if(!estFaceMur){
