@@ -1,2 +1,54 @@
 override def run() {
+	var hauteur: Int = getMondeHauteur();
+	var largeur: Int = getMondeLargeur();
+	var res = new Array[Color] (hauteur);
+
+	def lireColonne(){
+		var n: Int = 0;
+		for(n <- 1 to hauteur){
+			res(n-1) = getCouleurSol();
+			avance();
+		}
+		retourne();
+		courir(hauteur - 1);
+		droite();
+		avance();
+		droite();
+	}
+
+	def courir(nbPas: Int){
+		var n: Int = 0;
+		for(n <- 1 to nbPas){
+			avance();
+		}
+	}
+	
+	def faireColonne(){
+		var n: Int = 0;
+		for(n<- 1 to hauteur){
+			setCouleurBrosse(res(n-1));
+			baisseBrosse();
+			leveBrosse();
+			avance()
+		}
+	}
+
+	def faireParcour(){
+		var n:Int = 0;
+		lireColonne();
+		for(n <- 1 to largeur -1){
+			faireColonne;
+			avance();
+			gauche();
+			avance();
+			droite();
+		}
+		
+		
+	}
+	faireParcour();
+	courir(hauteur - 1);
+	gauche();
+	courir(largeur - 1);
+	droite();
 }
