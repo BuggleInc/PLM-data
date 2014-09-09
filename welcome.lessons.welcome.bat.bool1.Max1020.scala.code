@@ -1,4 +1,15 @@
 def max1020(a:Int, b:Int):Int = {
 
-	
+	(appartient(a, 10, 20), appartient(b, 10, 20)) match
+	{
+		(false, false) => return 0;
+		(false, true) => return b;	
+		(true, false) => return a;
+		(true, true) => return Math.max(a, b);
+	}
+}
+
+def appartient(a:Int, x:Int, y:Int):Boolean = 
+{
+	return (a >= x) && (a <= y);
 }
