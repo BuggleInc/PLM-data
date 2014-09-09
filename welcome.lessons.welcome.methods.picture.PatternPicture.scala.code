@@ -7,7 +7,6 @@ override def run() {
 		var cl: Int = 0;
 		var cc: Int = 0;
 		var cour: Int = 0;
-		var etat: Int = 1;
 
 		def courir(nbPas: Int){
 			for(cpas <- 1 to nbPas){
@@ -54,14 +53,18 @@ override def run() {
 		def faireColonne(){
 				for(cc <- 1 to nbColonne){
 					faireLigne();
-					if(etat =! nbColonne()){
+					retourne();
+					courir(7);
+					
+					if(cc == nbColonne){
 						retourne();
-						courir(7);
+						courir(4);
+					}
+					else{
 						droite();
 						courir(4);
 						droite();
-						etat = etat + 1;
-				}
+					}
 			}
 		}
 
