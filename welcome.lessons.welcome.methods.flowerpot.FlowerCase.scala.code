@@ -1,3 +1,19 @@
+faireJardiniere();
+
+def faireFleur(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	avance(2);
+	recule();
+	gauche();
+	avance();
+	recule(2);
+	avance();
+	setCouleurBrosse(Color.yellow);
+	leveBrosse();
+	droite();
+}
+
 def growFlowers() {
 	faireFleur(Color.red);
 	avance(3);
@@ -17,16 +33,27 @@ def growFlowers() {
 	recule(5);
 }
 
-def faireFleur(c:Color) {
-	setCouleurBrosse(c);
-	baisseBrosse();
-	avance(2);
-	recule();
+def faireDemiJardiniere() {
+	growFlowers();
+	avance(6);
 	gauche();
-	avance();
-	recule(2);
-	avance();
-	setCouleurBrosse(Color.yellow);
-	leveBrosse();
+	avance(2);
 	droite();
+	faireFleur(Color.blue);
+	avance();
+	gauche();
+	avance(2);
+	droite();
+}
+
+def faireJardiniere() {
+	faireDemiJardiniere()
+	droite();
+	avance();
+	droite();
+	avance(8):
+	gauche();
+	avance(3);
+	gauche();
+	faireDemiJardiniere()
 }
