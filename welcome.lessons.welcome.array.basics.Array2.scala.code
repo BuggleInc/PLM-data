@@ -1,15 +1,9 @@
-override def run() 
-{
-	var T = new Array[Color](getMondeHauteur())
-	var bouge: Color = null
-	var decalage = 0
-	
-	def brosse(c:Color)
+def brosse(c:Color)
 	{
 		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
 	}
 
-	def colonne(Int decalage)
+	def colonne(decalage:Int)
 	{
 		brosse(T(decalage%T.lenght))
 		for(i <- 1 to T.length-1)
@@ -22,8 +16,14 @@ override def run()
 			recule()
 		}
 	}
+	
+override def run() 
+{
+	var T = new Array[Color](getMondeHauteur())
+	var bouge: Color = null
+	var decalage = 0
 
-	T(0) = getCouleurSol();		//Prend les couleurs
+	T(0) = getCouleurSol()		//Prend les couleurs
 	for(i <- 1 to T.length-1)
 	{
 		avance()
