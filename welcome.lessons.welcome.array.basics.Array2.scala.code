@@ -22,12 +22,15 @@ def dessiner() {
 	leveBrosse();
 }
 def reproduireMotif (T:Array[Color], v:Int) {
-	for (i<- 0 to T.length-1) {
+	var u:Int = (v % (T.length))
+			setCouleurBrosse(T(u));
+	for (i<- 1 to T.length-1) {
 			var u:Int = ((i+v) % (T.length))
 			setCouleurBrosse(T(u));
 			dessiner();
 			avance();
 	}
+	recule(getMondeHauteur()-1);
 }
 def decalle() {
 	gauche(); avance(); droite();
