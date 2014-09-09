@@ -1,2 +1,14 @@
-override def run() {
+def marqueSol(c: Color) {
+	setCouleurBrosse(c);baisseBrosse();leveBrosse();
+}
+
+def faireV(c: Color) {
+	avance(); marqueSol(c);
+	avance(); gauche(); avance(); marqueSol(c);
+	droite(); avance(); droite(); avance(); marqueSol(c);
+	gauche(); avance(); gauche();
+}
+
+override def run() { 
+	for (x <- 1 to 4) {faireV()}
 }
