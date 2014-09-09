@@ -1,13 +1,15 @@
-def faireV() {
+def faireV(c:Color) {
+	setCouleurBrosse(c)
 	avance(); baisseBrosse(); leveBrosse()
 	avance(); gauche(); avance(); baisseBrosse(); leveBrosse()
 	recule(); droite(); avance(); baisseBrosse(); leveBrosse()
 	avance(); gauche()
 }
 def faireMotif() { 
-	for (x <- 1 to 4) {
-		faireV()
-	}
+	faireV(Color.yellow)
+	faireV(Color.red)
+	faireV(Color.blue)
+	faireV(Color.green)
 	for (y <- 1 to 5) { 
 		avance()
 	}
