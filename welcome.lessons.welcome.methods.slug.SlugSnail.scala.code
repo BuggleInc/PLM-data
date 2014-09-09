@@ -1,31 +1,11 @@
-def faireMarque(){
-	baisseBrosse();
-	leveBrosse();
-}
-def hunt() {
-while(!estSurBiscuit()){
-if (isFacingTrail()){
-	faireMarque();
-	avance();
-	}
-
-else {gauche();
-}
-
-    // Write your code here
-}
-if(estSurBiscuit()){
-	prendBiscuit();
-	faireMarque();
-	}
-
-
+def hunt(){
+	
 def isFacingTrail():Boolean = {
 var color:Boolean= false;
 if (!estFaceMur()){
 	avance();
 	
-    if(getCouleurSol==Color.pink){
+    if(getCouleurSol==Color.pink || getCouleurSol==Color.orange){
     color = true 	
     
     }
@@ -34,3 +14,4 @@ if (!estFaceMur()){
 	
 return color
 }        
+}
