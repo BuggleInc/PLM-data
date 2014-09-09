@@ -4,6 +4,7 @@ def growFlowers(){
 }
 
 def growFlower(c: Color){
+	var n: Int = 0;
 	setCouleurBrosse(c);
 	baisseBrosse();
 	leveBrosse();
@@ -24,7 +25,13 @@ def growFlower(c: Color){
 	recule();
 	baisseBrosse();
 	leveBrosse();
-	courir(4);
+	avance();
+	gauche();
+	for(n <- 1 to 3){
+		if(!estFaceMur){
+			avance();
+		}
+	}
 }
 
 def courir(nbPas: Int){
