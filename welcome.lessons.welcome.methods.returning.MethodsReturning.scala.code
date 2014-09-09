@@ -1,16 +1,20 @@
 def haveBaggle():Boolean = {
+	var cp:Int=0;
 	for (c <- 0 to 6)
 	{
 		avance();
-	}
-	if (estSurBiscuit() == true)
+		cp=cp+1;
+		
+	if (estSurBiscuit == true)
 	{
-		return
+		for (j <- 1 to cp)
+		{
+			recule();
+		}
+		}
+		return;
+	
 	}
-	else 
-	{
-		droite();
-		avance();
-		gauche();
-	}
+
 }
+
