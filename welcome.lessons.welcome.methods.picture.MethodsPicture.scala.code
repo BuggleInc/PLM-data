@@ -5,6 +5,7 @@ override def run() {
 		//Compteurs
 		var cpas: Int = 0;
 		var cl: Int = 0;
+		var cc: Int = 0;
 
 		def courir(nbPas: Int){
 			for(cpas <- 1 nbPas){
@@ -45,5 +46,14 @@ override def run() {
 			}
 		}
 
-		faireLigne();
+		def faireColonne(){
+			for(cc <- 1 to nbColonne){
+				faireLigne();
+				gauche();
+				courir(5);
+				droite();
+			}
+		
+		}
+
 }
