@@ -1,21 +1,22 @@
 var x:Int=0;
 
 do {
-	if (estSurBiscuit()) {
-		x= x+1;
+
+
+	while (croisement()== false) {
+
+		if (estSurBiscuit()) {
+			x= x+1;
+			avance();
+		}
+	}
+	if (x>= 5) {
+		gauche();
 		avance();
 	}
-
-	while (croisement()== true) {
-		
-		if (x>= 5) {
-			gauche();
-			avance();
-		}
-		else if (x<=2) {
-			droite();
-			avance();
-		}
+	else if (x<=2) {
+		droite();
+		avance();
 	}
 	
 } while(sortieTrouvee== false)
