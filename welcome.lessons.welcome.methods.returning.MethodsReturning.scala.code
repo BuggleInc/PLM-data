@@ -1,16 +1,29 @@
 def haveBaggle():Boolean = {
-do{
-	continu();
-	if(estSurBiscuit()){recule(6);return true;
-	}else{droite();avance();gauche();return false;}}while(!vuBiscuit())}
-
-def continu(){var x = 0;do{avance();x = x + 1;}while(!estSurBiscuit() && x != 6)}//avance dans la colonne(testé)
-
+	while(!estSurBisuit){
+		continu();
+		if(vuBiscuit()){
+			recule(6);
+		}else{
+			droite();avance();gauche();
+		}
+		
+	}
+}
 
 def vuBiscuit():Boolean = {
-	if(estSurBiscuit()){
+	if(estsurBiscuit()){
 		return true;
-    }else{
-	return false;
-	}
-	}//fonction vuBiscuit
+		}else{
+		return false;
+		}
+}
+
+
+
+def continu(){
+	var x = 0;
+	do{
+		avance();
+		x = x + 1;
+	}while(x != 6)}//avance dans la colonne(testé)
+
