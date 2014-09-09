@@ -1,0 +1,38 @@
+override def run() {
+
+	baisseBrosse();
+	avancex();
+
+	while(!estSurFinal)
+	{
+		avancex();
+		droite();
+		avance();
+		droite();
+		avancex();
+	} 
+
+}
+
+def avancex()
+{
+	while (!estFaceMur)
+		avance();
+}
+
+def estSurFinal():Boolean =
+{
+	gauche();
+	if (estFaceMur)
+	{
+		droite();
+		return true;
+	}
+	else 
+	{
+		avance();
+		gauche();
+	}
+}
+
+
