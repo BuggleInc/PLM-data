@@ -1,0 +1,66 @@
+def marqueSol(c: Color) {
+	setCouleurBrosse(c);baisseBrosse();leveBrosse();
+}
+
+def fleur(c: Color) {
+	marqueSol(c);
+	avance();
+	marqueSol(Color.yellow);
+	droite();
+	avance();
+	marqueSol(c);
+	recule();
+	recule();
+	marqueSol(c);
+	avance();
+	gauche();
+	avance();
+	marqueSol(c);
+	for (i <- 1 to 2) {recule()};
+}
+
+def growFlowers() {
+	fleur(Color.red);
+	for (i <- 1 to 4) {avance()};
+	fleur(Color.cyan);
+	droite();
+	for (i <- 1 to 4) {avance()};
+	gauche();
+	fleur(Color.green);
+	for (i <- 1 to 2) {recule()};
+	gauche();
+	for (i <- 1 to 2) {avance()};
+	droite();
+	fleur(Color.orange);
+	for (i <- 1 to 2) {recule()};
+	droite();
+	for (i <- 1 to 2) {avance()};
+	gauche();
+	fleur(Color.pink);
+}
+
+def jardiniere() {
+	growFlowers();
+	gauche();
+	for (i <- 1 to 2) {avance()};
+	droite();
+	for (i <- 1 to 6) {avance()};
+	fleur(Color.blue);
+	for (i <- 1 to 2) {avance()};
+	gauche();
+	for (i <- 1 to 2) {avance()};
+	droite();
+	growFlowers()
+}
+
+def grandjardin() {
+	jardniere();
+	droite();
+	avance();
+	droite();
+	for (i <- 1 to 8) {avance()};
+	gauche();
+	for (i <- 1 to 3) {avance()};
+	gauche();
+	jardiniere();
+}
