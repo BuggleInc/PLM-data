@@ -1,0 +1,32 @@
+def growFlowers() {
+ var j = Color.YELLOW
+ var r = Color.RED
+ var c = Color.CYAN
+ var g = Color.GREEN
+ var p = Color.PINK
+ var o = Color.ORANGE
+pistil(j)
+avance();droite()
+fleur(o)
+avance(2); retourne();fleur(g)
+avance(4); fleur(c)
+gauche(); avance(2);gauche(); fleur(r)
+avance(4); fleur(p)
+gauche();recule(2)
+}
+ def carre(c:Color) {
+	for (i <- 1 to 3)
+	 {avance(4);setCouleurBrosse(c);baisseBrosse();leveBrosse();droite()}
+}
+ def pistil(c:Color) {
+	avance()
+	setCouleurBrosse(c);baisseBrosse();leveBrosse()
+	carre(c)
+	avance(2); droite();avance(2)
+	baisseBrosse;leveBrosse 	
+ }
+  def fleur(c:Color) {
+  	for (i <- 1 to 4)
+  	 {setCouleurBrosse(c);baisseBrosse();leveBrosse()
+  	 	avance();droite();avance()}
+  }
