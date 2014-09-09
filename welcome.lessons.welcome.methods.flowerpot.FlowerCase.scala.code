@@ -1,0 +1,79 @@
+def growFlowers() {
+	flower(Color.RED)
+	sePlacer()
+	flower(Color.PINK)
+	monter()
+	flower(Color.ORANGE)
+	monter()
+	flower(Color.CYAN)
+	seReplacer()
+	flower(Color.GREEN)
+	retour()
+}
+
+def marqueSol(c:Color) {
+	//colorier un carreau
+	setCouleurBrosse(c)
+	baisseBrosse()
+	leveBrosse()
+}
+
+def faireS(c:Color) {
+	//colorier les deux carreaux (S)
+	marqueSol(c)
+	avance()
+	droite()
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	gauche()
+}
+
+def flower(c:Color) {
+	//colorier les fleurs
+	faireS(c)
+	gauche()
+	avance()
+	marqueSol(Color.YELLOW)
+	avance()
+	droite()
+	faireS(c)
+}
+
+def sePlacer() {
+	droite()
+	while (!estFaceMur) {
+		avance()
+	}
+	droite()
+	avance();avance()
+	droite()
+	avance()
+	droite()
+}
+
+def monter() {
+	gauche()
+	avance();avance()
+	droite()
+}	
+
+def seReplacer() {
+	droite()
+	while (!estFaceMur) {
+		avance()
+	}
+	droite()
+	avance();avance()
+	droite()
+	avance()
+	droite()
+}
+
+def retour() {
+	droite();droite()
+	while (!estFaceMur) {
+		avance()
+	}
+	droite();droite()
+}
