@@ -22,12 +22,18 @@ def isFacingTrail():Boolean = {
 }       
 
 def hunt() {
-	for(i<- 1 to 30)
+	var finit = false
+	while(finit == false)
 	{
      if(isFacingTrail() == true)
 	{
 	baisseBrosse()
 	avance()
+	if(estSurBiscuit())
+	{
+	prendBiscuit()
+	finit = true
+	}
 	}
 	}
 }
