@@ -1,3 +1,5 @@
+var again = 0
+
 override def run() 
 {
 	def brosse(c:Color)
@@ -19,10 +21,18 @@ override def run()
 			faireV(Color.BLUE)
 			faireV(Color.GREEN)
 			faireV(Color.YELLOW)
-			for(i <- 1 to 4)
+			if(again == 0)
 			{
-				avance()
-			}
+				for(i <- 1 to 4)
+				{
+					avance()
+				}
+				again = 1
+			}			
+		}
+		for(j <- 1 to 4)
+		{
+			recule()
 		}
 		gauche()
 		for(j <- 1 to 4)
