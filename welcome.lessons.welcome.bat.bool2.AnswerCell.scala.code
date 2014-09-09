@@ -1,9 +1,9 @@
 def answerCell(isMorning:Boolean, isMom:Boolean, isAsleep:Boolean):Boolean = {
 	(isMorning,isMom,isAsleep) match {
-		false,_,false		=> true
-		false,_,true		=> false
-		true,true,false 	=> true
-		true,false,_		=> false
-		_,_,_			=> false
+		case (false,_,false)	=> true
+		case (false,_,true)		=> false
+		case (true,true,false) 	=> true
+		case (true,false,_)		=> false
+		case (_,_,_)			=> false
 	}
 }
