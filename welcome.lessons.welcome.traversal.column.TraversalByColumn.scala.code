@@ -3,11 +3,11 @@ override def run() {
 	var cpt:Int = 0;
 	var x:Int = 0;
 	var y:Int = 0;
-	setPos(3, 2);
-	while (positionFinale)
+
+	while (!positionFinale)
 	{
 		ecritMessage(cpt);
-		calculPos(x, y);
+		calculPos(x, y, cpt);
 		setPos(x, y);
 	}
 }
@@ -17,7 +17,17 @@ def positionFinale():Boolean =
 	return (getX() == getMondeLargeur()) && (getY() == getMondeHauteur());
 }
 
-def calculPos(x:Int, y:Int)
+def calculPos(x:Int, y:Int, cpt:Int)
 {
-	
+	if (y < 6)
+	{
+		y = y + 1;
+		cpt = cpt + 1;
+	}
+	else
+	{
+		y = 0;
+		x = x + 1;
+		cpt = cpt + 1;
+	}
 }
