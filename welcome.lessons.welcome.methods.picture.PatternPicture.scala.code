@@ -1,0 +1,51 @@
+override def run() {
+def marqueSol() {
+	baisseBrose();
+	leveBrosse();
+}
+def faireCarre() {
+	avance();
+	setCouleurBrosse(Color.red);
+	marqueSol();
+	avance();
+	setCouleurBrosse(Color.blue);
+	marqueSol();
+	avance();
+	gauche();
+	avance();
+	marqueSol()
+	avance();
+	setCouleurBrosse(Color.green);
+	marqueSol();
+	gauche();
+	avance();
+	marqueSol();
+	avance();
+	setCouleurBrosse(Color.yellow);
+	marqueSol();
+	avance();
+	gauche();
+	avance();
+	marqueSol()
+	avance();
+	setCouleurBrosse(Color.red);
+	marqueSol();
+	avance();
+	gauche();//repositionné au départ
+}
+def faireLigne() {
+for (c <- 1 to 2) {
+	faireCarre();
+	for (t <- 1 to 4) {
+		avance();
+	}
+}
+}
+
+def faireMotif() {
+	faireLigne();
+	faireLigne();
+}
+
+faireMotif();
+}
