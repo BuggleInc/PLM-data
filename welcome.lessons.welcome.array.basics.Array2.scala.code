@@ -20,8 +20,8 @@ override def run() {
 	aquisitionColonne
 	retour
 	message=litMessage
-	for(i<-0 to getMondeHauteur()){
-		setCouleurBrosse(T(i+(message.toInt)))
+	for(i<-0 to getMondeHauteur()-1){
+		setCouleurBrosse(T((i+(message.toInt))%getMondeHauteur))
 		baisseBrosse
 		leveBrosse
 		if(!estFaceMur){
