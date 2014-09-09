@@ -2,12 +2,12 @@ def golomb(num:Int): Int = {
 	if (num>=3) {
 		var tab= new Array[Int](num); var k:Int=2
 		tab(0) = 1; tab(1) = 2; tab (2) = 2;
-		for (i<- 3 to num-1) {
+		for (i<- 2 to num-1) {
 			for (j<- 1 to tab(i)) {
 				if (k+j<=num-1) {
 					tab(k+j) = i;
 				}
-			k = k+1;
+			
 			}
 		}
 		return tab(num-1);
