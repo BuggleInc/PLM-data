@@ -1,0 +1,10 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class parotTrouble extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( parotTrouble( t.getParameter(0).asInstanceOf[Boolean], t.getParameter(1).asInstanceOf[Int]) )
+   }
+def parotTrouble(talking:Boolean, hour:Int):Boolean = {
+  return (talking && (hour<7||hour>20))
+} }
