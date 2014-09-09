@@ -1,2 +1,59 @@
 override def run() {
+override def run() {
+     //Faire V d'une couleur
+var i = 0
+def faireV(c: Color) {
+
+setCouleurBrosse(c)
+avance()
+baisseBrosse()
+gauche()
+leveBrosse()
+avance()
+droite()
+avance()
+baisseBrosse()
+leveBrosse()
+avance()
+droite()
+avance()
+baisseBrosse()
+leveBrosse()
+gauche()
+avance()
+gauche()
+
+}          
+
+
+def motif() {              // 1 motif avec les 4 couleurs
+faireV(Color.YELLOW)
+faireV(Color.RED)
+faireV(Color.BLUE)
+faireV(Color.GREEN)
+avance()
+avance()
+avance()
+avance()
+avance()
+}
+
+
+
+def ligne() {           // 1 ligne de 3 motifs
+motif()
+motif()
+motif()
+gauche()
+avance();avance();avance();avance();avance();
+droite()
+}
+
+def grille() {
+ligne()                // Les 3 lignes 
+ligne()
+ligne()
+}
+
+grille()
 }
