@@ -13,48 +13,33 @@ def pot () {
 fleur(Color.red)
 for (a <- 1 to 4){avance()}
 fleur(Color.cyan)
-
 droite()
 for (b <- 1 to 2){avance()}
 gauche()
 for (d <- 1 to 2){recule()}
 fleur(Color.orange)
-
 droite()
 for (b <- 1 to 2){avance()}
 gauche()
 for (d <- 1 to 2){avance()}
 fleur(Color.green)
-
 for( l<- 1 to 4){recule()}
 fleur(Color.pink)	
-	}	
+}	
+
+def plan() {
+	pot()
+for (a<- 1 to 6){avance()}
+gauche(); avance();avance();droite()
+fleur(Color.blue)
+avance();avance();gauche();avance();avance();droite()
+pot()
+droite();avance();droite()
+}
 
 def growFlowers(){
-pot()
-
-for (a<- 1 to 6){avance()}
-gauche(); avance();avance();droite()
-fleur(Color.blue)
-
-avance();avance();gauche();avance();avance();droite()
-
-
-pot()
-
-droite();avance();droite()
+plan()
 for (i<- 1 to 8){avance()}
 gauche();for (a<- 1 to 3){avance()};gauche()
-
-
-pot()
-
-for (a<- 1 to 6){avance()}
-gauche(); avance();avance();droite()
-fleur(Color.blue)
-
-avance();avance();gauche();avance();avance();droite()
-
-
-pot
+plan()
 }
