@@ -1,30 +1,28 @@
-
-
-def brosse(c:Color)
-	{
-		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
-	}
-
-/*def colonne(decalage:Int)
-{
-	brosse(T(decalage%T.lenght))
-	for(i <- 1 to getWorldHeight()-1 )
-	{
-		avance()
-		brosse(T(i+decalage%T.lenght))
-	}
-
-	for(i <- 1 to T.lenght-1)
-	{
-		recule()
-	}
-}*/
-
 override def run() 
 {
 	var T = new Array[Color](getMondeHauteur())
 	var bouge: Color = null
 	var decalage = 0
+
+	def brosse(c:Color)
+	{
+		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
+	}
+
+	def colonne(decalage:Int)
+	{
+		brosse(T(decalage%T.lenght))
+		for(i <- 1 to getWorldHeight()-1 )
+		{
+			avance()
+			brosse(T(i+decalage%T.lenght))
+		}
+	
+		for(i <- 1 to T.lenght-1)
+		{
+			recule()
+		}
+	}
 
 	T(0) = getCouleurSol()		//Prend les couleurs
 	for(i <- 1 to T.length-1)
