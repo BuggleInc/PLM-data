@@ -1,6 +1,19 @@
- def hunt(c:Color) {
-     // Write your code here
- }
+def hunt() {
+	while(estSurBiscuit == false) {
+		isFacingTrail();
+		if (isFacingTrail() == true) {
+    		baisseBrosse();
+    		avance();
+    		leveBrosse();
+    		} else {
+    			gauche();
+    			if (isFacingTrail == false) {
+    				droite();droite();
+    			}
+    		}
+	}
+	prendBiscuit();
+}
  
 def isFacingTrail():Boolean = {
 	var couleur : String = "non"
