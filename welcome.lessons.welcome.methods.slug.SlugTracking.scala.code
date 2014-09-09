@@ -1,10 +1,14 @@
 def isFacingTrail():Boolean = {
-
+var couleur=false
 if (!estFaceMur){avance;
 getCouleurSol();
+match{
+	case Color.green => couleur=true
+	case _ => couleur=false
+}
 recule();
+return couleur;
+}
 
-}else{recule;}
-if (getCouleurSol()==Color.green){return true;}else{return false;}
 }
        
