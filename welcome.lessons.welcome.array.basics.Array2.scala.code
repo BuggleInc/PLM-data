@@ -4,26 +4,6 @@ override def run()
 	var bouge: Color = null
 	var decalage = 0
 
-	def brosse(c:Color)
-	{
-		setCouleurBrosse(c); baisseBrosse(); leveBrosse()
-	}
-
-	def colonne(decalage:Int)
-	{
-		brosse(T(decalage%getWorldHeight()))
-		for(i <- 1 to getWorldHeight()-1 )
-		{
-			avance()
-			brosse(T((i+decalage)%getWorldHeight()))
-		}
-	
-		for(i <- 1 to getWorldHeight()-1)
-		{
-			recule()
-		}
-	}
-
 	T(0) = getCouleurSol()		//Prend les couleurs
 	for(i <- 1 to getWorldHeight()-1)
 	{
@@ -40,6 +20,26 @@ override def run()
 		gauche(); avance(); droite()
 		decalage = litMessage().toInt
 		colonne(decalage)
+	}
+}
+
+def brosse(c:Color)
+{
+	setCouleurBrosse(c); baisseBrosse(); leveBrosse()
+}
+
+def colonne(decalage:Int)
+{
+	brosse(T(decalage%getWorldHeight()))
+	for(i <- 1 to getWorldHeight()-1 )
+	{
+		avance()
+		brosse(T((i+decalage)%getWorldHeight()))
+	}
+
+	for(i <- 1 to getWorldHeight()-1)
+	{
+		recule()
 	}
 }
 
