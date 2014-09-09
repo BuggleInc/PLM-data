@@ -6,7 +6,7 @@ override def run() {
 		avance()
 		T(i)=getCouleurSol
 	}
-	for (i<-1 to getMondeHauteur-1) recule()
+	for (i<-1 to getMondeHauteur-1) recule() //retour case initiale
 	
 //Couleurs mises en mémoire
 
@@ -16,12 +16,18 @@ override def run() {
 		droite()
 		val decalage = litMessage().toInt
 		var U=new Array[Color](getMondeHauteur)
-		for(j<-0 to getMondeHauteur-1) {
-			U(j)=T(j+decalage%getMondeHauteur)
+		for(j<-0 to getMondeHauteur-1) U(j)=T(j+decalage%getMondeHauteur)
+		setCouleurBrosse(U(0))
+		baisseBrosse()
+		leveBrosse()
+		for(j<-1 to getMondeHauteur-2) {
+			setCouleurBrosse(U(j))
+			baisseBrosse()
+			leveBrosse()
+			avance() // Colonne peinte
 		}
-		
+		for (j<-1 to getMondeHauteur-1) recule() //retour case initiale
 	}
-
 
 
 }
