@@ -1,9 +1,7 @@
 def hunt(c: Color) {
 	while (!porteBiscuit) {
-		isFacingTrail(c) match{
-			case true => {avance;baisseBrosse;leveBrosse;}
-			case false => gauche;
-		}
+		if(isFacingTrail(c)) {avance;baisseBrosse;leveBrosse;}
+		else gauche;
 	if (estSurBiscuit) prendBiscuit;
 	}
 }
