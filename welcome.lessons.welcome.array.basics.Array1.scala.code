@@ -1,0 +1,38 @@
+override def run() {
+
+	var longueur:Int = getMondeHauteur();
+	var tab = new Array[Color](longueur);
+
+	for (j <- 1 to (longueur - 1))
+	{
+		droite();
+		avance();
+		gauche();
+		ligne(tab);
+	}
+}
+
+def dessiner(c:Color)
+{
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+def copie(tab:Array[Color])
+{
+	for (i <- 1 to getMondehauteur())
+	{
+		tab(i - 1) = getCouleurSol();
+		avance();
+	}
+}
+
+def ligne(tab:Array[Color])
+{
+	for (i <- 1 to getMondehauteur)
+	{
+		dessiner(tab(i - 1));
+		avance();
+	}
+}
