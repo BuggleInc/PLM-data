@@ -1,3 +1,22 @@
 def isFacingTrail():Boolean = {
-    // Write your code here
+   if (estFaceMur()) { return false;
+
+   }
 }        
+def haveBaggle():Boolean = {
+	var vuBiscuit:Boolean = false
+	if (estSurBiscuit()) { vuBiscuit = true; return vuBiscuit;
+	
+	}
+	else {
+		for (x <- 1 to 6) {
+			avance();
+			if (estSurBiscuit()) { vuBiscuit = true};
+		};
+		for (x <- 1 to 6) {
+			recule()
+		};
+		return vuBiscuit;
+
+	}
+}
