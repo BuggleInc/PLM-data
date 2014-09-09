@@ -1,0 +1,23 @@
+def noTriples(nums:Array[Int]): Boolean = {
+
+	var bool:Boolean = false;
+	var simple:Int = nums(0);
+	var double:Int = -1;
+
+	for (i <- 1 to nums.length - 1)
+	{
+		if (nums(i) == simple)
+		{
+			if (double != simple)
+				double = simple;
+			else bool = true;
+		}
+		else
+		{
+			simple = nums(i);
+			double = -1;
+		}
+	}
+
+	return bool;
+}
