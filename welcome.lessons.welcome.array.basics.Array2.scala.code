@@ -32,7 +32,7 @@ def copie(tab:Array[Color])
 	for (i <- 1 to getMondeHauteur())
 	{
 		tab(i - 1) = getCouleurSol();
-		if (!estFaceMur) avance();
+		if (!estFaceMur()) avance();
 	}
 
 	reculex(getMondeHauteur - 1);
@@ -43,7 +43,7 @@ def ligne(tab:Array[Color], num:Int)
 	for (i <- 1 to getMondeHauteur)
 	{
 		dessiner(tab(((i - 1) + num) % (getMondeHauteur - 1)));
-		if (!estfaceMur) avance();
+		if (!estfaceMur()) avance();
 	}
 
 	reculex(getMondeHauteur - 1);
