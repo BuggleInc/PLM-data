@@ -16,14 +16,16 @@ gauche();avance();droite()}
 
 replacement()
 
-def ligne() {
-	gauche();avance();droite();avance() //repositionnement
+def ligne(decalage:Int) {
 	for (n<-1 to getMondeHauteur()) {
-		marquer(T(n-1))
+		marquer(T((n-1-decalage)%getMondeHauteur()))
 	}
 }
 
 for (k<-1 to getMondeLargeur()-1) {
+	val decalage = litMessage().toInt
+	ligne(decalage)
+	replacement()
 }
 
 }
