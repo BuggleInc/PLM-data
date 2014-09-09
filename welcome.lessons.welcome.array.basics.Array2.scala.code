@@ -6,21 +6,19 @@ override def run() {
 	var tab = new Array[Color] (hauteur)
 	for (i<- 0 to hau-1 ) {
 		tab(i) = getCouleurSol();
-		if (isSelected())
-			print(tab(i))
 		avance()
 	}
 	recule(hau) 
 
-	for (i<- 0 to lar) {
+	for (i<- 0 to lar-1) {
 		var dec = 0;
 		gauche();avance();droite();dec = litMessage().toInt;
 		setCouleurBrosse(tab(dec));baisseBrosse();leveBrosse();
 
-		for (h<- 1 to hau) {
+		for (h<- 1 to hau-1) {
 			avance();setCouleurBrosse(tab((h + dec) % hauteur)); baisseBrosse();leveBrosse()
 		}
-		recule(hau)
+		//recule(hau)
 	}
 
 
