@@ -26,22 +26,39 @@ def faireS(c:Color) {
 	avance()
 	baisseBrosse()
 	leveBrosse()
-	avance()
+	if (!estFaceMur) {
+		avance()
+	}
 }
 
 def seReplacer() {
+	//se replacer après le coloriage d'un motif
 	avance()
 	gauche()
 	for (compteur <- 1 to 4) {
 		avance()
 	}
 }
+ def changerLigne() {
+ 	//changer de ligne
+ 	gauche()
+ 	for (compteur <- 1 to 4) {
+ 		avance()
+ 	}
+ 	gauche()
+ 	for (compteur <- 1 to 8) {
+ 		avance()
+ 	}
+ 	droite()
+ 	droite()
+ }
 
-for (compteur <- 1 to 4) {
-	sePlacer()
-	faireMotif()
-	seReplacer()
+sePlacer()
+for (compteur <- 1 to 2) {
+	for (compteur <- 1 to 2) {
+		faireMotif()
+	}
+	changerLigne()	
 }
-
 	
 }
