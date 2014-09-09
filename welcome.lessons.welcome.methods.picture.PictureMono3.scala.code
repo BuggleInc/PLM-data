@@ -1,2 +1,47 @@
-override def run() {
+override def run() {def faireMotif(){
+					def marquerSol(){
+							baisseBrosse();
+							leveBrosse();
+								};
+					def faireV(){
+							avance();
+							marquerSol();
+							avance();
+							gauche();
+							avance();
+							marquerSol();
+							recule();
+							droite();
+							avance();
+							marquerSol();
+							avance();
+							gauche();
+							};
+				for(c1<- 1 to 4){
+					faireV();
+				}	
+}
+			 def motifSuivant(){
+			 	for(c2<- 1 to 5){
+			 		avance();
+			 	}
+			 }
+
+			 def faireUneLigne(){//Dessigne le motif sur une ligne
+			 	for(c3<- 1 to 9){
+			 		faireMotif();
+			 		motifSuivant();
+			 	}
+			 }
+			 def monteMotif(){//pour monter le buggle
+			 	gauche();
+			 	for(c4<- 1 to 5){
+			 		avance();
+			 	}
+			 	droite();
+			 }
+	for(c5<- 1 to 9){ 
+		faireUneLigne();
+		monteMotif();
+	}
 }
