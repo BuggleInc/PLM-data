@@ -1,4 +1,49 @@
 override def run() {
 
+	var longueur:Int = getMondeHauteur();
+	var tab = new Array[Color](longueur);
+
+	copie(tab);
 	
+	for (j <- 1 to (longueur - 1))
+	{
+		gauche();
+		avance();
+		droite();
+		ligne(tab, litMessage().toInt);
+	}
 }
+
+def dessiner(c:Color)
+{
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+def reculex(x:Int)
+{
+	for (i <- 1 to x)
+		recule();
+}
+
+def copie(tab:Array[Color])
+{
+	for (i <- 1 to getMondeHauteur())
+	{
+		tab(i - 1) = getCouleurSol();
+		if (!estFaceMur) avance();
+	}
+
+	reculex(getMondeHauteur - 1);
+}
+
+def ligne(tab:Array[Color], num:Int)
+{
+	for (i <- 1 to getMondeHauteur)
+	{
+		dessiner((tab((i - 1) + num) % (getMondeHauteur - 1));
+		avance();
+	}
+}
+
