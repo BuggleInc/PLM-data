@@ -1,4 +1,5 @@
 var again = 0
+var fini = 0
 
 override def run() 
 {
@@ -30,17 +31,21 @@ override def run()
 				again = 1
 			}			
 		}
-		for(j <- 1 to 4)
+		if(fini = 0)
 		{
-			recule()
+			for(j <- 1 to 4)
+			{
+				recule()
+			}
+			gauche()
+			for(j <- 1 to 4)
+			{
+				avance()
+			}
+			droite()
+			again = 0
+			fini = 1
 		}
-		gauche()
-		for(j <- 1 to 4)
-		{
-			avance()
-		}
-		droite()
-		again = 0
 	}
 
 	for(i <- 1 to 2)
