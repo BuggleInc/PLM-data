@@ -1,32 +1,29 @@
 override def run() {
 def motif3(){
 		def motif(){
-		def marque(){
+		def marque(c:Color){
+		setCouleurBrosse(c)
 		baisseBrosse()
 		leveBrosse()
 	}
-	def faireV(){
+	def faireV(c:Color){
 		avance()
-		marque()
+		marque(c)
 		avance()
 		gauche()
 		avance()
-		marque()
+		marque(c)
 		recule()
 		droite()
 		avance()
-		marque()
+		marque(c)
 		avance()
 		gauche()
 	}
-	setCouleurBrosse(Color.YELLOW)
-	faireV()
-	setCouleurBrosse(Color.RED)
-	faireV()
-	setCouleurBrosse(Color.BLUE)
-	faireV()
-	setCouleurBrosse(Color.GREEN)
-	faireV()
+	faireV(Color.YELLOW)
+	faireV(Color.RED)
+	faireV(Color.BLUE)
+	faireV(Color.GREEN)
 	}
 	for (i <- 1 to 9){
 		motif()
