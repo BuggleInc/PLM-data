@@ -6,11 +6,20 @@ def marquerSol(c:Color)={
 }
 var h = getMondeHauteur() -1
 var T = new Array[Color](h)
+var decalage : Int =0
 T(0)=getCouleurSol()
 for (i<- 0 to h-1){
 	avance()
 	T(i)=getCouleurSol()
+
 }
-			
+for(j<-0 to h-2){
+	gauche();avance();droite()
+	decalage = litMessage().tolnt
+	for(k<- 0 to h-2)
+	marquerSol(T(k+decalage%h)); avance()}
+	marquerSol(T(h-1+decalage%h))
+	recule(h-1)
+}
 }
 
