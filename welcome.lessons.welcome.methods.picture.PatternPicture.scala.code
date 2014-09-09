@@ -30,10 +30,14 @@ def dessin(l:Int,L:Int){
 			avance(3);gauche
 			motif(Color.yellow)
 			avance(3);gauche
-			avance(3)
-			if (!estFaceMur) avance
+			if (y!=L) {
+				avance(3)
+				if (!estFaceMur) avance
+			}
 		}
-		gauche;avance(4);droite;recule(L*4-1)
+		if (x!=l){
+			gauche;avance(4);droite;recule(L*4-1)
+		}
 	}
 	
 }
