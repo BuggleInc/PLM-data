@@ -8,6 +8,15 @@ override def run() {
 		baisseBrosse();
 		leveBrosse();
 	}
+	def Motif(c:Color){
+		setCouleurBrosse(c:Color);
+		gauche();avance();
+		baisseBrosse();
+		leveBrosse();
+		droite();avance();gauche();avance();
+		baisseBrosse();
+		leveBrosse();
+	}
 def Motif1(){
 	faireMotif(Color.RED);
 	gauche();avance();avance();avance();
@@ -19,13 +28,13 @@ def Motif1(){
 	
 }
 def Motif2(){
-	faireMotif(Color.BLUE);
+	Motif(Color.BLUE);
 	gauche();avance();avance();avance();
 	faireMotif(Color.BLUE);
 	gauche();recule();recule();recule();gauche();avance();avance();droite();
-	faireMotif(Color.YELLOW);
+	Motif(Color.YELLOW);
 	gauche();avance();avance();avance();
-	faireMotif(Color.YELLOW);
+	Motif(Color.YELLOW);
 	
 }
 Motif1();
