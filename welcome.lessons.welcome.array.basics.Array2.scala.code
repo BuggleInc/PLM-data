@@ -9,6 +9,9 @@ override def run() {
 			baisseBrosse()
 			leveBrosse()
 		}
+		for (k <- 1 to getMondeHauteur() - 1) {
+			recule()
+		}
 	}
 	var T = new Array[Color](getMondeHauteur())
 	T(0) = getCouleurSol()
@@ -20,9 +23,6 @@ override def run() {
 		gauche()
 		avance()
 		droite()
-		for (k <- 1 to getMondeHauteur() - 1) {
-			recule()
-		}
 		traceMotif(T,litMessage().toInt)
 	}
 }
