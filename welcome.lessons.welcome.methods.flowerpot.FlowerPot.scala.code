@@ -5,34 +5,31 @@
 def marquage(c:Color)
 {setCouleurBrosse(c);baisseBrosse();leveBrosse()	
 }
+
+def fleur(c:Color)
+{marquage(c); droite(); avance(); gauche();avance(); marquage(c); avance()
+gauche();avance(); marquage(c); avance(); gauche();avance();
+marquage(c);gauche();avance();marquage(Color.yellow);gauche();recule();	
+	}
+
 def growFlowers(){
-	marquage(Color.red); droite(); avance(); gauche();avance(); marquage(Color.red); avance()
-gauche();avance(); marquage(Color.red); avance(); gauche();avance();
-marquage(Color.red);gauche();avance();marquage(Color.yellow);gauche();recule();	
+	fleur(Color.red)	
 
 for (a <- 1 to 4){avance()}
-marquage(Color.cyan); droite(); avance(); gauche();avance(); marquage(Color.cyan); avance()
-gauche();avance(); marquage(Color.cyan); avance(); gauche();avance();
-marquage(Color.cyan);gauche();avance();marquage(Color.yellow);gauche();recule();
+fleur(Color.cyan)
 
 droite()
 for (b <- 1 to 2){avance()}
 gauche()
 for (d <- 1 to 2){recule()}
-marquage(Color.orange); droite(); avance(); gauche();avance(); marquage(Color.orange); avance()
-gauche();avance(); marquage(Color.orange); avance(); gauche();avance();
-marquage(Color.orange);gauche();avance();marquage(Color.yellow);gauche();recule();
+fleur(Color.orange)
 
 droite()
 for (b <- 1 to 2){avance()}
 gauche()
 for (d <- 1 to 2){avance()}
-marquage(Color.green); droite(); avance(); gauche();avance(); marquage(Color.green); avance()
-gauche();avance(); marquage(Color.green); avance(); gauche();avance();
-marquage(Color.green);gauche();avance();marquage(Color.yellow);gauche();recule();
+fleur(Color.green)
 
 for( l<- 1 to 4){recule()}
-marquage(Color.pink); droite(); avance(); gauche();avance(); marquage(Color.pink); avance()
-gauche();avance(); marquage(Color.pink); avance(); gauche();avance();
-marquage(Color.pink);gauche();avance();marquage(Color.yellow);gauche();recule();
+fleur(Color.pink)
 }
