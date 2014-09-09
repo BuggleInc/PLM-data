@@ -1,2 +1,30 @@
-override def run() {
+def faireV() {
+	avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche(); avance(); baisseBrosse(); leveBrosse()
+	recule(); droite(); avance(); baisseBrosse(); leveBrosse()
+	avance(); gauche()
+}
+def faireMotif() { 
+	for (x <- 1 to 4) {
+		faireV()
+	}
+	for (y <- 1 to 5) { 
+		avance()
+	}
+}
+def faireTmotif() {
+	for (y <- 1 to 9) {
+		faireMotif()
+	}
+	gauche()
+	for (x <- 1 to 5) {
+		avance()
+	}
+	droite()
+}
+
+override def run() { 
+	for (y <- 1 to 9) {
+		faireTmotif()
+	}
 }
