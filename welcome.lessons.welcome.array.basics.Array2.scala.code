@@ -8,18 +8,18 @@ var h = getMondeHauteur()
 var T = new Array[Color](h)
 var decalage : Int =0
 T(0)=getCouleurSol()
-for (i<- 0 to h-1){
+for (i<- 0 to h-2){
 	avance()
 	T(i)=getCouleurSol()
 }
-recule(h)
-for(j<-0 to h-1){
+recule(h-1)
+for(j<-0 to h-2){
 	gauche();avance();droite()
 	decalage = litMessage().toInt
-	for(k<- 0 to h-1){
+	for(k<- 0 to h-2){
 	marquerSol(T((k+decalage))); avance()}
 	marquerSol(T((h+decalage)%h))
-	recule(h-1)
+	recule(h-2)
 }
 }
 
