@@ -6,14 +6,20 @@ override def run()
 		{
 			gauche()
 			if(estFaceMur())
-				droite(); return true
+			{
+				droite()
+				return true
+			}
 			else return false
 		}
 		else if(getDirection() == Direction.OUEST)
 		{
 			droite()
 			if(estFaceMur())
-				gauche(); return true
+			{
+				gauche()
+				return true
+			}
 			else return false
 		}
 	}
@@ -25,7 +31,7 @@ override def run()
 		else
 		{
 			if(getDirection() == Direction.EST)
-				gauche(); avance(); gauche();
+				gauche(); avance(); gauche()
 			else if(getDirection() == Direction.OUEST)
 				droite(); avance(); droite()
 		}
