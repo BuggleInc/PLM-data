@@ -9,21 +9,13 @@ override def run() {
 		}
 	}
 	while(!estSurBiscuit()) {
-		x = getX();
-		y = getY();
-		getDirection() match {
-			case Direction.NORTH => y-1;
-			case Direction.EAST => x+1;
-			case Direction.SOUTH => y+1;
-			case Direction.WEST => x-1;
+		indication = getIndication(getX(), getY());
+		if(isFacingTrail(indication) {
+			avance();
 		}
-		if(x < getMondeLargeur() && y < getMondeHauteur()) {
-			if(indication > getIndication(x, y)) {
-				indication = getIndication(x, y);
-				avance();
-			}
+		else {
+			gauche();
 		}
-		droite();
 	}
 }
 
@@ -43,4 +35,14 @@ def setIndications(x:Int, y:Int, valeur:Int) {
 			setIndications(x+1, y, valeur+1);
 		}	
 	}
+}
+
+def isFacingTrail(indication:Int):Boolean = {
+	var isFacingTrail:Boolean = false;
+	if(!estFaceMur()) {
+		avance();
+		isFacingTrail = (getIndication(getX(), getY()) < indication);
+	     recule();
+	}
+     return isFacingTrail;
 }
