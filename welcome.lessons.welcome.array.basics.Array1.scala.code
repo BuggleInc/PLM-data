@@ -49,15 +49,13 @@ def cde( nb: Int, T:Array[Color])
 def motif( nb: Int):Array[Color] = 
 {
 	var T = new Array[Color](nb)
-	var tg = 1
+	var tg = 0
 
-	T(0) = getCouleurSol()
 	avance;
-	while(getCouleurSol() != T(0))
+	for (tg <- 0 to nb-1 )
 	{
 		avance;
-		T(tg) = getCouleurSol()
-		tg = tg + 1 
+		T(tg) = getCouleurSol() 
 	}
 	return T 
 	
