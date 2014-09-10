@@ -1,5 +1,4 @@
 override def run() {
-	setIndication(0, 0, 30);
 	for(x <- 0 to getMondeHauteur()-1; y <- 0 to getMondeLargeur()-1) {
 		if(aBiscuit(x,y)) {
 			setIndications(x, y, 0);
@@ -10,9 +9,15 @@ override def run() {
 def setIndications(x:Int, y:Int, valeur:Int) {
 	setIndication(x, y, valeur);
 	if(!aMurNord(x, y)) {
+		setIndications(x, y-1, valeur+1);
+	}
+	if(!aMurNord(x, y+1)) {
 		setIndications(x, y+1, valeur+1);
 	}
 	if(!aMurOuest(x, y)) {
 		setIndications(x-1, y, valeur+1);
 	}
+	if(!aMurOuest(x+1, y)) {
+		setIndications(x+1, y, valeur+1);
+	}	
 }
