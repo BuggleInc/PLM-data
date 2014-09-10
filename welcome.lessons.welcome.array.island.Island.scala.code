@@ -1,10 +1,10 @@
 def island(num:Array[Int]): Int = {
 	var M = maxValue(num);
 	var compteur = 0
-	for (i<- M to 0) {
-		compteur=compteur + seqInArray(num,i)
+	for (i<- 0 to M) {
+		compteur=compteur + seqInArray(num,M-i)
 		for (j<-0 to num.length) {
-			if (num(j)==i) {
+			if (num(j)==M-i) {
 				num(j)=num(j)-1
 			}
 		}
