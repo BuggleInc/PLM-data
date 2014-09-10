@@ -12,19 +12,23 @@ override def run() {
 		litMessage();
 		setCouleurBrosse(T((decalage)%(getMondeHauteur())));
 		baisseBrosse();
+		leveBrosse();
 		for (j <- 1 to getMondeHauteur()-1) {
 			avance();
 			setCouleurBrosse(T((j + decalage)%(getMondeHauteur())));
 			baisseBrosse();
+			leveBrosse();
 		}
 	}
+	lireMotif();
 	for (k <- 1 to getMondeLargeur()-2) {
-		lireMotif();
+
 		recule(5);
 		gauche();
 		avance();
 		droite();
 		lirePeindre();
 	}
+	recule(getMondeHauteur()-1);
 	
 }
