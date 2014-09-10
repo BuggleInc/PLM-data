@@ -1,7 +1,36 @@
 override def run() {
 	def verifFin() {
-		
+		if (estFaceMur()) {
+			if (getDirection() == Direction.EST) {
+				gauche();
+				if (estFaceMur()) {
+					return true;
+				} else { 
+					return false;
+				}
+			} else if (getDirection() == Direction.OUEST) {
+				droite();
+				if (estFaceMur()) {
+					return true;
+				} else { 
+					return false;
+				}
+			}
+		} else {
+			return false;
+		}
 	}
 	baisseBrosse();
-	while (
+	while (!verifFin()) {
+		for (i <- 1 to (getMondeHauteur()-1))/2 {
+			avance(getMondeLargeur()-1);
+			gauche();
+			avance();
+			droite();
+			avance(getMondeLargeur()-1);
+			droite();
+			avance();
+			gauche();
+		}
+	}
 }
