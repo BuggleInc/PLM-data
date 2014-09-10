@@ -1,0 +1,8 @@
+def withoutDoubles(die1:Int, die2:Int, noDoubles:Boolean):Int = {
+	(die1,die2,noDoubles) match {
+		case (x,y,false) if (x==y)		=> return 2*x
+		case (x,y,true) if (x==y && x==6)	=> return 3
+		case (x,y,true) if (x==y)		=> return 2*x+1
+		case (x,y,_)					=> return x+y
+	}
+}
