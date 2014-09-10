@@ -2,7 +2,7 @@ override def run()
 {
 	def positionFinale(): Boolean =
 	{
-		if(getDirection() == Direction.EST)
+		if(getDirection() == Direction.EST && estFaceMur())
 		{
 			gauche()
 			if(estFaceMur())
@@ -11,7 +11,7 @@ override def run()
 			}
 			else droite(); return false
 		}
-		else if(getDirection() == Direction.OUEST)
+		else if(getDirection() == Direction.OUEST && estFaceMur())
 		{
 			droite()
 			if(estFaceMur())
