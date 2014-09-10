@@ -1,7 +1,7 @@
 def maxMod5(a:Int, b:Int):Int = {
-	(a%5,b%5) match {
-		case (x,y) if (x==y)	=> return Math.min(a,b)
-		case (_,_) if (a==b)	=> return 0
-		case (_,_)			=> return Math.max(a,b)
+	(a,b) match {
+		case (a,b) if (a%5 == b%5)	=> return Math.min(a,b)
+		case (a,b) if (a==b)		=> return 0
+		case (_,_)				=> return Math.max(a,b)
 		}
 }
