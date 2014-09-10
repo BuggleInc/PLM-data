@@ -12,13 +12,13 @@ def setIndications(x:Int, y:Int, valeur:Int) {
 		if(!aMurNord(x, y)) {
 			setIndications(x, y-1, valeur+1);
 		}
-		if(!aMurNord(x, y+1)) {
+		if(y+1 < getMondeHauteur() && !aMurNord(x, y+1)) {
 			setIndications(x, y+1, valeur+1);
 		}
 		if(!aMurOuest(x, y)) {
 			setIndications(x-1, y, valeur+1);
 		}
-		if(!aMurOuest(x+1, y)) {
+		if(x+1 < getMondeLargeur() && !aMurOuest(x+1, y)) {
 			setIndications(x+1, y, valeur+1);
 		}	
 	}
