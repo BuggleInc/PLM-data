@@ -1,19 +1,24 @@
-var x:Boolean= false;
 
-def col() {
-	for (x<-0 to 6) {
-		avance()
+def testcol():Boolean= {
+	for  (x<-0 to 6) {
+		avance();
 		if (estSurBiscuit) {
-			setY(0);
-			x= true;
+			setY(7);
+			return true;
 		}
-	}
-	droite();
-	avance();
-	gauche();
+	else return false;
+	} 
 }
+	
+
 
 def haveBaggle():Boolean = {
-	col();
-	return x
+	for(x<-0 to 6) {
+		testcol();
+		writeMessage(testcol());
+		
+		droite();
+		avance();
+		gauche();
+	}
 }
