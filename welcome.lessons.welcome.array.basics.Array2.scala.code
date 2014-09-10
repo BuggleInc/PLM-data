@@ -7,14 +7,11 @@ override def run() {
 	var T = new Array[Color](n);
 	T = motif(n)
 	
-	for (a <- 1 to n-1)
+	for (a <- 0 to n-1)
 	{
 		cde(n, T)	
 	}
-	for (a <- 1 to n-1)
-	{
-		avance
-	}
+
 	
 	
 }
@@ -30,11 +27,12 @@ def cde( n: Int, T:Array[Color])
 		recule;
 	}
 
-	(i + 5) % n
-
 	for (c <- 0 to n-1)
 	{
-		
+		setCouleurBrosse(T((c + decalage) % n))
+		baisseBrosse
+		leveBrosse
+		avance;
 	}
 	
 }
