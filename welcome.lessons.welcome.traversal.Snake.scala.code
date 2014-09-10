@@ -1,22 +1,30 @@
 override def run() {
+	var fin:Boolean = false;
 	def verifFin() : Boolean = {
 		if (estFaceMur() == true) {
 			if (getDirection() == Direction.EST) {
 				gauche();
 				if (estFaceMur() == true) {
-					return true;
+					fin = true;
 				} else { 
-					return false;
+					fin = false;
 				}
 			} else if (getDirection() == Direction.OUEST) {
 				droite();
 				if (estFaceMur() == true) {
-					return true;
+					fin = true;
 				} else { 
-					return false;
+					fin = false;
 				}
 			}
-		} 
+		} else {
+			fin = false
+		}
+		if (fin == false) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	baisseBrosse();
 	while (!verifFin()) {
