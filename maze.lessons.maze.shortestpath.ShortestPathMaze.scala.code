@@ -1,18 +1,29 @@
 override def run() {
 	var indication:Int = 9999;
+	var x:Int = 0;
+	var y:Int = 0;
+	
 	for(x <- 0 to getMondeHauteur()-1; y <- 0 to getMondeLargeur()-1) {
 		if(aBiscuit(x,y)) {
 			setIndications(x, y, 0);
 		}
 	}
 	while(!estSurBiscuit()) {
-		if(indication > getIndication(getX(), getY())) {
-			indication = getIndication(getX(), getY());
-			avance();
+		x = getX();
+		y = getY();
+		getDirection() match {
+			Direction.NORTH => y-1;
+			Direction.EAST => x+1;
+			Direction.SOUTH => y+1;
+			Direction.WEST => x-1;
 		}
-		else {
-			gauche();
+		if(x < getLargeur() && y < getMondeHauteur()) {
+			if(indication > getIndication(x, y)) {
+				indication = getIndication(x, y);
+				avance();
+			}
 		}
+		droite();
 	}
 }
 
