@@ -22,15 +22,17 @@ override def run() {
 	}
 	baisseBrosse();
 	while (!verifFin()) {
-		for (i <- 1 to (getMondeHauteur()-1))/2 {
+		for (i <- 1 to getMondeHauteur()-1) {
 			avance(getMondeLargeur()-1);
-			gauche();
-			avance();
-			droite();
-			avance(getMondeLargeur()-1);
-			droite();
-			avance();
-			gauche();
+			if (getDirection() == Direction.EST) {
+				gauche();
+				avance();
+				droite();	
+			} else if (getDirection() == Direction.OUEST) {
+				droite();
+				avance();
+				gauche();
+			}
 		}
 	}
 }
