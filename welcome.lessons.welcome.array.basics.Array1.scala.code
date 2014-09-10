@@ -1,2 +1,47 @@
 override def run() {
 }
+
+def getMondeHauteur():Int = 
+{
+	var c:Color = Color.red
+	var nb = 0
+	
+	c = getCouleurSol()
+	avance;
+	while(getCouleurSol() != c)
+	{
+		avance;
+		nb = nb + 1
+	}
+	return nb 
+	
+}
+
+def getMondeLargeur(var nb: Int, var T:Array[Color])
+{
+	var c = 1
+	gauche; avance;droite;
+	for (c <- 0 to nb)
+	{
+		
+		setBrosseCouleur(T(c))
+	}
+	
+}
+
+def motif(var nb: Int):Array = 
+{
+	var T = new Array[Color](nb)
+	var tg = 1
+
+	T(0) = getCouleurSol()
+	avance;
+	while(getCouleurSol() != T(0))
+	{
+		avance;
+		T(tg) = getCouleurSol()
+		tg = tg + 1 
+	}
+	return T 
+	
+}
