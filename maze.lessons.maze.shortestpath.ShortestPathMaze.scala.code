@@ -1,7 +1,17 @@
 override def run() {
+	var indication:Int = 9999;
 	for(x <- 0 to getMondeHauteur()-1; y <- 0 to getMondeLargeur()-1) {
 		if(aBiscuit(x,y)) {
 			setIndications(x, y, 0);
+		}
+	}
+	while(!estSurBiscuit()) {
+		if(indication > getIndication(getX(), getY())) {
+			indication = getIndication(getX(), getY());
+			avance();
+		}
+		else {
+			gauche();
 		}
 	}
 }
