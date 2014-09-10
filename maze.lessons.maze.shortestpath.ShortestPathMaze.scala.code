@@ -12,10 +12,10 @@ override def run() {
 		x = getX();
 		y = getY();
 		getDirection() match {
-			Direction.NORTH => y-1;
-			Direction.EAST => x+1;
-			Direction.SOUTH => y+1;
-			Direction.WEST => x-1;
+			case Direction.NORTH => y-1;
+			case Direction.EAST => x+1;
+			case Direction.SOUTH => y+1;
+			case Direction.WEST => x-1;
 		}
 		if(x < getLargeur() && y < getMondeHauteur()) {
 			if(indication > getIndication(x, y)) {
