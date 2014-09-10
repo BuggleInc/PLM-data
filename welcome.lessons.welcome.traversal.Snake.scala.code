@@ -1,5 +1,5 @@
 override def run() {
-	def verifFin() {
+	def verifFin(estFaceMur()) {
 		if (estFaceMur() == true) {
 			if (getDirection() == Direction.EST) {
 				gauche();
@@ -21,7 +21,7 @@ override def run() {
 		}
 	}
 	baisseBrosse();
-	while (verifFin() == true) {
+	while (verifFin() == false) {
 		for (i <- 1 to getMondeHauteur()-1) {
 			avance(getMondeLargeur()-1);
 			if (getDirection() == Direction.EST) {
