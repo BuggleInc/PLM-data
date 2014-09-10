@@ -2,7 +2,7 @@ def isFacingTrail():Boolean = {
 	var y:Boolean=false;
 	avance();
 	while(!estSurBiscuit()) {
-    	if (getCouleurSol()== Color.green && !estSurBiscuit()) {
+    	if (getCouleurSol()== Color.green) {
     		avance();
     		y= true;
     		recule();
@@ -12,7 +12,7 @@ def isFacingTrail():Boolean = {
     		recule();
     		gauche();
     		avance();
-    		if (getCouleurSol()== Color.green && !estSurBiscuit()) {
+    		if (getCouleurSol()== Color.green) {
     			avance();
     			y= true;
     			recule();
@@ -23,7 +23,7 @@ def isFacingTrail():Boolean = {
     			gauche();
     			gauche();
     			avance();
-    			if (getCouleurSol()== Color.green && !estSurBiscuit()) {
+    			if (getCouleurSol()== Color.green) {
     				avance();
     				y= true;
     				recule();
@@ -36,6 +36,12 @@ def isFacingTrail():Boolean = {
     			}
     		}
     	}
+    	if (estSurBiscuit()) {
+		gauche();
+		gauche();
+		droite();
+		droite();
+	}
     }
     return y
 }        
