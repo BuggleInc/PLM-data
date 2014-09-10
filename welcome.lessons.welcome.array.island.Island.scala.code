@@ -1,8 +1,13 @@
 def island(num:Array[Int]): Int = {
-	M=maxValue(num);
-	for (i<- 0 to num.length) {
-		
-		
+	var M = maxValue(num);
+	var comtpeur = 0
+	for (i<- M to 0) {
+		compteur=compteur + seqInArray(num,i)
+		for (j<-0 to num.length) {
+			if (num(j)==i) {
+				num(j)=num(j)-1
+			}
+		}
 	}
 }
 def maxValue(nums:Array[Int]): Int = {
@@ -13,4 +18,13 @@ def maxValue(nums:Array[Int]): Int = {
 		}
 	}
 	return max
+}
+def seqInArray(T:Array[Int],n:Int): Int ={
+	var cpt = 0
+	for (i<- 0 to T.length-1) {
+		if ((T(i)==n) && (T(i-1)!=n)) {
+			cpt = cpt +1
+		}
+	}
+	return cpt
 }
