@@ -1,11 +1,21 @@
 override def run() {
 	var suitMur:Boolean = false;
 	while(!estSurBiscuit()) {
-		if(suitMur && getDirection() != Direction.NORTH) {
-			keepHandOnSideWall();
+		if(suitMur) {
+			if(getDirection() == Direction.NORTH) {
+				suitMur = false;
+			}
+			else {
+				keepHandOnSideWall();
+			}
 		}
 		else {
-			s
+			if(estFaceMur()) {
+				
+			}
+			else {
+				avance();
+			}
 		}
 		setDirection(Direction.NORTH);
 		if(estFaceMur()) {
