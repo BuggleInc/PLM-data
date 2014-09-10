@@ -19,19 +19,19 @@ class Escaper extends plm.universe.bugglequest.AbstractBuggle {
 	}
 	 
 	/* BEGIN TEMPLATE */
-  override def run() {
-    /* BEGIN SOLUTION */
-    // Make sure we have a wall to the left
-    left();
-    while (!isFacingWall())
-      forward();
-    right();
+	override def run() {
+		/* BEGIN SOLUTION */
+		// Make sure we have a wall to the left
+		left();
+		while (!isFacingWall())
+			forward();
+		right();
 
-    while (!isOverBaggle())
-      stepHandOnWall();
+		while (!isOverBaggle())
+			stepHandOnWall();
 
-    pickupBaggle();
-  }
+		pickupBaggle();
+	}
   
 	def stepHandOnWall() {
 		// PRE: we have a wall on the left
@@ -41,8 +41,8 @@ class Escaper extends plm.universe.bugglequest.AbstractBuggle {
 			forward();
 			left(); // change to right to get a right follower
 		}
-    right(); // change to left to get a right follower
-    /* END SOLUTION */
-  }
+		right(); // change to left to get a right follower
+		/* END SOLUTION */
+	}
 	/* END TEMPLATE */
 }
