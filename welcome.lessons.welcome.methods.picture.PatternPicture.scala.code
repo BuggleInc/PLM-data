@@ -1,4 +1,4 @@
-override def run() {ligne()
+override def run() {ligne();deplacement();ligne()
 }
 
 def faireV(d: Color){
@@ -9,9 +9,9 @@ def ensemble(){
 	faireV(Color.RED);avance(2);faireV(Color.BLUE);gauche();avance(2);droite();faireV(Color.GREEN);recule(2);faireV(Color.YELLOW);droite();avance(2);gauche();//fait un tour
 }
 def ligne(){
-	var x = 0;
-	do{x = x + 1;ensemble();avance(4);
-	}while(x !=2 && !estFaceMur())
+	
+	ensemble();avance(4);ensemble();
+	
 }//fait une ligne
-def deplacement(){gauche();avance(5);droite();
+def deplacement(){recule(4);gauche();avance(4);droite()
 }// deplace la baggle
