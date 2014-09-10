@@ -1,12 +1,17 @@
 override def run() {ligne();deplacement();ligne()
 }
 
-def faireV(d: Color){
+def faireV1(d: Color){
 	avance();marque(d);gauche();avance();gauche();avance();marque(d);gauche();avance();gauche();
-	def marque(c: Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();}// fait un V
+	def marque(c: Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();}// fait un V 1
+}
+
+def faireV(d: Color){
+	marque(d);avance();gauche();avance();marque(d);gauche();avance();gauche();avance();gauche();
+	def marque(c: Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();}// fait un V 1
 }
 def ensemble(){
-	faireV(Color.RED);avance(2);faireV(Color.BLUE);gauche();avance(2);droite();faireV(Color.GREEN);recule(2);faireV(Color.YELLOW);droite();avance(2);gauche();//fait un tour
+	faireV1(Color.RED);avance(2);faireV(Color.BLUE);gauche();avance(2);droite();faireV1(Color.GREEN);recule(2);faireV(Color.YELLOW);droite();avance(2);gauche();//fait un tour
 }
 def ligne(){
 	
