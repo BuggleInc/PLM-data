@@ -1,5 +1,6 @@
 override def run() {
 	var T=new Array [Color] (getMondeHauteur());
+	val decalage : Int = litMessage().toInt;
 	def lireMotif() {
 		T(0) = getCouleurSol();
 		for (i <- 1 to getMondeHauteur()-1) {
@@ -8,7 +9,7 @@ override def run() {
 		}
 	}
 	def lirePeindre() {
-		setCouleurBrosse(T((litMessage().toInt)%(getMondeHauteur())));
+		setCouleurBrosse(T((decalage)%(getMondeHauteur())));
 		baisseBrosse();
 		leveBrosse();
 		//for (j <- 1 to getMondeHauteur()-1) {
