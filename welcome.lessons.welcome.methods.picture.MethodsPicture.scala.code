@@ -1,14 +1,16 @@
-override def run() {
-	var x = 0;
-	do{x = x + 1;ensemble();avance(5);
-		
-	}while(x !=3)
-	
+override def run() {ligne();deplacement();ligne();deplacement();ligne()
 }
 def faireV(d: Color){
 	avance();marque(d);avance();gauche();avance();marque(d);recule();droite();avance();marque(d);avance();gauche();
-	def marque(c: Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();}
+	def marque(c: Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();}// fait un V
 }
 def ensemble(){
-	faireV(Color.YELLOW);faireV(Color.RED);faireV(Color.BLUE);faireV(Color.GREEN);
+	faireV(Color.YELLOW);faireV(Color.RED);faireV(Color.BLUE);faireV(Color.GREEN);//fait un tour
 }
+def ligne(){
+	var x = 0;
+	do{x = x + 1;ensemble();avance(5);
+	}while(x !=3)
+}//fait une ligne
+def deplacement(){avance(5);gauche();avance(5);droite()
+}// deplace la baggle
