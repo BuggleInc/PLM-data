@@ -1,0 +1,17 @@
+def teaParty(tea:Int, candy:Int): Int = {
+	(tea,candy) match {
+		case (x,y) if (x<5 || y<5)		=> return 0
+		case (x,y) if (x>=2*y || y>=2*x)	=> return 2
+		case (x,y) if (x>=5 && y>=5)		=> return 1
+	}
+}
+
+
+Nous avons un goûter avec quantité de thé et de bonbons.
+Renvoyez l'entier 'outcome' du goûter encodé comme 0=mauvais,
+1=bien, ou 2=excellent. Un goûter est bien (1) si le thé
+et les bonbons sont à 5 au moins. Cependant, si soit le thé
+soit les bonbons est à au moins le double de la quantité de
+l'autre, le goûter est excellent (2). Cependant, dans tous 
+les cas, si soit le thé soit les bonbons sont à moins de 5,
+le goûter est toujours mauvais (0).
