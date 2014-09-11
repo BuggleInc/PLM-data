@@ -5,14 +5,14 @@ val GAUCHE:Int = 2;
 val DEMI_TOUR:Int = 3;
 val DROITE:Int = 4;
 val MVT_SUIVANT:Int = 1;
-val COULEUR_SUIVANTE:Int = 2;
-val ETAT_SUIVANT:Int = 0;
+val COULEUR_SUIVANTE:Int = 0;
+val ETAT_SUIVANT:Int = 2;
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	var couleur:Int = couleurTab(colors, getCouleurSol());
 
-	setCouleurSol(rule(state)(couleur)(COULEUR_SUIVANTE));
+	setCouleurSol(colors(rule(state)(couleur)(COULEUR_SUIVANTE)));
 	state = rule(state)(couleur)(ETAT_SUIVANT);
 	
 	(rule(state)(couleur)(MVT_SUIVANT)) match
