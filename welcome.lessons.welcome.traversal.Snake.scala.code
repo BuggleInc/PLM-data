@@ -2,7 +2,7 @@ override def run() {
 
 // Fonction qui test si le Buggle est dans un angle (position finale)
 def fonctionTest() {
-	(getdirection()==Direction.EST,estFaceMur) match {
+	(getDirection()==Direction.EST,estFaceMur) match {
 		case (true,true) => gauche(); if (estFaceMur) {droite(); return true}
 		case (false,true)=> droite(); if (estFaceMur) {gauche(); return false}
 		case (_,_)	  => return false
@@ -12,7 +12,7 @@ def fonctionTest() {
 baisseBrosse()
 while (!fonctionTest())
 	{if (estFaceMur)
-		{if (Direction.EST==getdirection())
+		{if (Direction.EST==getDirection())
 			{gauche()
 			avance()
 			droite()}
