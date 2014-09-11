@@ -4,10 +4,10 @@ def golomb(num:Int): Int = {
 	S(0)=1
 	S(1)=2
 	while (pos<=(num-1)){
-		for(i<-pos to pos+S(pos)){
+		for(i<-pos to pos+S(pos-1)){
 			S(i)=pos
 		}
-		pos=pos+S(pos)
+		pos=pos+S(pos-1)
 	}
 	return S(num)
 }
