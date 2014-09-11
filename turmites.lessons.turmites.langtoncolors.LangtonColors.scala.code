@@ -1,4 +1,14 @@
+def brosse(couleur:Color)
+{
+	setCouleurBrosse(couleur); baisseBrosse(); leveBrosse()
+}
+
 def step(rule:Array[Char], colors:Array[Color]) 
 {
-	
+	getCouleurSol() match
+	{
+		case Color.black => brosse(Color.white); gauche(); avance()
+		case Color.white => brosse(Color.black); droite(); avance()
+	}
 }
+
