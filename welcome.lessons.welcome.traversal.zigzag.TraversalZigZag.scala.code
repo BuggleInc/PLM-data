@@ -1,8 +1,11 @@
 override def run() {
 var compteur = 1
 ecritMessage("0")
+droite
 while (!fini){
-
+serpent
+ecritMessage(compteur)
+compteur=compteur+1
 }
 
 }
@@ -23,5 +26,22 @@ def fini():Boolean={
 	else if(getY!=getMondeHauteur&&getX==getMondeLargeur-1){
 		setPos(0,getY+1)
 	}
-	ecritMessage(compteur)
-	compteur=compteur+1
+
+
+def serpent(){
+	if(!estFaceMur){
+		avance
+	}
+	else{
+		if(getDirection() == Direction.EST){
+			droite
+			avance
+			droite
+		}
+		else{
+			gauche
+			avance
+			gauche
+		}
+	}
+}
