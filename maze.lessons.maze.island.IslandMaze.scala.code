@@ -34,6 +34,14 @@ override def run()
 	}
 
 	rejoindreMurNord()
+
+	getDirection() match
+	{
+		case Direction.NORTH => droite()
+		case Direction.OUEST => droite(); droite()
+		case Direction.EST => 
+		case Direction.SUD => gauche()
+	}		
 	
 	while(!estSurBiscuit())
 	{
