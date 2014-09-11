@@ -6,16 +6,16 @@ for (i <- 0 to n-2) {
 	T(i) = getCouleurSol();
 	avance();
 }
-for (i <- 0 to n-2) {
-	recule();
-}
 
 for (j <- 0 to n-2) {
+	for (i <- 0 to n-2) {
+		recule();
+	}
 	gauche();
 	avance();
 	droite();
 	avance();
-		for (k <- 0 to j) {
+		for (k <- 0 to n-1-j) {
 		setCouleurBrosse(T(k))
 		baisseBrosse();
 		leveBrosse();
