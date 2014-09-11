@@ -1,2 +1,22 @@
 override def run() {
+var compteur = 1
+ecritMessage("0")
+while (!fini){
+	if(getY!=getMondeHauteur&&getX!=getMondeLargeur-1){
+		setPos(getX+1,getY)
+	}
+	else if(getY!=getMondeHauteur&&getX==getMondeLargeur-1){
+		setPos(0,getY+1)
+	}
+	ecritMessage(compteur)
+	compteur=compteur+1
+}
+
+}
+
+def fini():Boolean={
+	if(getX== getMondeLargeur()-1&&getY == getMondeHauteur()-1){
+		return true
+	}
+	else return false
 }
