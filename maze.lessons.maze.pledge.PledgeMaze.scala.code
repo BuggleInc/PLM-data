@@ -1,7 +1,5 @@
 override def run() 
 {
-	var virage = 0
-	
 	def keepHandOnSideWall()
 	{
 		gauche()
@@ -14,10 +12,40 @@ override def run()
 		}
 		else avance()
 	}
-		
+
+	def rejoindreMurNord()
+	{
+		while(getY()!=0)
+		{
+			if(estFaceMur())
+				keepHandOnSideWall()
+			else if(!estFaceMur())
+			{
+				avance()
+				getDirection() match
+				{
+					case Direction.NORTH => if(!estFaceMur()) avance()
+					case Direction.OUEST => droite(); if(!estFaceMur) avance()
+					case Direction.EST => gauche(); if(!estFaceMur) avance()
+					case Direction.SUD => gauche(); gauche(); if(!estFaceMur) avance()
+				}		
+			}	
+		}
+	}
+
+	rejoindreMurNord()
+
+	getDirection() match
+	{
+		case Direction.NORTH => droite()
+		case Direction.OUEST => droite(); droite()
+		case Direction.EST => 
+		case Direction.SUD => gauche()
+	}		
+	
 	while(!estSurBiscuit())
 	{
-		if(virage == 4)
+		keepHandOnSideWall()
 	}
 
 	prendBiscuit()
