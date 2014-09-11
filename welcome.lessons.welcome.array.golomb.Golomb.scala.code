@@ -25,6 +25,8 @@ def golomb(num:Int): Int = {
 			for (e <- c+1 to c+1 + r - comp)
 			{
 				T(e) = c
+				c = c + 2 +r -comp 
+				comp = 0 
 			}
 		}
 		else if ( r - comp == 0 && c+1< num)
@@ -36,14 +38,13 @@ def golomb(num:Int): Int = {
 			for (e <- c+1 to num)
 			{
 				T(e) = c
+				c = num
 			}
 		}
 		else
 		{
 			
 		}
-
-		c = c + 1
 		
 		
 	}
