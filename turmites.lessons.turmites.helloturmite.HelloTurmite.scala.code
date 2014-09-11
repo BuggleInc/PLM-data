@@ -13,7 +13,6 @@ val ETAT_SUIVANT:Int = 2;
 	var couleur:Int = couleurTab(colors, getCouleurSol());
 
 	setCouleurSol(colors(rule(state)(couleur)(COULEUR_SUIVANTE)));
-	state = rule(state)(couleur)(ETAT_SUIVANT);
 	
 	(rule(state)(couleur)(MVT_SUIVANT)) match
 	{
@@ -23,7 +22,7 @@ val ETAT_SUIVANT:Int = 2;
 		case DEMI_TOUR => retourne(); avance();
 		case DROITE => droite(); avance();
 	}
-        
+        state = rule(state)(couleur)(ETAT_SUIVANT);
     }
 
 def setCouleurSol(c:Color)
