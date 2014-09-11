@@ -14,16 +14,18 @@ for (k <- 1 to (getMondeLargeur()-1)) // Parcours en largeur du tableau (largeur
 	avance()
 	droite()
 	val decalage = litMessage().toInt // Lecture du décalage sur la première case
+	var i = (decalage)%(T.length) // Coloriage de la première case
+	setCouleurBrosse(T(i))
+	baisseBrosse()
+	leveBrosse()
 	for (n <- 0 to (getMondeHauteur()-2)) // Parcours de la colonne
 		{var i = (n+decalage)%(T.length)
 		setCouleurBrosse(T(i))
 		baisseBrosse()
 		leveBrosse()
-		avance()}
-	var i = ((getMondeHauteur()-2)+decalage)%(T.length)
-	setCouleurBrosse(T(i))
-	baisseBrosse()
-	leveBrosse()
+		if (!estFaceMur) {avance()} // Test pour s'assurer de colorier la dernière case
+		}
+
 	for (m <- 1 to (getMondeHauteur()-1))
 		{recule}
 	}
