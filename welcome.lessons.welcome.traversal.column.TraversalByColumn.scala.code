@@ -1,12 +1,10 @@
 override def run() 
 {
-	var compt = 0
-
 	for(i <- 0 to getMondeHauteur()*getMondeLargeur()-1)
 	{
 		ecritMessage(i)
 		droite(); droite()
-		if(estFaceMur())
+		if(estFaceMur() && i!=getMondeHauteur()*getMondeLargeur()-1)
 		{
 			setPos(getX()+1,0)
 		}
