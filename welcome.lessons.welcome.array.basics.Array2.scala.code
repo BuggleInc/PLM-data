@@ -25,6 +25,14 @@ override def run() {
 	
 	def faireColonne(){
 		var n: Int = 0;
+		if(!estFaceMur){
+			avance();
+		}
+		else{
+			retourne();
+			courir(hauteur - 1);
+			retourne();		
+		}
 		for(n<- 1 to hauteur){
 			setCouleurBrosse(res(n-1));
 			baisseBrosse();
@@ -49,6 +57,10 @@ override def run() {
 		lireColonne();
 		retourne();
 		courir(hauteur - 1);
+		retourne();
+		for(n<- 1 to largeur - 1){
+			faireColonne();
+		}
 		
 		
 	}
