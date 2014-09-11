@@ -1,0 +1,34 @@
+override def run() {
+	versLeNord();
+	while (!estSurBiscuit()) {
+		if (keepHandOnSideWall()) {
+		if (estFaceMur()) gauche();
+		else avance();
+		}
+		else {
+			droite();
+			avance();
+		}
+	}
+	prendBiscuit();
+}
+
+def keepHandOnSideWall():Boolean = {
+ 	droite();
+ 	var flag = estFaceMur();
+ 	gauche();
+ 	return flag;
+ }
+def versLeNord() = {
+	while(getY() != 0) {
+		if (estFaceMur()) {
+		droite();
+		if (estFaceMur()) {
+			retourne();
+		}
+	}
+	avance();
+	setDirection(Direction.NORTH);
+	}
+}
+
