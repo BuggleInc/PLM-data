@@ -1,11 +1,12 @@
 def island(num:Array[Int]): Int = {
-	var M:Int = maxValue(num);
+	var T:Array[Int] = num
+	var M:Int = maxValue(T);
 	var compteur:Int = 0;
 	for (etage <- 0 to M) {
-		compteur=compteur + seqInArray(num,M-etage)
+		compteur=compteur + seqInArray(T,M-etage)
 		for (lissage<-0 to num.length-1) {
-			if (num(lissage)==M-etage) {
-				num(lissage)=num(lissage)-1
+			if (T(lissage)==M-etage) {
+				T(lissage)=T(lissage)-1
 			}
 		}
 	}
