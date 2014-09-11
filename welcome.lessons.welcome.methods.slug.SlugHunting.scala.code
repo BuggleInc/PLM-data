@@ -5,7 +5,7 @@ def hunt() {
 	do {
 	gauche();
 	} while (isFacingTrail==false) 
-}
+} while (!estSurBiscuit)
 
 def isFacingTrail():Boolean = {
     if (estFaceMur) {
@@ -14,10 +14,8 @@ def isFacingTrail():Boolean = {
     avance();
     var trace:Boolean=getCouleurSol()==Color.green;
     recule();
-    return trace
+    return trace;
 }        
 do {
     avance()
 } while (isFacingTrail==true)
-
-do (hunt())
