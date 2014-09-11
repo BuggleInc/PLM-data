@@ -1,4 +1,6 @@
 override def run() {
+	
+// Initialisation du vecteur
 var T = new Array[Color](getMondeHauteur())
 for (i <- 0 to (getMondeHauteur()-2))
 	{T(i) = getCouleurSol();
@@ -6,12 +8,13 @@ for (i <- 0 to (getMondeHauteur()-2))
 T(getMondeHauteur()-1) = getCouleurSol()
 for (j <- 0 to (getMondeHauteur()-2))
 	{recule()}
-for (k <- 1 to (getMondeLargeur()-1))
+
+for (k <- 1 to (getMondeLargeur()-1)) // Parcours en largeur du tableau (largeur-1 itérations)
 	{gauche()
 	avance()
 	droite()
-	val decalage = litMessage().toInt
-	for (n <- 1 to (getMondeHauteur()-2))
+	val decalage = litMessage().toInt // Lecture du décalage sur la première case
+	for (n <- 0 to (getMondeHauteur()-2)) // Parcours de la colonne
 		{var i = (n+decalage)%(T.length)
 		setCouleurBrosse(T(i))
 		baisseBrosse()
