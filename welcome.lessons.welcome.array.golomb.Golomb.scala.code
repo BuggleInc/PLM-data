@@ -1,23 +1,25 @@
 def golomb(num:Int): Int = {
 
-	var j:Int = 1;
+	var tab = new Array[Int](num);
+	var i:Int = 2;
+	var j:Int = 2;
 	var k:Int = 0;
-	var actuel:Int = 1;
-	
-	do
-	{
-		for (l <- 1 to j)
-		{
-			for (s <- 1 to j)
-			{
-				if (k != num) k = k + 1;
-			}
+	tab(0) = 1;
+	tab(1) = 2;
 
-			if (k != num) actuel = actuel + 1;
+	while (j < num)
+	{
+		k = 0;
+		
+		while (k < i && j < num)
+		{
+			a(j) = i;
+			k = k + 1;
+			j = j + 1;	
 		}
 
-		j = j + 1;
-	} while(k != num)
+		i = tab(i);
+	}
 
-	return actuel;
+	return tab(num - 1);
 }
