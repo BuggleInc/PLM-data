@@ -6,25 +6,16 @@ override def run() {
 	T(i)=getCouleurSol()
 	}
 	recule(getMondeHauteur()-1); // enregistrement de la 1er colonne
-	
-	
-	
-	val decalage = litMessage().toInt //lecture décalage
-	for (i<-1 to getMondeLargeur()-1) {
-		gauche();
+
+val decalage = litMessage().toInt //lecture décalage
+
+	gauche();
+	avance();
+	droite();
+	for (i<-0 to T.length-1) {
+		setCouleurBrosse(T((i+decalage)%T.length))
+		baisseBrosse();
+		leveBrosse();
 		avance();
-		droite();
-		for(i<-decalage to T.length-1) {
-			setCouleurBrosse(T(i))
-			baisseBrosse();
-			leveBrosse();
-			avance();
-		}
-		for(i<-0 to decalage) {
-			setCouleurBrosse(T(i))
-			baisseBrosse();
-			leveBrosse();
-			avance();
-		}
 	}
 }
