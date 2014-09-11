@@ -1,10 +1,10 @@
 def checkMurLeft() :Boolean = {
 	var murleft = false
-	gauche()
+	droite()
 	if(estFaceMur == true){
 		murleft = true
 	}
-	droite()
+	gauche()
 	return murleft;
 }
 
@@ -18,9 +18,9 @@ override def run() {
 		if(checkMurLeft == true && estFaceMur == false){
 			avance()
 		} else if(checkMurLeft == true && estFaceMur == true){
-			droite() ; nord = nord - 1
+			gauche() ; nord = nord - 1
 		}
-		else {gauche() ; nord = nord + 1 ; avance()}
+		else {droite() ; nord = nord + 1 ; avance()}
 	}
 	prendBiscuit()	
 }
