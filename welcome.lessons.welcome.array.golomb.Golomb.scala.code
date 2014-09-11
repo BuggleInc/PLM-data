@@ -1,5 +1,5 @@
 def golomb(num:Int): Int = {
-	var c = 0
+	var c = 1
 	var T = new Array[Int](num)
 	var r = 0
 	var e = 0
@@ -10,39 +10,24 @@ def golomb(num:Int): Int = {
 	while (c < num)
 	{
 
-		r = T(c)
+		r = T(c - 1)
 		comp = 0
 
 		for (e <- 0 to num - 1)
 		{
-			if (T(e) == c+1)
+			if (T(e) == c)
 			{
 				comp = comp + 1
 			}
 		}
 
-		if ( r - comp > 0 && c+1+r - comp < num)
+		if (r - comp > 0)
 		{
-			for (e <- c+1 to c+1 + r - comp)
-			{
-				T(e) = c 
-			}
+			T(c) = c
 		}
-		else if ( r - comp == 0 && c+1< num)
+		else 
 		{
-			T( c + 1 ) = r + 1
-		}
-		else if ( r - comp > 0 && c+1+r - comp >= num)
-		{
-			for (e <- c+1 to num-1)
-			{
-				T(e) = c
-				c = num
-			}
-		}
-		else
-		{
-			
+			T(c) = c + 1
 		}
 		c = c +1
 		
