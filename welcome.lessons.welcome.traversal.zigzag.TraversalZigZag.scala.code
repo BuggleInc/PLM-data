@@ -3,14 +3,14 @@ override def run() {
 	var flag:Boolean = true;
 	while (!(getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1)) {
 		ecritMessage(j);
-		if (getY() == getMondeHauteur()-1) {
-			setPos(getX() +1, getY);
+		if (getX() == getMondeLargeur()-1) {
+			setPos(getX() , getY+1);
 			flag = false
 		}
 		else if (flag == true) {
-			setPos(getX(), getY() + 1);
+			setPos(getX() + 1, getY());
 		}
-		else setPos(getX(), getY() - 1);
+		else setPos(getX() - 1, getY());
 	j = j + 1;
 	}
 	ecritMessage("48");
