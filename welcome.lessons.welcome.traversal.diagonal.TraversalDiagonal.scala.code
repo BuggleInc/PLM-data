@@ -1,3 +1,21 @@
 var diag = 0;
 override def run() {
+	override def run() {
+	ecritMessage("0");
+	setPos(0 , 1);
+	var j:Int = 1;
+	while (!(getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1)) {
+		ecritMessage(j);
+		if (getY() == 0 && getX() != getMondeLargeur()-1 ) {
+			setPos(0, getX + 1);
+		}
+		else if (getX() == getMondeLargeur()-1) {
+			setPos(getY() + 1, getMondeHauteur() -1);
+		}
+		else setPos(getX() + 1, getY() - 1);
+	j = j + 1;
+	}
+	ecritMessage("48");
+}
+
 }
