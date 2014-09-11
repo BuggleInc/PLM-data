@@ -1,9 +1,8 @@
 override def run() 
 {
 	var virage = 0
-	var dir = Direction.NORTH
 	
-	def keepHandOnSideWall(dir:DIRECTION): DIRECTION =
+	def keepHandOnSideWall()
 	{
 		gauche()
 		if(estFaceMur())
@@ -14,16 +13,11 @@ override def run()
 			else	droite()
 		}
 		else avance()
-
-		return getDirection()
 	}
 		
-	
 	while(!estSurBiscuit())
 	{
-		dir = getDirection()
-		
-		if(dir!=keepHandOnSideWall(dir))
+		if(virage == 4)
 	}
 
 	prendBiscuit()
