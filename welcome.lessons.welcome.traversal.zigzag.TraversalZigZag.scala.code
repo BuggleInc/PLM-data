@@ -1,19 +1,33 @@
 override def run() 
 {
-	def serpent()
+	droite()
+	
+	for(i <- 0 to getMondeHauteur()*getMondeLargeur()-1)
 	{
-		if(!estFaceMur())
-			avance()
-		else
+		ecritMessage(i)
+		if(getDirection() == Direction.EST)
+		{
+			setPos(getX()+1,getY())
+		}
+		else if(getDirection() == Direction.OUEST)
+		{
+			setPos(getX()-1,getY())
+		}
+		if(estFaceMur() && i!=getMondeHauteur()*getMondeLargeur()-1)
+		{
+			setPos(0,getY()+1)
+		}
+		else if(i!=getMondeHauteur()*getMondeLargeur()-1)
 		{
 			if(getDirection() == Direction.EST)
 			{
-				gauche(); avance(); gauche()
+				setPos(getX()+1,getY())
 			}
 			else if(getDirection() == Direction.OUEST)
 			{
-				droite(); avance(); droite()
+				setPos(getX()-1,getY())
 			}
 		}
+		gauche()
 	}
 }
