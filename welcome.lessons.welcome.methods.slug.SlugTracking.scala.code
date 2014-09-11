@@ -10,13 +10,24 @@ def isFacingTrail():Boolean = {
 	}else{
 		if (getCouleurSol() != Color.green){
 			recule()
-			return false
+			gauche()
+			avance()
+			if (getCouleurSol() != Color.green){
+				recule()
+				gauche()
+				avance()
+				if (getCouleurSol() != Color.green){
+					retourne()
+					avance()
+					avance()
+				}
+			}
 		} else{
 			recule()
 			return true
-	}
+		}
    
-}
+	}
 } 
 
 
