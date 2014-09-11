@@ -29,7 +29,16 @@ def golomb(num:Int): Int = {
 			}while (r - comp > 0);
 
 			g = g +1
-			for (e <- c to c + r)
+			r = T(g)
+				for (e <- 0 to 999)
+				{
+					if (T(e) == g)
+					{
+						comp = comp + 1
+					}
+				}
+			
+			for (e <- c to c + r - comp)
 			{
 				T(e) = g
 			}
