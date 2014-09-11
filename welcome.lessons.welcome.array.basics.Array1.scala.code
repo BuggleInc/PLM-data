@@ -12,15 +12,12 @@ override def run() {
 		gauche();
 		avance();
 		droite();
-		avance();
-		for (i <- 0 to T.length-1) {
+		avance(); // pour décaler le motif
+		for (i <- 0 to T.length-1) { // réplication du motif
 			setCouleurBrosse(T(i));
 			baisseBrosse();
 			leveBrosse();
 			avance();
 		}
 	}
-	gauche(); // replacement en position initiale
-	avance();
-	droite();
 }
