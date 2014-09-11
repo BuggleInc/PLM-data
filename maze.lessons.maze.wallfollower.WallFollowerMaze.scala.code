@@ -1,0 +1,16 @@
+override def run() {
+	if (keepHandOnSideWall()) {
+		if (estFaceMur()) gauche();
+		else avance();
+	}
+	else {
+		droite();
+		avance();
+	}
+}
+ keepHandOnSideWall(): Boolean = {
+ 	droite();
+ 	var flag = estFaceMur();
+ 	gauche();
+ 	return flag;
+ }
