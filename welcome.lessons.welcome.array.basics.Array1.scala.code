@@ -5,14 +5,14 @@ var T = new Array[Color](getMondeHauteur());
 var haut=0;
 var i=0;
 haut=getMondeHauteur();
-for(i<-0 to haut){
+for(i<-0 to haut-1){
 	T(i)= getCouleurSol();
 	avance();
 }
  recule(haut);
 for(j<-0 to haut){
 	avance(); gauche(); avance();
-	for(i<-0 to haut) { 
+	for(i<-0 to haut-1) { 
 		leveBrosse();
 		setCouleurBrosse(T(i));
 		baisseBrosse(); avance();
