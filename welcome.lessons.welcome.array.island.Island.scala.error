@@ -1,21 +1,8 @@
-island:3: error: type mismatch;
- found   : Array[Nothing]
- required: Array[Int]
-Note: Nothing <: Int, but class Array is invariant in type T.
-You may wish to investigate a wildcard type such as `_ <: Int`. (SLS 3.2.10)
-	var M = maxValue(T)
-                         ^island:6: error: type mismatch;
- found   : Array[Nothing]
- required: Array[Int]
-Note: Nothing <: Int, but class Array is invariant in type T.
-You may wish to investigate a wildcard type such as `_ <: Int`. (SLS 3.2.10)
-		cpt=cpt + seqInArray(T,M)
-                                     ^island:9: error: value + is not a member of Nothing
+island:9: error: overloaded method value max with alternatives:
+  (x$1: Double,x$2: Double)Double <and>
+  (x$1: Float,x$2: Float)Float <and>
+  (x$1: Long,x$2: Long)Long <and>
+  (x$1: Int,x$2: Int)Int
+ cannot be applied to (Int)
 				T(i)=Math.max(T(i-1)+T(i+1))			
-                                                    ^island:12: error: type mismatch;
- found   : Array[Nothing]
- required: Array[Int]
-Note: Nothing <: Int, but class Array is invariant in type T.
-You may wish to investigate a wildcard type such as `_ <: Int`. (SLS 3.2.10)
-		M = maxValue(T)
-                             ^
+                                          ^
