@@ -5,6 +5,7 @@ def growFlowers() {
  var g = Color.GREEN
  var p = Color.PINK
  var o = Color.ORANGE
+ var b = Color.BLUE
  def cacfleur() { pistil(j)
 avance();droite()
 fleur(o)
@@ -16,14 +17,17 @@ gauche();recule(2)
 }
 cacfleur()
 	gauche();avance(5);droite();avance(8);droite();avance();gauche()
-	cacfleur()
-	droite();avance();droite();avance(8)
-	gauche();avance(3);gauche()
+	cacfleur(); gauche(); avance(2);retourne();fleur(b);droite();avance();peindre(j)
+	avance(7)
+	gauche();avance(6);gauche()
 	cacfleur()
 	gauche();avance(5);droite();avance(8);droite();avance();gauche()
-	cacfleur()
+	cacfleur(); gauche(); avance(2);retourne();fleur(b);droite();avance();peindre(j)
+	retourne();avance();droite();avance(2);gauche()
 
 }
+
+ def peindre(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
 
  def carre(c:Color) {
 	for (i <- 1 to 3)
