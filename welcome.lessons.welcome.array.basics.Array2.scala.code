@@ -2,9 +2,10 @@ override def run() {
 
 var n =  (getMondeHauteur()) ;
 var T = new Array[Color](n);
-for (i <- 0 to n-2) {
-	T(i) = getCouleurSol();
+T(0) = getCouleurSol();
+for (i <- 0 to n-1) {
 	avance();
+	T(i) = getCouleurSol();
 }
 
 for (j <- 0 to n-2) {
@@ -14,14 +15,22 @@ for (j <- 0 to n-2) {
 	gauche();
 	avance();
 	droite();
-	avance();
-		for (k <- 0 to n-2-j) {
-		setCouleurBrosse(T(k))
+val decalage = litMessage().toInt;
+		for (k <- decalage to n-1) {
+		setCouleurBrosse(T(k));
 		baisseBrosse();
 		leveBrosse();
 		avance();
 	}
-	
+	setCouleurBrosse(T(0))
+	baisseBrosse();
+		leveBrosse();
+		for (h <- 1 to decalage-1) {
+		avance();
+			setCouleurBrosse(T(k));
+		baisseBrosse();
+		leveBrosse();
+		}
 }
 }
 
