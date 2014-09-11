@@ -10,20 +10,18 @@ for(n<-0 to getMondeHauteur()-1){
 	for(k<-0 to getMondeHauteur()-1){recule()}
 	gauche();avance();droite();
 	val decalage=litMessage().toInt;
-	setCouleurBrosse(decalage);
-	baisseBrosse();
-	leveBrosse();
-	for(j<-decalage+1 to getMondeHauteur()-1){
-		avance();
+	for(j<-decalage to getMondeHauteur()-1){
 		setCouleurBrosse(T(j));
 		baisseBrosse();
 		leveBrosse();
+		avance();
 	}
-	for(h<-0 to decalage-1){
+	setCouleurBrosse(T(0))
+	for(h<-1 to decalage-1){
+		avance();
 		setCouleurBrosse(T(h));
 		baisseBrosse();
 		leveBrosse();
-		avance();
 	}
 }
 }
