@@ -16,10 +16,16 @@ for (m <- 1 to l)
 {
 	gauche()
 	avance()
-	gauche()
+	droite()
+	for (n <- 1 to h)
+	{
+		recule()
+	}
+	
 	for (p <- 0 to h-1)
 	{
-		setCouleurBrosse(T(p))
+		val decalage = litMessage().toInt
+		setCouleurBrosse(T((i+decalage) % h))
 		baisseBrosse()
 		leveBrosse()
 		avance()
@@ -39,3 +45,4 @@ droite()
 
 
 }
+// (i+5) % taille
