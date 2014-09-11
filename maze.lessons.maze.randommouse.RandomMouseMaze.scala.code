@@ -1,7 +1,18 @@
 override def run() 
 {
-	setPos(3, 3);
-	
+	var rand:Int = 0;
+
+	while (getX() != 3 || getY() != 3)
+	{
+		rand = random3();
+
+		rand match
+		{
+			case 0 => avance();
+			case 1 => gauche();
+			case 2 => droite();
+		}
+	}	
 
     prendBiscuit();
 }
