@@ -8,17 +8,22 @@ def checkMurLeft() :Boolean = {
 	return murleft;
 }
 
+def versNord() :Boolean = {
+	var nord = false 
+}
+
 override def run() {
-	while(!estFaceMur){
+	var nord = 0
+	while(!estFaceMur && nord%4 == 0){
 		avance()
 	}
-	while(!estSurBiscuit && estFaceNord){
+	while(!estSurBiscuit){
 		if(checkMurLeft == true && estFaceMur == false){
 			avance()
 		} else if(checkMurLeft == true && estFaceMur == true){
-			droite()
+			droite() ; nord = nord - 1
 		}
-		else {gauche() ; avance()}
+		else {gauche() ; nord = nord + 1 ; avance()}
 	}
 	prendBiscuit()	
 }
