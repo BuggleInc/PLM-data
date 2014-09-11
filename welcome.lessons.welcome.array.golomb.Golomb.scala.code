@@ -3,6 +3,7 @@ def golomb(num:Int): Int = {
 	var T = new Array[Int](num)
 	var r = 0
 	var e = 0
+	var g = 1
 	var comp = 0
 
 	T(0) = 1
@@ -13,23 +14,22 @@ def golomb(num:Int): Int = {
 		r = T(c - 1)
 		comp = 0
 
-		for (e <- 0 to num - 1)
+		while ( r - comp > 0)
 		{
-			if (T(e) == c)
+			r = T(c - g)
+			for (e <- 0 to num - 1)
 			{
+				if (T(e) == c)
+				{
 				comp = comp + 1
+				}
 			}
+			g = g + 1
 		}
 
-		if (r - comp > 0)
-		{
-			T(c) = c
-		}
-		else 
-		{
-			T(c) = c + 1
-		}
-		c = c +1
+		T(c) = c + 1
+
+		
 		
 	}
 
