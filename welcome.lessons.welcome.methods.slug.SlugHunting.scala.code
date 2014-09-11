@@ -9,12 +9,13 @@ def isFacingTrail():Boolean = {
 		return sol == Color.green}}
 
 def hunt() {while (isFacingTrail)
-		{avance();baisseBrosse();leveBrosse();}
+		{if(!estSurBiscuit){avance();baisseBrosse();leveBrosse();}}
 		   
-		   if(!isFacingTrail) {gauche();isFacingTrail(); 
+		   if(!isFacingTrail){gauche();isFacingTrail(); 
 		   if(!isFacingTrail){droite();isFacingTrail();
-		   if(!isFacingTrail){droite();isFacingTrail();}}}
-		   else{prendBiscuit();}
+		   if(!isFacingTrail){droite();isFacingTrail();
+		   }}}
+		   
 
 hunt()
     // Write your code here
