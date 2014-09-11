@@ -1,3 +1,24 @@
 override def run() {
-	
+	var wl=0;
+	var wh=0;
+	wl=getMondeLargeur(); // wl est la largeur du monde
+	wh=getMondeHauteur(); // wh est la hauteur du monde
+	var T = new Array[Color] (wh); // on déclare le tableau de longueur wh
+	T(0)=getCouleurSol();
+	for (i <- 1 to T.length-1) { // remplissage du tableau
+		avance();
+		T(i)=getCouleurSol();
+	}
+	for (i <- 1 to wl-1) {
+		gauche();
+		avance();
+		droite();
+		avance();
+		for (i <- 0 to T.length-1) { // réplication du motif
+			setCouleurBrosse(T(i));
+			baisseBrosse();
+			leveBrosse();
+			avance();
+		}
+	}
 }
