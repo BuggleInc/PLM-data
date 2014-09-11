@@ -12,7 +12,13 @@ def golomb(num:Int): Int = {
 
 	while (cv < 19)
 	{
-		
+		for (k <- 0 to 200)
+		{
+			if (T(k) == cv)
+			{
+				comp = comp + 1
+			}
+		}
 
 		while (T(cv) != comp)
 		{
@@ -21,6 +27,7 @@ def golomb(num:Int): Int = {
 
 		cp = cp +1;
 		cv = cv +1;
+		comp = 0;
 	}
 
 print("cherche "+num+" trouve "+T+"\n")
