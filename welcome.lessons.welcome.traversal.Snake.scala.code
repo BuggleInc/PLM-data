@@ -3,16 +3,16 @@ def fonctionTest() : Boolean =  {
 	var rep = true
 	if (estFaceMur) {
 		if (getDirection() == Direction.EST) {
-		droite() ; 
-		if (estFaceMur) {
-			gauche() ; rep = false; 
-		} else { avance();droite()}
-	}
-	if (getDirection() == Direction.OUEST) { 
-		gauche();
+		gauche() ; 
 		if (estFaceMur) {
 			droite() ; rep = false; 
-		} else { avance() ; gauche()}
+		} else { avance();gauche()}
+	}
+	if (getDirection() == Direction.OUEST) { 
+		droite();
+		if (estFaceMur) {
+			gauche() ; rep = false; 
+		} else { avance() ; droite()}
 	}
 	}
 	return rep
