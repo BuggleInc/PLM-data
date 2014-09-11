@@ -1,7 +1,7 @@
 override def run() {
 		var depart:Color = getCouleurSol()
 	var tab = new Array[Color](getWorldHeight())
-	for(i <- 0 to getWorldHeight()-1){
+	for(i <- 0 to getWorldHeight()-2){
 		avance()
 		tab(i) = getCouleurSol();
 				}
@@ -16,7 +16,7 @@ override def run() {
 			setCouleurBrosse(tab(c%decal))
 			baisseBrosse()
 	leveBrosse()
-		for(i <- 1 to getWorldHeight()-1){
+		for(i <- 2 to getWorldHeight()-1){
 	var decal = litMessage().toInt
 	avance()
 	setCouleurBrosse(tab(i%decal))
