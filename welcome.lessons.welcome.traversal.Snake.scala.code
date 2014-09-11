@@ -3,24 +3,23 @@ def positionFinale():Boolean = {
 			gauche()
 			if (estFaceMur()){
 				return true
-			} else {
+			} else { if (getDirection() == Direction.EST){
 				droite()
 				gauche()
 				avance()
 				gauche() 
+			} else {
+				droite()
+				avance()
+				droite()	
 			}
-		}
-		if ((estFaceMur()) && (getDirection() == Direction.EST)){
-		gauche()
-		droite()
-		avance()
-		droite()
+			}
 		}
 		return false 
 }		
 override def run() {
 baisseBrosse()
-	while ((positionFinale() == false) && (!estFaceMur)){
+	while (positionFinale() == false){
 				avance()
   	}
 }
