@@ -13,17 +13,17 @@ override def run() {
 			avance()
 			droite()
 			var decal = litMessage().toInt
-			setCouleurBrosse(tab((2+decal)%(getWorldHeight()-1)))
+			setCouleurBrosse(tab((decal-1)%(getWorldHeight()-1)))
 			baisseBrosse()
 	leveBrosse()
 		for(i <- 1 to getWorldHeight()-2){
 		avance()
-		setCouleurBrosse(tab((2+i+decal)%(getWorldHeight()-1)))
+		setCouleurBrosse(tab((i+decal-1)%(getWorldHeight()-1)))
 	baisseBrosse()
 	leveBrosse()
 	}
 	avance()
-	setCouleurBrosse(tab((1+getWorldHeight()+decal)%(getWorldHeight()-1)))
+	setCouleurBrosse(tab((getWorldHeight()-1+decal)%(getWorldHeight()-1)))
 	baisseBrosse()
 	leveBrosse()
 	for(p<-1 to getWorldHeight()-1){
