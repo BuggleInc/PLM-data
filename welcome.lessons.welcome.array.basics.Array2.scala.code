@@ -11,34 +11,12 @@ for (k <- 1 to (getMondeLargeur()-1))
 	droite()
 	val decalage = litMessage().toInt
 	for (n <- 1 to (getMondeHauteur()-1))
-		{setCouleurBrosse(T (n+decalage)%T.length   )
+		{var i = (n+decalage)%(T.length)
+		setCouleurBrosse(T(i))
 		baisseBrosse()
 		leveBrosse()
 		avance()}
-
-
-
-
-val decalage = litMessage().toInt
-
-(i + 5) % taille permet de trouver la iieme case d'un tableau de taille taille 
-quand on applique un décalage de 5 cases.
-
-var T = new Array[Color](getMondeHauteur())
-for (i <- 0 to (getMondeHauteur()-1))
-	{T(i) = getCouleurSol();
-	avance()}
-for (j <- 1 to (getMondeLargeur()-1))
-	{gauche()
-	avance()
-	droite()
-	avance()
-	for (k <- 0 to (getMondeHauteur()-1))
-		{setCouleurBrosse(T(k))
-		baisseBrosse()
-		leveBrosse()
-		avance()}
+	for (m <- 1 to (getMondeHauteur()-1))
+		{recule}
 	}
-
-
 }
