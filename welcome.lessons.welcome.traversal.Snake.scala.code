@@ -1,3 +1,26 @@
 override def run() {
-	while ((!estFaceMur()) && (if getDirection == 
+	def positionFinale():Boolean = {
+		if ((estFaceMur()) && (getDirection == Direction.EST){
+			gauche()
+			if (estFaceMur()){
+				return true
+			}
+		}
+		return false
+	}
+	while (positionFinale == false){
+		while (!estFaceMur()){
+				avance() 
+			}
+			if (getDirection == Direction.EST){
+				gauche()
+				avance()
+				gauche()
+			}
+			if (getDirection == Direction.OUEST){
+				droite()
+				avance()
+				droite()
+			}
+		}
 }
