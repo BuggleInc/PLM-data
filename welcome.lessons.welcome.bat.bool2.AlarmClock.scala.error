@@ -1,9 +1,17 @@
-alarmClock:4: error: identifier expected but integer literal found.
-  case "0"  => return 10:00
-                         ^alarmClock:5: error: identifier expected but integer literal found.
-  case "6"  => return 10:00
-                         ^alarmClock:6: error: identifier expected but integer literal found.
-  case _    => return 7:00 
-                        ^alarmClock:12: error: identifier expected but integer literal found.
-  case _  => return 10:00 
-                       ^
+alarmClock:4: error: type mismatch;
+ found   : String("0")
+ required: Int
+  case "0"  => return "10:00"
+       ^alarmClock:5: error: type mismatch;
+ found   : String("6")
+ required: Int
+  case "6"  => return "10:00"
+       ^alarmClock:10: error: type mismatch;
+ found   : String("0")
+ required: Int
+  case "0"  => return "off"
+       ^alarmClock:11: error: type mismatch;
+ found   : String("6")
+ required: Int
+  case "6"  => return "off"
+       ^
