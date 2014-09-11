@@ -1,0 +1,13 @@
+def brosse(couleur)
+{
+	setCouleurBrosse(couleur); poseBrosse(); leveBrosse()
+}
+
+def step() 
+{
+	getCouleurSol() match
+	{
+		Color.black => brosse(Color.white); droite(); avance()
+		Color.white => brosse(Color.black); gauche(); avance()
+	}
+}
