@@ -4,14 +4,27 @@ override def run() {
 	var c:Int = 0
 	for (i<- 0 to l-1) {
 		if (getY() == h-1) {
-		setPos(0,i)
+		setPos(h-1,i)
 		
 		ecritMessage(c)
 		for (j <- 1 to h-1) {
 		setPos (j,i)
 		c = c+1 
 		ecritMessage(c)}
-		c=c+1}}
+		c=c+1}
+		
+		if(getY() == 0 && getX() != 0){
+			setPos(0,i)
+			ecritMessage(c)
+		for (j <- 1 to h-1) {
+		setPos (j,i)
+		c = c+1 
+		ecritMessage(c)}
+		c=c+1}
+		}
+		
+		
+		}
 	
 	
 
