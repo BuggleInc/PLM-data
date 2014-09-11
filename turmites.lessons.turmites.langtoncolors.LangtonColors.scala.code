@@ -5,10 +5,20 @@ def brosse(couleur:Color)
 
 def step(rule:Array[Char], colors:Array[Color]) 
 {
-	getCouleurSol() match
+	var pos = 0
+	
+	for(i <- 0 to colors.length-1)
 	{
-		case Color.black => brosse(Color.white); gauche(); avance()
-		case Color.white => brosse(Color.black); droite(); avance()
+		if(colors(i)==getCouleurSol())
+			pos=i
+	}
+	
+	rule(pos) match
+	{
+		case 'L' => if(pos!=colors.length-1) brosse(colors(pos+1)); gauche(); avance()
+				  else brosse(colors(0)); gauche(); avance()
+		case 'R' => if(pos!=colors.length-1) brosse(colors(pos+1)); droite(); avance()
+				  else brosse(colors(0)); droite(); avance()
 	}
 }
 
