@@ -1,4 +1,16 @@
 def hunt() {
+
+do { avance();
+ } while (isFacingTrail() == true)
+}
+if (isFacingTrail() == false) {
+	droite();
+}
+if (isFacingTrail() == false) {
+	gauche(); gauche();
+}
+}      
+
 def isFacingTrail():Boolean = {
 	if (estFaceMur) {
 		return false
@@ -10,16 +22,3 @@ avance(); getCouleurSol();
     } else{ recule();
     	return false
     }
-}      
-
-do { avance();
- } while (isFacingTrail() == true)
-}
-if (isFacingTrail() == false) {
-	droite();
-}
-if (isFacingTrail() == false) {
-	gauche(); gauche();
-}
-
-
