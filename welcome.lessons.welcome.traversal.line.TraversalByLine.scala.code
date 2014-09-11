@@ -1,4 +1,15 @@
 override def run() 
 {
-	
+	for(i <- 0 to getMondeHauteur()*getMondeLargeur()-1)
+	{
+		ecritMessage(i)
+		droite()
+		if(estFaceMur() && i!=getMondeHauteur()*getMondeLargeur()-1)
+		{
+			setPos(0,getY())
+		}
+		else if(i!=getMondeHauteur()*getMondeLargeur()-1)
+			setPos(getX()+1,getY())
+		gauche()
+	}
 }
