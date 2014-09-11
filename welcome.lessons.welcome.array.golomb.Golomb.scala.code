@@ -8,13 +8,17 @@ def golomb(num:Int): Int = {
 	S(0)=0
 	S(1)=1
 	S(2)=2
-	for(i<-rempli+1 to rempli+S(pos)){
-		if(i<=num){
-				S(i)=pos
+	while(rempli<=num){
+		for(i<-rempli+1 to rempli+S(pos)){
+			if(i<=num){
+					S(i)=pos
+			}
+			else{
+				return S(num)
+			}
 		}
-		else{
-			return S(num)
-		}
+		rempli=rempli+S(pos)
+		pos=pos+1
 	}
 	return 0 
 }
