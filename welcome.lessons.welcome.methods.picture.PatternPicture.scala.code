@@ -1,0 +1,47 @@
+override def run() {
+
+def marque(d:Color){
+	setCouleurBrosse(d)
+	baisseBrosse
+	leveBrosse
+}
+
+def motif(c:Color){
+	avance
+	marque(c)
+	gauche
+	avance
+	gauche
+	avance
+	marque(c)
+	gauche
+	avance
+	gauche
+}
+
+def dessin(l:Int,L:Int){
+	for (x<-1 to l){
+		for (y<-1 to L){
+			motif(Color.red)
+			avance(3);gauche
+			motif(Color.blue)
+			avance(3);gauche
+			motif(Color.green)
+			avance(3);gauche
+			motif(Color.yellow)
+			avance(3);gauche
+			if(y!=L){
+				avance(3)
+				if (!estFaceMur) avance
+			}
+		}
+		if (x!=l){
+			gauche;avance(4);droite;recule((L-1)*4)
+		}
+	}
+	
+}
+
+dessin(2,2)
+
+}
