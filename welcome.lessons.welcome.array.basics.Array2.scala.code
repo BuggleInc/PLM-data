@@ -12,12 +12,18 @@ override def run() {
 			gauche()
 			avance()
 			droite()
-		for(i <- 0 to getWorldHeight()-1){
+			setCouleurBrosse(tab(c%decal))
+			baisseBrosse()
+	leveBrosse()
+		for(i <- 1 to getWorldHeight()-1){
 	var decal = litMessage().toInt
-	setPos(i,getWorldHeight()-i)
+	avance()
 	setCouleurBrosse(tab(i%decal))
 	baisseBrosse()
 	leveBrosse()
-	avance()}
+	}
+	for(p<-1 to getWorldHeight()){
+		recule()
+	}
 		}
 }
