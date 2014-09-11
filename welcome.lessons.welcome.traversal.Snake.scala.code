@@ -6,13 +6,13 @@ def fonctionTest() : Boolean =  {
 		droite() ; 
 		if (estFaceMur) {
 			gauche() ; rep = false; 
-		}
+		} else { avance();droite()}
 	}
 	if (getDirection() == Direction.OUEST) { 
 		gauche();
 		if (estFaceMur) {
 			droite() ; rep = false; 
-		}
+		} else { avance() ; gauche()}
 	}
 	}
 	return rep
@@ -22,12 +22,6 @@ while (fonctionTest()) {
 	if (!estFaceMur()) { 
 		avance()
 	
-	if ( estFaceMur() & (getDirection() == Direction.EST)) {
-		gauche() ; avance();gauche()
-	}
-	if (estFaceMur() & (getDirection() == Direction.OUEST)) {
-		droite() ;avance() ;droite()
-	}
 	}
 		
 }
