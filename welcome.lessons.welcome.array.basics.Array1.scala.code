@@ -1,8 +1,8 @@
 override def run() {
 var n =  (getMondeHauteur()) ;
 var T = new Array[Color](n);
-for (i <- 1 to n) {
-	T(i-1) = getCouleurSol();
+for (i <- 0 to n-1) {
+	T(i) = getCouleurSol();
 	avance();
 }
 for (j <- 1 to n) {
@@ -10,7 +10,7 @@ for (j <- 1 to n) {
 	avance();
 	droite();
 	var aux = T(n-1);
-	for (c <- 1 to n-1) {
+	for (c <- n-1 to 1) {
 		T(c+1) = T(c)
 	}
 	T(0) = aux ;
