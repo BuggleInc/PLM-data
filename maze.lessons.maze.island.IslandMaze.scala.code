@@ -1,11 +1,67 @@
 override def run() {
 var etat=0;
+var x=0;
 etat match  {
   case 0 => // courir au nord
-     ...
+    	if (x=1) {
+    		droite(); x = x-1;
+    		if (!estFaceMur) {
+    			avance()
+    		else {
+    			droite(); x = x-1
+    			if (!estFaceMur) {
+    				avance();gauche(); x = x+1
+    			else {
+    				droite(); x = x-1
+    			}
+    			}
+    		}
+    		}
+    		}
+    	}
      etat = 1;
   case 1 => // suivre à gauche
-     ...
-     etat = 0;
-  case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+while (!estFaceMur) {
+	gauche()
+	x = x+1
+	if (x=5) {
+		x=1
+	}
 }
+droite()
+x = x-1
+do {
+	gauche()
+	while (estFaceMur()) {
+		droite()
+	}
+	avance()
+}
+while (!estSurBiscuit)
+prendBiscuit()
+     etat = 0;
+}
+
+
+
+//suivre à gauche
+/*
+while (!estFaceMur) {
+	gauche()
+	x = x+1
+	if (x=5) {
+		x=1
+	}
+}
+droite()
+x = x-1
+do {
+	gauche()
+	while (estFaceMur()) {
+		droite()
+	}
+	avance()
+}
+while (!estSurBiscuit)
+prendBiscuit()
+*/
