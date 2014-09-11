@@ -3,23 +3,17 @@ override def run() {
 	droite()
     while(!estSurBiscuit)
     {
-    random3()
-
-    		if(random3() == 0)
-    		{
-    			gauche()
-    		}
-    		if(random3() == 1)
-    		{
-    			droite()
-    		}
-    		if(random3() == 2 & !estFaceMur)
-    		{
-    			avance()
-    		}
+		gauche()
+		if(estFaceMur())
+		{
+			droite()
+			if(!estFaceMur)
+			{
+			avance()
+			}
+		}
     
     }
-    	prendBiscuit()
 }
 
 
