@@ -1,4 +1,35 @@
 override def run() {
 
+	var i:Int = 0;
 
+	while (!estArrive)
+	{
+		ecritMessage(i);
+		i = i + 1;
+		calculPosition();
+	}
+
+	ecritMessage(i);
+}
+
+def estArrive():Boolean = 
+{
+	return (getX() == getMondeLargeur() - 1) && (getY() == getMondeHauteur() - 1);
+}
+
+def calculPosition()
+{
+	if (getY() % 2 == 0)
+	{
+		if (getX() == getMondeLargeur() - 1)
+			setPos(getX(), getY() + 1);
+		else
+			setPos(getX() + 1, getY());
+	}
+	else
+	{
+		if (getX() == 0)
+			setPos(getX(), getY() + 1);
+		else setPos(getX() - 1, getY());
+	}
 }
