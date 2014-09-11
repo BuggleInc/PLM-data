@@ -1,0 +1,68 @@
+def growFlowers(){
+	
+def marque(d:Color){
+	setCouleurBrosse(d)
+	baisseBrosse
+	leveBrosse
+}
+
+def fleur(c:Color){
+	marque(c)
+	avance
+	gauche
+	avance
+	marque(c)
+	recule(2)
+	marque(c)
+	avance
+	marque(Color.yellow)
+	droite
+	avance
+	marque(c)
+}
+
+def growFlower(){
+	
+	fleur(Color.red)
+	avance(2)
+	fleur(Color.cyan)
+	droite
+	avance(4)
+	droite
+	fleur(Color.green)
+	droite
+	avance(2)
+	gauche
+	fleur(Color.orange)
+	gauche
+	avance(2)
+	droite
+	fleur(Color.pink)
+	droite;droite;
+	
+}
+
+for (x<-1 to 4){
+	growFlower()
+	x match{
+		case 1|3 => {gauche
+					avance(2)
+					droite
+					avance(6)
+					fleur(Color.blue)
+					gauche
+					avance(2)
+					droite
+					}
+		case 2 => {gauche
+				avance(2)
+				droite
+				recule(8)
+				droite
+				avance(6)
+				gauche
+				}
+		case _ =>
+		}
+	}
+}
