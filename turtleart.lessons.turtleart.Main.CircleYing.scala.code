@@ -1,0 +1,21 @@
+override def run() {
+	
+polygon(360,2)
+demiCerle(360,1,true)
+demiCerle(360,1,false)
+}
+def polygon (nbrCote :Int, longueurCote:Int) {
+	for (i<- 1 to nbrCote)
+	{
+	avance(longueurCote)
+	droite(360/nbrCote)
+	}
+}
+
+def demiCercle (nbrCote :Int, longueurCote:Int , Right : Boolean) {
+	for (i<- 1 to nbrCote)
+	{
+	avance(longueurCote)
+	if (Right) droite(360/nbrCote) else gauche(360/nbrCote)
+	}
+}
