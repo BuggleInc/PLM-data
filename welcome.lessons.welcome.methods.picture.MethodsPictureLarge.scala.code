@@ -1,2 +1,36 @@
 override def run() {
+def marque() {
+	baisseBrosse();leveBrosse();
+}
+def faireV() {
+	avance();marque();avance();gauche();avance();marque();droite();avance();droite();avance();marque();gauche();avance();gauche();
+}
+def faireMotif() {
+	var x="";
+for (x<- 1 to 4) {
+	faireV();
+}
+}
+def faireL(){
+var y="";
+for (y<- 1 to 3) {
+	faireMotif();avance(5);
+}
+}
+def faireC() {
+	var z="";
+for (z<- 1 to 3) {
+	faireL();gauche();avance(5);droite();
+}
+}
+def faireGL() {
+	var i="";
+for (i<- 1 to 3) {
+	faireC();avance(15);
+}
+}
+var j=""
+for (j<- 1 to 3) {
+	faireGL();gauche();avance(15);droite();
+}
 }
