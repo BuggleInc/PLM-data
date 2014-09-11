@@ -1,10 +1,11 @@
 def step() {
 
-def dessiner()
-	{baisseBrosse; leveBrosse;}
+def setCouleurSol(c:Color)
+	{setCouleurBrosse(c);
+		baisseBrosse; leveBrosse;}
 
 (getCouleurSol()) match
-	{case Color.WHITE => setCouleurSol(Color.BLACK); dessiner(); droite(); avance();
-	case Color.BLACK => setCouleurSol(Color.WHITE); dessiner; gauche(); avance();
+	{case Color.WHITE => setCouleurSol(Color.BLACK); droite(); avance();
+	case Color.BLACK => setCouleurSol(Color.WHITE); gauche(); avance();
 	}
 }
