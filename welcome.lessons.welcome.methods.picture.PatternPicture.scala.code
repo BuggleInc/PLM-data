@@ -1,0 +1,36 @@
+def faireC(c:Color){
+	setCouleurBrosse(c)
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	gauche()
+	avance()
+	gauche()
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	gauche()
+	avance()
+	gauche()
+	
+}
+
+override def run() {
+	for(c1 <- 1 to 2) {
+		for(c2 <- 1 to 2) {
+			faireC(Color.YELLOW)
+			faireC(Color.RED)
+			faireC(Color.BLUE)
+			faireC(Color.GREEN)
+			for(c2 <- 1 to 5) {
+				avance()
+			}
+		}
+		gauche()
+		for(c3 <- 1 to 5) {
+			avance()
+		}
+		droite()
+	}
+	
+}
