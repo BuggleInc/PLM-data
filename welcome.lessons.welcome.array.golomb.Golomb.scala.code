@@ -11,14 +11,29 @@ def golomb(num:Int): Int = {
 	{
 		if (T(c) == r && c + r -1 < num)
 		{
-			for (e <- c-1 to c + r -2 )
+			if ( c == r)
 			{
-				T(e) = c
+				for (e <- c+1 to c + r)
+				{
+					T(e) = c
+				}
 				
+				c = c +r 
+				r = r + 1
+				T(c) = r
 			}
-			c = c +r 
-			r = r + 1
-			T(c) = r
+			else 
+			{
+				for (e <- c+1 to c + r -2 )
+				{
+					T(e) = c
+				}
+				
+				c = c +r 
+				r = r + 1
+				T(c) = r
+			}
+			
 		}
 		if (T(c-1) == r && c + r -1  >= num)
 		{
