@@ -1,6 +1,7 @@
 override def run() 
 {
 	var virage = 0
+	var suivre = 0
 	
 	def keepHandOnSideWall()
 	{
@@ -23,22 +24,27 @@ override def run()
 	}
 		
 	while(!estSurBiscuit())
-	{
+	{	
 		if(isDirectionFree(getDirection()))
 			avance()
 		else
 		{
-			keepHandOnSideWall()
-			if((virage-4)%4==0)
+			while((virage-4)%4==0)
+				keepHandOnSideWall()
+			/*else
 			{
-				getDirection() match
+				keepHandOnSideWall()
+				if((virage-4)%4==0)
 				{
-					case Direction.NORTH => setDirection(Direction.SUD)
-					case Direction.OUEST => setDirection(Direction.EST)
-					case Direction.SUD => setDirection(Direction.NORTH)
-					case Direction.EST => setDirection(Direction.OUEST)
+					getDirection() match
+					{
+						case Direction.NORTH => setDirection(Direction.SUD)
+						case Direction.OUEST => setDirection(Direction.EST)
+						case Direction.SUD => setDirection(Direction.NORTH)
+						case Direction.EST => setDirection(Direction.OUEST)
+					}
 				}
-			}
+			}*/
 		}
 	}
 
