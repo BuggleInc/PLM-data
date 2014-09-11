@@ -1,27 +1,31 @@
 override def run() {
-	def faireV(c: Color){ 
-		for( n <-1 to 4){
+	def faireW() {
+		faireV (Color.yellow); faireV(Color.red); faireV(Color.blue); faireV(Color.green);
+	}
+	def faireV(c:Color){ 
+	
 			avance() 
-			marquersol()
+			marquersol(c)
 			avance() 
 			gauche() 
 			avance() 
-			marquersol()
+			marquersol(c)
 			recule()
 			droite() 
 			avance()
-			marquersol()
+			marquersol(c)
 			avance() 
 			gauche() 
+			
 			} 
-			} 
-			def marquersol(){
+			def marquersol(c:Color){
+				setCouleurBrosse(c)
 				baisseBrosse() 
 				leveBrosse 
 				} 
 			def faireV3(c: Color){ 
 				for( n <- 1 to 3 ){ 
-					faireV()
+					faireW(c:)
 				for ( n <- 1 to 5){
 						avance() 
 						} 
@@ -34,5 +38,6 @@ override def run() {
 					avance() 
 				} 
 				droite()
-				}
 }
+}
+
