@@ -1,5 +1,43 @@
 var diag = 0;
 override def run() {
 
+	var i:Int = 1;
+	var j:Int = 1;
+	ecritMessage(0);
 	
+	while (!estArrive)
+	{
+		while (j <= 7 - Math.abs(Diag-7))
+		{
+			calculPosition();
+			ecritMessage(i);
+			i = i + 1;
+			j = j + 1;	
+		}
+		j = 0;
+		diag = diag + 1;
+	}
+
+	ecritMessage(i);
+}
+
+def estArrive():Boolean = 
+{
+	return (getX() == getMondeLargeur() - 1) && (getY() == getMondeHauteur() - 1);
+}
+
+def calculPosition()
+{
+	if (diag < 7)
+	{
+		if (getY() == 0)
+			setPos(0, diag);
+		else setPos(getX() + 1, getY() + 1);
+	}
+	else
+	{
+		if (getX() == getMondeLargeur() - 1)
+			setPos(getMondeHauteur - 1, diag - 6);
+		else setPos(getX() + 1, getY() + 1);
+	}
 }
