@@ -1,14 +1,14 @@
 def island(num:Array[Int]): Int = {
 	var nbNiveaux = 0
 	for (i <- 0 to num.length-1) // Parcours entier du vecteur
-		{if (num(i)!=0 // Recherche d'un coin de terre (num(i)!=0)
+		{if (num(i)!=0) // Recherche d'un coin de terre (num(i)!=0)
 			{nbNiveaux=nbNiveaux+1 // Une île = Un niveau
 			var k = i
 			while (num(k)!=0 // Recherche de la bordure de l'île
 				{k=k+1} // L'île s'étend sur la portion [i..k]
 			var j = i
 			while (j <= k) // Inspection du sous vecteur [i..k] pour rechercher des montagnes (2)
-				{if (num(j)==2
+				{if (num(j)==2)
 					{nbNiveaux=nbNiveaux+1
 					while (num(j)==2
 						{j=j+1}
