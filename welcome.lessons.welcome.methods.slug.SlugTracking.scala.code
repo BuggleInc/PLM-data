@@ -1,5 +1,5 @@
 def isFacingTrail():Boolean = {
-	avance();
+	if(!estFaceMur) {avance();
 	var sol:Color = getCouleurSol();
 	/*
 	var solEstVert:Boolean = false;
@@ -8,6 +8,10 @@ def isFacingTrail():Boolean = {
 	}
 	*/
 	recule();
-	return sol == Color.green;
+	return sol == Color.green;}
+	else{gauche();avance();
+		var sol : Color = getCouleurSol();
+		recule();droite();
+		return sol == Color.green}
     // Write your code here
 }        
