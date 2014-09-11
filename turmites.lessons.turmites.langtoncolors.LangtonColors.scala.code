@@ -10,23 +10,15 @@ def step(rule:Array[Char], colors:Array[Color])
 	while(colors(pos)!=getCouleurSol())
 		pos = pos+1
 
+	rule(pos) match
+	{
+		case 'L' => gauche()
+		case 'R' => droite()
+	}
+
 	if(pos!=colors.length-1)
-	{
-		rule(pos) match
-		{
-			case 'L' => gauche(); brosse(colors(pos+1))
-			case 'R' => droite(); brosse(colors(pos+1))
-		}
-	}
-	else
-	{
-		rule(pos) match
-		{
-			case 'L' => gauche(); brosse(colors(0)) 
-			case 'R' => droite(); brosse(colors(0))
-		}
-		
-	}
+		brosse(colors(pos+1))
+	else brosse(colors(0))
 
 	avance()
 }
