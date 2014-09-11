@@ -7,9 +7,13 @@ def has271(nums:Array[Int]): Boolean = {
 	{
 		for(i <- 0 to nums.length - 3)
 		{
-			if(nums(i + 1) == nums(i) + 5 && nums(i+2) == nums(i) - 1 )
+			if(nums(i + 1) == nums(i) + 5)
 			{
-				is271 = true
+				if(Math.abs(nums(i+2) - nums(i)) <= 2)
+				{
+					 is271 = true
+				}
+				
 			}
 
 			
