@@ -15,25 +15,28 @@ override def run()
 
 	def rejoindreMurNord()
 	{
-		if(estFaceMur())
-			keepHandOnSideWall()
-		else if(!estFaceMur())
+		while(getY()!=0)
 		{
-			avance()
-			getDirection() match
+			if(estFaceMur())
+				keepHandOnSideWall()
+			else if(!estFaceMur())
 			{
-				case Direction.NORTH => if(!estFaceMur()) avance()
-				case Direction.OUEST => droite(); if(!estFaceMur) avance()
-				case Direction.EST => gauche(); if(!estFaceMur) avance()
-				case Direction.SUD => gauche(); gauche(); if(!estFaceMur) avance()
-			}		
-		}	
+				avance()
+				getDirection() match
+				{
+					case Direction.NORTH => if(!estFaceMur()) avance()
+					case Direction.OUEST => droite(); if(!estFaceMur) avance()
+					case Direction.EST => gauche(); if(!estFaceMur) avance()
+					case Direction.SUD => gauche(); gauche(); if(!estFaceMur) avance()
+				}		
+			}	
+		}
 	}
+
+	rejoindreMurNord()
 	
 	while(!estSurBiscuit())
 	{
-		while(getY()!=0)
-			rejoindreMurNord()
 		keepHandOnSideWall()
 	}
 
