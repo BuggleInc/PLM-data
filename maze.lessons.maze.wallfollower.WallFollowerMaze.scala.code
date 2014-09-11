@@ -10,8 +10,10 @@ def checkMurLeft() :Boolean = {
 
 override def run() {
 	while(!estSurBiscuit){
-		if(checkMurLeft == true){
+		if(checkMurLeft == true && estFaceMur == false){
 			avance()
+		} else if(checkMurLeft == true && estFaceMur == true){
+			droite()
 		}
 		else {gauche() ; avance()}
 	}
