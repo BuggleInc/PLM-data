@@ -6,29 +6,29 @@ def isFacingTrail():Boolean = {
                  	leveBrosse();
                  	avance();
                  	return true;
-                 	}else{
+                 	}
+                 	recule();
+                 	gauche();
+                 	avance();
+                 	if(getCouleurSol()==Color.green){
                  		recule();
-                 		gauche();
+                 		baisseBrosse();
+                 		leveBrosse();
+                 		avance();
+                 		return true;
+                 		}
+                 		recule();
+                 		droite();
+                 		droite();
                  		avance();
                  		if(getCouleurSol()==Color.green){
                  			recule();
                  			baisseBrosse();
                  			leveBrosse();
                  			avance();
-                 			return true;
+                 			return true ;
                  			}else{
-                 				recule();
-                 				droite();
-                 				droite();
-                 				avance();
-                 				if(getCouleurSol()==Color.green){
-                 					recule();
-                 					baisseBrosse();
-                 					leveBrosse();
-                 					avance();
-                 					return true ;
-                 					}else{
-                 						return false ;
+                 				return false ;
                  					}
                  	}
           }
