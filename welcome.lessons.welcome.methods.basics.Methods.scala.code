@@ -1,0 +1,19 @@
+        def goAndGet() {
+        	var step:Int = 0;
+        	while(!isOverBaggle()) {
+        		forward();
+        		step = step + 1;
+        	}
+        	pickupBaggle();
+        	for(i <- 1 to step) {
+        		backward();
+        	}
+        	dropBaggle();
+        }
+
+        for (i <- 1 to 7) {
+            goAndGet();
+            right();
+            forward();
+            left();
+        }
