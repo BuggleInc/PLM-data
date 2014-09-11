@@ -5,10 +5,10 @@ def island(num:Array[Int]): Int = {
 	var max = maxValue(num)
 	for (j<-1 to max){
 		for (i<-1 to num.length-1){
-			if(plat == 0 && num(i)==j){
+			if(plat == 0 && num(i)>j){
 				plat = 1			
 			}
-			if(plat == 1 && num(i)==j){
+			if(plat == 1 && num(i)<j){
 				plat = 0
 				result = result+1
 			}
