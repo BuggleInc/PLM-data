@@ -5,16 +5,17 @@ for (i <- 0 to n-1) {
 	T(i) = getCouleurSol();
 	avance();
 }
-for (j <- 1 to n) {
+for (j <- 0 to n-1) {
 	gauche();
 	avance();
 	droite();
 	var aux = T(n-1);
 	for (c <- 0 to n-2) {
+		var x = T(c+1);
 		T(c+1) = T(c)
 	}
 	T(0) = aux ;
-	for (k <- 1 to n-1) {
+	for (k <- 0 to n-1) {
 		setCouleurBrosse(T(k))
 		baisseBrosse();
 		leveBrosse();
