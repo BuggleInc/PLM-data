@@ -18,9 +18,9 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	{
 		case STOPP => ();
 		case DEVANT => avance();
-		case GAUCHE => gauche(); //avance();
-		case DEMI_TOUR => retourne(); //avance();
-		case DROITE => droite(); //avance();
+		case GAUCHE => gauche(); avance();
+		case DEMI_TOUR => retourne(); avance();
+		case DROITE => droite(); avance();
 	}
         state = rule(state)(couleur)(ETAT_SUIVANT);
     }
