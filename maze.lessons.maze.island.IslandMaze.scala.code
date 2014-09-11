@@ -18,7 +18,15 @@ override def run()
 		if(estFaceMur())
 			keepHandOnSideWall()
 		else if(!estFaceMur())
-			avance()
+		{
+			getDirection() match
+			{
+				case DirectionNORTH => avance()
+				case DirectionOUEST => droite(); if(!estFaceMur) avance()
+				case DirectionEST => gauche(); if(!estFaceMur) avance()
+				case DirectionSUD => gauche(); gauche(); if(!estFaceMur) avance()
+			}		
+		}
 	}	
 	
 	while(!estSurBiscuit())
