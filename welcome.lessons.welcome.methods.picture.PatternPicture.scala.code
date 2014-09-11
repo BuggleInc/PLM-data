@@ -3,18 +3,23 @@ def faireV(c:Color) {
 	avance();
 	baisseBrosse();
 	leveBrosse();
-	avance();
-	gauche();
-	avance();
-	baisseBrosse();
-	leveBrosse();
-	recule();
-	droite();
-	avance();
-	baisseBrosse();
-	leveBrosse();
-	avance();
 }
 
 override def run() {
+	for (x<-0 to 1) {
+		for (x<-0 to 1) {
+			faireV(Color.red);
+			faireV(Color.blue);
+			gauche();
+			faireV(Color.blue);
+			gauche();
+			faireV(Color.green);
+			gauche();
+
+			avance(5);
+		}
+		gauche();
+		avance(5);
+		droite();
+	}
 }
