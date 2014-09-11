@@ -1,8 +1,7 @@
 override def run() {
 	def faireMotif() {
-		def faireCarre(c:Color) = {
 		avance()
-		setCouleurBrosse(c)
+		setCouleurBrosse(color.RED)
 		baisseBrosse()
 		leveBrosse()
 		for (i <- 1 to 2) {
@@ -10,21 +9,35 @@ override def run() {
 			avance()
 		}
 		baisseBrosse()
+		leveBrosse() // carré rouge fait
+		droite()
+		avance()
+		setCouleurBrosse(color.YELLOW)
+		baisseBrosse()
 		leveBrosse()
-	}
-	faireCarre(Color.RED)
-	recule(2)
-	droite()
-	faireCarre(Color.BLUE)
-	recule(3)
-	gauche()
-	avance(2)
-	droite()
-	faireCarre(Color.YELLOW)
-	avance()
-	faireCarre(Color.GREEN)
-	avance()
-	gauche()
+		avance()
+		droite()
+		avance()
+		baisseBrosse()
+		leveBrosse() // carré jaune fait
+		avance()
+		setCouleurBrosse(color.GREEN)
+		baisseBrosse()
+		leveBrosse()
+		avance()
+		droite()
+		avance()
+		baisseBrosse()
+		leveBrosse() // carré vert fait
+		avance()
+		setCouleurBrosse(color.BLUE)
+		baisseBrosse()
+		leveBrosse()
+		avance()
+		droite()
+		avance()
+		baisseBrosse()
+		levebrosse() // carré bleu fait
 }
 faireMotif()
 }
