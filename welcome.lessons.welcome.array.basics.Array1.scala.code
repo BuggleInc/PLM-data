@@ -1,3 +1,15 @@
+def marque(){
+	setCouleurBrosse(tab(i))
+	baisseBrosse()
+	leveBrosse()
+}
+
+def trace(){
+	for(i <- 0 to hauteur-1)
+	marque()
+	avance()
+}
+
 override def run() {
 	var depart:Color = getCouleurSol()
 	var hauteur = 0
@@ -9,5 +21,12 @@ override def run() {
 	for(i <- 0 to hauteur-1){
 		tab(i) = getCouleurSol();
 		avance()
+		}
+		for(c <- 1 to 5){
+			avance()
+			gauche()
+			avance()
+			droite()
+			trace()
 		}
 }
