@@ -1,7 +1,7 @@
 override def run() 
 {
 	var virage = 0
-	var suivre = 0
+	var virageBase = 0
 	
 	def keepHandOnSideWall()
 	{
@@ -29,7 +29,13 @@ override def run()
 			avance()
 		else
 		{
-			keepHandOnSideWall()
+			virageBase = virage
+			do
+			{
+				keepHandOnSideWall()
+			}while(virage!=virageBase+4 || virage!=virageBase-4)
+			
+			/*keepHandOnSideWall()
 			if((virage-4)%4==0)
 			{
 				getDirection() match
@@ -39,7 +45,7 @@ override def run()
 					case Direction.SUD => setDirection(Direction.NORTH)
 					case Direction.EST => setDirection(Direction.OUEST)
 				}
-			}
+			}*/
 		}
 	}
 
