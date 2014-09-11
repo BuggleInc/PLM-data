@@ -1,20 +1,38 @@
 def isFacingTrail():Boolean = {
-	if(!estFaceMur) {avance();
-	var sol:Color = getCouleurSol();
-	recule();
-	return sol == Color.green;}
-	else{gauche();avance();
+	if(!estFaceMur) {
+		avance();
+		var sol:Color = getCouleurSol();
+		recule();
+		return sol == Color.green;
+	}
+	else{
+		gauche();
+		avance();
 		var sol : Color = getCouleurSol();
 		recule();
-		return sol == Color.green}}
+		return sol == Color.green
+	}
+}
 
-def hunt() {while (isFacingTrail)
-	      {avance();baisseBrosse();leveBrosse();}
+def hunt() {
+	while (isFacingTrail) {
+		avance();
+		baisseBrosse();
+		leveBrosse();
+	}
 		   
-		   if(!isFacingTrail){gauche();isFacingTrail(); 
-		   if(!isFacingTrail){droite();isFacingTrail();
-		   if(!isFacingTrail){droite();isFacingTrail();
-		   }}}
+	if(!isFacingTrail) {
+		gauche();
+		isFacingTrail(); 
+		if(!isFacingTrail) {
+			droite();
+			isFacingTrail();
+			if(!isFacingTrail) {
+				droite();
+				isFacingTrail();
+			}
+		}
+	}
 		   
 
 
