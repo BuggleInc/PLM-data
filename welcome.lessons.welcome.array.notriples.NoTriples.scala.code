@@ -2,14 +2,16 @@ def noTriples(nums:Array[Int]): Boolean = {
 	
 	var isNotTriple = true;
 	var lastValue = nums(0);
-	
-	for(i <- 1 to nums.length - 1)
+	if(nums.length >= 3)
 	{
-		if(nums(i) == lastValue && i != nums.length - 1)
+		for(i <- 1 to nums.length - 1)
 		{
-			if(nums(i+1) == lastValue)
+			if(nums(i) == lastValue && i != nums.length - 1)
 			{
-				isNotTriple = false;
+				if(nums(i+1) == lastValue)
+				{
+					isNotTriple = false;
+				}
 			}
 		}
 		
