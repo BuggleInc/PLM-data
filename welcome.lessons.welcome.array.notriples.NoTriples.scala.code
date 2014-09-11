@@ -20,8 +20,10 @@ def noTriples(nums:Array[Int]): Boolean = {
 	
 	for(i <- 0 to nums.length - 1)
 	{
-		countTable(nums(i)) = countTable(nums(i)) + 1;	
+		countTable(nums(i) - 1) = countTable(nums(i) - 1) + 1;	
 	}
+
+	
 	for(i <- 0 to countTable.length - 1)
 	{
 		if(countTable(i) >= 3)
