@@ -1,22 +1,18 @@
 def golomb(num:Int): Int = {
 	var S=new Array[Int](num+1)
-	var pos:Int=2
+	var rempli:Int=2
+	var pos:=2
 	S(0)=0
 	S(1)=1
 	S(2)=2
-	while (pos<(num)){
-		for(i<-pos to pos+S(pos)-1){
-			if(i<=num){
+	while (rempli<=(num)){
+		for(i<-rempli+1 to rempli+1+S(pos)){
+			if(rempli+1+S(pos)<=num){
 				S(i)=pos
 			}
+			else{
+				rempli=num+1
+			}
 		}
-		if(pos+S(pos)<num){
-			pos=pos+S(pos)
-		}
-		else{
-			pos=num+1
-		}
-
-	}
 	return S(num+1)
 }
