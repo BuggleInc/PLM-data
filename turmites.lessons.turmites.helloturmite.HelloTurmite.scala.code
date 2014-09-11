@@ -1,5 +1,44 @@
-    var state = 0;
+var state = 0;
+val STOP:Int = 0;
+val 
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
         
     }
+
+ def step(rule:Array[Char], colors:Array[Color]) {
+
+	var indice:Int = couleurTab(colors, getCouleurSol());
+	
+	if (rule(indice) == 'R')
+	{
+		setCouleurSol(colors((indice + 1) % colors.length));
+		droite();
+		avance();
+	}
+	else
+	{
+		setCouleurSol(colors((indice + 1) % colors.length));
+		gauche();
+		avance();
+	}
+}
+
+def setCouleurSol(c:Color)
+{
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+def couleurTab(tab:Array[Color], c:Color):Int = 
+{
+	var i:Int = 0;
+	
+	while (c != tab(i))
+		i = i + 1;
+
+	return i;
+}
+
+
