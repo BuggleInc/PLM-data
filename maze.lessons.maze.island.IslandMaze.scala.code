@@ -1,1 +1,27 @@
+def checkMurLeft() :Boolean = {
+	var murleft = false
+	gauche()
+	if(estFaceMur == true){
+		murleft = true
+	}
+	droite()
+	return murleft;
+}
+
 override def run() {
+	while(!estFaceMur){
+		avance()
+	}
+	while(!estSurBiscuit){
+		if(checkMurLeft == true && estFaceMur == false){
+			avance()
+		} else if(checkMurLeft == true && estFaceMur == true){
+			droite()
+		}
+		else {gauche() ; avance()}
+	}
+	prendBiscuit()	
+}
+
+
+}
