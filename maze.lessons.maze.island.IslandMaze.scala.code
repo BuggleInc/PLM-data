@@ -13,7 +13,7 @@ override def run()
 		else avance()
 	}
 
-	while(getY()!=0)
+	def rejoindreMurNord()
 	{
 		if(estFaceMur())
 			keepHandOnSideWall()
@@ -27,12 +27,14 @@ override def run()
 				case Direction.EST => gauche(); if(!estFaceMur) avance()
 				case Direction.SUD => gauche(); gauche(); if(!estFaceMur) avance()
 			}		
-		}
-	}	
+		}	
+	}
 	
 	while(!estSurBiscuit())
 	{
-		keepHandOnSideWall()
+		if(getY()!=0)
+			rejoindreMurNord()
+		else keepHandOnSideWall()
 	}
 
 	prendBiscuit()
