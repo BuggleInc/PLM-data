@@ -1,4 +1,35 @@
 def step(rule:Array[Char], colors:Array[Color]) {
 
+	var indice:Int = couleurTab(colors, getCouleurSol());
 	
+	if (rule(indice) == 'R')
+	{
+		setCouleurSol(colors((i + 1) % colors.length);
+		droite();
+		avance();
+	}
+	else
+	{
+		setCouleurSol(colors((i + 1) % colors.length);
+		gauche();
+		avance();
+	}
 }
+
+def setCouleurSol(c:Color)
+{
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+def couleurTab(tab:Array[Color], c:Color):Int = 
+{
+	var i:Int = 0;
+	
+	while (c != tab(i))
+		i = i + 1;
+
+	return i;
+}
+
