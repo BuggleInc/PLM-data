@@ -1,17 +1,17 @@
 override def run() {
 def fonctionTest() : Boolean =  {
-	var rep = false
+	var rep = true
 	if (estFaceMur) {
 		if (getDirection() == Direction.EST) {
 		gauche() ; 
 		if (estFaceMur) {
-			droite() ; rep = true; 
+			droite() ; rep = false; 
 		}
 	}
 	if (getDirection() == Direction.OUEST) { 
 		droite();
 		if (estFaceMur) {
-			gauche() ; rep = true; 
+			gauche() ; rep = false; 
 		}
 	}
 	}
@@ -20,15 +20,15 @@ def fonctionTest() : Boolean =  {
 baisseBrosse()
 while (fonctionTest()) {
 	if (!estFaceMur()) { 
-		avance();
-	 
+		avance()
+	}
 	if ( estFaceMur() & (getDirection() == Direction.EST)) {
 		gauche() ; avance();gauche()
 	}
 	if (estFaceMur() & (getDirection() == Direction.OUEST)) {
 		droite() ; avance();droite()
 	}
-	}
+	
 		
 }
 leveBrosse()
