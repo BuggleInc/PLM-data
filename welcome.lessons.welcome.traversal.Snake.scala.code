@@ -1,11 +1,15 @@
 override def run() {
+
+	var EST=false
 	
 	def finish():Boolean = {
 		if (estFaceMur()) {
-		if (getDirection() == Direction.EST) {gauche()}
-		else {droite()}
+		if (getDirection() == Direction.EST) {gauche();EST=true}
+		else {droite();EST=false}
 		if (estFaceMur()) {return true}
 		}
+		if (EST) {droite()}
+		else {gauche()}
 		return false
 	}
 
