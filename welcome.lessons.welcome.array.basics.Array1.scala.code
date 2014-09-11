@@ -2,6 +2,7 @@ override def run()
 {
 
 var h: Int=getMondeHauteur()
+var l:Int=getMondeLargeur()
 var T = new Array[java.awt.Color](h)
 
 for (n <- 0 to h-1) 
@@ -10,7 +11,19 @@ for (n <- 0 to h-1)
 	avance()
 }
 
-
+for (m <- 1 to l)
+{
+	gauche()
+	avance()
+	droite()
+	for (p <- 0 to h-1)
+	{
+		setCouleurBrosse(T(p))
+		baisseBrosse()
+		leveBrosse()
+		avance()
+	}
+}
 
 
 
