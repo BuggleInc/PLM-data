@@ -5,14 +5,33 @@ var h: Int=getMondeHauteur()
 var l:Int=getMondeLargeur()
 var T = new Array[java.awt.Color](h)
 
+for (n <- 0 to h-1) 
+{
+	T(n)=getCouleurSol()
+	avance()
+}
 
+for (m <- 1 to l)
+{
+	gauche()
+	avance()
+	droite()
+	avance()
+	for (p <- 0 to h-1)
+	{
+		setCouleurBrosse(T(p))
+		baisseBrosse()
+		leveBrosse()
+		avance()
+	}
+}
 
-for (q <- 1 to h)
+for (q <- 1 to h-1)
 {
 	avance()
 }
 gauche()
-for (r <-1 to l)
+for (r <-1 to l-1)
 {
 	avance()
 }
