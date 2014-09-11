@@ -8,6 +8,7 @@ override def run() {
 	var decalage=0;
 	wl=getMondeLargeur(); // wl est la largeur du monde
 	wh=getMondeHauteur(); // wh est la hauteur du monde
+	var decal=0;
 	var T = new Array[Color] (wh); // on déclare le tableau de longueur wh
 	T(0)=getCouleurSol();
 	for (i <- 1 to T.length-1) { // remplissage du tableau
@@ -19,9 +20,11 @@ override def run() {
 	avance();
 	droite();
 	for (i <- 1 to wl-1) {
-		decalage=litMessage().toInt;
+		decal=litMessage().toInt;
+		decalage=wh-decal; // décalage vers l'avant
+		avance(decalage);
 		for (i <- 0 to T.length-1) { // réplication du motif
-			setCouleurBrosse(T((i+decalage)%wh));
+			setCouleurBrosse(T(i));
 			marqueSol();
 			if (i+1+decalage==T.length) { // evite de rentrer dans le mur
 				recule(T.length-1);
