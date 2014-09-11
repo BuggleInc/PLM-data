@@ -8,10 +8,12 @@ def isFacingTrail():Boolean = {
 		recule();
 		return sol == Color.green}}
 
-def hunt() {do(avance();baisseBrosse();leveBrosse();)
-		   while{isFacingTrail};
+def hunt() {while (isFacingTrail)
+		{avance();baisseBrosse();leveBrosse();}
+		   
 		   if(!isFacingTrail) {gauche();isFacingTrail(); 
-		   if(!isFacingTrail){droite();isFacingTrail();}}
+		   if(!isFacingTrail){droite();isFacingTrail();}
+		   if(estSurBiscuit) {prendBiscuit();}}
 
 hunt()
     // Write your code here
