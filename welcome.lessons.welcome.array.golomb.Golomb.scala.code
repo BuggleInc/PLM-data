@@ -9,7 +9,13 @@ def golomb(num:Int): Int = {
 				S(i)=pos
 			}
 		}
-		pos=pos+S(pos)
+		if(pos+S(pos)<num){
+			pos=pos+S(pos)
+		}
+		else{
+			pos=num
+		}
+
 	}
 	return S(num)
 }
