@@ -1,5 +1,6 @@
 override def run() {
 var compteur = 1
+var ligne = 1
 ecritMessage("0")
 droite
 while (!fini){
@@ -30,15 +31,15 @@ def fini():Boolean={
 
 def serpent(){
 	if(!estFaceMur){
-		avance
+		setPos
 	}
 	else{
-		if(getDirection() == Direction.EST){
+		if(getY==getMondeLargeur()){
 			droite
 			avance
 			droite
 		}
-		else{
+		else if(getY==0){
 			gauche
 			avance
 			gauche
