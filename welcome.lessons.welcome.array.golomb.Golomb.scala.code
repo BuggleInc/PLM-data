@@ -1,39 +1,33 @@
 def golomb(num:Int): Int = {
 	var c = 1
-	var T = new Array[Int](num)
+	var T = new Array[Int](33)
 	var r = 0
 	var e = 0
-	var g = 1
+	var g = 0
 	var comp = 0
 
-	T(0) = 1
+	T(0) = 0
+	T(1) = 1
+	T(2) = 2
 
-	while (c < num)
+	while (c  < 10)
 	{
+		r = T(c)
 
-		r = T(c - 1)
-		comp = 0
-
-		while ( r - comp > 0)
+		for (e <- 0 to r)
 		{
-			r = T(c - g)
-			for (e <- 0 to num - 1)
-			{
-				if (T(e) == c)
-				{
-				comp = comp + 1
-				}
-			}
-			g = g + 1
+			T(g + e) = c
 		}
 
-		T(c) = c + 1
+		g = c + r
+		
+		
 
 		
 		
 	}
 
-	return T(num - 1)
+	return T(num)
 	
 
 	
