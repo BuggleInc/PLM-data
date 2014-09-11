@@ -24,15 +24,7 @@ override def run() {
 	}
 	
 	def faireColonne(){
-		var n: Int = 0;
-		if(!estFaceMur){
-			avance();
-		}
-		else{
-			retourne();
-			courir(hauteur - 1);
-			retourne();
-			avance();		
+		var n: Int = 0;	
 		}
 		for(n<- 1 to hauteur){
 			setCouleurBrosse(res(n-1));
@@ -46,6 +38,15 @@ override def run() {
 			else{
 				avance();
 			}
+		}
+		if(!estFaceMur){
+			avance();
+		}
+		else{
+			retourne();
+			courir(hauteur - 1);
+			retourne();
+			avance();	
 		}
 		gauche();
 		if(!estFaceMur){
