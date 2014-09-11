@@ -1,29 +1,29 @@
 override def run() {
-def fonctionTest() : Boolean =  {
-	var rep = true
-	if (estFaceMur) {
-		if (getDirection() == Direction.EST) {
-		gauche() ; 
-		if (estFaceMur) {
-			droite() ; rep = false; 
-		} else { avance();gauche()}
+	baisseBrosse()
+	def fn() : Boolean = {
+		var rep = false
+		if (getDirection() == direction.EST) {
+			if (estFaceMur()) {
+				gauche()
+				if (estFaceMur()) {
+					droite();rep = true
+				} else { 
+					avance();gauche()
+				}
+			}
+		} else if (estFaceMur()) {
+				droite()
+				if (estFaceMur()) {
+					gauche();rep = true
+				} else { 
+					avance();droite()
+				}
+			}
+			return rep
 	}
-	if (getDirection() == Direction.OUEST) { 
-		droite();
-		if (estFaceMur) {
-			gauche() ; rep = false; 
-		} else { avance() ; droite()}
-	}
-	}
-	return rep
-}
-baisseBrosse()
-while (fonctionTest()) {
-	if (!estFaceMur()) { 
-		avance()
+
+
+while (!fn()) { avance()
 	
-	}
-		
 }
-leveBrosse()
 }
