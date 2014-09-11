@@ -5,13 +5,15 @@ def methode():Boolean={
 		if(getDirection()==Direction.OUEST){
 			droite();
 			if(estFaceMur){
+				gauche();
 				return true
-			} else return false
+			} else gauche(); return false
 		}else{
 			gauche();
 			if(estFaceMur){
+				droite();
 				return true
-			}else return false
+			}else droite(); return false
 		}
 	}else return false
 }
@@ -19,11 +21,11 @@ def serpent(){
 	while(methode()==false){
 		avance();	
 		if(estFaceMur){
-			if(getDirection()==Direction.EST && methode()==false){
+			if(getDirection()==Direction.EST){
 			gauche();
 			avance();
 			gauche();
-			}else if(methode()==false){ droite();avance();droite();}
+			}else{ droite();avance();droite();}
 		}
 	}					
 }
