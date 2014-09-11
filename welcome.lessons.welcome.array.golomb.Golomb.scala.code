@@ -1,6 +1,6 @@
 def golomb(num:Int): Int = {
 	var c = 1
-	var T = new Array[Int](33)
+	var T = new Array[Int](1000)
 	var r = 0
 	var e = 0
 	var g = 0
@@ -10,7 +10,7 @@ def golomb(num:Int): Int = {
 	T(1) = 1
 	T(2) = 2
 
-	for (c <- 1 to 32)
+	for (c <- 1 to 999)
 	{
 		if (T(c) == 0)
 		{
@@ -18,7 +18,7 @@ def golomb(num:Int): Int = {
 			do
 			{
 				r = T(g)
-				for (e <- 0 to 32)
+				for (e <- 0 to 999)
 				{
 					if (T(e) == g)
 					{
