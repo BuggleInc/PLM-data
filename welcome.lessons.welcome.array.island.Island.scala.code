@@ -10,16 +10,12 @@ def island(num:Array[Int]): Int = {
 		cpt=cpt + seqInArray(T,M)
 		for (i <-1 to T.length-2) {
 			if (T(i)==M) {
-				if ((T(i-1)>=T(i+1)) && (T(i)>T(i-1))) {
-					T(i)=T(i-1)		
-				} else if ((T(i-1)<=T(i+1)) && (T(i)>T(i+1))) {
-					T(i)=T(i+1)
-				}
+				lissageBas(T(i-1),T(i),T(i+1))
 			}
 		}
 		M = maxValue(T)
 	}
-	return M	
+	return cpt	
 }
 
 def maxValue(nums:Array[Int]): Int = {
@@ -43,6 +39,14 @@ def seqInArray(T:Array[Int],n:Int): Int ={
 	return cpt
 }
 
-
-
+def lissageBas (a:Int, B:Int, c:Int) {
+	if (B==a) {
+		B=c
+	} else if (B==c) {
+		B=a
+	} else {
+		B=Math.min(a,c)
+	}	
+}
+	
 
