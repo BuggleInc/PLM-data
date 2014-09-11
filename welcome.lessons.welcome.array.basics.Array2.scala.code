@@ -5,14 +5,17 @@ override def run() {
 	avance();
 	}
 	T(T.length-1)=getCouleurSol();
-	recule(getMondeHauteur()-1);
+	recule(getMondeHauteur()-1); // enregistrement de la 1er colonne
+
+val decalage = litMessage().toInt //lecteure décalage
+	
 	for (i<-1 to getMondeLargeur()-1) {
 		gauche();
 		avance();
 		droite();
 		avance();
 		for(i<-0 to T.length-1) {
-			setCouleurBrosse(T(i))
+			setCouleurBrosse(T(i-décalage))
 			baisseBrosse();
 			leveBrosse();
 			avance();
