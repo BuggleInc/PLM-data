@@ -1,18 +1,16 @@
 def isFacingTrail():Boolean = {
+	var solEstVert:Boolean = false;
 	if(!estFaceMur) {
 		avance();
-		var sol:Color = getCouleurSol();
+		if(getCouleurSol() == Color.green) {
+			solEstVert = true;
+		}
 		recule();
-		return sol == Color.green;
 	}
-	else{
-		gauche();
-		avance();
-		var sol : Color = getCouleurSol();
-		recule();
-		return sol == Color.green
-	}
-}
+	return solEstVert;
+    // Write your code here
+}        
+
 
 def hunt() {
 	while (isFacingTrail) {
