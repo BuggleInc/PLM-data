@@ -27,10 +27,12 @@ def maxValue(nums:Array[Int]): Int = {
 }
 def seqInArray(T:Array[Int],n:Int): Int ={
 	var cpt:Int = 0
-	for (i<- 0 to T.length-1) {
-		if ((T(i)==n) && (T(i-1)!=n)) {
+	var last=T(0)
+	for (i<- 1 to T.length-1) {
+		if ((T(i)==n) && (T(i)!=last)) {
 			cpt = cpt +1
 		}
+		last=T(i)
 	}
 	return cpt
 }
