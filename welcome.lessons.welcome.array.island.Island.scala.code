@@ -1,1 +1,57 @@
 def island(num:Array[Int]): Int = {
+
+	return is(num, 0);
+}
+
+def is(num:Array[Int], Int:niv):Int = 
+{
+	if (num.length == 0)
+		return 0;
+	else
+	{
+		var pr:Int = premier(num, niv);
+
+		if (premier == -1)
+			return 0;
+		else
+		{
+			var de:Int = deuxieme(num, premier, niv);
+			
+			return 1 + is(subTab(num, x, y), niv + 1) + is(subTab(num, y + 1, num.length - 1), niv); 
+		}
+	}
+}
+
+def premier(tab:Array[Int], Int:niv):Int = 
+{
+	var i:Int = 0;
+	
+	while (i < tab.length && tab(i) > niv)
+		i = i + 1;
+
+	if (i == tab.length - 1 && tab(i) == niv)
+		return -1;
+	else return i;
+}
+
+def deuxieme(tab:Array[Int], Int:x, Int:niv):Int = 
+{
+	var i:Int = x;
+
+	while(i < tab.length && tab(i) > niv)
+		i = i + 1;
+
+	if (i == tab.length) return i;
+	else return i - 1;
+}
+
+def subTab(tab:Array[Int], Int:x, Int:y):Array[Int] = 
+{
+	var taille:Int = y - x + 1;
+	var sub = new Array[Int](taille);
+
+	for (i <- x to y)
+		sub(i - x) = tab(i);
+
+	return sub;
+}
