@@ -1,5 +1,15 @@
-answerCell:2: error: ':' expected but identifier found.
-def answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-                       ^answerCell:10: error: identifier expected but '}' found.
- }
- ^
+answerCell:2: error: boolean is already defined as value boolean
+def answerCell(boolean: isMorning, boolean: isMom, boolean: isAsleep) {
+                                   ^answerCell:2: error: boolean is already defined as value boolean
+def answerCell(boolean: isMorning, boolean: isMom, boolean: isAsleep) {
+                                                   ^answerCell:2: error: not found: type isMorning
+def answerCell(boolean: isMorning, boolean: isMom, boolean: isAsleep) {
+                        ^answerCell:2: error: not found: type isMom
+def answerCell(boolean: isMorning, boolean: isMom, boolean: isAsleep) {
+                                            ^answerCell:2: error: not found: type isAsleep
+def answerCell(boolean: isMorning, boolean: isMom, boolean: isAsleep) {
+                                                            ^answerCell:3: error: not found: value isAsleep
+  if (isAsleep)
+      ^answerCell:5: error: not found: value isMorning
+  if ((isMorning && isMom) || !isMorning)
+       ^
