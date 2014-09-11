@@ -1,0 +1,22 @@
+def array123(nums:Array[Int]): Boolean = {
+	var next: Int = 0;
+	var taille: Int = nums.length;
+	var n: Int = 0;
+	var ok: Bool = false;
+	for(n <- 0 to taille - 1){
+		if(nums(n) == 1){
+			next = 1;
+		}
+		else if(nums(n) == 2 && next == 1){
+			next = 2;
+		}
+		else if(nums(n) == 3 &&  next == 2){
+			ok = true;
+		}
+		else{
+			next = 0;
+		}
+	}
+	return ok;
+	
+}
