@@ -4,13 +4,13 @@ override def run() {
 def fonctionTest() {
 	(getDirection()==Direction.EST,estFaceMur) match {
 		case (true,true) => gauche(); if (estFaceMur) {droite(); return true}
-		case (false,true)=> droite(); if (estFaceMur) {gauche(); return false}
+		case (false,true)=> droite(); if (estFaceMur) {gauche(); return true}
 		case (_,_)	  => return false
 	}
 }
 
 baisseBrosse()
-while (!(fonctionTest()))
+while (!fonctionTest())
 	{if (estFaceMur)
 		{if (Direction.EST==getDirection())
 			{gauche()
