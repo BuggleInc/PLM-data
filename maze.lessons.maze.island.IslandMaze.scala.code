@@ -2,14 +2,20 @@ override def run() {
 var etat=0;
 etat match  {
   case 0 => // courir au nord
- 	for (i<- 1 to 2){
- 		if (estFaceMur()){
- 			droite
- 		}
+ 	for (i<- 1 to 200){
+ 		while (estFaceMur()){
+			droite()
+		}
 		avance()
-	}
-		droite()
-		keepHandOnSideWall()
+ 	}
+ 	while (estFaceMur()){
+ 		droite()
+ 	}
+ 	while (!estFaceMur()){
+ 		avance()
+ 	}
+ 		
+ 		
      etat = 1;
   case 1 => // suivre à gauche
      	while (!estFaceMur()){
