@@ -2,14 +2,14 @@ override def run() {
 def marque() {
 	baisseBrosse();leveBrosse();
 }
-def faireV() {
-	avance();marque();avance();gauche();avance();marque();droite();avance();droite();avance();marque();gauche();avance();gauche();
+def faireV(c: Color) {
+	setBrosseCouleur(c);avance();marque();avance();gauche();avance();marque();droite();avance();droite();avance();marque();gauche();avance();gauche();
 }
 def faireMotif() {
-	var x="";
-for (x<- 1 to 4) {
-	faireV();
-}
+     faireV(Color.yellow);
+	faireV(Color.red);
+	faireV(Color.blue);
+	faireV(Color.green);
 }
 def faireL(){
 var y="";
@@ -29,7 +29,6 @@ for (i<- 1 to 3) {
 	faireC();avance(15);
 }
 }
-var j=""
 for (j<- 1 to 3) {
 	faireGL();gauche();avance(15);droite();
 }
