@@ -13,12 +13,27 @@ def faireC1(c:Color){
 	avance()
 	gauche()
 }
+def faireC2(c:Color){
+	setCouleurBrosse(c)
+	baisseBrosse()
+	leveBrosse()
+	avance()
+	gauche()
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	gauche()
+	avance()	
+	gauche()
+	avance()
+	gauche()
+}
 def av(p:Int){
 	for(x <- 1 to p){
 		avance()
 	}
 }
-def carre(c:Color){
+def carre1(c:Color){
 	faireC1(c)
 	av(4)
 	faireC1(c)
@@ -34,13 +49,31 @@ def carre(c:Color){
 	av(4)
 	gauche()
 }
+def carre2(c:Color){
+	faireC2(c)
+	av(4)
+	faireC2(c)
+	recule(4)
+	gauche()
+	av(4)
+	droite()
+	faireC2(c)
+	av(4)
+	faireC2(c)
+	recule(4)
+	droite()
+	av(4)
+	gauche()
 
 override def run() {
-	carre(Color.RED)
+	carre1(Color.RED)
 	avance(2)
+	carre2(Color.BLUE)
 	gauche()
 	avance(2)
 	droite()
-	carre(Color.GREEN)
+	carre1(Color.GREEN)
+	recule(2)
+	carre2(Color.YELLOW)
 }
 	
