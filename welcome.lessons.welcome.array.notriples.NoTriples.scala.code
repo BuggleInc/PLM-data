@@ -1,12 +1,33 @@
 def noTriples(nums:Array[Int]): Boolean = {
-	var isNotTriple = true;
-	var countTable = new Array[Int](nums.length);
 	
-	for(i <- 0 to table.length - 1)
+	var isNotTriple = true;
+	var maxVal = nums(0);
+	
+	for(i <- 0 to nums.length - 1)
 	{
-		countTable()
-		
-		
+		if(nums(i) > maxVal)
+		{
+			maxVal = nums(i);
+		}
+	}
+	
+	var countTable = new Array[Int](maxVal);
+	
+	for(i <- 0 to countTable.length - 1)
+	{
+		countTable(i) = 0;	
+	}
+	
+	for(i <- 0 to nums.length - 1)
+	{
+		countTable(nums(i)) = countTable(nums(i)) + 1;	
+	}
+	for(i <- 0 to countTable.length - 1)
+	{
+		if(countTable(i) >= 3)
+		{
+			isNotTriple = false;	
+		}
 	}
 	return isNotTriple;
 
