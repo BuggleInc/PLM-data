@@ -1,9 +1,9 @@
 def extrema(nums:Array[Int]): Int = {
 	var taille: Int = nums.length;
 	var n: Int = 0;
-	var max: Int = 0;
-	var min: Int = 0;
-	for(n <- 0 to taille - 1){
+	var max: Int = nums(0);
+	var min: Int = nums(0);
+	for(n <- 1 to taille - 1){
 	if(max < nums(n)){
 		max = nums(n);
 	}
@@ -11,7 +11,8 @@ def extrema(nums:Array[Int]): Int = {
 		min = nums(n);
 	}
 	}
-	return (max - min);
+	var diff: Int = (max - min);
+	return diff;
 
 }
 
