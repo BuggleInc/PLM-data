@@ -1,3 +1,23 @@
+
+    def hunt(c:Color) {
+   	 while (!estSurBiscuit()) {
+   		if (isFacingTrail(y)== true) {
+   			baisseBrosse();
+   			leveBrosse();
+   			avance();
+   		}
+   		else {
+   			gauche();
+   		}
+  	}
+   	if (estSurBiscuit()) {
+   		baisseBrosse();
+   		leveBrosse();
+   		prendBiscuit();
+   	}
+	}
+
+
   def isFacingTrail():Boolean = {
 	var y:Boolean=false;
 
@@ -14,24 +34,5 @@
 	}
     	return y;
  }
- 
-    def hunt(c:Color) {
-   	 while (!estSurBiscuit()) {
-   		if (isFacingTrail()== true) {
-   			baisseBrosse();
-   			leveBrosse();
-   			avance();
-   		}
-   		else {
-   			gauche();
-   		}
-  	}
-   	if (estSurBiscuit()) {
-   		baisseBrosse();
-   		leveBrosse();
-   		prendBiscuit();
-   	}
-	}
-
      
 
