@@ -9,29 +9,17 @@ for(n<-0 to getMondeHauteur()-1){
 	for(k<-0 to getMondeHauteur()-1){recule()}
 	gauche();avance();droite();
 	val decalage=litMessage().toInt;
-	for(j<-0 to getMondeHauteur()-1){
+	for(j<-decalage to getMondeHauteur()-decalage){
 		setCouleurBrosse(T(j+decalage));
 		baisseBrosse();
 		leveBrosse();
 		avance();
 	}
-}
-}
-
-
-/*var T = new Array[Color](getMondeHauteur());
-for(i<-0 to getMondeHauteur()-1){
-	T(i)=getCouleurSol();
-	avance();
-}
-for(n<-0 to getMondeHauteur()-1){
-	gauche();avance();droite();avance();
-	for(i<-0 to getMondeHauteur()-1){
-		setCouleurBrosse(T(i));
+	for(h<-0 to decalage){
+		setCouleurBrosse(T(h));
 		baisseBrosse();
 		leveBrosse();
 		avance();
 	}
 }
-recule();droite();avance();gauche();
-*/
+}
