@@ -24,15 +24,20 @@ override def run()
 		
 	while(!estSurBiscuit())
 	{
-		keepHandOnSideWall()
-		if((virage-4)%4==0)
+		if(isDirectionFree(getDirection())
+			avance()
+		else
 		{
-			getDirection() match
+			keepHandOnSideWall()
+			if((virage-4)%4==0)
 			{
-				case Direction.NORTH => setDirection(Direction.SUD)
-				case Direction.OUEST => setDirection(Direction.EST)
-				case Direction.SUD => setDirection(Direction.NORTH)
-				case Direction.EST => setDirection(Direction.OUEST)
+				getDirection() match
+				{
+					case Direction.NORTH => setDirection(Direction.SUD)
+					case Direction.OUEST => setDirection(Direction.EST)
+					case Direction.SUD => setDirection(Direction.NORTH)
+					case Direction.EST => setDirection(Direction.OUEST)
+				}
 			}
 		}
 	}
