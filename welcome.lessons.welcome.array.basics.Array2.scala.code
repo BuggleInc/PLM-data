@@ -7,7 +7,7 @@ for(i<-1 to getMondeHauteur()-1){
 		T(i)=getCouleurSol();
 	}
 for(n<-0 to getMondeHauteur()-1){
-	for(k<-0 to getMondeHauteur()-1){recule()}
+	for(k<-0 to getMondeHauteur()-2){recule()}
 	gauche();avance();droite();
 	val decalage=litMessage().toInt;
 	for(j<-decalage to getMondeHauteur()-1){
@@ -16,7 +16,9 @@ for(n<-0 to getMondeHauteur()-1){
 		leveBrosse();
 		avance();
 	}
-	setCouleurBrosse(T(0))
+	setCouleurBrosse(T(0));
+	baisseBrosse();
+	leveBrosse();
 	for(h<-1 to decalage-1){
 		avance();
 		setCouleurBrosse(T(h));
