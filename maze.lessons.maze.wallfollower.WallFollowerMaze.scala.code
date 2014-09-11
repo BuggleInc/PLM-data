@@ -1,13 +1,16 @@
 override def run() {
-	if (keepHandOnSideWall()) {
+	while (!estSurBiscuit()) {
+		if (keepHandOnSideWall()) {
 		if (estFaceMur()) gauche();
 		else avance();
-	}
-	else {
-		droite();
-		avance();
+		}
+		else {
+			droite();
+			avance();
+		}
 	}
 }
+
 def keepHandOnSideWall():Boolean = {
  	droite();
  	var flag = estFaceMur();
