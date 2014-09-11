@@ -14,16 +14,28 @@ override def run()
 		}
 		else avance(); virage = virage-1
 	}
+
+	def isDirectionFree(dir): Boolean =
+	{
+		if(!estFaceMur)
+			return true
+		else return false
+	}
 		
 	while(!estSurBiscuit())
 	{
-		if(virage == 0)
+		if(virage == 0 && !isDirectionFree(getDirection())
 		{
 			getDirection() match
 			{
-				case Direction.NORTH => setDirection()
+				case Direction.NORTH => setDirection(Direction.SUD)
+				case Direction.OUEST => setDirection(Direction.EST)
+				case Direction.SUD => setDirection(Direction.NORTH)
+				case Direction.EST => setDirection(Direction.OUEST)
 			}
 		}
+		else if(estFaceMur())
+			keepHandOnSideWall()
 	}
 
 	prendBiscuit()
