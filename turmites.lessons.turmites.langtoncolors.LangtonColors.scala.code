@@ -7,8 +7,11 @@ def step(rule:Array[Char], colors:Array[Color])
 {
 	var pos = 0
 	
-	while(colors(pos)!=getCouleurSol())
-		pos = pos+1
+	for(i <- 0 to colors.length)
+	{
+		if(colors(i)==getCouleurSol())
+			pos = pos+1
+	}
 
 	rule(pos) match
 	{
