@@ -39,15 +39,17 @@ override def run() {
 				avance();
 			}
 		}		
-		gauche();
 		if(!estFaceMur){
-		avance();
-		droite();
+			gauche();
+			avance();
+			droite();
 		}
 		else{
-			gauche();
-			courir(hauteur - 1);
 			retourne();
+			courir(hauteur - 1);
+			droite();
+			avance();
+			droite();
 		}
 		
 	}
