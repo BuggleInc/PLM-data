@@ -2,8 +2,11 @@ override def run() {
 		var depart:Color = getCouleurSol()
 	var tab = new Array[Color](getWorldHeight())
 	for(i <- 0 to getWorldHeight()-1){
-		tab(i) = getCouleurSol();
 		avance()
+		tab(i) = getCouleurSol();
+				}
+		for(r <- 1 to getWorldHeight()){
+			recule()
 		}
 		for(c <- 1 to getWorldHeight() - 1){
 			gauche()
