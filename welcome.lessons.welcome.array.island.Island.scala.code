@@ -1,5 +1,6 @@
 def island(num:Array[Int]): Int = {
-	var T = new Array[Int] (num.length)
+	var L = num.length
+	var T = new Array[Int] (L)
 	for (i<- 0 to num.lenght-1) {
 		T(i)=num(i)
 	}
@@ -7,7 +8,7 @@ def island(num:Array[Int]): Int = {
 	var compteur:Int = 0;
 	for (etage <- 0 to M) {
 		compteur=compteur + seqInArray(T,M-etage)
-		for (lissage<-0 to T.length-1) {
+		for (lissage<-0 to L) {
 			if (T(lissage)==M-etage) {
 				T(lissage)=T(lissage)-1
 			}
