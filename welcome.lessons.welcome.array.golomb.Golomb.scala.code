@@ -4,6 +4,7 @@ def golomb(num:Int): Int = {
 	var i:Int = 2;
 	var j:Int = 1;
 	var k:Int = 0;
+	var nbre:Int = 0;
 	tab(0) = 1;
 
 	while (j < num)
@@ -14,10 +15,16 @@ def golomb(num:Int): Int = {
 		{
 			tab(j) = i;
 			k = k + 1;
-			j = j + 1;	
+			j = j + 1;
+			nbre = nbre + 1;	
 		}
-
+		
 		i = tab(i);
+		if (nbre == tab(i))
+		{
+			i = i + 1;
+			nbre = 0;
+		}
 	}
 
 	return tab(num - 1);
