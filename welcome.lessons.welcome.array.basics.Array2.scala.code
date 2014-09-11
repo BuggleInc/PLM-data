@@ -11,16 +11,16 @@ for (k <- 1 to (getMondeLargeur()-1))
 	avance()
 	droite()
 	val decalage = litMessage().toInt
-	setCouleurBrosse(T(decalage))
-	baisseBrosse()
-	leveBrosse()
-	avance()
 	for (n <- 1 to (getMondeHauteur()-2))
-		{var i = (n+decalage)%(T.length)
+		{var i = (n+decalage-1)%(T.length)
 		setCouleurBrosse(T(i))
 		baisseBrosse()
 		leveBrosse()
 		avance()}
+	var i = (n+decalage-1)%(T.length)
+	setCouleurBrosse(T(i))
+	baisseBrosse()
+	leveBrosse()}
 	for (m <- 1 to (getMondeHauteur()-1))
 		{recule}
 	}
