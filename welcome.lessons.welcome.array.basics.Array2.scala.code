@@ -1,6 +1,11 @@
 override def run() {
+	def marqueSol() {
+		baisseBrosse();
+		leveBrosse();
+	}
 	var wl=0;
 	var wh=0;
+	var decalage=0;
 	wl=getMondeLargeur(); // wl est la largeur du monde
 	wh=getMondeHauteur(); // wh est la hauteur du monde
 	var T = new Array[Color] (wh); // on déclare le tableau de longueur wh
@@ -9,16 +14,28 @@ override def run() {
 		avance();
 		T(i)=getCouleurSol();
 	}
+	recule(T.length-1);
+	gauche();
+	avance();
+	droite();
 	for (i <- 1 to wl-1) {
-		gauche();
-		avance();
-		droite();
-		avance();
+		decalage=litMessage().toInt;
+		avance(decalage);
 		for (i <- 0 to T.length-1) { // réplication du motif
 			setCouleurBrosse(T(i));
-			baisseBrosse();
-			leveBrosse();
-			avance();
+			marqueSol();
+			if (i+1+decalage==T.length) { // evite de rentrer dans le mur
+				recule(T.length);
+			}
+			else {
+				avance();
+			}
 		}
+		while (!dosAuMur()) { // se replace
+			recule();
+		}
+		gauche(); // change de colonne
+		avance();
+		droite();
 	}
 }
