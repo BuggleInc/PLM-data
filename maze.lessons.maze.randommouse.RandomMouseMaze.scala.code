@@ -1,16 +1,15 @@
 override def run() {
 	var direction = 1
 	while (!estSurBiscuit) {
-		if (!estFaceMur) {
-			avance()
+		direction=random3()
+		if (direction==0) {
+			gauche()	
+		} else if (direction==1) {
+			droite();
 		} else {
-			direction=random3()
-			if (direction==0) {
-				gauche()
-			} else {
-				droite()
+			if (!estFaceMur) {
+				avance()
 			}
 		}
-		
 	}
 }
