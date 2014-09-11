@@ -18,13 +18,57 @@ etat match {
     			}
     		}
     	}
+    	if (x==2) {
+    		droite();droite() x = x+2;
+    		if (!estFaceMur) {
+    			avance()
+    		}
+    		else {
+    			droite(); x = x-1
+    			if (!estFaceMur) {
+    				avance();gauche(); x = x+1
+    			}
+    			else {
+    				droite(); x = x-1
+    			}
+    		}
+    	}
+    	if (x==3) {
+    		gauche() x = x+1;
+    		if (!estFaceMur) {
+    			avance()
+    		}
+    		else {
+    			droite(); x = x-1
+    			if (!estFaceMur) {
+    				avance();gauche(); x = x+1
+    			}
+    			else {
+    				droite(); x = x-1
+    			}
+    		}
+    	}
+    	if (x==4) {
+    		if (!estFaceMur) {
+    			avance()
+    		}
+    		else {
+    			droite(); x = x-1
+    			if (!estFaceMur) {
+    				avance();gauche(); x = x+1
+    			}
+    			else {
+    				droite(); x = x-1
+    			}
+    		}
+    	}
      etat = 1;
   case 1 => // suivre à gauche
 while (!estFaceMur) {
 	gauche()
 	x = x+1
-	if (x==5) {
-		x=1
+	if (x>=5) {
+		x = x-4
 	}
 }
 droite()
