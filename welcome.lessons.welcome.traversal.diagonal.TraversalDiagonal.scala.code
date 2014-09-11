@@ -9,15 +9,21 @@ override def run()
 		if(diag < getMondeHauteur)
 		{
 			if(getX()==0 && getY()==0)
+			{
 				diag = diag+1; setPos(0,1)
+			}
 			else if(estFaceMur())
+			{
 				diag = diag+1; setPos(0, getX()+1)	
+			}
 			else setPos(getX()+1,getY()-1)	
 		}
 		else if(diag >= getMondeHauteur)
 		{
 			if(estFaceMur())
+			{
 				diag = diag+1; setPos(getY()+1,6)	
+			}
 			else setPos(getX()+1,getY()-1)	
 		}
 	}
