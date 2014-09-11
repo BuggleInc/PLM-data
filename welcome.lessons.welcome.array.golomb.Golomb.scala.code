@@ -25,7 +25,14 @@ def golomb(num:Int): Int = {
 						comp = comp + 1
 					}
 				}
+				g = g - 1
 			}while (r - comp > 0);
+
+			g = g +1
+			for (e <- c to c + r)
+			{
+				T(e) = g
+			}
 		}
 	}
 	return T(num)
