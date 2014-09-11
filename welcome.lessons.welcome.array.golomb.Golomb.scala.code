@@ -1,12 +1,14 @@
 def golomb(num:Int): Int = {
 	var tab= new Array[Int] (num+1)
 tab(1)=1
+tab(2)=2
 var occ = 0
 var change = 1
-for (i <- 1 to num)
+for (i <- 2 to num)
 	{tab(i) = occ
 	for (j <- 0 to occ-1)
-		{tab(change)=i}
+		{tab(change)=i
+		change = change + occ}
 
 
 
@@ -25,4 +27,3 @@ for (i <- 1 to num)
 
 
 	
-}
