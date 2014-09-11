@@ -1,0 +1,49 @@
+def creation(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+	
+	avance(2);
+	baisseBrosse();
+	leveBrosse();
+	
+	recule();
+	gauche();
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	
+	recule(2);
+	baisseBrosse();
+	leveBrosse();
+	
+	avance();
+	setCouleurBrosse(Color.yellow);
+	baisseBrosse();
+	leveBrosse();
+
+	droite();
+	avance();
+	if (!estFaceMur()) {
+		avance(2)
+	}
+	else {
+		recule();
+		gauche();
+		avance(3);
+	}
+}
+
+def growFlowers() {
+	setY(6);
+	creation(Color.pink);
+	creation(Color.green);
+	creation(Color.cyan);
+	creation(Color.red);
+	
+	recule();
+	gauche();
+	avance();
+	creation(Color.orange);
+	setPos(1,6);
+}
