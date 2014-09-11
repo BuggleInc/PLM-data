@@ -1,20 +1,22 @@
-var x=0
-var c=""
-do {
+var sortie=false
+var nbBaggel=0;
+while (sortie==false) {
+	for (compteur <- 1 to 5) {
 	avance();
-	for (c<-1 to 4) {
-		if (estSurBiscuit()) {
-			avance();
-			x=x+1;
-		} else {
-			avance();
-		}
+	if (estSurBiscuit()) {
+		nbBaggel=nbBaggel+1;
 	}
-	
-	if (x<3) {
-		droite();
-	} else if (x>2) {
+	}
+	if (nbBaggel>=3) {
 		gauche();
+		nbBaggel=0;
 	}
-	x=0
-}while (!sortieTrouvee())
+	else if (nbBaggel<=2) {
+		droite();
+		nbBaggel=0;
+	}
+	if (sortieTrouvee()) {
+		sortie=true;
+		avance();
+	}
+}
