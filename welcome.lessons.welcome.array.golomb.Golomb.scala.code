@@ -9,7 +9,7 @@ def golomb(num:Int): Int = {
 
 	while (c < num)
 	{
-		if (T(c) == r)
+		if (T(c) == r && c + r -1 < num)
 		{
 			for (e <- c to c + r -1)
 			{
@@ -19,6 +19,15 @@ def golomb(num:Int): Int = {
 			c = c +r 
 			T(r) = r + 1
 			T(c) = r
+		}
+		if (T(c) == r && c + r -1 > num)
+		{
+			for (e <- c to num - 1)
+			{
+				T(e) = c
+				
+			}
+			c = num
 		}
 		
 	}
