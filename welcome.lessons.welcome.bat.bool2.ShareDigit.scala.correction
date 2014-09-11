@@ -1,0 +1,10 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class shareDigit extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( shareDigit( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int]) )
+   }
+def shareDigit(a:Int, b:Int):Boolean = {
+   return (a/10 == b/10 || a/10 == b%10 || a%10 == b/10 || a%10 == b%10)
+} }
