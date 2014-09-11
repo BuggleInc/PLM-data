@@ -1,8 +1,7 @@
 var ligne = 1
-override def run() {
+override def ZigZag() {
 var compteur = 1
 ecritMessage("0")
-droite
 while (!fini){
 serpent
 ecritMessage(compteur)
@@ -30,17 +29,15 @@ def fini():Boolean={
 
 
 def serpent(){
-	if(!estFaceMur){
-		setPos(getX+ligne,getY)
-	}
-	else{
 		if(getY==getMondeLargeur()){
 			setPos(getX,getY+1)
-			ligne=-1
+			ligne=(-1)
 		}
 		else if(getY==0){
 			setPos(getX,getY+1)
 			ligne=1
 		}
-	}
+		else{
+					setPos(getX+ligne,getY)
+		}
 }
