@@ -1,1 +1,9 @@
 def caughtSpeeding(speed:Int, isBirthday:Boolean):Int = {
+(speed,isBirthday) match {
+	case (x,y) if (isBirthday==false && speed<=60) => return 0
+	case (x,y) if (isBirthday==false && speed>=61 && speed <=80) => return 1
+	case (x,y) if (isBirthday==false && speed>=81) => return 2
+	case (x,y) if (isBirthday==true && speed<=65) => return 0
+	case (x,y) if (isBirthday==true && speed>=66 && speed <=85) => return 1
+	case (x,y) if (isBirthday==true && speed>=86) => return 2
+}
