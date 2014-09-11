@@ -7,13 +7,19 @@ def noTriples(nums:Array[Int]): Boolean = {
 	{
 		if(nums(i) == lastValue && i != nums.length - 1)
 		{
-			maxVal = nums(i);
+			if(nums(i+1) == lastValue)
+			{
+				isNotTriple = false;
+			}
 		}
+		
+			lastValue = nums(i); 
 	}
 	
 	return isNotTriple;
 
 }
+
 // Pareil mais pour des nombres ne se suivant pas 
 /* 	var isNotTriple = true;
 	var maxVal = nums(0);
