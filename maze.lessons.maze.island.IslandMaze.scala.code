@@ -5,35 +5,25 @@ etat match  {
      ...
      etat = 1;
   case 1 => // suivre à gauche
-     ...
+     	while (!estFaceMur()){
+			avance()
+		}
+		droite()
+		keepHandOnSideWall()
      etat = 0;
-  case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+  
 }
-while (!estFaceMur()){
-		avance()
-	}
-	droite()
-	keepHandOnSideWall()
 }
+
 
 def keepHandOnSideWall(){
 	do{
 		gauche()
-		if(estFaceMur()){
+		while (estFaceMur()){
 			droite()
-			if (estFaceMur()){
-				droite()
-				if (estFaceMur()){
-					droite()
-				}else{
-					avance()
-				}
-			}else{
-				avance()
-			}
-		}else{
-			avance()
 		}
+		avance()
+		
 	}while(!estSurBiscuit)
 	prendBiscuit()
 }
