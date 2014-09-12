@@ -1,6 +1,7 @@
 override def run() {
 	
 var tab = new Array[Color] (getMondeHauteur())
+val decalage = litMessage().toInt
 
 def remplirTableau() {
 	tab(0) = Color.RED
@@ -11,7 +12,7 @@ def remplirTableau() {
 }
 
 def faireColonne() {
-	for (i <- 0 to getMondeHauteur() - 1) {
+	for ((<- 0 to getMondeHauteur() - 1) {
 		setCouleurBrosse(tab(i))
 		baisseBrosse()
 		leveBrosse()
