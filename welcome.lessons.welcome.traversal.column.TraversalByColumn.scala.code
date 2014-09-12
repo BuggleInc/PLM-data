@@ -1,2 +1,43 @@
 override def run() {
 }
+
+var y = getMondeLargeur();
+var z = getMondeHauteur();
+
+var x = getMondeHauteur();
+	var table = new Array[Color](x);
+	table(0) = getCouleurSol();
+	for (i <- 1 to x-1){
+		avance();
+		table(i) = getCouleurSol();
+		
+}
+recule(z-1);
+	
+	for( j <- 1 to y-1){
+		droite();
+		recule();
+		gauche();
+		val b = litMessage().toInt
+		
+		for ( k <- 0 to z){
+			if (k+b < z){
+				setCouleurBrosse(table(k+b));
+				baisseBrosse();
+				leveBrosse();
+				if(!estFaceMur){
+					avance();
+				}
+		}else{
+			for( l <- 1 to b){ 
+			setCouleurBrosse(table(l-1));
+				baisseBrosse();
+				leveBrosse();
+				if(!estFaceMur){
+					avance();
+				}
+			}
+		}
+		}
+		recule(z-1);
+	}	
