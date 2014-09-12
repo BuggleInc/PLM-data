@@ -1,7 +1,43 @@
 override def run() {
 def posFinale:Boolean = {
-	if(getDirection==Direction.EST) {
-		if(facemur
+	if(estFaceMur) {
+		if(getDirection==Direction.EST) {
+			gauche
+			if(estFaceMur) {
+				droite
+				return true
+			}
+			droite
+		} else if(getDirection==Direction.OUEST) {
+			droite
+			if(estFaceMur) {
+				gauche
+				return true
+			}
+			gauche
+		}
+	} else { 
+		return false
 	}
+} //vérifie si on est a la position finale
+
+def serpente() = {
+	while(!estFaceMur) {
+		avance
+	}
+	if(getDirection==Direction.EST) {
+		gauche
+		avance
+		gauche
+	} else {
+		droite
+		avance
+		droite
+	}
+} // se déplace tel un serpent
+
+baisseBrosse
+while(!posFinale) {
+	serpente
 }
 }
