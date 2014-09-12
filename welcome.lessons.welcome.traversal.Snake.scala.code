@@ -7,16 +7,17 @@ def posfinale():Boolean = {
 }
 
 def serpent() {
-	avance();
 	if (posfinale() && (getDirection() == Direction.EST) ) {
 		gauche();
 		avance();
 		gauche();
 	}
-	if ((posfinale()) && (getDirection() == Direction.OUEST) ) {
+	 else if ((posfinale()) && (getDirection() == Direction.OUEST) ) {
 		droite();
 		avance();
 		droite();
+	} else {
+		avance();
 	}
 	
 }
@@ -25,6 +26,7 @@ def facemurnord() : Boolean = {
 	if (estFaceMur()) { 
 		return true;
 	}
+	droite();
 	return false;
 }
 
