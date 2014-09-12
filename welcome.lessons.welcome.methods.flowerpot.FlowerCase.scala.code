@@ -1,0 +1,97 @@
+def mark() {
+	baisseBrosse()
+	leveBrosse()
+}
+def oneFlower (c:Color, v:Color) = {
+	setCouleurBrosse(c)
+	mark()
+	avance()
+	gauche()
+	avance()
+	mark()
+	droite()
+	avance()
+	droite()
+	avance()
+	mark()
+	avance()
+	droite()
+	avance()
+	mark()
+	droite()
+	avance()
+	setCouleurBrosse(v)
+	mark()
+}
+def upFlowers() {
+	oneFlower (c=Color.red, v=Color.yellow)
+	recule()
+	droite()
+	avance()
+	avance()
+	gauche()
+	avance()
+	droite()
+	avance()
+	oneFlower (c=Color.cyan, v=Color.yellow)
+}
+def growOnePackOfFlowers() {
+	upFlowers()
+	recule()
+	recule()
+	droite()
+	recule()
+	recule()
+	recule()
+	oneFlower (c=Color.orange, v=Color.yellow)
+	recule()
+	recule()
+	droite()
+	recule()
+	recule()
+	recule()
+	oneFlower (c=Color.pink, v=Color.yellow)
+	droite()
+	avance()
+	avance()
+	avance()
+	oneFlower(c=Color.green, v=Color.yellow)
+	droite()
+	for (i<-0 to 4) {
+		recule()
+	}
+}
+def growUpFlowers() {
+	growOnePackOfFlowers()
+	gauche()
+	avance()
+	avance()
+	droite()
+	for (i<-1 to 7) {
+		avance()
+	}
+	oneFlower (c=Color.blue, v=Color.yellow)
+	droite()
+	avance()
+	gauche()
+	avance()
+	avance()
+	droite()
+	growOnePackOfFlowers()
+
+}
+def growFlowers() {
+	growUpFlowers()
+	gauche()
+	avance()
+	droite()
+	for (i<-1 to 8) {
+		recule()
+	}
+	gauche()
+	for (i<-1 to 6) {
+		recule()
+	}
+	droite()
+	growUpFlowers()
+}
