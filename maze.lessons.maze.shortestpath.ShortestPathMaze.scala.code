@@ -1,14 +1,31 @@
 var BiscuitX=0
 var BiscuitY=0
-
+var posX=0
+var posY=0
 
 
 override def run() {
 	chercherBiscuit
 	setIndication(BiscuitX,BiscuitY,0)
-	ecrire(BiscuitX,BiscuitY)
-	ecrire(BiscuitX,BiscuitY+1)
-	ecrire(BiscuitX,BiscuitY+2)
+	posX=BiscuitX
+	posY=BiscuitY
+	for(i<-0 to 10){
+		ecrire(posX,posY)
+		if(!aMurSud){
+			posY=posY+1
+		}
+		else if(!aMurNord){
+			posY=posY-1
+		}
+		else if(!aMurEst){
+			posX=posX+1
+		}
+		else if(!aMurOuest){
+			posX=posX-1
+		}
+			
+	}
+
 }
 
 def chercherBiscuit(){
