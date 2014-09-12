@@ -27,8 +27,11 @@ def findWall():Boolean = {
 override def run() {
 	while (!findWall()){
 		droite()
-		avance()
-		droite()
+		if (!estFaceMur()){
+			avance()
+		} else {
+			droite()
+		}
 	}
 	while (!sortie()){
 		keepHandOnSideWall()
