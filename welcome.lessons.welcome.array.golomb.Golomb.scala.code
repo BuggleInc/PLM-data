@@ -6,7 +6,7 @@ def golomb(num:Int): Int = {
 	if(num == 1){
 		return 1
 	}
-	while (avancee <= num){
+	while (avancee < num){
 		var x = tab(progres)
 		while (x > 0){
 			tab(avancee-1) = progres + 1
@@ -17,7 +17,7 @@ def golomb(num:Int): Int = {
 			}
 		}
 		progres = progres + 1
-		
-	}
+		}
+		tab(avancee-1) = progres + 1
 	return tab(avancee-1)
 }
