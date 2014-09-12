@@ -12,6 +12,31 @@ def remplirTableau() {
 	}
 }
 
+def faireColonne() {
+	for (i <_ 0 to getMondeHauteur() - 1) {
+		while(!estFaceMur) {
+			setCouleurBrosse(tab(i))
+			baisseBrosse()
+			leveBrosse()
+			avance()
+		}
+		setCouleurBrosse(tab(i))
+		baisseBrosse()
+		leveBrosse()
+	}
+}
+
+def seReplacer() {
+	gauche()
+	avance()
+	gauche()
+	avance(getMondeHauteur() - 1)
+	droite()
+	droite()	
+}
+
 remplirTableau()
+seReplacer()
+faireColonne()
 	
 }
