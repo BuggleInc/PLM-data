@@ -3,13 +3,18 @@ override def run() {
 	var wl=0; // largeur du monde
 	wh=getMondeHauteur();
 	wl=getMondeLargeur();
+	var c=0; // compteur
+	ecritMessage(c);
 	while (!(getX()==wl-1 && getY()==wh-1)) { // -1 car premiere ligne est 0
 		// tant qu'on est pas en pos finale
+		c +=1;
 		if  (getY()==wh-1 && getX()!=wl-1) {
 			setPos(getX()+1, 0);
+			ecritMessage(c);
 		}
 		else {
 			setPos(getX(), getY()+1);
+			ecritMessage(c);
 		}
-	}
+	} // attention au !(A et B) different de !A et !B
 }
