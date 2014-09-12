@@ -61,24 +61,26 @@ def furtherPath() {
 	if (!estFaceMur) {
 		if (getIndication(x,y-1)<sol) {
 			avance()
+		} else {
+			gauche
 		}
-	}
-	setDirection(Direction.SUD)
-	if (!estFaceMur) {
-		if (getIndication(x,y+1)<sol) {
-			avance()
-		}
-	}
-	setDirection(Direction.OUEST)
-	if (!estFaceMur) {
+	} else if (!estFaceMur) { 
 		if (getIndication(x-1,y)<sol) {
 			avance()
-		}
-	}
-	setDirection(Direction.EST)
-	if (!estFaceMur) {
-		if (getIndication(x+1,y)<sol) {
+		} else {
+			gauche
+		} 
+	} else if (!estFaceMur) {
+			if (getIndication(x,y-1)<sol) {
 			avance()
+		} else {
+			gauche
+		}
+	} else {
+		if (getIndication(x,y-1)<sol) {
+			avance()
+		} else {
+			gauche
 		}
 	}
 }
