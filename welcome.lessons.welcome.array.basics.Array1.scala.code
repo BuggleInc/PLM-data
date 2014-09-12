@@ -1,0 +1,35 @@
+override def run() {
+		var H = getMondeHauteur();
+		var L = getMondeLargeur();
+		var T = new Array[Color](H);
+		for(i<- 0 to H-1){
+			T(i)= getCouleurSol();
+			avance()
+		} // remplit le tableau de base avec les couleurs correspondantes.
+def changeTableau(T:Array):Array[Color]={ // assigne les bonnes couleurs aux tableaux pour nouvelle colonne
+	var H = T.length;
+	var S = new Array[Color](H);
+	S.(0) = T.(H-1)
+	for(k<- 0 to H-2){
+		S.(k+1)=T.(k)
+	}
+	return S
+}
+def colorSol(){
+	baisseBrosse();
+	leveBrosse();		
+}
+def changeColonne(){
+	gauche();
+	avance();
+	droite();
+}
+		for(p<- 1 to L-1){
+			changeColonne();
+			S = changeTableau();
+			for(d<- 0 to H-1){
+				
+			}
+		}
+
+}
