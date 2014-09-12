@@ -11,6 +11,9 @@ override def run() {
 	}
 	setIndication(x,y,0)
 	expandPath(x,y)
+	while (!estSurBiscuit) {
+		furtherPath()
+	}
 	
 	
 }
@@ -49,4 +52,18 @@ def expandPath(x:Int,y:Int) {
 		}
 	}
 		
+}
+def furtherPath() {
+	sol=getIndication(getX(),getY())
+	for (i<- 1 to 4) {
+		if (!estFaceMur) {
+			avance()
+			if (getIndication(getX(),getY())>sol) {
+				recule();
+				gauche()
+			}
+			} else {
+				gauche()
+			}
+	}	
 }
