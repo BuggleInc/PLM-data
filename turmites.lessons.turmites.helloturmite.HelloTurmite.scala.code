@@ -14,28 +14,22 @@ def brosse(couleur:Color)
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) 
 {
 	var pos = 0
-	var T = new Array[Int](3)
 	
 	while(colors(pos)!=getCouleurSol()) 
 	{
 		pos = pos+1
 	}
-		
-	T = rule(state)(pos)
-
-	pos = T(0)
 	
-	brosse(colors(pos))
+	brosse(colors(rule(state)(pos)(0)))
 	
-	T(1) match
+	rule(state)(pos) match
 	{
 		case STOPP => 
-		case RIEN => avance();
-		case GAUCHE => gauche(); avance();
-		case DEMITOUR => gauche(); gauche();
-		case DROITE => droite(); avance();
-		case _ =>
+		case RIEN => avance()
+		case GAUCHE => gauche(); avance()
+		case DEMITOUR => gauche(); gauche()
+		case DROITE => droite(); avance()
 	}
 	
-	state = T(2)
+	state = rule(state)(pos)(2)
 }
