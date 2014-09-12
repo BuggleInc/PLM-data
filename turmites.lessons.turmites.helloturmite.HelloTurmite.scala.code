@@ -7,8 +7,6 @@ val GAUCHE = 2;
 val DEMITOUR = 4;
 val DROITE = 8;
 
-
-
 def brosse(couleur:Color)
 {
 	setCouleurBrosse(couleur); baisseBrosse(); leveBrosse()
@@ -32,11 +30,11 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 	
 	T(1) match
 	{
-		case STOPP => rule(state)(pos)(1) = STOPP
-		case RIEN => avance(); rule(state)(pos)(1) = RIEN
-		case GAUCHE => gauche(); avance(); rule(state)(pos)(1) = GAUCHE
-		case DEMITOUR => gauche(); gauche(); rule(state)(pos)(1) = DEMITOUR
-		case DROITE => droite(); avance(); rule(state)(pos)(1) = DROITE
+		case STOPP => MVT_SUIVANT = STOPP
+		case RIEN => avance(); MVT_SUIVANT = RIEN
+		case GAUCHE => gauche(); avance(); MVT_SUIVANT = GAUCHE
+		case DEMITOUR => gauche(); gauche(); MVT_SUIVANT = DEMITOUR
+		case DROITE => droite(); avance(); MVT_SUIVANT = DROITE
 	}
 	
 	
