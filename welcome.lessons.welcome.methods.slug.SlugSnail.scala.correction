@@ -1,45 +1,17 @@
 $package 
 
 import java.awt.Color;
-import java.io.BufferedWriter;
-import java.io.IOException;
-
-import plm.core.utils.ColorMapper;
 
 
-public class SlugSnail extends plm.universe.bugglequest.AbstractBuggle {
-	
-	public void command(String command, BufferedWriter out){
-		int num = Integer.parseInt((String) command.subSequence(0, 3));
-		switch(num){
-			case 200 :
-			try {
-				out.write(Integer.toString(getColorIntParam()));
-				out.write("\n");
-				out.flush();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-			default:
-				super.command(command, out);
-				break;
-		}
-		
-	}
+class SlugSnail extends plm.universe.bugglequest.AbstractBuggle {
 
-	public int getColorIntParam(){
-		return ColorMapper.color2int((Color) getParam(0));
-	}
-	
-	@Override
-	public void run() {
-		hunt((Color) getParam(0)); 
+	override def run() {
+		hunt(getParam(0).asInstanceOf[Color]); 
 	}
 
 	/* BEGIN TEMPLATE */
-	public void hunt(Color c) {
-		
+	def hunt(c:Color) {
+		// Write your code here
 		/* BEGIN SOLUTION */
 		while (! isOverBaggle()) {
 			if (isFacingTrail(c)) {
@@ -54,18 +26,17 @@ public class SlugSnail extends plm.universe.bugglequest.AbstractBuggle {
 		/* END SOLUTION */
 	}
    
-	
+	// here comes your isFacingTrail method   
 
 	/* BEGIN HIDDEN */
-	boolean isFacingTrail(Color c) {
+	def isFacingTrail(c:Color):Boolean = {
 		if (isFacingWall())
 			return false;
 
 		forward();
-		boolean res = getGroundColor().equals(c);
+		val res = (getGroundColor() == c);
 		backward();
 		return res;
-
 	}		
 	/* END HIDDEN */
 	/* END TEMPLATE */
