@@ -25,7 +25,7 @@ def estArrive() : Boolean = {
 
 	var result = false;
 
-	if(isWall(Direction.EST) && isWall(Direction.SUD))
+	if(getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur() - 1)
 	{
 		result = true;
 	}
@@ -34,30 +34,7 @@ def estArrive() : Boolean = {
 
 	
 }
-def isWall(dir : Direction) : Boolean = {
 
-	var initial:Direction = getDirection();
-	var result = false;
-	
-	while(getDirection() != dir)
-	{
-		droite();
-		
-	
-	}
-	if(estFaceMur())
-		{
-		result = true;
-		}
-
-	while(getDirection() != initial)
-	{
-		droite();
-	}
-
-		return result;
-
-}
 
 }
 
