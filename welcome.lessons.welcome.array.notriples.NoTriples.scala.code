@@ -10,17 +10,17 @@ def noTriples(nums:Array[Int]): Boolean = {
 			nb = nums(n);
 			occur = 1;
 		}
-		else if(occur == 1){
+		else if(occur == 1 && nums(n) == nb ){
 			occur = 2;
 		}
-		else if(occur == 2){
+		else if(occur == 2 && nums(n) == nb){
 			occur = 3;
 		}
-		else if(occur == 3){
+		else if(occur == 3 && nums(n) == nb){
 			retour = false;
 		}
 		else{
-			occur =0;
+			occur = 0;
 		}
 	}
 	return retour;
