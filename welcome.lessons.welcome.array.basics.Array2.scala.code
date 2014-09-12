@@ -1,2 +1,32 @@
-override def run() {
+override def run() {var n:Int = getMondeHauteur()
+var tab = new Array[Color](n)
+
+def creationtab()  { 
+for (i <-  0 to n-1){
+	tab(i)= getCouleurSol()
+	avance()
+	
+                 }
+                    } 
+def move(){
+	
+	gauche()
+	avance()
+	droite()
+}
+
+def marquage(){
+for(j <- 0 to n-1){
+setCouleurBrosse(tab(j ))
+baisseBrosse()
+leveBrosse()
+
+	avance()	
+}
+}
+creationtab()
+for (o <- 1 to n-1){
+move()
+avance()
+marquage()}
 }
