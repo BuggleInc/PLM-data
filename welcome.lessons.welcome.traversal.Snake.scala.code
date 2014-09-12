@@ -1,6 +1,6 @@
 override def run() 
 {
-	def pos()=
+	def posfin([Boolean])=
 	{
 		if (estFaceMur()==true)
 			return true
@@ -18,9 +18,8 @@ override def run()
 		} else return false
 	}
 
-	def serpent()
+	def serpent()=
 	{
-		
 		if (getDirection()==Direction.EST)
 		{
 			gauche()
@@ -35,7 +34,7 @@ override def run()
 		} else avance()
 	}
 	
-	while (pos() == false) 
+	while (posfin() == false) 
 		{
 			serpent()
 		}
