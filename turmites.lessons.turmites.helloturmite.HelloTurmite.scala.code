@@ -1,14 +1,15 @@
 var state = 0;
 var triplet = Array[Int](3)
-def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) { 
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	triplet = rule(state)(IndiceCouleur)
 	var IndiceCouleur:Int=0
 	while (colors(IndiceCouleur)!=getCouleurSol()) {
 		IndiceCouleur+=1
 	}
-	setCouleurBrosse(colors((IndiceCouleur+1)%(colors.length)))
+	setCouleurBrosse(triplet(0))
 	baisseBrosse()
 	leveBrosse()
-     rule(state)(IndiceCouleur) match {
+     triplet(1) match {
      	case 0 =>
      	case 1 => avance()
      	case 2 => gauche()
@@ -19,4 +20,5 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
      	case 8 => droite()
      			avance()
      }
+     state=triplet(3)
 }
