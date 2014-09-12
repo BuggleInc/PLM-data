@@ -5,15 +5,15 @@ def setCouleurSol(c:Color) {
 }
 
 def PosCouleur (c:Color, T:Array[Color]) {
-		var l = T.length
-		for (i<- 0 to l-1) {
+		val l = T.length
+		for (i<- 0 to l-1) 
+		{
 			if (c == T(i) ) {return i}
-		}
+			}
 	return -1}
 
 
 def step(rule:Array[Char], colors:Array[Color]) {
-	
 	var k:Int = PosCouleur(getCouleurSol(),colors) 
 	rule(k) match{  
 		case 'R'	=> setCouleurSol(colors(k));droite();avance()
