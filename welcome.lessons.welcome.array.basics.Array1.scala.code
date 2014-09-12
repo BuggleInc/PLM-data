@@ -1,13 +1,17 @@
 override def run() {
 	var h=getMondeHauteur() 
 	var l=getMondeLargeur()
-	var T:Array[h]
-	for (i <- 0 to h) {
+	var T:Array[Int](h)
+	for (y <- 0 to l-1) {
+		for (i <- 0 to h-1) {
 		getCouleurSol()=T(i);
 		avance();
 	}
 	avance();
 	gauche();
+	avance();
 	baisseBrosse();
-	avance()
+	droite();
+	y=y+1
+	}
 }
