@@ -1,5 +1,35 @@
-    var state = 0;
+var state = 0;
 
-    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-        /* Your code comes here */
-    }
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+
+	def setCouleurSol(c:java.awt.Color) = {
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
+	}
+
+	var pos = 0-1
+	var cpt = 0
+
+	//cherche la position "pos" de la couleur dans le tableaux
+	while (cpt<colors.length && pos<0) {
+		if (getCouleurSol()==colors(cpt)) {pos=cpt}
+		cpt = cpt + 1
+	}
+
+	//Change la couleur
+	setCouleurSol(colors(rule(state)(colors(cpt)(0)))}
+
+	//Tourne en fonction de la couleur
+	rule(state)(colors(cpt))(1) match {
+		case 0 => recule
+		case 2 => gauche()
+		case 4 => droite();droite()
+		case 8 => droite()
+
+	avance()
+
+	//change l'état
+	state = rule(state)(colors(cpt))(2)
+    
+}
