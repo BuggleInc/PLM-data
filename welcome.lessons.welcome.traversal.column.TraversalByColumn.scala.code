@@ -13,26 +13,26 @@ def posfinale(): Boolean = {
 }
 
 
-def possuivante() = {
-	var l = 0;
-	var c = 0;
+def possuivante(l:Int,c:Int) = {
 	if (estDosMur()) {
 		(c = c + 1);
 		setPos(c, 0);
-		} else {
-	(l = l + 1);
-	setPos(c, l);
-		}
+	} else {
+		(l = l + 1);
+		setPos(c, l);
+	}
 }
 
 def deplace() = {
 	var cpt = 0;
+	var c = 0;
+	var l = 0;
 	ecritMessage(cpt);
-while (!(posfinale())) {
-	possuivante();
-	(cpt = cpt + 1);
-	 ecritMessage(cpt);
-}
+	while (!(posfinale())) {
+		possuivante();
+		(cpt = cpt + 1);
+		 ecritMessage(cpt);
+	}
 }
 deplace();
 }
