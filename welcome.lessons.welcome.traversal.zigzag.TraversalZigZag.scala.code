@@ -1,3 +1,21 @@
 override def run() {
+
+def posFinale():Boolean={
+	if((getX()==getMondeLargeur()-1) && (getY() == getMondeHauteur()-1)){true}else{false}
+}
+var x = 0
+while(!posFinale()){
+	for(l <- 0 to getMondeHauteur()-1){
+		if(!posFinale())
+		setPos(getX(),l)
+		ecritMessage(""+x)
+		x=x+1
+		for(c <- 1 to getMondeLargeur()-1){
+			setPos(c,l)
+			ecritMessage(""+x)
+			x=x+1
+		}
+	}
+}
 	
 }
