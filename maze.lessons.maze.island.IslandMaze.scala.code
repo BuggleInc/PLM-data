@@ -15,15 +15,13 @@ def keepHandOnSide():Boolean=
 	{var flag = false
 	gauche();
 	if (estFaceMur) {flag = true}
-	else {return false}
-}
+	else {flag = false}
+	return flag}
 
 while (!estSurBiscuit)
 	if (!keepHandOnSide) {gauche(); avance();}
 	else {if (!estFaceMur) {avance()}
 		else {droite();
-			if (!estFaceMur) {avance()}
-			else {droite()}
 		}
 	}
 
