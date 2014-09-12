@@ -1,12 +1,13 @@
 override def run() {
 
-while(!estSurBiscuit()){
-	var x:Int=random3()
-x match {
-	case 0 => if(!estFaceMur){avance()}
-	case 1 => droite()
-	case 2 => gauche()
+def keepHandOnSideWall:Boolean(){
+	droite
+	if(estFaceMur){return true}
+     else{return false}
 }
+while(!estSurBiscuit &&  keepHandOnSideWall==true){
+if (!estFaceMur){avance()}
+else{droite}	
 }
-prendBiscuit()
+
 }
