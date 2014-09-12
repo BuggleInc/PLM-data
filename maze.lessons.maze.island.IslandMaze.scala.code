@@ -4,9 +4,13 @@ var etat=0;
 etat match  {
   case 0 => {// courir au nord
 if (getDirection()==Direction.NORTH && !estFaceMur) {
-	avance()
-	droite()
-} }
+	while(!estFaceMur) {
+		avance()
+	}
+}
+droite()
+}
+}
      etat = 1;
   case 1 => { do {
 	gauche
