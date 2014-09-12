@@ -28,6 +28,22 @@ def fonctionTest():Boolean = {
 	}
 }
 
-fonctionTest()
+	while (!fonctionTest()) {
+		if (!estFaceMur) {
+			avance()
+		} else {
+			if (getDirection() == Direction.OUEST) {
+				droite()
+				avance()
+				droite()
+			} else {
+				if(getDirection() == Direction.EST) {
+					gauche()
+					avance()
+					gauche()
+				}
+			}
+		}
+	}
 
 }
