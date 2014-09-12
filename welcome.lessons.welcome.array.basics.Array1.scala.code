@@ -1,19 +1,19 @@
 override def run() {
-prendreCouleur()
-avance(); gauche();avance();droite()
-poserCouleur
+peindre()
 }
 
 
-def prendreCouleur() {
+def peindre() {
  var T = new Array[Color](getMondeHauteur())
 	for (i <- 1 to getMondeHauteur())
 	 {T(i) = getCouleurSol()
 	 avance()}
+	 avance(); gauche();avance();droite()
+	 for (i <- 1 to (getMondeHauteur()))
+	  { avance()
+	  SetCouleurBrosse(T(i));baisseBrosse(); leveBrosse()}
 }
 
 def poserCouleur() {
-	for (i <- 1 to (getMondeHauteur()))
-	  { avance()
-	  SetCouleurBrosse(T(i));baisseBrosse(); leveBrosse()}
+	
 }
