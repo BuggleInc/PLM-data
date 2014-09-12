@@ -1,4 +1,43 @@
 override def run() {
 
+	while (!estSurBiscuit())
+	{
+		while (!estFaceMur() && !estSurBiscuit())
+			avance();
+		
+		esquive();
+	}
+}
 
+def esquive() {
+
+	while(!estSurBiscuit() && (getDirection != Direction.North() || estFaceMur()))
+		keepHandOnSideWall();
+
+	prendBiscuit();
+}
+
+def keepHandOnSideWall()
+{
+	
+	gauche();
+	if (estFaceMur)
+	{
+		droite();
+		if (estFaceMur)
+		{
+			droite();
+			if (estFaceMur)
+			{
+				droite();
+				avance();
+			}
+			else avance();
+		}
+		else avance();
+	}
+	else 
+	{
+		avance();
+	}
 }
