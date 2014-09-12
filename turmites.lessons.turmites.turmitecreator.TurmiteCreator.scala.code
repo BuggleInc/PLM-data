@@ -11,14 +11,15 @@
     
     
     var rule:Array[Array[Array[Int]]] = null // Change this
-    var nbSteps:Int = 0; // Change this
+    var nbSteps:Int = 8342; // Change this
 
     /** init the rule array from a string defining a Langton's ant 
      * 
      *  You can use this method inside your init() method if you want 
      *  to test langton's ant instead of full turmites.
      */
-    def initLangton(name:String) {
+    def initLangton(name:String) 
+    {
         val nbColors = name.length(); /* As many colors as letters in the ant's name */
 
         rule = new Array[Array[Array[Int]]] (1); /* one state only */
@@ -43,8 +44,12 @@
     }
     def init() 
     {
-    		nbSteps = 10000;
     		rule = Array( Array( Array(0,NOTURN,0), Array(0, NOTURN, 0) ) );
+
+    		rule(0)(0) = (1,R,0)
+    		rule(0)(1) = (1,R,1)
+    		rule(1)(0) = (0,N,0)
+    		rule(1)(1) = (0,N,1)
         /* Your code comes here. */
 
         /* Something like 
