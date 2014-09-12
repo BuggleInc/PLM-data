@@ -18,12 +18,12 @@ def getColorColumn(){
 def setColorColumn(){
 	var decal = litMessage().toInt
 	for(c <- 0 to hauteur - 2){
-		setCouleurBrosse((c+decal)%(hauteur))
+		setCouleurBrosse(tab((c+decal)%(hauteur)))
 		baisseBrosse()
 		leveBrosse()
 		avance()
 	}
-	setCouleurBrosse(((hauteur-1)+decal)%(hauteur))
+	setCouleurBrosse(tab(((hauteur-1)+decal)%(hauteur)))
 		baisseBrosse()
 		leveBrosse()
 	for(i <- 1 to hauteur - 1){
