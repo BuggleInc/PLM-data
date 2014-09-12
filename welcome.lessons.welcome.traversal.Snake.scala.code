@@ -1,0 +1,52 @@
+override def run() {
+	def murNord() = {
+		if (getDirection() == EST) {
+			gauche();
+			if (estFaceMur()) {
+				droite();
+				return true;
+			}
+			else {
+				droite();
+				return false;
+			}
+		}
+		else if (getDirection() == OUEST) {
+			droite();
+			if (estFaceMur()) {
+				gauche();
+				return true;
+			}
+			else {
+				gauche();
+				return false;
+			}
+		}
+	}
+	def posFinale() = {
+		if (estFaceMur() && murNord()) {
+			return true;
+		}
+		else return false;
+	}
+	def pasSerpent() = {
+		if (!estFaceMur) {
+			avance();
+		}
+		else if (getDirection() == EST) {
+			gauche();
+			avance();
+			gauche();
+		}
+		else if (getDirection() == OUEST) {
+			droite();
+			avance();
+			droite();
+		}
+	}
+	
+	baisseBrosse();
+	do {
+		pasSerpent();
+	} while (!posFinale())
+}
