@@ -13,28 +13,37 @@ override def run() {
 }
 def expandPath(x:Int,y:Int) {
 	var i = getIndication(x,y)
-	if (!aMurNord(x,y)) {
-		if (getIndication(x,y-1)==9999) {
-			setIndication(x,y-1,i+1)
-			expandPath(x,y-1)
+	if (y!=0) {
+		if (!aMurNord(x,y)) {
+			if (getIndication(x,y-1)==9999) {
+				setIndication(x,y-1,i+1)
+				expandPath(x,y-1)
+			}
 		}
 	}
-	if (!aMurNord(x,y+1)) {
-		if (getIndication(x,y+1)==9999) {
-			setIndication(x,y+1,i+1)
-			expandPath(x,y+1)
+	if (y!=getMondeHauteur()-1) {
+		if (!aMurNord(x,y+1)) {
+			if (getIndication(x,y+1)==9999) {
+				setIndication(x,y+1,i+1)
+				expandPath(x,y+1)
+			}
 		}
 	}
-	if (!aMurOuest(x,y)) {
-		if (getIndication(x-1,y)==9999) {
-			setIndication(x-1,y,i+1)
-			expandPath(x-1,y)
+	if (x!=0) {
+		if (!aMurOuest(x,y)) {
+			if (getIndication(x-1,y)==9999) {
+				setIndication(x-1,y,i+1)
+				expandPath(x-1,y)
+			}
 		}
 	}
-	if (!aMurOuest(x+1,y)) {
-		if (getIndication(x+1,y)==9999) {
-			setIndication(x+1,y,i+1)
-			expandPath(x+1,y)
+	if (x!=getMondeLargeur()-1) {
+		if (!aMurOuest(x+1,y)) {
+			if (getIndication(x+1,y)==9999) {
+				setIndication(x+1,y,i+1)
+				expandPath(x+1,y)
+			}
 		}
-	}	
+	}
+		
 }
