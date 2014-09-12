@@ -1,9 +1,9 @@
 override def run() {
 var j:Int = 0;
-lire();
+def T = lire();
 for (i<-0 to getMondeLargeur() -1) {
 	decalle(j);
-	reproduire();
+	reproduire(j,T);
 }
 recule();
 }
@@ -13,6 +13,7 @@ def lire():Array[Color] = {
 		T(i) = getCouleurSol();
 		avance();
 	}
+	return T;
 }
 def reproduire(j:Int, T:Array[Color]) {
 	for (i<- 0 to getMondeHauteur()-1) {
