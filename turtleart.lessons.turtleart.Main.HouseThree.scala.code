@@ -1,0 +1,28 @@
+val TM = 30 
+
+override def run() 
+{
+	def maison()
+	{
+		for(i <- 1 to 4)
+		{
+			avance(TM); droite(90)
+		}
+		leveCrayon()
+		avance(TM); droite(30)
+		baisseCrayon()
+		for(i <- 1 to 3)
+		{
+			avance(TM); droite(120)
+		}
+		gauche(30)
+		leveCrayon()	
+		recule(TM)
+	}
+
+	for(j <- 1 to 4)
+	{
+		maison()
+		droite(90); avance(TM); avance(20); gauche(90)
+	}
+}
