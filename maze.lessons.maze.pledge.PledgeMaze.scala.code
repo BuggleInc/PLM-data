@@ -12,11 +12,19 @@ override def run() {
 		}
 	}
 
+	def isDirectionFree(dir:Direction) ={
+		if (dir==Direction.EAST) {gauche(); if(!estFaceMur()) {droite();return true} ; return false}
+		if (dir==Direction.WEST) {droite(); if(!estFaceMur()) {gauche();return true} ; return false}
+		if (dir==Direction.NORTH && !estFaceMur()) {return true}
+		return false
+	}
+
 	while(getY()!=0 && !estSurBiscuit()) {
+			setDirection(Direction.NORTH)
 			while(!estFaceMur()) {avance()}
 			droite()
-			sommeAngle=2
-			while(getDirection()!=Direction.NORTH && !estSurBiscuit() && sommeAngle!=0) {
+			sommeAngle=0-1
+			while(isDirectionFree()!=getDirection() && !estSurBiscuit() && sommeAngle!=0) {
 				keepHandOnSideWall()}
 		}
 
