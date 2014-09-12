@@ -1,0 +1,19 @@
+def marque(c:Color){
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
+}
+def step() {
+	for (i <- 1 to 10000){
+		if (getCouleurSol() == Color.white){
+			marque(Color.black)
+			droite()
+			avance()
+		}
+		if (getCouleurSol() == Color.black){
+			marque(Color.white)
+			gauche()
+			avance()
+		}
+	}
+}
