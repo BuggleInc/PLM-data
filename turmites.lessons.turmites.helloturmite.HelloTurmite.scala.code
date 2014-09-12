@@ -1,6 +1,6 @@
 var state = 0;
 var MVT_SUIVANT = 0;
-var pos = 0;
+
 
 val STOPP = 0;
 val RIEN = 1;
@@ -15,6 +15,11 @@ def brosse(couleur:Color)
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) 
 {
+	var pos = 0;
+	
+	while(colors(pos)!=getCouleurSol())
+		pos = pos+1
+		
 	pos = rule(state)(pos)(0)
 	
 	brosse(colors(pos))
