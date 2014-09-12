@@ -2,28 +2,22 @@ def noTriples(nums:Array[Int]): Boolean = {
 	var taille: Int = nums.length;
 	var n: Int = 0;
 	var nb: Int = 0;
-	var occur: Int = 0;
+	var occur: Int = 1;
+	var retour: Boolean = true;
 	
-
 	for(n <- 0 to taille - 1){
 		if(nums(n) != nb){
 			nb = nums(n);
 			occur = 1;
 		}
-		else if (occur == 3){
-			
+		else if(occur == 1){
+			occur = 2;
+		}
+		else if(occur == 2){
+			occur = 3;
 		}
 		else{
-			occur = occur + 1;
-			
+			retour= false;
 		}
-			
-	}
-	if(occur == 3){
-		return true;
-	}
-	else{
-		return false;
-	}
-	
+	return retour;
 }
