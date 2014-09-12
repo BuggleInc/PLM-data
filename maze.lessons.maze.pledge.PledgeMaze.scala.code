@@ -1,4 +1,5 @@
 override def run() {
+	var direc=Direction.SUD;
 def wall(){
 	if(estFaceMur){
 		droite();
@@ -18,8 +19,19 @@ def wall(){
 			}
 		}
 	}
+def direction(d:Direction){
+	direct=getDirection();
+	setDirection(d);
+	if(estFaceMur){
+		setDirection(direct);
+		return false
+	}else return true
+}
 while(!estSurBiscuit){
 	wall();
+	if(direction(Direction.NORD)){
+		while(!estFaceMur){ avance(); ]}
+	}
 }
 }
 
