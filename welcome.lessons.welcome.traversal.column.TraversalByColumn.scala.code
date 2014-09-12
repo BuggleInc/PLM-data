@@ -32,10 +32,12 @@ override def run() {
 	var cpt = 0;
 
 	for(i <- 1 to largeur) {
-		for(j <- 1 to hauteur -1 ) {
+		for(j <- 1 to hauteur ) {
 			ecritMessage(cpt);
 			cpt = cpt +1;
-			setPos(getX(), getY()+1);
+			if(!estFaceMur()) {
+				setPos(getX(), getY()+1);
+			}
 		}
 		setPos(getX()+1, 0);
 	}
