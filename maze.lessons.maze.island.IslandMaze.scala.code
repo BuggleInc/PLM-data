@@ -1,0 +1,19 @@
+def sortie():Boolean = {
+    	if (estSurBiscuit()){
+    		return true
+    	}
+    	return false
+}
+def keepHandOnSideWall(){
+	while (!estFaceMur){
+		avance()
+		gauche()
+	}
+	droite()
+}
+override def run() {
+	while (!sortie()){
+		keepHandOnSideWall()
+	}
+	prendBiscuit()
+}
