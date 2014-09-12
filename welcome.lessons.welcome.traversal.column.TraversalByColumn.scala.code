@@ -11,11 +11,10 @@ override def run() {
 	}
 	while (!positionFinale) {
 		for (x<-0 to getMondeLargeur()) {
-		if(getY()==getMondeHauteur()-1) {
-			y=0
-		} else {
-			y=y+1
+		while(getY()!=getMondeHauteur()-1) {
+			y+=1
 		}
+		y=0
 		ecritMessage(cpt);
 		cpt+=1
 		setPos(x,y);
