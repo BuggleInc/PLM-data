@@ -3,25 +3,29 @@ $package
 import plm.core.model.Game;
 import plm.universe.Direction;
 
-class Escaper extends plm.universe.bugglequest.AbstractBuggle {
-	val uselessVariableExistingJustToMakeSureThatEclipseWontRemoveTheImport:Direction=null; /* If removed, user code can't use directions easily */
-	override def setX(i: Int)  {
-		if (isInited)
+@SuppressWarnings("unused")
+public class Escaper extends plm.universe.bugglequest.AbstractBuggle {
+	private Direction uselessVariableExistingJustToMakeSureThatEclipseWontRemoveTheImport; /* If removed, user code can't use directions easily */
+	@Override
+	public void setX(int i)  {
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setX(x) in this exercise. Walk to your goal instead."));
 	}
-	override def setY(i: Int)  { 
-		if (isInited)
+	@Override
+	public void setY(int i)  { 
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setY(y) in this exercise. Walk to your goal instead."));
 	}
-	override def setPos(x: Int, y:Int)  { 
-		if (isInited)
+	@Override
+	public void setPos(int i,int j)  { 
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setPos(x,y) in this exercise. Walk to your goal instead."));
 	}
 	 
 	/* BEGIN TEMPLATE */
-	override def run() {
+	public void run() {
 		/* BEGIN SOLUTION */
-		// Make sure we have a wall to the left
+		
 		left();
 		while (!isFacingWall())
 			forward();
@@ -32,16 +36,16 @@ class Escaper extends plm.universe.bugglequest.AbstractBuggle {
 
 		pickupBaggle();
 	}
-  
-	def stepHandOnWall() {
-		// PRE: we have a wall on the left
-		// POST: we still have the same wall on the left, are one step ahead
+	
+	public void stepHandOnWall() {
+		
+		
 
 		while (!isFacingWall()) {
 			forward();
-			left(); // change to right to get a right follower
+			left(); 
 		}
-		right(); // change to left to get a right follower
+		right(); 
 		/* END SOLUTION */
 	}
 	/* END TEMPLATE */
