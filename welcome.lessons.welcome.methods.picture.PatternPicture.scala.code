@@ -30,16 +30,37 @@ override def run() {
 		recule()
 		recule()
 	}
+	def slashInv(c:Color, v:Color) = {
+		setCouleurBrosse(c)
+		mark()
+		avance()
+		gauche()
+		avance()
+		mark()
+		gauche()
+		avance()
+		gauche()
+		avance()
+		gauche()
+		avance()
+		avance()
+		avance()
+		mark()
+		setCouleurBrosse(v)
+		mark()
+		avance()
+		droite()
+		avance()
+		mark()
+	}
 	def carre() {
 		avance()
 		slash(c=Color.red, v=Color.blue)
-		for (i <- 1 to 4) {
-			recule()
-		}
 		gauche()
 		avance()
 		avance()
 		droite()
+		slashInv(c=Color.yellow, v=Color.green)
 		}
 	carre()
 }
