@@ -4,13 +4,13 @@ def noTriples(nums:Array[Int]): Boolean = {
 	
 	for (x<- 0 to n-1) {
 	for (y<- 0 to n-1) {
-		if (nums(x)==nums(y) && x!=y && math.abs(x-y)==1) {
+		if (nums(x)==nums(y) && x!=y && x==y+1) {
 				for (z<- 0 to n-1) {
-					if (nums(y)==nums(z) && y!=z && math.abs(y-z)==1) {return false}
+					if (nums(y)==nums(z) && y!=z && z=y+1) {return false}
 					else {result=true}
 				}
 			}
-			
+		else {result=true}		
 	}
 	}
 	
