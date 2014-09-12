@@ -23,6 +23,8 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 		case DEMITOUR => gauche(); gauche(); MVT_SUIVANT = DEMITOUR
 		case DROITE => droite(); avance(); MVT_SUIVANT = DROITE
 	}
+
+	brosse(colors(pos))
 	
 	pos = rule(state)(pos)(0)
 	state = rule(state)(pos)(2)
