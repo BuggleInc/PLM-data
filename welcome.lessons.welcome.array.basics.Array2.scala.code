@@ -3,8 +3,8 @@ override def run() {
 var tab = new Array[Color] (getMondeHauteur())
 
 def remplirTableau() {
-	tab(0) = Color.RED
-	for (i <- 1 to getMondeHauteur - 1) {
+	tab(1) = Color.RED
+	for (i <- 2 to getMondeHauteur) {
 		tab(i) = getCouleurSol()
 		avance()
 	}
@@ -14,7 +14,7 @@ def faireColonne() {
 
 val decalage = litMessage().toInt
 
-		setCouleurBrosse(tab(decalage))
+		setCouleurBrosse(tab())
 		baisseBrosse()
 		leveBrosse()
 		avance()
