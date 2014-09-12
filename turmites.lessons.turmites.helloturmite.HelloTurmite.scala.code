@@ -3,10 +3,10 @@ var state = 0;
 var IndiceCouleur:Int=0
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	IndiceCouleur=0
-	triplet = rule(state)(IndiceCouleur)
 	while (colors(IndiceCouleur)!=getCouleurSol()) {
 		IndiceCouleur+=1
 	}
+	triplet = rule(state)(IndiceCouleur)
 	setCouleurBrosse(colors(triplet(0)%colors.length))
 	baisseBrosse()
 	leveBrosse()
