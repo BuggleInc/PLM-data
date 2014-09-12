@@ -1,6 +1,6 @@
 override def run() {
 var n:Int = getWorldHeight()
-var m:Int =getWorldHeight()-1
+
 var tab = new Array[Color](n)
 var i:Int=0
    
@@ -12,7 +12,7 @@ def creationtab()  {
 //	avance()
 	tab(i)=getCouleurSol()
 	avance()
-	for (i <-  1 to m-1){
+	for (i <-  1 to n){
 	tab(i)= getCouleurSol()
 	avance()
 	
@@ -36,7 +36,7 @@ gauche()
 
 def marquage(){
 	var x:Int= litMessage().toInt
-for(j <- 0 to m){
+for(j <- 0 to n-1){
 
 setCouleurBrosse(tab((j+x)%n))
 baisseBrosse()
