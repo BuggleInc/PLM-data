@@ -1,16 +1,26 @@
 def maxMod5(a:Int, b:Int):Int = {
-	
-	if (a!=b  &&  irem(a)==irem(b)){
-			return max(a,b);
-	}
-	if (a==b  &&  irem(a)==irem(b)){
+	if(a==b){
+		return true;
+	}else{
+		if (direm(a,b)){
 			return min(a,b);
 		}else{
-			return 0;
+			return max(a,b);
+		}
+	}
+}
 
-	
+def direm(a:Int, b:Int): Boolean{
+	if (irem(a)==irem(b)){
+		return true
+	}else{
+		return false
+	}
 }
-}
+
+
+
+
 def irem(a:Int):Int = {
 	return a%5;
 }
