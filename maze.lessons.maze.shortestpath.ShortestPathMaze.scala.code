@@ -1,10 +1,9 @@
 override def run() {
-  var x:Int = 0;
-  var y:Int = 0;
-  (x, y) = Biscuit();
+  var x:Int = BiscuitX();
+  var y:Int = BiscuitY();
   ecrit(x,y,0);// Your code here
 }
-def Biscuit():(Int, Int) = {
+def BiscuitX():Int = {
 	var x:Int = 0;
 	var y:Int = 0;
 	while(!aBiscuit(x, y)) {
@@ -16,7 +15,21 @@ def Biscuit():(Int, Int) = {
 			x = 0;
 		}
 	}
-	return (x, y);
+	return x;
+}
+def BiscuitY():Int = {
+	var x:Int = 0;
+	var y:Int = 0;
+	while(!aBiscuit(x, y)) {
+		if (x < getMondeLargeur() -1) {
+			x = x+1;
+		}
+		else {
+			y = y+1;
+			x = 0;
+		}
+	}
+	return y;
 }
 def ecrit (x:Int, y:Int, i:Int) = {
 	var j:Int = 0;
