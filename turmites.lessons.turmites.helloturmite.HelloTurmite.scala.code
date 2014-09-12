@@ -18,10 +18,10 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	}
 
 	//Change la couleur
-	setCouleurSol(  rule(state)(colors(cpt))(0)  )
+	setCouleurSol( colors( rule(state)(pos)(0) ) )
 
 	//Tourne en fonction de la couleur
-	rule(state)(colors(cpt))(1) match {
+	rule(state)(pos)(1) match {
 		case 0 => recule
 		case 2 => gauche()
 		case 4 => droite();droite()
@@ -30,6 +30,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	avance()
 
 	//change l'état
-	state = rule(state)(colors(cpt))(2)
+	state = rule(state)(pos)(2)
     
 }
