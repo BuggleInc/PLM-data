@@ -1,2 +1,27 @@
 def step() {
+	var c = 0
+
+	for (c <- 0 to 10000)
+	{
+		if (getCouleurSol() == Color.Black)
+		{
+			setCouleurSol (Color.White)
+			droite; avance;
+		}
+
+		if (getCouleurSol() == Color.White)
+		{
+			setCouleurSol (Color.Black)
+			gauche; avance;
+		}
+	}
+
+}
+
+def setCouleurSol(couleur:Color)
+{
+	setCouleurBrosse(couleur)
+	baisseBrosse()
+	leveBrosse()
+	
 }
