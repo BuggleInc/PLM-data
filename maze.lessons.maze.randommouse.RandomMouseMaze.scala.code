@@ -2,12 +2,19 @@ override def run() {
 	var a=0;
  while(!estSurBiscuit){
  	a=random3();
- 	if(a==0){
+ 	if(a==0 &&!estFaceMur){
  		avance();
- 	}else if(a==1){
- 		gauche();avance();
+ 	}
+ 	if(a==1){
+ 		droite();
+ 		if(!estFaceMur){
+ 			avance();
+ 		}else gauche();
  	}else if(a==2){
- 		droite();avance();
+ 		gauche();
+ 		if(!estFaceMur){
+ 			avance();
+ 		}else droite();
  	}
  	
  }
