@@ -1,8 +1,7 @@
 override def run() {
 		var j:Direction = getDirection();
-		var i:Int = 0;
 		while (!estSurBiscuit()) {
-		if (i == 0 && !estFaceMur()) {
+		if (!estFaceMur()) {
 			progresser(j);
 		}
 		else if (estFaceMur()) {
@@ -25,7 +24,8 @@ def progresser(dir:Direction) = {
 	i = i+1;
 }
 
-def suivreMur(i) = {
+def suivreMur() = {
+	var i.int = 0;
 	droite();
 	i = i+1;
 	while (i != 0) {
@@ -41,22 +41,3 @@ def suivreMur(i) = {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
