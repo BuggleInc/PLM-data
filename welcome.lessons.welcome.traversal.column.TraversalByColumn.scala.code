@@ -1,20 +1,18 @@
 override def run() {
 
 
-var vuBiscuit:Boolean = false;
-var vSteps:Int = 0;
+var steps:Int = 0;
 
 
 
-	while(!estSurBiscuit())
+	while(!estArrive())
 	{
 
-
+		ecritMessage(steps);
 		avance();
-		vSteps = vSteps + 1;
-		if(vSteps==7)
+		steps = steps + 1;
+		if(steps % 7 == 0)
 		{
-			vSteps = 0;
 			droite();
 			avance();
 			gauche();
@@ -25,6 +23,43 @@ var vSteps:Int = 0;
 	
 		
 
+def estArrive() : Boolean = {
 
+	var result = false;
+
+	if(isWall(Direction.EST) && isWall(Direction.SUD))
+	{
+		result = true;
+	}
+
+		return result;
+
+	
+}
+def isWall(dir : Direction) : Boolean = {
+
+	var initial:Direction = getDirection();
+	var result = false;
+	
+	while(getDirection() != dir)
+	{
+		droite();
+		
+	
+	}
+	if(estFaceMur())
+		{
+		result = true;
+		}
+
+	while(getDirection() != initial)
+	{
+		droite();
+	}
+
+		return result;
+
+}
+}
 
 }
