@@ -1,0 +1,50 @@
+val TM = 0
+val posInitX = setX(x:Double)
+val posInitY = setY(y:Double)
+
+override def run() 
+{
+	def maison()
+	{
+		baisseCrayon()
+		for(i <- 1 to 4)
+		{
+			avance(TM); droite(90)
+		}
+		leveCrayon()
+		avance(TM); droite(30)
+		baisseCrayon()
+		for(i <- 1 to 3)
+		{
+			avance(TM); droite(120)
+		}
+		gauche(30)
+		leveCrayon()	
+		recule(TM)
+	}
+
+	for(j <- 1 to 4)
+	{
+		maison()
+		droite(90); avance(TM); avance(20); gauche(90)
+	}
+	
+	allerVers(posInitX, posInitY-75)
+
+	for(j <- 1 to 2)
+	{
+		maison()
+		droite(90); avance(150); gauche(90)
+	}
+
+	allerVers(posInitX, posInitY-75)
+
+	for(j <- 1 to 4)
+	{
+		maison()
+		droite(90); avance(TM); avance(20); gauche(90)
+	}
+	
+	allerVers(posInitX, posInitY-75)
+
+}
