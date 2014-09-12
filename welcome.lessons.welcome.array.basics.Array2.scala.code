@@ -1,6 +1,6 @@
 
 override def run() {
-if (!estFaceMur){
+while (!estFaceMur){
 var T= new Array[Color](getMondeHauteur())
 
 for (i<-0 to (getMondeHauteur()-1)){
@@ -17,22 +17,14 @@ droite();
 avance();
 for (k<-1 to (getMondeLargeur()-1)){
 for (j<-0 to (getMondeHauteur()-1)){
-	setCouleurBrosse(T(j));
+	setCouleurBrosse(T(j+1));
 	baisseBrosse();
      leveBrosse();
      avance();
 }
-leveBrosse();
-gauche();
-avance();
-droite();
-avance();
+
 }
-recule();
-gauche();
-avance(getMondeLargeur()-1);
-droite();
 }
-else recule();
+recule(5);
 }
      
