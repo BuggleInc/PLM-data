@@ -3,9 +3,23 @@ def step(rule:Array[Char], colors:Array[Color]) {
 
 def test(rule:Char, color:Color)
 {
-	if (getCouleurSol() == Color.black)
+	if (rule == "R")
 		{
-			setCouleurSol (Color.white)
+			setCouleurSol (Color)
+			droite; avance;
+		}
+
+	if (rule == "L")
+		{
+			setCouleurSol (Color)
 			gauche; avance;
 		}
+}
+
+def setCouleurSol(couleur:Color)
+{
+	setCouleurBrosse(couleur)
+	baisseBrosse()
+	leveBrosse()
+	
 }
