@@ -5,24 +5,29 @@ override def run() {
 	if (estFaceMur()) {mur = true}
 	droite()
 	return mur }
+	var maxx = getMondeHauteur()
+	var maxy = getmondelargeur()
 
-	def murAdroite() : Boolean ={
-	var mur :Boolean = false
-	droite()
-	if (estFaceMur()) {mur = true}
-	gauche()
-	return mur }
-	
-	def keepHandOnSideWall() {
+	 def AtteintBord() :Bool {
+	 	(getX() == 0 || getY() == maxy) || (getY() == 0 || getX() == max)}
+
+	 def keepHandOnSideWall() {
 		while (!murAgauche) {gauche()}
 		if (estFaceMur()) {droite()}
 		else {avance() 
 			if (!murAgauche) {gauche() ;avance()}
 				if (!murAgauche) {gauche();avance()}
 		}}
+	def chercheBord() {
+		while (!AtteintBord) {
+			keepHandOnSideWall() 		
+	}
+	droite()
+	}
 
 	
-while(!estSurBiscuit()){	
+while(!estSurBiscuit()){
+		
 keepHandOnSideWall()
 }
 prendBiscuit();
