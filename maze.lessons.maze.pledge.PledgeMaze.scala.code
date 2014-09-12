@@ -1,11 +1,12 @@
 override def run() {
 	var a=0;
+	var direc=Direction.EST;
 	
 def keepHandOnSideWall(){
 	gauche();
 	if(estFaceMur){
 		droite();
-	}else{ avance();gauche();
+	}else{ avance();gauche();a=a-1;
 		  if(estFaceMur){
 		  	droite();
 		  }else avance();
@@ -14,14 +15,23 @@ def keepHandOnSideWall(){
 		droite();
 			if(estFaceMur){
 						droite();
-						}else avance();
+						}else avance();a=a+1;
 	}else avance();
 
 }
+def isDirLibre(dir):Boolean={
+	direc=getDirection();
+	setDirection(dir);
+	if(estFaceMur){
+		setDirection(direc);
+		return false
+	}else return true
+}
 while(!estSurBiscuit){
-	if(getDirection()==Direction.NORTH && !estFaceMur){
+	keepHandOnSideWall();
+	if(isDirLibre(dir)){
 		avance();
-	}else keepHandOnSideWall();
+	}
 }
 prendBiscuit();
 if(!estFaceMur){
