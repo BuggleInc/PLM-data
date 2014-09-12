@@ -1,0 +1,13 @@
+def blueTicket(a:Int, b:Int, c:Int):Int = {
+		var d = a+b 
+		var e = b+c
+		var f = a+c
+		(d,e,f) match {
+			case (10,_,_) => return 10 
+			case (_,_,10) => return 10 
+			case (_,10,_) => return 10 
+			case ( e+10,_,_) => return 5
+			case (f+10,_,_) => return 5
+			case (_,_,_) => return 0
+			}
+}
