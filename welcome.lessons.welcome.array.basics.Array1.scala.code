@@ -1,11 +1,19 @@
 override def run() {
 prendreCouleur()
+avance(); gauche();avance();droite()
+poserCouleur
 }
 
-var T = new Array[Color](getMondeHauteur())
 
 def prendreCouleur() {
+ var T = new Array[Color](getMondeHauteur())
 	for (i <- 1 to getMondeHauteur())
 	 {T(i) = getCouleurSol()
 	 avance()}
+}
+
+def poserCouleur() {
+	for (i <- 1 to (getMondeHauteur()))
+	  { avance()
+	  SetCouleurBrosse(T(i));baisseBrosse(); leveBrosse()}
 }
