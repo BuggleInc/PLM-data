@@ -13,6 +13,10 @@ def PosCouleur (c:Color T:Array[Color])
 
 
 def step(rule:Array[Char], colors:Array[Color]) {
-	
+	var k : Color = PosCouleur(getCouleurSol(),colors) 
+	rule match{  
+		case "R"	=> setCouleurSol(k);droite();avance()
+		case "L" =>  setCouleurSol(k);gauche();avance()
+	}
 	
 }
