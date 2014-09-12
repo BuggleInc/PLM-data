@@ -1,34 +1,31 @@
 $package 
 
-import plm.core.model.Game;
-import plm.universe.Direction;
+import plm.universe.Direction
 import plm.universe.bugglequest.AbstractBuggle;
+import plm.core.model.Game
 
-public class Program extends AbstractBuggle {
-	@Override
-	public void forward(int i)  { 
+class Program extends AbstractBuggle {
+	override def forward(i: Int)  { 
 		throw new RuntimeException(Game.i18n.tr("I cannot let you use forward with an argument in this exercise. Use a loop instead."));
 	}
-	@Override
-	public void backward(int i) {
+	override def backward(i: Int) {
 		throw new RuntimeException(Game.i18n.tr("I cannot let you use backward with an argument in this exercise. Use a loop instead."));
 	}
 
 
-	@Override
-	public void run() { 
-		move(getY(),getDirection().equals(Direction.NORTH)); 
+	override def run() { 
+		move(getY(),getDirection() == Direction.NORTH); 
 	} 
 
 	/* BEGIN TEMPLATE */
 	/* BEGIN SOLUTION */
-	public void move(int nbPas, boolean forward) {
-		if (forward) {
-			for (int i=0; i<nbPas; i++) 
-				forward();
+	def move(steps: Int, fwd:Boolean) {
+		if (fwd) {
+			for (i <- 1 to steps) 
+				forward()
 		} else {
-			for (int i=0; i<nbPas; i++) 
-				backward();
+			for (i <- 1 to steps) 
+				backward()
 		}
 	}
 	/* END SOLUTION */
