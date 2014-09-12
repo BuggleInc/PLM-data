@@ -1,2 +1,26 @@
 def step(rule:Array[Char], colors:Array[Color]) {
+
+	def setCouleurSol(c:java.awt.Color) = {
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
+	}
+
+	var pos = 0
+
+	//cherche la position "pos" de la couleur dans le tableaux
+	for (i<-0 to rule.lenght-1) {
+		if (getCouleurSol()==rule(i)) {pos=i}
+	}
+
+	//Tourne en fonction de la couleur
+	if (rule(pos)==R) {droite()}
+	else {gauche()}
+
+	//Change la couleur
+	if(i!=rule.lenght-1) {setCouleurSol(colors(i+1))}
+	else {setCouleurSol(colors(0))}
+
+	avance()
+
 }
