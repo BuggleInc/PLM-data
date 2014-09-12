@@ -19,7 +19,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 	while(colors(pos)!=getCouleurSol())
 		pos = pos+1
 
-	rule(state)(pos)(MVT_SUIVANT) match
+	rule(state)(pos) match
 	{
 		case (_,STOPP,_) => MVT_SUIVANT = STOPP
 		case (_,RIEN,_) => avance(); MVT_SUIVANT = RIEN
