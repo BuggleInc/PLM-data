@@ -1,2 +1,22 @@
 override def run() {
+
+def finish():Boolean = {
+		if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) {return true}
+		return false
+	}
+
+	ecritMessage(0)
+
+	var cpt =1
+
+	while (!finish()) {
+		if (getX()<getMondeLargeur()-1) {
+			setPos(getX()+1, getY())
+		} else {
+			setPos(0, getY()+1)
+		}
+		ecritMessage(cpt)
+		cpt = cpt + 1
+	}
+
 }
