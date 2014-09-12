@@ -1,4 +1,18 @@
 def step(rule:Array[Char], colors:Array[Color]) {
+	var c = 0
+
+	for (c <- 0 to color.length-1)
+	{
+		if (getCouleurSol() == colors(c) && c < color.length - 2)
+		{
+			test(rule(c),colors( c+1)) 
+		}
+
+		if (getCouleurSol() == colors(c) && c == color.length - 1)
+		{
+			test(rule(c),colors( 0)) 
+		}
+	}
 }
 
 def test(rule:Char, color:Color)
