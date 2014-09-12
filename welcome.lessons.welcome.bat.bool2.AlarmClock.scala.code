@@ -1,34 +1,38 @@
 def alarmClock(day:Int, vacation:Boolean): String = {
-if (!vacation && day < 6 && day > 0){
-		return "7:00";
-	}
-	if (vacation && day < 6  && day > 0){
-		return "10:00";
-	}
-	if (!vacation && day  6){
-		return "10:00";
-	
-	
+	if( in16(day)){
+		if (vacation){
+			return "10:00" ;
 		}else{
-			return "lol"
+			return "7:00"
 		}
+	}
+
+
+	if( !in16(day)){
+		if (vacation){
+			return "OFF" ;
+		}else{
+			return "10:00"
+		}
+	}
 }
 
 
 
-
-
-//def alarmClock(day:Int, vacation:Boolean): String = {
-//	if (vacation && day < 6){
-	//	return  "10:00" ;
-	//}
-	//if (!vacation && day < 6){
-	//	return  "7:00" ;
-//	}
-   //  if (vacation && day > 6){
-	//	return  "OFF" ;
-//	}
-	//if (!vacation && day > 6){
-	//	return  "10:00" ;
-	//}
-//}
+def in16(day):Boolean = {
+	
+	if (day == 0 ){
+		return false;
+	}
+	if ( day == 6){
+		return false;
+	}
+	if ( day < 6 && day > 0){
+		return true;
+		
+	}else{
+		return false;
+	}
+	
+	
+}
