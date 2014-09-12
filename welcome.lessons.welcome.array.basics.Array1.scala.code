@@ -1,8 +1,20 @@
 override def run() {
+	rassemblage(); var y = getMondeLargeur(); var z = getMondeHauteur();
+	for( j <- 1 to y){
+		droite();avance();gauche();avance();
+		for ( n <- 1 to z){
+			pint();
+		}
+	}
 }
 def rassemblage(){
 	var x = getMondeHauteur();var T = new Array[Color] (x);
 	for (i <- 1 to x){
 		T(i) = getCouleurSol();avance();
+	}
+}
+def pint(){
+	for ( k <- 1 to x){
+		setCouleurBross(T(k));baisseBrosse();leveBrosse();avance()
 	}
 }
