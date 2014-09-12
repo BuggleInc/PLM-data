@@ -1,0 +1,25 @@
+def step() {
+
+	def marquer(c:Color) {
+		c match {
+			case Color.white => setCouleurBrosse(Color.white)
+				baisseBrosse()
+				leveBrosse()
+			case Color.black => setCouleurBrosse(Color.black)
+				baisseBrosse()
+				leveBrosse()
+		}
+	}
+
+	var couleur = getCouleurSol()
+
+	if (couleur==Color.white) {
+		marquer(Color.black)
+		droite()
+		avance()
+	} else {
+		marquer(Color.white)
+		gauche()
+		avance()
+	}
+}
