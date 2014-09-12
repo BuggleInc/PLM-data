@@ -1,10 +1,24 @@
-override def run() {    
+override def run() {
+	def murAgauche() : Boolean ={
+	var mur :Boolean = false
+	gauche()
+	if (estFaceMur()) {mur = true}
+	droite()
+	return mur }
+
+	def murAdroite() : Boolean ={
+	var mur :Boolean = false
+	droite()
+	if (estFaceMur()) {mur = true}
+	gauche()
+	return mur }
+	
+
+	
 while(!estSurBiscuit()){	
-val rand = new scala.util.Random
-    if (rand.nextInt(3) == 0) {droite()}
-    if (rand.nextInt(3) ==1 && !estFaceMur()) {avance()}
-    if (rand.nextInt(3) ==2) {gauche()}
-    
+keepHandOnSideWall()
 }
 prendBiscuit();
+
+
 }
