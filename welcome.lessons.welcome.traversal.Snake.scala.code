@@ -1,6 +1,6 @@
 override def run() {
 	def murNord() = {
-		if (getDirection() == EST) {
+		if (getDirection() == Direction.EST) {
 			gauche();
 			if (estFaceMur()) {
 				droite();
@@ -11,7 +11,7 @@ override def run() {
 				return false;
 			}
 		}
-		else if (getDirection() == OUEST) {
+		else if (getDirection() == Direction.OUEST) {
 			droite();
 			if (estFaceMur()) {
 				gauche();
@@ -33,12 +33,12 @@ override def run() {
 		if (!estFaceMur) {
 			avance();
 		}
-		else if (getDirection() == EST) {
+		else if (getDirection() == Direction.EST) {
 			gauche();
 			avance();
 			gauche();
 		}
-		else if (getDirection() == OUEST) {
+		else if (getDirection() == Direction.OUEST) {
 			droite();
 			avance();
 			droite();
