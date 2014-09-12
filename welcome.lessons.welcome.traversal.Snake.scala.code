@@ -4,9 +4,9 @@ override def run() {
 			var d = getDirection()
 			d match{
 				case d if (d==Direction.EAST) => gauche(); if (estFaceMur){droite(); return true}
-				 					else{false}
+				 					else{droite();false}
 				case d if (d==Direction.WEST) => droite(); if (estFaceMur){gauche(); return true}
-				 					else{false}
+				 					else{gauche();false}
 				case _ => return false
 			}
 		}else{false}
@@ -16,7 +16,7 @@ override def run() {
 		while(!fonctionTest()){
 		baisseBrosse()
 		while(!estFaceMur()){avance()}
-		if(!fonctionTest){
+		if(!fonctionTest()){
 		var d = getDirection()
 		d match{
 			case d if (d==Direction.EAST) => gauche(); avance(); gauche()
@@ -25,6 +25,6 @@ override def run() {
 		}
 			}
 		}
-	}
+		}
 	travel()
 }
