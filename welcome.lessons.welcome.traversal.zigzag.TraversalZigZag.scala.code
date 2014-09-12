@@ -2,12 +2,24 @@ override def run() {
 	var hauteur: Int = getMondeHauteur();
 	var largeur: Int = getMondeLargeur();
 	var valeur: Int = 0;
+	var sens: Int = 0;
 
 	for(n1 <- 0 to hauteur - 1){
+		if(sens == 0){
 		for(n2 <- 0 to largeur - 1){
 			setPos(n2, n1);
 			ecritMessage(valeur);
 			valeur = valeur + 1;
+		}
+		sens = 1;
+		}
+		else{
+			for(n2 <- largeur - 1 to 0){
+			setPos(n2, n1);
+			ecritMessage(valeur);
+			valeur = valeur + 1;
+		}
+		sens = 0;
 		}
 	}
 	
