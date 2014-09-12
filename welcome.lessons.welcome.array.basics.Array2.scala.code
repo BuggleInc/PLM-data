@@ -1,6 +1,7 @@
 override def run() {var n:Int = getMondeHauteur()
 var tab = new Array[Color](n)
 var i:Int=0
+var x:Int
 
 def creationtab()  { 
 while(!estFaceMur()){
@@ -21,11 +22,13 @@ def move(){
 	gauche()
 	avance()
 	droite()
+	litMessage()
+	ch.toInt=x
 }
 
 def marquage(){
 for(j <- 0 to n-1){
-setCouleurBrosse(tab(j ))
+setCouleurBrosse(tab((j+x)%n))
 baisseBrosse()
 leveBrosse()
 avance()	
