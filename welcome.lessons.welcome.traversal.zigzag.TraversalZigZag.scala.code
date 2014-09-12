@@ -23,6 +23,7 @@ def deplace() = {
 	var cpt = 0;
 	var c = 0;
 	var l = 0;
+	var h = getMondeHauteur()-1;
 	ecritMessage(cpt);
 	gauche();
 	while (!(posfinale())) {
@@ -31,7 +32,9 @@ def deplace() = {
 			setPos(c,l);
 		} else {
 			l = l+1;
+			for (k <- 1 to h) { 
 			c = c -1;
+			}
 			setPos(c,l);
 		}
 		(cpt = cpt + 1);
