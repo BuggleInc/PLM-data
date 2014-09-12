@@ -57,9 +57,22 @@ def furtherPath() {
 	var x=getX
 	var y=getY
 	var sol=getIndication(x,y)
-	for (i<- 1 to 4) {
-		match getDirection
-	}
-	
+	for (d<- 1 to 4) {
+		match getDirection() {
+			case Direction.NORD => i=0;j=-1
+			case Direction.SUD => i=0;j=+1
+			case Direction.EST=> i=+1;j=0
+			case Direction.NORD => i=-1;j=0
+		}
+		if (!estFaceMur) {
+			if (getIndication(x+i,y+j)<sol) {
+				avance()
+			} else {
+				gauche()
+			}
+		} else {
+			gauche()
+		}
+	}	
 }
 	
