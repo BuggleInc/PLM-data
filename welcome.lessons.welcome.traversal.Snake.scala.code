@@ -1,6 +1,6 @@
 override def run() {
 	def fonctionTest():Boolean = {
-		if (estFaceMur){
+		if (estFaceMur()){
 			var d = getDirection()
 			d match{
 				case d if (d==Direction.EAST) => gauche(); if (estFaceMur){droite(); return true}
@@ -9,7 +9,7 @@ override def run() {
 				 					else{false}
 				case _ => return false
 			}
-		}
+		}else{false}
 	}
 
 	def travel(){
