@@ -9,9 +9,9 @@ override def run() {
 def changeTableau(T:Array):Array[Color]={ // assigne les bonnes couleurs aux tableaux pour nouvelle colonne
 	var H = T.length;
 	var S = new Array[Color](H);
-	S.(0) = T.(H-1);
+	S(0) = T(H-1);
 	for(k<- 0 to H-2){
-		S.(k+1)=T.(k);
+		S(k+1)=T(k);
 	}
 	return S
 }
@@ -28,7 +28,7 @@ def changeColonne(){
 			changeColonne();
 			S = changeTableau();
 			for(d<- 0 to H-1){
-				setColorBrosse(S.(d))
+				setColorBrosse(S(d))
 				colorSol();
 				avance();
 			}// colore la colonne.
