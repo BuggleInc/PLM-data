@@ -1,14 +1,17 @@
 override def run() {
-	var X=0
-	var Y=0
-	for (x<- 0 to getMondeLargeur()-1) {
-		for (y<- 0 to getMondeHauteur()-1) {
-			if (aBiscuit(x,y)) {
-				setIndication(x,y,0)
-				expandPath(x,y)
-			}
+	var x=0
+	var y=0
+	while (!aBiscuit(x,y)) {
+		if (x<getMondeLargeur()-1) {
+			x+=1
+		} else {
+			x=0
+			y+=1
 		}
 	}
+	setIndication(x,y,0)
+	expandPath(x,y)
+	
 	
 }
 def expandPath(x:Int,y:Int) {
