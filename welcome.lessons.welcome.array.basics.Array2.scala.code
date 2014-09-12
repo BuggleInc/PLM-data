@@ -11,8 +11,8 @@ def remplirTableau() {
 }
 
 def faireColonne() {
-	for ( i <- litMessage().toInt to getMondeHauteur() - 1 + litMessage().toInt) {
-		setCouleurBrosse(tab(i))
+	for ( i <- 0 to getMondeHauteur - 1) {
+		setCouleurBrosse(tab((i + litMessage().toInt) % getMondeHauteur()) )
 		baisseBrosse()
 		leveBrosse()
 		avance()
