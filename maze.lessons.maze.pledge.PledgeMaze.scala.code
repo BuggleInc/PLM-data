@@ -1,5 +1,17 @@
 override def run() {
 
+	var sommeAngle = 0
+
+	def keepHandOnSideWall() {
+		gauche()
+		if (!estFaceMur()) {avance();sommeAngle=sommeAngle+1}
+		else {
+			droite()
+			if (!estFaceMur()) {avance()}
+			else {droite();sommeAngle=sommeAngle-1}
+		}
+	}
+
 	
 
 }
