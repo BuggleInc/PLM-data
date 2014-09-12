@@ -1,0 +1,36 @@
+override def run() {
+	var wh=0; //hauteur du monde
+	var wl=0; // largeur du monde
+	wh=getMondeHauteur();
+	wl=getMondeLargeur();
+	var c=0; // compteur
+	var sensgauche=false;
+	ecritMessage(c);
+	while (!sensgauche) {
+		while (!(getX()==wl-1 && getY()==wh-1)) { // -1 car premiere ligne est 0
+			c +=1;
+			if  (getY()==wh-1 && getX()!=wl-1) {
+				setPos(getX()+1, 0);
+				ecritMessage(c);
+				sensgauche=true;
+			}
+			else {
+				setPos(getX(), getY()+1);
+				ecritMessage(c);
+			}
+		}
+	}
+	while (sensgauche) {
+		while (!(getX()==wl-1 && getY()==wh-1)) { // -1 car premiere ligne est 0
+			c +=1;
+			if  (getY()==0 && getX()!=0) {
+				setPos(0, getY()+1);
+				ecritMessage(c);
+				sensgauche=false;
+			}
+			else {
+				setPos(getX(), getY()-1);
+				ecritMessage(c);
+			}
+	}
+}
