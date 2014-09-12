@@ -3,9 +3,9 @@ override def run() {
 		if (estFaceMur()){
 			var d = getDirection()
 			d match{
-				case d if (d==EAST) => gauche(); if (estFaceMur){droite(); return true}
+				case d if (d==Direction.EAST) => gauche(); if (estFaceMur){droite(); return true}
 				 					else{false}
-				case d if (d==WEST) => droite(); if (estFaceMur){gauche(); return true}
+				case d if (d==Direction.WEST) => droite(); if (estFaceMur){gauche(); return true}
 				 					else{false}
 				case _ => return false
 			}
@@ -18,8 +18,8 @@ override def run() {
 		if(!fonctionTest()){
 		var d = getDirection()
 		d match{
-			case d if (d==EAST) => gauche(); avance(); gauche()
-			case d if (d==WEST) => droite(); avance(); droite()
+			case d if (d==Direction.EAST) => gauche(); avance(); gauche()
+			case d if (d==Direction.WEST) => droite(); avance(); droite()
 			case _ => avance()
 		}
 	}
