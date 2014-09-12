@@ -1,6 +1,6 @@
 override def run() {
 
-	def finish() {
+	def finish():Bolean = {
 		if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) {return true}
 		return false
 	}
@@ -9,7 +9,7 @@ override def run() {
 
 	var cpt =1
 
-	while (finish()) {
+	while (!finish()) {
 		if (!estFaceMur) {
 			setPos(getX(), getY()-1)
 		}
