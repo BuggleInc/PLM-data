@@ -16,14 +16,14 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	
 	(rule(state)(couleur)(MVT_SUIVANT)) match
 	{
-		case STOP => ();
+		case STOPP => ();
 		case DEVANT => avance();
 		case GAUCHE => gauche(); avance();
 		case DEMI_TOUR => retourne(); avance();
 		case DROITE => droite(); avance();
 	}
         state = rule(state)(couleur)(ETAT_SUIVANT);
-    }
+   }
 
 def setCouleurSol(c:Color)
 {
