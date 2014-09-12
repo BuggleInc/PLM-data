@@ -5,21 +5,29 @@ def golomb(num:Int): Int = {
 var suite = new Array[Int](num + 1);
 var sol = 0;
 var lastModIndex = 0;
-var lastValue = 0;
+var lastValue = 1;
 	suite(1) = 1; 
 	suite(num) = 0;
 	
 		while(suite(num) == 0)
 		{
-			
+				if(lastModIndex + suite(lastModIndex)) <= num)
+				{
+				
 			for(i <- lastModIndex to lastModIndex + suite(lastModIndex))
 			{
 			 	suite(i) = lastValue;
-			
-			
+			}
+				}
+				else
+				{
+			for(i <- lastModIndex to num)
+			{
+			 	suite(i) = lastValue;
 			}
 				lastValue = lastValue + 1;
 				lastModIndex = lastModIndex + suite(lastModIndex);
+				}
 		}
 
 	return suite(num);
