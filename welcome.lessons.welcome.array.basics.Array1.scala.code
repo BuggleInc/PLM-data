@@ -1,10 +1,11 @@
 override def run() {
-var T = new Array[Color](getMondeHauteur())
-	for (i <- 1 to getMondeHauteur())
+var x = getMondeHauteur()
+var T = new Array[Color](x)
+	for (i <- 1 to x)
 	 {T(i) = getCouleurSol()
 	 avance()}
 	 avance(); gauche();avance();droite()
-	 for (i <- 1 to (getMondeHauteur()))
+	 for (i <- 1 to x)
 	  { avance()
 	  setCouleurBrosse(T(i));baisseBrosse(); leveBrosse()}
 }
