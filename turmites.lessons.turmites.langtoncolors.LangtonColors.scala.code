@@ -1,26 +1,14 @@
 def step(rule:Array[Char], colors:Array[Color]) {
-for(i<- 0 to rule.length-1){
-	if(rule(i)=='R'){
-		for(j<-0 to colors.length-1){
-			if(getCouleurSol()==colors(j)){
-				setCouleurBrosse(colors(j+1));
-				droite();avance();
-				baisseBrosse();
-				leveBrosse();
-				avance();
-				
-			}
-		}
-	}else{ 
-		for(j<-0 to colors.length-1){
-			if(getCouleurSol()==colors(j)){
-				setCouleurBrosse(colors(j+1));
-				gauche();avance();
-				baisseBrosse();
-				leveBrosse();
-				avance();
-			}
-		}
-	}
+for(j<-0 to colors.length-1){
+						if(getCouleurSol()==colors(j)){
+						setCouleurBrosse(colors(j+1));
+						}
+					}
+for(i<-0 to rule.length-1){
+	if(rule(i)=="R"){
+		droite();avance();
+		baisseBrosse();
+		leveBrosse();
+	}else gauche();avance();baisseBrosse();leveBrosse();
 }
 }
