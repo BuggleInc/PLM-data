@@ -1,10 +1,13 @@
 override def run() {
+	def keepHandOnSideWall() {
+		droite()
+		if (estFaceMur()){
+		gauche()
+		 if (!estFaceMur()){avance()}
+		else {gauche()}
+	}
 while(!estSurBiscuit()){	
-val rand = new scala.util.Random
-    if (rand.nextInt(3) == 0) {droite()}
-    if (rand.nextInt(3) ==1 && !estFaceMur()) {avance()}
-    if (rand.nextInt(3) ==2) {gauche()}
-    
+keepHandOnSideWall()
 }
 prendBiscuit();
 }
