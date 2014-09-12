@@ -2,17 +2,12 @@ override def run() {
 var etat=0;
 etat match  {
   case 0 => // courir au nord
-     while(!estSurBiscuit) {
      	droite()
-     }
      etat = 1;
   case 1 => do {
 	gauche
 }
 while (!estFaceMur)
-droite()
-while (!estSurBiscuit) {
-	gauche()
 	if (estFaceMur) {
 		do {
 			droite()
@@ -22,7 +17,6 @@ while (!estSurBiscuit) {
 	}
 	else {
 		avance()
-	}
 	}
 prendBiscuit()
 }
