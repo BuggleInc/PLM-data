@@ -10,14 +10,15 @@ override def run() {
 	}
 	}
 	while (!positionFinale) {
-		for (x<-0 to getMondeLargeur()) {
-		while (getY()!=getMondeHauteur()-1) {
+		if(getY()==getMondeHauteur()-1) {
+			y=0
+			x+=1
+		} else {
 			y=y+1
-			ecritMessage(cpt);
+		}
+		ecritMessage(cpt);
 		cpt+=1
 		setPos(x,y);
-		}
-		y=0
 	}
 }
 }
