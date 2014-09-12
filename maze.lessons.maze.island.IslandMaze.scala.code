@@ -1,15 +1,14 @@
 override def run() {
 
-def G():Boolean=
-	{gauche();
-	if (!estFaceMur) {droite(); return false}
-	else {droite(); return true}}
+var flag = false
+
+if (estDosMur) {flag=true}
 
 
 droite()
 
 for (i <- 1 to 5)
-{	if (G()) {gauche(); avance(); droite()}
+{	if (flag) {gauche(); avance(); droite(); flag = false}
 	if (!estFaceMur)
 		{avance()}}
 
