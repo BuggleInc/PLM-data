@@ -1,5 +1,26 @@
-    var state = 0;
+var state = 0;
 
-    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-        /* Your code comes here */
-    }
+def brosse(couleur:Color)
+{
+	setCouleurBrosse(couleur); baisseBrosse(); leveBrosse()
+}
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) 
+{
+   	var pos = 0
+	
+	while(colors(pos)!=getCouleurSol())
+		pos = pos+1
+	
+	rule(pos) match
+	{
+		case 'L' => gauche()
+		case 'R' => droite()
+	}
+	
+	if(pos!=colors.length-1)
+		brosse(colors(pos+1))
+	else brosse(colors(0))
+	
+	avance()
+}
