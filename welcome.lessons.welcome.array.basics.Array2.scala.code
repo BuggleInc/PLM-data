@@ -7,6 +7,13 @@ override def run() {
 			avance()
 			T(i)= getCouleurSol();
 		} // remplit le tableau de base avec les couleurs correspondantes.
+def posInit(){
+	for(g<- 1 to H-1){
+		recule();
+	}
+}
+		posInit();
+
 def changeTableau(T:Array[Color],Ind:Int):Array[Color]={ // assigne les bonnes couleurs aux tableaux pour nouvelle colonne avec décalage correspondant.
 	var H = T.length;
 	var S = new Array[Color](H);
@@ -38,5 +45,6 @@ def changeColonne(){
 				setCouleurBrosse(F(d))
 				colorSol();
 			}// colore la colonne.
+			posInit();
 		}
 }
