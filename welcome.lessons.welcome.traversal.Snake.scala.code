@@ -1,6 +1,41 @@
 override def run() 
 {
 
-def pos
-	
+	def pos()
+	{
+		if (estFaceMur()==true)
+			return true
+		else if (getDirection()==Direction.EST)
+		{
+			gauche()
+			if (estFaceMur()==true)
+				return true
+		}
+		else if (getDirection()==Direction.OUEST)
+		{
+			droite()
+			if (estFaceMur()==true)
+				return true
+		}
+	}
+
+	def serpent()
+	{
+		while (fonctionTest() == false) 
+		{
+			avance()
+		}
+		if (getDirection()==Direction.EST)
+		{
+			gauche()
+			avance()
+			gauche()
+		}
+		else if (getDirection()==Direction.OUEST)
+		{
+			droite()
+			avance()
+			droite()
+		}
+	}	
 }
