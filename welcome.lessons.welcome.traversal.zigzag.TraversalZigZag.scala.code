@@ -23,15 +23,17 @@ def deplace() = {
 	var cpt = 0;
 	var c = 0;
 	var l = 0;
-	var cote = 0;
 	var h = getMondeHauteur()-1;
 	ecritMessage(cpt);
 	gauche();
 	while (!(posfinale())) {
-		if (possuivante()) {
+		if (possuivante() && (l%2==0)) {
 			c=c+1;
 			setPos(c,l);
 		} 
+		else if (possuivante() && (l%2!=0)) {
+			c=c-1;
+			setPos(c,l);
 		 else		
 		{
 			l = l+1;
