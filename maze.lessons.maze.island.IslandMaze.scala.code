@@ -11,16 +11,31 @@ while (y != 0)
 	}
 
 
+def keepHandOnSide():Boolean=
+	{var flag = false
+	gauche();
+	if (estFaceMur) {flag = true}
+	else {return false}
+}
 
 while (!estSurBiscuit)
-	{gauche()
-	if (!estFaceMur) {avance()}
-	else {droite();
-		if (!estFaceMur) {avance()}
-		else {droite(); if (!estFaceMur) {avance()}
-					else {droite()}}
-		
+	if (!keepHandOnSide) {gauche(); avance();}
+	else {if (!estFaceMur) {avance()}
+		else {droite();
+			if (!estFaceMur) {avance()}
+			else {droite()}
 		}
-	}
-prendBiscuit()
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
