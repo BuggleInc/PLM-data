@@ -1,5 +1,11 @@
 var state = 0;
 
+val STOP = 0;
+val RIEN = 1;
+val GAUCHE = 2;
+val DEMITOUR = 4;
+val DROITE = 8;
+
 def brosse(couleur:Color)
 {
 	setCouleurBrosse(couleur); baisseBrosse(); leveBrosse()
@@ -12,10 +18,13 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 	while(colors(pos)!=getCouleurSol())
 		pos = pos+1
 	
-	rule(pos) match
+	rule(etat)(couleurActuelle)(MVT_SUIVANT) match
 	{
-		case 'L' => gauche()
-		case 'R' => droite()
+		case STOP => 
+		case RIEN => avance()
+		case GAUCHE => gauche(); avance()
+		case DEMITOUR => gauche(); gauche()
+		case DROITE => droite(); avance()
 	}
 	
 	if(pos!=colors.length-1)
