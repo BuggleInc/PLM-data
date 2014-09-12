@@ -13,7 +13,7 @@ def serpent(){
 	}
 	do{
 		avance()
-	}while(!estFaceMur());
+	}while(!estFaceMur);
 }
 def estPositionFinale(){
 	var test:Boolean = false;
@@ -24,6 +24,9 @@ def estPositionFinale(){
 				if(estFaceMur){ test = true}
 		case Direction.NORD => if(estFaceMur){ test = true}
 	}
-	if(estFaceMur && test == true)
+	if(estFaceMur && test == true){
 		return true;
+	}else{ 
+		return false
+	}
 }
