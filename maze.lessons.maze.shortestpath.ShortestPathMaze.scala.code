@@ -1,0 +1,33 @@
+override def run() {
+	var X=0
+	var Y=0
+	for (x<- 0 to getMondeLargeur()-1) {
+		for (y<- 0 to getMondeHauteur()-1) {
+			if (aBiscuit(x,y) {
+				setIndication(x,y,0)
+				expandPath(x,y,0)
+			}
+		}
+	}
+	
+}
+def expandPath(x,y,i) {
+	if ((!aMurNord(x,y) && (getIndication(x,y+1)==9999) {
+		setIndication(x,y+1,i+1)
+		expandPath(x,y+1,i+1)
+	}
+	if ((!aMurSud(x,y) && (getIndication(x,y-1)==9999) {
+		setIndication(x,y-1,i+1)
+		expandPath(x,y-1,i+1)
+	}
+	if ((!aMurOuest(x,y) && (getIndication(x-1,y)==9999) {
+		setIndication(x-1,y,i+1)
+		expandPath(x-1,y,i+1)
+	}
+	if ((!aMurEst(x,y) && (getIndication(x+1,y)==9999) {
+		setIndication(x+1,y,i+1)
+		expandPath(x+1,y,i+1)
+	}
+	
+	
+}
