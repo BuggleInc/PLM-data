@@ -1,0 +1,28 @@
+var state = 0;
+var I=0
+val STOP=0
+val PAS DE VIRAGE=1
+val GAUCHE=2=
+val DEMI-TOUR=4
+val DROITE=8
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	for (i<-0 to colors.length-1) {
+		if (getCouleurSol()==colors(i)) {
+			I=i
+		}
+	}
+	if (rule(I)=='L') {
+		gauche();
+	} else if (rule(I)=='R') {
+		droite();
+	}
+	setCouleurSol(colors((I+1)%colors.length));
+	avance();
+}
+
+def setCouleurSol(c:Color) {
+	setCouleurBrosse(c:Color);
+	baisseBrosse();
+	leveBrosse();
+	}
