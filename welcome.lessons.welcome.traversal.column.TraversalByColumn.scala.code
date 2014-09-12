@@ -13,7 +13,7 @@ def posfinale(): Boolean = {
 }
 
 
-def possuivante(l:Int,c:Int) = {
+def possuivante(c:Int,l:Int) = {
 	if (estDosMur()) {
 		(c = c + 1);
 		setPos(c, 0);
@@ -28,7 +28,7 @@ def deplace() = {
 	var c = 0;
 	var l = 0;
 	ecritMessage(cpt);
-	while (!(posfinale())) {
+	while (!(posfinale(c,l))) {
 		possuivante();
 		(cpt = cpt + 1);
 		 ecritMessage(cpt);
