@@ -1,73 +1,73 @@
+var number:Int = 0;
+
 override def run() {
-  var x:Int = BiscuitX();
-  var y:Int = BiscuitY();
-  ecrit(x,y,0);// Your code here
+   
+    var x:Int = 0;
+    var y:Int = 0;
+   
+    for (i<- 0 to getMondeHauteur()-1) {
+        for (j<- 0 to getMondeLargeur()-1) {
+            if (aBiscuit(i, j))
+            {
+                x = i;
+                y = j;
+            }
+        }
+    }
+   
+    setIndication(x, y, 0);
+    marquage(x, y, 1);
+
+    while (!estSurBiscuit())
+        plusCourt();
+
+    prendBiscuit();
 }
-def BiscuitX():Int = {
-	var x:Int = 0;
-	var y:Int = 0;
-	while(!aBiscuit(x, y)) {
-		if (x < getMondeLargeur() -1) {
-			x = x+1;
-		}
-		else {
-			y = y+1;
-			x = 0;
-		}
-	}
-	return x;
+
+def marquage(x:Int, y:Int, dist:Int)
+{
+    if (!aMurOuest(x, y) && dist < getIndication(x-1, y))
+    {
+        setIndication(x - 1, y, dist);
+        marquage(x-1, y, dist+1);
+    }
+
+    if (!aMurNord(x, y) && dist < getIndication(x, y - 1))
+    {
+        setIndication(x, y - 1, dist);
+        marquage(x, y - 1, dist + 1);
+    }
+
+    if (x + 1 < getMondeLargeur() && !aMurOuest(x + 1, y) && dist < getIndication(x + 1, y))
+    {
+        setIndication(x + 1, y, dist);
+        marquage(x + 1, y, dist + 1);
+    }
+
+    if (y + 1 < getMondeHauteur() && !aMurNord(x,y + 1) && dist < getIndication(x, y + 1))
+    {
+        setIndication(x, y + 1, dist);
+        marquage(x, y + 1, dist + 1);
+    }
 }
-def BiscuitY():Int = {
-	var x:Int = 0;
-	var y:Int = 0;
-	while(!aBiscuit(x, y)) {
-		if (x < getMondeLargeur() -1) {
-			x = x+1;
-		}
-		else {
-			y = y+1;
-			x = 0;
-		}
-	}
-	return y;
-}
-def ecrit (x:Int, y:Int, i:Int) {
-	var j:Int = 0;
-	setIndication(x,y,i);
-	if ((y > 0 && !aMurNord(x,y))
-	&& getIndication(x,y-1) > i) {
-		j = j + 1;
-	}
-	if ((y < getMondeHauteur() - 1 && !aMurNord(x,y+1))
-	&& getIndication(x,y+1) >i+1) {
-		j = j + 100;
-	}
-	if ((x > 0 && !aMurOuest(x,y))
-	&& getIndication(x-1,y) > i+1) {
-		j = j + 1000;
-	}
-		if ((x < getMondeLargeur()-1 && !aMurOuest(x+1,y))
-	&& getIndication(x+1,y) > i+1) {
-		j = j + 10;
-	}
-	j match {
-		case 1 => ecrit(x, y-1, i+1);
-		case 10 => ecrit(x+1, y, i+1);
-		case 11 => ecrit(x + 1, y, i+1); ecrit(x, y-1, i+1);
-		case 100 => ecrit(x, y+1, i+1);
-		case 101 => ecrit(x, y+1, i+1); ecrit(x, y-1, i+1);
-		case 110 => ecrit(x, y+1, i+1); ecrit(x+1, y, i+1);
-		case 111 => ecrit(x, y+1, i+1); ecrit(x, y-1, i+1); ecrit(x+1, y, i+1);
-		case 1000 => ecrit(x-1, y, i+1);
-		case 1001 => ecrit(x-1, y, i+1); ecrit(x, y-1, i+1);
-		case 1010 => ecrit(x-1, y, i+1); ecrit(x+1, y, i+1);
-		case 1011 => ecrit(x-1, y, i+1); ecrit(x, y-1, i+1); ecrit(x+1, y, i+1);
-		case 1100 => ecrit(x-1, y, i+1); ecrit(x, y+1, i+1);
-		case 1110 => ecrit(x-1, y, i+1); ecrit(x, y+1, i+1); ecrit(x+1, y, i+1);
-		case 1111 => ecrit(x-1, y, i+1); ecrit(x+1, y, i+1); ecrit(x, y-1, i+1); ecrit(x, y+1, i+1);
-		case _ => test(BiscuitX(), BiscuitY());
-	}
-}
-def test (x:Int, y:Int) = {
-	setIndication(x,y,0);
+
+def plusCourt()
+{
+    number = litMessage().toInt;
+
+    if (!estFaceMur() && !estSurBiscuit())
+    {
+        avance();
+        if (litMessage().toInt > number)
+        {
+            recule();
+            droite();
+            plusCourt();
+        }
+    }
+    else
+    {
+        droite();
+        plusCourt();
+    }
 }
