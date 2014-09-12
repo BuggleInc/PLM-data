@@ -17,12 +17,15 @@ def serpent(){
 }
 def estPositionFinale(): Boolean ={
 	var test:Boolean = false;
-	getDirection() match{
+	if(estFaceMur){
+		getDirection() match{
+	
 		case Direction.EST => gauche();
 				if(estFaceMur){ test = true}
 		case Direction.OUEST => droite();
 				if(estFaceMur){ test = true}
 		case Direction.NORD => if(estFaceMur){ test = true}
+	}
 	}
 	return test;
 	
