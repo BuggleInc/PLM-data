@@ -8,7 +8,7 @@ def setCouleurSol(c:Color) {
 def step() {
 	var c = getCouleurSol()
 	c match {
-	case Color.BLACK => setCouleurSol() ;gauche();avance()
-	case Color.WHITE => setCouleurSol(white) ;droite();avance()
+	case Color.BLACK => setCouleurSol(Color.BLACK) ;gauche();avance(); c= Color.WHITE
+	case Color.WHITE => setCouleurSol(Color.WHITE) ;droite();avance(); c= Color.Black
 }
 }
