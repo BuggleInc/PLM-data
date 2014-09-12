@@ -56,16 +56,15 @@ def expandPath(x:Int,y:Int) {
 def furtherPath() {
 	var x=getX
 	var y=getY
-	var i=0
-	var j=0
+	var i:Int=0
+	var j:Int=0
 	var sol=getIndication(x,y)
 	for (d<- 1 to 4) {
 		getDirection() match {
 			case Direction.NORD => i=0;j=-1
-			case Direction.SUD => i=0;j=+1
-			case Direction.EST=> i=+1;j=0
-			case Direction.NORD => i=-1;j=0
-		}
+			case Direction.SUD => i=0;j=1
+			case Direction.EST=> i=1;j=0
+			case Direction.NORD => i=-1;j=0		}
 		if (!estFaceMur) {
 			if (getIndication(x+i,y+j)<sol) {
 				avance()
