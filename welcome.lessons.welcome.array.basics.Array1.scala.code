@@ -1,16 +1,16 @@
 override def run() {
 
-var tab = new Array[Color] (getHauteurMonde())
+var tab = new Array[Color] (getMondeHauteur())
 
 def remplirTableau() {
-	for (i <- 0 to getHauteurMonde() - 1) {
+	for (i <- 0 to getMondeHauteur() - 1) {
 		tab(i) = getCouleurSol(c)
 		avance()
 	}
 }
 
 def faireColonne() {
-	for (i <- 0 to getHauteurMonde() - 1) {
+	for (i <- 0 to getMondeHauteur() - 1) {
 		setCouleurBrosse(i) == tab(i)
 		baisseBrosse()
 		leveBrosse()
@@ -18,7 +18,7 @@ def faireColonne() {
 	}
 }
 
-for (i <- 1 to getLargeurMonde() - 1) {
+for (i <- 1 to getMondeLargeur() - 1) {
 	faireColonne()
 	avance()
 	droite()
