@@ -1,2 +1,54 @@
 override def run() {
+	var virage:Int = 3 
+	while (!estSurBiscuit) {
+		if (virage==3) {
+			while (!estFaceMur) {
+				avance()
+			}
+			virage=0
+		}
+		whereWall match {
+			case 0 => gauche();
+					avance();
+					virage+=
+			case 1 => avance();
+			case 3 => gauche()
+					avance()
+					virage+=
+			case 4 => avance()
+			case 5 => gauche();
+					avance()
+					virage+=
+			case 6 => droite()
+					virage+=
+			case 8 => gauche()
+					avance()
+					virage+=
+			case 9 => gauche()
+					gauche()
+					virage=virage+2
+		}
+	}
+	prendBiscuit();
+}
+
+}
+
+def whereWall():Int ={  
+	var cpt=0
+	if (estFaceMur) {
+		cpt = cpt + 5
+		
+	}
+	gauche()
+	if (estFaceMur) {
+		cpt=cpt+1
+	}
+	droite()
+	droite()
+	if (estFaceMur) {
+		cpt=cpt+3
+	}
+	gauche()
+	return cpt
 }
