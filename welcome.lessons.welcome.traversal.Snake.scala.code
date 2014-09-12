@@ -53,12 +53,20 @@ def estArrive() : Boolean = {
 }
 def isWall(dir : Direction) : Boolean = {
 
+	var inital = getDirection();
+	var result = false;
+	
 	while(getDirection() != dir)
 	{
 		droite();
 	}
 
-		return estFaceMur();
+	while(getDirection() != initial)
+	{
+		droite();
+	}
+
+		return result;
 
 }
 }
