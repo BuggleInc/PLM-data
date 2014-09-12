@@ -8,11 +8,9 @@ override def run() {
 		recule();
 		gauche();
 		avance();
-		pint();
+		print();
 		}	
-	
-}
-def rassemblage():Array[Color] ={
+	def rassemblage():Array[Color] ={
 	var x = getMondeHauteur();
 	var T = new Array[Color](x);
 	for (i <- 0 to x-1){
@@ -21,16 +19,20 @@ def rassemblage():Array[Color] ={
 	}
 	return T;
 }
-def pint(){
-	var x = getMondeHauteur();
-	
-	for ( k <- 0 to x-1){
-		setCouleurBrosse(tab(k));
-		baisseBrosse();
-		leveBrosse();
-		avance()
+
+	def print(){
+		var x = getMondeHauteur();
+		for ( k <- 0 to x-1){
+			setCouleurBrosse(tab(k));
+			baisseBrosse();
+			leveBrosse();
+			avance()
 	}
 }
+	
+}
+
+
 	
 
 
