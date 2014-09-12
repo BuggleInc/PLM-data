@@ -29,14 +29,15 @@ reculer(taille-1)
 
 val decalage = litMessage().toInt
 
-
-
-for ( i <- 0 to taille-2) {
-	
-
-setCouleurBrosse(T((i + decalage) % taille))	
+setCouleurBrosse(T(decalage))
 baisseBrosse()
-avance()
+leveBrosse()
+for ( i <- 1 to taille-1) {
+	avance()
+	setCouleurBrosse(T((i + decalage) % taille))	
+	baisseBrosse()
+	leveBrosse()
+
 
 }
 
