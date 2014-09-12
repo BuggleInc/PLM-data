@@ -2,18 +2,20 @@ override def run() {
 var taille = getMondeHauteur()
 
 
-var a = getMondeHauteur()
+
 var k = 0
-var T = new Array[Color](a);
+var T = new Array[Color](taille);
 
 for (i <- 0 to T.length-1) {
   avance()
   T(i) =  getCouleurSol()
 }
 
-var b = getMondeLargeur()
+
 
 for (k <- 0 to b-2) {
+
+val decalage = litMessage().toInt
 gauche()
 avance()
 droite()
