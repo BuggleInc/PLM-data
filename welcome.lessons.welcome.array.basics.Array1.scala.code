@@ -1,7 +1,7 @@
 override def run() {
 	var H = getMondeHauteur()
 	var Tab = new Array[Color](H)
-	for (i<- 1 to H-1) {
+	for (i<- 0 to H-2) {
 		Tab(i) = getCouleurSol()
 		avance()
 	}
@@ -10,6 +10,7 @@ override def run() {
 		gauche()
 		avance()
 		droite()
+		avance()
 		for (j <- 0 to H - 2) {
 			setCouleurBrosse(Tab(j))
 			baisseBrosse()
