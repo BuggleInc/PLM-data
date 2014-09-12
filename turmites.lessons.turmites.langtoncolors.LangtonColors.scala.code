@@ -1,7 +1,7 @@
 def step(rule:Array[Char], colors:Array[Color]) {
-	var c=0
+	var c:Color=getCouleurSol()
 	for (i<- 0 to colors.length-1) {
-		if (getCouleurSol()==colors(i)) {
+		if (c==colors(i)) {
 			if (rule(i)=="R") {
 				droite()
 			} else {
@@ -11,7 +11,7 @@ def step(rule:Array[Char], colors:Array[Color]) {
 			if (c==colors.length) {
 				c=0
 			}
-			setCouleurBrosse(colors(c))
+			setCouleurBrosse(colors((i+1)%(colors.length)))
 			baisseBrosse()
 			leveBrosse()
 			avance()
