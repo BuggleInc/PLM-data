@@ -2,8 +2,13 @@ def golomb(num:Int): Int = {
 	var a=new Array[Int](num)
 	a(0)=0
 	a(1)=1
+	a(2)=2
 	for (i<-2 to a.length-1) {
-		a(i)=i
+		if (a(i)!="") {
+			for (c<-(1 to a(i)) {
+				a(i+c)=a(i)
+			}
+		}
 	}
-	return num
+	return a(num)
 }
