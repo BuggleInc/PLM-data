@@ -1,5 +1,20 @@
-    var state = 0;
+var state = 0;
 
-    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-        
-    }
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) { 
+	var IndiceCouleur:Int=0
+	while (colors(IndiceCouleur)!=getCouleurSol()) {
+		IndiceCouleur+=1
+	}
+	
+     rule(state)(IndiceCouleur) match {
+     	case 0 =>
+     	case 1 => avance()
+     	case 2 => gauche()
+     			avance()
+     	case 4 =>	gauche()
+     			gauche()
+     			avance()
+     	case 8 => droite()
+     			avance()
+     }
+}
