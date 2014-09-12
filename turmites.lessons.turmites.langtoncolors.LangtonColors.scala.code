@@ -1,2 +1,26 @@
 def step(rule:Array[Char], colors:Array[Color]) {
+	def setCouleurSol(c:Color) {
+	setCouleurBrosse(c:Color);
+	baisseBrosse();
+	leveBrosse();
+	}
+for (i<-0 to rule.length-1) {
+	if (getCouleurSol()==colors(i)) {
+	setCouleurSol(colors(i));
+	rule(i)
+	} 
+}
+	
+}
+
+def step() {
+	if (getCouleurSol()==Color.white) {
+	setCouleurSol(Color.black);
+	droite();
+	avance();
+	} else if (getCouleurSol()==Color.black) {
+	setCouleurSol(Color.white);
+	gauche();
+	avance();
+	}
 }
