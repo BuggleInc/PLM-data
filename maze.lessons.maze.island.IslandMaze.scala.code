@@ -4,6 +4,7 @@ override def run() {
 	
 	while (!estSurBiscuit)
 	{
+		/*
 		while (getDirection() != Direction.NORD)
 		{
 			gauche; 
@@ -15,7 +16,13 @@ override def run() {
 			avance;
 		}
 		else keepHandOnSideWall;
-		
+		*/
+
+		if (getDirection() == Direction.NORD && !estFaceMur)
+		{
+			avance; 
+		}
+		else keepHandOnSideWall
 	
 	}
 	
@@ -23,9 +30,9 @@ override def run() {
 
 }
 
+
 def keepHandOnSideWall()
 {
-	var i = 0
 	gauche;
 	if (estFaceMur)
 	{
@@ -34,13 +41,7 @@ def keepHandOnSideWall()
 		{
 			avance;
 		}
-		else 
-		{
-			droite; 		
-
-			
-			
-		}
+		else droite; 
 		
 	}
 	else 
