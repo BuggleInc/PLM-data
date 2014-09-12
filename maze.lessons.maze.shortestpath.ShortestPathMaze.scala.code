@@ -54,16 +54,36 @@ def expandPath(x:Int,y:Int) {
 		
 }
 def furtherPath() {
-	var sol=getIndication(getX(),getY())
-	for (i<- 1 to 4) {
-		if (!estFaceMur) {
+	var x=getX
+	var y=getY
+	var sol=getIndication(x,y)
+	setDirection(Direction.NORD)
+	if (!faceAuMur) {
+		if (getIndication(x,y-1)<sol) {
 			avance()
-			if (getIndication(getX(),getY())>sol) {
-				recule();
-				gauche()
-			}
-			} else {
-				gauche()
-			}
+		} else { 
+			gauche()
+		}
+	}
+	if (!faceAuMur) {
+		if (getIndication(x-1,y)<sol) {
+			avance()
+		} else { 
+			gauche()
+		}
+	}
+	if (!faceAuMur) {
+		if (getIndication(x,y+1)<sol) {
+			avance()
+		} else { 
+			gauche()
+		}
+	}
+	if (!faceAuMur) {
+		if (getIndication(x+1,y)<sol) {
+			avance()
+		} else { 
+			gauche()
+		}
 	}	
 }
