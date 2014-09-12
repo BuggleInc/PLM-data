@@ -1,6 +1,10 @@
 override def run() {	
+
+	var goingRight = true; 
+	
 	while(!estArrive())
 	{
+		
 
 		if(!estFaceMur())
 		{
@@ -8,7 +12,21 @@ override def run() {
 		}
 		else
 		{
-			gauche();
+				if(goingRight)
+				{
+					gauche();
+					avance();
+					gauche();
+					goingRight = false;
+				}
+				else
+				{
+					droite();
+					avance();
+					droite();
+					goingRight = true;
+				}
+		
 		}
 
 
