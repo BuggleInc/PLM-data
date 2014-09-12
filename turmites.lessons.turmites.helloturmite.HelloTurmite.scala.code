@@ -19,18 +19,18 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 	while(colors(pos)!=getCouleurSol())
 		pos = pos+1
 	
-	rule(etat)(colors(pos))(MVT_SUIVANT) match
+	rule(state)(colors(pos))(MVT_SUIVANT) match
 	{
-		case STOPP => 
-		case RIEN => avance()
-		case GAUCHE => gauche(); avance()
-		case DEMITOUR => gauche(); gauche()
-		case DROITE => droite(); avance()
+		case STOPP => MVT_SUIVANT = STOPP
+		case RIEN => avance(); MVT_SUIVANT = RIEN
+		case GAUCHE => gauche(); avance(); MVT_SUIVANT = GAUCHE
+		case DEMITOUR => gauche(); gauche(); MVT_SUIVANT = DEMITOUR
+		case DROITE => droite(); avance(); MVT_SUIVANT = DROITE
 	}
 	
 	if(pos!=colors.length-1)
 		brosse(colors(pos+1))
 	else brosse(colors(0))
-	
-	avance()
+
+	state = state +1
 }
