@@ -13,6 +13,14 @@ override def run() {
 	gauche()
 	return mur }
 	
+	def keepHandOnSideWall() {
+		while (!murAgauche) {gauche()}
+		if (estFaceMur()) {droite()}
+		else {avance() 
+		if (murAdroite()) { 
+			if (!murAgauche) {gauche() ;avance()}
+				if (!murAgauche) {gauche();avance()}
+		}}
 
 	
 while(!estSurBiscuit()){	
