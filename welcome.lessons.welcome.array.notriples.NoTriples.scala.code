@@ -1,11 +1,13 @@
 def noTriples(nums:Array[Int]): Boolean = {
 	val n:Int=nums.length.toInt
+	var result:Boolean=true
 	for (x<- 0 to n-1) {
 		for (y<- 0 to n-1) {
 			for (z<- 0 to n-1) {
-		if (nums(x)==nums(y)==nums(z) && x!=y!=z) {return false}
-		else {return true}
+		if (nums(x)==nums(y)==nums(z) && x!=y!=z) {result=false}
+		else {result=true}
 	}
 	}
 	}
+	return result
 }
