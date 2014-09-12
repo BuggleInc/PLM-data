@@ -5,11 +5,23 @@ close10:2: error: overloaded method value abs with alternatives:
   (x: Int)Int
  cannot be applied to (Boolean)
 	if (math.abs(a-10<b-10)) {
-                 ^close10:5: error: overloaded method value abs with alternatives:
+                 ^close10:3: error: type mismatch;
+ found   : String("a")
+ required: Int
+		return "a"
+                       ^close10:5: error: overloaded method value abs with alternatives:
   (x: Double)Double <and>
   (x: Float)Float <and>
   (x: Long)Long <and>
   (x: Int)Int
  cannot be applied to (Boolean)
 	else if (math.abs(b-10<a-10)) {
-                      ^
+                      ^close10:6: error: type mismatch;
+ found   : String("b")
+ required: Int
+		return "b"
+                       ^close10:9: error: type mismatch;
+ found   : String("0")
+ required: Int
+		return "0"
+                       ^
