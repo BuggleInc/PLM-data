@@ -12,7 +12,7 @@ override def run() {
 	def rempCol(x:Int,T:Array[Color]) = {
 		val decalage = litMessage().toInt
 		var d = decalage
-		for (i <- 0+d to x-2+d) {
+		for (i <- 0+d to x-1+d) {
 			setCouleurBrosse(T(i%x));
 			baisseBrosse();
 			leveBrosse();
@@ -22,7 +22,7 @@ override def run() {
 	}
 	
 	val T = tabColor(getMondeHauteur)
-	for (i <- 0 to getMondeLargeur) {
+	for (i <- 0 to getMondeLargeur-1) {
 		gauche();
 		avance();
 		droite();
