@@ -1,0 +1,16 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class withoutDoubles extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( withoutDoubles( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int], t.getParameter(2).asInstanceOf[Boolean]) )
+   }
+def withoutDoubles(die1:Int, die2:Int, noDoubles:Boolean):Int = {
+	if (noDoubles && (die1 == die2)) {
+		if (die1 == 6)
+			return 1 + die2
+		else
+			return die1 + 1 + die2
+	} else
+		return die1 + die2
+} }
