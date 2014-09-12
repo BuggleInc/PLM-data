@@ -11,15 +11,25 @@ def keepHandOnSideWall(){
 	}
 	droite()
 }
-def findWall(){
-	while (!estFaceMur()){
-		droite()
-		avance()
+def findWall():Boolean = {
+	if (estFaceMur()){
+		gauche()
+		if (!estFaceMur()){
+			droite()
+			droite()
+			if (!estFaceMur()){
+				return true
+			}
+		}
 	}
-	droite()
+	return false
 }
 override def run() {
-	findWall()
+	while (!findWall()){
+		droite()
+		avance()
+		droite()
+	}
 	while (!sortie()){
 		keepHandOnSideWall()
 	}
