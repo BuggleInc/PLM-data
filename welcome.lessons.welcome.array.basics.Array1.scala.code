@@ -1,5 +1,6 @@
 override def run() {
-	rassemblage();
+	var tab = new Array [Color](getMondeHauteur());
+	tab = rassemblage();
 	var y = getMondeLargeur();
 	var z = getMondeHauteur();
 	for( j <- 1 to y-1){
@@ -22,9 +23,9 @@ def rassemblage():Array[Color] ={
 }
 def pint(){
 	var x = getMondeHauteur();
-	var T = rassemblage();
+	
 	for ( k <- 0 to x-1){
-		setCouleurBrosse(T(k));
+		setCouleurBrosse(Tab(k));
 		baisseBrosse();
 		leveBrosse();
 		avance()
