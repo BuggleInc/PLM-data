@@ -1,2 +1,21 @@
 override def run() {
+	var wh=0; //hauteur du monde
+	var wl=0; // largeur du monde
+	wh=getMondeHauteur();
+	wl=getMondeLargeur();
+	var c=0; // compteur
+	ecritMessage(c);
+	while (!(getX()==wl-1 && getY()==wh-1)) { // -1 car premiere ligne est 0
+		// tant qu'on est pas en pos finale
+		c +=1;
+		if  (getX()==wl-1 && getY()!=wh-1) {
+			setPos(0, getY()+1);
+			ecritMessage(c);
+		}
+		else {
+			setPos(getX()+1, getY());
+			ecritMessage(c);
+		}
+	} // attention au !(A et B) different de !A et !B
 }
+
