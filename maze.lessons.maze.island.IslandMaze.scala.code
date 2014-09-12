@@ -5,8 +5,8 @@ override def run() {
 	if (estFaceMur()) {mur = true}
 	droite()
 	return mur }
-	var maxx = getMondeHauteur()-1
-	var maxy = getMondeLargeur()-1
+	var maxx = getMondeHauteur()
+	var maxy = getMondeLargeur()
 
 	 def AtteintBord() :Boolean = {
 	 	(getX() == 0 || getY() == maxy) || (getY() == 0 || getX() == maxx)}
@@ -20,15 +20,15 @@ override def run() {
 		}}
 	def chercheBord() {
 		while (!AtteintBord) {
-			
+			keepHandOnSidewall()
 	}
 	while (!murAgauche) {droite()}
+	keepHandOnSideWall()
 	}
 
 	
 while(!estSurBiscuit()){
 		chercheBord()
-		keepHandOnSideWall()
 }
 prendBiscuit();
 
