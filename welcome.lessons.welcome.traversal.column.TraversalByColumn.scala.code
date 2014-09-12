@@ -11,14 +11,12 @@ override def run() {
 	}
 	while (!positionFinale) {
 		for (x<-0 to getMondeLargeur()) {
-		if (getY()==getMondeHauteur()-1) {
-			y=0
-		} else {
+		while (getY()!=getMondeHauteur()-1) {
 			y=y+1
-		}
-		ecritMessage(cpt);
+			ecritMessage(cpt);
 		cpt+=1
 		setPos(x,y);
+		}
 	}
 }
 }
