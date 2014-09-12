@@ -14,165 +14,148 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body>
-<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h1>Vettori ed Intrecci</h1>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Arrays and Knotting</h1>
 
-L'obbiettivo di questo esercizio è di riprodurre lo stesso pattern presente
-sulla prima colonna nelle altre con uno sfasamento di una cella (guarda la
-scheda objective per capire). La grande differenza fra questo esercizio e
-gli altri dove avevamo dei pattern è che questa volta dobbiamo leggere il
-pattern (sulla prima colonna) prima di riprodurlo.  Non puoi fare
-diversamente perché lo stesso codice dovrà essere eseguito su tre differenti
-mondi, ognuno di essi avente un pattern specifico.
+The goal of this exercise is to reproduce the pattern of the first row in
+the other rows with a shift of one cell (see the Objective tab for
+details). The biggest difference between this exercise and the others we had
+on patterns is that you have to read the pattern (on first row) before
+reproducing it. You cannot do otherwise because the same code will be
+executed on three different worlds, each of them having a specific
+pattern.
 
-<p>Una soluzione è quella di leggere la cella successiva e copiarla prima di
-tornare indietro a leggere la seconda cella. Ma visto che non è consentito
-l'utilizzo del metodo per teletrasportare il buggle in una specifica
-posizione (<code>setPos()</code> e simili), questo approccio sarebbe
-faticoso da implementare. </p>
+<p>One solution is to read the next cell, and go copy it in position before
+coming back to read the second cell. But since it is forbidden to use the
+methods to teleport the buggle to a specific position (<code>setPos()</code>
+and similar), this approach will be a pain to implement. </p>
  
-<p>Il modo più semplice è quello di salvare la sequenza di colori che
-costituisce l'intero pattern in un
-<b>vettore</b>. Ma prima di
-poterlo fare dobbiamo imparare un po' di quello che c'è da sapere
-sui vettori.</p>
+<p>The simplest is to store the sequence of colors that constitute 
+the whole pattern in an <b>array</b>.
+But before we can do so, we should learn a bit what arrays are.</p>
 
-<h2>Vettori</h2> 
+<h2>Arrays</h2> 
 
-<p>Un vettore è una sequenza ordinata di
-variabili unite insieme. È in qualche modo simile ad una ripiano dove ogni
-scaffale può contenere un valore separato. Ogni variabile della sequenza
-viene identificata dalla sua posizione e può contenere un valore
-specifico. Tutte le celle del vettore devono ospitare valori
-dello stesso tipo perché in Scala i vettori sono omogenei. È possibile
-aggirare questa restrizione utilizzando il tipo di dato
-<code>Any</code> che può contenere
- ogni altro tipo di dato. 
-Continua comunque ad essere una buona pratica quella di rendere il tipo di
-un vettore il più specifico possibile, e cioé se pianificate di memorizzare
-solo dei numeri interi in un vettore, create un vettore di interi, non un
-Any. </p>
+<p>An array is an ordered sequence of variables that go together.
+It is somehow similar to a shelve where each level can store a separate value. Each 
+variable of the sequence is identified by its position, and can store
+a specific value. All cells of the array must store values of the same
+type because arrays are homogeneous in Scala. It is possible to trick this 
+restriction by using the datatype <code>Any</code> 
+that can contain  any other datatype.  It is however a good practice to make the type of an array 
+as specific as possible, i.e., if you plan to store some integers in your array, make it an 
+array of integers, not of Any.
+</p>
 
 <div style="text-align:center"><img src="lessons/welcome/array/array.png"/></div>
 
-<p>T è il nome del vettore,
-T(0) È il nome della prima cella,
-T(1) quello della seconda,
-T(2) quello della terza, ... Eh sì, la
-prima cella è numerata T(0) mentre
-l'ultima di un vettore di dimensione N
-è T(N-1). Potrebbe sembrare strano
-contare iniziando da 0 e non da 1 come si fa solitamente ma alcune ragioni
-storiche hanno reso questa pratica inevitabile.</p>
+<p>T is the array's name, 
+T(0) is the name of the first cell, 
+T(1) the name of the second cell, 
+T(2) the third one, etc. And yes, the first cell is
+numbered T(0) while the last one of an array 
+of size N is T(N-1). It may seem funny to count starting from 0 and not from 1 
+as usual, but some historical reasons make it unavoidable here.</p>
 
-<h3>Utilizzo di base</h3>
+<h3>Basic usage</h3>
 
-<p>Possiamo utilizzare una variabile intera chiamata <i>i</i> per accedere alla
-cella attraverso T(i): quando il valore di
-<i>i</i> sarà 0, allora T(i) accederà a
-T(0) mentre se il valore di <i>i</i> è 10,
-allora T(i) accederà a
-T(10). La variabile <i>i</i> viene
-chiamata <b>indice</b> di T.
-<code>T(i)</code> può essere usato alla
-stregua di una qualsiasi altra variabile. Possiamo assegnargli un nuovo
-valore:</p> 
+<p>We can use an integer variable <i>i</i> to access with T(i) to the 
+cells: when the value of <i>i</i> is 0, then T(i) accesses 
+T(0); 
+when the value of <i>i</i> is 10, then T(i) accesses 
+T(10). 
+<i>i</i> is said to be the <b>index</b> in T. 
+<code>T(i)</code> can be used just like any
+variable. We can set a new value:</p> 
 <pre>T(i) = 78</pre>
 
-<p>Possiamo recuperane ed usare il suo valore: </p>
+<p>We can retrieve and use its value: </p>
 <pre>x = T(i)</pre>
 
-<p>Possiamo testare il suo valore:</p>
-<pre>if (T(i) &gt; 0) {
-    // instruzioni...
+<p>We can test this value:</p>
+<pre>if (T(i) > 0) {
+    // instructions...
 }</pre>
 
-<p>È molto semplice scorrere l'intero vettore, per esempio per inizializzare ogni cella:</p>
+<p>It is very easy to traverse the whole array, for 
+example to initialize each cells.</p>
 
 <pre>for (i &lt;- 0 to T.length-1) {
    T(i) = 3
 }</pre>
 
-<p>The notation <code>T.length</code> retrieves the length of the
-array T,  allowing to build a classical for loop easily.
- Don't
-forget to start at <code>0</code> and stop at <code>T.length-1</code>
-instead of <code>1</code> to <code>T.length</code> however.</p>
+<p>The notation <code>T.length</code> retrieves the length of the array T,
+ 
+allowing to build a classical for loop easily. 
+ 
+Don't forget to start at <code>0</code> and stop at <code>T.length-1</code> instead of <code>1</code> to <code>T.length</code>
+however.</p>
 
-<p>Se volete iterare solo sui valori di T senza tenere traccia dell'indice,
-potete semplicemente scrivere:</p>
+<p>If you just want to iterate over the values of T without keeping track of their index, you can simply write:</p>
 <pre>for (i &lt;- T) {
-  azioni()
+  action()
 }</pre>
 <p>
-Quello che accade è molto simile a ciò che accadeva nel
-costrutto precedente. Semplicemente <code>i to
-j</code> ritorna una serie di numeri interi che il costrutto for
-utilizza per ripetersi. Attualmente Scala offre modi più eleganti di
-scorrere un vettore ed altri tipi di
-collezioni di dati ma questo sarà l'argomento di un'altra serie di esercizi
-a parte (che peraltro devono ancora essere scritti in PLM).</p>
+
+This is actually very similar to the previous construct. 
+Simply, <code>i to j</code> returns a set of integers over which the 
+for construct iterates.
+Actually, Scala offers much more elegant ways to traverse arrays and 
+other data collections, but this should be the topic of a specific set of exercises (that are still to be 
+written in PLM).</p>
 
 
-<h3>Dichiarare un vettore</h3>
+<h3>Declaring an array</h3>
+
 
  
-<p>To declare a variable named <b>T</b> that can store an array of integers,
-one should write:</p>
+
+<p>To declare a variable named <b>T</b> that can store an array of integers, one should write:</p>
 <pre>var T:Array[Int]</pre>
 
-<p> La notazione
-<code>[Int]</code> specializza il tipo del vettore (che sarebbe generico)
-specificando che ogni sua cella contiene un intero. Similmente un vettore di
-booleani si scriverà <code>Array[Boolean]</code>.
+<p>
+The <code>[Int]</code> notation specializes the Array type (that is generic), specifying that each cell 
+of this array is an integer. An array of booleans would simply by written <code>Array[Boolean]</code>.
 </p>
 
-<h3>Allocare un vettore</h3>
+<h3>Allocating an array</h3>
 
-<p>Dichiarare una variabile <code>T</code> fa semplicemente posto ad un vettore
-riservandogli il <b>nome</b> <code>T</code> per usi successivi ma non gli
-riserva dello spazio di memoria per contenere le sue celle. Il vettore non è
-ancora stato inizializzato: esso non ha nessun valore. Che potrebbe mai
-voler dire <code>T(4)</code> se non abbiamo
-ancora stabilito che il vettore è lungo 5 celle?</p>
+<p>Declaring a variable <code>T</code> that stores an array only reserve the <b>name</b> <code>T</code> for
+later use, but not the memory area to store the cells. The array is not initialized yet: it does not have any
+value. What would <code>T(4)</code> mean if we didn't say that the array is
+5 cells long?</p>
 
-<p>Prima di tutto dobbiamo dare un valore a <code>T</code>:</p>
+<p>First and foremost, we have to give a value to <code>T</code>:</p>
 <pre>var T = new Array[Int](10)</pre>
 
-<p><code>new</code> significa che noi vogliamo creare qualcosa e
-<code>Array[Int](10)</code> significa che
-quello che vogliamo creare è un vettore di 10 valori interi. Di consegueza
-in memoria viene creato un vettore di 10 celle di interi e la variabile
-<code>T</code> ci <b>referenzierà</b> ad esso.</p>
+<p><code>new</code> means that we want to create something, and
+<code>Array[Int](10)</code> means that it is an array of 10 integer values. 
+In return, an array of 10 integer cells is created in memory, and the <code>T</code> variable 
+<b>references</b> this array.</p>
 
-<p>La dimensione del vettore sarà fissa e non potrà essere cambiata dopo la sua
-creazione. Potremo conoscere la dimensione di <code>T</code> consultando la
-variabile <code>T.length</code>.</p>
+<p>The size of an array is fixed and cannot be changed after the creation of
+the array. The size of a <code>T</code> array can be retrieve by consulting the
+variable <code>T.length</code>.</p>
 
-<p>While allocating, you can specify the size with a variable:
-<code>var T = new
-Array[Int](i);</code> In this case, the array's size will be set to the
-value of <code>i</code> <i>when <code>new</code> gets called</i>.  The size
-of the array still cannot be modified: even if the variable <code>i</code>
-changes afterward, the size remains to the value given when it was
-allocated.  </p>
+<p>While allocating, you can specify the size with a variable: <code>var T = new Array[Int](i);</code>
+In this case, the array's size will be set to the value of <code>i</code> <i>when <code>new</code> gets called</i>. 
+The size of the array still cannot be modified: even if the variable <code>i</code> changes afterward, 
+the size remains to the value given when it was allocated.
+</p>
 
-<h4>Dichiarazione ed inizializzazione</h4>
-<p>Se siete già a conoscenza del contenuto del vostro vettore potete
-dichiarare, allocare ed inizializzare tutto contemporaneamente, in un sol
-colpo:</p>
+<h4>Declaration and initialization</h4>
+<p>If you know beforehand the content of your array, you can declare, allocate and initialize it in one shoot:</p>
 <pre>var T = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</pre>
 
-<p>Per conoscere la dimensione del vettore da allocare il compilatore conta i
-valori fornitigli. Questo codice è equivalente ad:</p>
+<p>To know the size of the array to allocate, the compiler counts the provided values. 
+This code is equivalent to:</p>
 <pre>var T = new Array[Int](10);
 T(0) = 1
 T(1) = 2
 ...
 T(9) = 10</pre>
 
-<p>Che è anche equivalente a:</p>
+<p>It is also equivalent to:</p>
 <pre>var T = new Array[Int](10);
 for (i &lt;- 0 to T.length-1) {
   T(i) = i+1
@@ -181,53 +164,44 @@ for (i &lt;- 0 to T.length-1) {
 
 <!-- end of java|scala. python comes back -->
 
-
-<h3>Vettori e parametri dei metodi</h3>
-<p>È perfettamente valido passare un
-vettore come parametro di un metodo. Il metodo può quindi utilizzare
-questo parametro come se fosse stato definito localmente:</p>
-<pre>def haPrima42(vettore:Array[Int]):Boolean = {
-  return vettore(0) == 42
+<h3>Arrays and method parameters</h3>
+<p>It is perfectly OK to pass an array to a method as a parameter. 
+This method can then use this parameter as if it were defined locally:</p>
+<pre>def has42First(array:Array[Int]):Boolean = {
+  return array(0) == 42
 }</pre>
 
-<p>Anche dalla parte del chiamante del metodo la cosa è molto semplice:</p>
-<pre>var etichetta = new Array[Int] (10)
-<span class="comment">// Valore di inizializzazione omesso</span>
-if (haPrima42(etichetta)) {
-   <span class="comment">// fai qualcosa</span>
+<p>On the caller side, that also very simple:</p>
+<pre>var tab = new Array[Int] (10)
+<span class="comment">// Values initialization omitted</span>
+if (has42First(tab)) {
+   <span class="comment">// do something</span>
 }</pre>
 
 
 
-<p>I metodi possono anche ritornare vettori
-come risultati senza nessuna complicazione. Quì mostrato c'è un metodo che
-ritorna un vettore della dimensione
-richiesta e riempito di 42.</p>
+<p>Methods can also return arrays as result without any complication. 
+Here is a method that returns an array of the requested size, filled with 42s.</p>
 
-<pre>def riempiDi42(dimensione:Int):Array[Int] = {
-    var ris = new Array[int] (dimensione)
-    for (i &lt;- 0 to dimensione -1) {
-        ris(i) = 42;
+<pre>def fill42(size:Int):Array[Int] = {
+    var res = new Array[int] (size)
+    for (i &lt;- 0 to size -1) {
+        res(i) = 42;
     }
-    return ris;
+    return res;
 }</pre>
 
-<h2>Traguardo dell'esercizio</h2>
+<h2>Goal of this exercise</h2>
 
-<p>Finalmente! Dopo questa lunga spiegazione possiamo ritornare al nostro
-esercizio.</p>
-<p>La tua missione è abbastanza semplice. Il tuo codice dovrà memorizzare il
-patter di colori osservati nella prima colonna in un
-vettore.  Per poterlo fare devi
-dichiarare ed allocare un vettore di <code>Color</code>. Ma fai attenzione,
-ci sono diversi mondi di diverse dimensioni, usa la funzione
-<code>getWorldHeight()</code> per venire a conoscenza dell'altezza del mondo
-corrente. Quando il vettore sarà allocato, riempilo leggendo il colore sul
-pavimento in ogni locazione (con <code>getGroundColor()</code>).</p>  
+<p>At least! After this long explanation, we can come back to the exercise.</p>
+<p>Your mission is rather simple actually. 
+Your code should save the color pattern observed on the first row into an array. 
 
-<p>Quando sarai riuscito a leggere ed a salvare il pattern della prima colonna
-dovrai riapplicarlo su tutte le altre, per esempio eseguendo il metodo che
-hai scritto a questo scopo un numero di volte pari al valore di ritorno di
-<code>getWorldHeight()</code>. (Ndt potrebbe essere utile sapere che esiste
-anche il metodo getWorldWidth() che ci dice la lunghezza del mondo)</p> 
+For that, you should declare and allocate an array of <code>Color</code>. Beware, there is several
+worlds, of differing size; use <code>getWorldHeight()</code> to retrieve the size of the current world.
+Once the array allocated, fill it by reading the ground color in each locations (with <code>getGroundColor()</code>).</p>  
+
+<p>Once you managed to read and save the pattern on the first row, you have to reapply the 
+pattern on every rows, for example by executing <code>getWorldHeight()</code> times 
+a method written specifically for this.</p> 
 </body></html>
