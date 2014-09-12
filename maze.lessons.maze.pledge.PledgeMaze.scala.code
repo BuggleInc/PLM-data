@@ -6,7 +6,7 @@ def keepHandOnSideWall(){
 	gauche();
 	if(estFaceMur){
 		droite();
-	}else{ avance();gauche();a=a-1;
+	}else{ avance();gauche();a=a+1;
 		  if(estFaceMur){
 		  	droite();
 		  }else avance();
@@ -15,7 +15,7 @@ def keepHandOnSideWall(){
 		droite();
 			if(estFaceMur){
 						droite();
-						}else avance();
+						}else avance();a=a+2;
 	}else avance();a=a+1;
 
 }
@@ -31,7 +31,7 @@ def isDirLibre(d:Direction):Boolean={
 }
 while(!estSurBiscuit){
 	keepHandOnSideWall();
-	if(a==0 && isDirLibre(Direction.OUEST)){
+	if(a%4==0 && isDirLibre(Direction.OUEST)){
 		while(!estFaceMur){avance();}
 	}
 }
