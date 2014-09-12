@@ -1,7 +1,17 @@
 def indexOfMaxValue(nums:Array[Int]):Int = {
 
 var i = 0
+var I = 0
 var M = 0
 
 	while (i < nums.length) {
-			
+		if (nums(i) > M) {
+			nums(i) = M
+			I = i
+			i = i + 1
+		} else {
+			i = i + 1
+		}
+	}
+	return I
+}
