@@ -10,6 +10,7 @@ override def run() {
 				gauche();
 				return false;
 			}
+		}
 		if (getDirection() == Direction.EST) {
 			gauche();
 			if (estFaceMur()) {
@@ -21,17 +22,7 @@ override def run() {
 				return false;
 			}
 		}
-		else if (getDirection()==Direction.OUEST) {
-			droite();
-			if (estFaceMur()) {
-				gauche();
-				return true;
-			}
-			else {
-				gauche();
-				return false;
-			}
-		}
+	}
 	def posFinale():Boolean = {
 		if (estFaceMur() && !murNord()) {
 			return true;
@@ -58,5 +49,4 @@ override def run() {
 	do {
 		pasSerpent();
 	} while (!posFinale())
-
 }
