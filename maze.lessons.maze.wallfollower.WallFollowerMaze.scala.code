@@ -5,15 +5,11 @@ def sortie():Boolean = {
     	return false
 }
 def keepHandOnSideWall(){
-	if (!estFaceMur()){
+	while (!estFaceMur){
 		avance()
 		droite()
-	} else {
-		gauche()
-		if (!estFaceMur()){
-		avance()
-		}
 	}
+	droite()
 }
 override def run() {
 	while (!sortie()){
