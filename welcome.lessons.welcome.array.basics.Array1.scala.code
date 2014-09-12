@@ -1,0 +1,33 @@
+override def run() {
+var j:Int = 0;
+lire();
+for (i<-0 to getMondeLargeur() -1) {
+	decalle();
+	reproduire();
+}
+recule();
+}
+def lire():Array[Color] = {
+	var T = new Array[Color](getMondeHauteur()-1);
+	for(i<- 0 to getMondeHauteur()-1) {
+		T(i) = getCouleurSol();
+		avance();
+	}
+}
+def reproduire(j:Int, T:Array[Color]) {
+	for (i<- 0 to getMondeHauteur()-1) {
+		colorier(T((i-j+getMondeHauteur() -1) % getMondeHauteur()));
+		avance();
+	}
+}
+def colorier(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	poseBrosse();
+}
+def decalle(j:Int) {
+	j = j+1;
+	gauche();
+	avance();
+	droite();
+}
