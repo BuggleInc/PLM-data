@@ -1,23 +1,16 @@
 def golomb(num:Int): Int = {
 	var tab = new Array[Int](num)
-	var avancee = 1
 	var progres = 1
+	var x = tab.(progres)
 	tab(0) = 1
 	if(num == 1){
 		return 1
 	}
-	while (avancee < num){
-		var x = tab(progres+1)
-		while (x > 0){
-			tab(avancee-1) = progres + 1
-			x = x-1
-			avancee = avancee + 1
-			if(avancee == num){
-				return tab(avancee-1)
-			}
+	for(i <- 0 to num - 1){
+		var x = tab.(progres)
+		tab(i) = progres + 1
+		x = x-1
+		if(x=0){ progres = progres +1}
 		}
-		progres = progres + 1
-		}
-		tab(avancee-1) = progres + 1
-	return tab(avancee-1)
+		return tab.(progres + 1)
 }
