@@ -2,17 +2,24 @@ var diag = 0;
 override def run() {
 var a=0;
 var b=0;
+var c=;
 a=getMondeHauteur()-1;
 b=getMondeLargeur()-1;
 for(i<-0 to a){
 	setPos(0,i);
+	ecritMessage(c);
+	c=c+1;
 	for(j<-0 to i){
 		setPos(j,i-j);
+		ecritMessage(c);
+		c=c+1;
 	}
 }
 for(i<-1 to a){
 	for(j<-0 to b-i){
-		setPos(i+j,a-j)
+		setPos(i+j,a-j);
+		ecritMessage(c);
+		c=c+1;
 	}
 }
 }
