@@ -1,0 +1,22 @@
+override def run() {
+    def faireLigne (a:Color, b:Color) {
+        avance(); setCouleurBrosse(a); baisseBrosse(); leveBrosse();
+        avance(); setCouleurBrosse(b); baisseBrosse(); leveBrosse();
+        avance(); gauche();
+    }
+    def petitCarre() {
+        faireLigne(Color.RED,Color.BLUE);
+        faireLigne(Color.BLUE,Color.GREEN);
+        faireLigne(Color.GREEN,Color.YELLOW);
+        faireLigne(Color.YELLOW,Color.RED);
+    }
+       
+        petitCarre();
+        avance(); avance(); avance(); avance();
+        petitCarre();
+        recule(); recule(); recule(); recule(); gauche();
+        avance(); avance(); avance(); avance(); droite();
+        petitCarre();
+        avance(); avance(); avance(); avance();
+        petitCarre();
+}
