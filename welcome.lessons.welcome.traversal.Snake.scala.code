@@ -1,0 +1,29 @@
+override def run() {
+
+def fonctionTest():Boolean = {
+
+	if (estFaceMur) {
+		if (getDirection() == Direction.EST) {
+			gauche()
+			if (!estFaceMur) {
+				return true
+			} else {
+				return false
+			}
+			droite()
+		} else {
+			if (getDirection() == Direction.OUEST) {
+				droite()
+				if (!estFaceMur) {
+					return true
+				} else {
+					return false
+				}
+			}
+			gauche()
+		}
+	
+	} else {
+		return false
+	}
+}
