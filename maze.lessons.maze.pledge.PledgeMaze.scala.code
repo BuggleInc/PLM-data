@@ -1,2 +1,68 @@
 override def run() {
+	while (getY!=0){
+		if(!estFaceMur){
+			avance
+		}
+		else if(!WallG){
+			gauche
+			avance
+			droite
+		}
+		else if(!WallD){
+			droite
+			avance
+			droite
+		}
+	}
+	droite
+	suivre
+	prendBiscuit
+}
+
+def WallG():Boolean={
+	gauche
+	if(estFaceMur){
+		droite 
+		return true
+	}
+	else{
+		droite
+		return false
+	}
+	return false
+}
+
+def WallD():Boolean={
+	droite
+	if(estFaceMur){
+		gauche
+		return true
+	}
+	else{
+		gauche
+		return false
+	}
+	return false
+}
+
+def suivre(){
+	while(!estSurBiscuit){
+		while(!estFaceMur&&WallG){
+			avance
+		}
+		if (estFaceMur&&(!WallG)){
+		gauche
+		avance
+		}
+		else if(estFaceMur&&WallG){
+			if(!estSurBiscuit){
+					droite	
+			}
+
+		}
+		else{
+			gauche
+			avance
+		}
+	}
 }
