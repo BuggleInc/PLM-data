@@ -1,11 +1,6 @@
-$package
-import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
-import plm.universe.World; 
-class sleepIn extends BatEntity { 
-   override def run(t: BatTest) {
-   t.setResult( sleepIn( t.getParameter(0).asInstanceOf[Boolean], t.getParameter(1).asInstanceOf[Boolean]) )
-   }
-def sleepIn(weekday:Boolean, vacation:Boolean): Boolean = {
-  return !weekday || vacation;
-}
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; public class sleepIn extends BatEntity {  public void run(BatTest t) {
+		t.setResult( sleepIn((Boolean)t.getParameter(0),(Boolean)t.getParameter(1)) );		 }
+	boolean sleepIn(boolean weekday, boolean vacation) {
+		return !weekday || vacation;
+	}
  }
