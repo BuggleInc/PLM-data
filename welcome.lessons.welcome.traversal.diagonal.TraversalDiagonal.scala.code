@@ -1,22 +1,38 @@
-var diag = 0;
+
 override def run() {
 
 		var steps:Int = 0;
-
+		var diag = 0;
+		var aller = true;
 
 	while(!estArrive())
 	{
-		if(!estFaceMur())
+		for(i <- 0 to diag)
 		{
 			ecritMessage(steps);
-			setPos(getX() + 1, getY() + 1);
+			setPos(getX() + 1, getY() - 1);
 			steps = steps + 1;
+		}
+		
+			setPos(getY() + 1, getX() + 1);
+
+
+		if(diag == 5)
+		{
+			aller = false;
+		}
+
+
+
+		
+		if(aller)
+		{
+			diag = diag + 1;
 		}
 		else
 		{
-			setPos(getY() + 1, getX() + 1);
+			diag = diag - 1
 		}
-		
 		
 
 	
