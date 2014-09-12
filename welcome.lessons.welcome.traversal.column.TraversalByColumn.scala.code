@@ -1,12 +1,12 @@
-override def run() {
-	def positionFinale():Boolean = {
-		if ((getX() == getMondeLargeur-1) && (getY() == getMondeHauteur-1)){
+def positionFinale():Boolean = {
+		if ((getX() == getMondeLargeur-1) && (getY() == getMondeHauteur)){
 			return true
 		}
 		return false
 	}
+override def run() {
 	var cpt = 0
-	while (positionFinale == false){
+	while (!positionFinale){
 		for (i <- 1 to getMondeLargeur-1){
 			if (getY() == 6 % 7){
 				ecritMessage(cpt)
@@ -14,7 +14,7 @@ override def run() {
 				setPos(getX()+1, getY()-6)
 			}
 			else {
-				for (i <- 1 to getMondeHauteur)
+				for (i <- 1 to getMondeHauteur-1)
 				ecritMessage(cpt)
 				cpt=cpt+1
 				setPos(getX(), getY()+1)
