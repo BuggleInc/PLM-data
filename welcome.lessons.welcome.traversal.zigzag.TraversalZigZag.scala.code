@@ -1,2 +1,41 @@
 override def run() {
+	var x = 0
+	var y = 0
+	var mess = 0
+	var sens = 0
+	
+	ecritMessage(mess)
+	
+	
+	while (getY() != getMondeHauteur() - 1 || getX() != getMondeLargeur() - 1)
+	{
+		if (getX() == getMondeLargeur() - 1)
+		{
+			y = y + 1
+			setPos(x , y )
+			mess = mess + 1  
+			ecritMessage(mess)
+			sens = 1  
+		}
+
+		if (getX() == 0)
+		{
+			y = y + 1
+			setPos(x , y )
+			mess = mess + 1  
+			ecritMessage(mess)
+			sens = 0		  
+		}
+
+		if (sens = 0)
+		{
+			x = x + 1
+		}
+		else x = x - 1
+		
+		setPos(x , y)
+		mess = mess + 1
+		ecritMessage(mess)	
+		
+	}
 }
