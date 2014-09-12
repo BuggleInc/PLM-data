@@ -1,2 +1,35 @@
 override def run() {
+	while(!estSurBiscuit){
+		while(!estFaceMur&&Wall){
+			avance
+		}
+		if (estFaceMur&&(!Wall)){
+		gauche
+		avance
+		}
+		else if(estFaceMur&&Wall){
+			if(!estSurBiscuit){
+					droite	
+			}
+
+		}
+		else{
+			gauche
+			avance
+		}
+	}
+	prendBiscuit
+}
+
+def Wall():Boolean={
+	gauche
+	if(estFaceMur){
+		droite 
+		return true
+	}
+	else{
+		droite
+		return false
+	}
+	return false
 }
