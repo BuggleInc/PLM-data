@@ -16,7 +16,7 @@ def expandPath(x:Int,y:Int,i:Int) {
 		setIndication(x,y+1,i+1)
 		expandPath(x,y+1,i+1)
 	}
-	if ((!aMurSud(x,y)) && (getIndication(x,y-1)==9999)) {
+	if ((!aMurNord(x,y-1)) && (getIndication(x,y-1)==9999)) {
 		setIndication(x,y-1,i+1)
 		expandPath(x,y-1,i+1)
 	}
@@ -24,7 +24,7 @@ def expandPath(x:Int,y:Int,i:Int) {
 		setIndication(x-1,y,i+1)
 		expandPath(x-1,y,i+1)
 	}
-	if ((!aMurEst(x,y)) && (getIndication(x+1,y)==9999)) {
+	if ((!aMurOuest(x-1,y)) && (getIndication(x+1,y)==9999)) {
 		setIndication(x+1,y,i+1)
 		expandPath(x+1,y,i+1)
 	}
