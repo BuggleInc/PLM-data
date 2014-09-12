@@ -1,10 +1,11 @@
 override def run() {
-  compteur();// Your code here
+  var i:Int = 0;
+  Biscuit();
+  ecrit();// Your code here
 }
-def compteur():(Int, Int) = {
+def Biscuit():(Int, Int) = {
 	var x:Int = 0;
 	var y:Int = 0;
-	var i:Int = 0;
 	while(!aBiscuit(x, y) {
 		if (x < getMondeLargeur() -1) {
 			x = x+1;
@@ -14,11 +15,41 @@ def compteur():(Int, Int) = {
 			x = 0;
 		}
 	}
-	ecrit(x, y, i);
 }
 def ecrit (x:Int, y:Int, i:Int) = {
-	if (getIndication(x,y) != 9999) {
-		setIndication(x,y,i)
+	var j:Int = 0;
+	setIndication(x,y,i);
+	if ((y > 0	|| !aMurNord(x,y))
+	&& getIndication(x,y-1) == 9999) {
+		j = j + 1;
 	}
-	
+	if ((y < getMondeHauteur() - 1 || !aMurNord(x,y+1))
+	&& getIndication(x,y+1) == 9999) {
+		j = j + 100;
+	}
+	if ((x < getMondeLargeur() - 1 || !aMurOuest(x,y))
+	&& getIndication(x-1,y) == 9999) {
+		j = j + 1000;
+	}
+		if ((x > 0 || !aMurOuest(x+1,y))
+	&& getIndication(x+1,y) == 9999) {
+		j = j + 10;
+	}
+	j match {
+		case 1 => ecrit(x, y-1, i+1);
+		case 10 => ecrit(x+1, y, i+1);
+		case 11 => ecrit(x + 1, y, i+1); ecrit(x, y-, i+1);
+		case 100 => ecrit(x, y+1, i+1);
+		case 101 => ecrit(x, y+1, i+1); ecrit(x, y-1, i+1);
+		case 110 => ecrit(x, y+1, i+1); ecrit(x+1, y, i+1);
+		case 111 => ecrit(x, y+1, i+1); ecrit(x, y-1, i+1); ecrit(x+1, y, i+1);
+		case 1000 => ecrit(x-1, y, i+1);
+		case 1001 => ecrit(x-1, y, i+1); ecrit(x, y-1, i+1);
+		case 1010 => ecrit(x-1, y, i+1); ecrit(x+1, y, i+1);
+		case 1011 => ecrit(x-1, y, i+1); ecrit(x, y-1, i+1); ecrit(x+1, y, i+1);
+		case 1100 => ecrit(x-1, y, i+1); ecrit(x, y+1, i+1);
+		case 1110 => ecrit(x-1, y, i+1); ecrit(x, y+1, i+1); ecrit(x+1, y, i+1);
+		case 1111 => ecrit(x-1, y, i+1); ecrit(x+1, y, i+1); ecrit(x, y-1, i+1); ecrit(x, y+1, i+1);
+		case _
+	}
 }
