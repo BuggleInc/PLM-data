@@ -11,6 +11,10 @@ override def run() {
 	for(i<-0 to 100){
 	scan(i)	
 	}
+	while(!estSurBiscuit){
+		deplacement
+	}
+	prendBiscuit
 	
 	}
 
@@ -86,6 +90,19 @@ def scan(valeur:Int){
 			if(testvaleur(i,j,valeur)&&caseLibre(i,j)){
 				ecrire(i,j)
 			}
+		}
+	}
+}
+
+def deplacement(){
+	if(!estFaceMur){
+		avance
+		if(getIndication(getX,getY)<distance){
+			distance=getIndication(getX,getY)
+		}
+		else{
+			recule
+			droite
 		}
 	}
 }
