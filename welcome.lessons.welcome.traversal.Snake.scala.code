@@ -13,15 +13,15 @@ override def run() {
 	}
 
 	def travel(){
+		while(!fonctionTest()){
 		baisseBrosse()
 		while(!estFaceMur()){avance()}
-		if(!fonctionTest()){
 		var d = getDirection()
 		d match{
 			case d if (d==Direction.EAST) => gauche(); avance(); gauche()
 			case d if (d==Direction.WEST) => droite(); avance(); droite()
 			case _ => avance()
 		}
-		}
+			}
 	}
 }
