@@ -1,3 +1,49 @@
 var diag = 0;
 override def run() {
+
+
+
+var steps:Int = 0;
+
+
+	while(!estArrive())
+	{
+		if(!estFaceMur())
+		{
+			marqueSol(steps);
+			setPos(getX() + 1, getY() - 1);
+			steps = steps + 1;
+		}
+		else
+		{
+			setPos(getY() + 1, getX() + 1);
+		}
+		
+		
+
+	
+	}
+	
+		
+
+def estArrive() : Boolean = {
+
+	var result = false;
+
+	if(getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur() - 1)
+	{
+		result = true;
+	}
+
+		return result;
+
+	
 }
+
+
+
+
+
+
+}
+
