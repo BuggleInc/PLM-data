@@ -1,19 +1,14 @@
 def alarmClock(day:Int, vacation:Boolean): String = {
-	while( in16(day)){
-		if (vacation){
-			return "10:00" ;
-		}else{
-			return "7:00"
-		}
+	if (!vacation && in16(day)){
+		return "7:00";
 	}
-
-
-	while( !in16(day)){
-		if (vacation){
-			return "OFF" ;
-		}else{
-			return "10:00"
-		}
+	if (vacation && in16(day)){
+		return "10:00";
+	}
+	if (!vacation && in16(day)!){
+		return "10:00";
+	}else{
+		return "OFF"
 	}
 }
 
