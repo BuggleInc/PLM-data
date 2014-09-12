@@ -2,7 +2,10 @@ override def run() {
 var etat=0;
 etat match  {
   case 0 => // courir au nord
-     	droite();gauche();droite()
+if (getDirection()=Direction.NORTH) {
+	avance()
+	droite()
+}
      etat = 1;
   case 1 => do {
 	gauche
