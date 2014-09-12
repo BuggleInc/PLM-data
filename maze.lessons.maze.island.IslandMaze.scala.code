@@ -1,24 +1,12 @@
 override def run() {
 
-var y = getY()
+droite()
 
-while (y != 0)
-	{while (!estFaceMur) {avance()}
-		 {droite();
-		if (!estFaceMur) {avance(); gauche()}
-		else {gauche(); gauche(); avance(); droite()}
-		}
-	}
+for (i <- 1 to 5)
+	if (!estFaceMur)
+		{avance()}
+
+gauche(); avance(); droite(); avance(2); droite(); avance(); gauche(); avance(); prendBiscuit();
 
 
-def keepHandOnSide():Boolean=
-	{var flag = false
-	gauche();
-	if (estFaceMur) {flag = true}
-	else {flag = false}
-	return flag}
-
-while (!estSurBiscuit)
-	if (!keepHandOnSide) {gauche(); avance();}
-	else {gauche();}
-	}
+}
