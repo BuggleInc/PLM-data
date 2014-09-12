@@ -16,9 +16,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 {
    	var pos = 0
 	
-	while(colors(pos)!=getCouleurSol())
-		pos = pos+1
-	
 	rule(state)(pos)(1) match
 	{
 		case STOPP => MVT_SUIVANT = STOPP
@@ -28,9 +25,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 		case DROITE => droite(); avance(); MVT_SUIVANT = DROITE
 	}
 	
-	if(pos!=colors.length-1)
-		brosse(colors(pos+1))
-	else brosse(colors(0))
-
-	state = state +1
+	pos = rule(state)(pos)(0)
+	state = rule(state)(pos)(2)
 }
