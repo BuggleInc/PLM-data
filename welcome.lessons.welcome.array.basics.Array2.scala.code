@@ -11,8 +11,11 @@ def remplirTableau() {
 }
 
 def faireColonne() {
+
+val decalage = litMessage().toInt
+	
 	for ( i <- 0 to getMondeHauteur - 1) {
-		setCouleurBrosse(tab((i + litMessage().toInt) % getMondeHauteur()) )
+		setCouleurBrosse(tab((i + decalage) % getMondeHauteur()) )
 		baisseBrosse()
 		leveBrosse()
 		avance()
