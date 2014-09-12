@@ -1,7 +1,19 @@
 def step() {
 
 	def setCouleurSol(c:java.awt.Color) = {
-		setColorBrosse
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
+	}
+
+	if (getCouleurSol()==Color.white) {
+		setCouleurSol(Color.black)
+		droite()
+		avance()
+	} else {
+		setCouleurSol(Color.white)
+		gauche()
+		avance()
 	}
 
 }
