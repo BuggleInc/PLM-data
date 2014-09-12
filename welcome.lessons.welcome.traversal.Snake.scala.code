@@ -1,2 +1,17 @@
 override def run() {
+baisseBrosse();
+do{
+	serpent()
+}while(!estPositionFinale)
+}
+def serpent(){
+	if( estFaceMur() && getDirection() == Direction.EST){
+		gauche();avance();gauche();
+	}
+	if( estFaceMur() && getDirection() == Direction.OUEST){
+		droite();avance();droite();
+	}
+	do{
+		avance()
+	}while(!estFaceMur());
 }
