@@ -1,0 +1,27 @@
+override def run() {
+	def fonctionTest():Boolean = {
+		if (estFacemur()){
+			var d = getDirection()
+			d match{
+				case EAST <= gauche(); if (estFaceMur){droite(); return true}
+				 					else{false}
+				case WEST <= droite(); if (estFaceMur){gauche(); return true}
+				 					else{false}
+				case _ <= return false
+			}
+		}
+	}
+
+	def travel(){
+		while(!estFaceMur){avance()}
+		if(!fonctionTest()){
+		var d = getDirection()
+		d match{
+			case EAST <= gauche(); avance(); gauche()
+			case WEST <= droite(); avance(); droite()
+			case _ <= avance()
+		}
+	}
+	}
+	travel()
+}
