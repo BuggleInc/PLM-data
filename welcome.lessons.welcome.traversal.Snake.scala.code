@@ -1,5 +1,5 @@
 override def run() {
-	def murNord()=[Boolean] {
+	def murNord() {
 		if (getDirection() == Direction.EST) {
 			gauche();
 			if (estFaceMur()) {
@@ -24,10 +24,8 @@ override def run() {
 		}
 	}
 	def posFinale() {
-		if (estFaceMur()) {
-			if (murNord()) {
+		if (estFaceMur() && !murNord()) {
 			return true;
-			}
 		}
 		else return false;
 	}
