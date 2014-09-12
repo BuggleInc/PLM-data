@@ -3,18 +3,23 @@ override def run() {
 	var c=0; //compteur
 	var wl=0;
 	var wh=0;
+	var V=false; // pour la boucle
 	wl=getMondeLargeur();
 	wh=getMondeHauteur();
 	ecritMessage(c);
 	while (!(getX()==wl-1 && getY()==wh-1)) {
-		diag +=1;
-		setPos(0, diag);
-		c +=1;
-		ecritMessage(c);
-		for (i <- 0 to diag) {
-			setPos(getX()+1, getY()-1);
+		V=false;
+		while (!V) {	
+			diag +=1;
+			setPos(0, diag);
 			c +=1;
 			ecritMessage(c);
-		}
+			for (i <- 0 to diag) {
+				setPos(getX()+1, getY()-1);
+				c +=1;
+				ecritMessage(c);
+			}
+			V=true;
+		}	
 	}
 }
