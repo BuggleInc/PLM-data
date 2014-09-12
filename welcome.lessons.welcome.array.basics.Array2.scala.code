@@ -14,11 +14,11 @@ def faireColonne() {
 
 val decalage = litMessage().toInt
 
-		setCouleurBrosse(tab((decalage) % (getMondeHauteur())))
+		setCouleurBrosse(tab((1 + decalage) % (getMondeHauteur())))
 		baisseBrosse()
 		leveBrosse()
 		avance()
-	for ( i <- 1 to getMondeHauteur - 1) {
+	for ( i <- 2 to getMondeHauteur - 1) {
 		setCouleurBrosse(tab((i + decalage) % (getMondeHauteur())) )
 		baisseBrosse()
 		leveBrosse()
