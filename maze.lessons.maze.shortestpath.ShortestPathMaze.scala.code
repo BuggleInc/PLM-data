@@ -26,25 +26,25 @@ override def run() {
 
 def marquage(x:Int, y:Int, dist:Int)
 {
-	if (!aMurOuest(x, y) && getIndication(x - 1, y) != 9999 && dist < getIndication(x-1, y))
+	if (!aMurOuest(x, y) && dist < getIndication(x-1, y))
 	{
 		setIndication(x - 1, y, dist);
 		marquage(x-1, y, dist+1);
 	}
 
-	if (!aMurNord(x, y) && getIndication(x, y - 1) != 9999 && dist < getIndication(x, y - 1))
+	if (!aMurNord(x, y) && dist < getIndication(x, y - 1))
 	{
 		setIndication(x, y - 1, dist);
 		marquage(x, y - 1, dist + 1);
 	}
 
-	if (x + 1 < getMondeLargeur() && !aMurOuest(x + 1, y) && getIndication(x + 1, y) != 9999 && dist < getIndication(x + 1, y))
+	if (x + 1 < getMondeLargeur() && !aMurOuest(x + 1, y) && dist < getIndication(x + 1, y))
 	{
 		setIndication(x + 1, y, dist);
 		marquage(x + 1, y, dist + 1);
 	}
 
-	if (y + 1 < getMondeHauteur() && !aMurNord(x,y + 1) && getIndication(x, y + 1) != 9999 && dist < getIndication(x, y + 1))
+	if (y + 1 < getMondeHauteur() && !aMurNord(x,y + 1) && dist < getIndication(x, y + 1))
 	{
 		setIndication(x, y + 1, dist);
 		marquage(x, y + 1, dist + 1);
