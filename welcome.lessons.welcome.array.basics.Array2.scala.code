@@ -4,11 +4,12 @@ var tab = new Array[Color] (getMondeHauteur())
 
 def remplirTableau() {
 	for (i <- 0 to getMondeHauteur() - 1) {
-		while (!estFaceMur) {
+		if (!estFaceMur) {
 			tab(i) = getCouleurSol()
 			avance()
-		}
+		} else {
 		tab(i) = getCouleurSol()	
+		}
 	}
 }
 
