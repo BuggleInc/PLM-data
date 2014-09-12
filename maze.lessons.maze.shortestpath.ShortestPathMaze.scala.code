@@ -6,6 +6,7 @@ var BiscuitY=0
 override def run() {
 	chercherBiscuit
 	setIndication(BiscuitX,BiscuitY,0)
+	ecrire(BiscuitX,BiscuitY)
 }
 
 def chercherBiscuit(){
@@ -19,3 +20,26 @@ def chercherBiscuit(){
 	}
 }
 
+def aMurSud(x:Int,y:Int):Boolean={
+	if (y+1>=getMondeHauteur-1){
+		return true
+	}
+	else{
+		return aMurNord(x,y+1)
+	}
+}
+
+def aMurEst(x:Int,y:Int):Boolean={
+	if (x+1>=getMondeLargeur-1){
+		return true
+	}
+	else{
+		return aMurOuest(x+1,y)
+	}
+}
+
+def ecrire(x:Int,y:Int){
+	if(!(aMurSud(x,y))&&(getIndication(x,y+1)==9999)){
+		setIndication(x,y+1,getIndication(x,y)+1)	
+	}
+}
