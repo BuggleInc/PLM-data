@@ -1,4 +1,46 @@
 override def run() {
 
+	while (!estSurBiscuit())
+	{
+		while (!estFaceMur() && !estSurBiscuit())
+			avance();
 
+		droite();
+		esquive();
+	}
+
+	prendBiscuit();
+}
+
+def esquive() 
+{
+	var sommeAngle:Int = 0;
+	
+	do
+	{
+		gauche();
+		sommeAngle = sommeAngle + 1;
+		if (estFaceMur)
+		{
+			droite();
+			sommeAngle = sommeAngle - 1;
+			if (estFaceMur)
+			{
+				droite();
+				sommeAngle = sommeAngle - 1;
+				if (estFaceMur)
+				{
+					droite();
+					sommeAngle = sommeAngle - 1;
+					avance();
+				}
+				else avance();
+			}
+			else avance();
+		}
+		else 
+		{
+			avance();
+		}
+	} while (!estSurBiscuit() && sommeAngle != 0)
 }
