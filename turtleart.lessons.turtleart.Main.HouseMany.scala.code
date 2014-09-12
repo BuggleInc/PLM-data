@@ -1,9 +1,12 @@
 val TM = 0;
-val posInitX = setX(0);
-val posInitY = setY(0);
 
 override def run() 
 {
+	def retour()
+	{
+		gauche(90); avance(150); droite(); avance(75)
+	}
+	
 	def maison()
 	{
 		baisseCrayon()
@@ -29,7 +32,7 @@ override def run()
 		droite(90); avance(TM); avance(20); gauche(90)
 	}
 	
-	allerVers(posInitX, posInitY-75)
+	retour()
 
 	for(j <- 1 to 2)
 	{
@@ -37,7 +40,7 @@ override def run()
 		droite(90); avance(150); gauche(90)
 	}
 
-	allerVers(posInitX, posInitY-150)
+	retour()
 
 	for(j <- 1 to 4)
 	{
@@ -45,6 +48,6 @@ override def run()
 		droite(90); avance(TM); avance(20); gauche(90)
 	}
 	
-	allerVers(posInitX, posInitY-225)
+	retour()
 
 }
