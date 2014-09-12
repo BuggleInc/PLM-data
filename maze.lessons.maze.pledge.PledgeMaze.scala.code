@@ -41,7 +41,7 @@ def WallD():Boolean={
 	return false
 }
 
-def suivre(){
+def suivre2(){
 	while(virage!=0&&(!estSurBiscuit)){
 		if(estFaceMur){
 			if(!WallD){
@@ -59,3 +59,28 @@ def suivre(){
 
 	}
 }
+
+
+def suivre(){
+	while(!estSurBiscuit&&virage!=0){
+		while(!estFaceMur&&WallG){
+			avance
+		}
+		if (estFaceMur&&(!WallG)){
+		gauche
+		avance
+		virage=virage-1
+		}
+		else if(estFaceMur&&WallG){
+			if(!estSurBiscuit){
+					droite
+					virage=virage+1	
+			}
+
+		}
+		else{
+			gauche
+			virage=virage-1
+			avance
+		}
+	}
