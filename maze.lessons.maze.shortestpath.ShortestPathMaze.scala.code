@@ -35,19 +35,19 @@ def ecrit (x:Int, y:Int, i:Int) {
 	var j:Int = 0;
 	setIndication(x,y,i);
 	if ((y > 0 && !aMurNord(x,y))
-	&& getIndication(x,y-1) == 9999) {
+	&& getIndication(x,y-1) > i+1) {
 		j = j + 1;
 	}
 	if ((y < getMondeHauteur() - 1 && !aMurNord(x,y+1))
-	&& getIndication(x,y+1) == 9999) {
+	&& getIndication(x,y+1) >i+1) {
 		j = j + 100;
 	}
 	if ((x > 0 && !aMurOuest(x,y))
-	&& getIndication(x-1,y) == 9999) {
+	&& getIndication(x-1,y) > i+1) {
 		j = j + 1000;
 	}
 		if ((x < getMondeLargeur()-1 && !aMurOuest(x+1,y))
-	&& getIndication(x+1,y) == 9999) {
+	&& getIndication(x+1,y) > i+1) {
 		j = j + 10;
 	}
 	j match {
