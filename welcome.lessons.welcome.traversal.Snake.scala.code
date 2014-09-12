@@ -1,6 +1,8 @@
 override def run() {
+	var EST=false;
+	var OUEST=false;
 	def murNord():Boolean = {
-		if (getDirection()==Direction.OUEST) {
+		if (OUEST) {
 			droite();
 			if (estFaceMur()) {
 				gauche();
@@ -11,7 +13,7 @@ override def run() {
 				return false;
 			}
 		}
-		if (getDirection()==Direction.EST) {
+		if (EST) {
 			gauche();
 			if (estFaceMur()) {
 				droite();
@@ -33,12 +35,12 @@ override def run() {
 		if (!estFaceMur) {
 			avance();
 		}
-		else if (getDirection() == Direction.EST) {
+		else if (EST) {
 			gauche();
 			avance();
 			gauche();
 		}
-		else if (getDirection() == Direction.OUEST) {
+		else if (OUEST) {
 			droite();
 			avance();
 			droite();
@@ -47,6 +49,14 @@ override def run() {
 	
 	baisseBrosse();
 	do {
-		pasSerpent();
+		if (getDirection()==Direction.OUEST) {
+			EST=false;
+			OUEST=true;
+		}
+		else {
+			OUEST=false;
+			EST=true;
+		}
+	pasSerpent();
 	} while (!posFinale())
 }
