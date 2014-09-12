@@ -4,14 +4,14 @@ var tab = new Array[Color] (getMondeHauteur())
 
 def remplirTableau() {
 	for (i <- 0 to getMondeHauteur() - 1) {
-		tab(i) = getCouleurSol()
+		tab(i) = getCouleurSol(i)
 		avance()
 	}
 }
 
 def faireColonne() {
 	for (i <- 0 to getMondeHauteur() - 1) {
-		setBrosseCouleur(tab(i))
+		setCouleurBrosse(tab(i))
 		baisseBrosse()
 		leveBrosse()
 		avance()
