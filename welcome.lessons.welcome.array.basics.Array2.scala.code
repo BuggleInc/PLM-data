@@ -17,10 +17,17 @@ recule(5);
 		val b = litMessage().toInt
 		
 		for ( k <- 0 to z-1){
-			setCouleurBrosse(table(k+b));
-			baisseBrosse();
-			leveBrosse();
-			avance();
+			if (k+b <= z-1){
+				setCouleurBrosse(table(k+b));
+				baisseBrosse();
+				leveBrosse();
+				avance();
+		}else{
+			setCouleurBrosse(table((z-1)-(k+b)));
+				baisseBrosse();
+				leveBrosse();
+				avance();
+		}
 		}
 	recule(5);
 	}	
