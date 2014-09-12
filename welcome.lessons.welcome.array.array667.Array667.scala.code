@@ -2,13 +2,13 @@ def array667(nums:Array[Int]): Int = {
 	var taille: Int = nums.length;
 	var next: Int = 0;
 	var n: Int = 0;
-	var trouve: Boolean = false;
+	var trouve: Int = 0;
 	for(n <- 0 to taille - 1){
 		if(nums(n) == 6 && next == 0){
 			next = 1;
 		}
 		else if((nums(n) == 6 | nums(n) == 7) && next == 1){
-			trouve = true;
+			trouve = trouve + 1;
 		}
 		else{
 			next = 0;
