@@ -56,25 +56,27 @@ def furtherPath() {
 	var i:Int=0
 	var j:Int=0
 	var sol=getIndication(x,y)
-	for (d<- 1 to 4) {
-		x=getX
-		y=getY
-		i=0
-		j=0
-		sol=getIndication(x,y)
-		getDirection() match {
-			case Direction.NORD => i=1;j=0
-			case Direction.SUD => i=1;j=2
-			case Direction.EST=> i=2;j=1
-			case Direction.OUEST => i=0;j=1		}
-		if (!estFaceMur) {
-			if (getIndication(x-1+i,y-1+j)<sol) {
-				avance()
+	if (!estSurBiscuit) {
+		for (d<- 1 to 4) {
+			x=getX
+			y=getY
+			i=0
+			j=0
+			sol=getIndication(x,y)
+			getDirection() match {
+				case Direction.NORD => i=1;j=0
+				case Direction.SUD => i=1;j=2
+				case Direction.EST=> i=2;j=1
+				case Direction.OUEST => i=0;j=1		}
+			if (!estFaceMur) {
+				if (getIndication(x-1+i,y-1+j)<sol) {
+					avance()
+				} else {
+					gauche()
+				}
 			} else {
 				gauche()
 			}
-		} else {
-			gauche()
 		}
 	}
 }
