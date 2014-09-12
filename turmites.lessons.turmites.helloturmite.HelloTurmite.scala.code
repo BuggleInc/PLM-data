@@ -1,5 +1,6 @@
 var state = 0;
 var MVT_SUIVANT = 0;
+var pos = 0;
 
 val STOPP = 0;
 val RIEN = 1;
@@ -14,8 +15,6 @@ def brosse(couleur:Color)
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) 
 {
-   	var pos = 0
-	
 	rule(state)(pos)(1) match
 	{
 		case STOPP => MVT_SUIVANT = STOPP
