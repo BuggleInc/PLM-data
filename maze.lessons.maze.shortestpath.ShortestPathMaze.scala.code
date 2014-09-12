@@ -2,6 +2,7 @@ var BiscuitX=0
 var BiscuitY=0
 var posX=0
 var posY=0
+var distance = 0
 
 
 override def run() {
@@ -10,19 +11,20 @@ override def run() {
 	posX=BiscuitX
 	posY=BiscuitY
 	for(i<-0 to 10){
-		ecrire(posX,posY)
-		if(!aMurSud(posX,posY)){
+		if(!aMurSud(posX,posY)&&(getIndication(x,y+1)==9999)){
 			posY=posY+1
 		}
-		else if(!aMurNord(posX,posY)){
+		else if(!aMurNord(posX,posY)&&){
 			posY=posY-1
 		}
-		else if(!aMurEst(posX,posY)){
+		else if(!aMurEst(posX,posY)&&){
 			posX=posX+1
 		}
-		else if(!aMurOuest(posX,posY)){
+		else if(!aMurOuest(posX,posY)&&){
 			posX=posX-1
 		}
+		distance=distance+1
+		setIndication(posX,posY,distance)
 			
 	}
 
@@ -71,3 +73,5 @@ def ecrire(x:Int,y:Int){
 		setIndication(x-1,y,getIndication(x,y)+1)	
 	}
 }
+
+
