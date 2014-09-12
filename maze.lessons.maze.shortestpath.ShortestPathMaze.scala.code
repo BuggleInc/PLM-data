@@ -14,8 +14,6 @@ override def run() {
 	while (!estSurBiscuit) {
 		furtherPath()
 	}
-	prendBiscuit()
-	droite()
 }
 def expandPath(x:Int,y:Int) {
 	var i = getIndication(x,y)
@@ -78,6 +76,9 @@ def furtherPath() {
 		} else {
 			gauche()
 		}
-	}	
+	}
+	if (estSurBiscuit) {
+		prendBiscuit()
+	}
 }
 	
