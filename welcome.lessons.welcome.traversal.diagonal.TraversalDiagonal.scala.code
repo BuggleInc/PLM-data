@@ -1,5 +1,11 @@
 var diag = 0;
 var cpt = 0;
+def positionFinale():Boolean = {
+		if ((getX() == getMondeLargeur-1) && (getY() == getMondeHauteur-1)){
+			return true
+		}
+		return false
+	}
 override def run() {
 	for (i <- 1 to 6){
 		for (i <- 1 to diag){
@@ -21,7 +27,9 @@ override def run() {
 		}
 		ecritMessage(cpt)
 		cpt=cpt+1
-		setPos(getX()-diag+1, getY()+diag)
+		if (!positionFinale){
+			setPos(getX()-diag+1, getY()+diag)
+		}
 		diag=diag-1
 	}
 }
