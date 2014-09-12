@@ -1,26 +1,26 @@
-def hunt(c:Color) { 
+def hunt(c:Color) { //Suivre la piste jusqu'au biscuit 
 	while (!estSurBiscuit) {
    		leveBrosse()
-    		if (isFacingTrail(c) == true) {
-	    		avance()
-	    		baisseBrosse()
-	    		
-	    	}else{
-    			gauche()}
-    	
+	    	if (isFacingTrail(c) == true) {
+		    		avance()
+		    		baisseBrosse()
+		    		
+		}else{
+	    			gauche()
+		}
     	}
     	prendBiscuit()
 }
 
-def isFacingTrail(cc:Color):Boolean = {      
-	var couleur :Boolean = false
+def isFacingTrail(cc:Color):Boolean = {     //Donne la couleur du sol a suivre
+	var verificateur :Boolean = false
    	if (!estFaceMur()) {
 		avance()
 		if(getCouleurSol() == cc){
-			couleur = true
+			verificateur = true
 		}
 			recule()
    	}
-	return couleur	
+	return verificateur
 }
 
