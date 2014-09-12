@@ -32,11 +32,11 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
 	
 	T(1) match
 	{
-		case STOPP => rule(state)(pos)(2) = STOPP
-		case RIEN => avance(); rule(state)(pos)(2) = RIEN
-		case GAUCHE => gauche(); avance(); rule(state)(pos)(2) = GAUCHE
-		case DEMITOUR => gauche(); gauche(); rule(state)(pos)(2) = DEMITOUR
-		case DROITE => droite(); avance(); rule(state)(pos)(2) = DROITE
+		case STOPP => rule(state)(pos)(1) = STOPP
+		case RIEN => avance(); rule(state)(pos)(1) = RIEN
+		case GAUCHE => gauche(); avance(); rule(state)(pos)(1) = GAUCHE
+		case DEMITOUR => gauche(); gauche(); rule(state)(pos)(1) = DEMITOUR
+		case DROITE => droite(); avance(); rule(state)(pos)(1) = DROITE
 	}
 	
 	
