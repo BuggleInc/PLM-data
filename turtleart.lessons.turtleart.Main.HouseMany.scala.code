@@ -1,12 +1,6 @@
 override def run() {
 	faireLigne()
-	} // Fin ligne maisons
-	leveCrayon()
-	droite(90)
-	recule(200)
-	gauche(90)
-	avance(75)
-	baisseCrayon() //Monte d'une ligne
+	monterLigne()
 	
 	avance(30)
 	droite(30)
@@ -35,36 +29,10 @@ override def run() {
 		avance(30)
 		droite(90)
 	}
-	leveCrayon()
-	droite(90)
-	recule(200)
-	gauche(90)
-	avance(75)
-	baisseCrayon()
-	for (c<-1 to 4) {
-		avance(30)
-		droite(30)
-		for(i<-1 to 3) {
-			avance(30)
-			droite(120)
-		}
-		droite(60)
-		for(i<-1 to 3) {
-			avance(30)
-			droite(90)
-		}
-		leveCrayon()
-		droite(90)
-		avance(50)
-		gauche(90)
-		baisseCrayon()
-	}
-	leveCrayon()
-	droite(90)
-	recule(200)
-	gauche(90)
-	avance(75)
-	baisseCrayon()
+	
+	monterLigne()
+	faireLigne()
+	monterLigne()
 }
 
 def faireLigne() {
@@ -86,4 +54,13 @@ def faireLigne() {
 		gauche(90)
 		baisseCrayon()
 	}
+}
+
+def monterLigne() {
+	leveCrayon()
+	droite(90)
+	recule(200)
+	gauche(90)
+	avance(75)
+	baisseCrayon()
 }
