@@ -1,0 +1,39 @@
+def growFlowers() {
+    rectangleFleur();
+    droite(); avance(); droite(); avance(8); gauche(); avance(3); gauche();
+    rectangleFleur();
+}
+def carreFleur() {
+    coeur(); petale(Color.RED);
+    avance(3);
+    coeur(); petale(Color.CYAN);
+    droite();
+    avance(3);
+    coeur(); petale(Color.GREEN);
+    recule(2);
+    droite();
+    avance();
+    coeur(); petale(Color.ORANGE);
+    avance(3); gauche(); avance(2); gauche();
+    coeur(); petale(Color.PINK);
+    recule();
+}
+def rectangleFleur() {
+    carreFleur();
+    avance(6); gauche(); avance(2); droite();
+    coeur();
+    petale(Color.BLUE);
+    avance(); gauche(); avance(2); droite();
+    carreFleur();
+}
+def dessiner() {
+    baisseBrosse();
+    leveBrosse();
+}
+def coeur(){
+    setCouleurBrosse(Color.YELLOW); avance(); dessiner();
+}
+def petale(c:Color) {
+    setCouleurBrosse(c); avance(); dessiner(); recule(); recule(); dessiner();
+    avance(); gauche(); avance(); dessiner(); recule(); recule(); dessiner(); avance(); droite();
+}
