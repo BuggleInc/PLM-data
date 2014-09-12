@@ -17,7 +17,9 @@ def keepHandOnSideWall(){
 
 }
 while(!estSurBiscuit){
-	keepHandOnSideWall();
+	if(getDirection()==Direction.NORTH && !estFaceMur){
+		avance();
+	}else keepHandOnSideWall();
 }
 prendBiscuit();
 if(!estFaceMur){
