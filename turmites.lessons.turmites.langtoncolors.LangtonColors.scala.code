@@ -1,39 +1,35 @@
 def step(rule:Array[Char], colors:Array[Color]) {
 
+	def trouver(c:Color): Int = {
+		var compteur = 0
+		var trouve = false
+		do {
+			if (c == colors(compteur)) {
+				trouve = true
+			} else {
+				compteur = compteur + 1
+			}
+		} while (trouve == false)
+		compteur
+	}
 
+	def utiliser() {
+		val place = trouver(getCouleurSol())
+		rule(place) match {
+			case 'R' => droite() 
+			case 'L' => gauche() 
+		}
+		if (place+1 >= rule.length) {
+			setCouleurBrosse(colors(0))
+			baisseBrosse()
+			leveBrosse()
+		} else {
+			setCouleurBrosse(colors(place+1))
+			baisseBrosse()
+			leveBrosse()
+		}
+		avance()
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Métamorphoser votre buggle en une fourmi de Langton générique n'est pas très compliqué, même si ce n'est pas complètement trivial. Comme précédemment, vous avez à écrire une fonction step. Mais cette fois, elle reçoit deux tableaux comme paramètres. Le premier définit les règles à suivre selon la couleur du sol tandis que le deuxième done la séquence de couleur à utiliser. Par exemple, la fourmi de base aurait Array('R', 'L') et Array(Color.white, Color.black) comme arguments.
-A chaque pas, vous avez toujours à appliquer le pseudo-code suivant :
-Trouver la position de la couleur du sol dans la séquence de couleur;
-Tourner à gauche ou à droite selon le contenu du tableau de règle à cette position;
-Marquer le sol de la case courante avec la prochaine couleur dans la séquence ( la dernière couleur est suivie par la première);
-Avancer d'un pas
-
-
-
-
+	utiliser()
 }
