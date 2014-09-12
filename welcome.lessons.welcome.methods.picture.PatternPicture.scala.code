@@ -3,7 +3,7 @@ override def run() {
 		baisseBrosse()
 		leveBrosse()
 	}
-	def slash(c:Color) {
+	def slash(c:Color, v:Color) {
 		setCouleurBrosse(c)
 		mark()
 		gauche()
@@ -16,11 +16,22 @@ override def run() {
 		gauche()
 		avance()
 		avance()
+		setCouleurBrosse(v)
+		mark()
+		avance()
+		gauche()
+		avance()
+		mark()
+		gauche()
+		avance()
+		gauche()
+		avance()
+		recule()
+		recule()
 	}
 	def carre() {
 		avance()
-		slash(Color.red)
-		slash(Color.blue)
+		slash(c==Color.red, v==Color.blue)
 		for (i <- 1 to 4) {
 			recule()
 		}
@@ -29,7 +40,6 @@ override def run() {
 		avance()
 		droite()
 		slash(Color.yellow)
-		slash(Color.green)
 		}
 	carre()
 }
