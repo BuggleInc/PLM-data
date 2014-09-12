@@ -1,10 +1,10 @@
 override def run() {
 def keepHandOnSideWall(){
 	gauche();
-	if(estFaceMur){
+	if(estFaceMur && getDirection()==Direction.NORTH){
+		droite();avance();
+	}else{ if(estFaceMur){
 		droite();
-	}else{ if(getDirection()==Direction.NORTH){
-		avance();
 		}else{avance();gauche();
 		  if(estFaceMur){
 		  	droite();
