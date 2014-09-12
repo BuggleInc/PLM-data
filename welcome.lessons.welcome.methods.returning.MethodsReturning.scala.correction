@@ -1,22 +1,20 @@
 $package 
 
-import plm.core.model.Game;
+import com.sun.org.apache.xpath.internal.operations.Bool
+import plm.core.model.Game
 
 
-public class Program extends plm.universe.bugglequest.AbstractBuggle {
-	@Override
-	public void forward(int i)  { 
+class Program extends plm.universe.bugglequest.AbstractBuggle {
+	override def forward(i: Int)  { 
 		throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use forward with an argument in this exercise. Use a loop instead."));
 	}
 
-	@Override
-	public void backward(int i) {
+	override def backward(i: Int) {
 		throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use backward with an argument in this exercise. Use a loop instead."));
 	}
 
-	@Override
-	public void run() { 
-		for (int i=0; i<7; i++) {
+	override def run() { 
+		for (i <- 1 to 7) {
 			if (haveBaggle()) 
 				return;
 			right();
@@ -25,15 +23,15 @@ public class Program extends plm.universe.bugglequest.AbstractBuggle {
 		}
 	}
 	/* BEGIN TEMPLATE */
-	boolean haveBaggle() {
+	def haveBaggle():Boolean = {
 		/* BEGIN SOLUTION */
-		boolean res = false;
-		for (int i=0; i<6; i++) {
+		var res = false
+		for (i <- 1 to 6) {
 			if (isOverBaggle()) 
 				res = true;
 			forward();
 		}
-		for (int i=0; i<6; i++) 
+		for (i <- 1 to 6) 
 			backward();
 		return res;
 		/* END SOLUTION */
