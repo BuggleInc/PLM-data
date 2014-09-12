@@ -1,2 +1,42 @@
 override def run() {
+		var H = getMondeHauteur();
+		var L = getMondeLargeur();
+		var T = new Array[Color](H);
+		T.(0) = getCouleurSol(); 
+		for(i<- 1 to H-1){
+			avance()
+			T(i)= getCouleurSol();
+		} // remplit le tableau de base avec les couleurs correspondantes.
+def changeTableau(T:Array[Color],Ind:Int):Array[Color]={ // assigne les bonnes couleurs aux tableaux pour nouvelle colonne avec décalage correspondant.
+	var H = T.length;
+	var S = new Array[Color](H);
+	for(l<- (-Ind) to -1)){
+		S(H+l)=T(Ind+l)
+	}
+	for(k<- 0 to H-1-Ind){
+		S(k)=T(k+Ind);
+	}
+	return S
+}
+def colorSol(){
+	baisseBrosse();
+	leveBrosse();		
+}
+def changeColonne(){
+	gauche();
+	avance();
+	droite();
+}
+		for(p<- 1 to L-1){
+			changeColonne();
+			val dec = litMessage()toInt;
+			S = changeTableau(T,dec);
+				setCouleurBrosse(S(0))
+				colorSol();
+			for(d<- 1 to H-1){
+				avance();
+				setCouleurBrosse(S(d))
+				colorSol();
+			}// colore la colonne.
+		}
 }
