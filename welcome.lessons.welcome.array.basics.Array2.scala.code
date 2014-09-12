@@ -7,9 +7,15 @@ while(!estFaceMur()){
 	tab(i)= getCouleurSol()
 	avance()
 	i=i+1
-	
-                 }
+	                }
                     } 
+def retour() {
+	while(!estDosMur()){
+		recule()
+	}
+}
+
+
 def move(){
 	
 	gauche()
@@ -22,11 +28,12 @@ for(j <- 0 to n-1){
 setCouleurBrosse(tab(j ))
 baisseBrosse()
 leveBrosse()
+avance()	
+}
+}
 
-	avance()	
-}
-}
 creationtab()
+retour()
 /*for (o <- 1 to n-1){
 move()
 avance()
