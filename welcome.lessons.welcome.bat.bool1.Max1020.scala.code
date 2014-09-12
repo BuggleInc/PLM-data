@@ -1,13 +1,11 @@
 def max1020(a:Int, b:Int):Int = {
 	var c=0;
-	if (((a<=20) && (a>=10)) && ((b>20) && (b<10))) {
-		return a;
+	if (a<=20 && a>=10) {
+		if (b<=20 && b>=10) {
+			return Math.Max(a, b);
+		}
+		else return a;
 	}
-	else if ((a<10 && a>20) && (b>=10 && b<=20)) {
+	else if (b<=20 && b>=10) {
 		return b;
 	}
-	else if ((a>=10 && a<=20) && (b>=10 && b<=20)) {
-		c=Math.max(a, b);
-		return c;
-	}
-}
