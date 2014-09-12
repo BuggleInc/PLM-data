@@ -1,13 +1,17 @@
-LangtonsAnt:17: error: type mismatch;
+LangtonsAnt:18: error: type mismatch;
  found   : Unit
  required: java.awt.Color
 	var k : Color = PosCouleur(getCouleurSol(),colors) 
                                   ^LangtonsAnt:19: error: type mismatch;
- found   : String("R")
- required: Array[Char]
-		case "R"	=> setCouleurSol(k);droite();avance()
-                     ^LangtonsAnt:20: error: type mismatch;
- found   : String("L")
- required: Array[Char]
-		case "L" =>  setCouleurSol(k);gauche();avance()
-                     ^
+ found   : java.awt.Color
+ required: Int
+	rule(k) match{  
+             ^LangtonsAnt:20: error: type mismatch;
+ found   : java.awt.Color
+ required: Int
+		case "R"	=> setCouleurSol(colors(k));droite();avance()
+                                                        ^LangtonsAnt:21: error: type mismatch;
+ found   : java.awt.Color
+ required: Int
+		case "L" =>  setCouleurSol(colors(k));gauche();avance()
+                                                  ^
