@@ -1,5 +1,43 @@
-var cpt = 0;
+override def run() {
+
+
+def posfinale(): Boolean = {
+	var h = getMondeHauteur()-1;
+	var l = getMondeLargeur()-1;
+	if (getX() == l && getY() == h) {
+		return true;
+	} else {
+		return false;
+	}
+	 
+}
+
+
+def possuivante():Boolean = {
+	if (estDosMur()) {
+		return false; 
+	} else {
+		return true;
+	}
+}
+
+def deplace() = {
+	var cpt = 0;
 	var c = 0;
 	var l = 0;
 	ecritMessage(cpt);
-	gauche();
+	while (!(posfinale())) {
+		if (possuivante()) {
+			l=l+1;
+			setPos(c,l);
+		} else {
+			c = c+1;
+			l=0;
+			setPos(c,l);
+		}
+		(cpt = cpt + 1);
+		 ecritMessage(cpt);
+	}
+}
+deplace();
+}
