@@ -35,11 +35,15 @@ override def run() {
 		for(j <- 1 to hauteur ) {
 			if(!estFaceMur()) {
 				setPos(getX(), getY()+1);
+				ecritMessage(cpt);
+				cpt = cpt +1;
 			}
-			ecritMessage(cpt);
-			cpt = cpt +1;
+			else {
+				setPos(getX()+1, 0);
+			}
+			
 			
 		}
-		setPos(getX()+1, 0);
+		
 	}
 }
