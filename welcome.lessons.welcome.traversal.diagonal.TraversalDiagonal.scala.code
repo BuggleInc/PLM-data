@@ -9,17 +9,34 @@ override def run() {
 	ecritMessage(c);
 	while (!(getX()==wl-1 && getY()==wh-1)) {
 		V=false;
-		while (!V) {	
+		if (diag<4) {
+			while (!V) {	
+				diag +=1;
+				setPos(0, diag);
+				c +=1;
+				ecritMessage(c);
+				for (i <- 0 to diag-1) {
+					setPos(getX()+1, getY()-1);
+					c +=1;
+					ecritMessage(c);
+					}
+				V=true;
+				}
+		}
+		else if (diag>=4) {
+			V=false;
+			while (!V) {	
 			diag +=1;
 			setPos(0, diag);
 			c +=1;
 			ecritMessage(c);
-			for (i <- 0 to diag-1) {
+			for (i <- 0 to 7-diag) {
 				setPos(getX()+1, getY()-1);
 				c +=1;
 				ecritMessage(c);
 				}
 			V=true;
-			}	
+				}
+		}
 	}
 }
