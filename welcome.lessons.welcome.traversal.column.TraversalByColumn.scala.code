@@ -11,8 +11,14 @@ override def run() {
 
 	while (!finish()) {
 		if (!estFaceMur) {
-			setPos(getX(), getY()-1)
+			setPos(getX()-1, getY())
+		} else {
+			setPos(getX()+1, 0)
 		}
+		ecritMessage(cpt)
+		cpt = cpt + 1
 	}
+
+	ecritMessage(cpt)
 
 }
