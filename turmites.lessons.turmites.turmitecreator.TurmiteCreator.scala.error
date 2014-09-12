@@ -1,9 +1,29 @@
-L'exécution de votre programme a déclenché une exception java.lang.ArrayIndexOutOfBoundsException : 1
- Merci de corriger votre code.
-   at plm.runtime22.Turmite.step (plm.runtime22.Turmite:23)
-   at plm.runtime22.Turmite$$anonfun$run$2.apply$mcVI$sp (plm.runtime22.Turmite:142)
-   at scala.collection.immutable.Range.foreach$mVc$sp (Range.scala:141)
-   at plm.runtime22.Turmite.run (plm.runtime22.Turmite:141)
-   at plm.core.lang.JVMCompiledLang.runEntity (null:-1)
-   at plm.universe.World$1.run (null:-1)
-   at java.lang.Thread.run (null:-1)
+Turmite:-14: error: not found: value rule
+				setBrushColor(colors( rule(state)(currentColor)(NEXT_COLOR) ));
+                                                      ^Turmite:-10: error: not found: value rule
+				rule(state)(currentColor)(NEXT_MOVE) match {
+                                ^Turmite:-4: error: not found: value rule
+				case _      => System.out.println("Unknown turn command associated to i="+currentColor+": "+rule(state)(currentColor)(NEXT_MOVE));
+                                                                                                                            ^Turmite: error: not found: value rule
+				state = rule(state)(currentColor)(NEXT_STATE);
+                                        ^Turmite:26: error: not found: value rule
+        rule = new Array[Array[Array[Int]]] (1); /* one state only */
+        ^Turmite:27: error: not found: value rule
+        rule(0) = new Array[Array[Int]] (nbColors); /* As many colors as letters in the ant's name */
+        ^Turmite:29: error: not found: value rule
+            rule(0)(i) = new Array[Int] (3); /* every command set has 3 elements */ 
+            ^Turmite:31: error: not found: value rule
+            rule(0)(i)(NEXT_COLOR) = (i+1) % nbColors;
+            ^Turmite:34: error: not found: value rule
+                rule(0)(i)(NEXT_MOVE) = LEFT;            
+                ^Turmite:36: error: not found: value rule
+                rule(0)(i)(NEXT_MOVE) = RIGHT;
+                ^Turmite:41: error: not found: value rule
+            rule(0)(i)(NEXT_STATE) = 0; /* only one state */
+            ^Turmite:53: error: not found: value rule
+    		rule = Array( Array( Array(1,RIGHT,0), Array(1,RIGHT,1), Array(0,NOTURN,0), Array(0,NOTURN,1) ) );
+                ^Turmite:80: error: not found: value rule
+		var colors = new Array[Color] (rule(0).length);
+                                               ^Turmite:81: error: not found: value rule
+		for (i <- 0 to rule(0).length-1) {
+                               ^
