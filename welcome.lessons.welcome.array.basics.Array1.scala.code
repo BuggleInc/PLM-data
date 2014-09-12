@@ -10,18 +10,18 @@ override def run() {
 		}	
 	def rassemblage():Array[Color] ={
 	var x = getMondeHauteur();
-	var T = new Array[Color](x);
+	var table = new Array[Color](x);
 	for (i <- 0 to x-1){
-		T(i) = getCouleurSol();
+		table(i) = getCouleurSol();
 		avance();
 	}
-	return T;
+	return table;
 }
 
 	def print(){
 		var x = getMondeHauteur();
 		for ( k <- 0 to x-1){
-			setCouleurBrosse(Color.CYAN);
+			setCouleurBrosse(table(k));
 			baisseBrosse();
 			leveBrosse();
 			avance()
