@@ -3,13 +3,17 @@ def noTriples(nums:Array[Int]): Boolean = {
 	var result:Boolean=true
 	
 	for (x<- 0 to n-1) {
-		for (y<- 0 to n-1) {
-			for (z<- 0 to n-1) {
-		if (nums(x)==nums(y)==nums(z) && x!=y!=z) {return false}
-		else {result=true}
-		}
+	for (y<- 0 to n-1) {
+		if (nums(x)==nums(y) && x!=y) {
+				for (z<- 0 to n-1) {
+					if (nums(y)==nums(z) && y!=z) {return false}
+					else {result=true}
+				}
+			}
+			
 	}
 	}
+	
 	
 	return result
 }
