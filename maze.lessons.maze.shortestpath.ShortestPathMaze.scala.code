@@ -19,7 +19,6 @@ override def run() {
 	
 	setIndication(x, y, 0);
 	marquage(x, y, 1);
-	number = litMessage().toInt;
 
 	while (!estSurBiscuit())
 		plusCourt();
@@ -56,5 +55,16 @@ def marquage(x:Int, y:Int, dist:Int)
 
 def plusCourt()
 {
-	
+	number = litMessage().toInt;
+
+	if (!estFaceMur())
+	{
+		avance();
+		if (litMessage().toInt > number)
+		{
+			recule();
+			droite();
+			plusCourt();
+		}
+	}
 }
