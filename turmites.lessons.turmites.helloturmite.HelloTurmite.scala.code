@@ -12,6 +12,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 			
 			testColor(state, c, colors, rule)
 			testMVT(state, c, rule)
+			testState(state, c, rule)
 			c = colors.length
 		}
 
@@ -38,6 +39,13 @@ def testColor (state:Int, c:Int,colors:Array[Color], rule:Array[Array[Array[Int]
 	var r = 0
 	r = rule(state)(c)(1)
 	setCouleurSol(colors(c))
+}
+
+def testState (state:Int, c:Int, rule:Array[Array[Array[Int]]] ):Int =
+{
+	var r = 0
+	r = rule(state)(c)(1)
+	return r 
 }
 
 def setCouleurSol(couleur:Color)
