@@ -35,23 +35,31 @@ if (estFaceMur()) {
 
 
 def deplace() = {
-	var diag = getMondeHauteur();
+	var h = getMondeHauteur()-1;
 	var cpt = 0;
 	var c = 0;
 	var l = 0;
 	var k = 0;
+	var i = 0;
 	ecritMessage(cpt);
 	while (!(posfinale())) {
 		if (possuivante()) {
 			l=l-1;
 			c=c+1;
 			k = k+1;
+			i = i + 1
 			setPos(c,l);
 		} else if (!(possuivante()) && (!estBout())) 
 		{
 			l = l+k+1 ;
 			k = 0;
 			c = 0 ;
+			setPos(c,l);
+		}
+		else {
+			l = h;
+			c = c - i -1;
+			i = 0;
 			setPos(c,l);
 		}
 		(cpt = cpt + 1);
