@@ -1,9 +1,20 @@
 def golomb(num:Int): Int = {
 
 
+var tab = new Array[Int] (num)
+var k = 4
 
-	for (i <- 1 to num) {
-			
+
+	tab(1) = 1
+	tab(2) = 2
+	tab(3) = 2
+	for (i <- 3 to num - 1) {
+		for (j <- k+1 to k + tab(i)) {
+			tab(j) = tab(i)
+		}
+		k = k + tab(i) + 1
+		tab(i+1) = tab(i) + 1
 	}
+	return tab(num)
 		
-	}
+}
