@@ -11,6 +11,9 @@ def Left_wall() {
 }
 def keepHandOnSideWall() {
 	while (!estSurBiscuit) {
+		if (getDirection() == Direction.NORD)
+			while (!estFaceMur) 
+				avance()
 		Left_wall()
 	}
 	prendBiscuit()
