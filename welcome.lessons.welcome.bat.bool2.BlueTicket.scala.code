@@ -2,14 +2,16 @@ def blueTicket(a:Int, b:Int, c:Int):Int = {
 	var x:Int=0;
 	var T= Array(a+b, a+c, b+c);
 
-	if ((T(0)>=10+T(2)&&(a!=0&&(b!=0||c!=0)))||(T(0)>=10+T(1)&&(a!=0&&(b!=0||c!=0)))) {
-		x=5
+	for (y<-0 to 2) {
+		for (z<-0 to 2) {
+			if (T(y)>=10+T(z)) {
+				x=5
+			}
+			else x=0
+		}
 	}
-	else if (T(0)==10|| T(1)==10 || T(2)==10) {
+	if (T(0)==10||T(1)==10||T(2)) {
 		x=10
-	}
-	else {
-		x=0
 	}
 	return x
 }
