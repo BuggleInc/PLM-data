@@ -3,10 +3,14 @@ var Virage = 4
 
 def Left_wall() {
 	gauche()
+	Virage += 1
 	if (estFaceMur) {
 		droite()
-		if (estFaceMur)
+		Virage -= 1
+		if (estFaceMur) {
 			droite()
+			Virage -= 1
+		}
 		else avance()
 	}
 	else avance()
@@ -17,6 +21,7 @@ def keepHandOnSideWall() {
 			while (!estFaceMur) 
 				avance()
 			droite()
+			Virage -= 1
 		}
 		Left_wall()
 	}
