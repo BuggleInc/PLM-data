@@ -7,55 +7,31 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	while (c < colors.length)
 	{
-		if (colors(c) == getCouleurSol() && c < colors.length - 1)
-		{
-			state match
-			{
-				case 0 => 
-				case 1 =>
-			}
-			c = colors.length
-		}
-
-		else if  (colors(c)  == getCouleurSol() && c == colors.length - 1)
-		{
-			state match
-			{
-				case 0 => 
-				case 1 =>
-			}
-			c = colors.length
-		}
-
-		else 
+		if (colors(c) == getCouleurSol())
 		{
 			
+			testMVT(state, c, rule)
+			c = colors.length
 		}
+
 		c = c + 1
 	}
 
         
 }
 
-def testMVT(rule:Char, colors:Color)
+def testMVT(state:Int, c:Int, rule:Array[Array[Array[Int]]] )
 {
-	if (rule == 'R')
-		{
-			
-			droite; setCouleurSol (colors);avance;
-		}
-
-	if (rule == 'L')
-		{
-			
-			gauche; setCouleurSol (colors);avance;
-		}
+	rule(state)(c) match 
+	{
+		case 0 
+		case 1 => avance; 
+		case 2 => gauche; avance;
+		case 4 => droite; droite; avance;
+		case 8 => droite; avance;
+	}
 }
 
-def testCOLOR ()
-{
-	
-}
 
 def setCouleurSol(couleur:Color)
 {
