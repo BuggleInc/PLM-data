@@ -43,13 +43,13 @@ def deplace() = {
 	var i = 0;
 	ecritMessage(cpt);
 	while (!(posfinale())) {
-		if (possuivante() && (!(estBout()))) {
+		if (!(estFaceMur()) && (!(estBout()))) {
 			l=l-1;
 			c=c+1;
 			k = k+1;
 			i = i + 1;
 			setPos(c,l);
-		} else if (!(possuivante()) && !(estBout())) 
+		} else if (estFaceMur() && !(estBout())) 
 		{
 			l = l+k+1 ;
 			k = 0;
@@ -57,7 +57,7 @@ def deplace() = {
 			i = 0;
 			setPos(c,l);
 		}
-		else if ((possuivante()) && estBout()) 
+		else if (!(possuivante()) && estBout()) 
 		{
 			l = h;
 			c = c - i + 1;
