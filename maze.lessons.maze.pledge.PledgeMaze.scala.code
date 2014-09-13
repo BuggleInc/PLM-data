@@ -1,4 +1,6 @@
 override def run() {
+var Virage = 4
+
 def Left_wall() {
 	gauche()
 	if (estFaceMur) {
@@ -11,6 +13,11 @@ def Left_wall() {
 }
 def keepHandOnSideWall() {
 	while (!estSurBiscuit) {
+		if (getDirection() == Direction.NORD) {
+			while (!estFaceMur) 
+				avance()
+			droite()
+		}
 		Left_wall()
 	}
 	prendBiscuit()
