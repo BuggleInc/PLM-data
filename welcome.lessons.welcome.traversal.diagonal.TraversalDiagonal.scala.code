@@ -41,6 +41,7 @@ def deplace() = {
 	var l = 0;
 	var k = 0;
 	var i = 0;
+	var ret = 1;
 	ecritMessage(cpt);
 	while (!(posfinale())) {
 		if (possuivante() && (!(estBout()))) {
@@ -60,9 +61,10 @@ def deplace() = {
 		else if (!(possuivante()) && estBout()) 
 		{
 			l = h;
-			c = c - i +2 ;
+			c = c - i + ret;
 			i = 0;
 			k=0;
+			ret = ret +1;
 			setPos(c,l);
 		}
 		(cpt = cpt + 1);
