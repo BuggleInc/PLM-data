@@ -1,0 +1,31 @@
+override def run() {
+    var x = 0
+    var y = 0 
+    var marque = 0
+    for (i<- 0 to getMondeHauteur() - 1) { // Recherche position du biscuit
+    		for (j<- 0 to getMondeLargeur() - 1) {
+    			if (aBiscuit(j,i)) {
+    				x_biscuit = j
+    				y_biscuit = i
+    			}
+    		}
+    }
+    setIndication(x,y,marque)
+    while (getIndication(x,y) == 9999) {
+    	
+    }
+
+def Coord_voisin(x,y):Array[Int,Int] = {
+	var res = Array[Int,Int]
+	if (!aMurNord(x,y))
+		res(0) = (x+1,y)
+	if (!aMurOuest(x,y))
+		res(1) = (x,y-1)
+	if (!aMurSud(x,y))
+		res(2) = (x-1,y)
+	if (!aMurEst(x,y))
+		res(3) = (x,y+1)
+	return res
+}
+}
+
