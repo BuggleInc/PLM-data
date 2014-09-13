@@ -4,13 +4,13 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	
 	while (c < colors.length)
 	{
-		if (getCouleurSol() == colors(c) && c < colors.length - 2)
+		if (colors(c) == getCouleurSol() && c < colors.length - 2)
 		{
 			test(rule(c),colors(c+1))
 			c = colors.length
 		}
 
-		else if  (getCouleurSol() == colors(c) && c == colors.length - 1)
+		else if  (colors(c)  == getCouleurSol() && c == colors.length - 1)
 		{
 			test(rule(c),colors(0))
 			c = colors.length
