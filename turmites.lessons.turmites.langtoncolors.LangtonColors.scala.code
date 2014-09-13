@@ -7,17 +7,6 @@ def step(rule:Array[Char], colors:Array[Color]) {
 		if (colors(c) == getCouleurSol() && c < colors.length - 2)
 		{
 			test(rule(c),colors(c+1))
-			if (rule(c) == 'R')
-			{
-			
-				droite; setCouleurSol (colors(c+1));avance;
-			}
-
-			if (rule(c) == 'L')
-			{
-			
-			gauche; setCouleurSol (colors(c+1));avance;
-			}
 			c = colors.length
 		}
 
@@ -37,13 +26,13 @@ def step(rule:Array[Char], colors:Array[Color]) {
 
 def test(rule:Char, colors:Color)
 {
-	if (rule == "R")
+	if (rule == 'R')
 		{
 			
 			droite; setCouleurSol (colors);avance;
 		}
 
-	if (rule == "L")
+	if (rule == 'L')
 		{
 			
 			gauche; setCouleurSol (colors);avance;
