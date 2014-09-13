@@ -2,16 +2,22 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	var c = 0
 	c = 0
 
-	if (Color.white == getCouleurSol() && c < colors.length - 2)
-		{
-			setCouleurSol (Color.black)
-		}
-	
 	while (c < colors.length)
 	{
 		if (colors(c) == getCouleurSol() && c < colors.length - 2)
 		{
 			test(rule(c),colors(c+1))
+			if (rule(c) == "R")
+			{
+			
+				droite; setCouleurSol (colors(c+1));avance;
+			}
+
+			if (rule(c) == "L")
+			{
+			
+			gauche; setCouleurSol (colors(c+1));avance;
+			}
 			c = colors.length
 		}
 
