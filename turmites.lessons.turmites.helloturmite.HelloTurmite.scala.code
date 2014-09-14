@@ -1,13 +1,21 @@
     var state = 0;
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-
+var C=true;
+while(C==true){
  while(getCouleurSol()!=colors(i)){
 							i+=1
 }
-setBross
-match{
-	case if(rule(i)(j)
+setCouleurBrosse(i+1);
+for(k<-0 to rule.length-1){
+	match{
+	case if(rule(i)(j)(k)==2) gauche(); baisseBrosse(); leveBrosse();
+	case if(rule(i)(j)(k)==4) droite();droite(); baisseBrosse(); leveBrosse();
+	case if(rule(i)(j)(k)==8) droite(); baisseBrosse(); leveBrosse();
+	case if(rule(i)(j)(k)==1) baisseBrosse(); leveBrosse();
+	case if(rule(i)(j)(k)==0) C=false;
+	}
+}
 }
 	
     }
