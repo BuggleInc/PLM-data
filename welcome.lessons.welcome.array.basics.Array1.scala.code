@@ -1,16 +1,15 @@
 override def run() {
-	var h : Int = getMondeHauteur();
-	var l : Int = getMondeLargeur();
+
 	var T = new Array [Color](h)
-	for (i <- 0 to (h-1) {
+	for (i <- 0 to (getMondeHauteur()-1) {
 		T(i) = getCouleurSol();avance();
 		}
 		avance();gauche();avance();droite();
     	baisseBrosse();
-    	for (k<-1 to l){
+    	for (k<-1 to getMondeHauteur()){
     	
     	
-    	for (j<-1 to h){
+    	for (j<-1 to getMondeHauteur()){
     	setCouleurBrosse(T((j-1)%6));
     	if(getCouleurSol()==Color.pink){
     	leveBrosse();avance();gauche();avance();droite();avance();baisseBrosse();
