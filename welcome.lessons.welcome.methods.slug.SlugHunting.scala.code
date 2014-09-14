@@ -1,12 +1,13 @@
 def hunt() {
     while (!estSurBiscuit()){
-    		if (isFacingTrail()){
+    		while (isFacingTrail()){
     			baisseBrosse()
     			avance()
     			leveBrosse()
-    		}else{
-    			recule()
-    			gauche()
+    			if (!isFacingTrail()){
+    				recule()
+    				gauche()
+    			}
     		}
     }
 }
