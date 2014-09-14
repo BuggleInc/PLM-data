@@ -2,12 +2,13 @@ def golomb(num:Int): Int = {
 	var a:Int=1;
 	var b:Int=1;
 	var n:Int=0;
-	while (n<b) {
-		n=n+1;
-		a=a;
+	for (i <- 2 to num) {
+		while (n<=b) {
+			n=n+1;
+			a=a; 
+		}
+		b=a;
 	}
-	a=a+1;
-	b=a;
 
 	return(a);
 }
