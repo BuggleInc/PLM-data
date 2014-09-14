@@ -6,12 +6,14 @@ override def run() {
 		}
 		avance();gauche();avance();droite();
     	baisseBrosse();
+    	for (k<-1 to 6){
     	for (j<-1 to 6){
-    	setCouleurBrosse(T(j-1));
+    	setCouleurBrosse(T((j+k)%6));
     	if(getCouleurSol()==Color.pink){
     	leveBrosse();avance();gauche();avance();droite();avance();
     	}else{
     		avance();
+    	}
     	}
     	}
 }
