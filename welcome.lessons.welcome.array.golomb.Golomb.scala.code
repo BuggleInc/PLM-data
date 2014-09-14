@@ -24,7 +24,7 @@ var tab2 = new Array[Int] (num)
 }
 **/
 
-var tab = new Array[Int] (num)
+/**var tab = new Array[Int] (num)
 var i:Int = 0
 var k = 0
 
@@ -32,6 +32,7 @@ var k = 0
 		tab(1) = 1
 		tab(2) = 2
 		tab(3) = 2
+		
 	} while (tab(i) != tab(i - 1) {
 		k = k + 1
 		tab(i) = k
@@ -39,8 +40,21 @@ var k = 0
 	return tab(num)
 		
 }
+**/
 
-
+	tab(1) = 1
+	tab(2) = 2
+	for (i <- 3 to num) {
+		k = tab(i)
+		if (tab(i) != i-k) {
+			tab(i) = tab(i-1)
+		} else {
+			tab(i) = k + 1
+		}
+	}	
+	return tab(num)
+}
+		
 
 
 
