@@ -17,9 +17,11 @@ override def run() {
    	 gauche
    	 avance
    	 droite
+   	 val decalage = litMessage().toInt
    	 for (j<-0 to T.length-1){
-   		 marque(T(j))
-   		 if (!estFaceMur) avance
+   	 	var Col=(j+decalage)%T.length
+   	 	marque(T(Col))
+   	 	if (!estFaceMur) avance
    	 }
     }
 }
