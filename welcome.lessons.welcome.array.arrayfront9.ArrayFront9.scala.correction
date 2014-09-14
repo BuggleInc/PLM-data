@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class arrayFront9 extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( arrayFront9( t.getParameter(0).asInstanceOf[Array[Int]]) )
+   }
+def arrayFront9(nums:Array[Int]): Boolean = {
+  for (i <- 0 to Math.min(nums.length,4)-1)
+    if (nums(i) == 9)
+      return true
+  return false
+} }
