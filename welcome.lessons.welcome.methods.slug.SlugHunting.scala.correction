@@ -1,0 +1,41 @@
+$package 
+
+import java.awt.Color;
+
+class SlugHunting extends plm.universe.bugglequest.AbstractBuggle {
+
+	override def run() {
+		hunt(); 
+	}
+
+	/* BEGIN TEMPLATE */
+	def hunt() {
+		// Write your code here
+		/* BEGIN SOLUTION */
+		while (! isOverBaggle()) {
+			if (isFacingTrail()) {
+				brushDown();
+				forward();
+				brushUp();
+			} else {
+				left();
+			}
+		}
+		pickupBaggle();
+	}
+	
+	def isFacingTrail():Boolean = {
+		if (isFacingWall())
+			return false;
+
+		forward();
+		var res = getGroundColor() == Color.green;
+		backward();
+		return res;
+
+		/* END SOLUTION */
+	}
+	
+	// Copy your isFacingTrail() here
+	/* END TEMPLATE */
+}
