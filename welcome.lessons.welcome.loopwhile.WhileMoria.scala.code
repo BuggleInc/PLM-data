@@ -1,32 +1,16 @@
-droite();
-droite();
-
-while(estFaceMur==false){
-
-
-
-	while(estSurBiscuit==false ){
+if (estFaceMur){
+	gauch();avance();gauche();avance();
+}else{
 	avance();
-	}
-
-
-
-
-	while(estFaceMur==false){
-	droite();droite();
-	prendBiscuit();
-	avance();avance();avance();avance();avance();
-	poseBiscuit();
-	droite();droite();
-	avance();avance();avance();avance();avance();avance();
-	while(estFaceMur){
-		droite();
-		avance();
-		gauche();
-		avance();
+	if(!estSurBiscuit){
+		for (k<-1 to 5){
+			recule();
 		}
+	}else{
+		prendBiscuit();
+		for (k<-1 to 5){
+			avance();
+		}
+			poseBiscuit();
 	}
-
-
 }
-
