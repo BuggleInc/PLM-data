@@ -1,19 +1,21 @@
 gauche()
 gauche()//face a l'Est
 while (!estFaceMur()){
-	if (!estSurBiscuit()){
-	avance();
+	while (!porteBiscuit()&&!estFaceMur()) {
+		if (!estSurBiscuit()){
+		avance();
+		}
+		else if (estSurBiscuit()){
+		prendBiscuit();//récupération des cookies
+		}
 	}
-	if (estSurBiscuit()){
-	prendBiscuit();//récupération des cookies
-	}
-	while (!estSurBiscuit()){
+	while (porteBiscuit()) {
 		recule();
-	}
-	if (estSurBiscuit()){
-	avance();
-	poseBiscuit();//pose le cookie
-	avance();
+		if (estSurBiscuit()){
+		avance();
+		poseBiscuit();//pose le cookie
+		avance();
+		}
 	}
 }
 droite();
