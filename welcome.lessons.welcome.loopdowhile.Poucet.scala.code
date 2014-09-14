@@ -1,22 +1,27 @@
 var NbB : Int=0
-while( !sortieTrouvee() ) {
-do {
-	avance()
-	if (estSurBiscuit) {
-		NbB= NbB+1
-	}
-} while (!croisement())
 
+
+while( !sortieTrouvee() ) {
 	
-if (estSurBiscuit) {
-		NbB = NbB+1
-	}
-if (croisement && NbB <= 2) {
-		droite()
-	}
-if (croisement && NbB >= 3) {
+		do {
+			avance()
+		if (estSurBiscuit) {
+			NbB= NbB+1
+		}
+		} while (!croisement())
+	
+		if (estSurBiscuit) {
+			NbB = NbB+1
+		}
+		
+		if (croisement && NbB <= 2) { 
+			droite()
+		}
+		
+		if (croisement && NbB >= 3) {
 		gauche()
-	}
-NbB =0
+		}
+
+		NbB =0
 
 }
