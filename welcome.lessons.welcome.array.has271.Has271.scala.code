@@ -1,10 +1,11 @@
 def has271(nums:Array[Int]): Boolean = {
 	var a=0
 	for ( k <- 0 to nums.length-3) {
-	if ( (nums(k+1) == (nums(k)+5)) && ( (  math.abs( (nums(k+2) -  (nums(k)))) <=1)   ||  (  math.abs( math.abs((nums(k+2))) -  (nums(k))) ==1) ))
+	if ( (nums(k+1) == (nums(k)+5)) && ( (  math.abs( (nums(k+2) -  (nums(k)))) <=1)   ||  (  math.abs( math.abs((nums(k+2))-1) -  (nums(k))) ==1) ))
 	a = a+1
 	
 	}
+	
 	if ( a >= 1 ) return true
 		
 	else return false
