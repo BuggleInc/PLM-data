@@ -7,6 +7,7 @@ override def run() {
 	wl=getMondeLargeur();
 	wh=getMondeHauteur();
 	ecritMessage(c);
+	var x=à; var y=wh-1;
 	while (!(getX()==wl-1 && getY()==wh-1)) {
 		V=false;
 		if (diag<6) {
@@ -25,12 +26,13 @@ override def run() {
 		}
 		else if (diag>=6) {
 			V=false;
+			x +=1;
 			while (!V) {	
 			diag +=1;
-			setPos(6-diag, 7-diag);
+			setPos(x, y);
 			c +=1;
 			ecritMessage(c);
-			for (i <- 0 to 7-diag) {
+			for (i <- 0 to 13-diag) {
 				setPos(getX()+1, getY()-1);
 				c +=1;
 				ecritMessage(c);
