@@ -1,17 +1,7 @@
 
 override def run() 
 {
-	def getMotif
-{
-	for (i <- 0 to hauteur )
-		{
-	  	setCouleurBrosse(T(i))
-		baisseBrosse()
-		leveBrosse()
-		avance();
- 		
-		}
-}
+
 var hauteur: Int= getMondeHauteur()
 var largeur: Int= getMondeLargeur()
 var T = new Array[Color](hauteur)
@@ -28,8 +18,14 @@ for (k <- 0 to (hauteur-1))
  		droite();
  		avance();
  		avance();
- 		getMotif();
-
+ 		for (i <- 0 to hauteur )
+		{
+	  	setCouleurBrosse(T(i))
+		baisseBrosse()
+		leveBrosse()
+		avance();
+ 		
+		}
 	}	
 		
 }
