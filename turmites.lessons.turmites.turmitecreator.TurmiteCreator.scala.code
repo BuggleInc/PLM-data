@@ -41,7 +41,7 @@
             // println("{"+rule(0)(i)(NEXT_COLOR)+","+rule(0)(i)(NEXT_MOVE)+","+rule(0)(i)(NEXT_STATE)+"}");
         }
     }
-	def init() {
+	def init():Array[Array[Array[Int]]]= {
 		var rule = new Array[Array[Array[Int]]] (2)  // 2 états /
 		for (etat<- 0 to 1) {
 			rule(etat)=Array[Array[Int]] (2)
@@ -60,5 +60,6 @@
 					rule (etat) (couleur) (2) = 1
 				}	
 			}
-		}		
+		}
+		return rule		
 	}
