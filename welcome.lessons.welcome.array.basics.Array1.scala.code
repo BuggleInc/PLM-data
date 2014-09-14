@@ -1,0 +1,25 @@
+override def run() {
+    var T=new Array[Color](getMondeHauteur)
+    for (i<-0 to T.length-1) {
+   	 T(i)=getCouleurSol
+   	 avance
+    }
+
+    def marque(c:Color){
+   	 setCouleurBrosse(c)
+   	 baisseBrosse
+   	 leveBrosse
+    }    
+    
+    var Largeur=getMondeLargeur
+    for(i<-1 to Largeur-1){
+   	 avance
+   	 gauche
+   	 avance
+   	 droite
+   	 for (j<-0 to T.length-1){
+   		 marque(T(j))
+   		 avance
+   	 }
+    }
+}
