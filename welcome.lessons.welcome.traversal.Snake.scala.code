@@ -25,9 +25,7 @@ def posFinale:Boolean = {
 
 
 def serpente() = {
-	while(!estFaceMur) {
-		avance
-	}
+  if (estFaceMur) {
 	if(getDirection==Direction.EAST) {
 		gauche
 		avance
@@ -36,6 +34,10 @@ def serpente() = {
 		droite
 		avance
 		droite
+	}
+  }
+	while(!estFaceMur) {
+		avance
 	}
 } // se déplace tel un serpent
 
