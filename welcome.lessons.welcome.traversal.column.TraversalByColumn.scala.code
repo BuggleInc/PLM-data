@@ -11,14 +11,17 @@ def posFinale:Boolean = {
 
 var pas:Int=0
 var colonne:Int=0
+var ligne:Int=0
 while (!posFinale) {
-	setPos(0,colonne)
+	setPos(colonne,ligne)
 	ecritMessage(pas)
-	for(nb <- 1 to Ymax) {
-		recule
-		pas=pas+1
-		ecritMessage(pas)
+	if(getY!=Ymax) {
+		ligne=ligne+1
+	} else {
+		ligne=0
+		colonne=colonne+1
 	}
 	pas=pas+1
 }
+escritMessage(pas)
 }
