@@ -1,2 +1,25 @@
 override def run() {
+	def estPositionFinale(){
+		if(getDirection() == Direction.EST){
+			gauche();
+			if(estFaceMur()){
+				return true
+			}else{
+				return false
+			}
+		}
+	}else{
+		if(getDirection() == Direction.OUEST){
+			droite();
+			if(estFaceMur()){
+				return true
+			}else{
+				return false
+			}
+		}
+	}
+baisseBrosse();
+while(estPositionFinale == false()){
+	avance();
+}
 }
