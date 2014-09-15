@@ -3,46 +3,36 @@ override def run()
 
 def posfin()
 {
-	if (estFaceMur())
-		return true
-	else return false
-	if (getDirection() == Direction.EST)
+	if (estFaceMur() && getDirection()==Direction.EST)
 	{
 		gauche()
 		if (estFaceMur())
 		{
 			droite()
 			return true
-		}
-		else return false
-	}
-	if (getDirection() == Direction.OUEST)
-	{
-		droite()
-		if (estFaceMur())
-		{
-			gauche()
-			return true
-		}
-		else return false
+		} else return false
 	} else return false
+		
 }
 
 def serpent()
 {
 	baisseBrosse()
-	if (estFaceMur() && (getDirection() == Direction.EST))
+	while (posfin()==false)
 	{
-		gauche()
-		avance()
-		gauche()
+		if (estFaceMur() && (getDirection() == Direction.EST))
+		{
+			gauche()
+			avance()
+			gauche()
+		}
+		if (estFaceMur() && (getDirection() == Direction.OUEST))
+		{
+			droite()
+			avance()
+			droite()
+		} else avance()
 	}
-	if (estFaceMur() && (getDirection() == Direction.OUEST))
-	{
-		droite()
-		avance()
-		droite()
-	} else avance()
 }
 
 serpent()
