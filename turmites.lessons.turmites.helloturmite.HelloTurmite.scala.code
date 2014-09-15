@@ -3,6 +3,19 @@
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	var colorId = 0;
+	var nextState = 1;
+
+	if(state == 1)
+	{
+		state = 0;
+	}
+	else
+	{
+		state = 1;
+	}
+
+
+	
 
 	for(i <- 0 to colors.length - 1)
 	{
@@ -17,7 +30,15 @@
 		baisseBrosse();
 		leveBrosse();
 
-	
+	match rule(state)(colorId)(nextState){
+
+	0 => //stop
+	1 => avance(); //pas de rotation
+	2 => gauche(); avance(); //gauche
+	4 => gauche(); gauche(); avance(); 
+	8 => droite(); avance();
+			
+	}
 
 
 
