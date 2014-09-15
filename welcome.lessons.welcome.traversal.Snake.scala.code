@@ -31,22 +31,18 @@ def posfin()
 def serpent()
 {
 	baisseBrosse()
-	while (posfin()==false)
-	{
-		avance()
-	}
-	while (posfin()==true && (getDirection() == Direction.EST))
+	if (estFaceMur() && (getDirection() == Direction.EST))
 	{
 		gauche()
 		avance()
 		gauche()
 	}
-	while (posfin()==true && (getDirection() == Direction.OUEST))
+	if (estFaceMur() && (getDirection() == Direction.OUEST))
 	{
 		droite()
 		avance()
 		droite()
-	}
+	} else avance()
 }
 
 serpent()
