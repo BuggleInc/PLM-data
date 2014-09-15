@@ -1,14 +1,18 @@
 def extrema(nums:Array[Int]): Int = {
-	
- 
+	if (nums.length==1){
+		return nums(0);
+	}else{
+     var p:Int= 0
 	var q:Int= 0
- 
+	p= max(nums(0),nums(1));
 	q= min(nums(0),nums(1));
+	
 	for ( i<-2 to nums.length -1 ){
- 
+		p = max(p,nums(i))
 		q = min(q,nums(i))
 	}
-	return  q ;
+	return p - q ;
+	}
 }
 
 
