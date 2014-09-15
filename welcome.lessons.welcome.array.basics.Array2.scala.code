@@ -8,15 +8,15 @@ override def run() {
 		}
 		else recule(getMondeHauteur - 1)
 	}
-	val decalage = litMessage().toInt
-	(0 + decalage) % getMondeHauteur
+	
+	
 	for(c2 <- 0 to getMondeLargeur - 2) {
 		gauche()
 		avance()
 		droite()
+		val decalage = litMessage().toInt
 		for(c3 <- 0 to getMondeHauteur-1) {
-			
-			setCouleurBrosse (T(c3+1))
+			setCouleurBrosse (T(decalage))
 			baisseBrosse()
 			leveBrosse()
 			if(!estFaceMur) {
