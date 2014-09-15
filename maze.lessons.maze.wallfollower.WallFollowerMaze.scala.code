@@ -2,7 +2,8 @@ override def run() {
     def keepHandOnRightWall() = {
     	droite();
     	if (estFaceMur) {gauche();avance()}
-    	else {avance()}
+    	else if (!(estFaceMur())) {avance()}
+    		else {droite()}
     }
     while (!(estSurBiscuit)) {
     	keepHandOnRightWall();
