@@ -1,0 +1,17 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class indexOfMaxValue extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( indexOfMaxValue( t.getParameter(0).asInstanceOf[Array[Int]]) )
+   }
+def indexOfMaxValue(nums:Array[Int]):Int = {
+  var max=nums(0)
+  var maxIdx = 0
+  for (i <- 0 to nums.length-1)
+    if (nums(i)>max) {
+      max = nums(i)
+      maxIdx = i
+    }
+  return maxIdx
+} }
