@@ -4,10 +4,16 @@ override def run() {
 	
 		if (getDirection()==Direction.EST) {
 			gauche();
-			if (estFaceMur()) {gauche();
-			if (estFaceMur()) {while (estFaceMur()) {droite()}} else {x=true}
-			} else {droite()}
-	} else {x=false}
+			if (!estFaceMur()) {x=false}
+			else {gauche();
+				if (!estFaceMur()) {droite();
+								x=false}
+				else {gauche();
+					if (!estFaceMur()) {droite();
+								x=false} else {x=true; droite()}
+				}
+			}
+			
 	return x
 	}
 	def virage() = {
