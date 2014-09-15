@@ -5,10 +5,12 @@ def golomb(num:Int): Int = {
 	T(2)=2;
 	T(3)=2;
 	var c=0;
+	var d=4;
 	for (i <- 3 to num+1) {
 		c=T(i);
 		for (l <- i+1 to i+c) {
-			T(l)=i;
+			T(d)=i;
+			d +=1;
 		}
 	}
 return T(num);
