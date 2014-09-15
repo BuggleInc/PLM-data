@@ -1,4 +1,5 @@
-def step(rule:Array[Char], colors:Array[Color]) {
+def step(rule:Array[Char], colors:Array[Color]) 
+{
 
 	var colorId = 0;
 
@@ -10,22 +11,20 @@ def step(rule:Array[Char], colors:Array[Color]) {
 		}
 	}
 
-	for(i <- 0 to rule(colorId).length)
-	{
 		setCouleurBrosse(colors(colorId));
 		baisseBrosse();
 		leveBrosse();
 		
-		if(rule(colorId)(i) == "L")
+		if(rule(i) == "L")
 		{
 			gauche();
 			avance();
 		}
-		else if (rule(colorId)(i) == "R")
+		else if (rule(i) == "R")
 		{
 			droite();
 			avance();
 		}
-	}
+	
 
 }
