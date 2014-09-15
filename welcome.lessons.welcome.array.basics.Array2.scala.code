@@ -1,10 +1,11 @@
 override def run() {
 	var T = new Array [Color](getMondeHauteur())
-	for (i <- 0 to (getMondeHauteur()-1)) {
+	for (i <- 0 to (getMondeHauteur()-2)) {
 		if(!estFaceMur){
 		T(i) = getCouleurSol();avance();
 		}
 		if(estFaceMur){
+			T(i) = getCouleurSol(getMondeHauteur()-1);
 			for(j<-1 to getWorldHeight()-1){
 				recule();
 				}
