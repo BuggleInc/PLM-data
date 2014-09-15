@@ -1,9 +1,15 @@
   override def initialize() {
   	var zone=getLandingZone()
-  	if(getX<=zone
+
   }
 
   override def step() {
+
+	if(Position == 1){
+		setAngleDesire(0)
+		
+	}
+  
   }
 
 def getLandingZone():Segment = {
@@ -21,4 +27,16 @@ var deuxieme = Point(0,0)
 		}
 	}
 	return Segment(premier,deuxieme)
+}
+
+def Position:Int={
+	if(getX<zone(0).x){
+		return 0
+	}
+	else if((getX>=zone(0).x)&&(getX<=zone(1).x)){
+		return 1
+	}
+	else{
+		return 2
+	}
 }
