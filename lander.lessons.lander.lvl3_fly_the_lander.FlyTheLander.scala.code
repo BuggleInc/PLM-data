@@ -1,7 +1,10 @@
- var zone=getLandingZone()
+ var Segment= Array[Point](2)
+ var zone=Segment
+ 
   
   override def initialize() {
-
+  
+	
   	while (getY>=zone(0).y){
   		step
   	}
@@ -32,7 +35,7 @@
   
   }
 
-def getLandingZone(): = {
+def getLandingZone(){
 
 var sol=getSol()
 var pos:Double= 0
@@ -43,10 +46,10 @@ var deuxieme = Point(0,0)
 		premier = sol(i)
 		deuxieme = sol(i+1)
 		if(premier.y==deuxieme.y){
-			return Segment(premier,deuxieme)
+			Segment(0)=premier
+			Segment(1)=deuxieme
 		}
 	}
-	return Segment(premier,deuxieme)
 }
 
 def Position:Int={
