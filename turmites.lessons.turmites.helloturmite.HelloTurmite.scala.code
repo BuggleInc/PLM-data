@@ -1,5 +1,38 @@
-    var state = 0;
+state == 0;
 
-    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-        /* Your code comes here */
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	var taille: Int = rule.length;
+	var position: Int = 0;
+	var couleurSol: Color = getCouleurSol();
+
+	for(i <- 0 to taille -1){
+		if(colors(i) == couleurSol){
+			position = i;
+		}
+	}
+		
+	if(position < taille - 1){
+		setCouleurSol(colors(position + 1));	
+	}
+	else{
+		setCouleurSol(colors(0));
+	}
+
+	if(rule(state)(position) == 'R'){
+		droite();
+		avance();
+	}
+	else{
+		gauche();
+		avance();
+	}
+	state = rule(state)(couleurSol);
+}
+
+def setCouleurSol(c:Color){
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
     }
