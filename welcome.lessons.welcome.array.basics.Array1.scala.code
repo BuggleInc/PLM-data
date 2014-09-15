@@ -10,15 +10,21 @@ override def run() {
 	avance();
 	droite();
 		
-	for (x<-0 to getMondeHauteur()-1) {
-		if (x<1) {
+	for (z<-0 to getMondeLargeur-2) {
+		for (x<-0 to getMondeHauteur()-1) {
+			if (x<1) {
+				baisseBrosse();
+				setCouleurBrosse(Color.pink);
+				leveBrosse();
+			}
+			avance();
 			baisseBrosse();
-			setCouleurBrosse(Color.pink);
+			setCouleurBrosse(t(x));
 			leveBrosse();
 		}
-		avance();
-		baisseBrosse();
-		setCouleurBrosse(t(x));
-		leveBrosse();
+	gauche();
+	avance();
+	droite();
+	recule();
 	}
 }
