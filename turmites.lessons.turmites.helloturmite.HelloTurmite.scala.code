@@ -4,6 +4,7 @@
 
 	var colorId = 0;
 	var nextState = 0;
+	var nextColor = 0;
 	var ruleInt = 0;
 
 
@@ -22,7 +23,9 @@
 	
 	nextState = rule(state)(colorId)(0);
 
-		setCouleurBrosse(colors((colorId + 1) % colors.length));
+	nextColor = rule(state)(colorId)(1);
+
+		setCouleurBrosse(colors(nextColor));
 		baisseBrosse();
 		leveBrosse();
 		ruleInt = rule(state)(colorId)(2);
