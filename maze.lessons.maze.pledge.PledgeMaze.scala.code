@@ -1,0 +1,43 @@
+override def run() {
+
+def keepHandOnSideWall(){
+	var virage: Int = 0;	
+		gauche();
+		if(estFaceMur){
+			while(estFaceMur){
+				droite();
+				virage = virage - 1;
+			}
+			avance();
+		}
+		else{
+			avance();
+			virage = virage + 1;
+		}
+}
+
+def isDirectionFree(dir:Direction){
+	var old: Direction = getDirection();
+	setDirection(dir);
+	if(!estFaceMur){
+		setDirection(old);
+		return true;
+	}
+	else{
+		setDirection(old);
+		return false;
+	}
+}
+
+while(!estSurBiscuit){
+	if(isDirectionFree(Direction.NORTH)){
+		setDirection(Direction.NORTH);
+		avance();
+	}
+	else{
+		keepHandOnSideWall();
+	}
+}
+prendBiscuit();
+}
+
