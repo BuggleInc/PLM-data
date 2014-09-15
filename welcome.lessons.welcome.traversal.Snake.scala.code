@@ -1,50 +1,6 @@
 override def run() 
 {
-	def posfin(): Boolean=
-	{
-		if (estFaceMur())
-			return true
-		if (getDirection()==Direction.EST)
-		{
-			gauche()
-			if (estFaceMur())
-			{	droite()
-				return true
-			} else droite()
-		}
-		if (getDirection()==Direction.OUEST)
-		{
-			droite()
-			if (estFaceMur())
-			{
-				gauche()
-				return true
-			} else gauche()
-		} else return false
-		
-		return false
-	}
 
-	def serpent()
-	{
-			if (getDirection()==Direction.EST && posfin())
-			{
-				gauche()
-				avance()
-				gauche()
-			}
-			if (getDirection()==Direction.OUEST && posfin())
-			{
-				droite()
-				avance()
-				droite()
-			} 
-			else
-			{
-				avance()
-			}
-	}
-	baisseBrosse()
-	serpent()
+def serpent
 	
 }
