@@ -1,20 +1,29 @@
 override def run() {
 	
-	
+	var murNord:Int=0
+	def chercheMurNord() {
+		for (x<-1 to 4) {
+			if (getDirection==Direction.NORTH) {
+				if (estFaceMur) {murNord=1}
+				else {murNord=0}
+			}
+			else droite()
+			
+			}
+		}
+		
 	def positionFinale:Boolean = {
-			if (estFaceMur && getDirection()==Direction.WEST) {return true}
+			if (estFaceMur && getDirection()==Direction.WEST && murNord==true) {return true}
 			else {false}
 		}
-	def peindre() {
-		baisseBrosse()
-		leveBrosse()
-	}
 
 	baisseBrosse
-		while (positionFinale==false) {
+		while (!(positionFinale==false && murNord==0)) {
 			while (!estFaceMur) {
 				avance()
 				}
+
+			chercheMurNord()
 	
 			
 			if (getDirection==Direction.EAST) {
@@ -29,6 +38,7 @@ override def run() {
 					}
 	
 		}
+	leveBrosse
 	
 
 		}
