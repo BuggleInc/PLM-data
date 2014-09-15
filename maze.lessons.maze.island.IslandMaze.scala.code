@@ -1,36 +1,44 @@
 override def run() {
-	while (!estSurBiscuit()) {
-		setDirection(Direction.NORTH)
-		while(!estFaceMur()) {
-			avance();
-		} 
-		keepHandOnSideWall()
-	}
-	prendBiscuit();
-}
-
-
-def keepHandOnSideWall() {
-	if(!estFaceMur()) {
+	def murGauche():Boolean = {
 		gauche();
-		if(estFaceMur()) {
+		if (estFaceMur()) {
 			droite();
-			avance();
-		} else {
-			avance();
+			return true;
 		}
-	} else {
-		gauche()
-		if(estFaceMur()) {
-			retourne();
-			if (estFaceMur()) {
-				droite();
-				avance();
-			} else {
+		droite();
+		return false;
+	}
+while (getY()!=0) {
+	if (!estFaceMur()) {
+		avance();
+	}
+	else {
+		droite();
+		if (!estFaceMur()) {
 			avance();
-			}
-		} else {
-			avance();
+			gauche();
 		}
 	}
 }
+droite();
+keepHandOnSideWall;
+}
+
+def keepHandOnSideWall = {
+		while (!estSurBiscuit()) {
+			if (murGauche() && !estFaceMur()) {
+				avance();
+			}
+			else if (murGauche() && estFaceMur()) {
+				droite();
+				if (!estFaceMur()) {
+					avance();
+				}
+			}
+			else {
+				gauche();
+				avance();
+			}
+		}
+	prendBiscuit();
+	}
