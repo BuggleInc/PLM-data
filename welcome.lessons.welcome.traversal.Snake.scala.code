@@ -1,2 +1,36 @@
 override def run() {
+
+	def finale() {                                            // fonction test final
+
+			var f = 0
+				
+				if ( getdirection() == Direction.EAST) { 
+					gauche() ; 
+					if (estFaceMur() == true) f=1 
+				}
+		
+				if ( getdirection() == Direction.WEST) { 
+							droite() ; 
+							if (estFaceMur() == true) f=1 
+				}
+		
+				if ( f == 1 && estFaceMur() == true ) return true
+				else return false
+		}
+
+      def avanceSerp() {                                       // avancer comme un serpent
+
+			  if (!estFaceMur) {avance()}
+			  else if { 
+			  	if ( getdirection() == Direction.EAST ) {
+			  		gauche() ; avance(); gauche();
+			  	}
+			  }
+			  else {droite() ; avance(); droite() }
+      }
+
+
+baisseBrosse()
+while (finale() == false) {
+	avanceSerp()
 }
