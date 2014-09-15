@@ -2,9 +2,8 @@ def blueTicket(a:Int, b:Int, c:Int):Int = {
 	var k=a+b
 	var l=a+c
 	var m=b+c
-	(k,l,m) match{
-		case 10 => return 10
-		case _>10=> return 5
-		case _ => return 0
-	}
+
+	if(k==10|l==10|m==10 ){return 10}
+	if(k==10+l |k==10+m|l==10+m |l==10+k|m==10+l |m==10+k){return 5}
+	else{return 0}
 }
