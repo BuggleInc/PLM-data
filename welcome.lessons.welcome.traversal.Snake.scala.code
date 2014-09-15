@@ -12,7 +12,7 @@ override def run() {
 		else return false;
 	}
 	def murNord():Boolean = {
-		if (OUEST) {
+		if (OUEST()) {
 			droite();
 			if (estFaceMur()) {
 				gauche();
@@ -23,7 +23,7 @@ override def run() {
 				return false;
 			}
 		}
-		if (EST) {
+		if (EST()) {
 			gauche();
 			if (estFaceMur()) {
 				droite();
@@ -45,12 +45,12 @@ override def run() {
 		if (!estFaceMur) {
 			avance();
 		}
-		else if (EST) {
+		else if (EST()) {
 			gauche();
 			avance();
 			gauche();
 		}
-		else if (OUEST) {
+		else if (OUEST()) {
 			droite();
 			avance();
 			droite();
