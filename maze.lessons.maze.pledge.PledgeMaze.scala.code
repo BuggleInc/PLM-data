@@ -8,9 +8,20 @@ override def run() {
 		droite();
 		return false;
 	}
+	def isDirectionFree(dir:Direction) {
+		var D=Direction.NORTH;
+		setDirection(dir);
+		if (!estFaceMur()) {
+			return true;
+		}
+		else {
+			setDirection(D);
+			return false;
+		}
+	}
 	var sommeAngle:Int = 0;
 	def keepHandOnSideWall = {
-		while (!estSurBiscuit()) {
+		do {
 			if (murGauche() && !estFaceMur()) {
 				avance();
 			}
@@ -26,24 +37,17 @@ override def run() {
 				sommeAngle +=1;
 				avance();
 			}
-		}
-	prendBiscuit();
+		} while (sommeAngle != 0 && !isDirectionFree(Direction.NORTH))
 	}
-	def isDirectionFree(dir:Direction) {
-		var D=Direction.NORTH;
-		setDirection(dir);
-		if (!estFaceMur()) {
-			return true;
-		}
-		else {
-			setDirection(D);
-			return false;
-		}
+setDirection(Direction.NORTH);
+while (!estSurBiscuit()) {
+	if (isDirectionFree(Direction.NORTH)) {
+		avance();
 	}
-
-while (getY()!=0) {
-	
+	else {
+		droite();
+		keepHandOnSideWall();
+	}
 }
-droite();
-keepHandOnSideWall;
+prendBiscuit();
 }
