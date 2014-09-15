@@ -11,11 +11,21 @@
 
 	if(Position == 1){
 		setAngleDesire(0)
-		if(getVitesseY()<=(-10)){
+		
+		if((getVitesseY()<=(-10))&&getAngle==0){
 			setPousseeDesiree(4)
 		}
-		else{
+		else if(!(getVitesseY()<=(-10))&&getAngle==0)){
 			setPousseeDesiree(0)
+		}
+
+		if(getVitesseX()<0){
+			setAngleDesire(-90)
+			setPousseeDesiree(2)
+		}
+		else{
+			setAngleDesire(90)
+			setPousseeDesiree(2)
 		}
 	}
 	else if(Position == 0){
