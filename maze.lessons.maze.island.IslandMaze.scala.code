@@ -34,13 +34,8 @@ keepHandOnSideWall()
 var etat = 0 ;
 while (!(estSurBiscuit())) {
 	etat match {
-		case 0 => setDirection(Direction.NORD); while (!estFaceMur()) {
-			avance()
-			
-		};	etat = 1
-		case 1 => while (getDirection() != Direction.NORD) {
-			aramis()
-		}; etat = 0;
+		case 0 => setDirection(Direction.NORD); while (!estFaceMur()) {avance()};	etat = 1
+		case 1 => while (getDirection() != Direction.NORD) {aramis()}; etat = 0;
 		case _ => println( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
 }
