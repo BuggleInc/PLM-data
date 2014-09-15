@@ -13,14 +13,14 @@ def step(rule:Array[Char], colors:Array[Color])
 			printf(""+colorId+" ");
 		}
 	}
-
-		setCouleurBrosse(colors((colorId + 1)));
+		colorId = (colorId + 1) % colors.length
+		setCouleurBrosse(colors(colorId));
 		baisseBrosse();
 		leveBrosse();
 
 	
 	
-		if(rule(colorId) == 'L')
+		if(rule(colorId + 1) == 'L')
 		{
 			gauche();
 			avance();
