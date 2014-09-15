@@ -1,2 +1,25 @@
-override def run() {
+override def run() { 
+	def marqueSol(c:Color) { 
+		setCouleurBrosse(c);
+		baisseBrosse();
+		leveBrosse()
+	}
+	var T = new Array[Color] (getMondeHauteur());
+	for ( x <- 0 to getMondeHauteur()-1) {
+		T(x) = getCouleurSol();
+		avance()
+	}
+	for ( x<- 0 to getMondeHauteur() - 1 ) { 
+		recule()
+	}
+	for ( x <- 0 to getMondeLargeur() -2) {
+		gauche()
+		avance()
+		droite()
+		avance()
+		for ( y <- 0 to getMondeLargeur() -1) {
+			marqueSol(T(y))
+			avance()
+		}
+	}
 }
