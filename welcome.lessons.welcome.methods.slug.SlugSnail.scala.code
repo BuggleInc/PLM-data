@@ -1,18 +1,7 @@
 
     def hunt(c:Color) {
-if (isFacingTrail) {
+if (isFacingTrail(c)) {
 	avance()
-}else{
-	droite()
-	if (isFacingTrail){
-		avance()
-	}
-
-}else{
-	gauche()
-	if (isFacingTrail){
-		avance()
-	}
 
 	
 	
@@ -22,7 +11,7 @@ if (isFacingTrail) {
 
 
 
-def isFacingTrail():Boolean = {
+def isFacingTrail(cc:Color):Boolean = {
 
 var couleuravant: Boolean = true;
 if(!estFaceMur){
@@ -30,7 +19,7 @@ if(!estFaceMur){
 
 avance()
 
-if(getCouleurSol() == Color.pink){
+if(getCouleurSol() == cc){
 
 	couleuravant=true
 	
