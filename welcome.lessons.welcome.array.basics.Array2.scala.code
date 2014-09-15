@@ -1,0 +1,33 @@
+
+override def run() {
+var p :  Int
+	var T = new Array [Color](getWorldHeight())
+	
+	if(!estFaceMur){
+		for (i <- 0 to (getWorldHeight()-2)) {
+		T(i) = getCouleurSol();
+		avance();
+		}
+	}
+	if(estFaceMur){
+		for (i <- 0 to (getWorldHeight()-2)){
+		recule();
+	}
+	}
+	gauche();avance();droite();
+
+	baisseBrosse();
+	
+	litMessage();
+	p == ch.toInt;
+
+	for (k<-0 to getWorldHeight()-1){
+	
+	setBrosseCouleur(k + p);
+	avance();
+	}
+
+	 
+
+	
+}
