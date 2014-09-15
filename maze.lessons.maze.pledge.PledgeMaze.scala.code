@@ -29,6 +29,16 @@ override def run()
 		}
 	}
 
+	def mainGaucheSurMur(): Boolean=
+	{
+		gauche()
+		if(estFaceMur())
+		{
+			droite(); return true
+		}
+		else droite(); return false
+	}
+
 	def isDirectionFree(): Boolean =
 	{
 		if(!estFaceMur && getDirection()==Direction.NORTH)
@@ -59,7 +69,12 @@ override def run()
 				}*/
 			//}
 		}
-		else keepHandOnSideWall()
+		else
+		{
+			if(mainGaucheSurMur())
+				keepHandOnSideWall()
+			else droite(); keepHandOnSideWall()
+		}
 	}
 
 	prendBiscuit()
