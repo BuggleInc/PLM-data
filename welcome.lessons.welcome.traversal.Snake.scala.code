@@ -8,8 +8,8 @@ else{return false}
 			   
 def pasDeSerpent(){
 if(estFaceMur()==true){
-	if(getDirection() == Direction.EST){gauche();}
-	else{if (getDirection() == Direction.OUEST){droite();}}
+	if(getDirection() == Direction.EST){gauche();if(!estFaceMur){avance();gauche();}}
+	else{if (getDirection() == Direction.OUEST){droite();if(!estFaceMur){avance();droite();}}}
 }else{avance();}
 }
 while(fonctionTest()==false){pasDeSerpent();}
