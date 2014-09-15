@@ -12,13 +12,19 @@ override def run() {
 	}
 	
 	for (y<-1 to getMondeHauteur()-1) {
-	recule(w-1);
-	gauche();
-	avance();
-	droite();
-	baisseBrosse();
-	setCouleurBrosse(t(i));
-	leveBrosse();
-	i=i+1;
+		recule(w-1);
+		gauche();
+		avance();
+		droite();
+		baisseBrosse();
+		setCouleurBrosse(t(i));
+		leveBrosse();
+		for (z<-i to getMondeHauteur()-1) {
+			avance();
+			baisseBrosse();
+			setCouleurBrosse(t(z));
+			leveBrosse();
+		}
+		i=i+1;
 	}
 }
