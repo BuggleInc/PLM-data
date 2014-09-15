@@ -22,12 +22,10 @@ override def run() {
 		var x=false
 		if (estFaceMur) {
 			getDirection match {
-				case Direction.EST => gauche
-				case Direction.OUEST => droite
+				case Direction.EST => {gauche;if (estFaceMur) x=true;droite}
+				case Direction.OUEST => {droite;if (estFaceMur) x=true;gauche}
 				case _ =>
 			}
-			if (estFaceMur) x=true
-			droite
 		}
 		return x
 	}		
