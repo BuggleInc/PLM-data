@@ -10,10 +10,10 @@ override def run() {
 	for (i<-1 to getMondeLargeur()-1) {
 		gauche();avance();droite();
 		val decalage = litMessage().toInt
-		setCouleurBrosse(T((i + decalage) % getMondeHauteur));baisseBrosse();leveBrosse();
+		setCouleurBrosse(T((i + decalage) % getMondeHauteur-1));baisseBrosse();leveBrosse();
 		for (i<-0 to getMondeHauteur()-2) {
 			avance();
-			setCouleurBrosse(T((i + decalage) % getMondeHauteur));
+			setCouleurBrosse(T((i + decalage) % getMondeHauteur-1));
 			baisseBrosse();
 			leveBrosse();
 		}
