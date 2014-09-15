@@ -1,6 +1,28 @@
 var diag = 0;
 override def run() {
+	
 	def positionfinale():Boolean = {
-		
+		if ((getX==getMondeLargeur -1)&&(getY==getMondeHauteur-1))
+			true
+		else 
+			false
+	}
+
+	while (!positionfinale) {
+		if ((getX==0)&&(getY!=getLargeurMonde-1)) {
+			ecritMessage(diag)
+			diag=diag+1
+			setPos(getY+1,0)
+		} else {
+			if (getY==getLargeurMonde-1) {
+				ecritMessage(diag)
+				diag=diag+1
+				setPos(getMondeHauteur,getMondeLargeur - getX)
+			} else {
+				ecritMessage(diag)
+				diag=diag+1
+				setPos(getX-1,getY+1)
+			}
+		}
 	}
 }
