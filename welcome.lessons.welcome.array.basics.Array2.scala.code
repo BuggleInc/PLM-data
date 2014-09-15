@@ -6,13 +6,14 @@ override def run() {
 		T(i)=getCouleurSol()
 	}
 	recule(getMondeHauteur()-1)
+	
 	T(getMondeHauteur())=getCouleurSol()
 
 	for (i<-1 to getMondeLargeur()-1) {
 		gauche();avance();droite();
 		val decalage = litMessage().toInt
 		
-		setCouleurBrosse(T(getMondeHauteur));baisseBrosse();leveBrosse();
+		setCouleurBrosse(T(getMondeHauteur()));baisseBrosse();leveBrosse();
 		
 		for (i<-0 to getMondeHauteur()-2) {
 			avance();
