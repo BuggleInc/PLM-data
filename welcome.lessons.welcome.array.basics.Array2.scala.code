@@ -1,2 +1,18 @@
 override def run() {
+	var i=getMondeHauteur();var j=getMondeLargeur();
+	var tab = new Array[Color] (i);
+	def marque(c:Color) {
+	setCouleurBrosse(c);baisseBrosse();leveBrosse();
+     }
+     tab(0)=getCouleurSol();
+	for (x<-1 to i-1) {
+		avance();
+		tab(x)=getCouleurSol();
+	}
+	for (y<-0 to j-2) {
+		recule(i-1);gauche();avance();droite();val dec=litMessage().toInt;marque(tab(dec));
+		for (z<-1 to i-1) {
+		avance();marque(tab((z+dec)%i));
+	     }
+	}
 }
