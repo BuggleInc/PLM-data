@@ -2,7 +2,7 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	var c:Int = 0;
 	var j:Int = appartient(getCouleurSol(), colors);
 	if(j != -1) {
-		execute (j, rule);
+		execute (j, rule, colors);
 	}
 	else {
 		colors(c) = getCouleurSol();
@@ -16,7 +16,7 @@ def appartient(c:Color, colors:Array[Color]):Int = {
 	}
 	return flag;
 }
-def execute(i:Int, rule:Array[Char]) {
+def execute(i:Int, rule:Array[Char], colors:Array[Color]) {
 	rule(i) match {
 		case 'L' => gauche(); setCouleurBrosse(colors((i+1) % (colors.length)));
 		baisseBrosse(); leveBrosse(); avance();
