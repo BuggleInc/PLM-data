@@ -1,0 +1,30 @@
+override def run() {
+	def posFin() = {
+		var x:Boolean = false
+		if (getDirection() == Direction.EST) {
+			gauche();
+			if (estFaceMur == true) {x=true}
+		}
+		return x
+	}
+
+	def virage() = {
+		if (getDirection == Direction.EST) {
+			gauche();
+			avance();
+			gauche();
+		} else {
+			droite();
+			avance();
+			droite();
+		}
+	}
+	
+	baisseBrosse()
+	while (!posFin) {
+		while (!estFaceMur) {
+		avance();
+		}
+		if (estFaceMur) {virage()}}
+	}
+}
