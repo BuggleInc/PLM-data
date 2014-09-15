@@ -4,7 +4,7 @@ override def run() {
 	def chercheMurNord() {
 		dir=getDirection()
 		setDirection(Direction.NORTH)
-		if (estFaceMur()) {
+		if (estFaceMur()==true) {
 			setDirection(dir)
 			return MurNord=true
 			}
@@ -14,11 +14,11 @@ override def run() {
 			}
 	}
 	def estEnPosition():Boolean = {
-		return (getDirection()==Direction.EAST && chercheMurNord()==true)
+		return (getDirection()==Direction.EAST && MurNord()==true)
 	}
 	
 	baisseBrosse()
-	while (!MurNord) {
+	while (estEnPosition) {
 		while(!estFaceMur) {
 			avance()
 		}
