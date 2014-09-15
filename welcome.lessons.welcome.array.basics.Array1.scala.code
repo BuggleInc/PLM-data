@@ -7,22 +7,16 @@ override def run() {
 		t(y)=getCouleurSol();
 		avance();
 	}
-	gauche();
-	avance();
-	droite();
 		
 	for (z<-0 to getMondeLargeur()-2) {
-		for (x<-0 to getMondeHauteur()-1) {
-			avance();
-			baisseBrosse();
-			setCouleurBrosse(t(x));
-			leveBrosse();
-			writeMessage(x);
-
-			gauche();
-			avance();
-			droite();
-			avance();
-		}
+		gauche();
+		avance();
+		droite();
+		avance();
+		baisseBrosse();
+		setCouleurBrosse(w);
+		leveBrosse();
+		w=w+1;
+		
 	}
 }
