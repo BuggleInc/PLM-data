@@ -12,18 +12,10 @@ override def run() {
 		gauche()
 		avance()
 		droite()
-		for(c3 <- 0 to getMondeHauteur) {
+		for(c3 <- 0 to getMondeHauteur-1) {
 			setCouleurBrosse (T(c3+1))
 			baisseBrosse()
 			leveBrosse()
-			if(!estFaceMur) {
-				avance()
-			}
-			else {
-				setCouleurBrosse (T(c3+1))
-				baisseBrosse()
-				leveBrosse()
-				recule(getMondeHauteur()-1)
 			}
 		}
 		
