@@ -17,11 +17,13 @@ override def run() {
 	else{
 		if(getDirection() == Direction.OUEST){
 			droite();
-			if{
+			if(estFaceMur()){
+				return true;
+			}else{
 				avance();
 				droite();
 				return false;
-			}else{return false}
+			}
 		}
 		return false;
 	}
