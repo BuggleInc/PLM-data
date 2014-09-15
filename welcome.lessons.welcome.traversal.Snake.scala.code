@@ -22,11 +22,11 @@ override def run() {
       def avanceSerp() {                                       // fonction avancer comme un serpent
 
 			  if ( !estFaceMur() ) {avance()}
-			  else   ( getDirection() == Direction.EAST ) {
+			  else if  ( getDirection() == Direction.EAST && estFaceMur() ) {
 			  		gauche() ; avance(); gauche();
 			  	}
 			  			  
-			  else   ( getDirection() == Direction.WEST) {droite() ; avance(); droite() }
+			  else if  ( getDirection() == Direction.WEST && estFaceMur() ) {droite() ; avance(); droite() }
       }
 
 
