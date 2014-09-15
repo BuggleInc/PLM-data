@@ -1,23 +1,25 @@
 override def run() {
-var x = 0
-var y = 0
+
 
 def indic(a:Int,b:Int){
 	if(!aMurNord(a,b)){setIndication(a,b-1,getIndication(a,b)+1);indic(a,b-1)}
 	if(!aMurOuest(a,b)){setIndication(a-1,b,getIndication(a,b)+1);indic(a-1,b)}
 	
 }
-
+def trouveBiscuit():(Int,Int){
+	var x = 0
+	var y = 0
     for(i <- 0 to getMondeLargeur -1){
     	x = i
-    		if(aBiscuit(x,y)){ return()}
+    		if(aBiscuit(x,y)){ return(x,y)}
     		else{for(c <- 0 to getMondeHauteur - 1){
     			y = c    		
-    			if(aBiscuit(x,y)){ return()}
+    			if(aBiscuit(x,y)){ return(x,y)}
     		}
     }
     }
-
+}
+var (x,y) = trouveBiscuit()
 setIndication(x,y,0)
 indic(x,y)
     
