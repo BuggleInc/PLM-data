@@ -2,19 +2,88 @@ def max1020(a:Int, b:Int):Int =  {
 	var A:Int = a
 	var B:Int = b
 	var temp:Int = 0
-	if (b > a) {
-	    	temp = A;
-    		A = B;
-   		B = temp
-	    
-	  }
-	  
-	  // Knowing a is bigger, just check a first
-	  if (A >= 10 && A <= 20) {
-	  	return A;
-	  }
-	  if (B >= 10 && B <= 20) {
-	  	return B;
-	  }
-	  	return 0
+		if (b > a) {
+		    	temp = A;//ce petit stratageme permet de permuter les termes
+	    		A = B;
+	   		B = temp
+		    
+		  }
+		  
+		  // Knowing a is bigger, just check a first
+		  if (A >= 10 && A <= 20) {
+		  	return A;
+		  }
+		  if (B >= 10 && B <= 20) {
+		  	return B;
+		  }
+		  	return 0
 }	
+
+def max1020(a:Int, b:Int):Int =  {
+if((a >= 10 && a <= 20) && (b >= 10 && b <= 20)){
+		return Math.max(a,b)
+	}
+	if(!(a >= 10 && a <= 20) && (b >= 10 && b <= 20)){
+		return b
+	}
+	if(((a >= 10 && a <= 20) && (!(b >= 10 && b <= 20)))){
+		return a
+	}
+		return 0
+}
+
+
+
+/**	
+  // First make it so the bigger value is in a
+  if (b > a) {
+    var temp:Int = a;
+    var a = b;
+    var b = temp;
+  }
+  
+  // Knowing a is bigger, just check a first
+  if (a >= 10 && a <= 20) return a;
+  if (b >= 10 && b <= 20) return b;
+  return 0;
+}
+*/
+	
+
+	
+	
+	/**
+	
+} */
+
+	
+/**
+ * en fait on trouve une méthode beaucoup plus simple 
+ * public int max1020(int a, int b) {
+  // First make it so the bigger value is in a
+  if (b > a) {
+    int temp = a;
+    a = b;
+    b = temp;
+  }
+  
+  // Knowing a is bigger, just check a first
+  if (a >= 10 && a <= 20) return a;
+  if (b >= 10 && b <= 20) return b;
+  return 0;
+}
+ * ce n'est pas naturel mais on peut parfois prendre un enonce "a l'envers"
+ * et repondre a ce qui est demande dans l'ordre contraire que celui que 
+ * l'enonce sous entend
+ * la methode de la correction verifie d'abord lequel des deux nombres est le 
+ * plus grand
+ * ensuite il sauvegarde cette valeur 
+ * ensuite il regarde si cette valeur est dans l'intervalle ou pas 
+ * si oui il l'a renvoie 
+ * si non il faut savoir si 
+ * Petit commentaire à propos de ce qui précède, 
+ * on ne peut pas faire cela avec les outils à notre
+ * disposition dans scala le 15/09/2014 
+ * en effet on ne peut pas deplacer des valeurs 
+ * alors qu'en Java nous pouvons. C'est trompeur. 
+ */
