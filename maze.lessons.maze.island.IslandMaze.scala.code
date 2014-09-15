@@ -9,20 +9,20 @@ def keepHandOnSideWall(){
 		}else{avance}
 	}
 def trouveNord(){
-if(getDirection==Direction.NORTH && estFaceMur==false){avance();}
-else{if(estFaceMur){droite();if(estFaceMur){droite();droite();avance();}else{avance}
-}
-}
-}
-while(getX>0){
-	trouveNord();
+	if(getDirection==Direction.HORTH){avance()}
 }
 while(estSurBiscuit==false){
-	keepHandOnSideWall();
-	
+etat match{
+	case 0 => trouveNord()
+			if(estFaceMur()==true && getDirection()==Direction.NORTH){
+				etat=1
+			}
+	case 1 => keepHandOnSideWall()
+			if(getDirection()==Direction.NORTH){
+				etat=0
+			}
 }
-prendBiscuit();
 }
-
+}
 
 
