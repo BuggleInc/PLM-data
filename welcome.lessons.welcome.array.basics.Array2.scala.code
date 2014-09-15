@@ -23,13 +23,14 @@ override def run() {
 	p  = litMessage().toInt;
 
 	for (k<- 0 to getWorldHeight()){
+	
+	if(!estFaceMur){
 	baisseBrosse();
 	setCouleurBrosse(T((k)%getWorldHeight()));
 	leveBrosse();
-	if(!estFaceMur){
 	avance();
 	}else{
-		recule();
+		recule();recule();
 	}
 	}
 }
