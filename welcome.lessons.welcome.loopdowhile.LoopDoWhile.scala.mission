@@ -16,43 +16,43 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Boucles jusqu'Ã <tt> (do ... while)</tt></h2>
+<h2>Boucles jusqu'à<tt> (do ... while)</tt></h2>
 
 <p>Certaines cases du monde sont jaunes, mais les buggles ne supportent pas de
-s'y trouver. Ã‰crivez le code nÃ©cessaire pour avancer jusqu'Ã  ce que le sol
-devienne blanc. Vous pourrez utiliser la mÃ©thode <code>estSurBlanc()</code>
+s'y trouver. Écrivez le code nécessaire pour avancer jusqu'à ce que le sol
+devienne blanc. Vous pourrez utiliser la méthode <code>estSurBlanc()</code>
 qui retourne vrai si le sol est blanc..</p>
 
 <p>Le truc est que la plupart des buggles de ce monde se trouvent actuellement
-sur ce sol jaune qui les Ã©nerve tant. Cela explique sans doute leur Ã©tat de
-panique, et le fait que toutes les buggles se ruent vers l'avant au dÃ©but,
-mÃªme la buggle qui ne se trouve pas sur du jaune. En d'autres mots, mÃªme si
-le sol est blanc le premier coup, il faut quand mÃªme avancer d'un pas.</p>    
+sur ce sol jaune qui les énerve tant. Cela explique sans doute leur état de
+panique, et le fait que toutes les buggles se ruent vers l'avant au début,
+même la buggle qui ne se trouve pas sur du jaune. En d'autres mots, même si
+le sol est blanc le premier coup, il faut quand même avancer d'un pas.</p>    
 
-<p>L'idÃ©e gÃ©nÃ©rale est donc de faire: </p>
-<pre>avancer jusqu'Ã  se trouver sur une case blanche</pre>
+<p>L'idée générale est donc de faire: </p>
+<pre>avancer jusqu'à se trouver sur une case blanche</pre>
 
-<p>La principale difficultÃ© est que nous voulons exÃ©cuter le corps de boucle au
-moins une fois, mÃªme si la buggle se trouve dÃ©jÃ  sur une case blanche. Il
+<p>La principale difficulté est que nous voulons exécuter le corps de boucle au
+moins une fois, même si la buggle se trouve déjà sur une case blanche. Il
 serait facile de dupliquer le corps de la boucle avant la boucle pour cela,
-mais  Ã§a serait une <b>trÃ¨s mauvaise idÃ©e</b>. Dupliquer du code est une
-<b>trÃ¨s mauvaise habitude</b> et il faut toujours Ã©viter de le faire.</p>
+mais  ça serait une <b>très mauvaise idée</b>. Dupliquer du code est une
+<b>très mauvaise habitude</b> et il faut toujours éviter de le faire.</p>
 
 <p>Quand on duplique le code, sa maintenance tourne facilement au cauchemar :
-la lecture du code est trÃ¨s pÃ©nible puisque le lecteur doit s'assurer qu'il
-n'y a effectivement aucune diffÃ©rence, mÃªme minime, entre les versions du
-mÃªme code. Debugger le code devient plus long, puisqu'il faut corriger
+la lecture du code est très pénible puisque le lecteur doit s'assurer qu'il
+n'y a effectivement aucune différence, même minime, entre les versions du
+même code. Debugger le code devient plus long, puisqu'il faut corriger
 toutes les versions. En fait, toutes les modifications deviennent
-pÃ©nibles. Alors, vraiment, vous devrez <b>toujours</b> vous efforcer
-d'Ã©viter la duplication du code quand c'est possible. Et la bonne nouvelle
+pénibles. Alors, vraiment, vous devrez <b>toujours</b> vous efforcer
+d'éviter la duplication du code quand c'est possible. Et la bonne nouvelle
 est que c'est toujours possible...</p>
 
-<h3>ExÃ©cuter le corps de boucle au moins une fois</h3>
+<h3>Exécuter le corps de boucle au moins une fois</h3>
  
-<p>Dans une boucle <tt>while</tt>, la condition est Ã©valuÃ©e avant toute chose,
-et si elle est fausse, le corps de la boucle n'est jamais exÃ©cutÃ©. Il arrive
-parfois que l'on veuille que le corps de la boucle soit Ã©valuÃ© au moins une
-fois, mÃªme si la condition est initialement fausse. On utilise pour cela une
+<p>Dans une boucle <tt>while</tt>, la condition est évaluée avant toute chose,
+et si elle est fausse, le corps de la boucle n'est jamais exécuté. Il arrive
+parfois que l'on veuille que le corps de la boucle soit évalué au moins une
+fois, même si la condition est initialement fausse. On utilise pour cela une
 variante de la boucle <tt>while</tt>, dont la syntaxe est la suivante en
 Scala.
 
