@@ -9,8 +9,8 @@ def murAuNord():Boolean={
 		return false
 	}
 }
-var sommeAngle = 0
-	def murAGauche():Boolean={
+
+def murAGauche():Boolean={
 		gauche()
 		if(estFaceMur()){
 			droite()
@@ -26,29 +26,26 @@ var sommeAngle = 0
 				avance()
 			}else{
 				droite()
-				sommeAngle = sommeAngle - 1
 			}
 		}else{
 			gauche()
-			sommeAngle = sommeAngle + 1
 			if(!estFaceMur()){
 				avance()
 			}
 		}
 	}
-
 	while(!murAuNord()){
 		setDirection(Direction.NORTH)
-		if(estFaceMur()){
-			do {
-				keepHandOnSideWall()
-			}while(sommeAngle == 0)
-			sommeAngle = 0
-		}else{
-			avance()
+		while(estFaceMur()){
+			keepHandOnSideWall()
+		
 		}
+		avance()
 	}
-while(!estSurBiscuit()){
-	keepHandOnSideWall()}
+	
+	droite()
+	while(!estSurBiscuit()){
+		keepHandOnSideWall()
+	}
 	prendBiscuit()
 }
