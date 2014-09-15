@@ -1,33 +1,23 @@
 override def run() {
 var T = new Array[Color](getMondeHauteur);
-var l:Int=0
-val decalage = litMessage().toInt
-l = getMondeLargeur();
-
-T(0) = getCouleurSol()
-for (i<-0 to T.length-1)
+T(0)=getCouleurSol()
+for (c <- 0 to T.length -1)
 {
 	avance()
-	T(i) = getCouleurSol()
+	T(c) = getCouleurSol
 }
-for (k <- 0 to 4)
-{
-recule(getMondeHauteur-k)
-}
-for (d<- 0 to l-2)
-{
-recule(getMondeHauteur)
-gauche()
-avance()
-droite()
 
-for (c<- 0 to T.length-1)
+for (i <- 0 to T.length - 2)
 {
-	setCouleurBrosse(T((c+5)%l));
-	baisseBrosse;
-	leveBrosse;
-	avance;
+	gauche()
+	avance()
+	droite()
+for (j <- 0 to T.length - 2)
+{
+	setCouleurBrosse(T(j))
+	baisseBrosse()
+	leveBrosse()
+	avance()
 }
 }
-recule();
 }
