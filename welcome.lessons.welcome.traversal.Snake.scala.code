@@ -19,19 +19,20 @@ override def run() {
 	
 	baisseBrosse()
 	while (!estEnPosition) {
-		chercheMurNord()
 		while(!estFaceMur) {
 			avance()
 		}
-		chercheMurNord()
+		
 		if (getDirection==Direction.EAST) {
 			gauche()
 			avance()
+			chercheMurNord()
 			gauche()
 		}
 		else {
 			droite()
 			avance()
+			chercheMurNord()
 			droite()
 		}
 		
