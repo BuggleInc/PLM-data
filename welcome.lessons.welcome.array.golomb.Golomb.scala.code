@@ -1,9 +1,11 @@
 def golomb(num:Int): Int = {
 	var g = new Array[Int](500);
+	var c = 4 
 	g(0)=0;g(1)=1;g(2)=2;g(3)=2;
-	for(j<- 3 to (num-1)){
+	for(j<- 3 to num){
 		 for(i<- 1 to g(j)){
-		 	g(j+i) = j 
+		 	g(c) = j 
+		 	c = c +1
 		 }
 	}
 	return g(num)
