@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class array123 extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( array123( t.getParameter(0).asInstanceOf[Array[Int]]) )
+   }
+def array123(nums:Array[Int]): Boolean = {
+  for (i <- 0 to nums.length-3)
+    if (nums(i)==1  &&  nums(i+1)==2  &&  nums(i+2)==3)
+      return true
+  return false
+} }
