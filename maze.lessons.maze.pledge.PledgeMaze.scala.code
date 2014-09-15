@@ -1,5 +1,4 @@
 var virage = 0
-var virageBase = 0
 
 override def run() 
 {	
@@ -45,7 +44,7 @@ override def run()
 				droite()
 		}	
 			
-		while( (virage!=virageBase+4 || virage!=virageBase-4) || !isDirectionFree() )
+		while( (virage%4)!=0 || !isDirectionFree() )
 			keepHandOnSideWall()
 	}
 
