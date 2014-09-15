@@ -4,6 +4,7 @@
 
 	var colorId = 0;
 	var nextState = 1;
+	var ruleInt = 0;
 
 	if(state == 1)
 	{
@@ -29,8 +30,9 @@
 		setCouleurBrosse(colors((colorId + 1) % colors.length));
 		baisseBrosse();
 		leveBrosse();
+		ruleInt = rule(state)(colorId)(nextState);
 
-	match rule(state)(colorId){
+	match ruleInt{
 
 	0 => //stop
 	1 => avance(); //pas de rotation
