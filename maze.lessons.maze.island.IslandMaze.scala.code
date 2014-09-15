@@ -14,17 +14,29 @@ override def run() {
 		 	false}
 	}
 
-	while (!estSurBiscuit) {
-		if (murgauche) {
-			if (estFaceMur) {
-				droite()
+	def maingauche() = {
+		while (!estSurBiscuit) {
+			if (murgauche) {
+				if (estFaceMur) {
+					droite()
+				} else {
+					avance()
+				}
 			} else {
-				avance()
+				gauche;
+				avance;
 			}
+		}
+
+	while ( getY != 0) {
+		if (estFaceMur) {
+			droite
+			avance
+			gauche
 		} else {
-			droite;
-			avance;
+			aumurnord()
 		}
 	}
+	maingauche()
 	prendBiscuit()
 }
