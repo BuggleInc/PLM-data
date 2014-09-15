@@ -21,7 +21,7 @@ override def run() {
 
       def avanceSerp() {                                       // avancer comme un serpent
 
-			  if (!estFaceMur) {avance()}
+			  if (!estFaceMur()) {avance()}
 			  else if  ( getDirection() == Direction.EAST ) {
 			  		gauche() ; avance(); gauche();
 			  	}
@@ -32,7 +32,7 @@ override def run() {
 
 baisseBrosse()
 
-while (finale() == true) {
+while (finale() == false) {
 	avanceSerp()
 }
 }
