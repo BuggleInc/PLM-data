@@ -3,13 +3,21 @@ override def run() {
 		(estFaceMur && getDirection==Direction.est)
 	}
 	baisseBrosse
+	var y=0
 	while (!PositionFinale){
 		avance
-		if (estFaceMur) {
-			gauche
-			avance
-			droite
-			recule(6)
+		if (estFaceMur){
+			if (y%2=0) {
+				gauche
+				avance
+				gauche
+			}
+			else {
+				droite
+				avance
+				droite
+			}
+			y=y+1
 		}
 	}
 }
