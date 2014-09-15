@@ -25,18 +25,26 @@ def keepHandOnSideWall()
 
 def goNord()
 {
-	if (getDirection()==Nord && !estFaceMur())
+	if (getDirection()==Direction.NORTH && !estFaceMur())
 	{
 		avance()
 	}
 	else
 	{
 		droite()
+		if (!estFaceMur())
+		{
+			avance()
+		}
+		else
+		{
+			droite()
+		}
 	}
 }
 
 
-while (getY!=0)
+while (getY()!=0)
 {
 	goNord
 }
