@@ -19,6 +19,7 @@ override def run() {
 			ecritMessage(cpt: Int) 
 		}
 		else {
+			if
 			cpt = cpt + 1;
 			x = 0;
 			y = y + 1;
@@ -28,3 +29,17 @@ override def run() {
 	}
 	droite()
 }
+def position(): Boolean = {
+			var pos: Boolean = false
+			if (getDirection() == Direction.EST) {
+				gauche()
+				if (estFaceMur()) {pos = true}
+				droite()
+			}
+			if (getDirection() == Direction.OUEST) {
+				droite()
+				if (estFaceMur()) {pos = true}
+				gauche()
+			}
+			return pos
+		}
