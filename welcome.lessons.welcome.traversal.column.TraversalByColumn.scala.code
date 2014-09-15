@@ -5,7 +5,7 @@ msg += 1
 var x = 0
 var y = 1
 while (!positionFinale())
-	{if (y!=getMondeHauteur()-1)
+	{if (y!=getMondeHauteur())
 			{setPos(x,y)
 			ecritMessage(""+msg)
 			msg += 1
@@ -21,7 +21,7 @@ while (!positionFinale())
 
 def positionFinale():Boolean= {
 		(getX(),getY()) match {
-			case (x,y) if (x==getMondeLargeur()-1 && y ==getMondeHauteur()-1) =>
+			case (x,y) if (x==getMondeLargeur() && y ==getMondeHauteur()) =>
 						return true
 			case _	=>	return false
 		}
