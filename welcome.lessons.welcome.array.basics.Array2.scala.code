@@ -13,13 +13,13 @@ override def run() {
 		avance()
 		droite()
 		val decalage = litMessage().toInt
-		var comp:Int = 0
+		var comp:Int = decalage
 		while(!estFaceMur) {
-			setCouleurBrosse(T(comp + decalage))
+			setCouleurBrosse(T(comp))
 			baisseBrosse()
 			leveBrosse()
-			if(decalage == getMondeHauteur - 1) {
-				comp = comp - 1
+			if(comp >= getMondeHauteur) {
+				comp = 0
 			}
 			else {
 				comp = comp + 1
