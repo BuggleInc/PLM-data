@@ -1,33 +1,31 @@
 override def run() {
 	def estPositionFinale(){
-		var ver = false
 		if(!estFaceMur()){
-			ver = false
+			return false
 		}else{
 		if(getDirection() == Direction.EST){
 			gauche();
 			if(estFaceMur()){
-				ver = true;
+				return true;
 			}else{
 				avance();
 				gauche();
-				ver = false
+				return false
 			}
 		}
 	else{
 		if(getDirection() == Direction.OUEST){
 			droite();
 			if(estFaceMur()){
-				ver = true;
+				return true;
 			}else{
 				avance();
 				droite();
-				ver = false
+				return false
 			}
 		}
 	}
 		}
-	return ver
 	}
 baisseBrosse();
 while(estPositionFinale() == false){
