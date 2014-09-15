@@ -1,0 +1,17 @@
+override def run() {
+    wl=getMondeLongueur();
+    wh=getMondeHauteur();
+    def findBiscuit() {
+    		for (i <- 1 to wl) {
+    			for (l <- 1 to wh) {
+    				setPosition(i, l);
+    				if (estSurBiscuit()) {
+    					setIndication(i, l, 0);
+    					return true;
+    				}
+    			}
+    		}
+    	return false;
+    }
+   findBiscuit();
+}
