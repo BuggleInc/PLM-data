@@ -2,8 +2,6 @@ override def run() {
 var n= getMondeHauteur()
 var m= getMondeLargeur()
 var T= new Array[Color](n)
-var decalage = litMessage().toInt
-decalage=0
 T(0)=getCouleurSol()
 	for (k <- 1 to n-1){
 		avance()
@@ -15,8 +13,8 @@ T(0)=getCouleurSol()
 		gauche()
 		avance()
 		droite()
-		litMessage()
-	 	setCouleurBrosse(T(decalage))
+		var decalage = litMessage().toInt
+	 	setCouleurBrosse(T(decalage+j))
 	 	baisseBrosse()
 	 	leveBrosse()
 	 	
