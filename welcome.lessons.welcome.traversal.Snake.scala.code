@@ -3,8 +3,8 @@ override def run() {
 	while (!positionfinale) { mur() }
 
 	def mur() = { 
-		while (!estFaceMur) {avance() }
-		while (estFaceMur) {
+		while (!estFaceMur()) {avance() }
+		while (estFaceMur()) {
 			if (getDirection() == Direction.EST) { gauche(); avance(); gauche() }
 			if (getDirection() == Direction.OUEST) { droite(); avance(); droite() }
 		}	
