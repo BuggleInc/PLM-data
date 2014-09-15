@@ -33,17 +33,15 @@ override def run() {
 			aumurnord();
 			droite()
 		} else {
-			while (getDirection() != Direction.NORTH) {
-				if (murgauche) {
-					if (estFaceMur) {
-						droite()
-					} else {
-						avance()
-					}
+			if (murgauche) {
+				if (estFaceMur) {
+					droite()
 				} else {
-					gauche;
-					avance;
+					avance()
 				}
+			} else {
+				gauche;
+				avance;
 			}
 		}
 	}
