@@ -1,2 +1,23 @@
+var sol=getSol()
+var pos=0
+var plat = 0
+var premier = Point(0,0)
+var deuxieme = Point(0,0)
+
 def getLandingZone():Segment = {
+	for(i<-0 to getSol.length-1){
+		if(pos==y(sol(i))&&plat == 0){
+		 	plat = 1 
+		 	premier = sol(i-1)
+		}
+		else if(pos==y(sol(i))&&plat == 1){
+			deuxieme = sol(i-1)
+		}
+		else if(pos!=y(sol(i))&&plat == 1){
+			return Segment(premier,deuxieme)
+		}
+		else{
+			pos = y(sol(i))
+		}
+	}
 }
