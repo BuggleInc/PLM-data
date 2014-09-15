@@ -2,13 +2,20 @@ override def run() {
 var msg = 1
 ecritMessage(""+msg)
 msg += 1
+var x = 0
+var y = 1
 while (!positionFinale())
-	{for (x <- 0 to getMondeLargeur()-1)
-		{for (y <- 0 to getMondeHauteur()-1)
+	{if (y!=getMondeHauteur()-1)
 			{setPos(x,y)
 			ecritMessage(""+msg)
-			msg += 1}
-		}
+			msg += 1
+			y += 1}
+		else {y=0
+			x=x+1
+			setPos(x,y)
+			ecritMessage(""+msg)
+			msg += 1
+			y += 1}
 	}
 }
 
