@@ -1,15 +1,12 @@
 override def run() {
 baisseBrosse();
-def fonctionTest(){
-if(estFaceMur()==true&&getDirection() == Direction.NORD){return true}
-else{return false}
-}
 
 
+do{
 if(estFaceMur){
 	if(getDirection() == Direction.EST){gauche(); avance(); droite();}
 	else{if (getDirection() == Direction.OUEST){droite();avance();gauche();}}
 }else{avance();}
+}while (estFaceMur()==true&&getDirection() == Direction.NORD)
 }
-
 
