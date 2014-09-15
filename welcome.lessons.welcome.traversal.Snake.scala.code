@@ -2,7 +2,7 @@ override def run() {
 	def  PositionFinale() :Boolean = {
 		var x=false
 		if (estFaceMur) {
-			if (getDirection == Direction.EST) gauche
+			if (getDirection == Direction.est) gauche
 			else droite
 			if (estFaceMur) x=true
 		}
@@ -11,7 +11,7 @@ override def run() {
 	
 	baisseBrosse
 	var y=0
-	do {
+	while (!PositionFinale) {
 		avance
 		if (estFaceMur){
 			if (y%2==0) {
@@ -26,6 +26,5 @@ override def run() {
 			}
 			y=y+1
 		}
-	} while (!PositionFinale)
-	
+	}	
 }
