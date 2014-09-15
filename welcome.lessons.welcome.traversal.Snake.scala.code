@@ -1,15 +1,14 @@
 override def run() {
 	def estPositionFinale(){
 		var ver = false
-		if(estFaceMur()){
-			ver = true
+		if(!estFaceMur()){
+			ver = false
 		}else{
 		if(getDirection() == Direction.EST){
 			gauche();
 			if(estFaceMur()){
 				ver = true;
 			}else{
-				gauche();
 				avance();
 				gauche();
 				ver = false
@@ -21,7 +20,6 @@ override def run() {
 			if(estFaceMur()){
 				ver = true;
 			}else{
-				droite();
 				avance();
 				droite();
 				ver = false
