@@ -1,11 +1,9 @@
 override def run() 
 {
 
-	for (n<-1 to 4)
-	{
-		avance(30)
-		droite(30)
-		for (n<-1 to 3)
+def maison()
+{
+	for (n<-1 to 3)
 		{
 			avance(30)
 			droite(120)
@@ -16,6 +14,13 @@ override def run()
 			avance(30)
 			droite(90)
 		}
+}
+
+	for (n<-1 to 4)
+	{
+		avance(30)
+		droite(30)
+		maison()
 	leveCrayon()
 	droite(90)
 	avance(50)
@@ -23,22 +28,13 @@ override def run()
 	baisseCrayon()
 	}
 
+	leveCrayon()
 	gauche(90)
 	avance(50)
 	droite(90)
 	avance(75)
 	avance(30)
-		droite(30)
-		for (n<-1 to 3)
-		{
-			avance(30)
-			droite(120)
-		}
-		droite(60)
-		for (n<-1 to 3)
-		{
-			avance(30)
-			droite(90)
-		}
+	droite(30)
+	maison()
 	
 }
