@@ -1,2 +1,17 @@
 override def run() {
+	var tab = new Array[Color] (getMondeHauteur())
+	for (i <- 0 to getMondeHauteur()-1)
+	{
+		tab(i) == getCouleurSol()
+		avance()
+	}
+	for (j<- 1 to getMondeLargeur())
+	{
+		gauche()
+		avance()
+		droite()
+		avance()
+		setCouleurBrosse(tab (i))
+		baisseBrosse()
+	}
 }
