@@ -1,6 +1,16 @@
 override def run() {
-	var EST:Boolean = false;
-	var OUEST:Boolean = false;
+	def EST():Boolean = {
+		 if (getDirection()==Direction.EST) {
+		 	return true;
+		 }
+		 else return false;
+	}
+	def OUEST():Boolean = {
+		if (getDirection()==Direction.OUEST) {
+			return true;
+		}
+		else return false;
+	}
 	def murNord():Boolean = {
 		if (OUEST) {
 			droite();
@@ -49,14 +59,8 @@ override def run() {
 	
 	baisseBrosse();
 	do {
-		if (getDirection()==Direction.OUEST) {
-			EST=false;
-			OUEST=true;
-		}
-		else {
-			OUEST=false;
-			EST=true;
-		}
+		EST();
+		OUEST();
 	pasSerpent();
 	} while (!posFinale())
 }
