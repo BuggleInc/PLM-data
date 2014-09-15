@@ -11,10 +11,10 @@ override def run() {
 	}
 	def positionfinale():Boolean = { 
 		if (estFaceMur && getDirection == Direction.EST) {
-			gauche(); true
-			if (estFaceMur) { droite(); true }
-			else { droite(); false }
+			gauche()
+			if (estFaceMur) { droite(); return true }
+			else { droite(); return false }
 		}
-		else { false }
+		else { return false }
 	}
 }
