@@ -12,8 +12,15 @@ def keepHandOnSideWall() = {
 var etat = 0 ;
 while (!(estSurBiscuit()) {
 	match etat {
-		case 0 => 
+		case 0 => setDirection(Direction.NORD); while (!(estFaceMur())) {
+			avance()
+			
+		};	etat = 1
+		case 1 => while (getDirection() != Direction.NORD) {
+			keepHandOnSideWall()
+		}; etat = 0;
+		case _ => printInt( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
 }
-
+prendBiscuit()
 }
