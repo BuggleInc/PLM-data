@@ -1,5 +1,5 @@
 override def run() {
-def keepHandOnSideWall() {
+def keepHandOnSideWall() = {
 	gauche();
 	while (estFaceMur()) {
 	droite();
@@ -7,11 +7,37 @@ def keepHandOnSideWall() {
 	avance();
 }
 
+def avoirMurGauche(): Boolean = {
+	gauche();
+	if (estFaceMur()) {
+		return true;
+		droite();
+	}
+	droite();
+	return false;
+}
+
+def chercheMur() = {
+	if (estFaceMur()) {
+		droite();
+	} else {
+		avance();
+	}
+}
+
+def deplacelelong() = {
+	while (!avoirMurGauche()) {
+		chercheMur();
+	}
+	keepHandOnSideWall();
+}
+	
+
 var etat=0;
 while (!(estSurBiscuit())) {
 etat match  {
   case 0 => setDirection(Direction.NORTH); while (!(estFaceMur())) {avance()}; etat = 1;
-  case 1 => while (getDirection != Direction.NORTH) {keepHandOnSideWall()}; etat = 0;
+  case 1 => while (getDirection != Direction.NORTH) {deplacelelong()}; etat = 0;
   case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
 }
  }
