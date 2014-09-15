@@ -28,17 +28,25 @@ override def run() {
 			}
 		}
 	}
-
-	while ( getY != 0) {
-		if (estFaceMur) {
-			droite
-			avance
-			gauche
+	while (!estSurBiscuit) {
+		if (getDirection() == NORTH) {
+			aumurnord();
+			droite()
 		} else {
-			aumurnord()
+			while (getDirection() != NORTH) {
+				if (murgauche) {
+					if (estFaceMur) {
+						droite()
+					} else {
+						avance()
+					}
+				} else {
+					gauche;
+					avance;
+				}
+			}
 		}
-	}
-	droite()
-	maingauche()
+	
+
 	prendBiscuit()
 }
