@@ -9,13 +9,14 @@ override def run() {
 					if (estFaceMur() == true) f=1 
 				}
 		
-				if ( getDirection() == Direction.WEST) { 
+				else if ( getDirection() == Direction.WEST) { 
 							droite() ; 
 							if (estFaceMur() == true) f=1 
 				}
 		
-				if ( f == 1 && estFaceMur() == true ) return true
-				else return false
+				if ( (f == 1) && (estFaceMur() == true) ) return true
+				else { f =0 ;return false }
+				}
 		}
 
       def avanceSerp() {                                       // avancer comme un serpent
@@ -30,7 +31,7 @@ override def run() {
 
 
 baisseBrosse()
-droite()
+
 while (finale() == false) {
 	avanceSerp()
 }
