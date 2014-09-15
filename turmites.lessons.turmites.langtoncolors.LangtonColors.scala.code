@@ -1,9 +1,11 @@
 var i=0
 def step(rule:Array[Char], colors:Array[Color]) {
+	
 	i=0
 	while (getCouleurSol!=colors(i)){
 		i=i+1
 	}
+	
 	if(rule(i)=="L"){
 		if(i==colors.length-1){
 		setCouleurBrosse(colors(0))
@@ -16,13 +18,15 @@ def step(rule:Array[Char], colors:Array[Color]) {
 		gauche
 		avance
 	}
+	
 	else{
 		if(i==colors.length-1){
 		setCouleurBrosse(colors(0))
 		}
 		else{
-		setCouleurBrosse(colors(i+1))	
+		setCouleurBrosse(colors(i))	
 		}
+		
 		baisseBrosse
 		leveBrosse
 		droite
