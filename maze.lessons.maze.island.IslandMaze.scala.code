@@ -9,7 +9,7 @@ def keepHandOnSideWall(){
 		}else{avance}
 	}
 def trouveNord(){
-	if(getDirection==Direction.HORTH){avance()}
+	if(getDirection==Direction.HORD){avance()}
 }
 
 var etat = 0
@@ -17,11 +17,11 @@ var etat = 0
 while(estSurBiscuit==false){
 etat match{
 	case 0 => trouveNord()
-			if(estFaceMur()==true && getDirection()==Direction.NORTH){
+			if(estFaceMur()==true && getDirection()==Direction.NORD){
 				etat=1
 			}
 	case 1 => keepHandOnSideWall()
-			if(getDirection()==Direction.NORTH){
+			if(getDirection()==Direction.NORD){
 				etat=0
 			}
 }
