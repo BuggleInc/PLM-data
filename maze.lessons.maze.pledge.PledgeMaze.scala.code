@@ -1,8 +1,8 @@
 override def run() {
-def murGauche():Boolean={
+def murAuNord():Boolean={
 	var y = getDirection()
-	setDirection(Direction.WEST)
-	if(estFaceMur() && getX == 0){
+	setDirection(Direction.NORTH)
+	if((estFaceMur()) && (getY() == 0)){
 		return true
 	}else{
 		setDirection(y)
@@ -37,8 +37,8 @@ var sommeAngle = 0
 		}
 	}
 
-	while(!murGauche()){
-		setDirection(Direction.WEST)
+	while(!murAuNord()){
+		setDirection(Direction.NORTH)
 		if(murAGauche()){
 			do {
 				keepHandOnSideWall()
