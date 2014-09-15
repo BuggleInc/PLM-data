@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class stringTimes extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( stringTimes( t.getParameter(0).asInstanceOf[String], t.getParameter(1).asInstanceOf[Int]) )
+   }
+def stringTimes(str:String, n:Int):String = {
+  var res = ""
+  for (i <- 1 to n)
+    res ++= str
+  return res
+} }
