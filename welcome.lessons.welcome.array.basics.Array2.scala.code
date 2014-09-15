@@ -14,7 +14,13 @@ override def run() {
 			setCouleurBrosse (T(c3))
 			baisseBrosse()
 			leveBrosse()
-			avance()
+			if(!estFaceMur) {
+				avance()
+			}
+			else {
+				baisseBrosse()
+				leveBrosse()
+			}
 		}
 		recule(getMondeHauteur()-1)
 	}
