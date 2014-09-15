@@ -1,6 +1,15 @@
 override def run() {
 	def PositionFinale():Boolean{
-		(estFaceMur && getDirection==Direction.NORD)
+		(estFaceMur && getDirection==Direction.nord)
 	}
-
+	baisseBrosse
+	while (!PositionFinale){
+		avance
+		if (estFaceMur) {
+			gauche
+			avance
+			droite
+			recule(6)
+		}
+	}
 }
