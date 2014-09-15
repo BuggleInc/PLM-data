@@ -29,19 +29,6 @@ override def run()
 		}
 	}
 
-	def mainGaucheSurMur(): Boolean=
-	{
-		gauche()
-		if(estFaceMur())
-		{
-			droite(); return true
-		}
-		else 
-		{
-			droite(); return false
-		}
-	}
-
 	def isDirectionFree(): Boolean =
 	{
 		if(!estFaceMur && getDirection()==Direction.NORTH)
@@ -54,6 +41,8 @@ override def run()
 		if(isDirectionFree())
 		{
 			avance()
+			if(estFaceMur())
+				droite()
 		}		
 		else if(virage==virageBase+4 || virage==virageBase-4)
 		{			
