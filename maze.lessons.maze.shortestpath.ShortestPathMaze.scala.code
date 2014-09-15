@@ -20,26 +20,26 @@ override def run() {
 	biscuit()
 
 
-	def parcours(i:Int,j:Int,c:Int) {
+	def parcours(i:Int,j:Int,compteur:Int) {
 		if (!aMurNord(i,j)) {
 			setIndication(i,j-1,compteur+1)
 			compteur = compteur +1
-			if (getIndications==9999){parcours(i,j-1,compteur)}
+			if (getIndications(i,j-1)==9999) {parcours(i,j-1,compteur)}
 		} else { 
 			if (!aMurOuest(i,j)) {
 				setIndication(i-1,j,compteur+1)
 				compteur = compteur +1
-				if (getIndications==9999){parcours(i-1,j,compteur)}
+				if (getIndications(i-1,j)==9999){parcours(i-1,j,compteur)}
 			} else {
 				if ((getX!=getMondeLargeur)&&(!aMurOuest(i+1,j))) {
 					setIndication(i+1,j,compteur+1)
 					compteur = compteur +1
-					if (getIndications==9999){parcours(i+1,j,compteur)}
+					if (getIndications(i+1,j)==9999){parcours(i+1,j,compteur)}
 				} else {
 					if ((getY!=getMondeHauteur)&&(!aMurNord(i,j+1))) {
 						setIndications(i,j+1,setIndications(i,j)+1)
 						compteur = compteur +1
-						if (getIndications==9999){parcours(i,j+1,compteur)}
+						if (getIndications(i,j+1)==9999){parcours(i,j+1,compteur)}
 					}
 				}
 			}
