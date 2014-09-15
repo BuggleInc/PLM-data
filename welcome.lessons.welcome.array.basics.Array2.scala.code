@@ -5,7 +5,7 @@ override def run() {
 		T(i) = getCouleurSol();avance();
 		}
 		if(estFaceMur){
-			for(j<-1 to getWorldHeight()){
+			for(j<-1 to getWorldHeight()-1){
 				recule();
 				}
 				if(estDosMur){
@@ -14,7 +14,13 @@ override def run() {
 				}                   	   
 			}
       
-      
+      for(k<-0 to getWorldHeight()-1){
+      baisseBrosse();
+      setCouleurBrosse(T(5));
+      leveBrosse();
+      avance();
+      }
+
 
 }
 
