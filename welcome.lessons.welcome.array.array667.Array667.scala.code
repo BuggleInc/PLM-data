@@ -5,7 +5,10 @@ def array667(nums:Array[Int]): Int = {
 		if ((y==0 && nums(i)==6) || (y==1 && nums(i)==6) || (y==1 && nums(i)==7) || (y==0 && nums(i)==7)) y=y+1
 		if (y==2) {
 			x=x+1
-			y=0
+			if (i!=nums.length-1) {
+				if ((nums(i+1)!=6) || (nums(i+1)!=7)) y=0
+				else y=1
+			}
 		}
 	}
 	return x
