@@ -1,14 +1,12 @@
 override def run() {
+	var hauteur: Int = getMondeHauteur();
+	var largeur: Int = getMondeLargeur();
 	baisseBrosse();
-	for(i <- 1 to 7){
-		courir(6);
-		gauche();
-		avance();
-	}
-
-	def courir(n:Int){
-		for(i<- 1 to n){
-			avance();
+	for(n1 <- 0 to largeur - 1){
+		for(n2 <- 0 to hauteur - 1){
+			setPos(n2, n1);
+			valeur = valeur + 1;
 		}
 	}
+	
 }
