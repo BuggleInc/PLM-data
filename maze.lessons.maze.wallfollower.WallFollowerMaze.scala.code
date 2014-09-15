@@ -1,7 +1,21 @@
 override def run() {
 	do {
-		
-		avance()
+		if (:estFaceMur()) {
+			avance()
+		gauche()
+		if (estFaceMur()) {
+			droite()
+		} else {
+			avance()
+			droite()
+			if (estFaceMur()) {
+				gauche()
+			} else {
+				avance()
+			}
+
+			
+		} else {
 		gauche()
 		if (estFaceMur()) {
 			droite()
@@ -16,6 +30,10 @@ override def run() {
 
 			
 		}
+		}
+		}
+		
+		
 	} while (!estSurBiscuit())
 	prendBiscuit()
 }
