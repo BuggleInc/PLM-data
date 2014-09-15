@@ -1,0 +1,25 @@
+override def run() {
+	var x:Int = 0
+	def posFin():Boolean = {
+		var b = false 
+		if (getX() == getMondeHauteur()-1 && getY() == getMondeLargeur()-1) {b = true}
+		return b
+	}
+	def ligneG() = {
+		while (!(getX()==0)) {
+			ecritMessage(x);
+			setPos(getX()-1, getY());
+			x=x+1;
+		}
+	}
+	def ligneD() = {
+		while (!(getX()== getMondeLargeur-1)) {
+			ecritMessage(x);
+			setPos(getX()+1,getY());
+			x=x+1;
+		}
+	}
+	while (!posFin()) {
+		if (getX==0) {ligneD();setPos(getX(),getY()+1)} else {ligneG();setPos(getX(),getY()+1)}
+	}
+}
