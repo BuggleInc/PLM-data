@@ -13,8 +13,8 @@ override def run() {
 	}
 
 	def isDirectionFree(dir:Direction):Boolean ={
-		if (dir==Direction.EAST) {gauche(); if(!estFaceMur()) {droite();return true} ; return false}
-		if (dir==Direction.WEST) {droite(); if(!estFaceMur()) {gauche();return true} ; return false}
+		if (dir==Direction.EAST) {gauche(); if(!estFaceMur()) {droite();return true} ; droite();return false}
+		if (dir==Direction.WEST) {droite(); if(!estFaceMur()) {gauche();return true} ; gauche();return false}
 		if (dir==Direction.NORTH && !estFaceMur()) {return true}
 		return false
 	}
@@ -23,7 +23,7 @@ override def run() {
 			setDirection(Direction.NORTH)
 			while(!estFaceMur()) {avance()}
 			droite()
-			sommeAngle=0
+			sommeAngle=0-1
 			while(!isDirectionFree(getDirection()) && !estSurBiscuit() && sommeAngle!=0) {
 				keepHandOnSideWall()}
 		}
