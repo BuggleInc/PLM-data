@@ -8,11 +8,22 @@ def keepHandOnSideWall() {
 		}
 
 
-setDirection(Direction.NORTH);
-avance();
-keepHandOnSideWall();
+var etat=0;
+etat match  {
+  case 0 => setDirection(Direction.NORTH); avance(); etat = 1;
+  case 1 => keepHandOnSideWall(); etat = 0;
+  case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+}
+
  while (!(estSurBiscuit())) {
  	keepHandOnSideWall()
  }
     prendBiscuit();
+}
+
+var etat=0;
+etat match  {
+  case 0 => setDirection(Direction.NORTH); avance(); etat = 1;
+  case 1 => keepHandOnSideWall(); etat = 0;
+  case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
 }
