@@ -7,9 +7,8 @@ def keepHandOnSideWall() {
 	avance();
 }
 
-
-while (!(estSurBiscuit())) {
 var etat=0;
+while (!(estSurBiscuit())) {
 etat match  {
   case 0 => setDirection(Direction.NORTH); while (!(estFaceMur())) {avance()}; etat = 1;
   case 1 => while (getDirection != Direction.NORTH) {keepHandOnSideWall()}; etat = 0;
