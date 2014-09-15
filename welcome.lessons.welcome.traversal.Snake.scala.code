@@ -2,8 +2,11 @@ override def run() {
 	def PositionFinale() :Boolean {
 		var x = false
 		if (estFaceMur) {
-			if (getDirection == Direction.est) gauche
-			else droite
+			getDirection match {
+				case Direction.est => gauche
+				case Direction.ouest => droite
+				case _
+			}
 			if (estFaceMur) x=true
 		}
 		return x
