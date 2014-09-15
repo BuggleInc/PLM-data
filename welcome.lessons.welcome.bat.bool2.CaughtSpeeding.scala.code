@@ -1,13 +1,13 @@
 def caughtSpeeding(speed:Int, isBirthday:Boolean):Int = {
-if (speed<=60 || (isBirthday == true && speed<=65))
+if ((speed <= 60 && isBirthday == false) || (isBirthday == true && speed<=65))
 {
 	return 0;
 }
-if ((speed>60 && speed<=80) || (isBirthday == true && speed>65 && speed<=85))
+if ((speed>60 && speed<=80 && isBirthday == false) || (isBirthday == true && speed>65 && speed<=85))
 {
 	return 1;
 }
-if (speed>=81 || (isBirthday == true && speed >=86))
+if ((speed>=81 && isBirthday == false) || (isBirthday == true && speed >=86))
 {
 	return 2;
 }
