@@ -2,13 +2,15 @@ override def run() {
 	var cpt: Int = 0
 	var x: Int = 0
 	var y: Int = 0
-	if (!estFaceMur()) {
-		y = y + 1
-		setPos(x, y)
-	}
-	else {
-		x = x + 1
-		y = 0
-		setPos(x, y)
+	while (!getX(getMondeLargeur()) && !getY(getMondeHauteur())) {
+		if (!estFaceMur()) {
+			y = y + 1
+			setPos(x, y)
+		}
+		else {
+			x = x + 1
+			y = 0
+			setPos(x, y)
+		}
 	}
 }
