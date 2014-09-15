@@ -1,2 +1,53 @@
 override def run() {
+
+	var sommeangle = 0
+	
+	def aumurnord()= {
+		while(!estFaceMur) {avance}
+	}
+	
+	def murgauche:Boolean = {
+		 gauche();
+		 if (estFaceMur()) {
+		 	droite();
+		 	true}
+		 else {
+		 	droite();
+		 	false}
+	}
+
+	def maingauche() = {
+		while (!estSurBiscuit) {
+			if (murgauche) {
+				if (estFaceMur) {
+					droite()
+				} else {
+					avance()
+				}
+			} else {
+				gauche;
+				avance;
+			}
+		}
+	}
+	while (!estSurBiscuit) {
+		if ((getDirection() == Direction.NORTH)&&(sommeangle==0)) {
+			aumurnord();
+			droite()
+		} else {
+			if (murgauche) {
+				if (estFaceMur) {
+					sommeangle = sommeangle -1
+					droite()
+				} else {
+					avance()
+				}
+			} else {
+				sommeangle = sommeangle +1
+				gauche;
+				avance;
+			}
+		}
+	}
+	prendBiscuit()
 }
