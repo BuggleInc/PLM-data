@@ -1,9 +1,11 @@
 override def run() {
-while (!estSurBiscuit()) {
-	while (estFaceMur()) {
-		droite()
-	} 
-	avance()
-	
-}
+	def h = {	while (!estFaceMur()) {
+		avance()
+	}
+	gauche()
+	}
+do {
+	h
+} while (!estSurBiscuit())
+prendBiscuit()
 }
