@@ -1,5 +1,13 @@
 override def run() {
-	
+	def  PositionFinale() :Boolean {
+		var x = false
+		if (estFaceMur) {
+			if (getDirection == Direction.est) gauche
+			else droite
+			if (estFaceMur) x=true
+		}
+		return x
+	}
 	baisseBrosse
 	var y=0
 	while (!PositionFinale){
@@ -18,16 +26,5 @@ override def run() {
 			y=y+1
 		}
 	}
-	def  PositionFinale() :Boolean {
-		var x = false
-		if (estFaceMur) {
-			getDirection match {
-				case Direction.est => gauche
-				case Direction.ouest => droite
-				case _
-			}
-			if (estFaceMur) x=true
-		}
-		return x
-	}
+	
 }
