@@ -14,17 +14,20 @@ def step(rule:Array[Char], colors:Array[Color])
 		setCouleurBrosse(colors(colorId));
 		baisseBrosse();
 		leveBrosse();
-		
-		if(rule(colorId-1) == "L")
+
+	if(colorId < rule.length)
+	{
+	
+		if(rule(colorId) == "L")
 		{
 			gauche();
 			avance();
 		}
-		else if (rule(colorId-1) == "R")
+		else if (rule(colorId) == "R")
 		{
 			droite();
 			avance();
 		}
 	
-
+	}
 }
