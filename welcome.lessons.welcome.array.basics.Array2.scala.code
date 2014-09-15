@@ -24,6 +24,14 @@ override def run() {
 			baisseBrosse();
 			setCouleurBrosse(t(z));
 			leveBrosse();
+			if (z==getMondeHauteur()-1&&!estFaceMur) {
+				for (k<-0 to i) {
+					avance();
+					baisseBrosse();
+					setCouleurBrosse(t(z+i));
+					leveBrosse();
+				}
+			}
 		}
 		w=w-1;
 		i=i+1;
