@@ -1,6 +1,7 @@
 override def run() {
 var hauteur: Int= getMondeHauteur() 
 var T = new Array[Color] (hauteur)
+var numcol: Int= 0
 for ( k <- 0 to (hauteur-2 )){
 	
 	T(k)=getCouleurSol()
@@ -13,13 +14,16 @@ gauche()
 avance()
 droite ()
 avance()
+numcol=numcol+1
 
 	
 	for (o <- 0 to (hauteur - 3)) {
 		setCouleurBrosse( T(o))
 		baisseBrosse()
 		leveBrosse()
-		avance()
+		            if (estFaceMur) {
+		            	recule(hauteur)
+		            } else avance()
 		}
 	
 
