@@ -1,4 +1,22 @@
-def max1020(a:Int, b:Int):Int = {
+def max1020(a:Int, b:Int):Int =  {
+  // First make it so the bigger value is in a
+  if (b > a) {
+    int temp = a;
+    a = b;
+    b = temp;
+  }
+  
+  // Knowing a is bigger, just check a first
+  if (a >= 10 && a <= 20) return a;
+  if (b >= 10 && b <= 20) return b;
+  return 0;
+}
+
+	
+
+	
+	
+	/**
 	if((a >= 10 && a <= 20) && (b >= 10 && b <= 20)){
 		return Math.max(a,b)
 	}
@@ -8,30 +26,32 @@ def max1020(a:Int, b:Int):Int = {
 	if(((a >= 10 && a <= 20) && (!(b >= 10 && b <= 20)))){
 		return a
 	}
-	
-	
 		return 0
-}
+} */
 
 	
-/**	def in1020(a:Int, b:Int): Int = {
-		var nb1020:Int = 0;
-		
-		 if(a >= 10 && a <= 20){
-			nb1020 = nb1020 + 1
-		 }
-		 if(b >= 10 && b <= 20){
-			nb1020 = nb1020 + 1 
-		 }
-			return nb1020
-	}
-
-	if(in1020(a,b)==2){
-		return Math.max(a,b)
-	}
-	if((in1020(a,b)==1){
-		return 
-	}
-		return 0
+/**
+ * en fait on trouve une méthode beaucoup plus simple 
+ * public int max1020(int a, int b) {
+  // First make it so the bigger value is in a
+  if (b > a) {
+    int temp = a;
+    a = b;
+    b = temp;
+  }
+  
+  // Knowing a is bigger, just check a first
+  if (a >= 10 && a <= 20) return a;
+  if (b >= 10 && b <= 20) return b;
+  return 0;
 }
-*/
+ * ce n'est pas naturel mais on peut parfois prendre un enonce "a l'envers"
+ * et repondre a ce qui est demande dans l'ordre contraire que celui que 
+ * l'enonce sous entend
+ * la methode de la correction verifie d'abord lequel des deux nombres est le 
+ * plus grand
+ * ensuite il sauvegarde cette valeur 
+ * ensuite il regarde si cette valeur est dans l'intervalle ou pas 
+ * si oui il l'a renvoie 
+ * si non il faut savoir si 
+ */
