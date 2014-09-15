@@ -1,10 +1,11 @@
 def golomb(num:Int): Int = {
 	val n:Int=num
 	var a = new Array[Int](n)
+	var dir:Int=1
 	a(0)=1
 	var compteur:Int=0
 	for (x <- 1 to n-1) {
-		if (compteur==a(x+1)) {
+		if (compteur==a(dir-1)) {
 			a(x)=a(x-1)+1
 			compteur=0
 			
