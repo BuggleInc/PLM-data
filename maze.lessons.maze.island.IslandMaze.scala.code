@@ -8,9 +8,15 @@ def keepHandOnSideWall(){
 			}else{avance}
 		}else{avance}
 	}
+def trouveNord(){
+if(Direction.NORTH&&estFaceMur==false){avance();}
+else{if(estFaceMur){droite();}}
+}
 
+while(getX>0){trouveNord}
 while(estSurBiscuit==false){
 	keepHandOnSideWall();
+	
 }
 prendBiscuit();
 }
