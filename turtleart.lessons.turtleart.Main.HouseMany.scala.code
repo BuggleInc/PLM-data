@@ -1,0 +1,30 @@
+override def run() {
+	for (y<- 0 to 2) {
+		if ((y==0) || (y==2)) {
+			for(i <- 0 to 3) {
+				houses()
+				setPos(getX+50, getY)
+			}
+		} else {
+			 houses()
+			 setPos(getX+150,getY)
+			 houses()
+		}
+		setPos(getX-150,getY+75)
+	}
+	
+
+}
+def houses() {
+	avance(30)
+	droite(30)
+	for (i<- 0 to 2) {
+		avance(30)
+		droite(120)
+	}
+	droite(60)
+	for (i<- 0 to 2) {
+		avance(30)
+		droite(90)
+	}
+}
