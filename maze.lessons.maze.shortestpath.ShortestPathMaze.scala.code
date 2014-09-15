@@ -20,21 +20,20 @@ override def run() {
 	def parcours(i:Int,j:Int,compteur:Int) {
 		var a = compteur
 		setIndication(i,j,a)
-		if ((!aMurNord(i,j))&&(getIndication(i,j-1)==9999)) {
+		if ((!aMurNord(i,j))&&(getIndication(i,j-1)==9999)&&(getIndication(i,j-1)<a)) {
 			parcours(i,j-1,a+1)
 		}
-		if ((!aMurOuest(i,j))&&(getIndication(i-1,j)==9999)) {
+		if ((!aMurOuest(i,j))&&(getIndication(i-1,j)==9999)&&(getIndication(i,j-1)<a)) {
 			parcours(i-1,j,a+1)
 		}
-		if ((i!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i+1,j)==9999)) {
+		if ((i!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i+1,j)==9999)&&(getIndication(i,j-1)<a)) {
 			parcours(i+1,j,a+1)
 		}
-		if ((j!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j+1)==9999)) {
+		if ((j!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j+1)==9999)&&(getIndication(i,j-1)<a)) {
 			parcours(i,j+1,a+1)
 		}
 	}
-	if (estChoisie)
-  		print("x:"+posX+", y:"+posY+"\\n")
+
   
 	parcours(posX,posY,0)
     
