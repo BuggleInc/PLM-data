@@ -4,7 +4,7 @@ override def run() {
 	var T = new Array [Color](getWorldHeight())
 	
 	for (i <- 0 to (getWorldHeight()-1)) {
-	if(!estFaceMur){
+	if(!estFaceMur ){
 		avance();
 		T(i) = getCouleurSol();
 		
@@ -14,6 +14,11 @@ override def run() {
 		for (i <- 0 to (getWorldHeight()-1)) {
 		recule();
 		}	
+	}
+	if(estDosMur){
+		gauche();
+		avance();
+		droite();
 	}
 }
 	
