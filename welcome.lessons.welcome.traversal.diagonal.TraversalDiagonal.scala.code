@@ -29,9 +29,10 @@ def diag2(){
 }
 
 while(!posFinale()){
-	getY() match{
-		case getY() if (getY() < getMondeHauteur - 1) => diag1()
-		case _ => diag2()
+	if(getY() < getMondeHauteur - 1){
+		diag1()
+	}else{
+		diag2()
 	}
 }
 ecritMessage(""+diag)
