@@ -1,0 +1,21 @@
+override def run() {
+	do {
+		
+		avance()
+		gauche()
+		if (estFaceMur()) {
+			droite()
+		} else {
+			avance()
+			droite()
+			if (estFaceMur()) {
+				gauche()
+			} else {
+				avance()
+			}
+
+			
+		}
+	} while (!estSurBiscuit())
+	prendBiscuit()
+}
