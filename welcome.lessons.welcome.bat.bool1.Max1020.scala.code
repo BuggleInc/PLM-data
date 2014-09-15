@@ -1,8 +1,13 @@
 def max1020(a:Int, b:Int):Int = {
 	var S=Math.max(a,b)
-	if ((9<a && a<21) || (9<b && b<21)) {
+	if ((9<a && a<21) && (9<b && b<21)) {
 		return S 
-	} else { 
+	} else if ((9<a && a<21)==false &&(9<b && b<21)) {
+		return b
+	}  else if ((9<b && b<21)==false &&(9<a && a<21)) {
+		return a
+	}
+	else { 
 		return 0
 	}
 }
