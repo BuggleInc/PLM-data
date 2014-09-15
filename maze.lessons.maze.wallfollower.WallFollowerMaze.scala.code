@@ -1,16 +1,11 @@
 override def run() {
-    while(!estSurBiscuit) {
-    	var x:Int = random3()
-    		if (x==0 && !estFaceMur) {avance()}
-    		else if (x==1) {
-    			gauche();
-    			while (estFaceMur) {gauche()};
-    			avance();
-    		} else if (x==2) {
-    			droite();
-    			while (estFaceMur) {droite()};
-    			avance();
-    		}
+    def keepHandOnRightWall() = {
+    	while (!(estFaceMur()) {droite()}
+    	gauche();
+    	avance();
+    }
+    while (!(estSurBiscuit)) {
+    	keepHandOnRightWall();
     }
     prendBiscuit();
 }
