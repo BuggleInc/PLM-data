@@ -24,16 +24,17 @@ override def run() {
 	for (k<-0 to getWorldHeight()-1){
 
 
-	if(!estFaceMur){
-	avance();baisseBrosse();
-	setCouleurBrosse(T((k+p-1)%(getWorldHeight())));
-	
-	leveBrosse();
-	}else{
-		setCouleurBrosse(T((k+p-1)%(getWorldHeight())));
-		baisseBrosse();
-		leveBrosse();
-		recule();
+	baisseBrosse();
+     	for (k<-1 to getWorldHeight()-2){	
+                for (j<-1 to getWorldHeight()){
+    	                    setCouleurBrosse(T((j-1)%((getWorldHeight()))));
+                        	if(getCouleurSol()==T((getWorldHeight()-1))){
+                                	leveBrosse();avance();gauche();avance();droite();avance();baisseBrosse();
+                                          	}else{
+                                        		avance();	
+                                             	}
+                                   	}
+                         	}
 		
 
 		
@@ -51,3 +52,29 @@ override def run() {
 
 	
 }
+
+
+//for (i <- 0 to (getWorldHeight()-1)) {
+//		T(i) = getCouleurSol();avance();
+//		}
+//		avance();gauche();avance();droite();
+ //   	baisseBrosse();
+   //  	for (k<-1 to getWorldHeight()-2){	
+    //            for (j<-1 to getWorldHeight()){
+    	///                    setCouleurBrosse(T((j-1)%((getWorldHeight()))));
+      //                  	if(getCouleurSol()==T((getWorldHeight()-1))){
+        //                        	leveBrosse();avance();gauche();avance();droite();avance();baisseBrosse();
+         //                                 	}else{
+        //                                		avance();	
+          //                                   	}
+          //                         	}
+          //               	}
+           //                for (j<-1 to getWorldHeight()){
+    	        //            setCouleurBrosse(T((j-1)%((getWorldHeight()))));
+             //           	if(getCouleurSol()==T((getWorldHeight()-1))){
+               //                 	leveBrosse();avance();
+                //                          	}else{
+                 //                       		avance;	
+                 //                            	}
+                 ///                  	}
+                               	
