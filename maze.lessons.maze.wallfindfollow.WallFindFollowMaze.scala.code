@@ -1,6 +1,6 @@
 override def run() {
 
-def keepHandOnSideWall() {
+def keepHandOnSideWall()=  {
 	gauche();
 	while (estFaceMur()) {
 	droite();
@@ -16,13 +16,22 @@ def avoirMurGauche(): Boolean = {
 	}
 	droite();
 	return false;
+
+def chercheMur() = {
+	if (estFaceMur()) {
+		droite();
+	} else {
+		avance();
+	}
+}
 	
+
+while (!(avoirMurGauche())) {
+	chercheMur();
 }
 
  while (!(estSurBiscuit())) {
- 	if (avoirMurGauche()) {
  	keepHandOnSideWall()
- }
  }
     prendBiscuit();
 
