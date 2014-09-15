@@ -19,8 +19,8 @@
 <h2>Instructions conditionnelles</h2>
 
 Les programmes faits d'une simple suite d'instructions comme celui de
-l'exercice précédent sont bien ennuyeux. Ils font toujours la même chose, et
-ne peuvent pas réagir aux conditions extérieurs. Une <b>instruction
+l'exercice prÃ©cÃ©dent sont bien ennuyeux. Ils font toujours la mÃªme chose, et
+ne peuvent pas rÃ©agir aux conditions extÃ©rieurs. Une <b>instruction
 conditionnelle</b> permet au programme de s'adapter en disant quelque chose
 comme <i>S'il pleut, prend un parapluie</i>. 
 
@@ -32,38 +32,38 @@ comme <i>S'il pleut, prend un parapluie</i>.
 }
 <b>aFaireDansTousLesCas()</b></pre>
 
-<p>Le mot <code>if</code> signifie «si» en anglais. Si la condition est vraie,
-alors le code du bloc suivant sera exécuté, puis l'exécution se poursuivra
-avec la suite du code, après le bloc. Sinon, si la condition est fausse, le
-bloc suivant sera ignoré et l'exécution passera directement au code placé
-après lui. Le bloc conditionnel peut contenir plusieurs instructions. Il
-peut même contenir d'autre tests, avec leurs sous-blocs associés.</p>
+<p>Le mot <code>if</code> signifie Â«siÂ» en anglais. Si la condition est vraie,
+alors le code du bloc suivant sera exÃ©cutÃ©, puis l'exÃ©cution se poursuivra
+avec la suite du code, aprÃ¨s le bloc. Sinon, si la condition est fausse, le
+bloc suivant sera ignorÃ© et l'exÃ©cution passera directement au code placÃ©
+aprÃ¨s lui. Le bloc conditionnel peut contenir plusieurs instructions. Il
+peut mÃªme contenir d'autre tests, avec leurs sous-blocs associÃ©s.</p>
 
 <p>Dans cet exemple, les instructions <code>aFaireSiVraie()</code> et
-<code>aFaireSiVraie()</code> seront exécutée si (et seulement si) la
+<code>aFaireEnsuiteSiVraie()</code> seront exÃ©cutÃ©e si (et seulement si) la
 condition est vraie tandis que l'instruction
-<code>aFaireDansTousLesCas()</code> sera exécutée que la condition soit
+<code>aFaireDansTousLesCas()</code> sera exÃ©cutÃ©e que la condition soit
 vraie ou fausse. 
 </p>
 
 <p>En Scala, les blocs sont
-délimités par des accolades : le symbole { commence un bloc
+dÃ©limitÃ©s par des accolades : le symbole { commence un bloc
 tandis
-que le symbole } le ferme.  Les caractères blancs ne sont pas pris en
-compte, tant que les instructions restent séparées
-soit par des points-virgules, soit par des retour à la ligne.
-Il reste très important d'indenter correctement votre code
+que le symbole } le ferme.  Les caractÃ¨res blancs ne sont pas pris en
+compte, tant que les instructions restent sÃ©parÃ©es
+soit par des points-virgules, soit par des retour Ã  la ligne.
+Il reste trÃ¨s important d'indenter correctement votre code
 pour qu'il reste lisible.
 
-Il est très facile de se perdre dans un code qui n'est pas correctement
-indenté. Il est donc important que vous fassiez en sorte que votre code
+Il est trÃ¨s facile de se perdre dans un code qui n'est pas correctement
+indentÃ©. Il est donc important que vous fassiez en sorte que votre code
 reste clair et lisible pour que le relire et le modifier reste plaisant et
 productif.</p>
 
 
-<p class="python">Toutes les instructions d'un bloc doivent avoir la même indentation, et il
+<p class="python">Toutes les instructions d'un bloc doivent avoir la mÃªme indentation, et il
 n'est pas possible de couper un bloc. Les deux exemples suivants de code
-sont incorrects et vont générer des erreurs.</p>
+sont incorrects et vont gÃ©nÃ©rer des erreurs.</p>
 <pre class="python">if <b>condition</b>:
 &nbsp;&nbsp;&nbsp;&nbsp;<b>quoiFaire()</b>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>quoiFaireEnsuite()</b> <span class="comment"># une espace de trop</span>
@@ -72,63 +72,63 @@ sont incorrects et vont générer des erreurs.</p>
 <pre class="python">if <b>condition</b>:
 &nbsp;&nbsp;&nbsp;&nbsp;<b>quoiFaire()</b>
 <b>quoiFaireDansTousLesCas()</b>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>quoiFaireEnsuite()</b> <span class="comment"># Ce bloc n'est rattaché à aucune ligne de condition</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>quoiFaireEnsuite()</b> <span class="comment"># Ce bloc n'est rattachÃ© Ã  aucune ligne de condition</span>
 </pre>
 
-<p>La condition doit être une expression de type
+<p>La condition doit Ãªtre une expression de type
 <code>Boolean</code>
-(expression booléenne).  Le sous-bloc sera exécuté seulement si cette
+(expression boolÃ©enne).  Le sous-bloc sera exÃ©cutÃ© seulement si cette
 expression vaut <code>true</code>
-(vrai), et il sera ignoré si sa valeur est
+(vrai), et il sera ignorÃ© si sa valeur est
 <code>false</code> (faux).
 <code>true</code> et
 <code>false</code> sont des constantes
-définies directement par Scala, tout comme 0 ou 1 en mathématiques.</p>
+dÃ©finies directement par Scala, tout comme 0 ou 1 en mathÃ©matiques.</p>
 
-<p>La condition peut aussi être une variable booléenne (nous reviendrons sur
+<p>La condition peut aussi Ãªtre une variable boolÃ©enne (nous reviendrons sur
 les variables dans un autre exercice, pas de panique) ou un test
-arithmétique,comme <code>x == 5</code>, qui teste si la valeur actuelle de
-<tt>x</tt> est 5, ou bien comme <b>!=</b> (teste l'inégalité, càd si le
-membre gauche a une valeur différente du membre droit), <b>&lt;</b>
-(inférieur à), <b>&gt;</b> (supérieur à), <b>&lt;=</b> (inférieur ou égal
-à), <b>&gt;=</b> (supérieur ou égal à).</p>
+arithmÃ©tique,comme <code>x == 5</code>, qui teste si la valeur actuelle de
+<tt>x</tt> est 5, ou bien comme <b>!=</b> (teste l'inÃ©galitÃ©, cÃ d si le
+membre gauche a une valeur diffÃ©rente du membre droit), <b>&lt;</b>
+(infÃ©rieur Ã ), <b>&gt;</b> (supÃ©rieur Ã ), <b>&lt;=</b> (infÃ©rieur ou Ã©gal
+Ã ), <b>&gt;=</b> (supÃ©rieur ou Ã©gal Ã ).</p>
 
-<p>Attention au piège classique, qui consiste à tester l'égalité d'une variable
+<p>Attention au piÃ¨ge classique, qui consiste Ã  tester l'Ã©galitÃ© d'une variable
 avec = au lieu de ==. Heureusement, le
-compilateur détecte le plus souvent ce
-problème et vous le signale, mais pas tout le temps. Si la variable est de
-type booléen, il peut se faire prendre au piège, et il convient donc d'être
+compilateur dÃ©tecte le plus souvent ce
+problÃ¨me et vous le signale, mais pas tout le temps. Si la variable est de
+type boolÃ©en, il peut se faire prendre au piÃ¨ge, et il convient donc d'Ãªtre
 attentif...</p>
 
-<p>La condition peut également être un appel à certaines méthodes
-particulières, dont le résultat est un booléen. Par exemple, la méthode
+<p>La condition peut Ã©galement Ãªtre un appel Ã  certaines mÃ©thodes
+particuliÃ¨res, dont le rÃ©sultat est un boolÃ©en. Par exemple, la mÃ©thode
 <tt>estFaceMur()</tt> de la buggle renvoie
-vrai si la buggle est face à un mur, et
+vrai si la buggle est face Ã  un mur, et
 faux sinon.</p>
 
-<p>Enfin, il est possible de construire une condition composée de plusieurs
-sous-conditions reliées par des opérations booléennes:</p>
+<p>Enfin, il est possible de construire une condition composÃ©e de plusieurs
+sous-conditions reliÃ©es par des opÃ©rations boolÃ©ennes:</p>
 <ul>
   <li><code>cond1 && cond2</code> est vraie si
 <tt>cond1</tt> <b>et</b> <tt>cond2</tt> est vraie (d'ailleurs, si
-<tt>cond1</tt> est fausse, <tt>cond2</tt> n'est même pas évaluée puisqu'on
-sait déjà que la conjonction des deux propositions ne peut pas être vraie).</li> 
+<tt>cond1</tt> est fausse, <tt>cond2</tt> n'est mÃªme pas Ã©valuÃ©e puisqu'on
+sait dÃ©jÃ  que la conjonction des deux propositions ne peut pas Ãªtre vraie).</li> 
   <li><code>cond1 || cond2</code> est vraie si
 <tt>cond1</tt> <b>ou</b> <tt>cond2</tt> est vraie (d'ailleurs, si
-<tt>cond1</tt> est vraie, <tt>cond2</tt> n'est même pas évaluée puisqu'on
-sait déjà que la disjonction des deux propositions ne peut pas être fausse).</li>
+<tt>cond1</tt> est vraie, <tt>cond2</tt> n'est mÃªme pas Ã©valuÃ©e puisqu'on
+sait dÃ©jÃ  que la disjonction des deux propositions ne peut pas Ãªtre fausse).</li>
   <li><code>!cond</code> est vraie si
 <tt>cond</tt> ne l'est pas.</li>
-  <li>Quand les expressions deviennent compliquées, il est préférable d'ajouter
-quelques parenthèses pour lever toute ambiguïté sur l'ordre
-d'évaluation. N'hésitez pas à mettre suffisamment de parenthèses pour la
+  <li>Quand les expressions deviennent compliquÃ©es, il est prÃ©fÃ©rable d'ajouter
+quelques parenthÃ¨ses pour lever toute ambiguÃ¯tÃ© sur l'ordre
+d'Ã©valuation. N'hÃ©sitez pas Ã  mettre suffisamment de parenthÃ¨ses pour la
 rendre plus lisible.</li>
 </ul> 
 
-<p>Pour finir, il est possible de spécifier ce qu'il faut faire quand la
-condition est fausse, en utilisant la syntaxe suivante («else» signifie
-«sinon» en anglais). Dans ce cas, l'instruction
-<code>aFaireSiLaConditionEstFausse()</code> ne sera exécutée que si la
+<p>Pour finir, il est possible de spÃ©cifier ce qu'il faut faire quand la
+condition est fausse, en utilisant la syntaxe suivante (Â«elseÂ» signifie
+Â«sinonÂ» en anglais). Dans ce cas, l'instruction
+<code>aFaireSiLaConditionEstFausse()</code> ne sera exÃ©cutÃ©e que si la
 condition est fausse.</p>
  <pre>if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiLaConditionEstVraie();</b>
@@ -136,18 +136,18 @@ condition est fausse.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiElleEstFausse();</b>
 }</pre>
 
-<p class="Python">N'oubliez pas les deux points (:) après le else, ils indiquent qu'un nouveau
-bloc débute.</p>
+<p class="Python">N'oubliez pas les deux points (:) aprÃ¨s le else, ils indiquent qu'un nouveau
+bloc dÃ©bute.</p>
 
-<h3>Objectif de cet exercice</h3><a name="Objectifs"/> Si la buggle est face à un mur, il faut reculer d'un
+<h3>Objectif de cet exercice</h3><a name="Objectifs"/> Si la buggle est face Ã  un mur, il faut reculer d'un
 pas; Sinon, il faut avancer d'un pas.
-Pour savoir si on est face à un mur, il suffit d'utiliser la méthode
-prédéfinie des buggles nommée <code>estFaceMur()</code>. 
+Pour savoir si on est face Ã  un mur, il suffit d'utiliser la mÃ©thode
+prÃ©dÃ©finie des buggles nommÃ©e <code>estFaceMur()</code>. 
 
 <p>Cet exercice est un peu particulier : il faut que votre programme fonctionne
-pour plusieurs buggles, chacune étant dans une situation initiale
-différente. Le même code sera utilisé pour chacune d'entre elles.</p>
+pour plusieurs buggles, chacune Ã©tant dans une situation initiale
+diffÃ©rente. Le mÃªme code sera utilisÃ© pour chacune d'entre elles.</p>
 
-<p>Quand votre programme fonctionne, passez à l'exercice suivant (qui est caché
-par défaut dans un sous-arbre de la fenêtre de sélection).</p>
+<p>Quand votre programme fonctionne, passez Ã  l'exercice suivant (qui est cachÃ©
+par dÃ©faut dans un sous-arbre de la fenÃªtre de sÃ©lection).</p>
 </body></html>
