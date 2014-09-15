@@ -1,4 +1,5 @@
 def withoutDoubles(die1:Int, die2:Int, noDoubles:Boolean):Int = {
-	if (noDoubles && die1 == die2) {if (die1) == 6 {2}  else {2*die1}}
-	else{die1+die2}
+	if (!noDoubles || die1 != die2) {die1+die2}
+	else if (die1==6) {7}
+	else {die1+die2}
 }
