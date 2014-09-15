@@ -6,12 +6,15 @@ override def run() {
 		return b
 	}
 	while (!posFin) {
-		ecritMessage(x);
 		if (!estDosMur()) {
-			
+			ecritMessage(x);
 			setPos(getX(),getY()+1);
 			x=x+1;
 		}
-		if (estDosMur) {setPos(getX()+1,0)}
+		if (estDosMur) {
+			ecritMessage(x);
+			setPos(getX()+1,0);
+			x=x+1;
+		}
 	}
 }
