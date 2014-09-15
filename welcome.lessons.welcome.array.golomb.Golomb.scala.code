@@ -1,7 +1,16 @@
 def golomb(num:Int): Int = {
-	var y:Int = 0
-	for ( x <- 0 to num.length - 1) {
+	var T = new Array[Int] (500);
+	T(0)=0
+	T(1)=1
+	T(2)=2
+	T(3)=2
+	var c=4
+	for (x <- 3 to num ) { 
+		for ( y <- 1 to T(x) ) {
+			T(c) = x
+			c=c+1
+		}
 		
 	}
-	
+	return T(num)
 }
