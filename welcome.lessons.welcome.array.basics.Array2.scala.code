@@ -16,7 +16,7 @@ override def run() {
 	}
 	gauche();avance();droite();
 
-	baisseBrosse();
+	
 	
 	var p:Int = 0;
 	p =litMessage().toInt;
@@ -25,9 +25,11 @@ override def run() {
 
 
 	if(!estFaceMur){
+	baisseBrosse();
 	setCouleurBrosse(T((k+p)%(getWorldHeight()-1)));
 	avance();
 	}else{
+		leveBrosse();
 		recule();
 	}
 
