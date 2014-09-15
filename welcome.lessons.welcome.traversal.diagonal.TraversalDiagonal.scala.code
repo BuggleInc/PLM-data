@@ -1,5 +1,6 @@
-var diag = 0;
 override def run() {
+
+	var diag = 0;
 	
 	def positionfinale():Boolean = {
 		if ((getX==getMondeLargeur -1)&&(getY==getMondeHauteur-1))
@@ -9,7 +10,7 @@ override def run() {
 	}
 
 	while (!positionfinale) {
-		if ((getY==0)&&(getX!=getMondeLargeur()-1)) {
+		if ((getY==0)&&(getX==getMondeLargeur()-1)) {
 			ecritMessage(diag)
 			diag=diag+1
 			setPos(getMondeLargeur-1,1)
@@ -22,7 +23,7 @@ override def run() {
 				if (getX==getMondeLargeur()-1) {
 					ecritMessage(diag)
 					diag=diag+1
-					setPos(getMondeHauteur(),getMondeLargeur() - getY)
+					setPos(getMondeLargeur() - getY,getMondeHauteur()-1)
 				} else {
 					ecritMessage(diag)
 					diag=diag+1
