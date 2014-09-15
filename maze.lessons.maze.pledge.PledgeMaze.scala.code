@@ -1,51 +1,31 @@
 override def run() {
 def keepHandOnSideWall() {
-	var murAGauche:Boolean=false
-	while(murAGauche=false) {
-		
-	}
-	gauche
-	if(estFaceMur) {
-		droite
-		if(estFaceMur) {
-			droite
-			if(estFaceMur) {
-				droite
-			} else {
-				avance
-			}
-		} else {
-			avance
-		}
-	} else {
+	while(!estFaceMur) {
 		avance
+		gauche
 	}
+	droite
 }
  // longe le mur à gauche
 
-while(!estFaceMur) {
+while (!estFaceMur) {
 	avance
-}//s'assure que le buggle est pres d'un mur
-
+}
 while(!estFaceMur) {
 		gauche
 	}
-droite//mets en postion pour longer a gauche
+	droite//mets en postion pour longer a gauche
 	
-while(getY!=0) {
-	var nb:Int=0
+while(getY>1) {
 	while(getDirection!=Direction.NORTH) {
 		droite
-		nb+1
 	}
-	if(!estFaceMur) {
+	while(!estFaceMur) {
 		avance
-	} else {
-		for (i<- 1 to nb) {
-			gauche
-		}
-	keepHandOnSideWall()
 	}
+	keepHandOnSideWall()
+	keepHandOnSideWall()
+	keepHandOnSideWall()
 } // trouve le mur nord
 
 droite
