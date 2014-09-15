@@ -1,2 +1,72 @@
 override def run() {
+
+
+  	 //On emmène le baggle vers le mur NORD
+		
+	while(getY() != 0)
+	{
+		
+	 if(estFaceMur() && getDirection() == Direction.NORD)
+	 {
+	 	do
+	 	{
+	 	keepHandOnSideWall();
+	 	} while(getDirection() == Direction.NORD)
+	 }
+	 else
+	 {
+	 	if(estFaceMur())
+	 	{
+	 		droite();
+	 	}
+	 	else
+	 	{
+	 		avance();
+	 	}
+	 }
+		
+	}
+
+ while(getDirection() != Direction.EST)
+		{
+			gauche();
+		}
+ 
+ while(!estSurBiscuit())
+ {
+
+
+
+		
+		keepHandOnSideWall();
+ 	
+ }
+
+		prendBiscuit();
+
+}
+
+def keepHandOnSideWall() {
+
+	gauche();
+	if(estFaceMur())
+	{
+		droite();
+		
+		if(!estFaceMur())
+		{
+			avance();
+		}
+		else
+		{
+			droite();
+			droite();
+		}
+		
+	}
+	else
+	{
+		avance();
+	}
+	
 }
