@@ -1,6 +1,45 @@
 override def run() 
 {
 
+def posfin(): Boolean=
+{
+	if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1)
+	{
+		return true
+	} else return false
+}
 
+def move()
+{
+	var cpt: Int=0
+	var i: Int=0
+	var j: Int=0
+	ecritMessage(cpt)
+	while (posfin()==false)
+	{
+		cpt=cpt+1
+		ecritMessage(cpt)
+		if (cpt==6 || cpt == 20 || cpt==34)
+		{
+			j=j+1
+			i=0
+			setPos(7,j)
+		}
+		if (cpt==13 || cpt==27 || cpt==41)
+		{
+			j=j+1
+			i=0
+			setPos(0,j)
+		}
+		else
+		{
+			i=i+1
+			setPos(i,j)
+		}
+		
+	}
+}
+	
+move()
 
 }
