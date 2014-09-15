@@ -3,6 +3,7 @@ var hauteur = getMondeHauteur()
 var T = new Array[Color](hauteur-1)
 var couleur = getCouleurSol()
 var nbPas:Int=0
+var x:Int=0
 
 getCouleurSol()
 T(nbPas)= couleur
@@ -16,11 +17,13 @@ for (k<-1 to hauteur-1) {
 for (k<-1 to hauteur-1) {
 avance(); gauche(); avance(); droite(); avance()
 for (k<-1 to hauteur-1) {
-setCouleurBrosse=T(0)	
+setCouleurBrosse=T(x)	
+x=x+1
 baisseBrosse()
 leveBrosse()
 avance()
 }
+x=0
 }
 
 }
