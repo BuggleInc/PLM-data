@@ -1,0 +1,20 @@
+override def run() {
+var T:Array[Color](getMondeHauter);
+
+T(0) = getCouleurSol()
+for (i<-0 to T.length-1)
+{
+	avance()
+	T(i) = getCouleurSol()
+}
+recule(getMondeHauteur-1)
+gauche()
+avance()
+droite()
+
+for (c<- 0 to T.length-1)
+{
+	setCouleurBrosse(T(c));
+	avance()
+}
+}
