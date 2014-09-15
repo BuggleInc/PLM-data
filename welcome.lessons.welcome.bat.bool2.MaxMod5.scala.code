@@ -1,0 +1,47 @@
+def maxMod5(a:Int, b:Int):Int = {
+	if (a!=b && !direm(a,b)){
+		return max(a,b);
+	}
+	if (a!=b && direm(a,b)){
+		return min(a,b);
+	}else{
+		return 0;
+	}
+		
+	
+}
+
+def direm(a:Int, b:Int): Boolean = {
+	if (irem(a)==irem(b)){
+		return true
+	}else{
+		return false
+	}
+}
+
+
+
+
+def irem(a:Int):Int = {
+	return a%5;
+}
+
+
+def min (a:Int , b:Int): Int = {
+	return   (  (a + b - Math.abs(b - a))/2);
+}
+
+
+def max (a:Int , b:Int): Int = {
+	return   (  (a + b + Math.abs(b - a))/2);
+}
+
+
+//if(a!=b){
+//		if (direm(a,b)){
+//			return max(a,b);
+	//	}else{
+	//		return min(a,b);
+	//	}
+	//}else{
+	//	return 0;
