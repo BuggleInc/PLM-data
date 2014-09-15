@@ -8,23 +8,8 @@ override def run() {
 		droite();
 		return false;
 	}
-while (getY()!=0) {
-	if (!estFaceMur()) {
-		avance();
-	}
-	else {
-		droite();
-		if (!estFaceMur()) {
-			avance();
-			gauche();
-		}
-	}
-}
-droite();
-keepHandOnSideWall;
-}
-
-def keepHandOnSideWall = {
+	
+	def keepHandOnSideWall = {
 		while (!estSurBiscuit()) {
 			if (murGauche() && !estFaceMur()) {
 				avance();
@@ -42,3 +27,18 @@ def keepHandOnSideWall = {
 		}
 	prendBiscuit();
 	}
+while (getY()!=0) {
+	if (!estFaceMur()) {
+		avance();
+	}
+	else {
+		droite();
+		if (!estFaceMur()) {
+			avance();
+			gauche();
+		}
+	}
+}
+droite();
+keepHandOnSideWall;
+}
