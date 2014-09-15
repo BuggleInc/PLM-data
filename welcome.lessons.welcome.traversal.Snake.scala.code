@@ -1,12 +1,28 @@
 override def run() {
-	def seMettreEnPosition() {
-		while (getDirection()!=Direction.WEST) {droite()}
+	def vérifierPosition() {
+		for (x<- 1 to 4) {
+			if (positionFinale) {return true} 
+			else {
+				droite()
+				}
+		}
+		
 	}
-	def positionFinale():Boolean = {
+	def positionFinale:Boolean = {
 			if (estFaceMur) {return true}
 			else {false}
 		}
+	def peindre() {
+		baisseBrosse()
+		leveBrosse()
+	}
 		
+	
+	while (!estFaceMur) {
+		peindre()
+	}
+	
+
 		}
 	
 
