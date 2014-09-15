@@ -1,18 +1,25 @@
 override def run() {
 
-def keepHandOnSideWall:Boolean={
+def keepHandOnSideWall()={
+	gauche()
+	if(estFaceMur()){
+		droite()
+		avance()
+		gauche()
+		if(estFaceMur()){
+			droite()
+			avance()
+		}
+		else{
+			avance()
+			gauche()
+			if(estFaceMur()){droite()}
+			else{avance()}
+		}
+	}
 	
-	if(estFaceMur){return true}
-     else{return false}
 }
 
 while(!estSurBiscuit){ 
-gauche()
-if (keepHandOnSideWall==true){
-if (!estFaceMur){avance()}
-else{droite}	
-}
-else{droite()}
-}
-
+keepHandOnSideWall()
 }
