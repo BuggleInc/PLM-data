@@ -12,13 +12,16 @@ override def run() {
 	droite();
 		
 	for (z<-0 to getMondeLargeur-2) {
+		baisseBrosse();
+		setCouleurBrosse(t(getMondeHauteur()-(w+1)));
+		leveBrosse();
+		w=w+1;
 		for (x<-0 to getMondeHauteur()-1) {
 			avance();
 			baisseBrosse();
 			setCouleurBrosse(t(x));
 			leveBrosse();
 			writeMessage(x);
-			w=w+1;
 		}
 		gauche();
 		avance();
