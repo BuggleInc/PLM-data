@@ -1,0 +1,15 @@
+override def run() {
+	var x:Int = 0
+	def posFin = {
+		var b = false 
+		if (getX() == getMondeHauteur()-1 && getY() == getMondeLargeur()-1) {b = true}
+		return b
+	}
+	while (!posFin) {
+		while (!estFaceMur()) {
+			ecritMessage(x);
+			x=x+1;
+		}
+		if (estFaceMur) {setPos(getX()+1,0)}
+	}
+}
