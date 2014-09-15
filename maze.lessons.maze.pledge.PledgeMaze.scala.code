@@ -29,37 +29,38 @@ override def run()
 		}
 	}
 
-	def isDirectionFree(dir:Direction): Boolean =
+	def isDirectionFree(): Boolean =
 	{
-		if(!estFaceMur)
+		if(!estFaceMur && getDirection()==Direction.NORTH)
 			return true
-		else setDirection(Direction.EST); return false
+		else return false
 	}
 		
 	while(!estSurBiscuit())
 	{	
-		if(isDirectionFree(getDirection()))
+		if(isDirectionFree())
+		{
 			avance()
-		//else
-		//{
+		}
+		
+		if(virage==virageBase+4) || virage==virageBase-4)
+		{			
 			virageBase = virage
-			do
-			{
-				keepHandOnSideWall()
-			}while(!(virage==virageBase+4) || !(virage==virageBase-4))
 			
-			setPos(7,19)/*keepHandOnSideWall()
-			if((virage-4)%4==0)
-			{
-				getDirection() match
+				/*keepHandOnSideWall()
+				if((virage-4)%4==0)
 				{
-					case Direction.NORTH => setDirection(Direction.SUD)
-					case Direction.OUEST => setDirection(Direction.EST)
-					case Direction.SUD => setDirection(Direction.NORTH)
-					case Direction.EST => setDirection(Direction.OUEST)
-				}
-			}*/
-		//}
+					getDirection() match
+					{
+						case Direction.NORTH => setDirection(Direction.SUD)
+						case Direction.OUEST => setDirection(Direction.EST)
+						case Direction.SUD => setDirection(Direction.NORTH)
+						case Direction.EST => setDirection(Direction.OUEST)
+					}
+				}*/
+			//}
+		}
+		else keepHandOnSideWall()
 	}
 
 	prendBiscuit()
