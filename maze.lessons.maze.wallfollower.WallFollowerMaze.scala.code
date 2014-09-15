@@ -10,25 +10,29 @@ override def run() {
 	}
 	
 	def keepHandOnSideWall = {
-		if (murGauche() && !estFaceMur()) {
-			avance();
-		}
-		else if (murGauche() && estFaceMur()) {
-			droite();
-			if (!estFaceMur()) {
+		while (!estSurBiscuit()) {
+			if (murGauche() && !estFaceMur()) {
 				avance();
+			}
+			else if (murGauche() && estFaceMur()) {
+				droite();
+				if (!estFaceMur()) {
+					avance();
+				}
+				else {
+					droite();
+				}
 			}
 			else {
-				droite();
-			}
-		}
-		else {
-			gauche();
-			avance();
-			gauche();
-			if (!estFaceMur()) {
+				gauche();
 				avance();
+				gauche();
+				if (!estFaceMur()) {
+					avance();
+				}
 			}
 		}
+	prendBiscuit();
 	}
+keepHandOnSideWall;
 }
