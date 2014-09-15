@@ -1,2 +1,30 @@
 override def run() {
+	var cpt: Int = 0
+	var x: Int = 0
+	var y: Int = 0
+	def fonctionTest(): Boolean = {
+		var fin: Boolean = false
+		if (getX() == getMondeLargeur() -1 && getY() == getMondeHauteur() -1) {
+			fin = true
+		}
+		return fin
+	}
+	ecritMessage(cpt: Int)
+	gauche()
+	while (!fonctionTest()) {
+		if (!estDosMur()) {
+			cpt = cpt + 1;
+			x = x + 1;
+			setPos(x, y);
+			ecritMessage(cpt: Int) 
+		}
+		else {
+			cpt = cpt + 1;
+			x = 0;
+			y = y + 1;
+			setPos(x, y);
+			ecritMessage(cpt: Int)
+		}
+	}
+	droite()
 }
