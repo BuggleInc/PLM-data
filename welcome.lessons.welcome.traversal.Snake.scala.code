@@ -1,11 +1,16 @@
 override def run() {
 baisseBrosse();
 
-do{
+def pasDeSerpent(){
 if(estFaceMur()==true){
 	if(getDirection() == Direction.EST){gauche(); avance(); droite();}
 	else{if (getDirection() == Direction.OUEST){droite();avance();gauche();}}
 }else{avance();}
-}while (estFaceMur()==true&&getDirection()==Direction.NORD)
+}
+def fonctionTest(){
+	if(getDirection()==Direction.NORD && estFaceMur()==true){return true}
+	else{return false}
+	
 }
 
+while (fonctionTest()==false){pasDeSerpent}
