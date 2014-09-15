@@ -12,18 +12,33 @@ while (!positionFinale())
 			msg += 1
 			x += 1
 			y -= 1}
-		else {diag += 1
-			x = 0
-			y = diag
-			setPos(x,y)
-			ecritMessage(""+msg)
-			msg += 1
-			x += 1
-			y -= 1}
+		else {if (diago > (getMondeHauteur() + getMondeLargeur() - 1 ) /2)
+					{diag += 1
+					x = diago-6
+					y = getMondeHauteur()-1
+					setPos(x,y)
+					ecritMessage(""+msg)
+					msg += 1
+					x += 1
+					y -= 1}
+				else {diag += 1
+					x = 0
+					y = diag
+					setPos(x,y)
+					ecritMessage(""+msg)
+					msg += 1
+					x += 1
+					y -= 1}
+			}
 	}
 }
 // problème a y = -1 pour la premiere moitié puis a x = getMondeLargeur
 // commence a 0 pour x, diag pour y, puis incrémente x, décrémente y
+// une fois arrivé a l'angle supérieur droit, comment passer de 6-0 à 1-6 (diag 7)
+// au dela de la diago 6 (a partir de la 7), /!\probleme/!\
+// on a 13 diago numérotées de 0 a 12 (nb lignes + nb colonnes - 1)
+// apres diago 6 ==> diago 7, (1,6) puis fin a (7,0) ==> diago 8 (2,6)
+// ===> on commence a (diago-6,6)
 
 def positionFinale():Boolean= {
 		(getX(),getY()) match {
