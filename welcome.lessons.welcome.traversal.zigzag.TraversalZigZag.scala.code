@@ -10,16 +10,16 @@ override def run() {
 		return fin
 	}
 	ecritMessage(cpt: Int)
-	gauche()
+	droite()
 	while (!fonctionTest()) {
-		if (!estDosMur()) {
+		if (!estFaceMur()) {
 			cpt = cpt + 1;
 			x = x + 1;
 			setPos(x, y);
 			ecritMessage(cpt: Int) 
 		}
 		else {
-			if
+			if (getDirection
 			cpt = cpt + 1;
 			x = 0;
 			y = y + 1;
@@ -29,17 +29,3 @@ override def run() {
 	}
 	droite()
 }
-def position(): Boolean = {
-			var pos: Boolean = false
-			if (getDirection() == Direction.EST) {
-				gauche()
-				if (estFaceMur()) {pos = true}
-				droite()
-			}
-			if (getDirection() == Direction.OUEST) {
-				droite()
-				if (estFaceMur()) {pos = true}
-				gauche()
-			}
-			return pos
-		}
