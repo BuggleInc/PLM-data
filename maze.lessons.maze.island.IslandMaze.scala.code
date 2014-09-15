@@ -6,7 +6,9 @@ override def run() {
     		else {droite()}
     }
     if (getDirection()==Direction.NORD) {
-    		if (!(estFaceMur)) {keepHandOnRightWall()} else {avance()}
+    		if (!(estFaceMur)) {keepHandOnRightWall()} else {
+    			if (!estFaceMur()) {avance()} else {keepHandOnRightWall()}
+    		}
     			
     		}
 }
