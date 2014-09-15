@@ -1,13 +1,18 @@
 override def run() {
 var T = new Array[Color](getMondeHauteur);
+var l:Int=0
+l = getMondeLargeur();
 
 T(0) = getCouleurSol()
-for (i<-0 to T.length)
+for (i<-0 to T.length-1)
 {
 	avance()
 	T(i) = getCouleurSol()
 }
-
+avance();
+for (d<- 0 to l-2)
+{
+recule(getMondeHauteur-1)
 gauche()
 avance()
 droite()
@@ -15,7 +20,10 @@ droite()
 for (c<- 0 to T.length-2)
 {
 	setCouleurBrosse(T(c));
-	baisseBrosse();
+	baisseBrosse;
+	leveBrosse;
 	avance();
 }
+}
+recul();
 }
