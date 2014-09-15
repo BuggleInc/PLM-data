@@ -1,7 +1,7 @@
 var virage = 0
 
 override def run() 
-{	/*
+{	
 	def keepHandOnSideWall()
 	{
 		gauche()
@@ -21,50 +21,17 @@ override def run()
 		}
 	}
 
-	while(!estFaceMur())
-		avance()
-	droite()
-
-	while(!estSurBiscuit())
-	{
-		keepHandOnSideWall()
-	}
-
-	prendBiscuit()
-	*/
-	def keepHandOnSideWall()
-	{
-		gauche()
-		if(estFaceMur())
-		{
-			droite()
-			if(estFaceMur())
-			{
-				droite()
-				virage = virage+1
-				if(estFaceMur())
-				{
-					droite()
-					virage = virage+1
-				}
-				else avance()
-			}
-			else avance()
-		}
-		else 
-		{
-			avance()
-			virage = virage-1
-		}
-	}
-
 	def isDirectionFree(): Boolean =
 	{
 		if(!estFaceMur() && getDirection()==Direction.NORTH)
 			return true
 		else return false		
 	}
-		
+
+	while(!estFaceMur())
+		avance()
+	droite()
+
 	while(!estSurBiscuit())
 	{	
 		virage = 0
