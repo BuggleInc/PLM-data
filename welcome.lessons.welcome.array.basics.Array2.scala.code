@@ -5,13 +5,12 @@ override def run() {
 		avance()
 		T(c) = getCouleurSol
 	}
-	recule(getMondeHauteur())
+	recule(getMondeHauteur()-1)
 	for(c2 <- 0 to T.length - 2) {
 		gauche()
 		avance()
 		droite()
-		avance()
-		for(c3 <- 0 to T.length - 1) {
+		for(c3 <- 2 to T.length - 3) {
 			setCouleurBrosse (T(c3))
 			baisseBrosse()
 			leveBrosse()
