@@ -11,22 +11,27 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		}
 	}
 		
-	if(position < taille - 1){
-		setCouleurSol(colors(position + 1));	
-	}
-	else{
-		setCouleurSol(colors(0));
-	}
+	setCouleurSol(colors(rule(state)(couleurSol)(0)));	
+	
 
-	if(rule(state)(position) == 'R'){
-		droite();
+	if(rule(state)(position)(1) == 0){
+	}
+	else if(rule(state)(position)(1) == 1) {
 		avance();
 	}
-	else{
+	else if(rule(state)(position)(1) == 2) {
 		gauche();
 		avance();
 	}
-	state = rule(state)(couleurSol);
+	else if(rule(state)(position)(1) == 4) {
+		retourne();
+		avance();
+	}
+	else{
+		droite();
+		avance();
+	}
+	state = rule(state)(couleurSol)(2);
 }
 
 def setCouleurSol(c:Color){
