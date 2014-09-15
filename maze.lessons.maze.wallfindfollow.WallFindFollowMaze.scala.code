@@ -2,15 +2,18 @@ override def run()
 {
 	def keepHandOnSideWall()
 	{
-		while(estFaceMur())
-			droite()
+		while(!estFaceMur())
+			avance()
 
 		gauche()
-		
-
-		
-
-		
+		if(estFaceMur())
+		{
+			droite()
+			if(!estFaceMur())
+				avance()
+			else	droite()
+		}
+		else avance()		
 	}
 
 	while(!estSurBiscuit())
