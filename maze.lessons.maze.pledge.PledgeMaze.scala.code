@@ -1,3 +1,48 @@
 override def run() {
+def keepHandOnSideWall() {
+	gauche
+	if(estFaceMur) {
+		droite
+		if(estFaceMur) {
+			droite
+			if(estFaceMur) {
+				droite
+			} else {
+				avance
+			}
+		} else {
+			avance
+		}
+	} else {
+		avance
+	}
+}
+ // longe le mur à gauche
+ 
+while(!estFaceMur) {
+		gauche
+	}
+	droite//mets en postion pour longer a gauche
+	
+while(getY!=0) {
+	while(getDirection!=Direction.NORTH) {
+		droite
+	}
+	if(!estFaceMur) {
+		avance
+	} else {
+	keepHandOnSideWall()
+	}
+} // trouve le mur nord
 
+droite
+while(!estFaceMur) {
+		gauche
+	}
+	droite
+while(!estSurBiscuit) {
+	keepHandOnSideWall()
+}
+prendBiscuit
+}
 }
