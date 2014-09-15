@@ -1,2 +1,38 @@
 override def run() {
+	def marqueSol(c:Color) { 
+		setCouleurBrosse(c);
+		baisseBrosse();
+		leveBrosse()
+	}
+	
+	var T = new Array[Color] (getMondeHauteur());
+	var decal:String = ""
+	T(0) = getCouleurSol()
+	
+	for ( x <- 1 to getMondeHauteur()-1) {
+		avance()
+		T(x) = getCouleurSol();
+	}
+	
+	for ( x<- 0 to getMondeHauteur() - 1 ) { 
+		recule()
+	}
+	
+	for ( x <- 1 to getMondeHauteur() -1) {
+		gauche()
+		avance()
+		droite()
+		decal=litMessage()
+		
+		for ( y <- 1 to getMondeLargeur() -1) {
+			avance()
+			marqueSol(T(y + decal.toInt) % getMondeHauteur()))
+		}
+		for ( y <- 1 to getMondeLargeur() -1) {
+			recule()
+		}
+		marqueSol(T(decal.toInt));	
+	}
 }
+
+
