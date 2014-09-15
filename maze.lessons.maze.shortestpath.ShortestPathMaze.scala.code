@@ -2,14 +2,12 @@ override def run() {
 	
 	var posX = 0
 	var posY = 0
-	var compteur = 0
 	
 	def biscuit() {
 		for (i<- 0 to getMondeLargeur -1) {
 			for (j<- 0 to getMondeHauteur -1) {
 				if (aBiscuit(i,j)) {
-					setIndication(i,j,compteur)
-					compteur = compteur +1
+					setIndication(i,j,0)
 					posX = i
 					posY = j
 				}
@@ -21,25 +19,26 @@ override def run() {
 
 
 	def parcours(i:Int,j:Int,compteur:Int) {
+		var a = compteur
 		if (!aMurNord(i,j)) {
-			setIndication(i,j-1,compteur+1)
-			compteur = compteur +1
-			if (getIndications(i,j-1)==9999) {parcours(i,j-1,compteur)}
+			setIndication(i,j-1,a+1)
+			a = a +1
+			if (getIndications(i,j-1)==9999) {parcours(i,j-1,a)}
 		} else { 
 			if (!aMurOuest(i,j)) {
-				setIndication(i-1,j,compteur+1)
-				compteur = compteur +1
-				if (getIndications(i-1,j)==9999){parcours(i-1,j,compteur)}
+				setIndication(i-1,j,a+1)
+				a = a +1
+				if (getIndications(i-1,j)==9999){parcours(i-1,j,a)}
 			} else {
 				if ((getX!=getMondeLargeur)&&(!aMurOuest(i+1,j))) {
-					setIndication(i+1,j,compteur+1)
-					compteur = compteur +1
-					if (getIndications(i+1,j)==9999){parcours(i+1,j,compteur)}
+					setIndication(i+1,j,a+1)
+					a = a +1
+					if (getIndications(i+1,j)==9999){parcours(i+1,j,a)}
 				} else {
 					if ((getY!=getMondeHauteur)&&(!aMurNord(i,j+1))) {
-						setIndications(i,j+1,setIndications(i,j)+1)
-						compteur = compteur +1
-						if (getIndications(i,j+1)==9999){parcours(i,j+1,compteur)}
+						setIndications(i,j+1,a+1)
+						a = a +1
+						if (getIndications(i,j+1)==9999){parcours(i,j+1,a)}
 					}
 				}
 			}
