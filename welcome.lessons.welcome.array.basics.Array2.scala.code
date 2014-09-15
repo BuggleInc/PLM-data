@@ -3,6 +3,7 @@ var n= getMondeHauteur()
 var m= getMondeLargeur()
 var T= new Array[Color](n)
 var decalage = litMessage().toInt
+decalage=0
 T(0)=Color.red	
 	for (k <- 1 to n-1){
 		avance()
@@ -13,7 +14,10 @@ T(0)=Color.red
 		gauche()
 		avance()
 		droite()
+		litMessage()
 	 	setCouleurBrosse(T(decalage))
+	 	baisseBrosse()
+	 	leveBrosse()
 	 	for (i<-0 to n-1){
 	 		avance()
 			setCouleurBrosse(T((i+decalage)%n))
