@@ -3,17 +3,20 @@ while (!estFaceMur) {
 	while (!estSurBiscuit && !estFaceMur) {
 		avance();
 	}
-	prendBiscuit();
-	retourne();
-	while (!estSurBiscuit() && porteBiscuit()) {
+	if(estSurBiscuit()) {
+		prendBiscuit();
+		retourne();
+		while (!estSurBiscuit() && porteBiscuit()) {
+			avance();
+		}
+		recule();
+		poseBiscuit();
+		retourne();
 		avance();
 	}
-	recule();
-	poseBiscuit();
-	retourne();
-	avance();
-}
-droite();
-avance();
-gauche();
-avance();
+	else {
+		droite();
+		avance();
+		gauche();
+		avance();
+	}
