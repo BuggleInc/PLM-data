@@ -1,7 +1,7 @@
 def step(rule:Array[Char], colors:Array[Color]) {
-	for (i<-0 to Array.length-1)
+	for (i<-0 to rule.length-1)
 		if (getCouleurSol()==colors(i)) {
-			setCouleurBrosse(colors((i+1)%Array.length))
+			setCouleurBrosse(colors((i+1)%rule.length))
 			baisseBrosse()
 			leveBrosse()
 			if (rule(i)==R) droite() else gauche()
