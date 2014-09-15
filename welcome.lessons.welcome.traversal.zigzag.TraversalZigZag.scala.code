@@ -10,12 +10,19 @@ var cpt = 0
 
 
 while (!fonctionTest) {
-	setPos(Math.abs(i),j)
-	ecritMessage(cpt)
-	i += 1
-	cpt += 1
+	if (j%0 == 0) {
+		setPos(i,j)
+		ecritMessage(cpt)
+		i += 1
+		cpt += 1
+	} else {
+		i = getMondeLargeur()
+		setPos(i,j)
+		i -= 1
+		cpt += 1	
+	}
 	if (i == getMondeLargeur()) {
-		i = -getMondeLargeur()
+		i = 0
 		j += 1
 	}
 }
