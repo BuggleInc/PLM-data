@@ -21,20 +21,16 @@ override def run() {
 		var a = compteur
 		setIndication(i,j,a)
 		if ((!aMurNord(i,j))&&(getIndication(i,j-1)==9999)) {
-			a = a +1
-			parcours(i,j-1,a)
+			parcours(i,j-1,a+1)
 		} else { 
 			if ((!aMurOuest(i,j))&&(getIndication(i-1,j)==9999)) {
-				a = a +1
-				if (getIndication(i-1,j)==9999){parcours(i-1,j,a)}
+				parcours(i-1,j,a+1)
 			} else {
 				if ((getX!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i+1,j)==9999)) {
-					a = a +1
-					if (getIndication(i+1,j)==9999){parcours(i+1,j,a)}
+					parcours(i+1,j,a+1)
 				} else {
 					if ((getY!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j+1)==9999)) {
-						a = a +1
-						if (getIndication(i,j+1)==9999){parcours(i,j+1,a)}
+						parcours(i,j+1,a+1)
 					}
 				}
 			}
