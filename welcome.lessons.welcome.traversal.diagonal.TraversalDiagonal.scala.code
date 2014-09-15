@@ -13,24 +13,25 @@ def posfin(): Boolean=
 def move()
 {
 	var cpt: Int=0
-	var i: Int=0
-	var j: Int=0
 	var diag: Int=0
+	var diagi: Int=0
 	
 	ecritMessage(cpt)
 	while (posfin()==false)
 	{
-		if (estFaceMur())
+		if (estFaceMur() && cpt<28)
 		{
-			i=0
 			diag=diag+1
-			
+			setPos(0,getY()+diag)
+		}
+		else if (estFaceMur() && cpt>=28)
+		{
+			diagi=diagi+1
+			setPos(diagi,6)
 		}
 		else
 		{
-			i=i+1
-			j=j-1
-			setPos(i,j)
+			setPos(getX()+1,getY()+1)
 		}
 		
 		cpt=cpt+1
