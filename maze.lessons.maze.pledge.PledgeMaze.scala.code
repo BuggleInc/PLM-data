@@ -1,39 +1,15 @@
 override def run() {
+while(!estSurBiscuit()){
+	droite();
 
-def keepHandOnSideWall(){	
-		droite();
-		if(estFaceMur){
-			while(estFaceMur){
-				gauche();
-			}
-			avance();
+	if(estFaceMur){
+		while(estFaceMur){
+			gauche();
 		}
-		else{
-			avance();
-		}
-}
-
-def isDirectionFree(dir:Direction):Boolean={
-	var old: Direction = getDirection();
-	setDirection(dir);
-	if(!estFaceMur){
-		setDirection(old);
-		return true;
-	}
-	else{
-		setDirection(old);
-		return false;
-	}
-}
-
-while(!estSurBiscuit){
-	if(isDirectionFree(Direction.EST)){
-		setDirection(Direction.EST		droite(45);
-		avance(25););
 		avance();
 	}
 	else{
-		keepHandOnSideWall();
+		avance();
 	}
 }
 prendBiscuit();
