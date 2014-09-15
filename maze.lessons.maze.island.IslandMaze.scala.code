@@ -8,10 +8,17 @@ override def run() {
 		
 		if(getDirection() == Direction.NORD)
 		{
-			gauche();
-		
-		
-			
+			if(estFaceMur())
+			{
+				while(getDirection() != Direction.NORD)
+					{
+						keepHandOnSideWall();
+					}
+			}
+			else
+			{
+				avance();
+			}
 			
 		}
 	}
