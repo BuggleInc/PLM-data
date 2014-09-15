@@ -1,0 +1,35 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+
+	def trouver(c:Color): Int = {
+		var compteur = 0
+		var trouve = false
+		do {
+			if (c == colors(compteur)) {
+				trouve = true
+			} else {
+				compteur = compteur + 1
+			}
+		} while (trouve == false)
+		compteur
+	}
+
+	def utiliser() {
+		val place = trouver(getCouleurSol())
+		rule(place) match {
+			case 'R' => droite() 
+			case 'L' => gauche() 
+		}
+		if (place+1 >= rule.length) {
+			setCouleurBrosse(colors(0))
+			baisseBrosse()
+			leveBrosse()
+		} else {
+			setCouleurBrosse(colors(place+1))
+			baisseBrosse()
+			leveBrosse()
+		}
+		avance()
+	}
+
+	utiliser()
+}
