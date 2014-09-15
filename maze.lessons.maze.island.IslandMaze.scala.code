@@ -1,27 +1,34 @@
 override def run() {
 def keepHandOnSideWall(){
-	var mur:Boolean==false
 	gauche();
-	mur=estFaceMur();
-	droite();
+	if(estFaceMur){
+		droite(); if(estFaceMur){
+			droite(); if(estFaceMur){
+				droite()}else{avance}
+			}else{avance}
+		}else{avance}
 	}
+
 def trouveNord(){
 	if(getDirection==Direction.NORTH && estFaceMur==false){avance()}
 }
 
 var etat = 0
-
+while (estSurBiscuit){
 while(getY>0){
 etat match{
 	case 0 => trouveNord()
 			if(estFaceMur()==true && getDirection()==Direction.NORTH){
-				etat=1
+				etat=1 
+				droite();
 			}
 	case 1 => keepHandOnSideWall()
 			if(getDirection()==Direction.NORTH){
 				etat=0
 			}
 }
+}
+keepHandOnSideWall();
 }
 }
 
