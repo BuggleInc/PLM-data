@@ -4,11 +4,12 @@ var m= getMondeLargeur()
 var T= new Array[Color](n)
 var decalage = litMessage().toInt
 decalage=0
-T(0)=Color.red	
-	for (k <- 1 to n-1){
+T(0)=getCouleurSol()
+	for (k <- 1 to n-2){
 		avance()
 		T(k)=getCouleurSol()
-	} 
+	} //remplissage de tableau
+	
 	 for (j <-0 to m-2){
 	 	recule(n-1)
 		gauche()
@@ -18,7 +19,8 @@ T(0)=Color.red
 	 	setCouleurBrosse(T(decalage))
 	 	baisseBrosse()
 	 	leveBrosse()
-	 	for (i<-0 to n-1){
+	 	
+	 	for (i<-0 to n-2){
 	 		avance()
 			setCouleurBrosse(T((decalage)%n))
 			baisseBrosse()
