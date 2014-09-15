@@ -2,7 +2,9 @@ var state = 0;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
        var c:Int = appartient(getCouleurSol(), colors);
-       setCouleurSol(colors(rule(state)(c)(0)));
+       setCouleurBrosse(colors(rule(state)(c)(0)));
+       baisseBrosse();
+       leveBrosse();
        rule(state)(c)(1) match {
        	case 8 => droite(); avance();
        	case 4 => retourne(); avance();
