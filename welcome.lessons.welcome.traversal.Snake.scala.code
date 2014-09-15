@@ -1,17 +1,8 @@
 override def run() {
-	def verifierPosition:Boolean = {
-		for (x<- 1 to 4) {
-			if (positionFinale==false) {
-				droite()
-				return false} 
-			else {
-				return true
-				}
-		}
-	}
+	
 	
 	def positionFinale:Boolean = {
-			if (estFaceMur) {return true}
+			if (estFaceMur && getDirection()==Direction.WEST) {return true}
 			else {false}
 		}
 	def peindre() {
