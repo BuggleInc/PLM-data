@@ -1,4 +1,34 @@
 var diag:Int=0;
 override def run() {
+var Xmax:Int=getMondeLargeur-1
+var Ymax:Int=getMondeHauteur-1
+def posFinale:Boolean = {
+	if(getX==Xmax && getY==Ymax) {
+		return true
+	} else {
+		return false
+	}
+}// vérifie si on est en bas à droite
 
+var pas:Int=0
+var colonne:Int=0
+var ligne:Int=0
+while (!posFinale) {
+	setPos(colonne,ligne)
+	ecritMessage(pas)
+  if(!finDiag) {
+  	ligne=ligne-1
+  	colonne=colonne+1
+  } else {
+  	diag=diag+1
+  	if(diag<=Ymax) {
+  		ligne=diag
+  		colonne=0
+  	} else {
+  		ligne=Ymax
+  		colonne=diag-Ymax
+  	}
+  }
+  pas=pas+1
+}
 }
