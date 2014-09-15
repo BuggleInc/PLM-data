@@ -1,11 +1,13 @@
 def golomb(num:Int): Int = {
-	var suite = new Array[Int](num)
+	val n:Int=num
+	var suite = new Array[Int](n)
 	suite(0)=1
-	var compteur:Int=1
-	for (x <- 1 to num-1) {
+	var compteur:Int=0
+	for (x <- 1 to n-1) {
 		if (compteur==suite(compteur)) {
 			suite(x)=suite(x-1)+1
-			compteur=1
+			compteur=0
+			
 			}
 		else  {
 			suite(x)==suite(x-1)
