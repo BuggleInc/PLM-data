@@ -3,20 +3,23 @@ var n= getMondeHauteur()
 var m= getMondeLargeur()
 var T= new Array[Color](n)
 var decalage = litMessage().toInt
-	for (k <- 0 to n-1){
+T(0)=Color.red	
+	for (k <- 1 to n-1){
+		avance()
 		T(k)=getCouleurSol()
-		avance()
 	} 
-	recule(n-1)
-	gauche()
-	avance()
-	droite()
-	 for (i<-0 to n-1){
-		setCouleurBrosse(T((i+decalage)%n))
-		baisseBrosse()
-		leveBrosse()
-		avance()
-	}
+	 for (j <-0 to n-1){
+	 		recule(n-1)
+			gauche()
+			avance()
+			droite()
+	 	for (i<-0 to n-1){
+			setCouleurBrosse(T((i+decalage)%n))
+			baisseBrosse()
+			leveBrosse()
+			avance()
+		}
+	 }
 	gauche()
 	avance()
 	droite()
