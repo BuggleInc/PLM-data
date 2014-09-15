@@ -25,17 +25,17 @@ override def run() {
 			a = a +1
 			parcours(i,j-1,a)
 		} else { 
-			if ((!aMurOuest(i,j))&&(getIndication(i,j-1)==9999)) {
+			if ((!aMurOuest(i,j))&&(getIndication(i-1,j)==9999)) {
 				setIndication(i-1,j,a+1)
 				a = a +1
 				if (getIndication(i-1,j)==9999){parcours(i-1,j,a)}
 			} else {
-				if ((getX!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i,j-1)==9999)) {
+				if ((getX!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i+1,j)==9999)) {
 					setIndication(i+1,j,a+1)
 					a = a +1
 					if (getIndication(i+1,j)==9999){parcours(i+1,j,a)}
 				} else {
-					if ((getY!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j-1)==9999)) {
+					if ((getY!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j+1)==9999)) {
 						setIndication(i,j+1,a+1)
 						a = a +1
 						if (getIndication(i,j+1)==9999){parcours(i,j+1,a)}
