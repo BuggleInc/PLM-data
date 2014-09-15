@@ -1,17 +1,12 @@
 override def run() {
-	def testg():Boolean = {
-	var rep = false 
-	gauche() 
-	rep = estFaceMur()
-	droite()
-	return rep
-}
-	def keepHandOnSideWall() = { 
-	while (!testg()) {
-		gauche()
-		avance()
+def keepHandOnSideWall() = { 
+	gauche()
+	while (estFaceMur()) {
+		droite()
 		
-	}
+	} 
+	avance()
+		
 }
 
  do { keepHandOnSideWall()
