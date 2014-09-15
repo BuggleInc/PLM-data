@@ -6,31 +6,23 @@ override def run() {
 	var y=0 ;
 	while ( !(getX()==largeur-1) && !(getY()==hauteur))
 {
-
-	if (x ==0 )
+	if (x !=6 )
 	{
-		for(i<- 0 to 7 )
-						{
-		for ( i <- 0 to 6 ) 
-		{
 	ecritMessage(num)
-	setPos(x+i,y)
+	setPos(x+1,y)
+	x=x+1
 	num=num+1
-		}
-		ecritMessage(num)
-		y=y+1
-		setPos(6,1)
-		for( i<-0 to 6 ) 
-		{
-			x=6
-			ecritMessage(num)
-			setPos(x-i,y)	
-			num=num+1
-		}
-						}
 	}
-			
+	
+	if (y!=6 && x==6)
+	{
+	ecritMessage(num)
+	setPos(0,y+1)
+	x=0
+	y=y+1
+	num=num+1
+	}
 
 }
-
+ecritMessage(num);
 }
