@@ -30,7 +30,7 @@ override def run()
 
 	def isDirectionFree(): Boolean =
 	{
-		if(!estFaceMur && getDirection()==Direction.NORTH)
+		if(!estFaceMur() && getDirection()==Direction.NORTH)
 			return true
 		else return false		
 	}
@@ -46,7 +46,7 @@ override def run()
 			}
 		}	
 			
-		while( (virage%4)!=0 || !isDirectionFree() )
+		while( (virage%4)!=0 && !isDirectionFree() )
 			keepHandOnSideWall()
 	}
 
