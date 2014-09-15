@@ -5,27 +5,26 @@ def fonctionTest():Boolean = {
 		if (getDirection() == Direction.EST) {
 			gauche()
 			if (!estFaceMur) {
-				return true
+				droite()
+				return true				
 			} else {
+				gauche()
 				return false
-			}
-			droite()
-			
+			}			
 		} else {
 			if (getDirection() == Direction.OUEST) {
 				droite()
 				if (!estFaceMur) {
+					gauche()
 					return true
 				} else {
-					return false
+					gauche()
+					return false					
 				}
 			} else {
 				return false
-			}
-			gauche()
-			
-		}
-	
+			}			
+		}	
 	} else {
 		return false
 	}
