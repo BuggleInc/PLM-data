@@ -20,22 +20,22 @@ override def run() {
 
 	def parcours(i:Int,j:Int,compteur:Int) {
 		var a = compteur
-		if (!aMurNord(i,j)) {
+		if ((!aMurNord(i,j))&&(getIndication(i,j-1)==9999)) {
 			setIndication(i,j-1,a+1)
 			a = a +1
-			if (getIndication(i,j-1)==9999) {parcours(i,j-1,a)}
+			parcours(i,j-1,a)
 		} else { 
-			if (!aMurOuest(i,j)) {
+			if ((!aMurOuest(i,j))&&(getIndication(i,j-1)==9999)) {
 				setIndication(i-1,j,a+1)
 				a = a +1
 				if (getIndication(i-1,j)==9999){parcours(i-1,j,a)}
 			} else {
-				if ((getX!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))) {
+				if ((getX!=getMondeLargeur-1)&&(!aMurOuest(i+1,j))&&(getIndication(i,j-1)==9999)) {
 					setIndication(i+1,j,a+1)
 					a = a +1
 					if (getIndication(i+1,j)==9999){parcours(i+1,j,a)}
 				} else {
-					if ((getY!=getMondeHauteur-1)&&(!aMurNord(i,j+1))) {
+					if ((getY!=getMondeHauteur-1)&&(!aMurNord(i,j+1))&&(getIndication(i,j-1)==9999)) {
 						setIndication(i,j+1,a+1)
 						a = a +1
 						if (getIndication(i,j+1)==9999){parcours(i,j+1,a)}
