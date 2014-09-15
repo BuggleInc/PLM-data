@@ -29,6 +29,22 @@ override def run() {
       	recule();
       }
       gauche();avance();droite();
+
+
+      p = litMessage().toInt
+      for(k<-0 to getWorldHeight()-2){
+      baisseBrosse();
+      setCouleurBrosse(T((k+p)%(getWorldHeight())));
+      leveBrosse();
+      avance();
+      }
+      baisseBrosse();
+      setCouleurBrosse(T((getWorldHeight()-1+p)%(getWorldHeight())));
+      leveBrosse();
+      for(j<-1 to getWorldHeight()-1){
+      	recule();
+      }
+      gauche();avance();droite();
       
 
 
