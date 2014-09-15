@@ -1,9 +1,11 @@
 override def run() {
 def murAuNord():Boolean={
+	var y = getDirection()
 	setDirection(Direction.NORTH)
 	if((estFaceMur()) && (getY() == 0)){
 		return true
 	}else{
+		setDirection(y)
 		return false
 	}
 }
