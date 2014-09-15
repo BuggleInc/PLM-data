@@ -1,33 +1,60 @@
-
 override def run() {
-var p :  Int
-	var T = new Array [Color](getWorldHeight())
-	
-	if(!estFaceMur){
-		for (i <- 0 to (getWorldHeight()-2)) {
-		T(i) = getCouleurSol();
-		avance();
+	var p : Int = 0
+	var T = new Array [Color](getMondeHauteur())
+	for (i <- 0 to (getMondeHauteur()-2)) {
+		if(!estFaceMur){
+		T(i) = getCouleurSol();avance();
 		}
-	}
-	if(estFaceMur){
-		for (i <- 0 to (getWorldHeight()-2)){
-		recule();
-	}
-	}
-	gauche();avance();droite();
+		if(estFaceMur){
+			T(getMondeHauteur()-1) = getCouleurSol();
+			for(j<-1 to getWorldHeight()-1){
+				recule();
+				}
+				if(estDosMur){
+					gauche();avance();droite();
+					}
+				}                   	   
+			}	
+      
+      for (l<-1 to getWorldHeight()-2){
+      
+      p = litMessage().toInt
+      for(k<-0 to getWorldHeight()-2){
+      baisseBrosse();
+      setCouleurBrosse(T((k+p)%(getWorldHeight())));
+      leveBrosse();
+      avance();
+      }
+      baisseBrosse();
+      setCouleurBrosse(T((getWorldHeight()-1+p)%(getWorldHeight())));
+      leveBrosse();
+      for(j<-1 to getWorldHeight()-1){
+      	recule();
+      }
+      gauche();avance();droite();
 
-	baisseBrosse();
-	
-	litMessage();
-	p == ch.toInt;
 
-	for (k<-0 to getWorldHeight()-1){
-	
-	setBrosseCouleur(k + p);
-	avance();
-	}
+      
+      }
 
-	 
+      p = litMessage().toInt
+      for(k<-0 to getWorldHeight()-2){
+      baisseBrosse();
+      setCouleurBrosse(T((k+p)%(getWorldHeight())));
+      leveBrosse();
+      avance();
+      }
+      baisseBrosse();
+      setCouleurBrosse(T((getWorldHeight()-1+p)%(getWorldHeight())));
+      leveBrosse();
+      for(j<-1 to getWorldHeight()-1){
+      	recule();
+      }
+    
 
-	
+      
+
 }
+
+    	
+
