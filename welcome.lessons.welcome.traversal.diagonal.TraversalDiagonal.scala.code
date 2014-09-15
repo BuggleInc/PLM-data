@@ -18,23 +18,34 @@ def move()
 	
 	ecritMessage(cpt)
 	
-	while (posfin()==false)
+	while (posfin()==false && cpt<27)
 	{
 		if (estFaceMur() && cpt<27)
 		{
 			diag=diag+1
 			setPos(0,getY()+diag)
 		}
-		else if (estFaceMur() && cpt>=28)
+		else
+		{
+			setPos(getX()+1,getY()-1)
+		}
+		
+		cpt=cpt+1
+		ecritMessage(cpt)
+	}
+	
+	droite()
+	
+	while (posfin()==false && cpt>=28)
+	{
+		if (estFaceMur() && cpt>=28)
 		{
 			diagi=diagi+1
 			setPos(diagi,6)
-			gauche()
 		}
 		else
 		{
 			setPos(getX()+1,getY()-1)
-			droite()
 		}
 		
 		cpt=cpt+1
