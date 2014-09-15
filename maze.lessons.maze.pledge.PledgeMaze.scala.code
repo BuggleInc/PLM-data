@@ -28,25 +28,12 @@ override def run()
 		else return false		
 	}
 
-	while(!estFaceMur())
-		avance()
-	droite()
-
 	while(!estSurBiscuit())
 	{		
-		if(isDirectionFree())
-		{
+		while(!estFaceMur())
 			avance()
-			/*
-			if(estFaceMur())
-			{
-				droite(); virage = virage+1
-			}
-		}	
-		*/
-		}
-		else
-		{	
+		droite()
+		
 		while( (virage%4)!=0 || !isDirectionFree() )
 			keepHandOnSideWall()
 		}	
