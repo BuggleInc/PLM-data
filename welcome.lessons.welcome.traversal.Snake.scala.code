@@ -1,6 +1,7 @@
 override def run() {
 	baisseBrosse()
 	def fonctionTest(): Boolean = {
+		var fin: Boolean = false
 		def position(): Boolean = {
 			var pos: Boolean = false
 			if (getDirection() == Direction.EST) {
@@ -16,7 +17,8 @@ override def run() {
 				return pos
 			}
 		}
-		if (estFaceMur() && position()) {return true}
+		if (estFaceMur() && position()) {fin = true}
+		return fin
 	}
 	while(!fonctionTest()) {
 		if (!estFaceMur()) {
