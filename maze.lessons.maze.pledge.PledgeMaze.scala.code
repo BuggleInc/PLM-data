@@ -1,4 +1,7 @@
 override def run() {
+
+var sommeAngle = 0
+
 def murAuNord():Boolean={
 	var y = getDirection()
 	setDirection(Direction.NORTH)
@@ -26,9 +29,11 @@ def murAGauche():Boolean={
 				avance()
 			}else{
 				droite()
+				sommeAngle = sommeAngle - 1
 			}
 		}else{
 			gauche()
+			sommeAngle = sommeAngle + 1
 			if(!estFaceMur()){
 				avance()
 			}
@@ -44,6 +49,15 @@ def murAGauche():Boolean={
 	}
 	
 	droite()
+
+while(!murAuNord()){
+	setDirection(Direction.North)
+	while(estFaceMur()){
+		avance()
+	}
+	do {keepHandOnSideWall()} while (sommeAngle = 0)
+}
+	
 	while(!estSurBiscuit()){
 		keepHandOnSideWall()
 	}
