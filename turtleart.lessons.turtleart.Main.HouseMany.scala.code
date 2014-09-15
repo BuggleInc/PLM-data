@@ -1,0 +1,38 @@
+override def run() {
+	ligne();
+	setPos(getX() -200, getY()-75);
+	maison();
+	setPos(getX() + 150, getY());
+	maison();
+	setPos(getX() -200, getY()-75);
+	ligne();
+	setPos(getX() -200, getY()-75);
+}
+def ligne() {
+	for (i <- 0 to 3) {
+		maison();
+		setPos(getX() + 50, getY());
+	}
+}
+def maison() {
+ avance(30);
+ toit();
+ gauche(30);
+ base();
+}
+def toit() {
+	droite(30);
+	for (i <- 0 to 2) {
+		avance(30);
+		droite(120);
+ }
+}
+def base() {
+	droite(90);
+	avance(30);
+	droite(90);
+	avance(30);
+	droite(90);
+	avance(30);
+	droite(90);
+}
