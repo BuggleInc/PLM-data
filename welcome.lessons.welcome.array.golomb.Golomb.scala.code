@@ -1,8 +1,8 @@
 def golomb(num:Int): Int = {
-	var suite = new Array[Int](n)
+	var suite = new Array[Int](num)
 	suite(0)=1
 	var compteur:Int=1
-	for (x <- 1 to n-1) {
+	for (x <- 1 to num-1) {
 		if (compteur=suite(compteur)) {
 			suite(x)=suite(x-1)+1
 			compteur=1
@@ -12,7 +12,7 @@ def golomb(num:Int): Int = {
 			compteur=compteur+1
 		}
 	}
-	return suite(n)
+	return suite(num)
 
 	
 			
