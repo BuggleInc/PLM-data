@@ -8,21 +8,28 @@ override def run() {
 		
 	 if(estFaceMur() && getDirection() == Direction.NORD)
 	 {
-	 	do
-	 	{
-	 	keepHandOnSideWall();
-	 	} while(getDirection() == Direction.NORD)
+	 	
+	 		do
+	 		{
+	 		keepHandOnSideWall();
+	 		} while(getDirection() == Direction.NORD)
+	 	
 	 }
 	 else
 	 {
-	 	if(estFaceMur())
-	 	{
-	 		droite();
-	 	}
-	 	else
+
+	 	if(!estFaceMur)
 	 	{
 	 		avance();
 	 	}
+	 	else
+	 	{
+	 		do
+	 		{
+	 		keepHandOnSideWall();
+	 		} while(getDirection() == Direction.NORD)
+	 	}
+
 	 }
 		
 	}
