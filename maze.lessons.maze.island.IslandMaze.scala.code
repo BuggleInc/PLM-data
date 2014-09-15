@@ -22,13 +22,22 @@ def chercheMur() = {
 		avance()
 	}
 }
-
+def chercheN() = {
+	while (Direction.NORTH != getDirection()) {
+		droite()
+	}
+	while (!estFaceMur()) {
+		avance()
+	}
+}
 
 
  do { 
  	if (estFaceMur()) {
  		keepHandOnSideWall()
- 	} 
+ 	} else {
+ 		chercheN()
+ 	}
  }
   while (!estSurBiscuit())
 prendBiscuit()
