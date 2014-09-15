@@ -12,7 +12,34 @@ def posfin(): Boolean=
 
 def move()
 {
+	var cpt: Int=0
+	var i: Int=0
+	var j: Int=0
+	var diag: Int=0
 	
+	ecritMessage(cpt)
+	while (posfin()==false)
+	{
+		gauche()
+		if (estFaceMur())
+		{
+			droite()
+			i=0
+			j=j+1
+			setPos(i,j)
+		}
+		else
+		{
+			droite()
+			i=i+1
+			j=j-1
+			setPos(i,j)
+		}
+		
+		cpt=cpt+1
+		ecritMessage(cpt)
+	}
+}
 }
 
 move()
