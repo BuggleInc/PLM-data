@@ -3,9 +3,12 @@ override def run() {
 	T(0)=getCouleurSol()
 	for(c <- 0 to T.length - 1) {
 		T(c) = getCouleurSol
-		avance()
+		if(!estFaceMur) {
+			avance()
+		}
+		else recule(getMondeHauteur()-1)
 	}
-	recule(getMondeHauteur()-1)
+	
 	for(c2 <- 0 to T.length - 1) {
 		gauche()
 		avance()
