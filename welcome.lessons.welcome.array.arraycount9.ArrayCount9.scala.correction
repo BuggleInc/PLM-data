@@ -1,0 +1,14 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class arrayCount9 extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( arrayCount9( t.getParameter(0).asInstanceOf[Array[Int]]) )
+   }
+def arrayCount9(nums:Array[Int]): Int = {
+  var res = 0
+  for (value <- nums)
+    if (value == 9)
+      res += 1
+  return res
+} }
