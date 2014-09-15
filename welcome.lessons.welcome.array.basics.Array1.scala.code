@@ -2,5 +2,8 @@ override def run() {
 	var tab= new Array[Color](getMondeHauteur())
 	def remplirTab()={ 
 	for (i<-0 to getMondeHauteur()-1) {tab(i) = getCouleurSol(); avance()}}
-	remplirTab() 
+	remplirTab()
+	def repliquerTab() { gauche(); avance(); droite(); avance(); 
+	for( i<-0 to getMondeHauteur()-1) {setCouleurBrosse(tab(i)); baisseBrosse(); leveBrosse(); avance()}}
+	repliquerTab()}
 }
