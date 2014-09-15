@@ -24,7 +24,7 @@ override def run()
 		else 
 		{
 			avance()
-			virage = virage+1
+			virage = virage-1
 		}
 	}
 
@@ -42,14 +42,18 @@ override def run()
 		if(isDirectionFree())
 		{
 			avance()
+			/*
 			if(estFaceMur())
 			{
 				droite(); virage = virage+1
 			}
 		}	
-			
+		*/
+		else
+		{	
 		while( (virage%4)!=0 || !isDirectionFree() )
 			keepHandOnSideWall()
+		}	
 	}
 
 	prendBiscuit()
