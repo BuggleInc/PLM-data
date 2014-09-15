@@ -1,11 +1,12 @@
 override def run() {
 	def posFin():Boolean = {
-		if (getDirection() == Direction.EST) {
+		var x:Boolean = false
+	
+		if (getDirection==Direction.EST) {
 			gauche();
-			if (estFaceMur() == true) {return true}
-		}
+			if (estFaceMur()) {x=true} else {x=false}
+	} else {x=false}
 	}
-
 	def virage() = {
 		if (getDirection == Direction.EST) {
 			gauche();
