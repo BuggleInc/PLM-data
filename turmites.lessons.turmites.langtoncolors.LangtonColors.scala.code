@@ -1,2 +1,19 @@
-def step(rule:Array[Char], colors:Array[Color]) {
+def marque(c:Color){
+		setCouleurBrosse(c)
+		baisseBrosse()
+		leveBrosse()
 }
+def step(rule:Array[Char], colors:Array[Color]) {
+		if (getCouleurSol() == Color.white){
+			marque(Color.black)
+			droite()
+			avance()
+		}
+		if (getCouleurSol() == Color.black){
+			marque(Color.white)
+			gauche()
+			avance()
+		}
+}
+
+
