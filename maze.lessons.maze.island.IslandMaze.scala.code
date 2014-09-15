@@ -6,29 +6,25 @@ override def run() {
 	while(getY() != 0)
 	{
 		
-		if(getDirection() == Direction.NORD)
-		{
-			if(estFaceMur())
-			{
-				keepHandOnSideWall();
-			}
-			else
-			{
-				avance();
-			}
-			
-		}
-		else
-		{
-			if(estFaceMur())
-			{
-				keepHandOnSideWall();
-			}
-			else
-			{
-				avance();
-			}
-		}
+	 if(estFaceMur() && getDirection() == Direction.NORD)
+	 {
+	 	do
+	 	{
+	 	keepHandOnSideWall();
+	 	} while(getDirection() == Direction.NORD)
+	 }
+	 else
+	 {
+	 	if(estFaceMur())
+	 	{
+	 		gauche();
+	 	}
+	 	else
+	 	{
+	 		avance();
+	 	}
+	 }
+		
 	}
 
  while(getDirection() != Direction.EST)
