@@ -42,14 +42,13 @@ override def run()
 		if(isDirectionFree())
 		{
 			avance()
-			
-		}
-		else if(estFaceMur())
-		{
-			droite(); virage = virage+1
+			if(estFaceMur())
+			{
+				droite(); virage = virage+1
+			}
 		}	
 			
-		while( (virage%4)!=0 && !isDirectionFree() )
+		while( (virage%4)!=0 || !isDirectionFree() )
 			keepHandOnSideWall()
 	}
 
