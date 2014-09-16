@@ -13,12 +13,13 @@ override def run() {
 		avance();
 		droite();
 		val decalage = litMessage().toInt
-		for ( w<- 1 to T.Length - 1 ) {
+		for ( w<- 0 to T.Length - 1 ) {
 			var x:Int = ( w + decalage ) % T.Length
 			var c:Color = T( x );
-			
+			setCouleurSol(c);
 			baisseBrosse();
 			leveBrosse();
+			avance();
 		}
 	
 }
