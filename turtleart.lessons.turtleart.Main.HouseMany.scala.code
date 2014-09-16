@@ -1,3 +1,42 @@
 override def run() {
-
+def house() {
+	def square() {
+	avance(30)
+	droite(90)
+	avance(30)
+	droite(90)
+	avance(30)
+	droite(90)
+	avance(30)
+	droite(90)
+	}
+def triangle() {
+droite(30)
+avance(30)
+droite(120)
+avance(30)
+droite(120)
+avance(30)
+droite(120)
+gauche(30)
+}
+square();avance(30);triangle();recule(30)
+}
+def houseLigne() {
+var l = getX()
+for (i<-0 to 3) {
+	house()
+	setX(l+50)
+	l = getX()
+}
+}
+def houseColonne() {
+	var l = getY()
+for (i<-0 to 3) {
+	house()
+	setY(l+50)
+	l = getY()
+}
+}
+houseLigne();houseColonne();houseLigne();houseColonne()
 }
