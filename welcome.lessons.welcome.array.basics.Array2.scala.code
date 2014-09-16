@@ -22,14 +22,14 @@ override def run()
 		gauche()
 		avance()
 		droite()
-		//var decalage = litMessage().toInt
+		var decalage = litMessage().toInt
 		//var d=(decalage)%(tableau.length)
 		
 		
 
 		for(l<-0 to (n-2))
 		{
-			marquerSol(tableau(l))
+			marquerSol(tableau((l+decalage) % n))
 			avance()
 		}
 		marquerSol(tableau(n-1))
@@ -37,7 +37,7 @@ override def run()
                                                  
 		
 	}
-
+	recule(n-1)
 	
 	
 }
