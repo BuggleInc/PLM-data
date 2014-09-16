@@ -1,2 +1,43 @@
+def murgauche(): Boolean= {
+	gauche();
+	if (estFaceMur()==true){
+		droite();
+		return true
+	}
+	droite();
+	return false
+}
+
+def keepHandOnSideWall(){
+	while (murgauche()==false){
+		gauche();
+	}
+	if (estFaceMur()==false && murgauche()==true){
+		avance();
+		
+	}
+	else if (estFaceMur()==true && murgauche()==true){
+	
+		droite();
+		
+	     }
+	
+	     else {
+	     	gauche();
+	     	avance();
+	     }
+	
+		
+	
+     
+} 
+
+
+
 override def run() {
+while (estSurBiscuit==false){
+	keepHandOnSideWall()
+	
+}
+prendBiscuit()
 }
