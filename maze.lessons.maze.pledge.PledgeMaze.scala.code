@@ -24,15 +24,20 @@ def  keepHandOnSideWall() {                                  // suivre mur gauch
 			
 }
 
-def isDirectionFree():Boolean = {
+def isDirectionFree():Boolean = {               // Direction Libre
 	setDirection(Direction.NORTH )
 	if (!estFaceMur ) return true
 	else return false
 }
 
 
-while(isDirectionFree) {
+while(getY() != 0 ) {                          // Programme
+	if isDirectionFree()
 	avance()
+	else {
+		gauche()
+	}
+	
 }
 
 
