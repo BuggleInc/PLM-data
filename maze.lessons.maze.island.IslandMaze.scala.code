@@ -2,14 +2,14 @@ override def run() {
 
 
 
-def  keepHandOnSideWall() {
+def  keepHandOnSideWall() {                                  // suivre mur gauche
    	
    
   			gauche()
 			if (estFaceMur) {
 				
 				
-				 droite()               //remise dans le bon sens avec mur à gauche
+				 droite()               
 				 if (!estFaceMur) 
 				 avance()
 				 else  { if (!estFaceMur()) gauche()
@@ -19,7 +19,7 @@ def  keepHandOnSideWall() {
 	
 			
 }
-while (getY() != 0) {
+while (getY() != 0) {                                 //aller au Nord
 setDirection(Direction.NORTH)
 	if (!estFaceMur()) {avance()}
 	if(estFaceMur()) {
@@ -35,7 +35,9 @@ setDirection(Direction.NORTH)
 		}}
   
 }
-while (!estSurBiscuit())
+
+
+while (!estSurBiscuit())  
  keepHandOnSideWall()
 
  prendBiscuit()
