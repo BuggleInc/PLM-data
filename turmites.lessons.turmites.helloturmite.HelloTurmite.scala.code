@@ -14,25 +14,26 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		leveBrosse
 	}
 
-	def indice(tab:Array[Color], c:Color): Int = {
-		var ind :Int = -1
-		for (i <- 0 to tab.length -1) {
-			if (tab(i)==c) {
-				ind = i
-			}
-		}
-		ind
-	}
-
 	def associe(rule:Array[Array[Array[Int]]], colors:Array[Color]) {
-		var i:Int = indice(colors, getCouleurSol())
 		rule(state,getCouleurSol()) match {
 			case (_,0,_) => state = rule(state,getCouleurSol,2)
-						 setCouleurSol(colors)
-			case (_,1,_) => 
-			case (_,2,_) => 
-			case (_,4,_) => 
-			case (_,8,_) => 
+						 setCouleurSol(colors(rule(state,getCouleurSol,0)))
+			case (_,1,_) => state = rule(state,getCouleurSol,2)
+						 setCouleurSol(colors(rule(state,getCouleurSol,0)))
+						 avance
+			case (_,2,_) => state = rule(state,getCouleurSol,2)
+						 setCouleurSol(colors(rule(state,getCouleurSol,0)))
+						 gauche
+						 avance
+			case (_,4,_) => state = rule(state,getCouleurSol,2)
+						 setCouleurSol(colors(rule(state,getCouleurSol,0)))
+						 gauche
+						 gauche
+						 avance
+			case (_,8,_) => state = rule(state,getCouleurSol,2)
+						 setCouleurSol(colors(rule(state,getCouleurSol,0)))
+						 droite
+						 avance
 		}
 
 }
