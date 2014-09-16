@@ -1,2 +1,21 @@
 override def run() {
+def keepHandOnSideWall() = {
+	gauche();
+	while (estFaceMur()) {
+	droite();
+	}
+	avance();
+}
+
+
+
+var etat=0;
+while (!(estSurBiscuit())) {
+etat match  {
+  case 0 => setDirection(Direction.NORTH); while (!(estFaceMur())) {avance()}; etat = 1; gauche();
+  case 1 => while (getDirection != Direction.NORTH && !(estSurBiscuit())) {keepHandOnSideWall()}; etat = 0;
+  case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+}
+ }
+    prendBiscuit();
 }
