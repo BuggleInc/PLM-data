@@ -12,8 +12,23 @@ def alarmClock(day:Int, vacation:Boolean): String = {
 			return "off"
 		}
 	}
-			/**Sans cette ligne , scala donne le 
+			return "off"/**Sans cette ligne , scala donne le 
 					    *message d'erreur suivant 
-					    *
-					     */
+					    *alarmClock:5: error: type mismatch;
+ found   : Unit
+ required: String
+		}else if(day == 0 || day == 6){
+                      ^alarmClock:11: error: type mismatch;
+ found   : Unit
+ required: String
+		}else if(day == 0 || day == 6){
+                      ^
+					     * en fait cela signifie que 
+					     * si jamais la condition 
+					     *   "if(!vacation)" et "else" 
+					     *    venaient a n'etre jamais verifié 
+					     *    -ce qui est logiquement impossible evidemment- 
+					     * alors notre fonction alarmClock(day,vacation)
+					     * ne retourne rien ce qui est interdit par 
+					     * ,*/
 }
