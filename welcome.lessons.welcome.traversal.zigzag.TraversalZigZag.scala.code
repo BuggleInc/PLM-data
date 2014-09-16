@@ -6,8 +6,7 @@ override def run() {
 		else return false
 	}
 	var c:Int = 0
-	do {
-		while(getX() < getMondeLargeur -1) {
+		while(getX() < getMondeLargeur -1 && !finale) {
 			ecritMessage(c)
 			c = c + 1
 			setPos(getX() + 1,getY())
@@ -15,7 +14,7 @@ override def run() {
 			ecritMessage(c)
 			c = c + 1
 			setPos(getX(),getY() + 1)
-		while(getX() > 0) {
+		while(getX() > 0 && !finale) {
 			ecritMessage(c)
 			c = c + 1
 			setPos(getX() - 1,getY())
@@ -23,6 +22,4 @@ override def run() {
 		ecritMessage(c)
 			c = c + 1
 			setPos(getX(),getY() + 1)
-	}
-	while(!finale)
 }
