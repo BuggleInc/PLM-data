@@ -1,5 +1,5 @@
 def golomb(num:Int): Int = {
-	var a=1; var T = new Array[Int](num+1);T(0)=0;
+	var a=1; var T = new Array[Int](num);T(0)=0;
 	for (x<-0 to num) {
 		if (a==1) {
 			T(x)=T(x-1)+1;a=T(x-1);
@@ -8,6 +8,6 @@ def golomb(num:Int): Int = {
 		}
 		a=a-1
 	}
-	return T(num)
+	return T(num-1)
 	 	
 }
