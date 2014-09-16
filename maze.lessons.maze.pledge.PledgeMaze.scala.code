@@ -54,7 +54,6 @@ def testg():Boolean = {
 def chercheMur() = {
 	if (estFaceMur()) {
 		droite()
-		sommeAngle=sommeAngle-1
 	} else {
 		avance()
 	}
@@ -68,11 +67,13 @@ def aramis() = {
 keepHandOnSideWall()
 }
 
-var e = 0 
+ 
 while (!(estSurBiscuit())) {
-	e match {
-		case 1 => {while (isDirectionFree(Direction.NORD)) {aramis()}; e = 0}
-		case 0 => {setDirection(Direction.NORD); while (!estFaceMur()) {avance()}; e = 1;droite()}
+	sommeAngle match {
+		case 3 => keepHandOnSideWall()
+		case 2 => keepHandOnSideWall()
+		case 1 => keepHandOnSideWall()
+		case 0 => { if (isFreeDirection(Direction.NORD)) { while (!estFaceMur()) { avance() }; droite()} else keepHandOnSideWall()}
 		case _ => println( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
 }
