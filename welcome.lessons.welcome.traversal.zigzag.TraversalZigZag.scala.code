@@ -6,7 +6,7 @@ var c:Int=0
 		c=c+1
 	}
 	
-	for (y<-1 to 6)
+	if(d()) 
 	{
 		for (x<-(0 to getMondeHauteur()-1).reverse) 
 	{  
@@ -15,7 +15,10 @@ var c:Int=0
 		
 		c=c+1
 	}
-	setPos(6,y+1)
+	}
+		
+	if(g()) {	
+		
 		for(x<-0 to getMondeHauteur()-1)
 	{
 		setPos(x,y)
@@ -25,4 +28,15 @@ var c:Int=0
 	
 	}
 setPos(6,6)
+}
+
+
+def(d()) {
+	setDirection=Direction.EST
+	if (estFaceMur()) {return true} else  {return false}
+}
+
+def (g()) {
+	setDirection=Direction.OUEST
+	if (estFaceMur()) {return true} else {return false}
 }
