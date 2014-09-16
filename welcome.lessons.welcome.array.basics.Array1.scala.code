@@ -4,31 +4,27 @@ override def run() {
 		T(i)=getCouleurSol()
 		avance()	
 	}
-	def faireColonne(){
-		for(i<-0 to getMondeHauteur){
-			setCouleurBrosse(T(i))
-			baisseBrosse()
-		}
-	}
+	faireMotif()
+}	
 	
 def faireMotif(){
-		var x=getMondeLargeur()
-		for(i<-1 to x){
-			var nbPas=getMondeHauteur()
-	for(i<-0 to nbPas-2){
-		recule()
-	}
+	var x=getMondeLargeur()
+	for(i<-1 to x){
+		var nbPas=getMondeHauteur()
+		for(i<-0 to nbPas-2){
+			recule()
+		}
 		gauche()
 		avance()
 		droite()
 		avance()
 		faireColonne()
 	}
+}
+	
+def faireColonne(){
+	for(i<-0 to getMondeHauteur){
+		setCouleurBrosse(T(i))
+		baisseBrosse()
 	}
-	
-		
-	
-
-	
-faireMotif()
 }
