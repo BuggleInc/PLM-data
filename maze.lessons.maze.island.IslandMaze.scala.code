@@ -1,7 +1,17 @@
 override def run() {
 
-
-
+def keepHandOnWall() {
+gauche();
+if(estFaceMur){
+	droite();
+	if(estFaceMur){
+		droite();
+		if(estFaceMur){
+			droite();
+		}else{avance();}
+	}else{avance();}
+}else{avance();}
+}
 
 
 def trouveNord {
@@ -11,7 +21,14 @@ var etat:Int=0
 				if(estFaceMur==false){avance();
 				}else{etat = 1}
 			}else{droite();}
-	case 1 =>
+	case 1 => if(getDirection==DirectionNORTH && estFaceMur==false){
+				etat = 0
+				}else{ keepHandOnWall()}
 	}
 }
+while(getY>0){
+	trouveNord
+}
+}
+
 }
