@@ -1,14 +1,11 @@
-var trie():Boolean = {
-	if ( for (i <- 1 to getNombreValeurs-1){plusPetit(i,i-1) == true}){
-		return true
-	}
-	return false
-}
+var trie = false
 def bubbleSort()  {
 	while (!trie()){
+		trie = true
 		for (i <- 1 to getNombreValeurs-1){
 			if (plusPetit(i,i-1)==true){
 				echange(i,i-1)
+				trie = false
 			}
 		}
 	}
