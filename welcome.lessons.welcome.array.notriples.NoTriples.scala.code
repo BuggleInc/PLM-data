@@ -1,8 +1,9 @@
 def noTriples(nums:Array[Int]): Boolean = {
-	var a:Int = 0
-	for(c <- 0 to nums.length - 2) {
-		if(nums(c) == nums(c+1) && nums(c+1) == nums(c+2)) {
-			return false
+	if(nums.length > 2) {
+		for(c <- 0 to nums.length - 2) {
+			if(nums(c) == nums(c+1) && nums(c+1) == nums(c+2)) {
+				return false
+			}
 		}
 	}
 	return true
