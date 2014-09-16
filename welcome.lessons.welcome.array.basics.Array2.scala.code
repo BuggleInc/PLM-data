@@ -5,9 +5,6 @@ override def run()
 	var tableau = new Array[Color](n)
 
 	tableau(0)=getCouleurSol()
-
-	
-
 	for(i<-1 to (getWorldHeight()-1) )    // Boucle for pour récuperer la couleur de chaque case et la stocker dans un tableau
 	{
 		avance()
@@ -32,6 +29,7 @@ override def run()
 			marquerSol(tableau((l+decalage) % n))
 			avance()
 		}
+		
 		marquerSol(tableau(((n-1) + decalage) % n))
 		
                                                  
@@ -50,4 +48,4 @@ def marquerSol(c:Color)          //mieux vaut créer une fonction à part qu'on ap
 	leveBrosse()
 	
 }
-
+//
