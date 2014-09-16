@@ -30,14 +30,14 @@ while(!estFaceMur){
 while (!(getY()==(0))){
 	 droite()
 	 sommeAngle=sommeAngle-1
-	 while(sommeAngle!=0 && getDirection()!=Direction.NORD){
+	 while(sommeAngle!=0 || getDirection()!=Direction.NORD){
 			keepHandOnSideWall()	
 	}
 	while(!estFaceMur){
 		avance()
 	}
 }
-keepHandOnSideWall()
+while (estSurBiscuit)keepHandOnSideWall()
 prendBiscuit()	
 }
 
