@@ -1,16 +1,16 @@
 override def run() {
     def keepHandOnRightWall() = {
-    	gauche();
-    	if (estFaceMur) {droite(); if (!(estFaceMur)) {avance()} else droite()}
+    	droite();
+    	if (estFaceMur) {gauche(); if (!(estFaceMur)) {avance()} else gauche()}
     	else if (!(estFaceMur())) {avance()}
-    		else {gauche()}
+    		else {droite()}
     }
     while (!(estSurBiscuit)) {
-    		if (!(getDirection==Direction.NORD)) {
+    		if (!(getDirection==Direction.EST)) {
     			keepHandOnRightWall();
     	
     		} else
-    			if ((getDirection==Direction.NORD) && !(estFaceMur)) {
+    			if ((getDirection==Direction.EST) && !(estFaceMur)) {
     	 		avance()	
     			} else {keepHandOnRightWall()}
 	}
