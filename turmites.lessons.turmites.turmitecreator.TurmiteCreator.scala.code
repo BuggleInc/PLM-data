@@ -12,8 +12,32 @@
     val nbrState = 2;
     val nbrCouleur = 2;
     
-    
+    setPos(8,33)   
     var rule:Array[Array[Array[Int]]] = null  
+
+        rule = new Array(nbrState)
+		for(i<-0 to nbrState-1){
+			rule(i) = new Array(nbrCouleur)
+		}
+    		for(i<-0 to nbrState-1){
+    			for(j<-0 to nbrCouleur-1){
+    				rule(i)(j) = new Array(3)
+    			}
+    		}
+    		for(i<-0 to nbrState-1){
+    		for(j<-0 to nbrCouleur-1){
+    			
+    			if(i==0){
+    				rule(i)(j)(0)=1
+    				rule(i)(j)(1)=8
+    			}
+    			else{
+    				rule(i)(j)(0)=0
+    				rule(i)(j)(1)=1
+    			}
+			rule(i)(j)(2)=j
+    		}
+    
     var nbSteps:Int = 8342;
     init()
 
@@ -46,29 +70,7 @@
         }
     }
     def init() {
-        setPos(8,33)
-        rule = new Array(nbrState)
-		for(i<-0 to nbrState-1){
-			rule(i) = new Array(nbrCouleur)
-		}
-    		for(i<-0 to nbrState-1){
-    			for(j<-0 to nbrCouleur-1){
-    				rule(i)(j) = new Array(3)
-    			}
-    		}
-
-    		for(i<-0 to nbrState-1){
-    		for(j<-0 to nbrCouleur-1){
-    			if(i==0){
-    				rule(i)(j)(0)=1
-    				rule(i)(j)(1)=8
-    			}
-    			else{
-    				rule(i)(j)(0)=0
-    				rule(i)(j)(1)=1
-    			}
-			rule(i)(j)(2)=j
-    		}
+        
     }
 
         /* Something like 
