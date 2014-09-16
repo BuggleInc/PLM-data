@@ -9,7 +9,11 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	def bouge(i:Int,reg:Array[Char]) = {
 		if (reg(i)=='R') {droite();avance()} else {gauche();avance()}
 	}
+	def setCouleurSol(couleur:Color) = {
+		setCouleurBrosse(couleur);
+		baisseBrosse();
+		leveBrosse(); }
 	var k = posTabColor(getCouleurSol(),colors)
 	bouge(k,rule);
-	
+	if (k==colors.length-1) {setCouleurSol(colors(0))} else {setCouleurSol(colors(k+1))}
 }
