@@ -1,0 +1,41 @@
+override def run() {
+
+setDirection() == Direction.NORTH
+while (!estFaceMur) {
+	avance()
+}
+longerMur()
+
+	
+
+def longerMur() {
+
+	while (!estSurBiscuit) {
+		if (murDroite() && !estFaceMur) {
+			avance()		
+		} else if (murDroite() && estFaceMur) {
+			gauche()
+		} else if (!murDroite()) {
+			droite()
+			avance()
+		} else {
+			droite();droite()	
+		}
+	}
+	prendBiscuit()
+}
+
+def murDroite():Boolean = {
+	droite()
+	if (!estFaceMur) {
+		gauche()
+		return false
+	} else {
+		gauche()
+		return true
+	}	
+}
+
+}
+	
+
