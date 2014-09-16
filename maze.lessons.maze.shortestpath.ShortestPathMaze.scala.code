@@ -39,16 +39,20 @@ override def run() {
 	def suislechemin(i:Int,j:Int) {
 		while (!estSurBiscuit) {
 			if (getIndication(i,j+1)<getIndication(i,j)) {
-				if (!estFaceMur) {setDirection(Direction.SOUTH);avance}
+				setDirection(Direction.SOUTH)
+				if (!estFaceMur) {avance}
 			}
 			if (getIndication(i,j-1)<getIndication(i,j)) {
-				if (!estFaceMur) {setDirection(Direction.NORTH);avance}
+				setDirection(Direction.NORTH)
+				if (!estFaceMur) {avance}
 			}
 			if (getIndication(i+1,j)<getIndication(i,j)) {
-				if (!estFaceMur) {setDirection(Direction.EAST);avance}
+				setDirection(Direction.EAST)
+				if (!estFaceMur) {avance}
 			}
-			if (getIndication(i,j)<getIndication(i,j)) {
-				if (!estFaceMur) {setDirection(Direction.WEST);avance}
+			if (getIndication(i-1,j)<getIndication(i,j)) {
+				setDirection(Direction.WEST)
+				if (!estFaceMur) {avance}
 			}
 		}
 		prendBiscuit()
