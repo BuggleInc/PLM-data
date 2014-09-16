@@ -6,16 +6,17 @@ def remplirTabCol(taille:Int):Array[Color]={
 			var c:Color = getCouleurSol()
 			var tabCol = new Array[Color](taille)
 			do {
-				avance()
-				c = getCouleurSol()
-				tabCol(i) = c
-				return tabCol;
-					
-			}while(!colIni == c);
-				gauche()
-				avance()
-				droite()
-				return tabCol;
+				for (i <- 0 to taille - 1)
+					avance()
+					c = getCouleurSol()
+					tabCol(i) = c
+					return tabCol;
+						
+				}while(!colIni == c);
+					gauche()
+					avance()
+					droite()
+					return tabCol;
 			
 			
 		}	
