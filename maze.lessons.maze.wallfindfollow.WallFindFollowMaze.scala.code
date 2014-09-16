@@ -8,15 +8,15 @@ def keepHandOnSideWall()=  {
 	avance();
 		}
 
-def avoirMurGauche(): Boolean = {
-	gauche();
-	if (estFaceMur()) {
-		return true;
-		droite();
-	}
+ def avoirMurGauche(): Boolean = {
+gauche();
+if (estFaceMur()) {
+	return true;
 	droite();
-	return false;
 }
+droite();
+return false;
+	}
 
 def chercheMur() = {
 	if (estFaceMur()) {
@@ -27,9 +27,9 @@ def chercheMur() = {
 }
 	
 
-while (!(avoirMurGauche())) {
-	chercheMur();
-}
+//while (!(avoirMurGauche())) {
+//	chercheMur();
+//}
 
  while (!(estSurBiscuit())) {
  	keepHandOnSideWall()
