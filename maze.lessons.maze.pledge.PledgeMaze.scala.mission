@@ -14,74 +14,66 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body>
-<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Algorithme de Pledge</h2>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Pledge algorithm</h2>
 
-<p>Une fois de plus, vous pensiez que votre algorithme vous permettait de vous
-échapper des labyrinthes, et une fois de plus, votre buggle est prise dans
-un labyrinthe mettant votre algorithme en défaut. Essayez de copier votre
-code et de l'exécuter pour voir : votre création précédente échoue
-lamentablement. Le piège a la forme d'un «G» majuscule : la buggle entre
-dans le piège, suit le bord interne. Au bout d'un moment, la direction nord
-est libre et votre buggle se met donc à courir dans cette direction. Pour
-retomber dans le piège...
+<p>Once again, you thought that your algorithm were good enough to
+escape the maze, and once again, you buggle is now in a maze where
+your previous algorithm fails. Just give it a try: copy/paste your
+code and hit the "Run"
+button and see your creation fail. The trap is shaped like an upper
+case "G". The buggle enters the trap and follows the inner border. At
+some point, it finds the north direction free, run into that
+direction, and falls again in the trap.
 </p>
 
-<p>L'algorithme de Pledge (nommé d'après Jon Pledge d'Exeter) peut sortir de ce
-labyrinthe.</p> 
+<p>The Pledge's algorithm (named after Jon Pledge of Exeter) can solve
+this maze.</p> 
 
-<p>Cet algorithme est une version modifiée de l'algorithme précédent conçu pour
-éviter les obstacles. Il nécessite de choisir de manière arbitraire une
-direction vers laquelle la buggle se dirigera. Quand un obstacle est
-rencontré, une patte (disons la patte de gauche) est gardée le long des
-obstacles tandis que les virages sont comptabilisés. Quand la buggle est
-face à nouveau à la direction originale, et que la somme des virages est
-égale à 0, la buggle quitte l'obstacle et continue de se déplacer dans sa
-direction d'origine. </p>
+<p>This algorithm is a modification of the previous one thought to avoid
+obstacles. It randomly picks a heading and let the buggle move in that
+direction. When it encounters an obstacle, a paw (for example the left one)
+is kept on the wall following the obstacle while counting the turns. When
+the buggle is back to its original heading and when the sum of the turns is
+0, the buggle leaves the obstacle and continues keeping its original
+heading. </p>
 
-<p>Notez que l'utilisation de la "somme des virages" à la place de la
-"direction courante" permet à l'algorithme d'éviter les pièges tel que les
-formes en "G" majuscule. Si l'on rentre par la gauche dans le piège, on
-tourne de 360 degrés autour des murs. Un algorithme qui se contenterait
-naïvement de se retrouver dans la même direction qu'à l'origine rentre dans
-un cycle infini puisque qu'il quitte le mur le plus à droite en étant dirigé
-vers la gauche, et entre à nouveau dans la section incurvée.</p>
+<p>Note that the use of "total turning" rather than just the "current
+direction" allows the algorithm to avoid G-shapped traps. If one
+proceeds left into the trap, one gets turned around a full 360 
+degrees by the walls. As we said before, the naive "current direction"
+algorithm gets into a limit cycle as it leaves the lower rightmost
+wall heading left and runs into the curved section on the left again.</p>
 
-<p>L'algorithme de Pledge ne quitte pas le mur en bas à droite puisque la somme
-des virages ne vaut pas zéro à ce moment. Il continue de suivre le mur
-jusqu'à avoir complètement fait le tour, et le quitte en regardant à gauche
-une fois parvenu sous l'obstacle.</p>
+<p>The Pledge's algorithm does not leave the rightmost wall due to the total
+turning not being zero at that point. It follows the wall all the way
+around, finally leaving it heading left on the bottom outside</p>
 
 
-<h3>Objectif de cet exercice</h3>
+<h3>Exercise goal</h3>
 
-<p><a name="Objectifs"/> L'objectif de cet exercice est d'écrire une
-implémentation de l'algorithme de Pledge qui permettra à votre buggle de
-sortir du labyrinthe.</p>
+<p><a name="Objective"/>You now have to modify your solution to implement the Pledge
+algorithm to escape this maze.</p>
 
-<p>Reprenez la méthode <code>keepHandOnSideWall()</code> de l'exercice
-précédent. Modifiez cette méthode pour compter les virages pris par votre
-buggle (+1 lorsqu'il a tourné à gauche par rapport à son origine, -1
-lorsqu'il a tourné à droite). Pour comptabiliser vous aurez besoin d'ajouter
-une variable <code>sommeAngle</code> de type entière à votre programme.</p>
+<p>Change your <code>keepHandOnSideWall()</code> method to count
+the amount of turns done by the buggle (+1 when it turns left, and -1
+when it turns right). This counting may require the addition of an
+<code>angleSum</code> integer value in your program.</p>
 
-<p>Écrivez une méthode booléenne <code>isDirectionFree(dir)</code> indiquant si
-la direction fournie en paramètre est libre, c'est-à-dire si vous pouvez
-vous déplacer dans cette direction. Notez que la démo utilise la direction
-NORD pour cela. Vous pouvez retrouver la direction courante de la buggle en
-utilisant la méthode <code>Direction getDirection()</code>.  Vous pouvez
-diriger (sans se déplacer) votre buggle dans une direction en utilisant la
-méthode <code>setDirection(dir)</code>.  Pensez à mémoriser (dans une
-variable dédiée) la direction courante de votre buggle avant de vérifier si
-votre buggle peut se diriger vers sa direction de prédilection pour pouvoir
-restaurer l'état après coup.</p>
+<p>Write a boolean method <code>isDirectionFree(dir)</code> indicating if
+the provided direction is free, ie, if you can move in
+that direction (Note that the demo uses the NORTH direction for
+that).  You can retrieve the current direction of the
+buggle using the method <code>getDirection()</code>. You can
+change your direction (without moving) using <code>setDirection(dir)</code>. Don't forget to store the previous
+direction of your buggle (in a dedicated variable) before checking if your favorite
+direction is free in order to restore your state afterward.</p>
 
-<p>Vous pouvez être amenés à modifier également le reste de votre code, mais
-ces changements devraient rester limités.</p>
+<p>You may have to change the rest of your code also, but these
+changes should remain limited.</p>
 
 
 
-<a href="#tip-1">Montrer un indice supplémentaire</a>
+<a href="#tip-1">Show an additional tip</a>
 	
 </body></html>
