@@ -26,7 +26,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	def associe(rule:Array[Array[Array[Int]]], colors:Array[Color]) {
 		var i:Int = indice(colors, getCouleurSol())
-		rule(state,i) match {
+		rule(state)(i) match {
 			case (_,0,_) => state = rule(state)(i)(2)
 						 setCouleurSol(colors(rule(state)(i)(0)))
 			case (_,1,_) => state = rule(state)(i)(2)
