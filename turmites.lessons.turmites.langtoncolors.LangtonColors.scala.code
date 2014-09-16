@@ -1,0 +1,11 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+	def posTabColor(couleur:Color, tabColor:Array[Color]) {
+		for (i <- 0 to tabColor.length-1) {
+			if (tabColor(i)==couleur) {return i}
+		}
+	}
+	def bouge(i:Int,reg:Array[Char]) = {
+		if (reg(i)=='R') {droite();avance()} else {gauche();avance();}
+	}
+	bouge(posTabColor(getCouleurSol(),colors),rule)
+}
