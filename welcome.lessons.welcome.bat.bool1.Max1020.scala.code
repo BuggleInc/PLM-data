@@ -1,0 +1,16 @@
+def max1020(a:Int, b:Int):Int = 
+{
+/* Étant donné deux nombres entiers, 
+  retournez la plus grande valeur dans l'intervalle 10..20 inclus, ou retournez 0 si aucun des nombres
+ n'est dans cet intervalle.
+Notez que Math.max(Int,Int):Int et Math.min(Int,Int):Int retournent
+respectivement le maximum et le minimum de deux entiers.*/
+
+(a,b) match 
+{
+	case (a,b) if((a>9 && a<21) && (b>9 && b<21)) => return Math.max(a,b)
+	case(a,_) if ( a>9 && a<21) => return a
+	case(_,b) if( b>9 && b<21)  => return b
+	case(_,_) => return 0
+}
+}
