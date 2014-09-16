@@ -1,2 +1,31 @@
-override def run() {
+def testd():Boolean= {
+	var x:Boolean=false;
+
+	droite();
+	if (estFaceMur) x= true;
+	gauche();
+	return x
 }
+
+def testdd():Boolean= {
+	var x:Boolean=false;
+	
+	droite();
+	droite();
+	if (estFaceMur) x= true;
+	gauche();
+	gauche();
+	return x
+}
+
+override def run() {
+	var x,y:Int=0;
+	while (testdd==false && testd== false) {
+		for (i<-0 to getMondeHauteur-1) {
+			recule();
+			y=y+1
+		}
+		x=x+1;
+		setPos(x,0)
+	}
+}
