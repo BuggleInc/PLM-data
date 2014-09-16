@@ -1,0 +1,45 @@
+    var state = 0;
+
+    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	var I=0;
+	for (i <- 0 to colors.length-1) {
+		if (getCouleurSol()==colors(i)) {
+			I=i;
+		}
+	}
+	var etat=j
+	if (rule)(j)(I)(MVT_SUIVANT)==8) {
+		setCouleurBrosse(colors((I+1)%colors.length));
+		baisseBrosse();
+		leveBrosse();
+		droite();
+		avance();
+	}
+	else if (rule(j)(I)(MVT_SUIVANT)==0) {
+		setCouleurBrosse(colors((I+1)%colors.length));
+		baisseBrosse();
+		leveBrosse();
+	}
+	else if (rule(j)(I)(MVT_SUIVANT)==1) {
+		setCouleurBrosse(colors((I+1)%colors.length));
+		baisseBrosse();
+		leveBrosse();
+		avance();
+	}
+	else if (rule(j)(I)(MVT_SUIVANT)==4) {
+		setCouleurBrosse(colors((I+1)%colors.length));
+		baisseBrosse();
+		leveBrosse();
+		gauche();
+		gauche();
+		avance();
+	}
+	else if (rule(j)(I)(MVT_SUIVANT)==2) {
+		setCouleurBrosse(colors((I+1)%colors.length));
+		baisseBrosse();
+		leveBrosse();
+		gauche();
+		avance();
+	}	
+}
+
