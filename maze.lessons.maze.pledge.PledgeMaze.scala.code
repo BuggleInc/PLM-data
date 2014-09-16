@@ -30,7 +30,17 @@ def keepHandOnSideWall(sommeAngle:Int) : Int = {
 				else	{avance()
 					sommeAngle2 += 1
 					return sommeAngle2}
-}
+		else	{droite()
+			avance()
+			gauche()
+			if (estFaceMur)
+					{droite()
+					sommeAngle2 += 1
+					return sommeAngle2}
+				else	{avance()
+					return sommeAngle2}
+			}
+		}
 }
 
 def isDirectionFree(dir:Direction) : Boolean = {
