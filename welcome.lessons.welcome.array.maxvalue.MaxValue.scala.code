@@ -1,20 +1,10 @@
-def tri(t:Array[Int]) {
-	var i,j,k:Int=0;
+def maxValue(nums:Array[Int]): Int = {
+	var y:Int=0;
 
-	for (x<- 0 to t.length-2) {
-		for (z<-x+1 to t.length-2) {
-			i=t(x);
-			j=t(z);
-			if (t(i)>=t(j)) {
-				k=i;
-				i=j;
-				j=k;
-			}
+	for (x<-0 to nums.length-2) {
+		if (nums(x)>=nums(x+1)) {
+			y=nums(x);
 		}
 	}
-}
-
-def maxValue(nums:Array[Int]): Int = {
-	tri(nums);
-	return nums(nums.length-1)
+	return y
 }
