@@ -18,15 +18,16 @@ override def run() {
 		while(!estFaceMur) {
 			avance()
 		}
-		gauche()
-		avance()
-		gauche()
-		while(!estFaceMur) {
+		if(getDirection() == Direction.EST) {
+			gauche()
 			avance()
+			gauche()
 		}
-		droite()
-		avance()
-		droite()
+		else {
+			droite()
+			avance()
+			droite()
+		}
 	}
 	while(!finale()) {
 		snake()
