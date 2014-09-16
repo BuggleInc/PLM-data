@@ -1,7 +1,6 @@
-def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {
-var nb = 0
-if (a>=13 && a<=19) {nb = nb + 1}
-if (b>=13 && b<=19) {nb = nb + 1}
-if (c>=13 && c<=19) {nb = nb + 1}
-if (d>=13 && d<=19) {nb = nb + 1}
-return nb}
+def countTeen(a:Int, b:Int, c:Int, d:Int):Int = {
+	(a,b,c,d) match{
+		case (a,b,c,d) if (a>=13 && a<=19)	=> 1 + countTeen(b,c,d,0)
+		case (0,0,0,0)					=> 0
+	}
+}
