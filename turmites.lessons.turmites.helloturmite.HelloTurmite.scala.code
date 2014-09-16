@@ -5,13 +5,15 @@
     var i=0
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    		mouvement
-    		changeCouleur
-    		changeState
-    		ecrit		
+    		mouvement(colors,rule)
+    		changeCouleur(colors,rule)
+    		changeState(colors,rule)
+    		ecrit(colors,rule)
+
+    
     }
-  
-    	def mouvement(){
+
+     def mouvement(colors:Array[Color], rule:Array[Array[Array[Int]]]){
     		(rule(state)(couleurActuelle)(MVT_SUIVANT)) match{
 			case 1 => avance
 			case 2 => gauche;avance
@@ -21,14 +23,14 @@
 		}
     		
     	}
-   	def couleurActuelle():Int={
+   	def couleurActuelle(colors:Array[Color], rule:Array[Array[Array[Int]]]):Int={
    	i=0
    	while (getCouleurSol!=colors(i)){
 		i=i+1
 	}
 	return i
    }
-	def changeState(){
+	def changeState(colors:Array[Color], rule:Array[Array[Array[Int]]]){
 		if(rule(state)(couleurActuelle)(ETAT_SUIVANT)==0){
 			state = 0
 		}
@@ -37,10 +39,12 @@
 		}
 		
 	}
-	def changeCouleur(){
+	def changeCouleur(colors:Array[Color], rule:Array[Array[Array[Int]]]){
 		setCouleurBrosse(rule(state)(couleurActuelle)(CLR_SUIVANT))
 	}
-	def ecrit(){
+	def ecrit(colors:Array[Color], rule:Array[Array[Array[Int]]]){
 		baisseBrosse
 		leveBrosse
 	}
+  
+    	
