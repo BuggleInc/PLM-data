@@ -12,35 +12,19 @@ override def run() {
 	ecritMessage(cpt: Int)
 	droite()
 	while (!fonctionTest()) {
-		if (getDirection() == Direction.EST) {
-			if (!estFaceMur()) {
-				cpt = cpt + 1;
-				x = x + 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int) 
-			}
-			else {
-				cpt = cpt + 1;
-				y = y + 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int);
-				retourne()
-			}
+		if (!estFaceMur()) {
+			cpt = cpt + 1;
+			x = x + 1;
+			setPos(x, y);
+			ecritMessage(cpt: Int) 
 		}
 		else {
-			if (!estFaceMur()) {
-				cpt = cpt + 1;
-				x = x - 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int) 
-			}
-			else {
-				cpt = cpt + 1;
-				y = y + 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int);
-				retourne()
-			}
+			cpt = cpt + 1;
+			y = y + 1;
+			setPos(x, y);
+			ecritMessage(cpt: Int);
+			retourne()
+			
 		}
 	}
 	gauche()
