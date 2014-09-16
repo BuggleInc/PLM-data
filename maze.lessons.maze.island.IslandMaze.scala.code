@@ -1,34 +1,17 @@
-def KeepHandOnSideWall() {
-
-while(!estSurBiscuit()){
-	gauche
-	if(estFaceMur){droite
-	if(!estFaceMur){
-	avance}
-	else{droite
-	droite}}
-	else{avance()}}
-
-
-}
-
-def talahaine() {
-
-while(!estSurBiscuit()){
-	droite
-	if(estFaceMur){gauche
-	if(!estFaceMur){
-	avance}
-	else{gauche
-	gauche}}
-	else{avance()}}
-
-
-}
 override def run() {
-	while(getDirection!=Direction.NORTH){
-		KeepHandOnSideWall()
-	}
-	talahaine()
-	prendBiscuit
+  while(!estSurBiscuit){
+  	if(random3()==0){
+  		droite
+  	}else{
+  		if(random3==1){
+  			gauche
+  		}else{
+  			if(!estFaceMur){
+  				avance
+  			}
+  		}
+  	}
+  }
+  prendBiscuit
 }
+
