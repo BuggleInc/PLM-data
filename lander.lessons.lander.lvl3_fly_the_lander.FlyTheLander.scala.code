@@ -13,6 +13,8 @@
   			fin(1)=Liste(i+1).y
   		}
   	}
+  	goToFlat()
+  	descend()
   	
   }
 def goToFlat(a:Double,b:Double) {
@@ -26,12 +28,22 @@ def goToFlat(a:Double,b:Double) {
 	}
 	if (sens!=0) {	
 		while (Math.abs(getAngle)<45) {
-			setAngle(getAngle-sens*5)
+			setAngle(sens*(-45))
 		}
 		while ((getX<a) || getX>b) {
 			setPousseeDesiree(4)
 		}
-		while(get
+		while(getPoussee!=0) {
+			setPousseeDesiree(0)
+		}
+	}
+}
+def descend(sol:Int) {
+	while(getAngle!=0) {
+		setAngle(0)
+	}
+}
+	
 
 
 
