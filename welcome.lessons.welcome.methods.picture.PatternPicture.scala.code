@@ -1,19 +1,39 @@
-override def run() { carreecolors();
+override def run() { 
+	motifrond();
+	for ( i <- 1 to 4 ) { avance(); }
+	mortifrond();
+	gauche();
+	for ( i <- 1 to 4 ) { avance(); }
+	droite()
+	motifrond();
+	for ( i <- 1 to 4 ) { recule(); }
+	motifrond();
+	for ( i <- 1 to 4 ) { avance(); }
+	
+	
 }
 
 
-def carreecolors() = {
-	setCouleurBrosse(Color.red)
-	baisseBrosse(); leveBrosse();
-	avance();
-	setCouleurBrosse(Color.blue)
-	baisseBrosse(); leveBrosse();
-	droite(); avance();
-	setCouleurBrosse(Color.green)
-	baisseBrosse(); leveBrosse();
-	droite(); avance();
-	setCouleurBrosse(Color.yellow)
-	baisseBrosse(); leveBrosse();
-	droite(); avance(); droite();
+def deuxcasecolor(c:Color) = {
+	setCouleurBrosse(c)
+	avance(); baisseBrosse(); leveBrosse();
+	recule(); gauche(); 
+	avance(); baisseBrosse(); leveBrosse();
+	recule(); droite();
 	
+}
+
+def motifrond() = {
+	deuxcasecolor(Color.red);
+	for (i <- 1 to 3) { avance(); }
+	gauche();
+	deuxcasecolor(Color.blue);
+	for (i <- 1 to 3) { avance(); }
+	gauche();
+	deuxcasecolor(Color.green);
+	for (i <- 1 to 3) { avance(); }
+	gauche();
+	deuxcasecolor(Color.yellow);
+	for (i <- 1 to 3) { avance(); }
+	gauche();
 }
