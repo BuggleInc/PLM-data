@@ -1,0 +1,22 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class extrema extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( extrema( t.getParameter(0).asInstanceOf[Array[Int]]) )
+   }
+def extrema(nums:Array[Int]): Int = {
+  if (nums.length>0){
+    var min=nums(0)
+    var max=nums(0)
+    for (i <- 1 to nums.length-1){
+      if (nums(i)<min) 
+      	 min=nums(i)
+      if (nums(i)>max) 
+      	 max=nums(i)
+	 }
+    return max-min
+  }else
+    return 0
+}
+ }
