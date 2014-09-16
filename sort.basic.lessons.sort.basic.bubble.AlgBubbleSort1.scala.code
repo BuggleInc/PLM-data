@@ -1,7 +1,15 @@
+var trie():Boolean = {
+	if ( for (i <- 1 to getNombreValeurs-1){plusPetit(i,i-1) == true}){
+		return true
+	}
+	return false
+}
 def bubbleSort()  {
-	for (i <- 1 to getNombreValeurs-1){
-		if (plusPetit(i,i-1)==true){
-			echange(i,i-1)
+	while (!trie()){
+		for (i <- 1 to getNombreValeurs-1){
+			if (plusPetit(i,i-1)==true){
+				echange(i,i-1)
+			}
 		}
 	}
 }
