@@ -1,10 +1,9 @@
 def maxValue(nums:Array[Int]): Int = {
-	var z:Int=0;
+	var z:Int=nums(0);
 
 	for (x<-0 to nums.length-2) {
-		for (y<-x+1 to nums.length-2) {
-			if (nums(x)>nums(y)) z=nums(x)
-			else z=nums(y);
+		if (nums(x)>z) {
+			z=nums(x)
 		}
 	}
 	return z
