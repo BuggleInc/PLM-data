@@ -6,13 +6,13 @@ def golomb(num:Int): Int = {
 	a(0) = 1;
 	for (i <- 1 to n-2) {
 		if (cpt < a(dir-1)) {
-			a(i+1) = a(i);
+			a(i) = a(i-1);
 			cpt = cpt + 1;
 		}
 		else {
 			cpt = 1;
 			dir = dir + 1;
-			a(i+1) = a(i) + 1;
+			a(i) = a(i-1) + 1;
 		}
 	}
 	return a(n-1);
