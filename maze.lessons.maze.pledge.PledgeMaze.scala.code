@@ -1,4 +1,5 @@
 override def run() {
+var sommeAngle=0
 def keepHandOnSideWall(){
 	gauche()
 	sommeAngle=sommeAngle+1
@@ -23,17 +24,15 @@ def keepHandOnSideWall(){
 		avance()
 	}	
 }
-var sommeAngle=0
 while(!estFaceMur){
 	avance()
 }
 while (!(getY()==(0))){
 	 droite()
 	 while(sommeAngle!=0 && getDirection()!=Direction.NORD){
-	 	if(estFaceMur){
+	 	
 			keepHandOnSideWall()
-		}else{
-			avance()
+		
 	}
 	}
 	while(!estFaceMur){
