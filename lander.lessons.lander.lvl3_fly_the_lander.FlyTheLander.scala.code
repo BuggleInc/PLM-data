@@ -3,15 +3,14 @@
   }
 
   override def step() {
-  	val liste=getSol()
   	var debut = Array[Double](2)
   	var fin = Array[Double](2)
-  	for (i<- 0 to liste.length-2) {
-  		if (liste(i).y==liste(i+1).y) {
-  			debut(0)=liste(i).x
-  			debut(1)=liste(i).y
-  			fin(0)=liste(i+1).x
-  			fin(1)=liste(i+1).y
+  	for (i<- 0 to getSol()-2) {
+  		if (liste(i).y==getSol()(i+1).y) {
+  			debut(0)=getSol()(i).x
+  			debut(1)=getSol()(i).y
+  			fin(0)=getSol()(i+1).x
+  			fin(1)=getSol(i+1).y
   		}
   	}
   	if (getX>fin(0)) {
