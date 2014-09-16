@@ -16,6 +16,6 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	}
 	
 	var k = posTabColor(getCouleurSol(),colors)
-	bouge(k,rule);
+	if (rule(k)=='R') {droite();avance()} else {gauche();avance()}
 	if (k==colors.length-1) {setCouleurSol(colors(0))} else {setCouleurSol(colors(k+1))}
 }
