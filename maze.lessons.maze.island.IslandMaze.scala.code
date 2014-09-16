@@ -1,14 +1,21 @@
 override def run() {
-	while(true){est()}
+	while(true){nord()}
 	
 }
-def est(){
-	
-	while(!estFaceMur){
-		avance()
-	}
-	while(estFaceMur){
-		droite();
+def nord(){
+	while(get(y) != 0){
+		if(getDirection == Direction.NORTH){
+			estFaceMur() match{
+				droite()
+				case true => droite()
+							 
+				case false => avance()
+			}
+		
+		
+		}else{
+			gauche()
+		}
 	}
 }
 
