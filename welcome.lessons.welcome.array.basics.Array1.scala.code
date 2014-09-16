@@ -5,14 +5,14 @@ override def run() {
 	var tabCol = new Array[Color](taille)
 def remplirTabCol(taille:Int):Array[Color]={	
 			do {
-				for (i <- 0 to taille - 1){
+				for (i <- 0 to taille ){
 					c = getCouleurSol()
 					avance()
 					tabCol(i) = c
 					
 				}
 						
-				}while(colIni == c)
+				}while(c == colIni)
 					gauche()
 					avance()
 					droite()
@@ -24,6 +24,7 @@ def remplirTabCol(taille:Int):Array[Color]={
 			for(j <- 0 to taille -1){
 				setCouleurBrosse(tabCol(j))
 				baisseBrosse()
+				avance
 			}
 		
 }
