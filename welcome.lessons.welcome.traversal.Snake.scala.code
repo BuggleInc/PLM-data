@@ -1,11 +1,16 @@
 override def run() {
 baisseBrosse()
-while(!estFaceMur || getDirection!=Direction.NORD){
-	 if (!estFaceMur){
+while ( getDirection!= Direction.NORD){
+while(!estFaceMur){
 	 	avance()
 	 }
 	 else {
+	 	if (getDirection== Direction.OUEST){
 	 	droite(); avance(); droite()
 	 }
+	 else {
+	 	gauche(); avance(); gauche()
+	 }
+}
 }
 }
