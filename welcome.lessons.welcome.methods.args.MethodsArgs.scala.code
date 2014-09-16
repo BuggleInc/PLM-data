@@ -1,8 +1,8 @@
-def move(nbPas:Int,versLAvant:Boolean)
-	{for (i <- 1 to (nbPas))
-		{if (versLAvant)
-			{avance()}
-		else {recule()}
-		}
+def move(nbPas:Int,versLAvant:Boolean) {
+	versLAvant match {
+		case true => for (i <- 1 to nbPas)
+						{avance()}
+		case false=> for (j <- 1 to nbPas)
+						{recule()}
 	}
-move(1,true)
+}
