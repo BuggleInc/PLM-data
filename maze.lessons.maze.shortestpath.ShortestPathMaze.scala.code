@@ -19,7 +19,7 @@ override def run() {
 
 	def parcours(i:Int,j:Int,compteur:Int) {
 		var a = compteur
-		setIndication(i,j,a)
+		if (a<getIndication(i,j)) {setIndication(i,j,a)}
 		if ((!aMurNord(i,j))&&(getIndication(i,j-1)==9999)) {
 			parcours(i,j-1,a+1)
 		}
