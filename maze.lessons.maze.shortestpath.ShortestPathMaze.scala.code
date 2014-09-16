@@ -37,17 +37,17 @@ while(!estSurBiscuit) {
 	Yd=getY
 	num=getIndication(Xd,Yd)
 	if(Yd!=Ymax && getIndication(Xd,Yd+1)==num-1 && aMurNord(Xd,Yd+1)==false) {
+		setDirection(Direction.NORD)
 		recule
 	} else if(Yd!=0 && getIndication(Xd,Yd-1)==num-1 && aMurNord(Xd,Yd)==false) {
+		setDirection(Direction.NORD)
 		avance
 	} else if(Xd!=Xmax && getIndication(Xd+1,Yd)==num-1 && aMurOuest(Xd+1,Yd)==false) {
-		droite
+		setDirection(Direction.EST)
 		avance
-		gauche
 	} else if(Xd!=0 && getIndication(Xd-1,Yd)==num-1 && aMurOuest(Xd,Yd)==false) {
-		gauche
+		setDirection(Direction.Ouest)
 		avance
-		droite
 	}
 }
 prendBiscuit
