@@ -1,6 +1,24 @@
 override def run() {
-		var h:Int = getMondeHauteur()
-		var l:Int = getMondeLargeur()
-		var c:Int = 0
-		
-		
+def posFinale() : Boolean = {
+	(getX() +1 ==getMondeLargeur() && getY()+1 ==getMondeHauteur())
+}
+	def avancer() {
+		var x = getX()
+		var y = getY()
+		var maxx = getMondeLargeur()
+		var maxy = getMondeHauteur()
+		if (y%2 ==0) {
+			if (x<maxx-1) {setPos(x+1,y)}
+				else {setPos(x,y+1)}
+		}
+		else {if (x>0) {setPos(x-1,y)}
+				else {setPos(x,y+1)}
+	}}
+	ecritMessage(0)
+	var c = 0
+	while(!posFinale) {
+		avancer()
+		c += 1
+		ecritMessage(c)
+	}
+}
