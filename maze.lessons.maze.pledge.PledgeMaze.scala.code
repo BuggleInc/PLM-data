@@ -21,18 +21,16 @@ override def run() {
 
 def keepHandOnSideWall(sommeAngle:Int) : Int = {
 	var sommeAngle2 = sommeAngle
-	gauche()
 	if (estFaceMur)
-			{droite()
+			{gauche()}
+		else {avance()
+			gauche()
 			if (estFaceMur)
-					{gauche()}
-				else {avance()
-					gauche()
-					if (estFaceMur)
-							{droite()}
-						else {avance()}
-					}
+					{droite()}
+				else {avance()}
+			}
 
+	}
 }
 
 def isDirectionFree(dir:Direction) : Boolean = {
