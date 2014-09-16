@@ -1,9 +1,24 @@
 override def run() {
 	def finale():Boolean = {
-		var NORD:Int = 0
+		var EST:Boolean = false
+		var OUEST:Boolean = false
+		var NORD:Boolean = false
+		if(estFaceMur && getDirection() == Direction.EST) {
+			EST = true
+		}
 		if(estFaceMur && getDirection() == Direction.NORTH) {
+			NORD = true
+		}
+		if(estFaceMur && getDirection() == Direction.OUEST) {
+			OUEST = true
+		}
+		if(EST && NORD) {
 			return true
 		}
+		else if(OUEST && NORD) {
+			return true
+		}
+	}
 		return false	
 	}
 	def snake() {
