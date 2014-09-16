@@ -28,14 +28,35 @@ def keepHandOnSideWall(){
 	
      
 } 
+def bordduhaut(){
+	while (getY()!=0){
+		
+	
+	while (estFaceMur()==false && getDirection()==Direction.NORTH){
+		avance();
+	}
+	gauche(); 
+	if (estFaceMur()==false){
+		avance();
+		droite();
+	}
+	gauche();
+	
+	gauche();
+	if (estFaceMur()==false){
+		avance();
+		gauche();
+	}	
+	}
+	
+}
 
 
 
 override def run() {
+	bordduhaut();
 while (estSurBiscuit()==false){
-	while (estFaceMur()==false && getDirection()==Direction.NORTH){
-		avance();
-	}
+	
 	keepHandOnSideWall()
 	
 }
