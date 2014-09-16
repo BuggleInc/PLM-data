@@ -8,7 +8,7 @@ override def run() {
 	
 }
 def nord(){
-	while(){
+	while(getY() != 0){
 		if(getDirection == Direction.NORTH){
 			estFaceMur() match{
 				
@@ -32,7 +32,9 @@ def nord(){
 }
 
 def keepHandOnSideWall(){
+	var n = 0
 	gauche()
+	n = n + 1
 	if(estFaceMur()){
 		droite()
 		if(!estFaceMur){avance()}else{droite()}
