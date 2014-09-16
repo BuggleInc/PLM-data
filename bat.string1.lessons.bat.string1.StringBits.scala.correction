@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class stringBits extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( stringBits( t.getParameter(0).asInstanceOf[String]) )
+   }
+def stringBits(str:String):String = {
+  var res:String = ""
+  for (i <- 0 to str.length-1 by 2)
+    res += str.substring(i,i+1)
+  return res
+} }
