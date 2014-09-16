@@ -8,23 +8,16 @@ def testg(): Boolean = {
 }
 
 def keepHandOnSideWall() {
-	gauche();
-	if (estFaceMur()) {
-	droite();
-	avance();
-	gauche();
-	if (!estFaceMur()) {
+	if (testg() && estFaceMur()) {
+		droite();
 		avance();
+	}
+	else if (!testg()) {
 		gauche();
-		if (!estFaceMur()) {
-			avance();
-			gauche();
-		} else {droite()}
-		
-	} else { droite();
+		avance();
+	} else {
+		avance();
 	}
-	}
-	droite();
 		}
 
 
