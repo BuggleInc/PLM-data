@@ -8,7 +8,9 @@ def nord(){
 			estFaceMur() match{
 				
 				case false => avance()
-				case true =>  gauche()
+				case true =>  gauche() if(!estFaceMur){
+										avance()
+									}
 				case _ =>
 			}
 		
