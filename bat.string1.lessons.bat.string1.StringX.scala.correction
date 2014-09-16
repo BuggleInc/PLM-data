@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class stringX extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( stringX( t.getParameter(0).asInstanceOf[String]) )
+   }
+def stringX(str:String):String = {
+  var res = ""
+  for (i <- 0 to str.length-1)
+    if (str(i) != 'x' || i == 0 || i == str.length-1)      res += str.substring(i,i+1)
+  return res
+} }
