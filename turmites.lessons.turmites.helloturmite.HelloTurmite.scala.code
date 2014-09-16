@@ -4,6 +4,8 @@ val gauche = 2
 val demitour = 4
 val droite = 8 
 
+var state = 0
+
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	def setCouleurSol(c:Color) {
@@ -24,8 +26,13 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 	def associe(rule:Array[Array[Array[Int]]], colors:Array[Color]) {
 		var i:Int = indice(colors, getCouleurSol())
-		(rule(state,i),getCouleurSol()) match {
-			case 
+		rule(state,getCouleurSol()) match {
+			case (_,0,_) => state = rule(state,getCouleurSol,2)
+						 setCouleurSol(colors)
+			case (_,1,_) => 
+			case (_,2,_) => 
+			case (_,4,_) => 
+			case (_,8,_) => 
 		}
 
 }
