@@ -1,6 +1,6 @@
 def indexOfMaxValue(nums:Array[Int]):Int = {
 	var z:Int=nums(0);
-	var w:Int=0;
+	var w,t:Int=0;
 
 	for (x<-0 to nums.length-1) {
 		if (nums(x)>z) {
@@ -8,7 +8,10 @@ def indexOfMaxValue(nums:Array[Int]):Int = {
 		}
 	}
 	for (x<-0 to nums.length-1) {
-		if (nums(x)==z) w=x
+		if (nums(x)==z) t=t+1
+	}
+	for (x<-0 to nums.length-1) {
+		if (nums(x)==z && t>1) w=x
 	}
 	return w
 }
