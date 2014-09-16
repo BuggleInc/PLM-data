@@ -29,12 +29,26 @@ for (i<- 1 to Xmax*Ymax) {
 		}
 	}
 } //numérote
-var (Xd,Yd):=(0,0) 
+var Xd:Int=0
+var Yd:Int=0
 var num:Int=0
 while(!estSurBiscuit) {
-	(Xd,Yd)=getPos()
+	Xd=getX
+	Yd=getY
 	num=getIndication(Xd,Yd)
-	if(y!=Ymax && getIndication(x,y+1)==num-1)
-	
+	if(Yd!=Ymax && getIndication(Xd,Yd+1)==num-1) {
+		avance
+	} else if(Yd!=0 && getIndication(Xd,Yd-1)==num-1) {
+		recule
+	} else if(Xd!=Xmax && getIndication(Xd+1,Yd)==num-1) {
+		droite
+		avance
+		gauche
+	} else if(Xd!=0 && getIndication(Xd-1,Y)==num-1) {
+		gauche
+		avance
+		droite
+	}
 }
+prendBiscuit
 }
