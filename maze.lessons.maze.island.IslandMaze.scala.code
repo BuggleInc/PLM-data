@@ -1,26 +1,9 @@
 override def run() {
 def keepHandOnSideWall() = { 
-	if (!estFaceMur()) {
-	avance()
-	gauche()
-	if (estFaceMur()) {
-		droite()
-		
-	} else {
-		avance()
-		gauche()
-		if (estFaceMur()) {
-			droite()
-		} else {
-			avance()
-			gauche()
-			if (estFaceMur()) {
-				droite()
-			}else {avance();gauche()}
-		}
+	while (!estFaceMur()) {
+		avance();gauche()
 	}
-		
-} else droite()
+	droite()
 }
 
 def testg():Boolean = {
@@ -49,8 +32,8 @@ keepHandOnSideWall()
 var e = 0 
 while (!(estSurBiscuit())) {
 	e match {
-		case 1 => {while (getDirection() != Direction.NORD) {aramis()}; e = 0}
-		case 0 => {setDirection(Direction.NORD); while (!estFaceMur()) {avance()}; e = 1;droite()}
+		case 1 => {while ((getDirection() != Direction.NORD) && (!estSurBiscuit())) {aramis()}; e = 0}
+		case 0 => {setDirection(Direction.NORD); while (!estFaceMur() && (!estSurBiscuit()) {avance()}; e = 1;droite()}
 		case _ => println( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
 }
