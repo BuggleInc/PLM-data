@@ -21,25 +21,25 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	def associe(rule:Array[Array[Array[Int]]], colors:Array[Color]) {
 		var i:Int = indice(colors, getCouleurSol())
 		rule(state)(i)(1) match {
-			case 0 => state = rule(state)(i)(2)
-						 setCouleurSol(colors(rule(state)(i)(0)))
-			case 1 => state = rule(state)(i)(2)
-						 setCouleurSol(colors(rule(state)(i)(0)))
-						 avance
-			case 2 => state = rule(state)(i)(2)
-						 setCouleurSol(colors(rule(state)(i)(0)))
-						 gauche
-						 avance
-			case 4 => state = rule(state)(i)(2)
-						 setCouleurSol(colors(rule(state)(i)(0)))
-						 gauche
-						 gauche
-						 avance
-			case 8 => state = rule(state)(i)(2)
-						 setCouleurSol(colors(rule(state)(i)(0)))
-						 droite
-						 avance
-			case _       => ()
+			case 0 => setCouleurSol(colors(rule(state)(i)(0)))
+					state = rule(state)(i)(2)
+			case 1 => setCouleurSol(colors(rule(state)(i)(0)))
+					state = rule(state)(i)(2)
+					avance
+			case 2 => setCouleurSol(colors(rule(state)(i)(0)))
+					state = rule(state)(i)(2)
+					gauche
+					avance
+			case 4 => setCouleurSol(colors(rule(state)(i)(0)))
+					state = rule(state)(i)(2)
+					gauche
+					gauche
+					avance
+			case 8 => setCouleurSol(colors(rule(state)(i)(0)))
+					state = rule(state)(i)(2)
+					droite
+					avance
+			case _ => ()
 		}
 	}
 
