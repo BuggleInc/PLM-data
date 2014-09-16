@@ -38,13 +38,13 @@ override def run()
 
 	def remplissage(i:Int,j:Int,compt:Int)
 	{
-		if( !aMurNord(i,j) && j!=0 && getIndication(i,j-1) == 9999)
+		if( j!=0 && !aMurNord(i,j) && getIndication(i,j-1) == 9999)
 			setIndication(i,j-1,compt+1)
-		if( !aMurOuest(i,j) && i!=0 && getIndication(i-1,j) == 9999)
+		if( i!=0 && !aMurOuest(i,j) && getIndication(i-1,j) == 9999)
 			setIndication(i-1,j,compt+1)
-		if( !aMurNord(i,j+1) && j!=getMondeHauteur-1 && getIndication(i,j+1) == 9999)
+		if( j!=getMondeHauteur-1 && !aMurNord(i,j+1) && getIndication(i,j+1) == 9999)
 			setIndication(i,j+1,compt+1)
-		if( !aMurOuest(i+1,j) && i!=getMondeLargeur-1 && getIndication(i+1,j) == 9999)
+		if( i!=getMondeLargeur-1 && !aMurOuest(i+1,j) && getIndication(i+1,j) == 9999)
 			setIndication(i+1,j,compt+1)
 	}
 
