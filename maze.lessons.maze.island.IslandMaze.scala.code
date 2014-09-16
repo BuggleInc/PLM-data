@@ -1,10 +1,16 @@
 override def run() {
 
 while(!estSurBiscuit) {
-	if (!estFaceMur && getDirection != Direction.NORTH) {
-		courirNord()
+	if (estFaceMur && getDirection != Direction.NORTH) {
+		longerMur()
 	} else {
-	longerMur()
+		if (estFaceMur && getDirection == Direction.NORTH) {
+			longerMur()
+		} else {
+			if (!estFaceMur) {
+				courirNord()
+			}
+		}
 	}
 }
 
