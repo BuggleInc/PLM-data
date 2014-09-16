@@ -1,5 +1,4 @@
 var diag = 0;
-var diagBis = 0;
 override def run() {
 	var cpt: Int = 0
 	var x: Int = 0
@@ -35,16 +34,11 @@ override def run() {
 			setPos(x, y);
 			ecritMessage(cpt: Int)
 		}
-		diagBis = diagBis + 1;
-		cpt = cpt + 1;
-		x = 1;
-		y = getMondeHauteur() -1;
-		setPos(x, y);
-		ecritMessage(cpt: Int) 
+		var diagBis: Int = getMondeLargeur() -1
 		while (estFaceMur()) {
-				diagBis = diagBis + 1;
+				diagBis = diagBis -1;
 				cpt = cpt + 1;
-				x = x + diagBis;
+				x = getMondeLargeur() -1 - diagBis;
 				y = getMondeHauteur() -1;
 				setPos(x, y);
 				ecritMessage(cpt: Int) 
