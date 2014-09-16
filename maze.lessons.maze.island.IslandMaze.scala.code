@@ -1,11 +1,12 @@
 override def run() {
 
-while (getDirection != Direction.NORTH) {
-	longerMur()
-} else if (!estFaceMur) {
-	avance()
-} else {
-	longerMur()
+var etat = 0	
+
+etat match {
+	case 0 if(!estFaceMur && getDirection() == Direction.NORTH) => avance()
+													   etat = 1	
+	case 1 => longerMur()
+			etat = 0
 }
 
 
