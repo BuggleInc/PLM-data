@@ -6,5 +6,16 @@ override def run() {
 		T(i) = getCouleurSol() ;
 		avance();
 	}
+	for (i <- 1 to H-1) {
+	   gauche(); avance(); droite();
+	   for (x <- 1 to decalage) { avance(); }
+		for (tmp <- 1 to H) {
+			avance();
+			setCouleurBrosse(T(tmp));
+			baisseBrosse();
+			leveBrosse();
+		}
+		avance();
+	}
 	
 }
