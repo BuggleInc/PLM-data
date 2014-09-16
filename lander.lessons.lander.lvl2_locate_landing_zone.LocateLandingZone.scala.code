@@ -3,17 +3,28 @@ def getLandingZone():Segment = {
 	var c = 0
 
 	var point1 = new Point(0,0)
+	var point2 = new Point(0,0)
+	var fina = new Segment(point1 , point2)
 
 	while ( c <  getSol.length)
 	{
 		if (getSol(c).y == getSol(c + 1).y )
 		{
-			if (get(x
+			if (getSol(c).y == getSol(c + 2).y)
+			{
+				point1 = getSol(c)
+				point2 = getSol(c + 2)
+				c = getSol.length
+			}
 		}
 		
 		c = c + 1
 	}
 
+	fina.debut = point1
+	fina.fin = point2
+
 	
-	return new Segment(new Point(0.1, 5.1), new Point(2.1,5.7));
+	return fina
+
 }
