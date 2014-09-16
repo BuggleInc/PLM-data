@@ -14,14 +14,14 @@ override def run() {
 		gauche()
 		avance()
 		droite()
-		var posCouleur = (j+dec)%T.length;
 		for (j <- 0 to T.length - 2) {
+			var posCouleur = (j+dec)%T.length;
 			setCouleurBrosse(T(posCouleur))
 			baisseBrosse()
 			leveBrosse()
 			avance()
 		}		
-		setCouleurBrosse((T(posCouleur-1)))
+		setCouleurBrosse((T((T.length + dec -1)%T.length)))
 		baisseBrosse()
 		leveBrosse()
 		recule((T.length - 1))
