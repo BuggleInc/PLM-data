@@ -23,7 +23,11 @@ def trouveNord() {
 			}else{droite();}
 	case 1 => if(getDirection==Direction.NORTH && estFaceMur==false){
 				etat = 0
-				}else{ keepHandOnWall()}
+				}else{ keepHandOnWall();
+					  if(getDirection==Direction.NORTH){etat = 0}
+					  else{droite();if(getDirection==Direction.NORTH){etat = 0}
+					  else{droite();if(getDirection==Direction.NORTH){etat = 0}
+					  else{droite();}}}
 	}
 }
 while(getY>0){
