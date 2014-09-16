@@ -29,6 +29,21 @@ def keepHandOnSideWall() = {
 } else droite();sommeAngle= sommeAngle-1
 }
 
+def isDirectionFree(dir:Direction) = {
+	var direct = getDirection();
+	while (getDirection() != dir) {
+		droite()
+		sommeAngle = sommeAngle-1
+	}
+	if (estFaceMur()) {
+		setDirection(direct)
+		return true
+	} else {
+		setDirection(direct)
+		return false
+	}
+}
+
 def testg():Boolean = {
 	var rep = false 
 	gauche() 
@@ -56,7 +71,7 @@ keepHandOnSideWall()
 var e = 0 
 while (!(estSurBiscuit())) {
 	e match {
-		case 1 => {while (getDirection() != Direction.NORD) {aramis()}; e = 0}
+		case 1 => {while (isDirectionFree()) {aramis()}; e = 0}
 		case 0 => {setDirection(Direction.NORD); while (!estFaceMur()) {avance()}; e = 1;droite()}
 		case _ => println( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
