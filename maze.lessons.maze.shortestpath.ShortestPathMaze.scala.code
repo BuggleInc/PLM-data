@@ -5,9 +5,8 @@ var y = 0
 def indic(a:Int,b:Int){
 	if(!aMurNord(a,b)){setIndication(a,b-1,getIndication(a,b)+1);indic(a,b-1)}
 	if(!aMurOuest(a,b)){setIndication(a-1,b,getIndication(a,b)+1);indic(a-1,b)}
-	indic(a,b+1)
-	indic(a+1,b)
-	
+	if(!aMurNord(a,b+1)){setIndication(a,b+1,getIndication(a,b)+1);indic(a,b+1)}
+	if(!aMurOuest(a+1,b)){setIndication(a+1,b,getIndication(a,b)+1);indic(a+1,b)}	
 }
 
 for(i <- 0 to getMondeLargeur() - 1){
