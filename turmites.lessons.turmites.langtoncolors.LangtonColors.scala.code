@@ -8,12 +8,13 @@ def place(couleur:Color, colors:Array[Color]):Int={
 }
 
 var x = getCouleurSol()
+var p = place(x,colors)
 	var y = rule(place(x,colors))
 	y match{
-		case 'R' => if(y==colors.length - 1){y=0}else{y+=1}
-			setCouleurBrosse(colors(y)); baisseBrosse(); leveBrosse(); droite();avance()
-		case 'L' => if(y==colors.length - 1){y=0}else{y+=1}
-			setCouleurBrosse(colors(y)); baisseBrosse(); leveBrosse(); gauche();avance()
+		case 'R' => if(p==colors.length - 1){p=0}else{y+=1}
+			setCouleurBrosse(colors(p)); baisseBrosse(); leveBrosse(); droite();avance()
+		case 'L' => if(p==colors.length - 1){p=0}else{y+=1}
+			setCouleurBrosse(colors(p)); baisseBrosse(); leveBrosse(); gauche();avance()
 		case _ => ()
 }
 }
