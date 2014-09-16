@@ -1,1 +1,25 @@
+def min(nums:Array[Int]): Int = {
+	var z:Int=nums(1);
+
+	for (x<-0 to nums.length-1) {
+		if (nums(x)<z) {
+			z=nums(x)
+		}
+	}
+	return z
+}
+
+def max(nums:Array[Int]): Int = {
+	var z:Int=nums(0);
+
+	for (x<-0 to nums.length-1) {
+		if (nums(x)>z) {
+			z=nums(x)
+		}
+	}
+	return z
+}
+
 def extrema(nums:Array[Int]): Int = {
+	return Math.abs(max(nums)-min(nums))
+}
