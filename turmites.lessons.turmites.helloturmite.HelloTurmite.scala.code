@@ -1,26 +1,26 @@
-    var state = 0;
-    var i = 0;
+var state = 0;
 
-    def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-var C=true;
-while(C==true){
- while(getCouleurSol()!=colors(i)){
-							i+=1
-}
-setCouleurBrosse(colors(i+1));
-for(i<-0 to rule.length-1){
-	for(j<-0 to rule.length-1){
-		for(k<-0 to rule.length-1){
-rule(i)(j)(k)	match{
-	case 2 => gauche(); baisseBrosse(); leveBrosse();
-	case 4 => droite();droite(); baisseBrosse(); leveBrosse();
-	case 8 => droite(); baisseBrosse(); leveBrosse();
-	case 1 => baisseBrosse(); leveBrosse();
-	case 0 => C=false;
-	}
-}
-}
-}
-}
-	
+var triplet = new Array[Int](3)
+var IndiceCouleur:Int=0
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+    IndiceCouleur=0
+    while (colors(IndiceCouleur)!=getCouleurSol()) {
+        IndiceCouleur+=1
     }
+    triplet = rule(state)(IndiceCouleur)
+    setCouleurBrosse(colors(triplet(0)%colors.length))
+    baisseBrosse()
+    leveBrosse()
+     triplet(1) match {
+         case 0 =>
+         case 1 => avance()
+         case 2 => gauche()
+                 avance()
+         case 4 =>    gauche()
+                 gauche()
+                 avance()
+         case 8 => droite()
+                 avance()
+     }
+     state=triplet(2)
+}
