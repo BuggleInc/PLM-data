@@ -17,20 +17,24 @@ for (w<- 0 to 999){
 		for (c<- 0 to getMondeLargeur()-1){
 			if (getIndication(c,v)==w){
 				if (!aMurNord(c,v)){
-					setIndication(c,v+1,w+1)
+					if (c<getMondeLargeur()-1 && v+1<getMondeHauteur()-1){
+						setIndication(c,v+1,w+1)
 				}
 				if (!aMurOuest(c,v)){
-					setIndication(c-1,v,w+1)
-				}
-				if (!aMurOuest(c,v)){
-					setIndication(c-1,v,w+1)
-				}
+					if (c-1<getMondeLargeur()-1 && v<getMondeHauteur()-1){				
+						setIndication(c-1,v,w+1)
+					}
+				}	
 				if (!aMurOuest(c+1,v)){
-					setIndication(c+1,v,w+1)
-				}
+					if (c+1<getMondeLargeur()-1 && v<getMondeHauteur()-1){
+						setIndication(c+1,v,w+1)
+					}
+				}	
 				if (!aMurNord(c,v-1)){
-					setIndication(c,v-1,w+1)
-				}
+					if (c<getMondeLargeur()-1 && v-1<getMondeHauteur()-1){
+						setIndication(c,v-1,w+1)
+					}
+				}	
 			}
 
 		}	
