@@ -1,36 +1,43 @@
-def step(rule:Array[Char], colors:Array[Color]) {
-var c:Color=getCouleurSol()
-var n:Int=0
-
-
- 
-
-
-for (i <- 0 to colors.length-1){
-	
-	if(c==colors(i)){ n}
-	else{n=n+1}
-
-}
-
-
-
-if(n==colors.length-1){setCouleurBrosse(colors(0))}
-else{setCouleurBrosse(colors(n+1))}
-
-baisseBrosse();
-leveBrosse()    
-
-if(n==rule.length-1){ if(rule(0)=='R'){
-	droite;avance
-}
-else{gauche;avance}
-}
-
-else{
-	if(rule(n)=='R'){droite;avance
+def indiceCouleur(c:Color, colors:Array[Color]) {
+	for (i <- 0 to colors.length-1){
+		if(c==colors(i)) { 
+			return i
+		}
 	}
-	else{gauche;avance}
-}	
+	return -1;
+}
+
+def couleurSuivante(indice:Int, colors:Array[Color]){
+	return colors((indice+1)%colors.length)
+	
+}
+
+def step(rule:Array[Char], colors:Array[Color]) {
+	var c:Color=getCouleurSol()
+	var indice:Int=0
+
+	 indice = indiceCouleur(c, colors)
+	 setCouleurBrosse(couleurSuivante(indice, colors))
+
+	baisseBrosse();
+	leveBrosse()    
+
+	if(n==rule.length-1){ 
+		if(rule(0)=='R'){
+			droite;
+			avance
+		} else {
+			gauche;
+			avance
+		}
+	} else {
+		if(rule(n)=='R'){
+			droite;
+			avance
+		} else{
+			gauche;
+			avance
+		}
+	}	
 
 }
