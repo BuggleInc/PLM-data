@@ -19,17 +19,18 @@ while (!estSurBiscuit)
 prendBiscuit()
 }
 
-def keepHandOnSideWall(sommeAngle:Int) {
+def keepHandOnSideWall(sommeAngle:Int) : Int = {
+var sommeAngle2 = sommeAngle
 gauche()
 if (!estFaceMur)
-		{sommeAngle = sommeAngle + 1
+		{sommeAngle2 += 1
 		avance()}
 	else {droite()
 		if (!estFaceMur)
 				{avance()}
 			else {droite()
 				if (!estFaceMur)
-						{sommeAngle -= 1
+						{sommeAngle2 -= 1
 						avance()}
 					else {droite()
 						avance()}
