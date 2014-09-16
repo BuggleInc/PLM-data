@@ -1,7 +1,11 @@
 def d():Boolean={
 	droite();
-	if (estFaceMur()){gauche(); return true} else {gauche(); return false}
-	
+	if (estFaceMur())
+	{
+		gauche(); return true
+		} else {
+			gauche(); return false
+			}
 	}
 
 def g():Boolean={
@@ -17,20 +21,20 @@ def g():Boolean={
 
 override def run() {
 var c:Int=0
+var y:Int=0
 
 	do { 
 
-for (y<-0 to getMondeHauteur()-1)
 		{
 		if (d())
-		{
+		{ y=y+1
 			for (x<-(0 to getMondeHauteur()-1).reverse)
 			{
 				setPos(x,y)
 				ecritMessage(c)
 				c=c+1
 			}
-			
+
 		}
 		if (g())
 		{
@@ -42,7 +46,7 @@ for (y<-0 to getMondeHauteur()-1)
 			} 
 			
 		}
-		}
+		
 	}
 	while (
 		getX!=getMondeHauteur()-1
@@ -51,5 +55,3 @@ for (y<-0 to getMondeHauteur()-1)
 		)
 	
 }
-
-
