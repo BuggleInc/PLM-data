@@ -6,12 +6,12 @@ override def run() {
     		else {droite()}
     }
     while (!(estSurBiscuit)) {
-    		if (!(getDirection==Direction.NORD) || (estFaceMur) ) {
+    		if (!(getDirection==Direction.NORD)) {
     			keepHandOnRightWall();
     	
-    		}
-    		if ((getDirection==Direction.NORD) && !(estFaceMur)) {
+    		} else
+    			if ((getDirection==Direction.NORD) && !(estFaceMur)) {
     	 		avance()	
-    		}
+    			} else {keepHandOnRightWall()}
 	}
 }
