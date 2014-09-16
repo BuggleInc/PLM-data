@@ -1,14 +1,16 @@
 override def run() {
 	def positionFinale():Boolean = {
+		var pos:Boolean=false
 		dir=getDirection()
 		setDirection(Direction.EAST)
 		if (estFaceMur) {
 			setDirection(Direction.NORTH)
-			if (estFaceMur) {return true}
-			else {return false}
+			if (estFaceMur) {pos=true}
+			else {pos=false}
 		}
-		else {return false}
+		else {pos=false}
 		setDirection(dir)
+		return pos
 		}
 
 
