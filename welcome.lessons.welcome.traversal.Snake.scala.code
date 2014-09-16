@@ -1,7 +1,6 @@
 override def run() {
 	var dir:Direction=Direction.EAST
 	var positionFinale:Boolean=false
-	
 	def chercheFinale() {
 		dir=getDirection()
 		setDirection(Direction.EAST)
@@ -16,12 +15,11 @@ override def run() {
 		
 	baisseBrosse()
 	while (!positionFinale) {
-		while (!estFaceMur) {
+		if (!estFaceMur) {
 			avance()
 		}
 		chercheFinale()
-		if (positionFinale==false) {
-		if (getDirection()==Direction.WEST) {
+		else { if (getDirection()==Direction.WEST) {
 			droite()
 			avance()
 			droite()
@@ -31,10 +29,8 @@ override def run() {
 			avance()
 			gauche()
 		}
-		}
-		else {leveBrosse}	
+		}	
 	}
-	
 }
 	
 	
