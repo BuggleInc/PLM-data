@@ -35,7 +35,7 @@ override def run() {
 			ecritMessage(cpt: Int)
 		}
 		var diagBis = 0;
-		while (getX() == getMondeLargeur() -1 ) {
+		if (getX() == getMondeLargeur() -1 ) {
 				diagBis = diagBis + 1;
 				cpt = cpt + 1;
 				x = diagBis;
@@ -43,11 +43,12 @@ override def run() {
 				setPos(x, y);
 				ecritMessage(cpt: Int) 
 		}
-		cpt = cpt + 1;
-		x = x + 1;
-		y = y - 1;
-		setPos(x, y);
-		ecritMessage(cpt: Int)
-		 
+		else {
+			cpt = cpt + 1;
+			x = x + 1;
+			y = y - 1;
+			setPos(x, y);
+			ecritMessage(cpt: Int)
+		} 
 	}
 }
