@@ -17,11 +17,11 @@ if(estFaceMur){
 def trouveNord {
 var etat:Int=0
 (etat)match{
-	case 0 => if(getDirection==DirectionNORTH){
+	case 0 => if(getDirection==Direction.NORTH){
 				if(estFaceMur==false){avance();
 				}else{etat = 1}
 			}else{droite();}
-	case 1 => if(getDirection==DirectionNORTH && estFaceMur==false){
+	case 1 => if(getDirection==Direction.NORTH && estFaceMur==false){
 				etat = 0
 				}else{ keepHandOnWall()}
 	}
