@@ -1,7 +1,7 @@
 override def run() {
 
 var Angle:Integer = 0
-var D:Direction 
+var D:Direction =  Direction.NORTH
 
 
                                            //suivi mur gauche
@@ -30,10 +30,10 @@ else {droite();Angle=Angle-1}
 
 
 def isDirectionFree():Boolean = {               // Direction Libre
-	D = getDirection():Direction
+	D = getDirection()
 	setDirection(Direction.NORTH )
-	if (!estFaceMur ) return true
-	else return false
+	if (!estFaceMur ) {setDirection(D);return true}
+	else { setDirection(D);return false}
 }
 
 
