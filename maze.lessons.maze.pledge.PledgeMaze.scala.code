@@ -4,24 +4,22 @@ var Angle:Integer = 0
 
 
 
-def  keepHandOnSideWall() {                                  // suivre mur gauche
+def  keepHandOnSideWall() {                         //suivi mur gauche
    	
    
   			gauche()
-  			
 			if (estFaceMur) {
+				
 				
 				 droite()               
 				 if (!estFaceMur) 
-				 {avance()
-				 Angle=Angle+1}
-				 else  {droite();avance() ; Angle=Angle-1
-			        
-			
-		    }
+				 avance()
+				 else  { if (!estFaceMur()) gauche()
+				         else droite()
+			}}
+		     else avance()
 	
 			
-}
 }
 
 def isDirectionFree():Boolean = {               // Direction Libre
