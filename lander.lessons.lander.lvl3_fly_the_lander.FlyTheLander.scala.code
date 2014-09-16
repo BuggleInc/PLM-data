@@ -1,52 +1,8 @@
-  override def initialize(){
-  	val Liste = getSol()
-  	var debut = new Array[Double] (2)
-  	var fin = new Array[Double] (2)
-  	for (i <- 0 to Liste.length-2) {
-  		if (Liste(i).y==Liste(i+1).y) {
-  			debut(0)=Liste(i).x
-  			debut(1)=Liste(i).y
-  			fin(0)=Liste(i+1).x
-  			fin(1)=Liste(i+1).y
-  		}
-  	}
-}
+  override def initialize() {
+  }
 
-override def step() {
-  	if (getVitesseY()<(-9)) {
-	setPousseeDesiree(4)	
-  	} else {
-	setPousseeDesiree(0)
-	}
-	while (getAngle!=45) {
-		setAngleDesire(45)
-	}	
-  	
-  	
-}
-def goToFlat(a:Double,b:Double) {
-	var sens=0
-	if (getX<a) {
-		sens=1
-	} else if (getX>b) {
-		sens=(-1)
-	} else {
-		sens=0
-	}
-	while (Math.abs(getAngle)!=45) {
-			setAngleDesire(sens*(-45))
-		}
-		while ((getX<a) || getX>b) {
-			setPousseeDesiree(4)
-		}
-		while(getPoussee!=0) {
-			setPousseeDesiree(0)
-		}
-	}
-		
-}
-def descend(sol:Double) {
-	while(getAngle!=0) {
-		setAngleDesire(0)
-	}
-}
+  override def step() {
+  	while (getAngle!=45) {
+  		setAngleDesire(45)
+  	}
+  }
