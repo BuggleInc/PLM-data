@@ -36,13 +36,14 @@ override def run() {
 		}
 		def position(): Boolean = {
 			var pos: Boolean = false
+			droite()
 			if (estFaceMur()) {pos = true}
+			gauche()
 			return pos
 			}
 		var diagBis = 0;
 		diagBis = diagBis + 1;
 		cpt = cpt + 1;
-		droite()
 		while (!position()) {
 			cpt = cpt + 1;
 			x = x + 1;
@@ -50,7 +51,6 @@ override def run() {
 			setPos(x, y);
 			ecritMessage(cpt: Int)
 		}
-		gauche()
 		x = diagBis;
 		y = getMondeHauteur() -1;
 		setPos(x, y);
