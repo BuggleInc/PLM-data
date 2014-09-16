@@ -33,13 +33,18 @@ def nord(){
 
 def keepHandOnSideWall(){
 	var n = 0
-	gauche()
+	do{gauche()
 	n = n + 1
 	if(estFaceMur()){
 		droite()
-		if(!estFaceMur){avance()}else{droite()}
+		n = n - 1
+		if(!estFaceMur){avance()}else{
+			droite()
+			n = n - 1
+		}
 		
 	}else{
 		avance()
 	}
+	}while(n != 0)
 }
