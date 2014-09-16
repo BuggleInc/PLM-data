@@ -1,9 +1,16 @@
 def vuBiscuit():Boolean = {
-    if (estSurBiscuit() == false) {
+  var nbPas = 0;
+    for ( i <- 1 to 6 ) {
+      if (estSurBiscuit() == true) 
+        { return true; }
+    	 avance();
+    	 nbPas = nbPas + 1; }
+      
+    else 
         return false;
-    } else {
-        return true;
-    } }
+    for (tmp <- 1 to nbPas) { recule(); }
+}
+    
 
 
 
