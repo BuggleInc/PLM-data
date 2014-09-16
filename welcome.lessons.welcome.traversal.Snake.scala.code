@@ -9,14 +9,15 @@ def testg():Boolean= {
 
 override def run() {
 	baisseBrosse();
-	while (!estFaceMur && getDirection==Direction.EST && testg==false) {
-		avance(getMondeHauteur-1)
-		gauche();
-		avance();
-		droite();
-		recule(getMondeHauteur-1);
-		gauche();
-		avance();
-		droite();
+	while (!estFaceMur && getDirection==Direction.EST) {
+		avance(getMondeHauteur-1);
+		if (testg==false) {
+			gauche();
+			avance();
+			droite();
+			recule(getMondeHauteur-1);
+			gauche();
+			avance();
+			droite();
 	}
 }
