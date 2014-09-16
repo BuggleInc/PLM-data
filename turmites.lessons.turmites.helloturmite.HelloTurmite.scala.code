@@ -23,22 +23,27 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		rule(state)(i)(1) match {
 			case 0 => setCouleurSol(colors(rule(state)(i)(0)))
 					state = rule(state)(i)(2)
+					
 			case 1 => setCouleurSol(colors(rule(state)(i)(0)))
 					state = rule(state)(i)(2)
 					avance
+					
 			case 2 => setCouleurSol(colors(rule(state)(i)(0)))
 					state = rule(state)(i)(2)
 					gauche
 					avance
+					
 			case 4 => setCouleurSol(colors(rule(state)(i)(0)))
 					state = rule(state)(i)(2)
 					gauche
 					gauche
 					avance
+					
 			case 8 => setCouleurSol(colors(rule(state)(i)(0)))
 					state = rule(state)(i)(2)
 					droite
 					avance
+					
 			case _ => ()
 		}
 	}
