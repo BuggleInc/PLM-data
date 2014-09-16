@@ -42,7 +42,14 @@ override def run() {
 			return pos
 			}
 		while (position()) {
-			if (!estFaceMur() {
+			if (!estFaceMur()) {
+				cpt = cpt + 1;
+				x = x + 1;
+				y = y - 1;
+				setPos(x, y);
+				ecritMessage(cpt: Int)
+			}
+			else {
 				var diagBis = 0;
 				diagBis = diagBis + 1;
 				cpt = cpt + 1;
@@ -51,13 +58,7 @@ override def run() {
 				setPos(x, y);
 				ecritMessage(cpt: Int)
 			}
-			else {
-				cpt = cpt + 1;
-				x = x + 1;
-				y = y - 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int)
-			}
 		}
 	}
 }
+
