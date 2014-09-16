@@ -10,20 +10,18 @@ def motif(){
 motif()
 for (a<-2 to getMondeLargeur()){
 	gauche()
-	avance()
-	droite()
-	avance()
+	gauche()
+	while(!estfacemur) {avance()}
 	for(i<-0 to T.length - 2){
 		setCouleurBrosse(T(i))
 		baisseBrosse()
 		leveBrosse()
 		avance()
 	}
-	for(i<-0 to T.length - 1){
-		setCouleurBrosse(T(i))
-		baisseBrosse()
-		leveBrosse()
-		avance()}
+	setCouleurBrosse(T(T.length - 1))
+	baisseBrosse()
+	leveBrosse()
+	
 } }
 
 
