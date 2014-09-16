@@ -2,41 +2,57 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	val c=0
 	while (c<colors.length) {
 		if (getCouleurSol()=colors(c)) {
-			
+			NextColor();
+			NextMove();
+			state=NextState();
+			c=color.length
+		}
+		c=c+1
+	}
+
+	def setCouleurSol(c:Color) {
+		setCouleurBrosse(c);
+		baisseBrosse();
+		leveBrosse();
+		}
+	
+	def NextColor {
+		var a=0
+		a=rule(state)(c)(0)
+		setCouleurSol(colors(r))
+	}
+	
+	def NextMove {
+		rule(state)(c)(1) match {
+			case 0 => 
+			case 1 => avance();
+			case 2 => gauche(); avance();
+			case 4 => retourne(); avance();
+			case 8 => droite(); avance();
 		}
 	}
-
-def setCouleurSol(c:Color) {
-	setCouleurBrosse(c);
-	baisseBrosse();
-	leveBrosse();
+	
+	def NextState {
+		var b=0
+		b=rule(state)(c)(2)
+		return b
 	}
-
-def NextColor {
-	var a=0
-	a=rule(state)(c)(0)
-	setCouleurSol(colors(r))
-}
-
-def Next
-
-
-
-
-
-
-
-
-
- 
-def setCouleurSol(c:Color) {
-	setCouleurBrosse(c);
-	baisseBrosse();
-	leveBrosse();
 	}
-
-def NextColor {
-	var a=0
-	a=rule(state)(c)(0)
-	setCouleurSol(colors(r))
+	
+	
+	
+	
+	
+	
+	 
+	def setCouleurSol(c:Color) {
+		setCouleurBrosse(c);
+		baisseBrosse();
+		leveBrosse();
+		}
+	
+	def NextColor {
+		var a=0
+		a=rule(state)(c)(0)
+		setCouleurSol(colors(r))
 }
