@@ -17,8 +17,14 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	def associe(rule:Array[Char], colors:Array[Color]) {
 		var i:Int = indice(colors, getCouleurSol())
 		rule(i) match {
-			case 'R' => 
-			case 'L' =>
+			case 'R' => 	if (i==colors.length-1) {setCouleurSol(0)} else {setCouleurSol(i+1)}
+						gauche()
+						avance()
+			case 'L' =>	if (i==colors.length-1) {setCouleurSol(0)} else {setCouleurSol(i+1)}
+						droite()
+						avance()
 		}
 	}
+
+	associe(rule,colors)
 }
