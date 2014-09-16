@@ -2,17 +2,18 @@ override def run() {
 	def finale():Boolean = {
 		if(estFaceMur && getDirection() == Direction.EST) {
 			gauche()
-		}
-		if(estFaceMur) {
-			return true
+			if(estFaceMur) {
+				return true
+			}
+			return false
 		}
 		if(estFaceMur && getDirection() == Direction.OUEST) {
 			droite()
+			if(estFaceMur) {
+				return true
+			}
+			return false
 		}
-		if(estFaceMur) {
-			return true
-		}
-		return false
 	}
 	def snake() {
 		while(!estFaceMur) {
