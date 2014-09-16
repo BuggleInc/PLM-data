@@ -9,7 +9,9 @@
 	return 9658
 }
 	var x = getCouleurSol()
-	val (a:Int,b:Int,c:Int) = rule(state)(x)
+	val a = rule(state)(x)(0)
+	val b = rule(state)(x)(1)
+	val c = rule(state)(x)(2)
 	b match{
 		case 0 => setCouleurBrosse(colors(a)); baisseBrosse();leveBrosse();avance(); state = c
 		case 2 => setCouleurBrosse(colors(a)); baisseBrosse();leveBrosse(); gauche(); avance(); state = c
