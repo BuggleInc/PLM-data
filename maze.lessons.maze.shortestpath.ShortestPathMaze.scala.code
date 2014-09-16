@@ -7,10 +7,11 @@ def dansLeCadre(a:Int,b:Int):Boolean={
 }
 
 def indic(a:Int,b:Int){
-	if(dansLeCadre(a,b-1) && getIndication(a,b-1)==9999 && !aMurNord(a,b) ){setIndication(a,b-1,getIndication(a,b)+1);indic(a,b-1)}
-	if(dansLeCadre(a-1,b) && getIndication(a-1,b)==9999 && !aMurOuest(a,b) ){setIndication(a-1,b,getIndication(a,b)+1);indic(a-1,b)}
-	if(dansLeCadre(a,b+1) && getIndication(a,b+1)==9999 && !aMurNord(a,b+1)){setIndication(a,b+1,getIndication(a,b)+1);indic(a,b+1)}
-	if(dansLeCadre(a+1,b) && getIndication(a+1,b)==9999 && !aMurOuest(a+1,b)){setIndication(a+1,b,getIndication(a,b)+1);indic(a+1,b)}
+	val c = getIndication(a,b)
+	if(dansLeCadre(a,b-1) && getIndication(a,b-1) > c && !aMurNord(a,b) ){setIndication(a,b-1,getIndication(a,b)+1)}
+	if(dansLeCadre(a-1,b) && getIndication(a-1,b) > c && !aMurOuest(a,b) ){setIndication(a-1,b,getIndication(a,b)+1)}
+	if(dansLeCadre(a,b+1) && getIndication(a,b+1) > c && !aMurNord(a,b+1)){setIndication(a,b+1,getIndication(a,b)+1)}
+	if(dansLeCadre(a+1,b) && getIndication(a+1,b) > c && !aMurOuest(a+1,b)){setIndication(a+1,b,getIndication(a,b)+1)}
 		
 }
 
@@ -18,7 +19,6 @@ def aLaNiche(){
 	while(!estSurBiscuit()){
 	var a = getX()
 	var b = getY()
-	var d = 0
 	val m = getIndication(a+1,b)
 	val n = getIndication(a,b+1)
 	val o = getIndication(a-1,b)
