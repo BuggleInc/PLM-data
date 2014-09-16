@@ -14,19 +14,29 @@
     
     
     var rule:Array[Array[Array[Int]]] = null
-    		rule = new Array(2)
-    		rule(0) = new Array(2)
-    		rule(1) = new Array(2)
-    		for(i<-0 to 1){
-    			for(j<-0 to 1){
+    		rule = new Array(nbrState)
+		for(i<-0 to nbrState-1){
+			rule(i) = new Array(nbrCouleur)
+		}
+    		for(i<-0 to nbrState-1){
+    			for(j<-0 to nbrCouleur-1){
     				rule(i)(j) = new Array(3)
     			}
     		}
 
-    rule(0)(0)=(1,RIGHT,0)
-    rule(0)(1)=(1,RIGHT,1)
-    rule(1)(0)=(0,NOTURN,0)
-    rule(1)(1)=(0,NOTURN,1)
+    for(i<-0 to nbrState-1){
+    		for(j<-0 to nbrCouleur-1){
+    			if(i==0){
+    				rule(i)(j)(0)=1
+    				rule(i)(j)(1)=8
+    			}
+    			else{
+    				rule(i)(j)(0)=0
+    				rule(i)(j)(1)=1
+    			}
+			rule(i)(j)(2)=j
+    		}
+    }
     
     var nbSteps:Int = 0; // Change this
 
