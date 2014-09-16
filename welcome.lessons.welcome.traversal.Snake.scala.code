@@ -1,6 +1,13 @@
 override def run() {
 	def finale():Boolean = {
-		
+		if(!estFaceMur) {
+			return false
+		}
+		val dir = getDirection()
+		setDirection(Direction.NORTH)
+		val mur = estFaceMur()
+		setDirection(dir)
+		return mur
 	}
 	def verif() {
 		
