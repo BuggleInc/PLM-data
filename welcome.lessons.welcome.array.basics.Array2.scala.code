@@ -11,12 +11,13 @@ override def run() {
 		gauche()
 		avance()
 		droite()
-		for (j <- 0 to getMondeHauteur() - 2) {
-			setCouleurBrosse(T(j))
+		for (j <- 0 to T.length - 2) {
+			setCouleurBrosse((T(j+decelage))%T.length)
 			baisseBrosse()
 			leveBrosse()
 			avance()
 		}
+		setCouleurBrosse((T(T.length-1)%T.length))
 	}
 
 }
