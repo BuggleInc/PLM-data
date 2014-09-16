@@ -13,8 +13,8 @@ override def run() {
 		avance();
 		droite();
 		val decalage = litMessage().toInt
-		for ( w<- 0 to T.length  ) {
-			var o:Int = w + decalage % T.length
+		for ( w<- 0 to T.length - 1  ) {
+			var o:Int = w + decalage % ( T.length - 1 )
 			var c:Color = T(o)
 			setCouleurBrosse(c);
 			baisseBrosse();
