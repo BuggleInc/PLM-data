@@ -16,6 +16,12 @@ override def run() {
 			setCouleurBrosse(T((tmp + decalage) % H+1 ));
 			baisseBrosse();
 			leveBrosse();
+			if (estFaceMur) {
+				for (tmp4 <- 1 to H-1) { recule(); }
+				setCouleurBrosse(T(1 + decalage));
+			     baisseBrosse();
+			     leveBrosse();
+			}
 		}
 		avance();
 	}
