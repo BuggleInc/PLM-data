@@ -7,31 +7,7 @@ def keepHandOnSideWall() = {
 	avance();
 }
 
-def avoirMurGauche(): Boolean = {
-	gauche();
-	if (estFaceMur()) {
-		droite();
-		return true;
-	}
-	droite();
-	return false;
-}
 
-def chercheMur() = {
-	if (estFaceMur()) {
-		droite();
-	} else {
-		avance();
-	}
-}
-
-def deplacelelong() = {
-	while (!avoirMurGauche()) {
-		chercheMur();
-	}
-	keepHandOnSideWall();
-}
-	
 
 var etat=0;
 while (!(estSurBiscuit())) {
