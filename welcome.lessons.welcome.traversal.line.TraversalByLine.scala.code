@@ -29,19 +29,18 @@ def testdd():Boolean= {
 override def run() {
 	var x,y,z:Int=0;
 	for(i<-0 to getMondeHauteur-1) {
-		if (z<=48) {
-			for (j<-0 to getMondeLargeur-1) {
-				setPos(x,y);
-				if (testdd==false||(testg==true|| testdd==true)) x=x+1;
-				writeMessage(z);
-				z=z+1;
-			}
-			if (testd==true || estFaceMur()) {
-				y=y+1;
-			}
-			x=0
+		for (j<-0 to getMondeLargeur-1) {
 			setPos(x,y);
+			if (testdd==false||(testg==true|| testdd==true)) x=x+1;
+			writeMessage(z);
+			z=z+1;
 		}
+		if (testd==true || estFaceMur()) {
+			y=y+1;
+		}
+		if (testd==true && testdd==true) y=y-1;
+		x=0
+		setPos(x,y);
 	}
 	setPos(getMondeLargeur-1, getMondeHauteur-1);
 }
