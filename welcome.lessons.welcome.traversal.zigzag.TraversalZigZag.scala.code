@@ -24,10 +24,12 @@ override def run() {
 			setPos(x, y);
 			ecritMessage(cpt: Int);
 			retourne()
-			cpt = cpt + 1;
-			x = x - 1;
-			setPos(x, y);
-			ecritMessage(cpt: Int) 
+			if (!estFaceMur()) {
+				cpt = cpt + 1;
+				x = x + 1;
+				setPos(x, y);
+				ecritMessage(cpt: Int) 
+			}
 		}
 	}
 	gauche()
