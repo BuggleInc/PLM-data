@@ -1,14 +1,23 @@
 public void run() {
-	while (true) {
+	boolean loop = true;
+	while (loop) {
 		while(!estSurBiscuit() && !estDosMur()) {
 			recule();
 		}
-		prendBiscuit();
-		while(!estSurBiscuit()) {
-			avance();
+		if (estSurBiscuit()) {
+			prendBiscuit();
+			while(!estSurBiscuit()) {
+				avance();
+			}
+			recule();
+			poseBiscuit();
+			recule();
+		} else {
+			droite();
+			recule();
+			gauche();
+			recule();
+			loop = false;
 		}
-		recule();
-		poseBiscuit();
-		recule();
 	}
 }
