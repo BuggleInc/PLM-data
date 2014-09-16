@@ -1,23 +1,6 @@
 override def run() {
-	var PosF:Boolean=false
+	var PosF:Boolean = false
 	while(!PosF){
-		if(!estFaceMur){
-			avance();
-		}
-		if(estFaceMur){
-			gauche();
-			if(getDirection() == Direction.EST && estFaceMur){
-				gauche();
-			}
-			if(getDirection() == Direction.EST && !estFaceMur){
-				avance();
-			}
-			if(getDirection() == Direction.OUEST && estFaceMur){
-				droite();
-			}
-			if(getDirection() == Direction.OUEST && !estFaceMur){
-				avance();
-			}
-		}
+		avance(nbPas:3)
 	}
 }
