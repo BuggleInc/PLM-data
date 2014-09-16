@@ -1,7 +1,20 @@
 override def run() {
-	var T:Array[int](getMondeHauteur())
+	var T:Array[Color](getMondeHauteur())
 	for (i<- 0 to getMondeHauteur()){
 		T(i)=getCouleurBrosse():Color
 		avance
+	}
+	avance
+	avance
+	gauche
+	avance
+	droite
+	for (z<- 1 to getMondeLargeur()){
+	for(j<- 0 to getMondeHauteur()){
+		setCouleurBrosse(T(j))
+		baisseBrosse
+		avance
+		leveBrosse
+	}
 	}
 }
