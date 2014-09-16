@@ -20,35 +20,23 @@ override def run()
 		setIndication(BiscuitX, BiscuitY, 0)
 	}
 
-	def remplissage(i:Int,j:Int,compt:Int): Int=
+	def remplissage(i:Int,j:Int,compt:Int)
 	{
-		var fini = 1
-		
 		if( j!=0 && !aMurNord(i,j) && getIndication(i,j-1) == 9999)
-		{
-			setIndication(i,j-1,compt+1); fini = 0
-		}
+			setIndication(i,j-1,compt+1)
 		if( i!=0 && !aMurOuest(i,j) && getIndication(i-1,j) == 9999)
-		{
-			setIndication(i-1,j,compt+1); fini = 0
-		}
+			setIndication(i-1,j,compt+1)
 		if( j!=getMondeHauteur-1 && !aMurNord(i,j+1) && getIndication(i,j+1) == 9999)
-		{
-			setIndication(i,j+1,compt+1); fini = 0
-		}
+			setIndication(i,j+1,compt+1)
 		if( i!=getMondeLargeur-1 && !aMurOuest(i+1,j) && getIndication(i+1,j) == 9999)
-		{
-			setIndication(i+1,j,compt+1); fini = 0
-		}
-
-		return fini
+			setIndication(i+1,j,compt+1)
 	}
 
 	def recherche()
 	{	
 		var compt = 0
 		
-		while(remplissage() == 0)
+		for(w <- 0 to getMondeLargeur()*getMondeHauteur()-1)
 		{
 			for(i <- 0 to getMondeLargeur()-1)
 			{
