@@ -11,16 +11,16 @@ def  keepHandOnSideWall() {
 
 if(!estFaceMur()) 
 avance()
-else droite()
+else {droite(); Angle=Angle-1}
 
-gauche()
+gauche(); Angle=Angle+1 
 if (!estFaceMur()) { 
 	  avance()
-	  gauche()
+	  gauche() ; Angle=Angle+1
 	  if (!estFaceMur())
 	  avance
-	  else droite()}
-else droite()   
+	  else {droite();Angle=Angle-1}}
+else {droite();Angle=Angle-1}   
 
 
   			
@@ -47,7 +47,7 @@ while (!estSurBiscuit() ) {
 		 avance() 
 		 
 		
-		Angle=Angle+1
+		
 		
 		
 		while ( Angle != 0 && !isDirectionFree() )
