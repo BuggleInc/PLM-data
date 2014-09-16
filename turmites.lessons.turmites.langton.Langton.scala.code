@@ -1,0 +1,10 @@
+def step() {
+	var x = getCouleurSol()
+	x match{
+		case Color.white => setCouleurBrosse(Color.black); baisseBrosse; leveBrosse; droite();avance()
+		case Color.black => setCouleurBrosse(Color.white); baisseBrosse; leveBrosse; gauche();avance()
+	}
+	step()
+}
+
+step()
