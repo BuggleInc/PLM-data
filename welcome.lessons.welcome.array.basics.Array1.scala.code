@@ -10,12 +10,22 @@ for( i <- 0 to H-1 )
 gauche()
 avance()
 droite()
-for( i <- 1 to H )
+for( i <- 0 to H )
 {
-	setCouleurBrosse(T(i+H))
+	if(i == 0)
+	{
+	setCouleurBrosse(T(H-1))
+	baisseBrosse()
+	leveBrosse()
+	avance()		
+	}
+	else
+	{
+	setCouleurBrosse(T(i))
 	baisseBrosse()
 	leveBrosse()
 	avance()
+	}
 }
 gauche()
 avance()
