@@ -34,14 +34,20 @@ override def run() {
 			setPos(x, y);
 			ecritMessage(cpt: Int)
 		}
-		if (getX() == getMondeLargeur() -1 ) {
-				var diagBis = 0;
-				diagBis = diagBis + 1;
-				cpt = cpt + 1;
-				x = diagBis;
-				y = getMondeHauteur() -1;
-				setPos(x, y);
-				ecritMessage(cpt: Int) 
+		def position(): Boolean = {
+			var pos: Boolean = false
+			droite()
+			if (estFaceMur()) {pos = true}
+			gauche()
+			}
+		if (position()) {
+			var diagBis = 0;
+			diagBis = diagBis + 1;
+			cpt = cpt + 1;
+			x = diagBis;
+			y = getMondeHauteur() -1;
+			setPos(x, y);
+			ecritMessage(cpt: Int) 
 		}
 		else {
 			cpt = cpt + 1;
