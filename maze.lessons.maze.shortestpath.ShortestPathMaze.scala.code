@@ -36,15 +36,15 @@ while(!estSurBiscuit) {
 	Xd=getX
 	Yd=getY
 	num=getIndication(Xd,Yd)
-	if(Yd!=Ymax && getIndication(Xd,Yd+1)==num-1) {
+	if(Yd!=Ymax && getIndication(Xd,Yd+1)==num-1 && aMurNord(Xd,Yd+1)==false) {
 		recule
-	} else if(Yd!=0 && getIndication(Xd,Yd-1)==num-1) {
+	} else if(Yd!=0 && getIndication(Xd,Yd-1)==num-1 && aMurNord(Xd,Yd)==false) {
 		avance
-	} else if(Xd!=Xmax && getIndication(Xd+1,Yd)==num-1) {
+	} else if(Xd!=Xmax && getIndication(Xd+1,Yd)==num-1 && aMurOuest(Xd+1,Yd)==false) {
 		droite
 		avance
 		gauche
-	} else if(Xd!=0 && getIndication(Xd-1,Yd)==num-1) {
+	} else if(Xd!=0 && getIndication(Xd-1,Yd)==num-1 && aMurOuest(Xd,Yd)==false) {
 		gauche
 		avance
 		droite
