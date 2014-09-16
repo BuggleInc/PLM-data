@@ -16,26 +16,26 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Méthodes</h2>
+<h2>MÃ©thodes</h2>
 
 <p>
-Nous allons maintenant voir comment écrire nos propres méthodes. Il s'agit
-en quelque sorte d'étendre le vocabulaire de la buggle en lui apprenant à
+Nous allons maintenant voir comment Ã©crire nos propres mÃ©thodes. Il s'agit
+en quelque sorte d'Ã©tendre le vocabulaire de la buggle en lui apprenant Ã 
 faire de nouvelles choses. 
 </p>
-<p>Par exemple, nous avons vu dans un exercice précédent comment demander à la
+<p>Par exemple, nous avons vu dans un exercice prÃ©cÃ©dent comment demander Ã  la
 buggle d'aller chercher le biscuit qui se trouve devant elle, et la ramener
-à sa position initiale. S'il y a maintenant plusieurs biscuits sur le
+Ã  sa position initiale. S'il y a maintenant plusieurs biscuits sur le
 plateau, et que nous voulons tous les ramener sur la ligne du bas, il faut
-soit répéter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
-les deux cas, il faut que vous évitiez de dupliquer votre code pour qu'il
+soit rÃ©pÃ©ter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
+les deux cas, il faut que vous Ã©vitiez de dupliquer votre code pour qu'il
 reste simple et lisible. Il serait mieux que la buggle comprenne un ordre de
 type <code>vaChercher()</code> tout comme elle comprend un
 <code>avance()</code>.</p>
 
-<h3>Définir des méthodes</h3>
+<h3>DÃ©finir des mÃ©thodes</h3>
 
-<p>La syntaxe Scala pour écrire une méthode simple nommée
+<p>La syntaxe Scala pour Ã©crire une mÃ©thode simple nommÃ©e
 <code>vaChercher</code> est la suivante:</p>
 <pre>def vaChercher() {
   actions()
@@ -43,43 +43,43 @@ type <code>vaChercher()</code> tout comme elle comprend un
   dautresTrucs()
 }</pre>
 
-<p>Le corps de la méthode
-(c'est-à-dire le bloc entre accolades)
+<p>Le corps de la mÃ©thode
+(c'est-Ã -dire le bloc entre accolades)
 
-sera exécuté à chaque appel de cette méthode (c'est-à-dire à chaque fois que
-nous écrirons <code>vaChercher()</code> quelque part dans notre code).
+sera exÃ©cutÃ© Ã  chaque appel de cette mÃ©thode (c'est-Ã -dire Ã  chaque fois que
+nous Ã©crirons <code>vaChercher()</code> quelque part dans notre code).
 Ce corps de boucle peut contenir autant d'instructions que l'on veut, et
-toutes les constructions que nous avions vu jusque là (comme les boucles et
+toutes les constructions que nous avions vu jusque lÃ  (comme les boucles et
 les conditionnelles).
 
 </p>
 
-<h3>Documenter les méthodes</h3>
+<h3>Documenter les mÃ©thodes</h3>
 
 <p>Vous devez toujours vous efforcer de documenter votre code pour qu'il reste
-lisible. À l'instant où vous l'écrivez, son objectif et ses limitations vous
-semblent clairs, mais la plupart du temps, ça ne dure pas. On oublie vite
-les détails d'une méthode particulière, et quand cela arrive, on est content
+lisible. Ã€ l'instant oÃ¹ vous l'Ã©crivez, son objectif et ses limitations vous
+semblent clairs, mais la plupart du temps, Ã§a ne dure pas. On oublie vite
+les dÃ©tails d'une mÃ©thode particuliÃ¨re, et quand cela arrive, on est content
 de pouvoir lire sa documentation.
-Dans l'exemple ci-dessous, nous utilisons le formalisme spécifique de
+Dans l'exemple ci-dessous, nous utilisons le formalisme spÃ©cifique de
 scaladoc, un programme qui
 extrait la documentation du code source pour en faire de belles pages
 web. Le principal avantage de cette approche est que la documentation se
-trouve à coté du code. Donc, quand on change le code, il y a un peu plus de
-chance pour qu'on pense à mettre la documentation à jour.</p>
+trouve Ã  cotÃ© du code. Donc, quand on change le code, il y a un peu plus de
+chance pour qu'on pense Ã  mettre la documentation Ã  jour.</p>
 
 <p>Les commentaires scaladoc
-commencent avec le marqueur <code>/**</code> (avec deux étoiles). Ces
-commentaires doivent être placés juste avant la méthode qu'ils documentent
+commencent avec le marqueur <code>/**</code> (avec deux Ã©toiles). Ces
+commentaires doivent Ãªtre placÃ©s juste avant la mÃ©thode qu'ils documentent
 pour que l'outil les trouve
 
-La première ligne devrait décrire brièvement la méthode tandis que le reste
-de la documentation devrait donner tous les points importants de la méthode.</p>
+La premiÃ¨re ligne devrait dÃ©crire briÃ¨vement la mÃ©thode tandis que le reste
+de la documentation devrait donner tous les points importants de la mÃ©thode.</p>
 
 <pre>/**
- *  Avance, récupère le biscuit, et le ramène à la position d'origine
+ *  Avance, rÃ©cupÃ¨re le biscuit, et le ramÃ¨ne Ã  la position d'origine
  *
- *  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur.
+ *  Ne vÃ©rifie pas la prÃ©sence de mur; Ã  ne pas l'utiliser en cas de risques de mur.
  */
 
 def goAndGet() {
@@ -91,49 +91,49 @@ def goAndGet() {
 
 <h3>Conventions de nommage</h3>
 <p>La plupart des langages de programmation interdisent d'utiliser des espaces
-dans les noms de variables et de méthodes. Certains langages (comme le
-Scala) autorisent l'usage des caractères accentués dans ces
-identificateurs, mais cela pose parfois des problèmes de portabilité entre
-les systèmes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
-les identificateurs, même si c'est parfois désagréable en français.</p>
+dans les noms de variables et de mÃ©thodes. Certains langages (comme le
+Scala) autorisent l'usage des caractÃ¨res accentuÃ©s dans ces
+identificateurs, mais cela pose parfois des problÃ¨mes de portabilitÃ© entre
+les systÃ¨mes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
+les identificateurs, mÃªme si c'est parfois dÃ©sagrÃ©able en franÃ§ais.</p>
 
 <p>Parmi tous les langages de programmation, il y a deux conventions de nomage
-majeures. La première consiste à concaténer tous les mots en ne laissant que
-la première lettre de chaque mot en majuscule. «va chercher le biscuit»
-devient VaChercherLeBiscuit(). Cette convention est nommée CamelCase en
-anglais, c'est-à-dire casse du chameau, car les identificateurs écrits de
-cette façon font un peu penser au dos d'un chameau. L'autre convention,
-nommée snake_case (casse du serpent), consiste à concaténer tous les mots en
-minuscule en les séparant du caractère souligné (_). «va chercher le
-biscuit» devient va_chercher_le_biscuit().</p>
+majeures. La premiÃ¨re consiste Ã  concatÃ©ner tous les mots en ne laissant que
+la premiÃ¨re lettre de chaque mot en majuscule. Â«va chercher le biscuitÂ»
+devient VaChercherLeBiscuit(). Cette convention est nommÃ©e CamelCase en
+anglais, c'est-Ã -dire casse du chameau, car les identificateurs Ã©crits de
+cette faÃ§on font un peu penser au dos d'un chameau. L'autre convention,
+nommÃ©e snake_case (casse du serpent), consiste Ã  concatÃ©ner tous les mots en
+minuscule en les sÃ©parant du caractÃ¨re soulignÃ© (_). Â«va chercher le
+biscuitÂ» devient va_chercher_le_biscuit().</p>
 
-<p>Le choix de la convention de nommage est le sujet de «discussions» très
-animées entre programmeurs, mais certaines habitudes prédominent pour chaque
+<p>Le choix de la convention de nommage est le sujet de Â«discussionsÂ» trÃ¨s
+animÃ©es entre programmeurs, mais certaines habitudes prÃ©dominent pour chaque
 langage. En Python, Ruby, Perl ou en langage C, la casse_du_serpent
-prédomine pour les noms de variables et de méthodes. En Java et en Scala, on
-préfère habituellement la casseDuChameau, en laissant la toute première
+prÃ©domine pour les noms de variables et de mÃ©thodes. En Java et en Scala, on
+prÃ©fÃ¨re habituellement la casseDuChameau, en laissant la toute premiÃ¨re
 lettre en minuscule.</p> 
-<p>La casseDuChameau est utilisé partout dans PLM car c'est un programme écrit
-en Java à la base, et que nous avons gardé nos habitudes en écrivant le
-support pour d'autres langages. Mais nous considérons le fait Python ne soit
+<p>La casseDuChameau est utilisÃ© partout dans PLM car c'est un programme Ã©crit
+en Java Ã  la base, et que nous avons gardÃ© nos habitudes en Ã©crivant le
+support pour d'autres langages. Mais nous considÃ©rons le fait Python ne soit
 pas en casse_du_serpent comme un bug, que nous corrigerons dans une version
 future.</p>
 
 <h3>Objectif de cet exercice</h3>
-<p>L'objectif de cet exercice est donc d'écrire une méthode nommée
-<code>goAndGet()</code> (va chercher) et qui fait la même chose que dans un
-exercice précédent (avance tant qu'on ne trouve pas de baggle, ramasser le
-baggle, reculer à la case départ, poser le baggle).</p>
+<p>L'objectif de cet exercice est donc d'Ã©crire une mÃ©thode nommÃ©e
+<code>goAndGet()</code> (va chercher) et qui fait la mÃªme chose que dans un
+exercice prÃ©cÃ©dent (avance tant qu'on ne trouve pas de baggle, ramasser le
+baggle, reculer Ã  la case dÃ©part, poser le baggle).</p>
 
-<p>Cet exercice est un peu différent : vous n'allez pas écrire tout le code
-exécuté par la buggle, mais juste une méthode qui sera invoquée
-automagiquement quand vous exécutez l'exercice. Votre buggle va alors
-appeler votre méthode <code>goAndGet()</code> sur chaque colonne du monde,
-jusqu'à trouver le biscuit. Le code pour cela est déjà donné
-(en anglais) sous la méthode <code>goAndGet()</code> qui reste à écrire,
+<p>Cet exercice est un peu diffÃ©rent : vous n'allez pas Ã©crire tout le code
+exÃ©cutÃ© par la buggle, mais juste une mÃ©thode qui sera invoquÃ©e
+automagiquement quand vous exÃ©cutez l'exercice. Votre buggle va alors
+appeler votre mÃ©thode <code>goAndGet()</code> sur chaque colonne du monde,
+jusqu'Ã  trouver le biscuit. Le code pour cela est dÃ©jÃ  donnÃ©
+(en anglais) sous la mÃ©thode <code>goAndGet()</code> qui reste Ã  Ã©crire,
 mais vous ne devriez pas le modifier. </p> 
 
-<p>Mais pour que cela fonctionne, il faut que vous écriviez maintenant cette
+<p>Mais pour que cela fonctionne, il faut que vous Ã©criviez maintenant cette
 fonction <code>goAndGet()</code>...</p>
 
 </body></html>
