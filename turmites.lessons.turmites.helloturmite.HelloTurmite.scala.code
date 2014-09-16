@@ -1,30 +1,45 @@
     var state = 0;
+    val CLR_SUIVANT = 0
+    val MVT_SUIVANT = 1
+    val ETAT_SUIVANT = 2
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-
-    		if(couleurActuelle==colors.length-1){
-		setCouleurBrosse(colors(0))
-		}
-		else{
-		setCouleurBrosse(colors(couleurActuelle+1))	
-		}
-		baisseBrosse
-		leveBrosse
-	if(rule(couleurActuelle)=='L'){
-		gauche
-	}
-	else{
-		droite
-	}
-		avance
-	
-		
+    		mouvement
+    		changeCouleur
+    		changeState
+    		ecrit		
     }
-
-   def couleurActuelle():=Int{
+  
+    	def mouvement(){
+    		(rule(state)(couleurActuelle)(MVT_SUIVANT)) match{
+			case 1 => avance
+			case 2 => gauche;avance
+			case 4 => gauche;gauche;avance
+			case 8 => droite;avance
+			case _ =>	
+		}
+    		
+    	}
+   	def couleurActuelle():=Int{
    	i=0
    	while (getCouleurSol!=colors(i)){
 		i=i+1
 	}
 	return i
    }
+	def changeState(){
+		if(rule(state)(couleurActuelle)(ETAT_SUIVANT)==0){
+			state = 0
+		}
+		else{
+			state = 1
+		}
+		
+	}
+	def changeCouleur(){
+		setCouleurBrosse(rule(state)(couleurActuelle)(CLR_SUIVANT))
+	}
+	def ecrit(){
+		baisseBrosse
+		leveBrosse
+	}
