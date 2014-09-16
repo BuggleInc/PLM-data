@@ -1,2 +1,24 @@
 override def run() {
+	def positionFinale:Boolean = {
+		var pos:(Int,Int)=(0,0)
+		if ((getX()==getMondeLargeur()-1) && (getY()==getMondeHauteur()-1)) {
+			return true
+		}
+		else return false
+	}
+	
+	var compteur:Int=0
+	
+	while (!positionFinale) {
+		ecritMessage(compteur:Int)
+		if (estDosMur) {
+			setPos(0,gety()+1)
+			
+		}
+		else {setPos(getX()+1,getY)}
+	compteur=compteur+1
+		
+	}
+	ecritMessage(compteur:Int)
+	
 }
