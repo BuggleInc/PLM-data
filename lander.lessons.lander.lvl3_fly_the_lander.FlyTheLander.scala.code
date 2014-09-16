@@ -1,13 +1,31 @@
 override def initialize():Array[Int] = {
 	var Liste = getSol()
 	var Segment = new Array[Int](2)
+	var sens = 1
 	for (i <- 0 to Liste.length-2) {
 		if (Liste(i).y==Liste(i+1).y) {
 			Segment(0)=Liste(i)
 			Segment(1)=Liste(i+1)
 		}
 	}
-	while (
+	if (getX<Segment(0)+1) {
+		sens = 1
+	} else if (getX>Segment(1)-1) {
+		sens = -1
+	}  {
+		sens = 0
+	}
+	if (sens !=0) {
+		while (getAngle()>sens*(-45)){
+			setAngleDesiree(getAngle-sens*5)
+		}
+		while ((getX<Segment(0)+1) || (getX>Segment(1)-1)) {
+			setPousseeDesiree(4)
+		}
+		
+	}
+	
+	
 }
 
   override def step() {
