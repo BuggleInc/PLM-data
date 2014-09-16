@@ -14,14 +14,22 @@ def  keepHandOnSideWall() {                                  // suivre mur gauch
 				
 				 droite()               
 				 if (!estFaceMur) 
-				 avance()
+				 {avance()
+				 Angle=Angle+1}
 				 else  { if (!estFaceMur()) gauche()
 				         else droite()
 			}}
-		     else avance()
+		     else {avance();Angle=Angle-1}
 	
 			
 }
+
+def isDirectionFree(Direction.NORTH ) {
+	setDirection(Direction.NORTH )
+	if (!estFaceMur) {return true}
+	else return false
+}
+
 
 
 
