@@ -10,8 +10,6 @@ def murgauche(): Boolean= {
 
 def keepHandOnSideWall(){
 	
-		gauche();
-	
 	if (estFaceMur()==false && murgauche()==true){
 		avance();
 		
@@ -35,6 +33,9 @@ def keepHandOnSideWall(){
 
 
 override def run() {
+while (murgauche()==false){
+	gauche();
+}
 while (estSurBiscuit==false){
 	keepHandOnSideWall()
 	
