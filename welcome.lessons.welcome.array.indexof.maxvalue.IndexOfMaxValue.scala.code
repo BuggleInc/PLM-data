@@ -2,7 +2,8 @@ def indexOfMaxValue(nums:Array[Int]):Int = {
 	var a:Int = 0
 	var p:Int = 0
 	for(c <- 0 to nums.length - 1) {
-		if(nums(c) > a) {
+		if(nums(c) > nums(c-1)) {
+			a = nums(c)
 			p = c
 		}
 	}
