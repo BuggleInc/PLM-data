@@ -1,4 +1,36 @@
 override def run() {
+do{
+	serpent()
+}while(!estPositionFinale())
+}
+def serpent(){
+	var x = getMondeLargeur();
+	avance(x-1);
+	if( estFaceMur() && getDirection() == Direction.EST){
+		gauche();
+		if(!estFaceMur){
+			avance();gauche();
+		}
+	}
+	if( estFaceMur() && getDirection() == Direction.OUEST){
+		droite();
+		if(!estFaceMur){
+			avance();droite();
+		}
+	}
+	 
+}
+def estPositionFinale(): Boolean ={
+	var test:Boolean = false;
+	if(estFaceMur){
+		getDirection() match{
+	
+		case Direction.EST => test = true;
+		case Direction.OUEST => droite();droite();test = true;
+		case Direction.NORD => droite(); test = true;
+	}
+	}
+	return test;
 }
 
 
