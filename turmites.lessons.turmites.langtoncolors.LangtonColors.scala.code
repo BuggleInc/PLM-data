@@ -1,20 +1,16 @@
-var n:Int=0
+
 var col:Color=Color.BLACK
 
 def step(rule:Array[Char], colors:Array[Color]) {
 
-do{
-	col=colors(n)
-	n=n+1
-	
-}while (col==getCouleurSol())
-n=n-1
-if (rule(n)=='R'){
+if (getCouleurSol()==colors(i)){
+
+if (rule(i)=='R'){
 	right();
 }else{	
 	left();
 }
-if(n<colors.length-1){
+if(i<colors.length-1){
 	setCouleurBrosse(colors(n+1))
 }else{
 	setCouleurBrosse(colors(0))
@@ -22,4 +18,5 @@ if(n<colors.length-1){
 baisseBrosse();
 leveBrosse();
 avance();
+}
 }
