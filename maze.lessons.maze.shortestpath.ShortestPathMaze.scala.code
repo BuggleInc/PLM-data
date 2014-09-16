@@ -40,19 +40,19 @@ override def run() {
 		while (!estSurBiscuit) {
 			if ((getY!=getMondeHauteur-1)&&(getIndication(getX,getY+1)==getIndication(getX,getY)-1)) {
 				setDirection(Direction.SOUTH)
-				avance
+				if (!estFaceMur) {avance}
 			}
 			if ((getY!=0)&&(getIndication(getX,getY-1)==getIndication(getX,getY)-1)) {
 				setDirection(Direction.NORTH)
-				avance
+				if (!estFaceMur) {avance}
 			}
 			if ((getX!=getMondeLargeur-1)&&(getIndication(getX+1,getY)==getIndication(getX,getY)-1)) {
 				setDirection(Direction.EAST)
-				avance
+				if (!estFaceMur) {avance}
 			}
 			if ((getX!=0)&&(getIndication(getX-1,getY)==getIndication(getX,getY)-1)) {
 				setDirection(Direction.WEST)
-				avance
+				if (!estFaceMur) {avance}
 			}
 		}
 		prendBiscuit()
