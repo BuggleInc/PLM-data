@@ -1,9 +1,18 @@
 def golomb(num:Int): Int = {
-	var n: Int = num
-	var a = new Array[Int](n)
-	var cpt: Int = 
+	var n: Int = num;
+	var a = new Array[Int](n);
+	var cpt: Int = 1;
+	var dir: Int = 2;
 	a(0) = 1;
 	for (i <- 1 to a.length -1) {
-		
+		if (cpt < dir) {
+			a(i+1) = a(i);
+			cpt = cpt + 1;
+		}
+		else {
+			cpt = 1;
+			dir = dir + 1;
+			a(i+1) = a(i) + 1;
+		}
 	}
 }
