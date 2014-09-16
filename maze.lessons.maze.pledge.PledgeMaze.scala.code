@@ -45,6 +45,7 @@ def isDirectionFree(dir:Direction): Boolean = {
 
 
 while (!estSurBiscuit()) {
+	ecritMessage(sommeAngle)
 	sommeAngle match {
 		case 0 => { if (isDirectionFree(Direction.NORD)) {setDirection(Direction.NORD); while (!estFaceMur()) { avance() }; droite();sommeAngle=sommeAngle + 3;sommeAngle = sommeAngle % 4} else keepHandOnSideWall()}
 		case 1 => keepHandOnSideWall()
