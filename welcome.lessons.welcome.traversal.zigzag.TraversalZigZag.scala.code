@@ -12,7 +12,7 @@ override def run() {
 	ecritMessage(cpt: Int)
 	droite()
 	while (!fonctionTest()) {
-		if (!estFaceMur()) {
+		if (!estFaceMur() && getX() != getMondeLargeur() -1) {
 			cpt = cpt + 1;
 			x = x + 1;
 			setPos(x, y);
@@ -24,12 +24,6 @@ override def run() {
 			setPos(x, y);
 			ecritMessage(cpt: Int);
 			retourne()
-			if (!estFaceMur()) {
-				cpt = cpt + 1;
-				x = x - 1;
-				setPos(x, y);
-				ecritMessage(cpt: Int) 
-			}
 		}
 	}
 	gauche()
