@@ -28,8 +28,15 @@ def keepHandOnSideWall(sommeAngle:Int) : Int = {
 					{droite()
 					return sommeAngle2}
 				else	{avance()
-					sommeAngle2 += 1
-					return sommeAngle2}
+					gauche()
+					if (estFaceMur)
+							{droite()
+							sommeAngle2 += 1
+							return sommeAngle2}
+						else	{avance()
+							sommeAngle2 += 2
+							return sommeAngle2}
+					}
 			}
 		else	{droite()
 			avance()
