@@ -38,19 +38,19 @@ override def run() {
 
 	def suislechemin() {
 		while (!estSurBiscuit) {
-			if (getIndication(getX,getY+1)==getIndication(getX,getY)-1) {
+			if ((getIndication(getX,getY+1)==getIndication(getX,getY)-1)&&(getY!=getMondeHauteur-1)) {
 				setDirection(Direction.SOUTH)
 				avance
 			}
-			if (getIndication(getX,getY-1)==getIndication(getX,getY)-1) {
+			if ((getIndication(getX,getY-1)==getIndication(getX,getY)-1)&&(getY!=0)) {
 				setDirection(Direction.NORTH)
 				avance
 			}
-			if (getIndication(getX+1,getY)==getIndication(getX,getY)-1) {
+			if ((getIndication(getX+1,getY)==getIndication(getX,getY)-1)&&(getX!=getMondeLargeur-1)) {
 				setDirection(Direction.EAST)
 				avance
 			}
-			if (getIndication(getX-1,getY)==getIndication(getX,getY)-1) {
+			if ((getIndication(getX-1,getY)==getIndication(getX,getY)-1)&&(getX!=0)) {
 				setDirection(Direction.WEST)
 				avance
 			}
