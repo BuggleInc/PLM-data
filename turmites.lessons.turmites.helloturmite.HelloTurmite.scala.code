@@ -4,7 +4,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	while (c<colors.length) {
 		if (getCouleurSol()=colors(c)) {
 			NextColor();
-			NextMove();
+			NextMove(state, c, rule);
 			state=NextState();
 			c=color.length
 		}
@@ -23,7 +23,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		setCouleurSol(colors(r))
 	}
 	
-	def NextMove() {
+	def NextMove(state, c, rule) {
 		rule(state)(c)(1) match {
 			case 0 => 
 			case 1 => avance();
