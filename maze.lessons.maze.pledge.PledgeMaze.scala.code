@@ -1,6 +1,6 @@
 override def run() {
 	while(!estSurBiscuit){
-		Random() match{
+		Random(3) match{
    	 case 1 => 
     		if(!estFaceMur){avance()}
    	 case 2 => droite()
@@ -9,4 +9,9 @@ override def run() {
 }
 prendBiscuit();
 }
-	
+
+
+	def Random(n : Int) = {
+ var r = new scala.util.Random
+ 1 to n map { _ => r.nextInt(100) } 
+}
