@@ -5,8 +5,8 @@ override def run()
 
 	for(i<-0 to (n-1) )    // Boucle for pour récuperer la couleur de chaque case et la stocker dans un tableau
 	{
-		tableau(i)= getCouleurSol()
-		avance()	
+		tableau(i)= getCouleurSol()         //stocker la couleur dans le tableau
+		avance()	                          // avancer pour prendre et stocker la couleur de la case du bas suivante
 	}
 
 	for(k<-1 to (n-1))
@@ -15,10 +15,10 @@ override def run()
 		avance()
 		droite()
 		avance()
-
+//Pour se mettre dans la bonne orientation pour commencer à peindre la 2e colonne
 		for(l<-0 to (n-1))
 		{
-			marquerSol(tableau(l))
+			marquerSol(tableau(l))             // c'est tableau(l) pck on fait la boucle sur l
                avance()
 			
 		}
@@ -29,9 +29,9 @@ override def run()
 }
 
 
-def marquerSol(c:Color)
+def marquerSol(c:Color)          //mieux vaut créer une fonction à part qu'on appelle dans la boucle du haut
 {
-	setCouleurBrosse(c)
+	setCouleurBrosse(c)        //prend la couleur de la case
 	baisseBrosse()
 	leveBrosse()
 	
