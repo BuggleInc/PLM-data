@@ -1,8 +1,9 @@
 override def run() {
-def estPositionFinale() { estFaceMur() || getDirection== Direction.NORD}
+def estPositionFinale() { estFaceMur() && getDirection== Direction.NORD}
 baisseBrosse()
 for ( i<-0 to 6 ){
-	while(!estPositionFinale()){
+	while(estPositionFinale()==false) {
+		while(!estFaceMur){
 		avance()
 	}
 	 	if (getDirection== Direction.OUEST){ 
