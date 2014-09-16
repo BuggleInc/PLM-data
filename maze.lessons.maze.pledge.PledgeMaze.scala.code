@@ -8,6 +8,7 @@ def keepHandOnSideWall() = {
 		droite()
 	} else {
 		sommeAngle = sommeAngle + 1
+		sommeAngle = sommeAngle % 4
 		avance()
 		gauche()
 		if (estFaceMur()) {
@@ -16,13 +17,14 @@ def keepHandOnSideWall() = {
 			avance()
 			gauche()
 			sommeAngle = sommeAngle + 1
+			sommeAngle = sommeAngle % 4
 			if (estFaceMur()) {
 				droite()
-			}else avance();gauche();sommeAngle = sommeAngle + 1
+			}else avance();gauche();sommeAngle = sommeAngle + 1;sommeAngle = sommeAngle % 4
 		}
 	}
 		
-} else droite();sommeAngle= sommeAngle - 1
+} else droite();sommeAngle= sommeAngle - 1;sommeAngle = sommeAngle % 4
 }
 
 def isDirectionFree(dir:Direction): Boolean = {
