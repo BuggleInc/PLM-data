@@ -10,16 +10,16 @@ for (x<-0 to Xmax; y<-0 to Ymax) {
 		setIndication(Xo,Yo,0)
 	}
 }//pose le 0 et garde ses coordonnées
-if(aMurNord(Xo,Yo)==false) {
+if(Yo!=0 && aMurNord(Xo,Yo)==false) {
 	setIndication(Xo,Yo-1,1)
 }
-if(aMurOuest(Xo,Yo)==false) {
+if(Xo!=0 && aMurOuest(Xo,Yo)==false) {
 	setIndication(Xo-1,Yo,1)
 }
-if(aMurNord(Xo,Yo-1)==false) {
+if(Yo!=Ymax && aMurNord(Xo,Yo+1)==false) {
 	setIndication(Xo,Yo+1,1)
 }
-if(aMurOuest(Xo+1,Yo)==false) {
+if(Xo!=Xmax && aMurOuest(Xo+1,Yo)==false) {
 	setIndication(Xo+1,Yo,1)
 }//mets des 1 pres des 0
 }
