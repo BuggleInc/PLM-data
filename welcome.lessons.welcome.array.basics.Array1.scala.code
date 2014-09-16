@@ -1,19 +1,30 @@
 override def run() {
 	val taille:Int = getMondeHauteur()
-		def remplirTabCol(taille:Int):Array[Color]={	
+def remplirTabCol(taille:Int):Array[Color]={	
 			
 			val colIni:Color = getCouleurSol()
 			var c:Color = getCouleurSol()
-			var tabCol(taille:Int):Array[Color]=new Array[Color](taille)
+			var tabCol = new Array[Color](taille)
 			do {
 				avance()
 				c = getCouleurSol()
 				tabCol(i) = c
-			}while(!colIni == c)
+					
+			}while(!colIni == c){
 				gauche()
 				avance()
 				droite()
 			}
-			
-}
+			return tabCol;
+		}	
+}	
+		
+		
 
+def remplir42(taille:Int):Array[Int] = {
+    var res = new Array[int] (taille)
+    for (i <- 0 to taille -1) {
+        res(i) = 42;
+    }
+    return res;
+}
