@@ -10,7 +10,9 @@
 }
 	var x = getCouleurSol()
 	var p = place(x,colors)
-	val (a,b,c) = rule(state,p)
+	val a = rule(state)(p)(0)
+	val b = rule(state)(p)(1)
+	val c = rule(state)(p)(2)
 	b match{
 		case 0 => setCouleurBrosse(colors(a)); baisseBrosse();leveBrosse();avance(); state = c
 		case 2 => setCouleurBrosse(colors(a)); baisseBrosse();leveBrosse(); gauche(); avance(); state = c
