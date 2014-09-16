@@ -1,17 +1,18 @@
 override def run() {
-def alpha() {
-	var T = new Array[Color](getMondeHauteur());
-	for(w<- 0 to T.length-1) {
+
+var T = new Array[Color](getMondeHauteur());
+for(w<- 0 to T.length-1) {
 		T(w) = getCouleurSol();
 		avance();
 		}
+def alpha() {
 	gauche();
 	avance();
 	droite();
 	avance();
 	for(w<-0 to T.length-1) {
 		var c:Color = T(w)
-		baisseBrosse(c.Color);
+		baisseBrosse(c);
 		leveBrosse();
 		avance();
 	}
