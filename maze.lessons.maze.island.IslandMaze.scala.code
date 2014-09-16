@@ -20,13 +20,19 @@ def keepHandOnSideWall(){
 
 	
 }
-while(!estSurBiscuit){
+if(getPosition()==(0,0)){
+	while(!estSurBiscuit){
+}
 	setDirection(Direction.NORD)
 
 if(estFaceMur){
 	keepHandOnSideWall()
 }else{
 	avance()
+}
+}else{
+	while(!estSurBiscuit){
+	keepHandOnSideWall()
 }
 }
 prendBiscuit()
