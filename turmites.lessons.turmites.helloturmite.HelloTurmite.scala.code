@@ -8,13 +8,13 @@
     		mouvement(colors,rule)
     		changeCouleur(colors,rule)
     		changeState(colors,rule)
-    		ecrit(colors,rule)
+    		ecrit()
 
     
     }
 
      def mouvement(colors:Array[Color], rule:Array[Array[Array[Int]]]){
-    		(rule(state)(couleurActuelle)(MVT_SUIVANT)) match{
+    		(rule(state)(couleurActuelle(colors))(MVT_SUIVANT)) match{
 			case 1 => avance
 			case 2 => gauche;avance
 			case 4 => gauche;gauche;avance
@@ -23,7 +23,7 @@
 		}
     		
     	}
-   	def couleurActuelle(colors:Array[Color], rule:Array[Array[Array[Int]]]):Color={
+   	def couleurActuelle(colors:Array[Color]):Color={
    	i=0
    	while (getCouleurSol!=colors(i)){
 		i=i+1
@@ -31,7 +31,7 @@
 	return i
    }
 	def changeState(colors:Array[Color], rule:Array[Array[Array[Int]]]){
-		if(rule(state)(couleurActuelle)(ETAT_SUIVANT)==0){
+		if(rule(state)(couleurActuelle(colors))(ETAT_SUIVANT)==0){
 			state = 0
 		}
 		else{
@@ -40,9 +40,9 @@
 		
 	}
 	def changeCouleur(colors:Array[Color], rule:Array[Array[Array[Int]]]){
-		setCouleurBrosse(rule(state)(couleurActuelle)(CLR_SUIVANT))
+		setCouleurBrosse(rule(state)(couleurActuelle(colors))(CLR_SUIVANT))
 	}
-	def ecrit(colors:Array[Color], rule:Array[Array[Array[Int]]]){
+	def ecrit(){
 		baisseBrosse
 		leveBrosse
 	}
