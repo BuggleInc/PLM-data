@@ -1,43 +1,33 @@
 override def run() {
-var c:Int=0
-	for(x<-0 to getMondeHauteur()-1) {
-		setPos(x,0)
-		ecritMessage(c)
-		c=c+1
-	}
-	
-	if(d()) 
-	{
-		for (x<-(0 to getMondeHauteur()-1).reverse) 
-	{  
-		setPos(x,y)
-		ecritMessage(c)
-		
-		c=c+1
-	}
-	}
-		
-	if(g()) {	
-		
-		for(x<-0 to getMondeHauteur()-1)
-	{
-		setPos(x,y)
-		ecritMessage(c)
-		c=c+1
-	}
-	
-	}
-setPos(6,6)
+var c=0
+var x=0
+var y=0
+
+def avancer() {
+	for (x<-0 to getMondeHauteur()-1)
+	{setPos(x,y)
+	ecritMessage(c)
+	c=c+1
+	x=x+1}
 }
 
-def d() {
-	droite()
-	if (estFaceMur())
-	gauche()
+
+def reculer() {
+	for (x<-0 to getMondeHauteur()-1)
+	{setPos(x,y)
+	ecritMessage(c)
+	c=c+1
+	x=x-1
 }
 
-def g() {
-	gauche()
-	if (estFaceMur())
-	droite()
+
+def finale():Boolean{
+ if (getX()==getMondeHauteur()-1 && getY()==getMondeLargeur()-1) 
+ {return true} else {return false}
+}
+
+setPos(x,y)
+while(!finale)
+avancer()
+if (
 }
