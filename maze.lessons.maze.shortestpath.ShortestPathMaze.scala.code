@@ -22,4 +22,24 @@ if(Yo!=Ymax && aMurNord(Xo,Yo+1)==false) {
 if(Xo!=Xmax && aMurOuest(Xo+1,Yo)==false) {
 	setIndication(Xo+1,Yo,1)
 }//mets des 1 pres des 0
+def numFini:Boolean = {
+	for (x<-0 to Xmax; y<-0 to Ymax) {
+		if(getIndication(x,y)==9999) {
+			return false
+		}
+	}
+	return true 
+}//vérifie si on a fini de numéroter
+while (!numFini) {
+	var i=2
+	for (x<-0 to Xmax; y<-0 to Ymax) {
+		case match {
+			getIndication==9999 && y!=Ymax && getIndication(x,y+1)==i-1 && aMurNord(x,y+1)==false => setIndication(x,y,i)
+			getIndication==9999 && y!=0 && getIndication(x,y-1)==i-1 && aMurNord(x,y)==false => setIndication(x,y,i)
+			getIndication==9999 && x!=Xmax && getIndication(x+1,y)==i-1 && aMurOuest(x+1,y)==false => setIndication(x,y,i)
+			getIndication==9999 && x!=0 && getIndication(x-1,y)==i-1 && aMurOuest(x,y)==false => setIndication(x,y,i)
+		}
+	}
+}
+
 }
