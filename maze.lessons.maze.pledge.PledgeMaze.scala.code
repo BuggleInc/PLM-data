@@ -10,7 +10,7 @@ override def run() {
 			droite()
 			var sommeAngle = (-1)
 			while (getDirection() != Direction.NORTH
-				&& sommeAngle != 0
+				&& sommeAngle%4 != 0
 				&& !isDirectionFree(Direction.NORTH)) {
 					sommeAngle = keepHandOnSideWall(sommeAngle)
 			}
@@ -21,16 +21,15 @@ override def run() {
 
 def keepHandOnSideWall(sommeAngle:Int) : Int = {
 	var sommeAngle2 = sommeAngle
-	if (estFaceMur)
-			{gauche()}
-		else {avance()
+	if (!estFaceMur)
+			{avance()
 			gauche()
 			if (estFaceMur)
-					{droite()}
-				else {avance()}
-			}
-
-	}
+					{droite()
+					return sommeAngle2}
+				else	{avance()
+					sommeAngle2 += 1
+					return sommeAngle2}
 }
 
 def isDirectionFree(dir:Direction) : Boolean = {
