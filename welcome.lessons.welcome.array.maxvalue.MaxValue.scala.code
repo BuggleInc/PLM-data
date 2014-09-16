@@ -1,13 +1,22 @@
-def maxValue(nums:Array[Int]): Int = {
-	var y,i:Int=0;
+def tri(t:Array[Int]) {
+	var i,i,t:Int=0;
 
 	for (x<- 0 to nums.length-1) {
-		if (nums(x)<=nums(x+1) && x<=nums.length-2) {
-			y= nums(x+1)
-		}
-		else if (nums(x)>=nums(x+1) && x<=nums.length-2) {
-			y=nums (x)
+		for (z<-0 to nums.length-1) {
+			i=nums(x);
+			j=nums(z+1);
+			if (i>=j) {
+				t=i;
+				i=j;
+				j=t;
+			}
 		}
 	}
-	return y
+}
+
+def maxValue(nums:Array[Int]): Int = {
+	var y,i,j,t:Int=0;
+
+	tri(num);
+	return nums(nums.length-1)
 }
