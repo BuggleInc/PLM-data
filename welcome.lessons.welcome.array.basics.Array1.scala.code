@@ -1,6 +1,7 @@
 override def run() {
 	val taille:Int = getMondeHauteur()
 	val colIni:Color = getCouleurSol()
+	val nbFois:Int = getMondeLargeur()
 	var c:Color = getCouleurSol()
 	var tabCol = new Array[Color](taille)
 def remplirTabCol(taille:Int):Array[Color]={	
@@ -30,6 +31,11 @@ def peindreSol()={
 					
 }	
 		peindreSol()
+		for(i <- 1 to nbFois - 2){
+			remplirTabCol(taille)
+			avance()
+			peindreSol()
+		}
 }
 		
 		
