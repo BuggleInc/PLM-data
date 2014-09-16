@@ -1,3 +1,13 @@
-last2:8: error: Int does not take parameters
-		if(chaine(0) == str(i) && chaine(1) == str(i+1))
-                         ^
+last2:3: error: type mismatch;
+ found   : Char
+ required: ?{def +(x$1: ? >: Char): ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method char2int in object Char of type (x: Char)Int
+ and method char2long in object Char of type (x: Char)Long
+ are possible conversion functions from Char to ?{def +(x$1: ? >: Char): ?}
+	var chaine : String = str(str.length-2)+str(str.length-1)
+                                 ^last2:3: error: type mismatch;
+ found   : Char
+ required: String
+	var chaine : String = str(str.length-2)+str(str.length-1)
+                                                   ^
