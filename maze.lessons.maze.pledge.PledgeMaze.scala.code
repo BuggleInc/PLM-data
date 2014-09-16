@@ -26,7 +26,7 @@ def keepHandOnSideWall() = {
 		}
 	}
 		
-} else droite();sommeAngle= sommeAngle-1
+} else droite();sommeAngle= sommeAngle -1
 }
 
 def isDirectionFree(dir:Direction): Boolean = {
@@ -73,7 +73,7 @@ while (!(estSurBiscuit())) {
 		case 3 => keepHandOnSideWall()
 		case 2 => keepHandOnSideWall()
 		case 1 => keepHandOnSideWall()
-		case 0 => { if (isFreeDirection(Direction.NORD)) { while (!estFaceMur()) { avance() }; droite()} else keepHandOnSideWall()}
+		case 0 => { if (isDirectionFree(Direction.NORD)) { while (!estFaceMur()) { avance() }; droite()} else keepHandOnSideWall()}
 		case _ => println( "Ce cas ne devrait pas arriver. Corrigez ce probléme svp" )
 	}
 }
