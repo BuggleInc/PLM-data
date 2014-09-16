@@ -18,22 +18,30 @@ for (w<- 0 to 120){
 			if (getIndication(c,v)==w){
 				if (!aMurNord(c,v)){
 					if (c<getMondeLargeur() && v+1<getMondeHauteur()){
-						setIndication(c,v-1,w+1)
+						if(getIndication(c,v-1)==9999){
+							setIndication(c,v-1,w+1)
+						{	
 					}
 				}	
 				if (!aMurOuest(c,v)){
 					if (c-1<getMondeLargeur() && v<getMondeHauteur()){				
-						setIndication(c+1,v,w+1)
+						if(getIndication(c,v-1)==9999){
+							setIndication(c+1,v,w+1)
+						}
 					}
 				}
 				if (c-1<getMondeLargeur() && v<getMondeHauteur()){	
 					if (!aMurOuest(c-1,v)){
-						setIndication(c-1,v,w+1)
+						if(getIndication(c,v-1)==9999){
+							setIndication(c-1,v,w+1)
+						}
 					}
 				}	
 				if (c<getMondeLargeur() && v+1<getMondeHauteur()){
 					if (!aMurNord(c,v+1)){
-						setIndication(c,v+1,w+1)
+						if(getIndication(c,v-1)==9999){
+							setIndication(c,v+1,w+1)
+						}
 					}
 				}	
 			}
