@@ -1,9 +1,12 @@
 override def run() {
 	val H = getWorldHeight();
 	var T = new Array[Color](H+1)
-	for (i <- 1 to H) {
+	for (i <- 1 to H-1) {
 		T(i) = getCouleurSol() ;
 		avance();
+		T(H) = getCouleurSol();
+		for (tmp2 <- 1 to H-1) { recule(); }
+		
 	}
 	for (i <- 1 to H-1) {
 	   gauche(); avance(); droite();
