@@ -1,7 +1,15 @@
 def frontTimes(str:String, n:Int):String = 
 {
 	var chaine = ""
-	var coupe = str.substring(0, 3)
+	var coupe = ""
+
+	str.length match
+	{
+		case 0 => coupe = ""
+		case 1 => coupe = substring(int 0, int 1)
+		case 2 => coupe = substring(int 0, int 2)
+		case _ => coupe = substring(int 0, int 3)
+	}
 	
 	for(i <- 1 to n)
 	{
