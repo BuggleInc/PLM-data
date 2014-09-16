@@ -1,2 +1,30 @@
 override def run() {
 }
+override def run() {
+	var cpt : Int =0
+	ecritMessage(cpt);
+	droite();
+
+	while(!posF){
+		if (estFaceMur){
+			setPos(0,getY()+1);
+		}else{
+			setPos(getX()+1,getY);
+		}
+	cpt = cpt + 1 
+	ecritMessage(cpt)	
+	}
+	gauche();
+}
+
+
+
+
+
+def posF():Boolean ={
+	if( getX()== (getMondeLargeur()-1)  && getY()==(getMondeHauteur()-1)){
+		return true
+	}else{
+		return false
+	}
+}
