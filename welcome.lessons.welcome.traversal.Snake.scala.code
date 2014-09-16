@@ -1,14 +1,23 @@
 override def run() {
-	baisseBrosse
-	var posFinal:Boolean=false
-	while(!posFinal){	
+	var PosF:Boolean=false
+	while(!PosF){
 		if(!estFaceMur){
-		avance();
-		}else{
-			
-			gauche();avance();gauche();
+			avance();
+		}
+		if(estFaceMur){
+			gauche();
+			if(getDirection() == Direction.EST && estFaceMur){
+				gauche();
 			}
-			
+			if(getDirection() == Direction.EST && !estFaceMur){
+				avance();
+			}
+			if(getDirection() == Direction.OUEST && estFaceMur){
+				drotie();
+			}
+			if(getDirection() == Direction.OUEST && !estFaceMur){
+				avance();
+			}
 		}
 	}
 }
