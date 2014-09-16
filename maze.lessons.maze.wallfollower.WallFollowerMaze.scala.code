@@ -6,8 +6,11 @@ prendBiscuit()
 
 	 
 def keepHandOnSideWall() {
-	if (!estFaceMur()) {avance()}
-	gauche() 
-	if (estFaceMur()) {avance()}	
-	droite()
+	gauche()
+	if (!estFaceMur()) {avance()} else 
+	{droite(); if (!estFaceMur()) {
+		avance()} else {droite()}
+	}
+	
+	
 }
