@@ -1,12 +1,12 @@
 override def run() {
 	def finale():Boolean = {
-		if(getX() == getMondeLargeur() - 2 && getY() == getMondeHauteur - 2) {
+		if(getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur - 1) {
 			return true
 		}
 		else return false
 	}
 	var c:Int = 0
-	while(!finale) {
+	do {
 		while(getX() < getMondeLargeur -1) {
 			ecritMessage(c)
 			c = c + 1
@@ -24,4 +24,5 @@ override def run() {
 			c = c + 1
 			setPos(getX(),getY() + 1)
 	}
+	while(finale)
 }
