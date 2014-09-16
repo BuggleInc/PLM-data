@@ -1,2 +1,50 @@
-int golomb(int num) {
-}
+def golomb(num:Int): Int = {
+	val n:Int=num
+	var a = new Array[Int](n)
+	var dir:Int=1
+	a(0)=1
+	var compteur:Int=1
+	for (x <- 1 to n-1) {
+		if (compteur==a(dir-1)) {
+			a(x)=a(x-1)+1
+			compteur=1
+			dir=dir+1
+			
+			}
+		else  {
+			a(x)=a(x-1)
+			compteur=compteur+1
+		}
+	}
+	return (a(n-1))
+
+	
+			
+		
+
+
+
+
+		
+
+
+
+
+		
+	}
+	
+	 
+
+
+
+
+
+
+/*La suite de Golomb est une suite d'entiers non décroissante où a(n) indique le nombre de fois où n 
+ apparaît dans la suite, avec a(1)=1.
+Puisque a(1)=1, nous savons que 1 n'apparaît qu'une seule fois dans la suite, ce qui impose à a(2)
+d'avoir une autre valeur. Comme a(2) est non-décroissante, cette autre valeur doit être plus grande
+que 1. Puisque a(2)>1, le chiffre 2 apparaît plus d'une fois dans la suite. Donc, a(2)=2.
+Puisque a(2)=2, le chiffre 2 apparaît deux fois dans la suite, ce qui nous donne la valeur de a(3).
+Et ainsi de suite pour les valeurs suivantes de la suite.
+Écrivez une fonction calculant le Nième élément de la suite.*/
