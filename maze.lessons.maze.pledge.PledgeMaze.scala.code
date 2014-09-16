@@ -1,3 +1,4 @@
+var virages=0   
 def murgauche(): Boolean= {
 	gauche();
 	if (estFaceMur()==true){
@@ -9,6 +10,7 @@ def murgauche(): Boolean= {
 }
 
 def keepHandOnSideWall(){
+	
 	if (estFaceMur()==false && murgauche()==true){
 		avance();
 		
@@ -16,11 +18,13 @@ def keepHandOnSideWall(){
 	else if (estFaceMur()==true && murgauche()==true){
 	
 		droite();
+		virages=virages-1
 		
 	     }
 	
 	     else {
 	     	gauche();
+	     	virages=virages+1
 	     	avance();
 	     }
 	
@@ -28,41 +32,21 @@ def keepHandOnSideWall(){
 	
      
 } 
-def bordduhaut(){
-	while (getY()!=0){
-		
-	
-	while (estFaceMur()==false && getDirection()==Direction.NORTH){
-		avance();
-	}
-	gauche(); 
-	if (estFaceMur()==false){
-		avance();
-		droite();
-	}
-	else {
-		gauche();
-		gauche();
-	     if (estFaceMur()==false){
-		avance();
-		gauche();
-	     }
-	
-	
-	}	
-	}
-	
-}
 
 
 
 override def run() {
-	bordduhaut();
-	droite();
+
+	
 while (estSurBiscuit()==false){
+	while (virages!=0){
 	
 	keepHandOnSideWall()
-	
+	}
+	while (!estFaceMur){
+		avance();
+	}
 }
+
 prendBiscuit()
 }
