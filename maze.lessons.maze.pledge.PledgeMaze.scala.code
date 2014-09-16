@@ -1,2 +1,68 @@
+def murgauche(): Boolean= {
+	gauche();
+	if (estFaceMur()==true){
+		droite();
+		return true
+	}
+	droite();
+	return false
+}
+
+def keepHandOnSideWall(){
+	if (estFaceMur()==false && murgauche()==true){
+		avance();
+		
+	}
+	else if (estFaceMur()==true && murgauche()==true){
+	
+		droite();
+		
+	     }
+	
+	     else {
+	     	gauche();
+	     	avance();
+	     }
+	
+		
+	
+     
+} 
+def bordduhaut(){
+	while (getY()!=0){
+		
+	
+	while (estFaceMur()==false && getDirection()==Direction.NORTH){
+		avance();
+	}
+	gauche(); 
+	if (estFaceMur()==false){
+		avance();
+		droite();
+	}
+	else {
+		gauche();
+		gauche();
+	     if (estFaceMur()==false){
+		avance();
+		gauche();
+	     }
+	
+	
+	}	
+	}
+	
+}
+
+
+
 override def run() {
+	bordduhaut();
+	droite();
+while (estSurBiscuit()==false){
+	
+	keepHandOnSideWall()
+	
+}
+prendBiscuit()
 }
