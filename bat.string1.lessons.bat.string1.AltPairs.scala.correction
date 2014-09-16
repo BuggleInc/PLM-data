@@ -1,0 +1,14 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class altPairs extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( altPairs( t.getParameter(0).asInstanceOf[String]) )
+   }
+def altPairs(str:String):String={
+  var res = ""
+  for (i <- 0 to (str.length-1) by 4)
+    res ++= str.substring(i, Math.min(i+2,str.length))
+  return res
+}
+ }
