@@ -10,17 +10,16 @@ override def run() {
 		}
 	for (i <- 1 to H-1) {
 	   gauche(); avance(); droite();
-	   var decalage = litMessage().toInt;	
-	   for (x <- 1 to H-decalage) { avance(); }
-		for (tmp <- 1 to H) {
-			setCouleurBrosse(T(tmp));
+	   var decalage = litMessage().toInt;
+	   for (tmp3 <- 1 to H) { T(i) = T(i+1); }	
+		for (tmp <- 1 to H-1) {
+			avance();
+			setCouleurBrosse(T(tmp+decalage));
 			baisseBrosse();
 			leveBrosse();
-			if (estFaceMur()) {
-				for ( u <- 1 to H-1 ) { recule(); }
-			}
-			avance();
 		}
+		avance();
+	}
 		
 	}
 	
