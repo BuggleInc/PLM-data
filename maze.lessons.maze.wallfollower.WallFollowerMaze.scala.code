@@ -16,7 +16,7 @@ def testd(): Boolean = {
 }
 
 def keepHandOnSideWall() {
-	if (testg() && estFaceMur()&& !testd()) {
+	if (testg() && estFaceMur() && !testd()) {
 		droite();
 		avance();
 	}
@@ -28,6 +28,11 @@ def keepHandOnSideWall() {
 	else if (!testg()) {
 		gauche();
 		avance();
+		if (!testg()) {
+		gauche();
+		avance();
+		}
+		
 	} else if (testg()) {
 		avance();
 	}
