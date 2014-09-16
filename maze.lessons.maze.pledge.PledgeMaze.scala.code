@@ -1,16 +1,21 @@
 override def run() {
-setDirection(Direction.NORTH)
+	setDirection(Direction.NORTH)
 	while (!estSurBiscuit())
-		{if (!estFaceMur())
-				{avance()}
-			else	{var sommeAngle = 0
-				while	(getDirection() != Direction.NORTH
-						&& sommeAngle != 0
-						&& !isDirectionFree(Direction.NORTH))
-							{sommeAngle = keepHandOnSideWall(sommeAngle)}
-				}
-		}				
-prendBiscuit()
+	{
+		if (!estFaceMur())
+		{
+			avance()
+		}
+		else	{droite()
+			var sommeAngle = 0
+			while (getDirection() != Direction.NORTH
+				&& sommeAngle != 0
+				&& !isDirectionFree(Direction.NORTH)) {
+					sommeAngle = keepHandOnSideWall(sommeAngle)
+			}
+		}
+	}				
+	prendBiscuit()
 }
 
 def keepHandOnSideWall(sommeAngle:Int) : Int = {
