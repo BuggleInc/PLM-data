@@ -39,16 +39,11 @@ override def run() {
 			if (estFaceMur()) {pos = true}
 			return pos
 			}
-		if (position()) {
-			var diagBis = 0;
-			diagBis = diagBis + 1;
-			cpt = cpt + 1;
-			x = diagBis;
-			y = getMondeHauteur() -1;
-			setPos(x, y);
-			ecritMessage(cpt: Int) 
-		}
-		else {
+		var diagBis = 0;
+		diagBis = diagBis + 1;
+		cpt = cpt + 1;
+		droite()
+		while (!position()) {
 			cpt = cpt + 1;
 			x = x + 1;
 			y = y - 1;
@@ -57,5 +52,10 @@ override def run() {
 			gauche();
 			ecritMessage(cpt: Int)
 		}
+		gauche()
+		x = diagBis;
+		y = getMondeHauteur() -1;
+		setPos(x, y);
+		ecritMessage(cpt: Int) 
 	}
 }
