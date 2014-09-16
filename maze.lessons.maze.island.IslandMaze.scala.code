@@ -6,10 +6,11 @@ def nord(){
 	while(get(y) != 0){
 		if(getDirection == Direction.NORTH){
 			estFaceMur() match{
-				droite()
-				case true => droite()
-							 
 				case false => avance()
+				droite()
+				case true && estFaceMur() => gauche(); gauche(); avance();
+							 
+				
 				case _ =>
 			}
 		
