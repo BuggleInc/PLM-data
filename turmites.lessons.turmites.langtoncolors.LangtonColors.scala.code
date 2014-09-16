@@ -1,7 +1,7 @@
 def step(rule:Array[Char], colors:Array[Color]) {
 var c:Color=getCouleurSol()
 var n:Int=0
-var k :Char =''
+
 
  
 for (i <- 0 to colors.length-1){
@@ -12,11 +12,17 @@ for (i <- 0 to colors.length-1){
 	
 }
 
-if(n==rule.length-1){k=rule(0)}
-else{k=rule(n)}
+if(n==rule.length-1){ if(rule(0)=='R'){
+	droite;avance
+}
+else{gauche;avance}
+}
+else{if(rule(n)=='R'){droite;avance
+	}
+	else{gauche;avance}
+}
 
-if(k=='R'){droite;avance}
-if(k=='L'){gauche;avance}
+
 
 if(n==colors.length-1){setCouleurBrosse(colors(0))}
 else{setCouleurBrosse(colors(n+1))}
