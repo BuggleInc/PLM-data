@@ -1,3 +1,71 @@
-override def run() {
-    // Your code here
+override def run() 
+{	
+	def recherchePosBiscuit()
+	{
+		for(i <- 0 to getMondeLargeur()-1)
+		{
+			for(j <- 0 to getMondeHauteur()-1)
+			{
+				if(aBiscuit(i,j))
+				{
+					val BiscuitX = i
+					val BiscuitY = j
+				}				
+			}
+		}
+
+		setIndication(BiscuitX, BiscuitY, 0)
+	}
+
+	def mapRemplie(): Boolean =
+	{
+		for(i <- 0 to getMondeLargeur()-1)
+		{
+			for(j <- 0 to getMondeHauteur()-1)
+			{
+				if(getIndication(i,j) == 9999)
+				{
+					return false
+				}				
+			}
+		}
+
+		return true
+	}
+
+	def remplissage(compt:Int)
+	{
+		if( !aMurNord(getX(),getY()) )
+			setIndication(getX(),getY()-1,compt)
+		else if( !aMurOuest(getX(),getY()) )
+			setIndication(getX()-1,getY(),compt)
+		else if( !aMurNord(getX(),getY()+1) )
+			setIndication(getX(),getY()+1,compt)
+		else if( !aMurOuest(getX()+1,getY() )
+			setIndication(getX()+1,getY(),compt)
+	}
+
+	def recherche()
+	{	
+		var compt = 0
+		
+		while(!mapRemplie())
+		{
+			for(i <- 0 to getMondeLargeur()-1)
+			{
+				for(j <- 0 to getMondeHauteur()-1)
+				{
+					if(getIndication(i,j))
+					{
+						remplissage(compt)
+					}				
+				}
+			}
+			
+			compt+=1
+		}
+	}
+
+	recherchePosBiscuit()
+	recherche()
 }
