@@ -6,11 +6,15 @@ override def run() {
 	droite();
 
 	while(!posF){
-		if (estFaceMur){
-			setPos(0,getY()+1);
-		}else{
-			setPos(getX()+1,getY);
+		if(estDosMur){
+			setPos(getX()+1,getY());
 		}
+		if(estFaceMur){
+			setPos(getX()-1,getY());
+		}else{
+			setPos(getX(),getY());
+		}
+		
 	cpt = cpt + 1 
 	ecritMessage(cpt)	
 	}
