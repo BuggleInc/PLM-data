@@ -3,9 +3,9 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 	val state=0
 	while (c<colors.length) {
 		if (getCouleurSol()=colors(c)) {
-			NextColor();
+			NextColor(state, c, colors, rule);
 			NextMove(state, c, rule);
-			state=NextState();
+			state=NextState(state, c, rule);
 			c=color.length
 		}
 		c=c+1
@@ -17,13 +17,13 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		leveBrosse();
 		}
 	
-	def NextColor() {
+	def NextColor(state:Int, c:Int, colors:Array[Color], rule:Array[Array[Array[Int]]]) {
 		var a=0
 		a=rule(state)(c)(0)
 		setCouleurSol(colors(r))
 	}
 	
-	def NextMove(state, c, rule) {
+	def NextMove(state:Int, c:Int, rule:Array[Array[Array[Int]]]) {
 		rule(state)(c)(1) match {
 			case 0 => 
 			case 1 => avance();
@@ -33,7 +33,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 		}
 	}
 	
-	def NextState {
+	def NextState(state:Int, c:Int, rule:Array[Array[Array[Int]]]) {
 		var b=0
 		b=rule(state)(c)(2)
 		return b
