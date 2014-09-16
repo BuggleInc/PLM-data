@@ -1,0 +1,14 @@
+def step() {
+
+	def setCouleurSol(c:Color) {
+		setCouleurBrosse(c)
+		baisseBrosse
+		leveBrosse
+	}
+
+	getCouleurSol() match {
+		case Color.black   => setCouleurSol(Color.white);gauche();avance()
+		case Color.white   => setCouleurSol(Color.black);droite();avance()
+		case _             => ()
+	}
+}
