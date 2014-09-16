@@ -37,7 +37,7 @@ var etat=0;
 while (!(estSurBiscuit())) {
 etat match  {
   case 0 => setDirection(Direction.NORTH); while (!(estFaceMur())) {avance()}; etat = 1; gauche();
-  case 1 => while (getDirection != Direction.NORTH) {deplacelelong()}; etat = 0;
+  case 1 => while (getDirection != Direction.NORTH) {keepHandOnSideWall()}; etat = 0;
   case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
 }
  }
