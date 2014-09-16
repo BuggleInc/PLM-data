@@ -1,7 +1,11 @@
 def indexOfValue(nums:Array[Int] ,value:Int): Int = {
    var pos = 0;
-   for (i <- 0 to nums.length-1) {
-	if ( T(pos) == value ) { pos; }
-	else { -1; pos = pos + 1; }
-     }
+   while ( nums(pos) != value ) {
+   	pos = pos + 1;
+   }
+   if ( nums(pos) == value ) {
+   	pos;
+   } else {
+   	-1;
+   }
 }
