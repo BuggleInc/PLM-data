@@ -3,11 +3,11 @@ var j:Int = 0
 	
 	
 
-		if(nums(k)==6 && nums(k)==nums(k+1)){
+		if( nums(indexOfValue(nums ,6))==nums((indexOfValue(nums ,6))+1)){
 			j = j+1
 		}
 
-		if(nums(k)==6 && nums(k)==nums(k)+1){
+		if(nums(indexOfValue(nums ,6))==nums(indexOfValue(nums ,7))){
 			j = j+1
 		}else{
 			j = j 
@@ -22,6 +22,22 @@ return j
 
 
 
+indexOfValue(nums ,6)
+
+
+
+
+def indexOfValue(nums:Array[Int] ,value:Int): Int = {
+	var i = 0
+	while(i < nums.length && nums(i) != value){
+  	i = i + 1
+  }
+  if(i < nums.length){
+  	return i 
+  }else{
+  	return -1
+  }
+}
 
 
 
