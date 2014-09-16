@@ -1,7 +1,4 @@
   override def initialize(){
-  }
-
-override def step() {
   	val Liste = getSol()
   	var debut = new Array[Double] (2)
   	var fin = new Array[Double] (2)
@@ -13,6 +10,11 @@ override def step() {
   			fin(1)=Liste(i+1).y
   		}
   	}
+  	goToFlat(debut(0),fin(0))
+}
+
+override def step() {
+  	
   	print(debut(0),fin(0))
   	if (getVitesseY()<(-9)) {
 	setPousseeDesiree(4)	
