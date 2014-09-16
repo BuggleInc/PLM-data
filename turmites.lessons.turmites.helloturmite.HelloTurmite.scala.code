@@ -1,6 +1,17 @@
     var state = 0;
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    	
+    		val l:Int = colors.length -1
+		var inter:Int = 0
+		while ( colors(inter) != getCouleurSol() ) {
+				inter = inter + 1
+			}
+		if (rule(state)(inter) == 'R') {
+			droite()
+		} else {gauche()}
+		setCouleurBrosse(colors((inter + 1) % (l+1)))
+		baisseBrosse()
+		leveBrosse()
+		avance()
        
     }
