@@ -1,10 +1,13 @@
 override def run() {
 	var T=new Array[Color](getMondeHauteur());	
-	for(i<-0 to T.length-1){
+	for(i<-1 to T.length-1){
 		T(i)=getCouleurSol()
 		avance()	
 	}
 }
+
+val decalage=litMessage().toInt
+
 def faireColonne(T:Array[Color]){
 	for(i<-0 to getMondeHauteur-2){
 		setCouleurBrosse(T(i))
@@ -14,3 +17,17 @@ def faireColonne(T:Array[Color]){
 	}
 }
 
+
+
+def faireMotif(T:Array[Color]){
+	var x=getMondeLargeur()-1
+	for(i<-1 to x){
+		var nbPas=getMondeHauteur()
+		for(i<-0 to nbPas-1){
+			recule()
+		}
+		gauche()
+		avance()
+		faireColonne(T)
+	}
+}
