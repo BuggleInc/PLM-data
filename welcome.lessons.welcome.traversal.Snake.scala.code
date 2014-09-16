@@ -1,46 +1,14 @@
 override def run() {
-	var dir:Direction=Direction.EAST
-	var MurNord:Boolean=false
-	def chercheMurNord() {
-		dir=getDirection()
-		setDirection(Direction.NORTH)
-		if (estFaceMur()==true) {
-			setDirection(dir)
-			MurNord=true
-			}
-		else {
-			setDirection(dir)
-			MurNord=false
-			}
+	var positionFinale:Boolean=false
+	def chercheFinale() {
+		
 	}
-	def estEnPosition():Boolean = {
-		return (getDirection()==Direction.WEST && MurNord==true)
-	}
-	
 	baisseBrosse()
-	while (!estEnPosition) {
-		while(!estFaceMur) {
-			avance()
-		}
-		
-		if (getDirection==Direction.EAST) {
-			gauche()
-			avance()
-			chercheMurNord()
-			gauche()
-		}
-		else {
-			droite()
-			avance()
-			chercheMurNord()
-			droite()
-		}
-		
+	while (!positionFinale) {
 		
 	}
-	leveBrosse()
-}
 	
+}
 	
 	
 	
