@@ -1,0 +1,22 @@
+def getLandingZone():Segment = {
+
+	var cpt = 0
+	var a = 0
+	var b = 0
+	var i=1
+
+	//true si zone plate a partir de x=i
+	def estSolPlat(i:Int):Boolean = {
+		cpt=0
+		for (k<-i+1 to i+50) {
+			if (getSol(k)!=getSol(i)) {return false}
+		}
+		return true
+	}
+
+	//cherche zone plate
+	while (a==0 && i<=1949) {
+		if (estSolPlat(i)) {a=i;b=getSol(i)}
+	}
+	
+}
