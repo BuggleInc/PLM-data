@@ -6,34 +6,9 @@ override def run() {
 			avance();
 		}
 		Droite();
-		keepHandOnSideWall()
 	}
 }
 
-def keepHandOnSideWall() {
-	if(!estFaceMur()) {
-		Gauche();
-		if(estFaceMur() && c!=0) {
-			Droite();
-			avance();
-		} else {
-			avance();
-		}
-	} else {
-		Gauche()
-		if(estFaceMur() && c!=0) {
-			retourne();
-			if (estFaceMur()) {
-				Droite();
-				avance();
-			} else {
-			avance();
-			}
-		} else {
-			avance();
-		}
-	}
-}
 
 def Gauche() {
 	gauche();
