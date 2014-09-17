@@ -14,15 +14,15 @@ def tourne(rule:Char) {
 def step(rule:Array[Char], colors:Array[Color]) {
 	var x = 0
 	
-	while  (colors(x) == getCouleurSol()) {
-		x=x+1;
-	}
-	if ( x == colors.length) {
-		x=0
-	}
+	while  (x <- colors.length) {
+		if ( colors(x) == getCouleurSol()) {
 		tourne(rule(x))
-		marqueSol(colors((x+1)))
+		marqueSol(colors((x+1)%colors.length))
 		avance()
+		}
+		else {}
+		
+		
 	
 }
 
