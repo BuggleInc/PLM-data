@@ -1,8 +1,13 @@
 override def run() {
-val X= getMondeHauteur()
-var T = new Array[Color](X);
-getCouleurSol()
-for( i<-0 to T.length-1){avance(); getCouleurSol()}
-getMondeLargeur()
-
+	val X= getMondeHauteur()
+	var T = new Array[Color](X);
+	getCouleurSol()
+	for( i<-0 to T.length-1){
+		avance();
+			getCouleurSol()
+	}
+	gauche()
+	avance()
+	droite()
+	avance()
 }
