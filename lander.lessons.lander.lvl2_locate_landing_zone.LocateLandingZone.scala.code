@@ -1,25 +1,4 @@
-def getLandingZone():Segment = {
-
-	var a = 0
-	var b:Double = 0
-	var i:Int = 1
-
-	//true si zone plate a partir de x=i
-	
-
-	//cherche zone plate
-	while (a==0 && i<=getSol().length-50) {
-		if (estSolPlat(i)) {
-			a=i;
-			b=getSol()(i).y
-		}
-		 else i=i+1
-	}
-
-	return new Segment(new Point(a,b),new Point(a+50,b))
-	
-}
-
+//true si zone plate a partir de x=i
 def estSolPlat(j:Int):Boolean = {
 	for (k<-j+1 to j+45) {
 		if (getSol()(k).y!=getSol()(j).y) {
@@ -27,4 +6,23 @@ def estSolPlat(j:Int):Boolean = {
 		}
 	}
 	return true
+}
+
+var a = 0
+var b:Double = 0
+var i:Int = 1
+
+def getLandingZone():Segment = {
+
+	//cherche zone plate
+	while (a==0 && i<=getSol().length-50) {
+		if (estSolPlat(i)) {
+			a=i
+			b=getSol()(i).y
+		}
+		 else i=i+1
+	}
+
+	return new Segment(new Point(a,b),new Point(a+50,b))
+	
 }
