@@ -40,6 +40,9 @@ var a=0;
 var b=0;
 var c=0;
 var d=0;
+var e=0;
+var f=0;
+var g=0;
 
 for(i<- 0 to getMondeHauteur()-1){
     	for(j<- 0 to getMondeLargeur()-1){
@@ -56,25 +59,35 @@ for(j<- 0 to getMondeLargeur()-1){
 	}
 }
 while(!estSurBiscuit){
-if(!estFaceMur){
 	c=getIndication(getX(), getY());
-	avance();
-	d=getIndication(getX(), getY());
-	if(c<d){
-		recule();
+	d=getIndication(getX()+1,getY());
+	e=getIndication(getX()-1, getY());
+	f=getIndication(getX(), getY()+1);
+	g=getIndication(getX(), getY()-1);
+	if(!aMurNord(getX(), getY())){
+		if(c<g){
+			setDirection(Direction.NORD);
+			avance();
+		}
 	}
-
-}else droite();
-droite();
-if(!estFaceMur){
-	c=getIndication(getX(), getY());
-	avance();
-	d=getIndication(getX(), getY());
-	if(c<d){
-		recule();
+	if(!aMurOuest(getX(); getY())){
+		if(c<e){
+			setDirection(Direction.OUEST);
+			avance();
+		}
 	}
-
-}else gauche();
-
+	if(!aMurOuest(getX()+1, getY()) && getX()!=getMondeLargeur-1){
+		if(c<f){
+			
+		setDirection(Direction.EST);
+		avance();
+		}
+	}
+	if(!aMurNord(getX(), getY()+1) && getY()!=getMondeHauteur-1){
+		if(c<d){
+			setDirection(Direction.SUD);
+			avance();
+		}
+	}
 }
 }
