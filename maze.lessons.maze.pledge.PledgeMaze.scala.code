@@ -1,20 +1,18 @@
 override def run() {
 
-var cpt = 0	
+var sommeAngle() = 0
+var origine:Direction = getDirection()
 
-while(!estSurBiscuit) {
-	if (!estFaceMur && getDirection() == Direction.NORTH) {		
+while (!estBiscuit) {
+	origine = getDirection()
+	do {
+		if (!estFaceMur) {
 			courirNord()
-	} else {			
-		longerMur()
-	}
-	if (getY() == 0) {
-		while(!estSurBiscuit) {
-			longerMur()
 		}
-	}
+		longerMur()
+	} while (sommeAngle() != 0)
+	
 }
-prendBiscuit()
 
 def courirNord() {
 	setDirection(Direction.NORTH)
@@ -30,11 +28,14 @@ def longerMur() {
 			avance()		
 		} else if (murDroite() && estFaceMur) {
 			gauche()
+			sommeAngle() += 1
 		} else if (!murDroite()) {
-			droite()
+			droite() 
+			sommeAngle() -= 1
 			avance()
 		} else {
 			droite();droite()	
+			sommeAngle() -= 2
 		}
 }
 
