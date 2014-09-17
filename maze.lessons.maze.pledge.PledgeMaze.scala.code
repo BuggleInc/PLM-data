@@ -5,17 +5,20 @@ override def run() {
 		while (!estFaceMur()) {
 			avance();
 		}
+		Gauche();
 		while(c!=0) {
-			if (estFaceMur()) {
-				Gauche();
-				if(estFaceMur()) {
-					Droite();
-					Droite();
-				} else {
+			if (!estFaceMur) {
+				while (!estFaceMur()) {
 					avance();
 				}
 			} else {
-				avance();
+				Droite();
+				Droite();
+				if (!estFaceMur) {
+					while (!estFaceMur()) {
+						avance();
+					}
+				}
 			}
 		}
 	}
