@@ -1,0 +1,38 @@
+override def run()
+{
+	var x=0
+	var y=0
+	var compteur=0
+	while(!positionFinale())
+	{
+		
+if(x!=getMondeLargeur())
+		{
+			setPos(x,y)
+			ecritMessage(compteur)
+			compteur=compteur+1
+			x=x+1
+		}
+
+		else
+		{
+			x=0
+			y=y+1
+			setPos(x,y)
+			ecritMessage(compteur)
+			compteur=compteur+1
+			x=x+1
+		}
+	}
+}
+
+def positionFinale():Boolean=
+{
+	(getX(),getY()) match
+	{
+		case(x,y) if (x==(getMondeLargeur-1) && (y==(getMondeHauteur-1))) => return true
+		
+
+		case _ => return false
+	}
+}
