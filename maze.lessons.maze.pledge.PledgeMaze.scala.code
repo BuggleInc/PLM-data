@@ -5,7 +5,32 @@ override def run() {
 		while (!estFaceMur()) {
 			avance();
 		}
-		Droite();
+		keepHandOnSideWall()
+	}
+}
+
+def keepHandOnSideWall() {
+	if(!estFaceMur()) {
+		Gauche();
+		if(estFaceMur()) {
+			Droite();
+			avance();
+		} else {
+			avance();
+		}
+	} else {
+		Gauche()
+		if(estFaceMur()) {
+			retourne();
+			if (estFaceMur()) {
+				Droite();
+				avance();
+			} else {
+			avance();
+			}
+		} else {
+			avance();
+		}
 	}
 }
 
