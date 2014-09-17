@@ -7,17 +7,15 @@ for( i <- 0 to H-1 )
 	T(i) = getCouleurSol()
 	avance()
 }
-for( j <- 0 to L-2 )
-{
+recule(H)
 gauche()
 avance()
 droite()
-for( i <- 0 to H-1 )
+for(i <- 0 to L-2)
 {
-	setCouleurBrosse(T(H-i-j))
+	avance(i)
+	setCouleurBrosse(T(i))
 	baisseBrosse()
 	leveBrosse()
-	avance()
-}
 }
 }
