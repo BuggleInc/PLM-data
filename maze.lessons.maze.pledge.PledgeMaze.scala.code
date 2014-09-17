@@ -1,5 +1,5 @@
 override def run() {
-	var v= 0
+	var v= -1
 
 def keepHandOnSideWall(){
 	
@@ -17,7 +17,7 @@ def keepHandOnSideWall(){
 			//if(!estFaceMur){
 			//	avance
 			//}
-		v=v-2	
+		v=v-1	
 		}		
 	}
 	
@@ -27,9 +27,12 @@ def keepHandOnSideWall(){
 	}
 }
 
-	avance
+
 	while(!estSurBiscuit){
-	
+	while(getDirection==Direction.NORD){
+		if(!estFaceMur){
+			avance
+			}
 	
 	keepHandOnSideWall()
 	if(isSelected()){
