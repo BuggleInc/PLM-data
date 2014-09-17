@@ -2,44 +2,37 @@ override def run() {
 	var v=0
 
 def keepHandOnSideWall(){
-gauche
+	
+	gauche
 	if(estFaceMur){
-		
+		droite
+		if(!estFaceMur){
+			avance
+		}
+		else{
 			droite
-			if(!estFaceMur){
-				avance
-				}
-			else{
-				droite
-				v=v-1
-			}
-		
+			v=v-1
+		}		
 	}
 	
 	else if (!estFaceMur){
 		avance()
-		
-		
-		}
-
-
-
+		v=v+1
+	}
 }
 
-
 while(!estSurBiscuit){
-	
-	
-keepHandOnSideWall()
+	avance
+	keepHandOnSideWall()
 	if(isSelected()){
-	print("v"+v+",")
+		print("v"+v+",")
 	}
 	if(v!=0){
-	keepHandOnSideWall()
+		keepHandOnSideWall()
 
 	}
 	else{
-	while(getDirection==Direction.NORD){
+		while(getDirection==Direction.NORD){
 		if(!estFaceMur){
 			avance
 			}
@@ -54,5 +47,5 @@ keepHandOnSideWall()
 
 	}
 	}
-prendBiscuit
+	prendBiscuit
 }
