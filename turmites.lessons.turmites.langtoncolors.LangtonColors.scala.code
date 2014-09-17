@@ -1,0 +1,39 @@
+var i:Int=0
+var a:Int=0
+var trouve: Boolean=false
+
+
+def step(rule:Array[Char], colors:Array[Color]) 
+{
+
+	while (!trouve)
+	{
+		if (getCouleurSol()==colors(i))
+		{
+			if (i!=colors.length-1)
+			{
+				setCouleurBrosse(colors(i+1))
+				a=i
+			}
+			else
+			{
+				setCouleurBrosse(0)
+			}
+		}
+	}
+
+	baisseBrosse()
+	leveBrosse()
+
+	if (rule(a)=='L')
+	{
+		gauche()
+		avance()
+	}
+	else
+	{
+		droite()
+		avance()
+	}
+
+}
