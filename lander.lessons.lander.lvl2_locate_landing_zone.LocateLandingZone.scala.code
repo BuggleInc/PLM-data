@@ -9,14 +9,14 @@ def getLandingZone():Segment = {
 	def estSolPlat(i:Int):Boolean = {
 		cpt=0
 		for (k<-i+1 to i+50) {
-			if (getSol()(k)!=getSol(i)) {return false}
+			if (getSol()(k).y!=getSol()(i).y) {return false}
 		}
 		return true
 	}
 
 	//cherche zone plate
 	while (a==0 && i<=1949) {
-		if (estSolPlat(i)) {a=i;b=getSol(i)}
+		if (estSolPlat(i)) {a=i;b=getSol()(i).y}
 	}
 	
 }
