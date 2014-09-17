@@ -1,6 +1,16 @@
 override def run() {
 	def chemin(x:Int,y:Int) {
     var i = getIndication(x,y);
+    var a=0;
+    var b=0;
+    for(i<- 0 to getMondeHauteur()-1){
+    	for(j<- 0 to getMondeLargeur()-1){
+    		if(aBiscuit(i,j)){
+    			a=i;
+    			b=j;
+    		}
+    	}
+    }
     if (y!=0) {
         if (!aMurNord(x,y)) {
             if (getIndication(x,y-1)>=i) {
@@ -34,5 +44,5 @@ override def run() {
         }
     }   
 }
-chemin();
+chemin(a,b);
 }
