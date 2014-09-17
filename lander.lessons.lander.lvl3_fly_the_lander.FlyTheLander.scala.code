@@ -7,10 +7,48 @@ override def initialize()
 		if(getSol()(i).y == getSol()(i+1).y)
 			segmentPose = new Segment( getSol()(i), getSol()(i+1) )
 	}
-	return new Segment(new Point(0,0), new Point(1,0))
 }
 
 override def step() 
 {
-	
+	if(getX()>segmentPose(0).x && getX()<segmentPose(1).x)
+	{
+		if(getVitesseX()>3)
+		{
+			setAngleDesire(20)
+			if(getVitesseY()<9)
+			{
+				setPousseeDesiree(1)
+			}
+			else(setPousseeDesiree(3))
+		}
+		else if(getVitesseX()<-3)
+		{
+			setAngleDesire(-20)
+			if(getVitesseY()<9)
+			{
+				setPousseeDesiree(1)
+			}
+			else(setPousseeDesiree(3))
+		}
+		else
+		{
+			setAngleDesire(0)
+			if(getVitesseY()<9)
+			{
+				setPousseeDesiree(1)
+			}
+			else(setPousseeDesiree(3))
+		}
+	}
+	else if(getX()>segmentPose(0).x && getX()>segmentPose(1).x)
+	{
+		setPousseeDesiree(3)
+		setAngle(-30)
+	}
+	else if(getX()<segmentPose(0).x && getX()<segmentPose(1).x)
+	{
+		setPousseeDesiree(3)
+		setAngle(30)
+	}
 }
