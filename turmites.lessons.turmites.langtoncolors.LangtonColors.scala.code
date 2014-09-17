@@ -1,31 +1,21 @@
-def step(rule:Array[Char], colors:Array[Color]) {
-	
-	def marqueSol(c:Color) { 
+def marqueSol(c:Color) { 
 		setCouleurBrosse(c);
 		baisseBrosse();
 		leveBrosse()
-	}
-
-
-
-
-
-	marqueSol(
 }
-def step() {
-	if (getCouleurSol() == Color.white) {
-		setCouleurBrosse(Color.
-black)
-		baisseBrosse()
-		leveBrosse()
-		droite()
-		avance()
-	}
-	else if (getCouleurSol() == Color.black) {
-		setCouleurBrosse(Color.white)
-		baisseBrosse()
-		leveBrosse()
-		gauche()
-		avance()
+		
+def tourne(rule(c):Char) {
+	if (rule(c) == "L") { gauche() }
+	else if ( rule(c) == "R") { droite() }
+}
+
+
+def step(rule:Array[Char], colors:Array[Color]) {
+	for ( x<- 0 to colors.length-1) {
+		if (getCouleurSol() == colors(x)) {
+			tourne(rule(c))
+			marqueSol(colors(x+1))
+			avance()
+		}
 	}
 }
