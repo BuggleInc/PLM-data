@@ -1,11 +1,11 @@
 override def run() {
 
 	def fini():Boolean = {
-		if (estFaceMur()) {
+		if (estFaceMur) {
 			getDirection()
 			if (getDirection()==Direction.EST) {
 				gauche()
-				if(estFaceMur()) {
+				if(estFaceMur) {
 					return true
 				}
 				else {
@@ -14,7 +14,7 @@ override def run() {
 			}
 			else {
 				droite()
-				if(estFaceMur()) {
+				if(estFaceMur) {
 					return true
 				}
 				else {
@@ -25,7 +25,7 @@ override def run() {
 	}
 
 	while (fini()==false) {
-		while (!estFaceMur()) {
+		while (!estFaceMur) {
 			baisseBrosse(); avance(); 
 		}
 		getDirection();
