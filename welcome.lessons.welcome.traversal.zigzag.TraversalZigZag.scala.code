@@ -10,12 +10,12 @@ override def run() {
 	var compteur:Int=0
 	var aig:Int=0
 	def initialise() {
-		coord match {
-		case (x<getMondeLargeur()-1 && aig==0) => x=x+1
-		case (x==getMondeLargeur()-1 && aig==0) => y=y+1 aig=1
-		case (x>0 && aig==1) => x=x-1
-		case (x==0 && aig==1) => y=y+1 aig=0
-		case_ => x=x y=y
+		if (x<getMondeLargeur()-1 && aig==0) {x=x+1}
+		else if (x==getMondeLargeur()-1 && aig==0) {y=y+1 
+		aig=1}
+		else if (x>0 && aig==1) {x=x-1}
+		else if (x==0 && aig==1) {y=y+1 
+		aig=0
 	}
 	}
 
