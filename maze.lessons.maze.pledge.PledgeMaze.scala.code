@@ -1,6 +1,7 @@
 var c=0
 
 override def run() {
+
 	while (!estFaceMur && c==0) {
 		avance();
 	}
@@ -44,10 +45,10 @@ def murGauche():Boolean = {
 	
 def keepHandOnSideWall = {
 	while (!estSurBiscuit()) {
-		if (murGauche() && !estFaceMur()) {
+		if (murGauche() && !estFaceMur() && c==0) {
 			avance();
 		}
-		else if (murGauche() && estFaceMur()) {
+		else if (murGauche() && estFaceMur() && c!=0) {
 			Droite();
 			if (!estFaceMur()) {
 				avance();
