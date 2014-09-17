@@ -1,3 +1,29 @@
 var diag = 0;
 override def run() {
+	def enPosition:Boolean = {
+		if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) {
+			return true
+		}
+		else {return false}
+	}
+	var x:Int=0
+	var y:Int=0
+	var compteur:Int=0
+	def initialise() {
+		if (estFaceMur) {y=y+1
+		x=0}
+		else {x=x+1
+		y=y-1}
+	
+	}
+
+	ecritMessage(compteur)
+	while (!enPosition) {
+		initialise()
+		setPos(x,y)
+		compteur=compteur+1
+		ecritMessage(compteur)
+		
+	}
+
 }
