@@ -1,29 +1,45 @@
 override def run() {
 	var v= 0
 
+def virage(){
+	val x=getX
+	val y=getY
+
+	if(!estFaceMur){
+		avance
+	}
+	if(getY==y+1){
+		v=v-1
+	}
+	else if(getY==y-1){
+		v=v+1
+	}
+	else{
+		v=v	
+	}		
+}
+
+
+
+
+
+
+
 def keepHandOnSideWall(){
 	
 	gauche
-	v=v+1
+
 	if(estFaceMur){
 		droite
-		
-		if(!estFaceMur){
-			avance
-			v=v-1
+		virage
 		}
 		else{
 			droite
-			//if(!estFaceMur){
-			//	avance
-			//}
-			//v=v-1
 		}		
 	}
 	
 	else if (!estFaceMur){
-		avance()
-	v=v+1
+		virage
 	}
 }
 
