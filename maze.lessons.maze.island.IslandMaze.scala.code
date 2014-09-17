@@ -3,14 +3,16 @@ override def run() {
 var cpt = 0	
 
 while(!estSurBiscuit) {
-	if (cpt == 3) {
-		
+	if (!estFaceMur && getDirection() == Direction.NORTH) {		
 			courirNord()
-			cpt = 0		
-	} else {	
-			
+				
+	} else {			
 		longerMur()
-		
+	}
+	if (get(Y) == 0) {
+		while(!estSurBiscuit) {
+			longerMur()
+		}
 	}
 }
 
@@ -35,9 +37,6 @@ def longerMur() {
 			avance()
 		} else {
 			droite();droite()	
-		}
-		if (getDirection() == Direction.NORTH) {
-			cpt += 1
 		}
 }
 
