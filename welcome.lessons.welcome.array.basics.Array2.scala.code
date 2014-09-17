@@ -15,15 +15,24 @@ for(i <- 1 to L-1)
 {
 	recule(H-1)
 	gauche()
+	if(!estFaceMur)
+	{
 	avance()
+	}
 	droite()
-	avance(1)
+	if(!estFaceMur)
+	{
+	avance()
+	}
 	for(i <- 0 to H-1)
 	{
 		setCouleurBrosse(T(i))
 		baisseBrosse()
 		leveBrosse()
-		avance()
+	if(!estFaceMur)
+	{
+	avance()
+	}
 	}	
 }
 recule(H)
