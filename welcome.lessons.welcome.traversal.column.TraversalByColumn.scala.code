@@ -1,32 +1,20 @@
 override def run() {
 
-def fini():Boolean = {
-	if (estDosMur) {
-		getDirection();
-		if (getDirection()==Direction.NORD) {
-			droite();
-		}
-		if (estFaceMur) {
-			return true
-		}
-		else {
-			return false
-		}
+def positionFinale(x:Int, y:Int):Boolean = {
+	if (x==getLargeurMonde-1 && y==getHauteurMonde-1) {
+		return true
 	}
 	else {
 		return false
 	}
 }
 
-while (!fini()) {
-var x=0
-var y=0
-while (!estDosMur) {
-	setPos(x+1, y)
-}
-if (estDosMur) {
-	setPos(0, y+1)
-}
-
-}
+	var x=0
+	var y=0
+	while (!positionFinale()) {
+		
+		setPos(x, y+1)		
+		if (y == getHauteurMonde()-1)
+			setPos(x+1, 0)
+	}
 }
