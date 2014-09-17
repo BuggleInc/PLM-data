@@ -3,11 +3,11 @@ override def run() {
 var cpt = 0	
 
 while(!estSurBiscuit) {
-	if (!estFaceMur && getDirection() != Direction.NORTH) {
-		if (cpt == 2) {
+	if (!estFaceMur && cpt == 3) {
+		
 			cpt = 0
 			courirNord()
-		}
+		
 	} else {		
 		longerMur()
 	}
@@ -37,8 +37,6 @@ def longerMur() {
 		}
 		if (getDirection() == Direction.NORTH) {
 			cpt += 1
-		} else {
-			cpt = cpt
 		}
 }
 
