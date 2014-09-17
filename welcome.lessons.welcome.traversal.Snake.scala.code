@@ -16,17 +16,17 @@ override def run() {
 }
 
 
-def arrive() {
+def arrive():Boolean {
 	if (estFaceMur())
 		{ if (getDirection() == Direction.EST)
 			  {gauche()
 			    if (estFaceMur())
-			     { gauche(); true
+			     { gauche(); return true
 			 	}}
 			else { if (getDirection == Direction.OUEST)
 					 {droite()
 					 if (estFaceMur())
-			     	  {droite(); true
+			     	  {droite(); return true
 					 }}
 		}
 		}
