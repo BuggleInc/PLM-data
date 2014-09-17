@@ -6,6 +6,7 @@ def Init(){
 		if(!estFaceMur && angle == 0){
 			setDirection(Direction.NORTH);
 			avance();
+			droite();
 		}
 		else{
 			garderMur();
@@ -18,14 +19,12 @@ def garderMur(){
 	angle = angle + 1;
 	if(estFaceMur){
 		while(estFaceMur){
-			gauche();
-			angle = angle + 1;
+			droite();
+			angle = angle - 1;
 		}
 		avance();
 	}
 	else{
-		droite();
-		angle = angle + 1;
 		avance();
 	}
 }
