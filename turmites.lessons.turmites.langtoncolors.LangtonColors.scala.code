@@ -4,31 +4,32 @@ def ChangeColor(c:Color){
 	leveBrosse();
 	
 }
-
-def step(rule:Array[Char], colors:Array[Color]) {
 var x=getCouleurSol()
-for (i <-0 to colors.length-2){
-
+var i=0;
+def step(rule:Array[Char], colors:Array[Color]) {
+x=getCouleurSol();
 	while(colors(i)!=x){
 		i==i+1
 		
 	}
 	
 	if (rule(i)=='R'){
-		gauche()
+		droite()
 	}
 	else {
-		droite();
+		gauche();
 	}
 	if (i==colors.length-1){
-		ChangeColor(colors(1))
+		ChangeColor(colors(0))
 	}
 	else {
 	ChangeColor(colors(i+1))
 	
 	}
 	avance();
-}
+	i=0;
+	
+
 
 }
 
