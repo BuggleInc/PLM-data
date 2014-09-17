@@ -5,19 +5,26 @@ def getLandingZone():Segment = {
 	var i:Int = 1
 
 	//true si zone plate a partir de x=i
-	def estSolPlat(j:Int):Boolean = {
-		for (k<-j+1 to j+50) {
-			if (getSol()(k).y!=getSol()(j).y) {return false}
-		}
-		return true
-	}
+	
 
 	//cherche zone plate
 	while (a==0 && i<=1949) {
-		if (estSolPlat(i)) {a=i;b=getSol()(i).y}
+		if (estSolPlat(i)) {
+			a=i;
+			b=getSol()(i).y
+		}
 		 else i=i+1
 	}
 
 	return new Segment(new Point(a,b),new Point(a+50,b))
 	
+}
+
+def estSolPlat(j:Int):Boolean = {
+	for (k<-j+1 to j+50) {
+		if (getSol()(k).y!=getSol()(j).y) {
+			return false
+		}
+	}
+	return true
 }
