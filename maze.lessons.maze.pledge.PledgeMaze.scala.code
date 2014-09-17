@@ -1,2 +1,54 @@
 override def run() {
+
+var cpt = 0	
+
+while(!estSurBiscuit) {
+	if (!estFaceMur && getDirection() == Direction.NORTH) {		
+			courirNord()
+	} else {			
+		longerMur()
+	}
+	if (getY() == 0) {
+		while(!estSurBiscuit) {
+			longerMur()
+		}
+	}
 }
+prendBiscuit()
+
+def courirNord() {
+	setDirection(Direction.NORTH)
+		while (!estFaceMur) {
+			avance()
+		}
+		gauche()
+}
+
+
+def longerMur() {	
+		if (murDroite() && !estFaceMur) {
+			avance()		
+		} else if (murDroite() && estFaceMur) {
+			gauche()
+		} else if (!murDroite()) {
+			droite()
+			avance()
+		} else {
+			droite();droite()	
+		}
+}
+
+def murDroite():Boolean = {
+	droite()
+	if (!estFaceMur) {
+		gauche()
+		return false
+	} else {
+		gauche()
+		return true
+	}	
+}
+
+}
+	
+
