@@ -60,16 +60,23 @@ for(j<- 0 to getMondeLargeur()-1){
 }
 while(!estSurBiscuit){
 	c=getIndication(getX(), getY());
+	
 	if(getX()!=getMondeLargeur()-1){
 	d=getIndication(getX()+1,getY());
 	}
+	
+	if(getX()!=0){
 	e=getIndication(getX()-1, getY());
+	}
 	
 	if(getY()!= getMondeHauteur()-1){
 	f=getIndication(getX(), getY()+1);
 	}
 	
+	if(getY()!=0){
 	g=getIndication(getX(), getY()-1);
+	}
+	
 	if(!aMurNord(getX(), getY())){
 		if(c>g){
 			setDirection(Direction.NORD);
