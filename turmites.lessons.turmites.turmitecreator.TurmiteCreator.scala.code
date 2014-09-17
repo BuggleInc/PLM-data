@@ -41,7 +41,29 @@
             // println("{"+rule(0)(i)(NEXT_COLOR)+","+rule(0)(i)(NEXT_MOVE)+","+rule(0)(i)(NEXT_STATE)+"}");
         }
     }
-    def init() {
+    	def init():Array[Array[Array[Int]]]= {
+       
+        var rule = new Array[Array[Array[Int]]] (2)  // 2 états /
+        for (etat<- 0 to 1) {
+            rule(etat)= new Array[Array[Int]] (2)
+            for (couleur <- 0 to 1) {
+                rule (etat) (couleur) = new Array[Int] (3)
+                if (etat==0) {
+                    rule (etat) (couleur) (1) = RIGHT
+                    rule (etat) (couleur) (0) = 1
+                } else {
+                    rule (etat) (couleur) (1) = NOTURN
+                    rule (etat) (couleur) (0) = 0
+                }
+                if (couleur==0) {
+                    rule (etat) (couleur) (2) = 0
+                } else {
+                    rule (etat) (couleur) (2) = 1
+                }   
+            }
+        }
+        return rule       
+    }
         /* Your code comes here. */
 
         /* Something like 
@@ -57,4 +79,3 @@
          */
 
         /* remember to send your best creations for inclusion in the gallery */
-    }
