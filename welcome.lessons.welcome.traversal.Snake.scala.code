@@ -2,22 +2,23 @@ override def run() {
 	def positionFinale {
 		while (!estFaceMur){
 			avance()
-			if (getDirection() == Direction.EST){
-				gauche()
+		}
+		if (getDirection() == Direction.EST){
+			gauche()
+			avance()
+			gauche()
+			while(!estFaceMur){
 				avance()
-				gauche()
-				while(!estFaceMur){
-					avance()
-				}
 			}
-			if (getDirection() == Direction.OUEST){
-				droite()
+		}
+		if (getDirection() == Direction.OUEST){
+			droite()
+			avance()
+			droite()
+			while(!estFaceMur){
 				avance()
-				droite()
-				while(!estFaceMur){
-					avance()
-				}
 			}
+		}
 		}
 	}
 baisseBrosse()
