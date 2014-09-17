@@ -1,4 +1,9 @@
-
+def ChangeColor(c:Color){
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+	
+}
 var x=getCouleurSol()
 var i=0;
 def step(rule:Array[Char], colors:Array[Color]) {
@@ -15,14 +20,12 @@ def step(rule:Array[Char], colors:Array[Color]) {
 		gauche();
 	}
 	if (i==colors.length-1){
-		setCouleurBrosse(colors(0));
-	baisseBrosse();
-	leveBrosse();
+		ChangeColor(colors(0));
+	
 	}
 	else {
-	setCouleurBrosse(colors(i+1));
-	baisseBrosse();
-	leveBrosse();
+	ChangeColor(colors(i+1));
+	
 	}
 	avance();
 	i=0;
