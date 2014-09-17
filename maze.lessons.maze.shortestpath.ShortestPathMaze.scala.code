@@ -3,68 +3,8 @@ override def run() {
 var h = getMondeHauteur()                                                  // Numerotation
 var l = getMondeLargeur()
 
-def trouverBiscuit() {
-var Angle:Integer = 0
-var D:Direction =  Direction.NORTH
 
 
-                                           //suivi mur gauche
-   	
-   
-def  keepHandOnSideWall() {
-
-if(!estFaceMur()) 
-avance()
-else {droite(); Angle=Angle-1}
-
-gauche(); Angle=Angle+1 
-if (!estFaceMur()) { 
-	  avance()
-	  gauche() ; Angle=Angle+1
-	  if (!estFaceMur())
-	  avance
-	  else {droite();Angle=Angle-1}}
-else {droite();Angle=Angle-1}   
-
-
-  			
-  			
-  			 
-}
-
-
-def isDirectionFree():Boolean = {               // Direction Libre
-	D = getDirection()
-	setDirection(Direction.NORTH )
-	if (!estFaceMur ) {setDirection(D);return true}
-	else { setDirection(D);return false}
-}
-
-
-
-	
-
-
-setDirection(Direction.NORTH )                      // Programme
-
-while (!estSurBiscuit() ) {
-		while (isDirectionFree()&& (!estSurBiscuit() ) )
-		 avance() 
-		 
-		droite() ;Angle=Angle-1
-		
-		
-		
-		while ( Angle != 0 && (!estSurBiscuit() ) )
-		{keepHandOnSideWall()}
-        
-
-}
-
-}
-
-trouverBiscuit()
-gauche()
 
 }
 
