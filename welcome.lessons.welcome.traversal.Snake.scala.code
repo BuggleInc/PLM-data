@@ -32,20 +32,21 @@ def arrive():Boolean = {
 				return false
 			}
 		}
-		else { 
-			if (getDirection == Direction.OUEST)
+		else if (getDirection == Direction.OUEST)
+		{
+			droite()
+			if (estFaceMur())
 			{
-				droite()
-				if (estFaceMur())
-				{
-					gauche()
-					return true
-				}
-				else {
-					gauche()
-					return false
-				}
+				gauche()
+				return true
 			}
+			else {
+				gauche()
+				return false
+			}
+		}
+		else {
+			return false
 		}
 	}
 	else {
