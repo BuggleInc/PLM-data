@@ -1,8 +1,13 @@
 override def run() {
 
+var cpt = 0	
+
 while(!estSurBiscuit) {
 	if (!estFaceMur && getDirection() == Direction.NORTH) {
-		courirNord()
+		if (cpt = 2) {
+			cpt = 0
+			courirNord()
+		}
 	} else {		
 		longerMur()
 	}
@@ -30,6 +35,7 @@ def longerMur() {
 		} else {
 			droite();droite()	
 		}
+		cpt += 1
 }
 
 def murDroite():Boolean = {
