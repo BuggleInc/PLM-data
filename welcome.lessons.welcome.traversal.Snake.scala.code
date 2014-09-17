@@ -1,8 +1,14 @@
 override def run() {
 	def positionFinale {
-		while (!estFaceMur){
-			avance()
+		if (estFaceMur){
+			gauche()
+			if (estFaceMur){
+				droite()
+			}
 		}
+	}
+
+	def avanceCommeSerpent {
 		if (getDirection() == Direction.EST){
 			gauche()
 			avance()
@@ -20,8 +26,9 @@ override def run() {
 			}
 		}
 	}
+
 baisseBrosse()
 while (positionFinale==false){
-	avance()
+	avanceCommeSerpent()
 }
 }
