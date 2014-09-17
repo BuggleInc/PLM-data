@@ -1,16 +1,16 @@
 var state = 0;
 
 var tab = new Array[Int](3)
-var IndiceCouleur:Int=0;
+var c:Int=0;
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    IndiceCouleur=0;
+   // c=0;
     while (colors(IndiceCouleur)!=getCouleurSol()) {
         IndiceCouleur+=1;
     }
-    tab = rule(state)(IndiceCouleur)
-    setCouleurBrosse(colors(tab(0)))
-    baisseBrosse()
-    leveBrosse()
+    tab = rule(state)(c);
+    setCouleurBrosse(colors(tab(0)));
+    baisseBrosse();
+    leveBrosse();
      tab(1) match {
          case 0 =>
          case 1 => avance();
