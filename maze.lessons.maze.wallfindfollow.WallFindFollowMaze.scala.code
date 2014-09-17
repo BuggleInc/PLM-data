@@ -1,2 +1,18 @@
 override def run() {
+	while (!estFaceMur()) {
+		gauche();
+	}
+	droite();
+	while (!estSurBiscuit()) {
+		gauche();
+		if (estFaceMur()) {
+			while (estFaceMur()) {
+				droite();
+			}
+			avance();
+		} else {
+			avance();
+		}
+	}
+	prendBiscuit();
 }
