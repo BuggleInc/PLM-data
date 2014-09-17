@@ -5,7 +5,9 @@ def Init(){
 	while(!estSurBiscuit){
 		if(!estFaceMur && angle == 0){
 			setDirection(Direction.NORTH);
-			avance();
+			while(!estFaceMur){
+				avance();
+			}
 			droite();
 		}
 		else{
@@ -29,7 +31,7 @@ def garderMur(){
 	}
 }
 
-Init();
-
+avance();
+garderMur();
 }
 
