@@ -1,22 +1,22 @@
 override def run() {
 	var compteur = 0;
-	while (!estFaceMur()) {
-		avance();
-	}
-	droite();
-	compteur = compteur - 1;
-	while ( compteur != 0) {
-		if (estFaceMur()) {
-			while (estFaceMur()) {
-				droite();
-				compteur = compteur + 1;
-			}
-			avance();
-		} else {
+	while (!estSurBiscuit()) {
+		while (!estFaceMur()) {
 			avance();
 		}
-	} 
-	while (!estFaceMur()) {
-		avance();
+		droite();
+		compteur = compteur - 1;
+		while ( compteur != 0) {
+			if (estFaceMur()) {
+				while (estFaceMur()) {
+					droite();
+					compteur = compteur + 1;
+				}
+				avance();
+			} else {
+				avance();
+			}
+		} 
+
 	} 	
 }
