@@ -2,8 +2,11 @@ override def run() {
 	while (!estSurBiscuit()) {
 		gauche();
 		if (estFaceMur()) {
-			droite();
+			while (estFaceMur()) {
+				droite();
+			}
 			avance();
+		}
 		} else {
 			avance();
 		}
