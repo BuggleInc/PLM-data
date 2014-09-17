@@ -1,9 +1,9 @@
 def noTriples(nums:Array[Int]): Boolean = {
 	for (i<- 0 to nums.length -1){
 		if (nums(i)==1){
-			for (j<- 0 to nums.length -1 && i!=j){
+			for (j<- 0 to nums.length -1 && j!=i){
 				if (nums(j)==1){
-					for (k<- 0 to nums.length -1 && j!=k){
+					for (k<- 0 to nums.length -1 && k!=j){
 						if (nums(k)==1){
 							return true
 						}
@@ -12,9 +12,9 @@ def noTriples(nums:Array[Int]): Boolean = {
 			}
 		}
 		if (nums(i)==2){
-			for (j<- 0 to nums.length -1 && i!=j){
+			for (j<- 0 to nums.length -1 && j!=i){
 				if (nums(j)==2){
-					for (k<- 0 to nums.length -1 && j!=k){
+					for (k<- 0 to nums.length -1 && k!=j){
 						if (nums(k)==2){
 							return true
 						}
