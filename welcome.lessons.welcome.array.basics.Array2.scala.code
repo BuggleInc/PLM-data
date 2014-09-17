@@ -10,10 +10,12 @@ var T = new Array[Color](x)
 	 gauche();avance();droite()
 	 for (k <- 1 to y -1)
 	 	{val decalage = litMessage().toInt
-	 	 for (z <- 0 to x-2)
-	 	   {setCouleurBrosse(T((z+decalage)% T.length))
+	 	 setCouleurBrosse(T((decalage)% T.length))
+	 	 baisseBrosse();leveBrosse()
+	 	 for (z <- 1 to x-1)
+	 	   {avance()
+	 	   	setCouleurBrosse(T((z+decalage)% T.length))
 	 	   	baisseBrosse();leveBrosse()
-	 	   	avance()
 	 	   	}
 	 	recule(y-1);gauche();avance();droite()}	 
 }
