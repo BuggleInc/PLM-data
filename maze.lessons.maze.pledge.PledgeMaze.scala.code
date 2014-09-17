@@ -1,10 +1,25 @@
 override def run() {
-	avance(1);
-while(!estSurBiscuit()){
+var angle:Int = 0;
+
+def Init(){
+	while(!estSurBiscuit){
+		if(!estFaceMur && angle == 0){
+			setDirection(Direction.NORTH);
+			avance();
+		}
+		else{
+			garderMur();
+		}
+	}
+}
+
+def garderMur(){
 	gauche();
+	angle = angle + 1;
 	if(estFaceMur){
 		while(estFaceMur){
 			droite();
+			angle = angle - 1;
 		}
 		avance();
 	}
@@ -12,6 +27,6 @@ while(!estSurBiscuit()){
 		avance();
 	}
 }
-prendBiscuit();
+
 }
 
