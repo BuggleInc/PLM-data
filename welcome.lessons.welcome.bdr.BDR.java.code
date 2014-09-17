@@ -2,72 +2,44 @@ boolean fini = false;
 
 while (!fini) {
 
-	switch (litMessage()) {
-		case 'R':
-	    		droite();
-	    		avance();
-	    	break;
-	  	case 'L':
-	    		gauche();
-	    		avance();
-	    	break;
-	  	case 'I':
-	    		retourne();
-	    		avance();
-	    	break;
-	    	case 'A':
-	    		avance();
-	    	break;
-	    	case 'B':
-	    		avance();
-	    		avance();
-	    	break;
-	    	case 'C':
-	    		avance();
-	    		avance();
-	    		avance();
-	    	break;
-	    	case 'Z':
-	    		recule();
-	    	break;
-	    	case 'Y':
-	    		recule();
-	    		recule();
-	    	break;
-	    	case 'X':
-	    		recule();
-	    		recule();
-	    		recule();
-	    	break;
-	  	default:
-	    		fini = true;
+	if (litMessage().equals('R') {
+		droite();
+		avance();
 	}
-
-
-/*	
-
-'I'
-Se retourner (demi-tour) et avancer d'une case
-Inverse
-'A'
-Avancer d'une case
-Première lettre de l'alphabet
-'B'
-Avancer de deux cases
-Deuxième lettre de l'alphabet
-'C'
-Avancer de trois cases
-Troisième lettre de l'alphabet
-'Z'
-Reculer d'une case
-A une lettre de la fin de l'alphabet
-'Y'
-Reculer de deux cases
-A deux lettres de la fin de l'alphabet
-'X'
-Reculer de trois cases
-A trois lettres de la fin de l'alphabet
-(n'importe quoi d'autre)
-Arrêter de danser.*/
+	else if (litMessage().equals('L') {
+		gauche();
+		avance();
+	}
+	else if (litMessage().equals('I') {
+		retourne();
+		avance();
+	}
+	else if (litMessage().equals('A') {
+		avance();
+	}
+	else if (litMessage().equals('B') {
+		avance();
+		avance();
+	}
+	else if (litMessage().equals('C') {
+		avance();
+		avance();
+	   	avance();
+	}
+	else if (litMessage().equals('Z') {
+   		recule();
+	}
+	else if (litMessage().equals('Y') {
+	 	recule();
+	    	recule();
+	}
+	else if (litMessage().equals('X') {
+	    	recule();
+	    	recule();
+	    	recule();
+	}
+	else {
+	    	fini = true;
+	}
 
 }
