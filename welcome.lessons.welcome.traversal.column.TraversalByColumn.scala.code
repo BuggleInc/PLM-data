@@ -1,2 +1,22 @@
 override def run() {
+	def positionFinale(x:Int,y:Int):Boolean = {
+		if(x==getMondeLargeur()-1 && y==getMondeHauteur()-1) {
+			return true
+		}
+		else{return false}
+	}
+
+	var x=0
+	var y=0
+	while(!positionFinale(x,y)) {
+		x=x
+		y=y+1;
+		if(y==getMondeHauteur()){
+			y=0
+			x=x+1
+		}
+		setPos(x,y)
+		cpt +=1
+		ecritMessage("x")
+	}
 }
