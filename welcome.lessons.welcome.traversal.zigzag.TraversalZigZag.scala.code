@@ -1,18 +1,28 @@
 override def run() {
 var Val = 0
-var C =0
+
+droie();
 
 	
 	while (!(getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1)) {
 	setPos(getX(),getY() +1)
+	if (estFaceMur) {
+		droite();droite();
+		for (i<- 0 to 5) {
+				ecritMessage(Val)
+				setPos(getX()-1,getY())
+				Val=Val+1
+		}
+			ecritMessage(Val)
+		     Val= Val+1
+			
+	} else {
 		for (i<- 0 to 5) {
 				ecritMessage(Val)
 				setPos(getX()+1,getY())
 				Val=Val+1
 		}
 			ecritMessage(Val)
-			C=C+1
-			Val= Val+1
-			
-	}	
+		     Val= Val+1
+	}
 }
