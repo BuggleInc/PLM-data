@@ -1,7 +1,15 @@
 def array123(nums:Array[Int]): Boolean = {
 	for (i<- 0 to nums.length -1){
-		if (nums(i)==1 && nums(i)==2 && nums(i)==3){
-		return true
+		if (nums(i)==1){
+			for (i<- 0 to nums.length -1){
+				if (nums(i)==2){
+					for (i<- 0 to nums.length -1){
+						if (nums(i)==3){
+							return true
+						}
+					}
+				}
+			}
 		}
 	}
 	return false
