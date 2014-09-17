@@ -1,7 +1,7 @@
 var c=0
 
 override def run() {
-	while (!estFaceMur) {
+	while (!estFaceMur && c==0) {
 		avance();
 	}
 	while (getY()!=0) {
@@ -33,12 +33,12 @@ def Droite() {
 
 
 def murGauche():Boolean = {
-		Gauche();
+		gauche();
 		if (estFaceMur()) {
-			Droite();
+			droite();
 			return true;
 		}
-		Droite();
+		droite();
 		return false;
 	}
 	
