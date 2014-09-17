@@ -60,9 +60,15 @@ for(j<- 0 to getMondeLargeur()-1){
 }
 while(!estSurBiscuit){
 	c=getIndication(getX(), getY());
+	if(getX()!=getMondeLargeur()-1){
 	d=getIndication(getX()+1,getY());
+	}
 	e=getIndication(getX()-1, getY());
+	
+	if(getY()!= getMondeHauteur()-1){
 	f=getIndication(getX(), getY()+1);
+	}
+	
 	g=getIndication(getX(), getY()-1);
 	if(!aMurNord(getX(), getY())){
 		if(c>g){
@@ -77,14 +83,14 @@ while(!estSurBiscuit){
 		}
 	}
 	if(!aMurOuest(getX()+1, getY()) && getX()!=getMondeLargeur-1){
-		if(c>f){
+		if(c>d){
 			
 		setDirection(Direction.EST);
 		avance();
 		}
 	}
-	if(!aMurNord(getX(), getY()+1) && getY()!=getMondeHauteur){
-		if(c>d){
+	if(!aMurNord(getX(), getY()+1) && getY()!=getMondeHauteur-1){
+		if(c>f){
 			setDirection(Direction.SUD);
 			avance();
 		}
