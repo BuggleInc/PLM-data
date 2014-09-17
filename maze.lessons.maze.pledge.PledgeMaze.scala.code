@@ -1,5 +1,5 @@
 override def run() {
-	def murGauche():Boolean = {
+	def murGauche():Boolean = {  // savoir si un mur est a gauche
 		gauche();
 		if (estFaceMur()) {
 			droite();
@@ -8,7 +8,7 @@ override def run() {
 		droite();
 		return false;
 	}
-	def isDirectionFree(dir:Direction) {
+	def isDirectionFree(dir:Direction) { // vérifie que la direction donnée est libre
 		var D=Direction.NORTH;
 		setDirection(dir);
 		if (!estFaceMur()) {
@@ -19,8 +19,8 @@ override def run() {
 			return false;
 		}
 	}
-	var sommeAngle:Int = 0;
-	def keepHandOnSideWall {
+	var sommeAngle:Int = 0;  // déclare la valeur sommeAngle
+	def keepHandOnSideWall {    // méthode pour garder la patte sur le mur de gauche
 		do {
 			if (murGauche() && !estFaceMur()) {
 				avance();
@@ -41,7 +41,7 @@ override def run() {
 	}
 	
 setDirection(Direction.NORTH);
-while (!estSurBiscuit()) {
+while (!estSurBiscuit()) {   // algorithme de résolution
 	if (isDirectionFree(Direction.NORTH)) {
 		avance();
 	}
