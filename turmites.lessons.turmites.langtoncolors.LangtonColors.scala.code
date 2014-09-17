@@ -8,17 +8,19 @@ def ChangeColor(c:Color){
 def step(rule:Array[Char], colors:Array[Color]) {
 var x=getCouleurSol()
 for (i <-0 to colors.length-2){
-	
+
 	while(colors(i)!=x){
 		i==i+1
 		
 	}
+	
 	if (rule(i)=='R'){
 		gauche()
 	}
 	else {
 		droite();
 	}
+	
 	ChangeColor(colors(i+1))
 	avance();
 	
