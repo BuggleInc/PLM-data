@@ -1,26 +1,8 @@
 def indexOfValue(nums:Array[Int] ,value:Int): Int = {
-	var V=false
-	var sol=""
-	if (nums!=0) {
-		for (i <- nums) {
-			if(value==nums(i)) {
-				sol=i
-				V=true
-				return sol
-				} else {
-					while (i!=nums) {
-						V=false
-					}
-				}
-				
-		} 
-		if (V==false) {
-		return -1
-			} else {
-				return sol
-			}
+	for (i <- 0 to nums.length) {
+		if(value==nums(i)) {
+			return i
+		}	
 	}
-	else {
-		return -1
-	}
+	return -1
 }
