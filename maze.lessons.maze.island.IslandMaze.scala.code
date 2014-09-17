@@ -1,12 +1,13 @@
 override def run() {
 	var compteur = 0;
 	while (!estSurBiscuit()) {
-		while (!estFaceMur()) {
-			avance();
-		}
-		droite();
-		compteur = compteur - 1;
-		while (compteur !=0) {
+		if (compteur = 0) {
+			while (!estFaceMur()) {
+				avance();
+			}
+			droite();
+			compteur = compteur - 1;
+		} else if (compteur !=0) {
 			if (estFaceMur()) {
 				while (estFaceMur()) {
 					droite();
