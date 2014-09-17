@@ -5,7 +5,7 @@ var sommeAngle = 0
 while (!estSurBiscuit) {
 
 	do {
-		if (!estFaceMur) {
+		if (!estFaceMur && getDirection() == Direction.NORTH) {
 			courirNord()
 		}
 		longerMur()
@@ -28,14 +28,14 @@ def longerMur() {
 			avance()		
 		} else if (murDroite() && estFaceMur) {
 			gauche()
-			sommeAngle += 1
+			sommeAngle -= 1
 		} else if (!murDroite()) {
 			droite() 
-			sommeAngle -= 1
+			sommeAngle += 1
 			avance()
 		} else {
 			droite();droite()	
-			sommeAngle -= 2
+			sommeAngle += 2
 		}
 }
 
