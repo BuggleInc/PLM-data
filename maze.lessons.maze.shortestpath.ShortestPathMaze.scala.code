@@ -1,40 +1,104 @@
 override def run() {
-	val x:Int = getX()
-	val y:Int = getY()
-	val haut:Int = getMondeHauteur()
-	val large:Int = getMondeLargeur()
-	var a:Int = 0
-	var b:Int = 0
-	var inter = 0  
-	for ( h <- 0 to haut - 2 ) {
-		for (l <- 0 to large - 2 ) {
-			if (aBiscuit(h,l)) {
-				 a=h
-				 b=l
-			}
-		}
-	}
-def chercheEcrit(f:Int,g:Int):Unit = {
-	inter = getIndication(f,g)
-	inter = inter + 1
-	if ((!aMurNord(f,g)) && (getIndication(f,g-1) == 9999)) {
-		setIndication(f,g-1,inter)
-		chercheEcrit(f,g-1)
-	}
-	if ((!aMurOuest(f,g)) && (getIndication(f-1,g) == 9999)) {
-		setIndication(f-1,g,inter)
-		chercheEcrit(f-1,g)
-	}
-	if ((!aMurNord(f,g+1)) && (getIndication(f,g+1) == 9999)) {
-		setIndication(f,g + 1,inter)
-		chercheEcrit(f,g+1)
-	}
-	if ((!aMurOuest(f+1,g)) && (getIndication(f+1,g) == 9999)) {
-		setIndication(f+1,g,inter)
-		chercheEcrit(f+1,g)
-	} 
+def chemin(x:Int,y:Int) {
+    var i = getIndication(x,y);
+   
+    if (y!=0) {
+        if (!aMurNord(x,y)) {
+            if (getIndication(x,y-1)>i) {
+                setIndication(x,y-1,i+1);
+                chemin(x,y-1);
+            }
+        }
+    }
+    if (y!=getMondeHauteur()-1) {
+        if (!aMurNord(x,y+1)) {
+            if (getIndication(x,y+1)>i) {
+                setIndication(x,y+1,i+1);
+                chemin(x,y+1);
+            }
+        }
+    }
+    if (x!=0) {
+        if (!aMurOuest(x,y)) {
+            if (getIndication(x-1,y)>i) {
+                setIndication(x-1,y,i+1);
+                chemin(x-1,y);
+            }
+        }
+    }
+    if (x!=getMondeLargeur()-1) {
+        if (!aMurOuest(x+1,y)) {
+            if (getIndication(x+1,y)>i) {
+                setIndication(x+1,y,i+1);
+                chemin(x+1,y);
+            }
+        }
+    }  
 }
-while (true) {chercheEcrit(a,b)}
+
+var a=0;
+var b=0;
+var c=0;
+var d=0;
+var e=0;
+var f=0;
+var g=0;
+var indice=0;
+var inter= getMondeHauteur()*getMondeLargeur();
+for(i<- 0 to getMondeHauteur()-1){
+        for(j<- 0 to getMondeLargeur()-1){
+            if(aBiscuit(i,j)==true){
+                a=i;
+                b=j;
+            }
+        }
+}
+setIndication(a,b,0);
+for(j<- 0 to getMondeLargeur()-1){
+    for(k<- 0 to getMondeHauteur()-1){
+        chemin(j,k);
+    }
+}
+while(!estSurBiscuit){
+    setDirection(Direction.NORD);
+    var T = new Array[Int](4);
+    var tab = new Array[Boolean](4);
+    for(i<- 0 to 3){
+        T(i)=(-1);
+    }
+for(i<- 0 to 3){
+    if(!estFaceMur){
+        tab(i)=true
+    }else tab(i)=false
+    droite();
+}
+    if(tab(0)){
+        T(0)=getIndication(getX(), getY()-1);
+    }
+    if(tab(1)){
+        T(1)=getIndication(getX()+1, getY());
+    }
+    if(tab(2)){
+        T(2)=getIndication(getX(), getY()+1);
+    }
+    if(tab(3)){
+        T(3)=getIndication(getX()-1, getY());
+    }   
+        for(i<- 0 to 3){
+        if(inter>T(i) && T(i)!=(-1)){
+            indice=i;
+            inter=T(i);
+        }
+    }
+    indice match{
+        case 0 => avance();
+        case 1 => droite(); avance();
+        case 2 => droite(); droite(); avance();
+        case 3 => gauche(); avance();
+    }
+}
+prendBiscuit();
+
 
 
 }
