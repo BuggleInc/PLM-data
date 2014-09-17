@@ -18,17 +18,37 @@ override def run() {
 
 def arrive():Boolean = {
 	if (estFaceMur())
-		{ if (getDirection() == Direction.EST)
-			  {gauche()
-			    if (estFaceMur())
-			     { gauche(); return true
-			 	}}
-			else { if (getDirection == Direction.OUEST)
-					 {droite()
-					 if (estFaceMur())
-			     	  {droite(); return true
-					 }}
+	{ 
+		if (getDirection() == Direction.EST)
+		{
+			gauche()
+			if (estFaceMur())
+			{ 
+				droite()
+				return true
+			}
+			else {
+				droite()
+				return false
+			}
 		}
+		else { 
+			if (getDirection == Direction.OUEST)
+			{
+				droite()
+				if (estFaceMur())
+				{
+					gauche()
+					return true
+				}
+				else {
+					gauche()
+					return false
+				}
+			}
 		}
-	else {return false}
+	}
+	else {
+		return false
+	}
 }
