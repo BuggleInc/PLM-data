@@ -5,7 +5,7 @@ override def run() {
 	val gMH=getMondeHauteur-1	
 	var i=0
 	var j=0
-	var y=1
+	var y=0
 	while (diag!=2*gML){
 		do {
 			setPos(i,j)
@@ -13,9 +13,9 @@ override def run() {
 			x+=1
 			j-=1
 			i+=1
-		}while (i<=diag)
+		}while (i<=diag-y)
 		if (diag<gML) {i=0;j=diag+1}
-		else {i=diag-gML+1;j=gMH}
+		else {i=diag-gML+1;j=gMH;y=gMH}
 		diag+=1
 	}
 }
