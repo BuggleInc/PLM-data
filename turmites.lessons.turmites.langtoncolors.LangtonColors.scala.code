@@ -17,9 +17,12 @@ def step(rule:Array[Char], colors:Array[Color]) {
 	while  (colors(x) == getCouleurSol) {
 		x=x+1;
 	}
-	tourne(rule(x))
-	marqueSol(colors((x+1)%colors.length-1))
-	avance()
+	if ( x == colors.length) {
+		x=0
+	}
+		tourne(rule(x))
+		marqueSol(colors((x+1)))
+		avance()
 	
 }
 
