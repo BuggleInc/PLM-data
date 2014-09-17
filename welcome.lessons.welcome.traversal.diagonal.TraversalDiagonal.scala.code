@@ -9,11 +9,14 @@ override def run() {
 	var x:Int=0
 	var y:Int=0
 	var compteur:Int=0
+	var diag:Int=0
 	def initialise() {
-		if (estFaceMur) {y=y+1
-		x=0}
+		if (estFaceMur && diag<getMondeHauteur-1) {y=y+1+diag}
+		x=0
+		diag=diag+1}
+		else if (estFaceMur && diag
 		else {x=x+1
-		y=y-1}
+		y=getMondeHauteur()-1-diag}
 	
 	}
 
