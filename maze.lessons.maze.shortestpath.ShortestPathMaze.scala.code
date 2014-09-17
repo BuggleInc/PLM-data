@@ -1,3 +1,38 @@
 override def run() {
+	def chemin(x:Int,y:Int) {
+    var i = getIndication(x,y);
+    if (y!=0) {
+        if (!aMurNord(x,y)) {
+            if (getIndication(x,y-1)>=i) {
+                setIndication(x,y-1,i+1)
+                chemin(x,y-1)
+            }
+        }
+    }
+    if (y!=getMondeHauteur()-1) {
+        if (!aMurNord(x,y+1)) {
+            if (getIndication(x,y+1)>=i) {
+                setIndication(x,y+1,i+1)
+                chemin(x,y+1)
+            }
+        }
+    }
+    if (x!=0) {
+        if (!aMurOuest(x,y)) {
+            if (getIndication(x-1,y)>=i) {
+                setIndication(x-1,y,i+1)
+                chemin(x-1,y)
+            }
+        }
+    }
+    if (x!=getMondeLargeur()-1) {
+        if (!aMurOuest(x+1,y)) {
+            if (getIndication(x+1,y)>=i) {
+                setIndication(x+1,y,i+1)
+                chemin(x+1,y)
+            }
+        }
+    }   
+}
 
 }
