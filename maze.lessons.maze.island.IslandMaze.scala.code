@@ -1,0 +1,35 @@
+override def run() {
+var etat = 0;
+ etat match{
+ 	case 0 => if(getDirection() == Direction.NORTH){
+ 			while(!estFaceMur()){
+ 				avance();
+ 				}
+ 			}	
+ 	etat = 1
+ 	case 1 => if(getDirection()==Direction.NORTH){
+ 			droite();
+ 			if(estFaceMur()){
+ 				gauche();
+ 				gauche();
+ 				if(!estFaceMur()){
+ 					avance();
+ 					droite()
+ 					etat = 0
+ 				}else{ 
+ 					println("T'es dans une impasse.")
+ 					droite();
+ 					droite();
+ 					etat = 1
+ 				}
+ 			}else{
+ 				avance();
+ 				gauche();
+ 				etat = 0 
+ 			}
+			}else{
+					
+			}
+}
+}
+
