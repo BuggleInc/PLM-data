@@ -9,14 +9,14 @@ override def run() {
 	var z=1
 	while (diag!=2*gML){
 		do {
-			if (diag<gML+1) setPos(i,j)
+			if (diag<=gML) setPos(i,j)
 			else setPos(j,i)
 			ecritMessage(x)
 			x+=1
 			j-=z
 			i+=z
-		}while (i<=diag-y)
-		if (diag<gML+1) {i=0;j=diag+1}
+		}while (i<diag-y)
+		if (diag<=gML) {i=0;j=diag+1}
 		else {j=diag-gML+1;i=gMH;y=2*gML-diag;z= -1}
 		diag+=1
 	}
