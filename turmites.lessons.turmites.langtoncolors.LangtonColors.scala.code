@@ -2,7 +2,27 @@
 var x=getCouleurSol()
 var i=0;
 def step(rule:Array[Char], colors:Array[Color]) {
-avance(5);
+     x=getCouleurSol();
+	while(colors(i)!=x){
+		i=i+1
+		
+	}
+	
+	if (rule(i)=='R'){
+		droite()
+	}
+	else {
+		gauche();
+	}
+	if (i==colors.length-1){
+		ChangeColor(colors(0));
+	
+	}
+	else {
+	ChangeColor(colors(i+1));
+	}
+	avance();
+	i=0;
 	
 
 
