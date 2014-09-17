@@ -2,12 +2,12 @@ override def run() {
 	def final():Boolean = {
 		if(estfaceMur  ) {
 		getDirection()
-		if (getDirection()==direction.EST){
+		if (getDirection()==Direction.EST){
 			gauche() 
 			if(estFaceMur) { droite(); return true }
 			else { droite() ;return false}
 		}
-		else { droite() }
+		else { droite() 
 		if(estFaceMur) { gauche();return true }
 		else { gauche();return false}
 		}
@@ -21,10 +21,10 @@ while(final==false) {
 	while(!estFaceMur){
 		baisseBrosse();avance()
 	}
-	if(getDirection()==Dorection.EST && final()==false) {
+	if(getDirection()==Direction.EST && final()==false) {
 		gauche();avance();gauche()
 	}
-	if(getDirection()==direction.OUEST && final() && estFaceMur ){
+	if(getDirection()==Direction.OUEST && final() && estFaceMur ){
 		droite();avance();droite();
 	}
 }
