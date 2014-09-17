@@ -1,13 +1,17 @@
 override def run() {
 
 while(!estSurBiscuit) {
+	if (getY() == 0) {
+		while (!estSurBiscuit) {
+			longerMur()
+		}
+	} else {
 	if (!estFaceMur && getDirection() != Direction.NORTH) {
 		courirNord()
-	} else {
-		
-			longerMur()
-		
+	} else {		
+		longerMur()
 	}
+}
 }	
 prendBiscuit()
 
