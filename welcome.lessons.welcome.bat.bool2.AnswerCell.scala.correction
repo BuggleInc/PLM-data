@@ -1,0 +1,10 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class answerCell extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( answerCell( t.getParameter(0).asInstanceOf[Boolean], t.getParameter(1).asInstanceOf[Boolean], t.getParameter(2).asInstanceOf[Boolean]) )
+   }
+def answerCell(isMorning:Boolean, isMom:Boolean, isAsleep:Boolean):Boolean = {
+   return (! isAsleep) && !(isMorning && !isMom)
+} }
