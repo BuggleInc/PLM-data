@@ -1,0 +1,34 @@
+$package 
+
+import plm.universe.unit.UnitEntity;
+import plm.universe.unit.UnitWorld;
+import plm.universe.unit.UnitTest;
+
+public class MonkeyTrouble extends UnitEntity {
+
+	@Override
+	public void run() throws Exception {
+		System.err.println("On est dans le run ?");
+		System.err.println("Tests: "+ ((UnitWorld) world).getTests().size());
+		for(UnitTest t:((UnitWorld) world).getTests()) {
+			t.setResult(monkeyTrouble((boolean) t.getParams()[0], (boolean) t.getParams()[1]));
+		}
+	}
+
+	/* BEGIN TEMPLATE */
+	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+		/* BEGIN SOLUTION */
+		if (aSmile && bSmile) {
+			return true;
+		}
+		if (!aSmile && !bSmile) {
+			return true;
+		}
+		return false;
+		
+		
+		/* END SOLUTION */		  
+	}	
+	/* END TEMPLATE */
+	
+}
