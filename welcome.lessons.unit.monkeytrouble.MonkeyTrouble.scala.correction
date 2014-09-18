@@ -1,0 +1,26 @@
+$package 
+
+import plm.universe.unit.UnitEntity;
+import plm.universe.unit.UnitWorld;
+import plm.universe.unit.UnitTest;
+
+class MonkeyTrouble extends UnitEntity {
+
+	@Override
+	override def run() {
+    var t:UnitTest = null;
+    for(i <- 0 to world.asInstanceOf[UnitWorld].getTests().size()) {
+      t = world.asInstanceOf[UnitWorld].getTests().get(i);
+      t.setResult(monkeyTrouble(t.getParams()(0).asInstanceOf[Boolean], t.getParams()(1).asInstanceOf[Boolean]));
+    }
+	}
+
+	/* BEGIN TEMPLATE */
+	def monkeyTrouble(aSmile:Boolean, bSmile:Boolean):Boolean = {
+		/* BEGIN SOLUTION */
+		return ((aSmile && bSmile) || (!aSmile && !bSmile));
+    /* END SOLUTION */		  
+	}	
+	/* END TEMPLATE */
+	
+}
