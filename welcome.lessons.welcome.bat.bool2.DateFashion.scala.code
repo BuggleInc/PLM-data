@@ -3,7 +3,7 @@ def dateFashion(you:Int, date:Int):Int =
 	(you,date) match
 	{
 		case (a,b) if( a>=8 || b>=8) => return 2
-		case (a,b) if ( a<=2 || b<=2) => return 0
+		case (a,b) if ( (a<=2 && b>=8)|| (b<=2 && a>=8)) => return 0
 		case (_,_) => return 1
 	}
 }
