@@ -1,0 +1,13 @@
+def shareDigit(a:Int, b:Int):Boolean =
+{
+/*Soit deux entiers, chacun étant dans l'intervalle [10,99],
+renvoyez vrai si il y a un chiffre qui apparaît dans les deux nombres,
+comme 2 dans 12 et 23. (Note: division, i.e. n/10, 
+renvoie le chiffre à gauche tant que le % "mod" n%10 renvoie le bon chiffre.) */
+
+(a/10,a%10,b/10,b%10) match
+{
+	case(u,v,w,x) if(u==w || u==x ||  v==w || v==x) => return true
+	case _ 								   => return false
+	}
+}
