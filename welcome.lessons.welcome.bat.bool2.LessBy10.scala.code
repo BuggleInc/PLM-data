@@ -2,12 +2,9 @@ def lessBy10(a:Int, b:Int, c:Int):Boolean =
 {
 /*Soit trois entiers, a b c, renvoyez vrai si l'un d'entre eux
  est plus petit de 10 ou plus que l'un des autres.*/
-
- (a,b,c) match
- {
- 	case(a,b,c) if(a+10<b || a+10<c) => return true
- 	case(a,b,c) if(b+10<a || b+10<c) => return true
- 	case(a,b,c) if(c+10<a || c+10<b) => return true
- 	case(_,_,_) 				   => return false 
- }
+(Math.abs(a-b), Math.abs(a-c),Math.abs(b-c)) match
+{
+	case(x,y,z) if(x<10 || y<10 || z<10 ) => return true
+	case(_,_,_)					   => return false
+}
 }
