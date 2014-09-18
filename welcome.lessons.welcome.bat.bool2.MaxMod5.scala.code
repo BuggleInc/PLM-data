@@ -1,0 +1,16 @@
+def maxMod5(a:Int, b:Int):Int = {
+ /*Soit deux valeurs entières, renvoyez la plus grande des deux.  
+  Cependant, si les deux valeurs ont le même reste quand elles sont divisées par 5, 
+  alors renvoyez la plus petite des deux. Cependant, dans tous les cas, si les deux valeurs sont égales, 
+  renvoyez 0. Note: l'opérateur % "mod" calcule le reste, i.e. 7 % 5 vaut 2.*/
+
+  (a,b) match
+  {
+  	case(a,b) if((a%5)==(b%5)) => return 0
+	case(a,b) if(a>b)		  => return a
+     case(a,b) if(a<b)		  => return b
+	case(a,b) if(a==b)         => return a
+	case(_,_) 			  => return 0
+  	
+  }
+}
