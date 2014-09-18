@@ -1,0 +1,17 @@
+def redTicket(a:Int, b:Int, c:Int):Int = {
+/*Vous avez un ticket de loterie rouge comportant trois entiers a, b et c. 
+ * Chacun d'entre eux est 0, 1, ou 2. Si ils ont tous comme valeur 2, 
+ le résultat vaut 10.
+ Sinon, si ils sont égaux, le résultat vaut 5. 
+ * Sinon, tant que b et c sont différents de a,  
+ le résultat vaut 1.
+ Sinon, le résultat est 0.*/
+
+	 (a,b,c) match
+	 {
+	 	case(a,b,c) if(a==2 && b==2 && c==2 ) => return 10
+	 	case(a,b,c) if(a==b && b==c && c==a ) => return 5
+	 	case(a,b,c) if(b!=a && c!=a)		  => return 1
+	 	case _ 						  => return 0
+	 }
+}
