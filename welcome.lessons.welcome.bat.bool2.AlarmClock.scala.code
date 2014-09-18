@@ -1,16 +1,10 @@
-def alarmClock(day:Int, vacation:Boolean): String =
+def answerCell(isMorning:Boolean, isMom:Boolean, isAsleep:Boolean):Boolean =
 {
-(day,vacation) match
+(isMorning,isMom,isAsleep) match
 {
-	case (1,vacation) => if(vacation==false) { return "7:00"} ; return "10:00"
-	case (2,vacation) => if(vacation==false) { return "7:00"} ; return "10:00"
-	case (3,vacation) => if(vacation==false) { return "7:00"} ; return "10:00"
-	case (4,vacation) => if(vacation==false) { return "7:00"} ; return "10:00"
-	case (5,vacation) => if(vacation==false) { return "7:00"} ; return "10:00"
-	case (6,vacation) => if(vacation==false) { return "10:00"} ; return "off"
-	case (0,vacation) => if(vacation==false) { return "10:00"} ; return "off"
-
-
-	
+	case (true,true,_) => return true
+	case (true,_,_)    => return false//
+	case (_,_,_)       => return true//
+	case (_,_,true)    => return false
 }
 }
