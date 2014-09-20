@@ -1,5 +1,9 @@
 override def run() {
-	var sommeAngle:Int = 0
+	var sommeAngle:Int = 0;
+	var dir = getDirection();
+	def isDirectionFree(dir) {
+		
+	}
 	while (!estFaceMur()) {
 		avance();
 	}
@@ -13,9 +17,7 @@ override def run() {
 				while (estFaceMur()) {
 					droite();
 				}
-				sommeAngle = sommeAngle - 1;
 				avance();
-				ecritMessage(sommeAngle.toString);
 			} else {
 				avance();
 			}
@@ -25,6 +27,7 @@ override def run() {
 		 	}
 		 	droite();
 			}
+			sommeAngle = sommeAngle - 1;
 	}
 	prendBiscuit();
 }
