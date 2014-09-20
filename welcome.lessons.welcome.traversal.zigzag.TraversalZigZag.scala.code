@@ -1,0 +1,30 @@
+override def run() {
+	do{
+		zigzagEtMarque()
+}while ( cpt == 48)
+def zigzagEtMarque() = {
+	val y = 0 
+	var cpt:Int = 0
+	for (x<- 0 to getMondeLargeur() - 1){			
+			setPos(x, y)
+			ecritMessage(cpt)
+			cpt += 1 
+	}
+	if (getDirection() == Direction.EST){
+		setDirection(Direction.SOUTH)
+		if (estFaceMur()){
+			return
+		}else{
+			setPos (x, y + 1)
+			droite()
+		}
+			
+	}else if (getDirection() == Direction.WEST){
+		setDirection(Direction.SOUTH)
+		setPos(x, y + 1)
+		gauche()
+	}
+
+}
+		
+}
