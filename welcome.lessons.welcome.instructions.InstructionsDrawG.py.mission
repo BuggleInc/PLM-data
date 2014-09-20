@@ -1,0 +1,63 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Écrire des programmes plus complexes</h2>
+  Maintenant que vous savez écrire des choses sur le sol, nous allons utiliser
+cette compétence pour dessiner un merveilleux G par terre. Consultez le
+panneau d'objectif pour les détails de ce qui est attendu. 
+
+  <p>Quand vous écrivez un programme un peu complexe, il est souvent pratique
+d'ajouter des <b>commentaires</b> pour simplifier la relecture du code après
+coup. Ici par exemple, il est assez facile de se perdre dans les ordres
+nécessaires au dessin. Il peut être pratique d'ajouter des commentaires
+comme <i>fin de la barre verticale</i> ou <i>Fini de dessiner le
+G. Retournons à la position initiale</i>. Documenter votre code est presque
+toujours nécessaire si quelqu'un (vous ou quelqu'un d'autre) veut le lire
+après coup. Cependant, sur-commenter des choses triviales est une mauvaise
+idée car cela dilue les informations dans des commentaires trop verbeux.</p>
+   
+  <p>Il y a deux sortes de commentaires en
+python, indiquant à
+l'interpréteur qu'il ne doit pas lire le texte ajouté pour les humains.</p>
+   
+  <ul>
+    <li><b>Commentaires sur une seule ligne</b>. Quand le
+interpréteur rencontre le symbole
+#, il ignore la fin de la ligne.</li>      
+    <li><b>Commentaires sur plusieurs lignes</b>. L'interpréteur ignore tout ce qui se trouve
+entre 
+une ligne commençant par ''' et la prochaine ligne terminant par
+'''.</li>
+  </ul>
+
+<pre>
+methodeAppeleeParLeInterpreteur() <span class="comment"># tout ceci est ignoré</span>
+autreAppel() 
+<span class="comment">''' Ceci est</span>
+<span class="comment">également ignoré '''</span>
+encoreUneAutreAppel()
+</pre>  
+  <p class="Java">Il existe une troisième forme de commentaires en Java, entre /** et */, qui
+sont lus par un programme nommé JavaDoc pour générer automatiquement la
+documentation expliquant comment utiliser le code. Ces commentaires doivent
+suivre un formalisme précis.</p>
+
+  <p class="Python">Les commentaires sur plusieurs lignes sont souvent utilisés pour documenter
+comment utiliser le code, tandis que les autres types de commentaires sont
+souvent utilisés pour documenter comment le code fonctionne.</p>
+</body></html>
