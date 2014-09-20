@@ -3,8 +3,9 @@ override def run() {
 		gauche();
 	}
 	droite();
-	if (getDirection() != Direction.NORD) {
-		while (!estSurBiscuit()) {
+
+	while (!estSurBiscuit()) {
+		if (getDirection() != Direction.NORD) {
 			gauche();
 			if (estFaceMur()) {
 				while (estFaceMur()) {
