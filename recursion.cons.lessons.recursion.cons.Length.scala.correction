@@ -1,10 +1,10 @@
 $package
 import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
 import plm.universe.World; 
-import scala.collection.JavaConversions._;
+import scala.collection.JavaConverters._;
 class length extends BatEntity { 
    override def run(t: BatTest) {
-   t.setResult( length( scala.collection.JavaConversions.asScalaIterable(t.getParameter(0).asInstanceOf[java.util.List[Int]])) )
+   t.setResult( length( t.getParameter(0).asInstanceOf[java.util.List[Int]].asScala) )
    }
 def length(list:List[Int]): Int = {
   list match {
