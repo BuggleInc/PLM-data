@@ -1,25 +1,14 @@
 def insertionSort() {
   var swapped = false;
-	for (i<- 0 to getNombreValeurs()-2)
-	    if (plusPetit(i+1, i))
-	    	{
-	    		var j = i+1;
+	for (i<- 0 to getNombreValeurs()-1)
+	    		var j = i;
 	    		var value = getValeur(i+1)
-	    		do
+	          while(j >=1 && plusPetit(j,j-1));
 	    		{
-                 if (plusPetit(j,j-1))
-                 {
                    copie(j,j-1)
 	    		    j -=1;
-	    		    swapped = true;
                  }
-                 else
-                 {
-                 	setValeur(j-1,value)
-                 	swapped = false
-                 }
-	    			} while(swapped && j >=1 );
-	    		
+               setValeur(j-1,value)
 	    	}
 }
 
