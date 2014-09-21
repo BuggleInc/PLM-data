@@ -1,6 +1,6 @@
 def golomb(num:Int): Int = {
 var freq = new Array[Int](num)
-
+var a = 0
 
 if (num==1) return 1
 
@@ -8,6 +8,11 @@ if (num==1) return 1
 
 
 freq(i)=golomb(i)
+
+while (k != freq(i))
+golomb(i)=a
+
+a += 1
 	
 	
 
