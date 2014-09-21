@@ -4,7 +4,7 @@ import plm.universe.World;
 import scala.collection.JavaConverters._;
 class plusOne extends BatEntity { 
    override def run(t: BatTest) {
-   t.setResult( plusOne( (if (t.getParameter(0) == null) {  null} else if (t.getParameter(0).isInstanceOf[lessons.recursion.cons.universe.RecList]) {  t.getParameter(0).asInstanceOf[lessons.recursion.cons.universe.RecList].toList().asScala.toList} else {  t.getParameter(0).asInstanceOf[java.util.List[Int]].asScala.toList}) ) )
+   t.setResult( plusOne( (if (t.getParameter(0) == null) {  null} else if (t.getParameter(0).isInstanceOf[lessons.recursion.cons.universe.RecList]) {  t.getParameter(0).asInstanceOf[lessons.recursion.cons.universe.RecList].toList().asInstanceOf[java.util.List[Int]].asScala.toList} else {  t.getParameter(0).asInstanceOf[java.util.List[Int]].asScala.toList}) ) )
    }
 def plusOne(l:List[Int]): List[Int] = {
   l match {
