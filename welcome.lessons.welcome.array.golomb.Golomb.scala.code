@@ -1,21 +1,23 @@
 def golomb(num:Int): Int = {
 var freq = new Array[Int](num)
 var a = 0
-var i = 0
-if (num==1) return 1
-a=2 
-i=2
+var i = 1
+
+golomb(1)=1
+freq(1)=1
 
 
 
-freq(i)=golomb(i)+1
 
-while (k != freq(i))
+
+while (k != freq(i) && i !=num) {
 golomb(i)=a
+k += 1}
+
+return i
 
 a += 1
-	
-	
-
+freq(i)=golomb(i)+1	
+else return 0	
 
 }
