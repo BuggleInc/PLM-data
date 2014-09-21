@@ -1,6 +1,6 @@
 override def run() {
 while(!estSurBiscuit()){
-	var etat=0;
+	var etat=1;
 etat match  {
   case 0 => // courir au nord
      while (getDirection() != Direction.NORTH && !estFaceMur()){
@@ -11,10 +11,12 @@ etat match  {
      }
      
   case 1 => // suivre à gauche
+     
      while (estFaceMur()){
 		droite()
 	}
-	avance()	
+	avance()
+	gauche()	
 	if (getDirection() == Direction.NORTH){
      	etat = 0
 	}
