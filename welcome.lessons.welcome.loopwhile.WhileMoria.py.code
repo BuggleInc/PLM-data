@@ -1,11 +1,12 @@
-while(estSurBiscuit()==False and estFaceMur()==False):
-    setDirection(Direction.EAST)
-    avance()
-if(estSurBiscuit()==True):
-    prendBiscuit()
-    setDirection(Direction.WEST)
-    while(estSurBiscuit()==False):
+while(getCouleurSol()=="Color.green"):
+    while(estSurBiscuit()==False and estFaceMur()==False):
+        setDirection(Direction.EAST)
         avance()
-    recule()
-    poseBiscuit()
-    recule()
+    if(estSurBiscuit()==True):
+        prendBiscuit()
+        setDirection(Direction.WEST)
+        while(estSurBiscuit()==False):
+            avance()
+        recule()
+        poseBiscuit()
+        recule()
