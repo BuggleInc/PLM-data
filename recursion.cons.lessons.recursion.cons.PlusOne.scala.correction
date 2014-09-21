@@ -2,11 +2,11 @@ $package
 import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
 import plm.universe.World; 
 import scala.collection.JavaConverters._;
-class length extends BatEntity { 
+class plusOne extends BatEntity { 
    override def run(t: BatTest) {
    t.setResult( plusOne( t.getParameter(0).asInstanceOf[java.util.List[Int]].asScala.toList) )
    }
-def plusOne(l:List[Int]): Int = {
+def plusOne(l:List[Int]): List[Int] = {
   l match {
     case a::b => (a+1)::plusOne(b)
     case _    => Nil
