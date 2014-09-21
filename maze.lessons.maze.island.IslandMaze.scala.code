@@ -2,13 +2,23 @@ override def run() {
 	var etat=0;
 etat match  {
   case 0 => // courir au nord
-     ...
+     while (getDirection() != Direction.NORTH){
+     	droite()
+     	while (estFaceMur()){
+     		droite()
+     	}
+     }
      etat = 1;
   case 1 => // suivre à gauche
-     ...
+     gauche()
+	while (estFaceMur()){
+		droite()
+	}
+	avance()	
+	
      etat = 0;
   case _ => return "ERROR"
 	
 }
-    
+}    
 
