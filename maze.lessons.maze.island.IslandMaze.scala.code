@@ -1,11 +1,11 @@
 override def run() {
-	var etat=0;
-etat match  {
-  case 0 => // courir au nord
-     ...
-     etat = 1;
-  case 1 => // suivre à gauche
-     ...
-     etat = 0;
-  case _ => return "ERROR"
+	while (getDirection == Direction.North){
+     	while (estFaceMur()){
+			droite()
+		}
+		avance()	
+	}
+	
 }
+    
+
