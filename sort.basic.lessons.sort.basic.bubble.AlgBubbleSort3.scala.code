@@ -2,14 +2,16 @@ def bubbleSort3() {
 var x=getNombreValeurs()
 var y=1
 	for(i<- 0 to x-2){
-		while (y!=0){
-			y=0
-			for(a<- 0 to (x-2-i)){
-				if (getValeur(a)>getValeur(a+1)){
-					echange(a,a+1)
-					y=y+1
-				}
+		if (y=0){
+			return
+		}	
+		y=0
+		for(a<- 0 to (x-2-i)){
+			if (getValeur(a)>getValeur(a+1)){
+				echange(a,a+1)
+				y=y+1
 			}
 		}
 	}
 }
+
