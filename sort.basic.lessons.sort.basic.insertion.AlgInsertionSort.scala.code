@@ -2,14 +2,14 @@ def insertionSort() {
 
 	var v = 0
 	var idxCopie = 0
+	var cpt = 1
 
 	for (i<-1 to getNombreValeurs()-1) {
 		v=getValeur(i)
 		idxCopie = i
-		for (k<-1 to i) {
-			if (!plusPetitQue(i-k, v)) {
-				copie(i-k, i-k+1)
-				idxCopie = i-k
+		while (!plusPetitQue(i-cpt, v)) {
+			copie(i-cpt, i-cpt+1)
+			idxCopie = i-cpt
 			}
 		}
 		setValeur(idxCopie, v)
