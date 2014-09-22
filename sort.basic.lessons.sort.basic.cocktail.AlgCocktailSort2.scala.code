@@ -2,13 +2,13 @@ def cocktailSort2()
 {
 		var i : Int = 0;
 		var echEffect : Int = 1;
-		var ndeb : Int = 0;
-		var nfin : Int = 0;
+		var n : Int = 0;
+		
 	while (echEffect == 1)
 	{
 		echEffect = 0;
 			
-		while (i<getNombreValeurs()-1-ndeb)
+		while (i<getNombreValeurs()-1)
 		{
 			if(plusPetit(i+1,i))
 			{
@@ -17,10 +17,12 @@ def cocktailSort2()
 			}
 			i=i+1;
 		}
+		n = n + 1;
 
-		nfin = nfin + 1
+		i = i - n;
+		
 	
-		while(i>nfin)
+		while(i>0)
 		{
 			if(plusPetit(i,i-1))
 			{
@@ -30,6 +32,7 @@ def cocktailSort2()
 			i=i-1;
 		}
 
-		ndeb=ndeb+1;
+		i = i + n;
+		
 	}
 }
