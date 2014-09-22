@@ -1,2 +1,22 @@
-def shellSort()  {
+def shellSort() {
+	var gap = getNombreValeurs()/2
+
+	while (gap > 0) {
+		for (i <- gap to getNombreValeurs() - 1 by gap) {
+			var valeur = getValeur(i)
+			var nouvelleCase = i
+			var j = i - gap
+			
+			while (j > -1) {
+				if (getValeur(j) > valeur) {
+					copie(j,j+gap)
+					nouvelleCase = j
+					j = j - gap
+				} else j = -1
+			}
+				
+			setValeur(nouvelleCase,valeur)
+		}
+		gap = gap/2
+	}
 }
