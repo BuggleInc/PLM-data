@@ -1,15 +1,15 @@
 def bubbleSort2() {
 	
 	var inverse = true
-	var c = 0
+	var c = getNombreValeurs()-2
 
 	do {
 		inverse = false
-		for (i <- 0 to getNombreValeurs()-2-c) {
+		for (i <- 0 to c) {
 				if (!plusPetit(i,i+1)) {
 					echange(i,i+1)
 					inverse = true
-					c=c+1
+					c=c-1
 				}
 		}
 	} while (inverse)
