@@ -2,12 +2,14 @@ def insertionSort() {
 	for (i <- 1 to getNombreValeurs() - 1) {
 		var valeur = getValeur(i)
 		var nouvelleCase = i
-				
-		for (j <- i-1 to 0 by -1) {
-			if (getValeur(j) > valeur) {
+		var j = i - 1
+		
+		//for (j <- i-1 to 0 by -1) {
+		while (j != 0 && getValeur(j) > valeur) {
+			//if (getValeur(j) > valeur) {
 				copie(j,j+1)
 				nouvelleCase = j
-			}
+			//}
 		}
 		
 		setValeur(nouvelleCase,valeur)
