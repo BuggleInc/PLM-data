@@ -1,0 +1,18 @@
+def solve() {
+	def chercheRayonMax(rang:Int):Int = {
+		var max = rang
+
+		for (i <- rang + 1 to getTaillePile() - 1) {
+			if (getRayonCrepe(i) > getRayonCrepe(max)) max = i
+		}
+
+		return max
+	}
+
+	var rangInit = 0
+	
+	while (!estTriee()) {
+		retourne(getTaillePile() - chercheRayonMax(rangInit))
+		retourne(getTaillePile() - rang)
+	}
+}
