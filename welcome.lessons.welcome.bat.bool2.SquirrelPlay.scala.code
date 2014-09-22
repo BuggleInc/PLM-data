@@ -1,0 +1,16 @@
+def squirrelPlay(temp:Int, isSummer:Boolean):Boolean =
+{
+/*Les écureuils dans Palo Alto passent la majorité de leurs journées à jouer. 
+ * En particulier, ils jouent si la température est entre 60 et 90 (inclus). 
+ * A moins que ce soit l'été, alors la limite supérieure est de 100 au lieu de 90.  
+ Soit une température entière et un booléen isSummer. 
+ Renvoyez vrai si les écureuils jouent et faux sinon.*/
+
+ (temp,isSummer) match
+ {
+ 	case(temp,false) if(temp<=90 && temp>=60) => { return true}
+ 	case(temp,true) if(temp<=100 && temp>=60) => { return true}
+ 	case _ 							  => { return false}
+ }
+
+}
