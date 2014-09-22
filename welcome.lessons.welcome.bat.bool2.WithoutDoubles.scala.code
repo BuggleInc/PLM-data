@@ -1,0 +1,14 @@
+def withoutDoubles(die1:Int, die2:Int, noDoubles:Boolean):Int =
+{
+/*Renvoyez la somme du jet de deux dés à six faces. 
+ Cependant, si noDoubles est vrai et que les deux dés ont la même valeur,
+ incrémentez l'un des dés à la valeur suivante, en le mettant à 1 si sa valeur était 6. */
+
+ (die1,die2,noDoubles) match
+ {
+ 	case(a,b,_) 					=> return a+b
+ 	case(a,b,true) if( a==b && a==6 )		=> return 7
+ 	case(a,b,true) if(a==b)      			=> return 2*a +1
+ 	case(a,b,false)					=> return 2*a   
+ }
+}
