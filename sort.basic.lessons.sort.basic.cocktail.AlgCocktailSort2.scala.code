@@ -1,13 +1,13 @@
 def cocktailSort2() {
+	var lgr : Int = getNombreValeurs();
+	var debut : Int = 0;
+	var fin : Int = lgr -2;
 	var eff : Int = 1;
 	
 	while(eff == 1){
 		eff = 0;
 		
-		var lgr : Int = getNombreValeurs();
-		var debut : Int = 0;
-		var fin : Int = lgr -2;
-
+		
 		var i : Int = debut;
 		while(i <= fin) {
 			if(plusPetit(i+1, i)){
@@ -16,7 +16,9 @@ def cocktailSort2() {
 			}
 			i = i+1;
 		}
+		
 		fin -= 1;
+		
 		i = fin;
 		while(i > debut){
 			if(plusPetit(i, i-1)){
