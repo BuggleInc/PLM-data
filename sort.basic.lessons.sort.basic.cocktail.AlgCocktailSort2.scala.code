@@ -1,11 +1,12 @@
 def cocktailSort2() 
 {
 	var hasSwap:Boolean = false;
-	var end: Int = 1
+	var end: Int = getNombreValeurs();
+	var beginning: Int = 1
 
 	do{
 		hasSwap = false;
-		for(i <-1 to getNombreValeurs()-end by 1)
+		for(i <-beginning to end-1 by 1)
 		{
 			if (plusPetit(i, i-1))
 				{
@@ -14,7 +15,7 @@ def cocktailSort2()
 				}
 		}
 		end-=1;
-		for( i<- getNombreValeurs()-end to 1 by -1)
+		for( i<-end to beginning by -1)
 		{
 			if (plusPetit(i, i-1))
 				{
@@ -22,7 +23,7 @@ def cocktailSort2()
 					hasSwap = true;
 				}
 		}
-		end+=1;
+		beginning +=1;
 	}while(hasSwap)
 	
 }
