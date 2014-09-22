@@ -8,16 +8,21 @@ def gnomeSort() {
 	
 
 	
-		while(gnomePos < getNombreValeurs() - 2)
+		while(gnomePos < getNombreValeurs() - 1)
 		{
-			if(!plusPetit(gnomePos-1,gnomePos+1) && gnomePos > 0)
+			if(!plusPetit(gnomePos-1,gnomePos+1))
 			{
 				echange(gnomePos,gnomePos+1);
 				gnomePos = gnomePos - 1;
 			}
 			else
 			{
-				gnomePos = gnomePos + 1
+				gnomePos = gnomePos + 1;
+			}
+			
+			if(gnomePos == 0)
+			{
+				gnomePos = gnomePos + 1;	
 			}
 			
 			
