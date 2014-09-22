@@ -1,2 +1,21 @@
 def cocktailSort2() {
+	var inverse=false
+	var N=getNombreValeurs()
+	do{
+		inverse=false
+		for (i<- 0 to N-2) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1)
+			inverse=true
+			N-=1
+			}
+		}
+		for (i<-N-2 to 0 by -1) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1)
+			inverse=true
+			N-=1
+			}
+		}
+	} while (inverse)
 }
