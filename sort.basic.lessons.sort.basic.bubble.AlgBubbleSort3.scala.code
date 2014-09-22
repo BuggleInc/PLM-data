@@ -1,4 +1,8 @@
+import scala.util.control._
+
 def bubbleSort3() {
+	val loop = new Breaks;
+	loop.breakable{
 	for (i <- getNombreValeurs()-2 to 0 by -1) {
 		var inverse = true;
 		if (inverse) {
@@ -9,6 +13,9 @@ def bubbleSort3() {
 					inverse = true;
 				}
 			}	
+		}
+		else {
+			loop.break;
 		}
 	}
 }
