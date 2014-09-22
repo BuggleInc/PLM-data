@@ -1,20 +1,23 @@
 def cocktailSort2() {
+var w=0
 var x=0
 var y=0
 var z=getNombreValeurs()-2
 do {
+	w=0
 	x=0
-	y=0
-for (i <- z to 0 by -1) {
-	if (getValeur(i)>getValeur(i+1)) {
-			echange(i,i+1)
-			x=1
-	}
-}
-for (i <- 0 to z) {
+for (i <- y to z) {
 		if (getValeur(i)>getValeur(i+1)) {
 			echange(i,i+1)
-			y=1
+			z -= 1
+			w=1
+	}
+}
+for (i <- z to y by -1) {
+	if (getValeur(i)>getValeur(i+1)) {
+			echange(i,i+1)
+			y += 1
+			x=1
 	}
 }
 z=z-1
