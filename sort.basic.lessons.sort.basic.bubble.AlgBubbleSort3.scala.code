@@ -1,16 +1,14 @@
 def bubbleSort3() {
 	for (i <- getNombreValeurs()-2 to 0 by -1) {
-		var inverse = true;
-		if (inverse) {
-			inverse = false;
+		var inverse = false;
 			for (j <- 0 to i) {
 				if (plusPetit(j+1,j)) {
 					echange(j+1,j);
 					inverse = true;
 				}
-			}	
-		}
-		else {
+			}
+			
+		if (!inverse) {
 			return;
 		}
 	}
