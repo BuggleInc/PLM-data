@@ -1,2 +1,40 @@
-def cocktailSort() {
+def bubbleSort()  {
+
+
+	var estTrie = false;
+	var invIndice = getNombreValeurs();
+	
+	while(!estTrie)
+	{
+
+	estTrie = true;
+	
+		for(i <- 0 to getNombreValeurs() - 2)
+		{
+			if(!plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				estTrie = false;
+			}
+		}
+		
+		if(!estTrie)
+		{
+
+				for(i <- 0 to getNombreValeurs() - 2)
+			{
+
+				invIndice = getNombreValeurs() - i;
+				
+				if(plusPetit(invIndice,invIndice-1))
+				{
+				echange(invIndice,invIndice-1);
+				}
+			}
+
+
+		
+		}
+	}
+
 }
