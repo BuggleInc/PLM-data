@@ -4,7 +4,10 @@ var y=1
 var debut=0
 var fin=x-2
 for(c<- 0 to (x-2)/2){
-	
+	if(y==0){
+		return
+	}
+	y=0	
 	for(i<- debut to fin){
 		if (getValeur(i)>getValeur(i+1)){
 			echange(i,i+1)
@@ -12,6 +15,10 @@ for(c<- 0 to (x-2)/2){
 		}
 	}
 	fin=fin-1
+	if(y==0){
+		return
+	}
+	y=0
 	for (w<- fin to debut by -1){
 		if (getValeur(w)>getValeur(w+1)){
 			echange(w,w+1)
