@@ -5,9 +5,11 @@ var chgt = 0
 while (chgt == 0) {
 	chgt = 1
 	for (i <- getNombreValeurs() to 0 by -1) {
-		if (getValeur(i+1) > getValeur(i)) {
-			echange(i,i+1)
-			chgt = 0
+		for (j <- 0 to i) {
+			if (getValeur(j+1) > getValeur(j)) {
+				echange(j,j+1)
+				chgt = 0
+			}
 		}
 	}
 }
