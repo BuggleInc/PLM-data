@@ -1,2 +1,41 @@
-def cocktailSort3() {
+def cocktailSort3()  {
+
+
+	var estTrie = false;
+	var invIndice = getNombreValeurs();
+	var incValue = 0;
+	
+	while(!estTrie)
+	{
+
+	estTrie = true;
+	
+		for(i <- incValue to getNombreValeurs() - 2 - incValue)
+		{
+			if(!plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				estTrie = false;
+			}
+		}
+		
+		
+	if(!estTrie)
+	{
+				for(i <- 2 + incValue to getNombreValeurs() - incValue)
+			{
+
+				invIndice = getNombreValeurs() - i;
+				
+				if(plusPetit(invIndice+1,invIndice))
+				{
+					echange(invIndice+1,invIndice);
+				}
+			}
+		incValue = incValue + 1;
+	}
+		
+		
+	}
+
 }
