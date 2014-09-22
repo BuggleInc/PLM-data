@@ -1,18 +1,16 @@
 def bubbleSort()  {
 var n=getNombreValeurs()
-def fini():Boolean {
-	return (for (k<-1 to n-2) {
-		plusPetit(k,k+1)
-	})
-}
+var compteur=0
 
 	
-while(!fini){
-	
-		for (k<- 1 to n-2){
+while(compteur!=n-1){
+	compteur=0
+	for (k<- 1 to n-2){
 			if (plusPetit(k+1,k)){
 				echange(k+1,k)
-			}
+			} else {
+				compteur=compteur+1
 		}
 	}
+}
 }
