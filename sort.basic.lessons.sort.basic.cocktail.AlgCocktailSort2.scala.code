@@ -1,2 +1,40 @@
-def cocktailSort2() {
+def cocktailSort2()  {
+
+
+	var estTrie = false;
+	var invIndice = getNombreValeurs();
+	var incValue = 0;
+	
+	while(!estTrie)
+	{
+
+	estTrie = true;
+	
+		for(i <- 0 to getNombreValeurs() - 2 - incValue)
+		{
+			if(!plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				estTrie = false;
+			}
+		}
+		
+		
+
+				for(i <- 2 + incValue to getNombreValeurs())
+			{
+
+				invIndice = getNombreValeurs() - i;
+				
+				if(plusPetit(invIndice+1,invIndice))
+				{
+				echange(invIndice+1,invIndice);
+				}
+			}
+
+
+		
+		
+	}
+
 }
