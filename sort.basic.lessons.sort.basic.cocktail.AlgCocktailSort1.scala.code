@@ -1,14 +1,37 @@
 def cocktailSort() {
 	do {
-		for (i <- 0 to getNombreValeurs()-2) {
-			if (plusPetit(i+1,i)) {
-				echange(i+1,i);
+		var break = false;
+		while (!break) {
+			for (i <- 0 to getNombreValeurs()-2) {
+				if (plusPetit(i+1,i)) {
+					echange(i+1,i);
+					break = true;
+				}
 			}
-		}
-		for (i <- getNombreValeurs()-2 to 0 by -1) {
-			if (plusPetit(i+1,i)) {
-				echange(i+1,i);
+			for (i <- getNombreValeurs()-2 to 0 by -1) {
+				if (plusPetit(i+1,i)) {
+					echange(i+1,i);
+					break = true;
+				}
 			}
 		}
 	}
 }
+
+/*
+ def bubbleSort3() {
+	for (i <- getNombreValeurs()-2 to 0 by -1) {
+		var inverse = false;
+			for (j <- 0 to i) {
+				if (plusPetit(j+1,j)) {
+					echange(j+1,j);
+					inverse = true;
+				}
+			}
+			
+		if (!inverse) {
+			return;
+		}
+	}
+}
+*/
