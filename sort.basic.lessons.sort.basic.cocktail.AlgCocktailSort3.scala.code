@@ -2,6 +2,7 @@ def cocktailSort3() {
 	var debut:Int = 0
 	var fin:Int = getNombreValeurs()-2
 	var inverse:Boolean = true
+	
 	do {
 		inverse = false
 		for ( i <- debut to fin) {
@@ -10,6 +11,9 @@ def cocktailSort3() {
 			inverse = true
 			}
 		}
+		if ( !inverse ) {
+				return
+			}	
 		fin -= 1
 		
 		for ( i <- fin to debut by -1) {
@@ -19,9 +23,6 @@ def cocktailSort3() {
 			}			
 		}
 		debut += 1
-		if ( !inverse ) {
-				return
-			}	
 	}
 	while ( inverse )	
 
