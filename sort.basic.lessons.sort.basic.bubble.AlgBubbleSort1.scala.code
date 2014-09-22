@@ -1,7 +1,18 @@
 def bubbleSort()  {
-	for (i <- 0 to getNombreValeurs()-2) do {
+	def trié() {
+		for (i<-0 to getNombreValeurs()-2) {
+			if (!plusPetit(i,i+1)) { 
+				return false
+			}
+		}
+		return true
+	}
+
+	while (!trié) do {
+	for (i <- 0 to getNombreValeurs()-2) {
 		if (!plusPetit(i,i+1)) {
 			echange(i,i+1)
 		}
+	}
 	}
 }
