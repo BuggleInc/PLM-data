@@ -1,13 +1,23 @@
 def cocktailSort2() {
+var dbt = 0;
+var fin = getNombreValeurs()-2;
+var inv = true;
+do {
+	inv = false;
+	for (i <- dbt to fin) {
+		if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			inv = true;
+		}
+	}
+	fin -= 1;
+	for (i <- fin to dbt by -1) {
+		if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			inv = true;
+		} 
+}
+dbt += 1;
+} while (inv)
 }
 
-
-debut=0; fin=lgr-2
-Faire
-  Pour tout i dans [debut,fin], faire:
-    si i et i+1 doivent être échangées, le faire
-  fin -= 1 (cela veut dire fin = fin -1)
-  Pour tout i dans [fin, debut] en descendant, faire:
-    si i et i+1 doivent être échangées, le faire
-  debut += 1 (ce qui veut dire debut = debut + 1)
-tant qu'au moins l'un des parcours a inversé un éléme
