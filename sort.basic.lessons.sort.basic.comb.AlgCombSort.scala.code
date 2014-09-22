@@ -1,19 +1,20 @@
 def combSort() {
 var ecart =getNombreValeurs()
 var x=getNombreValeurs()
+var y=1
+var i=0
 do {
 	if(ecart > 1){
 		ecart = (ecart.toDouble / 1.3).toInt
 	}
 	i=0
+	y=0
 	while( i+ecart < x){
-		
+		if (getValeur(i)>getValeur(i+ecart)){
+			echange(i,i+ecart)
+			i=i+1
+			y=y+1
+		}
 	}
- 
-   i = O
-   tant que i+ecart < lgr faire:
-     si i et i+ecart doivent être inversés, le faire
-     incrémenter i de 1
- tant que l'écart est plus grand que 1 ou que le dernier parcours a inversé au moins un élément 
-}
+} while (ecart >1 || y!=0)
 }
