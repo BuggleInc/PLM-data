@@ -1,10 +1,16 @@
 def bubbleSort3() {
-	var inverse = true
 
-	do {
-		for ( i <- 0 to getNombreValeurs -2) {
-			for (j <- 0 to (getNombreValeurs -2-i)) {
-				if (!plusPetit(j,j+1)) {echange(j,j+1);}
+	for ( i <- 0 to getNombreValeurs -2) {
+		for (j <- 0 to (getNombreValeurs -2-i)) {
+			var inverse = false
+			if (!plusPetit(j,j+1)) {
+				echange(j,j+1)
+				inverse = true
+			}
+			if (inverse==false) {
+				return
 			}
 		}
 	}
+
+}
