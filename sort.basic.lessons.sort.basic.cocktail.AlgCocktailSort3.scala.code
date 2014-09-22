@@ -1,2 +1,30 @@
 def cocktailSort3() {
+var k1 = false
+var k2 = false
+	var n = getNombreValeurs()
+	var b = 0
+	do {
+		k1 = true
+		k2 = true
+		for (i <- b to n-2) {
+			if (plusPetit(i+1,i)) {
+				echange(i,i+1)
+				k1 = false
+			}
+		}
+		n -= 1
+		if (k1 == true) {
+			return
+		}
+		for (j <- n-2 to b by -1) {
+			if (plusPetit(j+1,j)) {
+				echange(j+1,j)
+				k2 = false
+			}
+		}
+		b += 1
+		if (k2 == true) {
+			return
+		}
+	}	while (k1 == false || k2 == false)
 }
