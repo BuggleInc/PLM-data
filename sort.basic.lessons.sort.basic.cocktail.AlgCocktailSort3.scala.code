@@ -2,10 +2,10 @@ def cocktailSort3() {
 	var n=getNombreValeurs()
 	var a:Int=1;
 	var t:Int=1;
-	var b:Int=1;
+	
 	while (a!=0 && b!=0) {
 		a=0;
-		b=0;
+		
 		for (k <- t to n-1-t) {
 			if (plusPetit(k+1,k)) {
 				echange(k,k+1)
@@ -19,10 +19,10 @@ def cocktailSort3() {
 		for (k <- n-t to t by -1) {
 			if (plusPetit(k,k-1)) {
 				echange(k,k-1)
-				b=b+1;
+				a=a+1;
 			}
 		}
-		if (b==0) {
+		if (a==0) {
 			return()
 		}
 	}
