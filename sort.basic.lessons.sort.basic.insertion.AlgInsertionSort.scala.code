@@ -1,7 +1,21 @@
 def insertionSort() 
 {
 	var temp=0
-	var i=0
+	var i=1
 	var v=0
-	while(
+	var last=0
+	while(i<getNombreValeurs())
+	{
+		last=i
+		v=getValeur(i)
+		for(k<- 1 to i)
+		{
+			if(getValeur(i-k)>v)
+			{
+				copie(i-k,i-k+1)
+				last=i-k
+			}
+		}
+		setValeur(last,v)
+	}
 }
