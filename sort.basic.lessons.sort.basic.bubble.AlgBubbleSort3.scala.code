@@ -1,9 +1,13 @@
 def bubbleSort3() {
-
+	var fin=true
 	for (i<-getNombreValeurs()-2 to 0 by -1) {
 		for (j<-0 to i) {
-			if (plusPetit(j+1,j)) echange(j,j+1)
-		}
+			fin=true
+			if (plusPetit(j+1,j)) {
+				echange(j,j+1)
+				fin=false
+			}
+		} if (fin==true) return()
 	}
 	
 }
