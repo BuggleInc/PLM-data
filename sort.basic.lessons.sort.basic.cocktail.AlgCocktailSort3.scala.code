@@ -4,29 +4,29 @@ def cocktailSort3() {
 	var fini1=false
 	var fini2=false
 	
-	do { 
-		if (fini1==false) {
-			fini1=true
-			for (i<-debut to fin) {
-				if (plusPetit(i+1,i)) {
-					echange(i,i+1)
-					fini1=false
-				}
+	do {
+		fini=true
+		for (i<-debut to fin) {
+			if (plusPetit(i+1,i)) {
+				echange(i,i+1)
+				fini=false
 			}
-			fin-=1
 		}
-		if (fini2==false) {
-			fini2=true
-			for (i<-fin to debut by -1) {
-				if (plusPetit(i+1,i)) {
-					echange(i,i+1)
-					fini2=false
-				}
+		fin-=1
+
+		for (i<-fin to debut by -1) {
+			if (plusPetit(i+1,i)) {
+				echange(i,i+1)
+				fini=false
 			}
-			debut+=1
 		}
-	} while (fini1==false&&fini2==false)
+		debut+=1
+		if (fini1!=fini2 || (fini1==false&&fini2==false)) return()
+	} while (fini==false&&fini2==false)
 		
 }
+
+	
+
 
 	
