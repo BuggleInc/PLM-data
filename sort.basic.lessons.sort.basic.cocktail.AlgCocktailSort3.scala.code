@@ -1,2 +1,31 @@
-def cocktailSort3() {
+def cocktailSort3() 
+{
+	var debut=0
+	var fin=getNombreValeurs()-2
+	var modifie=false
+	do
+	{
+		modifie=false
+		for(k<-debut to fin)
+		{
+			if(getValeur(k)>getValeur(k+1))
+			{
+				echange(k,k+1)
+				modifie=true
+			}
+		}
+		fin=fin-1
+		if(!modifie)
+			return
+		for(k<- fin+1 to debut+1 by -1)
+		{
+			if(getValeur(k)<getValeur(k-1))
+			{
+				echange(k,k-1)
+				modifie=true
+			}
+		}
+		debut=debut+1
+	}
+	while(modifie)
 }
