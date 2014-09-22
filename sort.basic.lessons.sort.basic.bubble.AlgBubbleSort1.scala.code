@@ -1,20 +1,13 @@
 def bubbleSort()  {
-	
-	def tri() {
-		var tri = true
-		for (i<-0 to getNombreValeurs()-2) {
-			if (!plusPetit(i,i+1)) { 
-				tri = false
-			}
-		}
-		tri
-	}
+	var inverse = false
 
 	do {
+		var inverse = false
 		for (i <- 0 to getNombreValeurs()-2) {
 				if (!plusPetit(i,i+1)) {
-					echange(i,i+1)
+					echange(i,i+1);
+					inverse = true
 				}
 		}
-	} while (!tri)
+	} while (inverse)
 }
