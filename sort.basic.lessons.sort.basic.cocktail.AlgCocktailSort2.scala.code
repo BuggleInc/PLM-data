@@ -10,7 +10,7 @@ def cocktailSort2()  {
 
 	estTrie = true;
 	
-		for(i <- 0 to getNombreValeurs() - 2 - incValue)
+		for(i <- incValue to getNombreValeurs() - 2 - incValue)
 		{
 			if(!plusPetit(i,i+1))
 			{
@@ -18,17 +18,17 @@ def cocktailSort2()  {
 				estTrie = false;
 			}
 		}
-		incValue = incValue + 1;
+		
 		
 
-				for(i <- 2 + incValue to getNombreValeurs())
+				for(i <- 2 + incValue to getNombreValeurs() - incValue())
 			{
 
 				invIndice = getNombreValeurs() - i;
 				
 				if(plusPetit(invIndice+1,invIndice))
 				{
-				echange(invIndice+1,invIndice);
+					echange(invIndice+1,invIndice);
 				}
 			}
 		incValue = incValue + 1;
