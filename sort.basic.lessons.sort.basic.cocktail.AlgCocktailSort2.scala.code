@@ -1,22 +1,22 @@
 def cocktailSort2() {
 	var inverse=false
-	var N=getNombreValeurs()
-	var O=0
+	var fin=getNombreValeurs()
+	var debut=0
 	do{
 		inverse=false
-		for (i<- 0 to N-2) {
+		for (i<- 0 to fin-2) {
 			if (plusPetit(i+1,i)) {
 			echange(i,i+1)
 			inverse=true
-			N=N-1
 			}
+		fin=fin-1
 		}
-		for (i<-getNombreValeurs()-2 to O by -1) {
+		for (i<-getNombreValeurs()-2 to debut by -1) {
 			if (plusPetit(i+1,i)) {
 			echange(i,i+1)
 			inverse=true
-			O=O+1
 			}
+		debut=debut+1	
 		}
 	} while (inverse)
 }
