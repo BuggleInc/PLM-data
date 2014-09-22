@@ -1,0 +1,25 @@
+def cocktailSort2() {
+	var n=getNombreValeurs()
+	var a:Int=1;
+	var t:Int=1;
+	while (a!=0) {
+		a=0;
+		
+		for (k <- 0 to n-1-t) {
+			if (plusPetit(k+1,k)) {
+				echange(k,k+1)
+				a=a+1;
+			}
+		}
+		
+		
+		for (k <- n-1-t to 1 by -1) {
+			if (plusPetit(k,k-1)) {
+				echange(k,k-1)
+				a=a+1;
+			}
+		}
+		
+		t=t+1;
+	}
+}
