@@ -1,21 +1,22 @@
 def cocktailSort2() {
-
+	var deb:Int=0;
+	var fin:Int=getNombreValeurs()-2;
+	var trie:Int=0;
 	do{
-		trie=1;
-		for(i<-0 to getNombreValeurs()-2 by 1){
+		for(i<-deb to fin by 1){
 			if(plusPetit(i+1, i)){
 				echange(i+1,i);
 				trie=0;
 			}
 		}
-		
-		for(i<-getNombreValeurs()-2 to 0 by -1){
+		fin=fin-1;
+		for(i<-din to deb by -1){
 			if(plusPetit(i+1, i)){
 				echange(i,i+1);
 				trie=0;
 			}
 		}
-
+		deb=deb-1;
 		
 	}while(trie==0);
 }
