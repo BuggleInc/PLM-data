@@ -1,12 +1,11 @@
 def cocktailSort() {
 var n=getNombreValeurs()
 var compteur=1
-var tictac=1
 
 	
  while(compteur!=0){
  	compteur=0
-	for (k<- 0 to n-1-tictac){
+	for (k<- 0 to n-2){
 		if (plusPetit(k,k+1)){
 		}
 		else {
@@ -14,12 +13,16 @@ var tictac=1
 		    	compteur=1
 		}
 	}
-	for (k<- n-tictac to 1){
+	for (k<- n-2 to 0){
 		if (plusPetit(k,k+1)){
 			echange(k,k+1)
 			compteur=1
 		}
 	}
-	tictac=tictac+1
 }
 }
+Pour tout i dans [0,lgr-2], faire:
+    si i et i+1 doivent être échangées, le faire
+  Pour tout i dans [lgr-2,0] en descendant, faire:
+    si i et i+1 doivent être échangées, le faire
+tant qu'au moins l'un des parcours a inversé un élément 
