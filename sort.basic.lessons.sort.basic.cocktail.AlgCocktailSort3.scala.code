@@ -2,29 +2,28 @@ def cocktailSort3() {
 	var debut=0
 	var fin=getNombreValeurs()-2
 	var inverse=true
-	var table=false
-do{
+do{	
 	for (i<-debut to fin){
-		table=false
+		
 		if (!plusPetit(i,i+1)){
 			echange(i,i+1)
 			inverse=true
-			table=true
+			
 		}
 	}
-	if (table==false){
+	if (!inverse){
 			return
 		}
 	fin=fin-1
 	for (i<-fin to debut by -1){
-		table=false
+		
 		if (!plusPetit(i,i+1)){
 			echange(i,i+1)
 			inverse=true
-			table=true
+			
 					}
 	}
-	if (table==false){
+	if (!inverse){
 			return
 		}
 	debut=debut+1
