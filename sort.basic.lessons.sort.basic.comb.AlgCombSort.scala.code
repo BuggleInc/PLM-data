@@ -1,7 +1,9 @@
 def combSort() {
 	var ecart = getNombreValeurs()-1
 	val l = getNombreValeurs()-1
+	var a = 0
 	do {
+		a=0
 		if (ecart > 1) {
 			ecart = (ecart.toDouble / 1.3).toInt
 		}
@@ -9,8 +11,9 @@ def combSort() {
 		while ( (i + ecart) < l) {
 			if (plusPetit(i+ecart,i)) {
 				echange(i,i+ecart)
+				a +=1
 			}
 			i += 1
 		}
-	}
+	} while ( (ecart > l) || (a != 0))
 }
