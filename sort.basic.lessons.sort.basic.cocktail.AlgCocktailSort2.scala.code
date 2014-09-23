@@ -1,12 +1,25 @@
 def cocktailSort2() {
 	
-	val debut=0
-	val fin=getNombreValeurs()-2
+	var debut=0
+	var fin=getNombreValeurs()-2
+	var inverse = false
 	
 	do{
+		inverse = false
 		for(i<-debut to fin){
-			
+			if(!(plusPetit(i,i+1))){
+				echange(i,i+1)
+				inverse = true
+			}
+			fin-=1	
+		}
+		for(i<-fin to debut by (-1)){
+			if(!(plusPetit(i,i+1))){
+				echange(i,i+1)
+				inverse = true
+			}
+			debut+=1	
 		}
 		
-	}
+	}while(inverse)
 }
