@@ -1,2 +1,22 @@
 def combSort11() {
+	var ecart = getNombreValeurs()
+	val l = getNombreValeurs()
+	var a = 0
+	do {
+		a = 0
+		if (ecart > 1) {
+			ecart = (ecart.toDouble / 1.3).toInt
+		}
+		if (ecart == 10 || ecart == 9) {
+			ecart = 11
+		}
+		var i = 0
+		while ( (i + ecart) < l) {
+			if (plusPetit(i+ecart,i)) {
+				echange(i,i+ecart)
+				a +=1
+			}
+			i += 1
+		}
+	} while ((ecart > 1) || (a != 0))
 }
