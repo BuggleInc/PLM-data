@@ -2,16 +2,16 @@ def insertionSort() {
 	var length = getNombreValeurs();
 	var i = 1;
 	var j = 0;
+	var bonnePlace;
 	for(i <- 1 to length - 1){
 		var v = getValeur(i);
 		for(j <- 0 to i){
 			if(plusPetit(j, v)){
 				echange(j, j+1);
 			}else{
-				return;
+				setValeur(j, v);
 			}
 		}
-		setValeur(j, v);
 	}
 }
 
