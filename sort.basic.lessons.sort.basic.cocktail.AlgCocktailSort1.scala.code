@@ -1,0 +1,38 @@
+def cocktailSort() 
+{
+	/*Faire
+  Pour tout i dans [0,lgr-2], faire:
+    si i et i+1 doivent être échangées, le faire
+  Pour tout i dans [lgr-2,0] en descendant, faire:
+    si i et i+1 doivent être échangées, le faire
+tant qu'au moins l'un des parcours a inversé un élément*/
+
+	var length = getNombreValeurs(); 
+	var indic:Boolean = false;
+	
+	do
+	{
+		indic=false;
+		for(i<-0 to length-2 by +1)
+		{
+			if(!plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				indic=true;
+			}
+			
+		}
+		for(i<-(length-2) to 0 by -1)
+		{
+			if(plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				indic=true;
+			}
+			
+		}
+		
+	}
+	while(indic==false)
+
+}
