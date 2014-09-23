@@ -2,15 +2,17 @@ def cocktailSort3() {
 	var length = getNombreValeurs();
 	var debut = 0;
 	var fin = length-2;
-	var tri = true;
+	var tri1 = true;
+	var tri2 = true;
 
-	while(tri) {
-		tri = false;
+	while(tri1 || tri2) {
+		tri1 = false;
+		tri2 = false;
 		for(i<-debut to fin) {
 			if(plusPetit(i, i+1) == false) {
 				echange(i, i+1);
 				
-				tri = true;
+				tri1 = true;
 			}
 			
 		}
@@ -20,7 +22,7 @@ def cocktailSort3() {
 			if(plusPetit(i, i+1) == false) {
 				echange(i, i+1);
 				
-				tri = true;
+				tri2 = true;
 			}
 			
 		}
