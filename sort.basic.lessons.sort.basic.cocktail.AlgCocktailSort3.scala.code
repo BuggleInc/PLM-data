@@ -1,27 +1,27 @@
 def cocktailSort3() {
 	var debut = 0;
-	var swaped = true;
+	var swapedAsc = true;
+	var swapedDsc = true;
 	var fin = getNombreValeurs - 2;
 	var i = 0;
 	do{
-		swaped = false;
+		swapedAsc = false;
+		swapedDsc = false;
 		for(i <- debut to fin){
 			if(plusPetit(i+1, i)){
-				swaped = true;
+				swapedAsc = true;
 				echange(i+1, i);
 			}
 		}
 		fin -= 1;
-		if(swaped){
-			i = fin;
-			while(i >= debut){
-				if(plusPetit(i+1, i)){
-					swaped = true;
-					echange(i+1, i);
-				}
-				i -= 1;
+		i = fin;
+		while(i >= debut){
+			if(plusPetit(i+1, i)){
+				swapedDsc = true;
+				echange(i+1, i);
 			}
+			i -= 1;
 		}
 		debut += 1;
-	}while(swaped);
+	}while(swapedAsc && swapedDsc);
 }
