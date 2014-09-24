@@ -1,5 +1,6 @@
 var fini = false
 var msg = "null"
+var danse = false
 
 while(!fini){
 	if(estSurMessage()){
@@ -10,30 +11,42 @@ while(!fini){
 	}
      if(msg=="Z"){
 		recule()
+		danse=true
 	}
 	else if(msg=="Y"){
 		recule(); recule();
+		danse=true
 	}
 	else if(msg=="X"){
 		recule(); recule();recule();
+		danse=true
 	}
 	else if(msg=="A"){
 		avance()
+		danse=true
 	}
 	else if(msg=="B"){
 		avance(); avance();
+		danse=true
 	}
 	else if(msg=="C"){
 		avance(); avance(); avance();
+		danse=true
 	}
 	else if(msg=="R"){
 		droite(); avance();
+		danse=true
 	}
 	else if(msg=="L"){
 		gauche(); avance();
+		danse=true
 	}
 	else if(msg=="I"){
 		droite(); droite(); avance();
+		danse=true
+	}
+	else{
+		danse=false
 	}
 	
 }
