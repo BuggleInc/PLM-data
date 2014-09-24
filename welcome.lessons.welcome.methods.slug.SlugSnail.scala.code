@@ -1,41 +1,42 @@
  def hunt(c:Color) {
-		while(!estFaceMur()){
-    			while(isFacingTrail(c) && !estSurBiscuit()){
+		
+	while (!estSurBiscuit()){
+    			while(isFacingTrail(c) && !estSurBiscuit() && !estFaceMur()){
 				    	avance();
 				    	baisseBrosse();
 				    	leveBrosse();
 				    }
-				    droite();
-				    if(isFacingTrail(c) && !estSurBiscuit()){
-				    		while (isFacingTrail(c) && !estSurBiscuit()){
+			droite();
+			if(isFacingTrail(c) && !estSurBiscuit() && !estFaceMur()){
+				    	while (isFacingTrail(c) && !estSurBiscuit() && !estFaceMur()){
 				    		avance();
 				    		baisseBrosse();
 				    		leveBrosse();
 				    		
+				    	}
+			}else{
+				    gauche();gauche();
+				    if(isFacingTrail(c) && !estSurBiscuit() && !estFaceMur()){
+				    		while (isFacingTrail(c) && !estSurBiscuit() && !estFaceMur()){
+				    			avance();
+				    			baisseBrosse();
+				  			leveBrosse();
 				    		}
-				    }
-				    else {
-				    		gauche();gauche();
-				    		if(isFacingTrail(c) && !estSurBiscuit()){
-				    			while (isFacingTrail(c) && !estSurBiscuit()){
-				    				avance();
-				    				baisseBrosse();
-				  			  	leveBrosse();
-				    				
-				    			}
 				    			
-				    		}
-				    }
+				    	}
 				}
-				prendBiscuit();
-	
-	
-}
+				
+			
+				
+		}
+		prendBiscuit();
+	}
+
 
 def isFacingTrail(c:Color):Boolean = {
 	if(!estFaceMur()){
 		avance();
-	    if(getCouleurSol()== c){
+	    if(getCouleurSol()==c){
 	    	 recule();
 	    	return true ;
 	    }
