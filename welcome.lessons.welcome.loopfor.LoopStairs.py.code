@@ -8,7 +8,30 @@ while(getX()!=14):
         setPos(x,y)
         baisseBrosse()
         leveBrosse()
-    gauche()
-    y=y-1
-    setY(y)
-    droite()
+    if(estFaceMur()==True):
+        gauche()
+        y=y-1
+        setY(y)
+        droite()
+    if(getY()==7):
+        setCouleurBrosse(Color.blue)
+    else:
+        if(getY()==6):
+            setCouleurBrosse(Color.cyan)
+        else:
+            if(getY()==5):
+                setCouleurBrosse(Color.green)
+                if(getY()==4):
+                    setCouleurBrosse(Color.yellow)
+                else:
+                    if(getY()==3):
+                        setCouleurBrosse(Color.orange)
+                    else:
+                        if(getY()==2):
+                            setCouleurBrosse(Color.red)
+                        else:
+                            if(getY()==1):
+                                setCouleurBrosse(Color.magenta)
+                            else:
+                                if(getY()==0):
+                                    setCouleurBrosse(Color.pink)
