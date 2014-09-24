@@ -3,3 +3,57 @@
  }
 
  // here comes your isFacingTrail method   
+def hunt() {
+
+		while(!estFaceMur()){
+    			while(isFacingTrail() && !estSurBiscuit()){
+				    	avance();
+				    	baisseBrosse();
+				    	leveBrosse();
+				    }
+				    droite();
+				    if(isFacingTrail() && !estSurBiscuit()){
+				    		while (isFacingTrail() && !estSurBiscuit()){
+				    		avance();
+				    		baisseBrosse();
+				    		leveBrosse();
+				    		
+				    		}
+				    }
+				    else {
+				    		gauche();gauche();
+				    		if(isFacingTrail() && !estSurBiscuit()){
+				    			while (isFacingTrail() && !estSurBiscuit()){
+				    				avance();
+				    				baisseBrosse();
+				  			  	leveBrosse();
+				    				
+				    			}
+				    			
+				    		}
+				    }
+				}
+				prendBiscuit();
+	
+	
+}
+
+def isFacingTrail():Boolean = {
+	if(!estFaceMur()){
+		avance();
+	    if(getCouleurSol()==java.awt.Color.green){
+	    	 recule();
+	    	return true ;
+	    }
+	    else {
+	    	recule();
+	    	return false;
+	    }
+
+	}
+	else {
+		return false ;
+	}
+}
+
+
