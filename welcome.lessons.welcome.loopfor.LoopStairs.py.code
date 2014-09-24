@@ -3,8 +3,10 @@ y=8
 setCouleurBrosse(Color.lightGray)
 baisseBrosse()
 while(getX()!=14 or getY()!=0):
-    x=x+1
-    setX(x)
-    baisseBrosse()
-    leveBrosse()
-gauche()
+    while(estFaceMur()==False):
+        x=x+1
+        setPos(x,y)
+        baisseBrosse()
+        leveBrosse()
+    gauche()
+    y=y-1
