@@ -6,27 +6,9 @@ override def run() {
 }
 
 
-
-
-def faireV(c1:Color , c2:Color){
+def faireTrait(c1:Color , c2:Color){
 	setCouleurBrosse(c1);
 	avance();
-	baisseBrosse();
-	leveBrosse();
-	setCouleurBrosse(c2);
-	avance();
-	baisseBrosse();
-	leveBrosse();
-	avance();
-	gauche();avance();
-	baisseBrosse();
-	leveBrosse();
-	setCouleurBrosse(c1);
-	droite();avance();
-	baisseBrosse();
-	leveBrosse();
-	droite();avance();
-	gauche();avance();
 	baisseBrosse();
 	leveBrosse();
 	setCouleurBrosse(c2);
@@ -35,3 +17,21 @@ def faireV(c1:Color , c2:Color){
 	leveBrosse();
 	avance();gauche();
 }
+
+def faireV(c1:Color , c2:Color){
+	faireTrait(c1, c2);
+	
+	avance();
+	
+	baisseBrosse();
+	leveBrosse();
+	setCouleurBrosse(c1);
+	droite();avance();
+	baisseBrosse();
+	leveBrosse();
+	droite();avance();
+	gauche();
+	
+	faireTrait(c1 , c2)
+}
+
