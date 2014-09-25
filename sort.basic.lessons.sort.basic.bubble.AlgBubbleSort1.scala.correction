@@ -2,19 +2,19 @@ $package
 
 import plm.universe.sort.SortingEntity;
 
-class AlgBubbleSort1 extends SortingEntity {
+public class AlgBubbleSort1 extends SortingEntity {
 
-	override def run() {
-		bubbleSort();
+	public void run() {
+		this.bubbleSort();
 	}
 
 	/* BEGIN TEMPLATE */
-	def bubbleSort()  {
+	public void bubbleSort()  {
 		/* BEGIN SOLUTION */
-		var swapped= false
+		boolean swapped;
 		do {
 			swapped = false;
-			for (i <- 0 to getValueCount()-2)
+			for (int i=0; i<getValueCount()-1; i++)
 				if (!isSmaller(i,i+1)) {
 					swap(i,i+1);
 					swapped =true;
