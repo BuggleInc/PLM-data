@@ -1,8 +1,15 @@
-def cocktailSort2() {val n:Int = getNombreValeurs()
-debut = 0
+def cocktailSort2() {
+	val n:Int = getNombreValeurs()
+	var swapped:Boolean = true
+	var debut :Int = 0
+	var fin :Int = n-2
+	while(swapped) {
+		swapped = false
 		for (i<- 0 to n-2) {
-			if (plusPetit(i+1,i)){echange(i+1,i)}}
-		for (k <- n-2 to 0 by -1) {
-			if (plusPetit(k+1,k)){echange(k+1,k)}}
-	}	
-}
+			if (plusPetit(i+1,i)){echange(i+1,i);swapped=true}}
+		fin -= 1
+		for (k <- fin to debut by -1) {
+			if (plusPetit(k+1,k)){echange(k+1,k);swapped=true}}
+		debut += 1
+	}}	
+
