@@ -1,9 +1,13 @@
 def bubbleSort3() {
-	for(i<- getValueCount()-2 to 0 by -1)
-		for(j<-0 to i){
-			if( isSmaller(j+1,j))
+	var swapped:Boolean=true;
+	for(i<- getValueCount()-2 to 0 by -1){
+		swapped=false;
+		for(j<-0 to i)
+			if( isSmaller(j+1,j)){
 				swap(j,j+1);
-			else return -1;	
-		}
-			
+				swapped=true;
+			}	
+	}
+	if (swapped==false)
+		return; 			
 }
