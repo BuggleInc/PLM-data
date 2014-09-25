@@ -1,12 +1,12 @@
 def bubbleSort()  {
 	var sorted:Boolean = false;
-	while (!sorted) {
+	do {
+		sorted = true;
 		for (i <- 1 to getNombreValeurs()-2) {
-			sorted = false;
 			if (!plusPetit(i,i+1)) {
-				sorted = true;
+				sorted = false;
 				echange(i,i+1);
 			}
 		}
-	}
+	} while (!sorted);
 }
