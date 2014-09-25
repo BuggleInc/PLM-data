@@ -1,3 +1,27 @@
-def cocktailSort3() {
+def cocktailSort3() {var deb=0; var fin=getNombreValeurs()-2;  var x=true ;
+   while (x) {
+   	x = false;
+   	for (j<- deb to fin) {
+   		if (plusPetit(j+1 , j)) {
+   	      	echange(j , j+1) ;
+   	      	x = true;
+   	  }
+   	}
+   	if (!x) {
+   		return;
+   	}
+   	fin -=1;
+   	x=false
+   	for (j<- fin  to deb by -1) {
+   		if (plusPetit(j+1 , j)) {
+   	      	echange(j , j+1) ;
+   	      	x = true;
+   	  }
+     }
+     if (!x) {
+   		return;
+   	}
+     deb +=1;
+   }
 
 }
