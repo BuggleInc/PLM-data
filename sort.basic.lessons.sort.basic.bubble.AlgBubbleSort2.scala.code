@@ -3,10 +3,11 @@ def bubbleSort2() {
 	var c=0;
 	do {
 		sorted = true;
-		for (i <- 0 to getNombreValeurs()-2) {
+		for (i <- 0 to getNombreValeurs()-2-c) {
 			if (!plusPetit(i,i+1)) {
 				sorted = false;
 				echange(i,i+1);
+				c=c+1;
 			}
 		}
 	} while (!sorted);
