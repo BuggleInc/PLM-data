@@ -2,8 +2,11 @@ def bubbleSort3() {
 	val n = getNombreValeurs()
 	for (i <- n-2 to 0 by -1)
 		{for (j <- 0 to i)
-			{if (!plusPetit(j,j+1))
+			{var swapped = false
+			if (!plusPetit(j,j+1))
 				{echange(j,j+1)}
+			if (!swapped)
+				{return ()}
 			}
 		}
 }
