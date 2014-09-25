@@ -4,20 +4,23 @@ def cocktailSort3() {
 	var swapped:Boolean=true;
 	while(swapped){
 		swapped=false;
-		for (i<- beg to end by 1)
-			if( isSmaller(i+1,i)){
-				swap(i,i+1);
-				swapped=true;
-		}
-		end-=1;
-		for(i<- end to beg by -1)	
+		for (i<- beg to end by 1){
 			if( isSmaller(i+1,i)){
 				swap(i,i+1);
 				swapped=true;
 			}
 			if (swapped==false)
 				return; 
-			
+		}
+		end-=1;
+		for(i<- end to beg by -1){	
+			if( isSmaller(i+1,i)){
+				swap(i,i+1);
+				swapped=true;
+			}
+			if (swapped==false)
+				return; 	
+		}
 		beg+=1;		
 	}
 }
