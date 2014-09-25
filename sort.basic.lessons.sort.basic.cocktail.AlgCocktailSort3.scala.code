@@ -1,9 +1,23 @@
 def cocktailSort3() {
-
-
-
-
-
-
-
+val n = getNombreValeurs()
+var swappedCroissant = true
+var swappedDecroissant = true
+var debut = 0
+var fin = n-2
+	while (swappedCroissant && swappedDecroissant)
+		{swappedCroissant = false
+		swappedDecroissant = false
+		for (i <- debut to fin)
+			{if (!plusPetit(i,i+1))
+				{echange(i,i+1)
+				swappedCroissant = true}
+			}
+			fin -= 1
+		for (k <- fin to debut by -1)
+			{if (!plusPetit(k,k+1))
+				{echange(k,k+1)
+				swappedDecroissant = true}
+			}
+			debut += 1
+		}
 }
