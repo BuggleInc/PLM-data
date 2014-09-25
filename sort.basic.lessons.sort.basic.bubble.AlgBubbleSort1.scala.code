@@ -1,13 +1,14 @@
 def bubbleSort()  {
-	test=true;
+	var test:Boolean = true;
 	while(test)
 	{
 		test=false;
-		for(i=0;i<max-1;i++){
-			if(tab[i]>tab[i+1]){
-				temp=tab[i];
-				tab[i]=tab[i+1];
-				tab[i+1]=temp;
+		for(var i:Int =0;i<getNombreValeurs()-1;i++){
+			if(!plusPetit(getValeur(i),getValeur(i+1)))
+			{
+				var temp:Int =getValeur(i);
+				setValeur(i,getValeur(i+1));
+				setValeur(i+1,temp);
 				test=true;
 			}
 		}
