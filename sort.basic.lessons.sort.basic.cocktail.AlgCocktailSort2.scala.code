@@ -1,20 +1,23 @@
 def cocktailSort2() {
 var swapped = false
 var n = 2
+var m = 0
 do{
 	swapped = false
-	for(k <- 0 to getNombreValeurs()-n){
+	for(k <- m to getNombreValeurs()-n){
 			if(plusPetit(k+1,k)){
 				echange(k,k+1)
 				swapped = true
 			}
 		}
-		for(i <- getNombreValeurs()-n to 0 by -1 ){
+		n=n+1
+		for(i <- getNombreValeurs()-n to m by -1 ){
 			if(plusPetit(i+1,i)){
 				echange(i,i+1)
 				swapped = true
 			}
 		}
-		n= n+2
+		m=m-1
+		
 }while(swapped == true)	
 }
