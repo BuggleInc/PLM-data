@@ -1,6 +1,21 @@
 def cocktailSort2() {
 	var beg:Int=0;
 	var end:Int=getValueCount()-2;
+	var swapped:Boolean=true;
+	while(swapped){
+		swapped=false;
+		for (i<- beg to end by 1)
+			if( isSmaller(i+1,i)){
+				swap(i,i+1);
+				swapped=true;
+			}
+		end-=1;
+		for(i<- getValueCount()-2 to 0 by -1)	
+			if( isSmaller(i+1,i)){
+				swap(i,i+1);
+				swapped=true;
+			}	
+		beg+=1;	
 	
 	
 }
