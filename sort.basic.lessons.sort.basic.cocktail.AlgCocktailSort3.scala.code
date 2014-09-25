@@ -2,8 +2,9 @@ def cocktailSort3() {
 	var chgtFait : Boolean = true
 	var debut : Int = 0
 	var fin : Int = getNombreValeurs()-2
+	while (chgtFait) {
+		chgtFait = false
 		for (i <- debut to fin) {
-			chgtFait = false
 			if (plusPetit(i+1, i)) {
 				echange(i, i+1)
 				chgtFait = true
@@ -13,15 +14,14 @@ def cocktailSort3() {
 		if (chgtFait == false) {
 				return
 			}
-		else {
-			for (i <- fin to debut by -1) {
-				chgtFait = false
+		chgtFait = false
+		for (i <- fin to debut by -1) {
 				if (plusPetit(i+1, i)) {
 					echange(i, i+1)
 					chgtFait = true
 				}
 			}
-			debut += 1
+		debut += 1
 			
-		}
+	}
 }
