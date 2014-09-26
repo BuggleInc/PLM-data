@@ -1,7 +1,15 @@
 right()
 right()
 while True:
-  if not isOverBaggle():
-    forward()
+  if not isCarryingBaggle():
+    if not isOverBaggle():
+      forward()
+    else:
+      pickupBaggle()
+      backward()
+      left()
+      left()
   else:
-    pickupBaggle()
+    dropBaggle()
+    
+     
