@@ -1,0 +1,18 @@
+def selectionSort() {
+	var indice
+	for(i<-0 to getNombreValeurs()-1)
+	{
+		indice=i
+		//On recherche la plus petite valeur de la partie non triée du tableau
+		for(j<-i to getNombreValeurs()-1)
+		{
+			if(plusPetit(j,indice))
+			{
+				indice=j
+			}
+		}
+		
+		//On échange la valeur de la case i courante avec la plus petite valeur trouvée
+		echange(i,indice)
+	}
+}
