@@ -1,11 +1,13 @@
 def insertionSort() {
-		val l = getNombreValeurs()-1
+	val l = getNombreValeurs()-1
 		for (i<- 1 to l ) {
-			for (h <- i to 1 by -1) {
-				if (plusPetit(h,h-1)) {
-					echange(h,h-1)
-				}
+			var p = i
+			var v = getValeur(i)
+				while ((p !=  0) && plusPetitQue(p-1,v)) {
+					echange(p,p-1)
+					p -=1
 			}
+			setValeur(p,v)
 					
 			
 		}
