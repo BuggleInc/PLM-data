@@ -1,2 +1,13 @@
-def shellSort()  {
+def shellSort() {
+	var gap: Int = getNombreValeurs()/2
+	while (gap > 0) {
+		for (i <- 1 to getNombreValeurs()-1) {
+			val tmp = getValeur(i)
+			while (getValeur(gap-1)>tmp) {
+				copie(gap-1,gap)
+				gap = gap -1
+			}
+			setValeur(gap,tmp)
+		}
+	}	
 }
