@@ -1,12 +1,12 @@
 def gnomeSort() {
 	val l = getNombreValeurs()-1
 		for (i<- 1 to l ) {
-			for  ( h <- i to 1 by -1) {	
-				if (plusPetit(h,h-1)) {	
-					echange(h,h-1)
-				}
+			var p = i
+				while ((p !=  0) && !plusPetit(p,p-1)) {
+					setValeur(p,getValeur(p-1))
+					p -=1
 			}
 					
+			
 		}
-
 }
