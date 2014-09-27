@@ -1,4 +1,4 @@
-def insertionSort(nums:Array[Int] ,value:Int){
+def insertionSort() {
 	
 /*Pour tout i dans [1,lgr-1]
   stocker la valeur de la case i dans une variable v
@@ -9,18 +9,22 @@ def insertionSort(nums:Array[Int] ,value:Int){
   ...
   recopier v dans la dernière case recopiée plus haut	*/
 
-  var T:Array[Int]
-  var j=0
+  var T:Array[Int](n)
+  var i=0 //indice de parcours
+  var j=0 //indice pour savoir ou on va inserer
   var v=0
 
-  for(i<-1 to nums.length -1)
+  i=2
+  v=T(i) // valeur de la case i dans une variable v
+  while(i<nums.length)
   {
-  v=T(i)
-  	while(j>0 && T(j-1)>v)
+  	j=i-2
+  	while(j>0 && v<T(j))
   	{
-  		T(j)=T(j-1)
-  		j=j-1	
+  		T(j+1)=T(j)
+  		j=j-1
   	}
-  	T(j)=v
+  	T(j+1)=v
+  	i=i+1
   }
 }
