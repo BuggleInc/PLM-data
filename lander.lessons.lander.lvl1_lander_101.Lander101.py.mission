@@ -1,0 +1,62 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Se poser pour les nuls</h1>
+
+<p>Bravo ! Vous avez gagn? dans une bo?te de c?r?ales un voyage (aller simple)
+pour Mars. La NASA vous a m?me fourni un module d'excursion lunaire pour
+l'occasion, et c'est donc avec ce v?hicule que vous voyagerez.</p>
+
+<p>Avant le d?collage, vous devez vous entra?ner sur simulateur aux bases de
+l'alunissage. Si tout se passe comme pr?vu, vous ne devriez pas avoir ?
+voler en mode manuel, mais mieux vaut pr?venir que gu?rir, comme ils disent.</p>
+
+<p>Votre mission est de <b>poser le module avec une vitesse verticale
+inf?rieure ? 10 m/s</b>. Il y a deux fa?ons d'influer sur la trajectoire du
+module : en modifiant son angle, ou en r?glant la pouss?e de son
+moteur. Dans cette simulation, nous ne nous int?ressons qu'? la pouss?e,
+exprim?e en m/s?.</p>
+
+<p>Vous devez ?crire le corps de la fonction <code>step()</code>, qui
+sera appel?e tous les dixi?mes
+de seconde pendant la simulation. Il faut ajuster la pouss?e du moteur en
+utilisant la fonction <code>setPousseeDesiree(poussee)</code> o? <code>poussee</code> est un
+entier entre 0 et 4 (repr?sentant une pouss?e entre 0 m/s? et 4 m/s?). Vous
+ne pouvez incr?menter ou d?cr?menter la pouss?e que de 1 entre deux pas de
+la simulation. Ainsi, si la pouss?e du moteur est actuellement de 2 et que
+vous demandez 4, vous n'aurez que 3 ? la prochaine ?tape. Si vous demandez
+une valeur inf?rieure ? 0 (ou sup?rieure ? 4), tout se passera comme si vous
+aviez demand? 0 (ou 4).</p>
+
+<p>Afin de prendre des d?cisions inform?es, vous pouvez demander des
+informations sur l'?tat actuel du module. Dans cette simulation, vous ne
+serez probablement int?ress? que par sa position verticale (accessible gr?ce
+? <code>getY()</code>) et sa vitesse
+verticale (accessible gr?ce ? <code>getVitesseY()</code>). Vous pouvez ?galement demander
+la pouss?e actuelle du moteur (avec <code>getPoussee()</code>) si vous avez oubli? ce que vous
+avez demand?. Rappelez vous que la gravit? martienne est de 3.711 m/s?, cela
+peut vous ?tre utile.</p>
+
+<p>Une derni?re chose : le module est plut?t petit, et vous n'avez pas tant de
+carburant que cela. ? chaque pas de simulation, il consomme autant d'unit?
+de carburant que la pouss?e actuelle du moteur. Si vous tombez en panne
+s?che, vous serez en chute libre alors attention ! Vous pouvez consulter le
+niveau du r?servoir avec <code>getFuel()</code>.</p>
+
+<p>Bon courage !</p>
+</body></html>
