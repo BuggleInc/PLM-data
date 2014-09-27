@@ -1,20 +1,15 @@
 def insertionSort() {
 	
 
-var n=getNombreValeurs()
-var T = new Array[Int](n)
-var v=0
-var j=0
-
-for(i<-1 to n-1)
+for(i<-1 to getNombreValeurs() -1)
 {
-	v=T(i)
-	j=i
-	while(j>0 && T(j-1)>v)
+	var v=getValeur(i)
+	var j=i
+	while(j!=0 && getValeur(j-1) > v)
 	{
-		T(j)=T(j-1)
-		j=j-1  
+		copie(j-1,j)
+		j=j-1
 	}
-	T(j)=v
+	setValeur(j,v)
 }
 }
