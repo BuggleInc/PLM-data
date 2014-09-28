@@ -1,16 +1,21 @@
 def step(rule:Array[Char], colors:Array[Color]) {
 	for (i <- 0 to colors.length-1) {
-		if (getCouleurSol()==colors(i) && i != colors.length-1) {
-			rule(i);
-			setCouleurBrosse(colors(i+1));
-			baisseBrosse();
-			leveBrosse();
-			
-		} else if (getCouleurSol()==colors(i) && i == colors.length-1) {
-			rule(i);
-			setCouleurBrosse(colors(0));
-			baisseBrosse();
-			leveBrosse();
+		if (getCouleurSol()==colors(i)) {
+			if (rule(i)=='R') {
+				droite();
+			} else {
+				gauche();
+			}
+			if ( i == colors.length-1) {
+				setCouleurBrosse(colors(0));
+				baisseBrosse();
+				leveBrosse();
+			} else {
+				setCouleurBrosse(colors(i+1));
+				baisseBrosse();
+				leveBrosse();
+			}
+			avance();
 		}
 	}
 }
