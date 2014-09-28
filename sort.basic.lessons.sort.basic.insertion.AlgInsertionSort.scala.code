@@ -1,0 +1,15 @@
+def insertionSort() {
+	var v=0;
+	var count=0;
+	for (i <- 1 to getNombreValeurs()-1) {
+		v=getValeur(i);
+		count=i;
+		for (l <- i to 1 by -1) {
+			if (plusPetitQue(l-1,v)) {
+				copie(l-1,l);
+				count=l;
+			}
+		}
+		setValeur(v,count);
+	}
+}
