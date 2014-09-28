@@ -1,10 +1,14 @@
 def selectionSort() {
 	for (i <- 0 to getNombreValeurs()-1) { 
+		val temp=0
 		val minpos=i
 		for (j <- i to getNombreValeurs()-1) {
 			if (j<minpos) { 
-				copie(
+				copie(j,minpos)
 			}
 		}
+		copie(i,temp)
+		setValeur(minpos,i)
+		setValeur(temp,minpos)
 	}
 }
