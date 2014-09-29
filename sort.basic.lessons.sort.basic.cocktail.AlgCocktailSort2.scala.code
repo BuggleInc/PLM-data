@@ -2,24 +2,28 @@ def cocktailSort2() {
 
 
 	var tri:Boolean = false; 
+	var debut = 0 ;
+	var fin = getNombreValeurs - 2;
 
 	while (!tri)
 	{
 		tri = true
-		for (i <- 0 to getNombreValeurs - 2)
+		for (i <- debut to fin)
 		{
 			if (!plusPetit(i , i+1))
 			{
 				echange(i, i+1);
+				fin -= 1 
 				tri = false
 			}
 		}
 
-		for (i <- getNombreValeurs - 2 to 0 by - 1)
+		for (i <- fin to debut by - 1)
 		{
 			if (plusPetit(i+1 , i))
 			{
 				echange(i, i +1);
+				debut +=1
 				tri = false
 			}
 		}
