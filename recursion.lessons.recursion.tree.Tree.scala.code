@@ -1,12 +1,15 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
 	if(steps!=0) {
+		setCouleur(current(steps))
 		avance(length)
 		droite(angle)
+		setCouleur(current(steps-1))
 		tree(steps-1,shrink*length,angle,shrink)
 		gauche(2*angle)
 		tree(steps-1,shrink*length,angle,shrink)
 		droite(angle)
+		setCouleur(current(steps))
 		recule(length)
 	}
 
