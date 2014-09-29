@@ -2,21 +2,25 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	var x:Double = 0
 	var y:Double = 0
 	steps match {
-		case 1 => droite(angle)
+		case 1 => gauche(angle)
 				avance(length)
 				recule(length)
-				gauche(2*angle)
+				droite(2*angle)
 				avance(length)
 				recule(length)
 		case _ => avance(length)
 				x = getX()
 				y = getY()
-				
-				gauche(angle)
+				droite(angle)
 				current(steps)
 				tree(steps-1, shrink*length, angle, shrink)
 				setPos(x,y)
+				//gauche(angle)
+			
+				current(steps)
+				//tree(steps-1, shrink*length, angle, shrink)
 				
 	}
+	setPos(200,350)
 	
 }
