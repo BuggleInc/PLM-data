@@ -1,18 +1,27 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)  {
 //subtree(steps,length,angle,shrink)
-
+var x:Double=0;
+var y:Double=0;
+var cap:Double=0;
 
 	if(steps>0){
 		avance(length)
+		x=getX()
+		y=getY()
+		cap=getCap()
 		println(steps+" 1")
 		droite(angle)
 		tree(steps-1,length*shrink,angle,shrink)
-		droite(180-angle)
+		setX(x)
+		setY(y)
+		setCap(cap)
+		
+		/*droite(180-angle)
 		avance(length)
 		droite(180-angle-angle)
 		avance(length)
 		gauche(180)
-		avance(length)
+		avance(length)*/
 		
 
 	}
