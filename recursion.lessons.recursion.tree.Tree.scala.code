@@ -11,14 +11,12 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		case _ => avance(length)
 				x = getX()
 				y = getY()
+				
 				gauche(angle)
 				current(steps)
 				tree(steps-1, shrink*length, angle, shrink)
 				setPos(x,y)
-				droite(2*angle)
-				current(steps)
-				tree(steps-1, shrink*length, angle, shrink)
-				setPos(x,y)
+				
 	}
 	
 }
