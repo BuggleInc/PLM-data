@@ -1,15 +1,18 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
 
+	var longueur = length
+	var nbPas = steps
+	
 	avance(length)
 	gauche(angle)
-	steps -= 1
-	length = length + increment
+	nbPas -= 1
+	longueur = longueur + increment
 
 	if (steps == 0) {
 		return
 	}
 	else {
-		spiral(steps,angle,length,increment)
+		spiral(nbPas,angle,longueur,increment)
 	}
 	
 }
