@@ -4,7 +4,24 @@ def shellSort()
 
 	while(gap >0)
 	{
+		var v = 0
+		var j = 0
 		
+		for(i <- gap to getNombreValeurs()-1)
+		{
+			v = getValeur(i)
+			
+			j = i-gap
+			while(!plusPetitQue(j,j+gap))
+			{
+				copie(j, j+gap)
+				j -= gap
+			}
+	
+			setValeur(j+gap, v)
+		}
+
+		gap /= 2
 	}
 
 
