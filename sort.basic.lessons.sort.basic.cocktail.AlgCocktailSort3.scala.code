@@ -1,2 +1,23 @@
 def cocktailSort3() {
+	var x:Boolean = false
+	var a:Int = 0
+	var b:Int = getNombreValeurs()-2
+	do {
+		x = false;
+		for (i <- a to b) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			x = true;
+			return} 
+		}
+		b=b-1
+		for (i <- b to a by -1) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			x = true;
+			return} 
+			
+		} 
+		a=a+1
+	}while(x)
 }
