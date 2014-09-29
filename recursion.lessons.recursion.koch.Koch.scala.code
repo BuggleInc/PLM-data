@@ -11,7 +11,7 @@ def snowFlake (levels:Int, length:Double) {
 def snowSide(levels:Int, length:Double) {
 	levels match {
 		case 0 => avance(length)
-		case 1 => avance(length/3)
-		case _ => avance(length/9)
+		case 1 => snowSide(levels-1,length/3)
+		case _ => sonwSide(levels-1,length/3)
 	}
 }
