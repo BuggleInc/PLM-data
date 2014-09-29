@@ -8,11 +8,11 @@ def shellSort()  {
 		for(i <- gap + 1 to length - 1){
 			v = getValeur(i);
 			j = length;
-			while(j > gap + 1 && getValeur(j - gap) > v){
+			while(j > 0 && getValeur(j - gap) > v){
 				setValeur(j, getValeur(j - gap));
 				j -= gap;
 			}
-			setValeur(j - 1, v);
+			setValeur(j, v);
 		}
 		gap = gap / 2;
 	}
