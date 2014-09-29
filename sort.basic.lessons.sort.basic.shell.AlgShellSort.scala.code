@@ -1,0 +1,54 @@
+def shellSort()  {
+	var longueur = getNombreValeurs();
+	var n = 0;
+	var valeur ; 
+	var j ;
+
+	while (n<longueur){
+		n = 3*n+1;
+	}
+	while (n!=0){
+		n = n/3;
+		for(i<- n to longueur-1){
+			valeur = getValeur(i);
+			j = i ; 
+			while((j>(n-1)) && (getValeur(j-n)>valeur)){
+				setValeur(j,getValeur(j-n));
+				j=j-n;
+			}
+			setValeur(j,valeur);
+			
+		}
+	}
+}
+
+
+/* public static void triShell(int tableau[])
+        {
+        int longueur=tableau.length;
+        int n=0;
+        
+        while(n<longueur)
+            {
+            n=3*n+1;
+            }
+        
+        while(n!=0)
+            {
+            n=n/3;
+            for (int i=n;i<longueur;i++)
+                {
+                int valeur=tableau[i];
+                int j=i;
+
+                while((j>(n-1)) && (tableau[j-n]>valeur))
+                    {
+                    tableau[j]=tableau[j-n];
+                    j=j-n;
+                    }
+                tableau[j]=valeur;
+                }
+            }
+        
+        }
+         */
