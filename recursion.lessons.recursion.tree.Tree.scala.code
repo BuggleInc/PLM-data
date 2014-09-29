@@ -1,6 +1,14 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double){
 	current(steps)
-	avance(100)
+	avance(steps)
+	droite(angle)
+	if (steps!=0) {
+		tree(steps-1, length*shrink, angle, shrink)
+	}
+	else {
+		recule(length)
+	}
+	
 	
 }
 
