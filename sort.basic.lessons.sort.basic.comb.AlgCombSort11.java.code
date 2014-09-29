@@ -1,2 +1,25 @@
 public void combSort11() {
+	boolean fini=false;
+	int gap = getNombreValeurs();
+
+	while(!fini || gap>1){
+		fini=true;
+		
+		if(gap>1)
+			gap=(int) (gap/1.3);
+
+		if(gap==10 || gap==9)
+			gap=11;
+		
+		int i=0;
+		while(i+gap < getNombreValeurs()){
+			if(plusPetit(i+gap, i)){
+				fini=false;
+				int temp = getValeur(i);
+				copie(i+gap, i);
+				setValeur(i+gap, temp);
+			}
+			i++;
+		}
+	}
 }
