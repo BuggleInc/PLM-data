@@ -1,0 +1,19 @@
+def combSort() {
+	var ecart:Int = getNombreValeurs();
+	var test:Boolean=false;
+ 	do{	 
+ 		test=false;
+   		if(ecart>1){
+   			ecart=(ecart/1.3).toInt;
+   		}
+   		var i:Int=0;
+   		while(i+ecart<getNombreValeurs()){
+   			if(plusPetit(i+ecart,i)){
+   				echange(i+ecart,i);
+   				test=true;
+   			}
+     		i=i+1;
+     	}
+ 	}while(ecart>1 || test)
+
+}
