@@ -1,12 +1,18 @@
-def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+def tree(steps:Int, length:Double, angle:Double, shrink:Double){
 	var x = getX();
 	var y = getY();
 	var cap = getCap();
-	var longueur = length*shrink;
 	
-	current(steps);
-	avance(length);
-
-	droite(angle);
-	tree(steps-1, longueur, angle, shrink);		
+	if( steps != 0){
+		var longueur = length*shrink;
+		
+		current(steps);
+		avance(length);
+	
+		droite(angle);
+		tree(steps-1, longueur, angle, shrink);		
+	}
+	else{
+		gauche(angle);
+	}
 }
