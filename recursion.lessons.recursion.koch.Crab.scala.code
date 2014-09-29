@@ -1,2 +1,7 @@
-void crab(int levels, double length) {
+def crab(levels:Int, length:Double) {
+	levels match {
+		case 0 => avance(length)
+		case n => crab(n-1, length/Math.sqrt(2))
+			droite(45)
+	}
 }
