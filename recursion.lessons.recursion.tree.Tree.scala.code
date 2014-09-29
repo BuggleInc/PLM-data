@@ -17,7 +17,7 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	
 		// on appelle récursivement la fonction tree
 		tree(steps-1, longueur, angle, shrink);
-		subtree(steps-1, longueur, angle, shrink);
+		//subtree(steps-1, longueur, angle, shrink);
 		setPos(x, y);
 		setCap(cap);
 	
@@ -25,13 +25,11 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		gauche(angle);
 		if(steps == 1){
 			avance(longueur);
-			return;
 		}
-		if(steps == 2){
+		tree(steps-1, longueur, angle, shrink);
+		/*if(steps == 2){
 			current(steps);
 			avance(length);
-		}
-		
-		//tree(steps-1, longueur, angle, shrink);
+		}*/
 	}
 }
