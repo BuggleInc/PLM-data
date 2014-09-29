@@ -1,33 +1,22 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
-	var longueur = length
-	var etage = steps
-	var coté = droite
-	
 	current(steps)
-
-	if (coté == droite) {
 	avance(length)
-	droite(angle)
-
-	tree(etage,longueur,angle,shrink)
-
-	coté = gauche
-	}
-
-	else if (coté == gauche) {
-	gauche(angle)
-	recule(length)
-	gauche(2*angle)
-
-	tree(etage,longueur,angle,shrink)
-
-	coté = fini
+	
+	if(steps != 1) {
+		droite(angle)
+		tree(steps - 1,length*shrink,angle,shrink)
+		gauche(2*angle)
+		tree(steps-1,length*shrink,angle,shrink)
+		droite() 
+		recule(length)
+		
 	}
 
 	else {
-	longueur = longueur * shrink
-	etage -= 1
+		recule(length)
 	}
+	
+	
 			
 }
