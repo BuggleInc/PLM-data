@@ -1,29 +1,11 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 var s= steps
 var l=length
-	if(s!=1){
-		current(s)
-		avance(length)
-		droite(angle)
-		s=s-1
-		l=l*shrink
-		tree(s,l,angle,shrink)
-	}
-	else{
-		var x=getX()
-		var y=getY()
-		current(s)
-		avance(l)
-		setPos(x,y)
-		gauche(angle)
-		gauche(angle)
-		avance(l)
-		droite(angle)
-		setPos(x,y)
-		current(s+1)
-		recule(l/shrink)
-		gauche(angle)
-		avance(l/shrink)
-		
-	}
+var x=getX()
+var y=getY()
+
+current(s)
+avance(l)
+droite(angle)
+tree(s-1)
 }
