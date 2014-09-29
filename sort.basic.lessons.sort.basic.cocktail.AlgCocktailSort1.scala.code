@@ -1,2 +1,23 @@
 def cocktailSort() {
+	var tri:Boolean = false
+	while(!tri) {
+		for (i<- getNombreValeurs-2 to 0 by -1) {
+			tri = true
+			for (j<- 0 to i) {
+				if (plusPetit(j+1,j)) {
+					echange(j,j+1)
+					tri=false
+				}
+			}
+		}
+		for (i<- 0 to getNombreValeurs-2) {
+			tri=true
+			for (j<- i to 0 by -1) {
+				if (plusPetit(j+1,j)) {
+					echange(j,j+1)
+					tri=false
+				}
+			}
+		}
+	}
 }
