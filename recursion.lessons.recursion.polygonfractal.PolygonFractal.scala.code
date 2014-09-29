@@ -1,10 +1,12 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
 	if (levels==1) {
-		for (i <- 1 to sides) {
+		for (i <- 1 to sides-1) {
 			avance(length)
 			droite(360/sides)
 		}
 	} else {
+		gauche(110)
+		avance(length)
 		polygonFractal (levels-1, sides, length*shrink, shrink)
 	}
 }
