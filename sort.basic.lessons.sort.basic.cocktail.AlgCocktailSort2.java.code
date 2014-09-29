@@ -1,2 +1,32 @@
 public void cocktailSort2() {
+
+	boolean fini=false;
+	int inf=0;
+	int sup=getNombreValeurs();
+	while(!fini){
+		fini=true;
+		
+		for(int i=inf; i<sup-1; i++){
+			if(plusPetit(i+1, i)){
+				fini=false;
+				int temp = getValeur(i);
+				copie(i+1, i);
+				setValeur(i+1, temp);
+			}
+		}
+
+		inf++;
+
+		for(int i=sup-2; i>=inf; i--){
+			if(plusPetit(i+1, i)){
+				fini=false;
+				int temp = getValeur(i);
+				copie(i+1, i);
+				setValeur(i+1, temp);
+			}
+		}
+
+		sup--;
+	}
 }
+
