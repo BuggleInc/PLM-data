@@ -1,0 +1,11 @@
+def solve(src:Int, dst:Int, other:Int) {
+    solve(src,dst,other, getSlotSize(src));
+}
+
+def solve(src:Int, dst:Int, other:Int, height:Int) {
+	if (height != 0) {
+		solve(src,dst,other,height - 1)
+		move (src,dst)
+		solve(dst,src,other,height - 1)
+	}
+}
