@@ -1,6 +1,6 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
-	if(steps != 6)
+	if(steps%6 != 0)
 	{
 	current(steps % 6);
 	avance(length);
@@ -12,6 +12,6 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	current(steps % 6);
 	recule(length);
 	droite(angle);
-	tree(1, length * shrink, angle, shrink);
+	tree(0, length * shrink, angle, shrink);
 	}
 }
