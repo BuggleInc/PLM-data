@@ -1,6 +1,12 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	
-	current(steps)
-	avance(length)
-	
+var s= steps
+var l=length
+	if(s!=3){
+		current(s)
+		avance(length)
+		droite(angle)
+		s=s-1
+		l=l*shrink
+		tree(s,l,angle,shrink)
+	}
 }
