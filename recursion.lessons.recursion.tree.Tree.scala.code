@@ -7,16 +7,19 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		current(steps);
 		
 		avance(length);
-		length = length * shrink;
+		var longueur = length * shrink;
 	
 		droite(angle);
-		tree(steps-1, length, angle, shrink);
+		tree(steps-1, longueur, angle, shrink);
 	
 		setPos(x, y);
 		setCap(cap);
 	
 		gauche(angle);
 		gauche(angle);
-		tree(steps-1, length, angle, shrink);
+		tree(steps-1, longueur, angle, shrink);
+
+		setPos(x, y);
+		setCap(cap);
 	}
 }
