@@ -1,15 +1,16 @@
-def tree(n:Int, l:Double, t:Double, s:Double)    {
-if (n==0) {
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+current(steps)
+if (steps==0) {
 	return
 }
 else {
-	avance (l);
-	droite (t);
-	avance (l);
-	recule (l);
-	gauche (2*t);
-	avance (l);
-	recule (l);
-	tree (n-1, l, t, s);
+	avance (length);
+	droite (angle);
+	recule (lenght);
+	tree (steps-1, length*shrink,angle,shrink)
+	gauche (2*angle);
+	
+	tree (steps-1, length*shrink,angle,shrink)
+	
 }
 }
