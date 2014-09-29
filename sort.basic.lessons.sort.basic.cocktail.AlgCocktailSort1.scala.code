@@ -1,26 +1,27 @@
 def cocktailSort() {
-var swap1 : Boolean = true
-var swap2 : Boolean = true
+var swap : Boolean = true
+
  
-	 while (( swap1 == true ) || ( swap2 == true ) ) {
+ while ( swap == true ) {
+ 	swap = false
  	
 
-		for (i <- 0 to getNombreValeurs()-2 ) {
-		swap1 = false
-			if ( plusPetit(i , i+1) == false ) {
-			echange (i , i+1 ) 
-			swap1 = true
-			}
+	for (i <- 0 to getNombreValeurs()-2 ) {
 		
-		}
-		for (i <- getNombreValeurs()-2 to 0 by -1) {
-		swap2 = false 
-			if ( plusPetit(i , i+1) == false ) {
+		if ( plusPetit(i , i+1) == false ) {
 			echange (i , i+1 ) 
-			swap2 = true
-			}
-		
+			swap = true
 		}
+		
 	}
+	for (i <- getNombreValeurs()-2 to 0 by -1) {
+		
+		if ( plusPetit(i , i+1) == false ) {
+			echange (i , i+1 ) 
+			swap = true
+		}
+		
+	}
+}
 
 }
