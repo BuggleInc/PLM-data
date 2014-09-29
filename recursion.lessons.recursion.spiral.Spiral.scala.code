@@ -2,15 +2,16 @@ def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
 
 
 
-for(i <- steps to 0 by -1)
-{
-gauche(angle);
-length = length+increment;
-avance(length);
-}
+for(i <- steps to 0 by -1) {
+	avance(length);
+	gauche(angle);
+	
+	spiral(steps-1, angle, length+increment, increment)
 
 
 
 }
 
-spiral(5, 90, 0, 3);
+
+
+}
