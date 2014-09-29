@@ -23,13 +23,12 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	
 		gauche(angle);
 		gauche(angle);
-		if(steps == 1)
+		if(steps == 1){
 			avance(longueur);
-
-		if(steps == 2){
-			current(steps);
-			avance(longueur);
+			return;
 		}
-		//tree(steps-1, longueur, angle, shrink);
+
+		
+		tree(steps-1, longueur, angle, shrink);
 	}
 }
