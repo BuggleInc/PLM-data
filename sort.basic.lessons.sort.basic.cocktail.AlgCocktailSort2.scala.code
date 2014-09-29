@@ -1,0 +1,17 @@
+def cocktailSort2() {
+	val n:Int = getNombreValeurs()
+	var swapped:Boolean = true
+	var max:Int = n-1
+	var min:Int = 0
+	while (swapped) {
+		swapped = false
+		for (i <- min to max-1) {
+			if (plusPetit(i+1, i)) {echange(i, i+1); swapped = true}
+		}
+		for (i <- max to min+1 by -1) {
+			if (plusPetit(i, i-1)) {echange(i, i-1); swapped = true}
+		}
+		max+=-1
+		min+=1
+	}
+}
