@@ -1,22 +1,32 @@
 finished = False
 while (finished == False):
-    if(getIndication() == 'A'):
+    if(readMessage() == 'A'):
         forward()
-    elif(getIndication() == 'B'):
-        forward()
-        forward()
-    elif(getIndication() == 'C'):
+    elif(readMessage() == 'B'):
         forward()
         forward()
+    elif(readMessage() == 'C'):
         forward()
-    elif(getIndication() == 'Z'):
+        forward()
+        forward()
+    elif(readMessage() == 'Z'):
         backward()
-    elif(getIndication() == 'Y'):
-        backward()
-        backward()
-    elif(getIndication() == 'X'):
-        backward()
+    elif(readMessage() == 'Y'):
         backward()
         backward()
-    elif(getIndication() == ''):
+    elif(readMessage() == 'X'):
+        backward()
+        backward()
+        backward()
+    elif(readMessage() == 'R'):
+        right()
+        forward()
+    elif(readMessage() == 'L'):
+        left()
+        forward()
+    elif(readMessage() == 'I'):
+        left()
+        right()
+        forward()
+    elif(readMessage() == ''):
         finished = True
