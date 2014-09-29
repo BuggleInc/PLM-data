@@ -1,2 +1,20 @@
 def cocktailSort2() {
+	var x:Boolean = false
+	var a:Int = 0
+	var b:Int = getNombreValeurs()-2
+	do {
+		x = false;
+		for (i <- a to b) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			b=b-1
+			x = true} 
+		}
+		for (i <- b to a by -1) {
+			if (plusPetit(i+1,i)) {
+			echange(i,i+1);
+			a=a+1
+			x = true}
+		}
+	}while(x)
 }
