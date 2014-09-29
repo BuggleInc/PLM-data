@@ -1,2 +1,20 @@
 public void bubbleSort2() {
+	boolean fini = false;
+	int nb_boucles=0;
+	
+	while(!fini){
+
+		fini = true;
+		
+		for(int i=1; i<getNombreValeurs()-nb_boucles; i++){
+			if(plusPetit(i, i-1)){
+				fini=false;
+				int temp = getValeur(i);
+				copie(i-1, i);
+				setValeur(i-1, temp);
+			}
+		}
+
+		nb_boucles++;
+	}
 }
