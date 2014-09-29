@@ -1,2 +1,18 @@
 def shellSort()  {
+		var gap = getNombreValeurs()/2;
+
+		while( gap > 0 ) {
+			for (i <- gap - 1 to getNombreValeurs()-1) {
+
+				var valeur = getValeur(i);
+				var j = i;
+				while(j >= gap && (getValeur(j-gap) > valeur)) {
+					copie(j-gap,j);
+					j -= gap;
+				}
+				setValeur(j, valeur);
+			}
+			gap = gap / 2;
+		}
+	}
 }
