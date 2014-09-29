@@ -1,0 +1,28 @@
+def selectionSort() {
+
+	var taille:Int = getNombreValeurs();
+	var j:Int = 0;
+	var min:Int = 0;
+
+	for (i <- 0 to taille - 1)
+	{
+		j = i;
+		min = getValeur(j);
+		
+		for (k <- i + 1 to taille - 1)
+		{
+			if (min > getValeur(k))
+			{
+				min = getValeur(k);
+				j = k;
+			}
+		}
+
+		echange(j, i);
+	}
+}
+
+/*
+ * Plus généralement, pour la case N, je cherche la case M de [n;lgr] contenant la plus petite valeur possible. Ensuite, j'inverse le contenu de la case N et celui de la case M.
+
+ */
