@@ -1,19 +1,19 @@
 def gnomeSort() {
-	var curseur:Int = getNombreValeurs()-2;
+	var curseur:Int = 1;
 	var hasSwap: Boolean = false;
 	do
 	{
 		hasSwap = false;
 		if(plusPetit(curseur-1,curseur) && plusPetit(curseur,curseur+1))
 			{
-				curseur=curseur-1;
+				curseur=curseur+1;
 			}
 		else{
 			echange(curseur+1,curseur-1);
 			hasSwap = true;
-			curseur = curseur-1;
+			curseur = curseur+1;
 			
 		}
-	}while(hasSwap && curseur ==1)
+	}while(hasSwap || curseur == getNombreValeurs()-2)
 	
 }
