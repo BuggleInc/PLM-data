@@ -1,15 +1,17 @@
 def selectionSort() {
 	for(i<-0 to getNombreValeurs()-1){
-		var min:Int=getValeur(i);
-		var mem:Int=getValeur(i);
-		var ind:Int=i;
+		//var min:Int=getValeur(i);
+		//var mem:Int=getValeur(i);
+		//var ind:Int=i;
+		var min:Int=i;
 		for(j<-getNombreValeurs()-1 to i by -1){
-			if(plusPetitQue(j,min)){
-				min=getValeur(j);
-				ind=j;
+			if(plusPetit(j,min)){
+				min=j;//getValeur(j);
+				//ind=j;
 			}
 		}
-		setValeur(i,min);
-		setValeur(ind,mem);
+		echange(i,min);
+		//setValeur(i,min);
+		//setValeur(ind,mem);
 	}
 }
