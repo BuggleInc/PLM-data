@@ -9,7 +9,7 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		current(steps);
 	
 		// on avance de la longueur fournie en paramètre et on modifie sa valeur avec shrink
-		avance(length);
+		//avance(length);
 		var longueur = length * shrink;
 		
 		// on tourne à droite de l'angle indiqué
@@ -18,12 +18,11 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		// on appelle récursivement la fonction tree
 		tree(steps-1, longueur, angle, shrink);
 
-		var etape = steps + 1;
 		setPos(x, y);
 		setCap(cap);
 	
 		//gauche(angle);
 		gauche(angle);
-		tree(etape-1, longueur, angle, shrink);
+		tree(steps-1, longueur, angle, shrink);
 	}
 }
