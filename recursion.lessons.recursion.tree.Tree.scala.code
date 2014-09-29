@@ -3,27 +3,23 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	var longueur = length
 	var etage = steps
 
-	if (steps == 0) {
-		return
-	}
+		if(steps = 0) {
+			recule(length)
+			gauche(2*angle)
+			etage -= 1
+		}
+			
+		else {	
+			current(steps)
 
-	else {
-		
-		current(steps)
+			avance(length)
+			droite(angle)
 
-		avance(length)
-		droite(angle)
+			longueur = longueur * shrink
+			etage += 1
 
-		longueur = longueur * shrink
-		etage -= 1
+			tree(etage,longueur,angle,shrink)
 
-		tree(etage,longueur,angle,shrink)
-
-		gauche(2*angle)
-		
-		recule(length)
-
-		
-
-	}
+			gauche(2*angle)
+		}
 }
