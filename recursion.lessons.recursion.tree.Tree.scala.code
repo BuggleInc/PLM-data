@@ -3,7 +3,8 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
 
 var longueur=length
-
+current(step)
+avance(length)
 // Cas trivial
 	if(steps!=1)
 	{	
@@ -13,6 +14,7 @@ var longueur=length
 	// On baisse d'un etage à chaque fois
 	tree(steps-1,length*shrink,angle,shrink) // Pb ici
 	droite(angle)
+	current(step)
 	recule(length)
 	
 
