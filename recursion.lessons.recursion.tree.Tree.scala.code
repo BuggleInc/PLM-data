@@ -9,11 +9,14 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double){
 		tree(steps-1, length*shrink, angle, shrink)
 	}
 	else {
-		for (i<- 1 to 2) {
 			leveCrayon
 			recule(length)
 			gauche(2*angle)
 			tree(steps, length, angle, shrink)
+			leveCrayon
+			recule(length)
+			tree(steps+1,lenght/shrink,angle,shrink)
+			
 			
 			
 			
