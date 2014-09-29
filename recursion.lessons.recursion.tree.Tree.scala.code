@@ -6,16 +6,14 @@ var longueur=length
 
 // Cas trivial
 	if(steps!=1)
-	{
-
+	{	
 	
-	current(steps)
-	avance(length)
 	droite(angle)
-	longueur=longueur*shrink
+	tree(steps-1,length*shrink,angle,shrink)
+	gauche(2*angle)
 	etage=etage-1 // On baisse d'un etage à chaque fois
 	tree(etage,longueur,angle,shrink) // Pb ici
-	gauche(2*angle)
+	
 	tree(etage,longueur,angle,shrink)
 
 	// Pour faire le chemin retour sans changer les couleurs
@@ -25,4 +23,6 @@ var longueur=length
 	else
 	{
 	recule(longueur)
+	return
 	}
+}
