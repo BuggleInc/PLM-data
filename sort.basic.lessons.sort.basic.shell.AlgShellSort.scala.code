@@ -3,18 +3,24 @@ def shellSort()  {
 	var taille:Int = getNombreValeurs();
 	var v:Int = 0;
 	var j:Int = 1;
+	var i:Int = 1;
+	var gap:Int = taille / 2;
 
-	for (i <- 1 to taille - 1)
+	while (gap > 0)
 	{
 		v = getValeur(i);
 		j = 1;
-		while (i - j >= 0 && getValeur(i - j) > v)
+		
+		while (i - j * gap >= 0 && getValeur(i - gap) > v)
 		{
-			setValeur(i - j + 1, getValeur(i - j));
+			setValeur(i - gap + 1, getValeur(i - gap));
 			j += 1;
 		}
 
 		setValeur(i - j + 1, v);
+
+		gap /= 2;
+		i += 1;
 	}
 }
 
@@ -22,4 +28,6 @@ def shellSort()  {
  * gap=lgr/2
 tant que gap>0:
   appliquer l'algorithme de tri par insertion en comparant i-gap et i, puis i-2gap et i-gap, puis i-3gap et i-2gap, etc.
+
+  ecart = (ecart.toDouble / 2).toInt;
  */
