@@ -2,16 +2,21 @@ public void tree(int steps, double length, double angle, double shrink){
 	
 	if(steps != 0){
 
+		//On dessine le tronc
 		baisseCrayon();
 		current(steps);
-		
 		avance(length);
+
+		//On dessine l'arbre à droite
 		droite(angle);
 		tree(steps-1, length*shrink, angle, shrink);
 		gauche(angle);
+
+		//On dessine l'arbre à gauche
 		gauche(angle);
 		tree(steps-1, length*shrink, angle, shrink);
-		
+
+		//On revient en arrière
 		leveCrayon();
 		droite(angle);
 		recule(length);
