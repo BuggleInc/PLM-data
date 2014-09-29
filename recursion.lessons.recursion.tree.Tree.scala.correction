@@ -1,39 +1,45 @@
 $package 
 
-import plm.universe.turtles.Turtle
-import java.awt.Color
-import plm.core.model.Game
+import java.awt.Color;
 
-class Tree extends Turtle {
+import plm.core.model.Game;
+import plm.universe.turtles.Turtle;
 
-	override def setX(i: Int)  {
-		if (isInited)
+public class Tree extends Turtle {
+	@Override
+	public void setX(int i)  {
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setX(x) in this exercise. Walk to your goal instead."));
 	}
-	override def setY(i: Int)  { 
-		if (isInited)
+	@Override
+	public void setY(int i)  { 
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setY(y) in this exercise. Walk to your goal instead."));
 	}
-	override def setPos(x: Int, y:Int)  { 
-		if (isInited)
+	@Override
+	public void setPos(int i,int j)  { 
+		if (isInited())
 			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setPos(x,y) in this exercise. Walk to your goal instead."));
 	}
-	
-	val colors:Array[Color] = Array(Color.cyan,      Color.blue,   Color.magenta, 
-									Color.orange,    Color.yellow, Color.green,
-									Color.lightGray, Color.gray,   Color.darkGray,   Color.black, Color.red)
-									
-	def current(v:Int) {
-	  if (v>=colors.length || v < 0)
-	    setColor(colors(colors.length -1));
-	  setColor(colors(v))
+
+	Color[] colors = new Color[] {Color.cyan,      Color.blue,   Color.magenta, 
+			Color.orange,    Color.yellow, Color.green,
+			Color.lightGray, Color.gray,   Color.darkGray,   Color.black, Color.red};
+
+	private void current(int v) {
+		if (v>=colors.length || v < 0)
+			setColor(colors[colors.length -1]);
+		setColor(colors[v]);
 	}
-  
+
+
 	/* BEGIN TEMPLATE */
-	def tree(steps:Int, length:Double, angle:Double, shrink:Double)	{
+	public void tree(int steps, double length, double angle, double shrink)	{
 		/* BEGIN SOLUTION */
-		if (steps != 0) {
-		    current(steps)
+		if (steps <= 0) {
+			/* do nothing */
+		} else {
+			current(steps);
 			forward(length);
 			right(angle);	         
 			tree(steps-1, length*shrink, angle, shrink);
@@ -46,9 +52,9 @@ class Tree extends Turtle {
 		/* END SOLUTION */	
 	}
 	/* END TEMPLATE */
-	def subtree(steps:Int, length:Double, angle:Double, shrink:Double)	{
+	public void subtree(int steps, double length, double angle, double shrink)	{
 		if (steps != 0) {
-			setColor(Color.black)
+			setColor(Color.black);
 			forward(length);
 			right(angle);	         
 			subtree(steps-1, length*shrink, angle, shrink);
@@ -60,8 +66,7 @@ class Tree extends Turtle {
 		/* END SOLUTION */	
 	}
 
-	override def run() {
-		tree(getParam(0).asInstanceOf[Int],getParam(1).asInstanceOf[Double],
-		    getParam(2).asInstanceOf[Double],getParam(3).asInstanceOf[Double]);
+	public void run() {
+		tree((Integer)getParam(0),(Double)getParam(1),(Double)getParam(2),(Double)getParam(3));
 	}
 }
