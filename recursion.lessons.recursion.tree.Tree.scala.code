@@ -1,6 +1,5 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	if(steps != 0){
-		// on récupère les coordonnées initiales de la tortue
+// on récupère les coordonnées initiales de la tortue
 		var x = getX();
 		var y = getY();
 		var cap = getCap();
@@ -11,18 +10,22 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 		// on avance de la longueur fournie en paramètre et on modifie sa valeur avec shrink
 		avance(length);
 		var longueur = length * shrink;
+	if(steps != 0){
+		
 		
 		// on tourne à droite de l'angle indiqué
 		droite(angle);
 	
 		// on appelle récursivement la fonction tree
 		tree(steps-1, longueur, angle, shrink);
-		debug(steps);
+		
 		setPos(x, y);
 		setCap(cap);
 	
 		//gauche(angle);
 		gauche(angle);
-		tree(steps-1, longueur, angle, shrink);
+		
 	}
+	else
+		tree(steps-1, longueur, angle, shrink);
 }
