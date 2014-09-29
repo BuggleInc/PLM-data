@@ -1,2 +1,43 @@
 public void cocktailSort3() {
+
+	boolean fini=false;
+	int inf=0;
+	int sup=getNombreValeurs()-2;
+	
+	while(!fini){
+		fini=true;
+		boolean modif=false;
+		
+		for(int i=inf; i<=sup; i++){
+			if(plusPetit(i+1, i)){
+				fini=false;
+				modif=true;
+				int temp = getValeur(i);
+				copie(i+1, i);
+				setValeur(i+1, temp);
+			}
+		}
+
+		if(modif)
+			break;
+			
+		sup--; 
+
+		modif=false;
+		for(int i=sup; i>=inf; i--){
+			if(plusPetit(i+1, i)){
+				fini=false;
+				modif=true;
+				int temp = getValeur(i);
+				copie(i+1, i);
+				setValeur(i+1, temp);
+			}
+		}
+
+		if(modif)
+			break;
+
+		inf++;
+	}
+	
 }
