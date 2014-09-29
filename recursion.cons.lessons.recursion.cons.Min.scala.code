@@ -1,5 +1,11 @@
 def min(l:List[Int]): Int = {
-	if(l.head<l.tail.head){
-		l.tail.head.del		
+	def fonctionInterne(l:List[Int],v:Int): Int ={
+		if(l==Nil) return v;
+		else if(l.head<v){
+			return fonctionInterne(l.tail,l.head);
+		}else{
+			return fonctionInterne(l.tail,v);
+		}
 	}
+	return fonctionInterne(l,l.head);
 }
