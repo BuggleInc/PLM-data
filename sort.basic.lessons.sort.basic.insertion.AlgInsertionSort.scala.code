@@ -1,4 +1,17 @@
 def insertionSort() {
+
+	var taille:Int = getNombreValeurs();
+	var v:Int = 0;
+	var j:Int = 1;
+
+	for (i <- 1 to taille - 1)
+	{
+		v = getValeur(i);
+		while (i - j >= 0 && getValeur(i - j) > v)
+			setValeur(i - j + 1, getValeur(i - j));
+
+		setValeur(i - j + 1, v);
+	}
 }
 
 
