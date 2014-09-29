@@ -4,14 +4,16 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double){
 	var cap = getCap();
 	var longueur = length*shrink;
 
-	current(steps);
-	avance(length);
-	droite(angle);
-	tree(steps-1, longueur, angle, shrink);
-
-	gauche(angle);
-	tree(steps-1, longueur, angle, shrink);
-
-	setPos(x, y);
-	setCap(cap);
+	if(steps != 0){
+		current(steps);
+		avance(length);
+		droite(angle);
+		tree(steps-1, longueur, angle, shrink);
+	
+		gauche(angle);
+		tree(steps-1, longueur, angle, shrink);
+	
+		setPos(x, y);
+		setCap(cap);
+	}
 }
