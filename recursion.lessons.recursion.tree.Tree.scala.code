@@ -10,7 +10,9 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	
 		// on avance de la longueur fournie en paramètre et on modifie sa valeur avec shrink
 		avance(length);
-		var longueur = length * shrink;
+		var longueur = length;
+		if(steps != 1)
+			longueur = length * shrink;
 		
 		// on tourne à droite de l'angle indiqué
 		droite(angle);
