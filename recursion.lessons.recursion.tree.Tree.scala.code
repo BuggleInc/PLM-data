@@ -1,16 +1,12 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	steps match {
 		case 0 => 
-		case _ => current(steps)
-				avance(length)
+		case _ => avance(length)
+				current(steps)
 		          droite(angle)
-		          current(steps)
-		          avance(length*shrink)
-		          recule(length*shrink)
 				tree(steps-1,length*shrink,angle,shrink)
 				gauche(2*angle)
-				avance(length*shrink)
-				recule(length*shrink)
+				tree(steps-1,length*shrink,angle,shrink)
 				droite(angle)
 				recule(length)			
 	}
