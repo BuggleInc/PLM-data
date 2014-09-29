@@ -2,9 +2,23 @@ public void gnomeSort() {
 	int ind=0;
 
 	while(ind<getNombreValeurs()-1){
+
+		//On vérifie si un changement est nécessaire
 		if(plusPetit(ind+1, ind)){
+
+			//On intervertit les valeurs
+			int temp = getValeur(ind);
+			copie(ind+1, ind);
+			setValeur(ind+1, temp);
+
+			//On regarde comment on se déplace
+			if(ind>0)
+				ind--;
+			else
+				ind++;
 			
 		}else{
+			//S'il n'y en a pas, ben on avance dans le tri
 			ind++;
 		}
 	}
