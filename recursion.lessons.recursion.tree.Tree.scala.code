@@ -1,8 +1,8 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	var step=steps
+	if (steps==0){return}
+	else{
 		avance(length:Double)
 	while(step>0){
-		step=step-1
 gauche(angle:Double)
 avance(length*shrink)
 recule(length*shrink:Double)
@@ -13,7 +13,8 @@ getY():Double
 recule(length*shrink)
 gauche(2*angle:Double)
 avance(length*shrink)
-tree(step,length*shrink,angle,shrink*shrink)
+tree(steps-1,length*shrink,angle,shrink*shrink)
+}
 }
 }
 
