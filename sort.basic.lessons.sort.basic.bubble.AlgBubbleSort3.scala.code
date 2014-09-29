@@ -1,10 +1,12 @@
 def bubbleSort3() {
 	val n:Int = getNombreValeurs()
-	var swapped:Boolean = True
+	var swapped:Boolean = true
 	for (i <- n-2 to 0 by -1) {
+		swapped = false
 		for (j <- 0 to i) {
-			if (plusPetit(j+1, j))
-				echange(j, j+1)	
+			if (plusPetit(j+1, j)) { echange(j, j+1); swapped = true}
+			if (!swapped)
+				return
 		}
 	}
 }
