@@ -1,9 +1,10 @@
 def gnomeSort() 
 {
-	var curseur:Int = 0;
+	var curseur:Int = getNombreValeurs() - 2;
 	var hasSwap: Boolean = false;
 	do
 	{
+		
 		hasSwap = false;
 		if(plusPetit(curseur-1,curseur+1) )
 			{
@@ -12,8 +13,16 @@ def gnomeSort()
 			}else{
 			echange(curseur+1,curseur-1);
 			hasSwap = true;
+			curseur=curseur-1;
 			}
 
 	}while(!hasSwap)
 	
 }
+ Le nain regarde le pot de fleur qui est à côté de lui 
+et il regarde également le pot de fleurs précédent; si ces deux
+pots sont alignés dans le bon ordre, le nain se déplace en avant
+d'un pot de fleurs, sinon il les échange et se déplace en arrière
+d'un pot de fleur. Condition aux limites : si il n'y a pas de pot
+de fleurs précédent, le nain avance ; si il n'y a pas de pot suivant
+alors il a terminé sa tâche.
