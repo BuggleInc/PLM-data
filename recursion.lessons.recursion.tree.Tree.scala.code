@@ -2,15 +2,16 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	var x = getX();
 	var y = getY();
 	var cap = getCap();
-	if(steps != 0){
-		printf("Steps: %d ", steps);
-		current(steps);
-		avance(length);
-		droite(angle);
-		var longueur = length * shrink;
-		tree(steps-1, longueur, angle, shrink);
+	var etape = steps;
 
-		setPos(x,y);
-		setCap(cap);
-	}
+	current(etape);
+	avance(length);
+	current(etape+1);
+	droite(angle);
+	var longueur = length * shrink;
+	avance(longueur);
+	setPos(x,y);
+	setCap(cap);
+	gauche(angle);
+	avance(longueur);
 }
