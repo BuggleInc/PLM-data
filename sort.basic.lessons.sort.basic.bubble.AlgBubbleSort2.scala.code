@@ -1,12 +1,9 @@
 def bubbleSort2() {
 	val n:Int = getNombreValeurs()
-	var sorted:Boolean = false
-	var accu:Int = 2
-	do {
-		sorted = true
-		for (i <- 0 to (n-accu)) {
-			if (plusPetit(i+1, i)) { echange(i, i+1); sorted = false}	
+	for (i <- n-2 to 0) {
+		for (j <- 0 to i) {
+			if (plusPetit(j+1, j))
+				echange(j, j+1)	
 		}
-	accu+=1
-	} while (!sorted)
+	}
 }
