@@ -1,73 +1,12 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	var x0 = getX();
-	var y0 = getY();
-	var cap0 = getCap();
-	var etape = steps;
+	var x = getX();
+	var y = getY();
+	var longueur = length*shrink;
 	
-
-	current(etape);
+	current(steps);
 	avance(length);
 
-	var x1 = getX();
-	var y1 = getY();
-	var cap1 = getCap();
-	
-	current(etape-1);
 	droite(angle);
-	var longueur = length * shrink;
-	avance(longueur);
-
-	var x2 = getX();
-	var y2 = getY();
-	var cap2 = getCap();
-
-	current(etape-2);
-	droite(angle);
-	longueur = length * shrink;
-	avance(longueur);
-
-	setPos(x2,y2);
-	setCap(cap2);
-	
-	gauche(angle);
-	longueur = length * shrink;
-	avance(longueur);
-	
-	setPos(x2,y2);
-	setCap(cap2);
-	
-	setPos(x1,y1);
-	setCap(cap1);
-	
-	current(etape-1);
-	gauche(angle);
-	avance(longueur);
-
-	var x3 = getX();
-	var y3 = getY();
-	var cap3 = getCap();
-
-	current(etape-2);
-	droite(angle);
-	longueur = length * shrink;
-	avance(longueur);
-
-	setPos(x3,y3);
-	setCap(cap3);
-	
-	gauche(angle);
-	longueur = length * shrink;
-	avance(longueur);
-	
-	setPos(x3,y3);
-	setCap(cap3);
-	
-	setPos(x1,y1);
-	setCap(cap1);
-
-	setPos(x1,y1);
-	setCap(cap1);
-
-	setPos(x0, y0);
-	setCap(cap0);		
+	tree(steps-1, longueur, angle, shrink);
+		
 }
