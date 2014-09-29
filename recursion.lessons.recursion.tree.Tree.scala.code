@@ -1,17 +1,17 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	// on récupère les coordonnées initiales de la tortue
+	var x = getX();
+	var y = getY();
+	var cap = getCap();
+
+	// on change la couleur en fonction de l'étape
+	current(steps);
+
+	// on avance de la longueur fournie en paramètre et on modifie sa valeur avec shrink
+	avance(length);
+	var longueur = length * shrink;
+		
 	if(steps != 0){
-		// on récupère les coordonnées initiales de la tortue
-		var x = getX();
-		var y = getY();
-		var cap = getCap();
-
-		// on change la couleur en fonction de l'étape
-		current(steps);
-
-		// on avance de la longueur fournie en paramètre et on modifie sa valeur avec shrink
-		avance(length);
-		var longueur = length * shrink;
-
 		// on tourne à droite de l'angle indiqué
 		droite(angle);
 
