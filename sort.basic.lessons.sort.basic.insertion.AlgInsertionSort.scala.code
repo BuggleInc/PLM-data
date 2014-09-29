@@ -5,13 +5,13 @@ def insertionSort() {
 	for ( i <- 1 to getNombreValeurs -1)
 	{
 		v = getValeur(i);
-		for (j <- i - 1 to 1 by - 1)
+		j = i - 1 
+		while (j !=1 && !plusPetitQue(j, v))
 		{
-			if (!plusPetitQue(i , v))
-			{
-				 
-			}
+				 copie(j , j + 1)
+				 j-= 1
 		}
+		setValeur(j, v)
 	}
 
 }
