@@ -2,17 +2,21 @@ def insertionSort() {
 	val l=getNombreValeurs();
 	var v=getValeur(0);
 	var j=0;
+	var b=true;
 	for (i<-1 to l-1) {
 		v=getValeur(i);
 		b=true;
 		j=i;
 		while (b) {
+			b=false;
 			if (j==0) {
 				setValeur(0,v);
 			} else if (plusPetitQue(j-1,v)) {
 				setValeur(j,v);
 			} else {
 				copie(j-1,j);
+				j-=1;
+				b=true;
 			}
 		}
 		
