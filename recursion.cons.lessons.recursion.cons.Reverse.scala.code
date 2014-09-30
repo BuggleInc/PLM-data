@@ -1,7 +1,10 @@
 def reverse(l:List[Int]): List[Int] = {
+	def fonctionInterne(l:List[Int],mem:List[Int]):List[Int] = {
 	if(l==Nil){
 		return Nil;
 	}else{
 		return reverse(l.tail)::l.head;
 	}
+	}
+	return fonctionInterne(l,mem);
 }
