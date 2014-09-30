@@ -1,27 +1,30 @@
 def cocktailSort() {
 
 	var needSwap=true
-	for (i<- 0 to getNombreValeurs()-2)
+	while(needSwap)
 	{
-		if(needSwap==true)
+		for (i<- 0 to getNombreValeurs()-2)
 		{
-			needSwap=false
-			if( plusPetit(i+1,i))
+			if(needSwap==true)
 			{
-				echange(i,i+1);
-				needSwap=true;
+				needSwap=false
+				if( plusPetit(i+1,i))
+				{
+					echange(i,i+1);
+					needSwap=true;
+				}
 			}
 		}
-	}
-	for (i<- getNombreValeurs()-2 to 0 by -1)
-	{
-		if(needSwap==true)
+		for (i<- getNombreValeurs()-2 to 0 by -1)
 		{
-			needSwap=false;
-			if(plusPetit(i+1,i))
+			if(needSwap==true)
 			{
-				echange(i,i+1);
-				needSwap=true;
+				needSwap=false;
+				if(plusPetit(i+1,i))
+				{
+					echange(i,i+1);
+					needSwap=true;
+				}
 			}
 		}
 	}
