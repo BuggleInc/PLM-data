@@ -3,9 +3,7 @@ def solve(src:Int, dst:Int, other:Int) {
 }
 
 def solve(src:Int, dst:Int, other:Int, height:Int) {
-	if (height==0) {
-		move(src, dst)
-	} else {
+	if (height!=0) {
 		solve(src, other, dst, height-1)
 		move(src, dst)
 		solve(other, dst, src, height-1)
