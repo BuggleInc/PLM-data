@@ -1,7 +1,7 @@
 def cocktailSort2() {
 	var d:Int=0;
 	var f:Int=getNombreValeurs()-2;
-	var t:Boolean=false;
+	var t:Boolean=true;
 
 	while (t==true) {
 		t=false;
@@ -11,11 +11,13 @@ def cocktailSort2() {
 				t=true;
 			}
 		}
+		f=f-1;
 		for (i<-f to d by -1) {
 			if (plusPetit(i+1,i)) {
 				echange(i+1,i);
 				t=true;
 			}
 		}
+		d=d+1
 	}
 }
