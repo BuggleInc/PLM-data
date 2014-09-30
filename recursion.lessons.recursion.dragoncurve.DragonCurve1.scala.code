@@ -1,0 +1,16 @@
+def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	if (order==1) {
+		u = (x + z)/2 + (t - y)/2
+		v = (y + t)/2 - (z - x)/2
+		allerVers(u,v)
+	} else {
+		 setPos(x,y)
+		 dragon(order-1, x, y, z, t)
+		 setPos(z,t)
+		 dragon(order-1, x, y, z, t)
+		 
+	}
+}
+
+u = (x + z)/2 + (t - y)/2
+v = (y + t)/2 - (z - x)/2
