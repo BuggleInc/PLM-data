@@ -1,12 +1,14 @@
 def bubbleSort3() {
-	var ech=false;
-	do {
-		var ech = true;
-		for(i<-0 to getNombreValeurs()-2) {
-			if(plusPetit(i+1, i)) {
-				echange(i, i+1);
-				ech = false;
+	for(i<-getNombreValeurs()-1 to 0) {
+		var ech = false;
+		for(j<-0 to getNombreValeurs()-2) {
+			if(plusPetit(j+1, j)) {
+				echange(j, j+1);
+				ech = true;
 			}
 		}
-	}while(ech)
+		if(ech == false) {
+			return;
+		}
+	}
 }
