@@ -1,27 +1,27 @@
 def cocktailSort3() {
 	var debut=0; var fin = getNombreValeurs()-2;
-	var ech = false;
+	var ech1 = false; var ech2 = false;
 	do {
-		ech = false;
+		ech1 = false; ech2 = false;
 		for(i<-debut to fin) {
 			if(plusPetit(i+1, i)) {
 				echange(i, i+1);
-				ech = true;
+				ech1 = true;
 			}
 		}
-		if(ech == false) {
+		if(ech1 == false) {
 			return;
 		}
 		fin-=1;
 		for(i<-fin to debut by -1) {
 			if(plusPetit(i+1, i)) {
 				echange(i, i+1);
-				ech = true;
+				ech2 = true;
 			}
 		}
-		if(ech == false) {
+		if(ech2 == false) {
 			return;
 		}
 		debut+=1;
-	}while(ech);
+	}while(ech1 or ech2);
 }
