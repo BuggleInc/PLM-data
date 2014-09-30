@@ -1,12 +1,13 @@
 def bubbleSort3() {
+	var casse_boucle = false
 	for (i<- getNombreValeurs()-2 to 0 by -1) {
-		var casse_boucle = false
-		for (j<-0 to i) {
-			if (plusPetit(j+1,j) && (!casse_boucle)) {
-				echange(j,j+1)
-				casse_boucle = true
+		if (!casse_boucle) {
+			casse_boucle = false
+			for (j<-0 to i) {
+				if (plusPetit(j+1,j) && (!casse_boucle)) {
+					echange(j,j+1)
+					casse_boucle = true
+				}
 			}
 		}
-	}
-
 }
