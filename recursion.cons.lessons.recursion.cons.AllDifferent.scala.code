@@ -1,0 +1,12 @@
+def allDifferent(l:List[Int]): Boolean = {
+	def fonctionInterne(l:List[Int],comp:Int): Boolean={
+		if(l==Nil){
+			return true;
+		}else if(l.head==comp){
+			return false
+		}else{
+			return fonctionInterne(l.tail,comp);
+		}
+	}
+	return fonctionInterne(l.tail,l.head)*allDifferent(l.tail);
+}
