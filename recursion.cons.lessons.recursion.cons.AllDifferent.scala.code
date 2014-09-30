@@ -1,1 +1,14 @@
 def allDifferent(l:List[Int]): Boolean = {
+	
+if (l == Nil) true
+else if (isMember(l.tail, l.head)) false
+else allDifferent(l.tail)
+
+def isMember(l:List[Char], v:Char):Boolean= { 1
+	l match { 2
+	case a::_ if a==v => true 3
+	case a::b => isMember(b, v) 4
+	case _ => false 5
+} 
+
+}
