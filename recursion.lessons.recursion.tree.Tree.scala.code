@@ -1,12 +1,12 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	if (steps==0)
+	if (steps==0) return
 	else {
 		current(steps)
 		avance(length)
 		droite(angle)
 		tree(steps-1,length*shrink,angle,shrink)
 		gauche(2*angle)
-		tree(steps-1,length*shrink,angle,shrink)
+		tree(steps+1,length*shrink,angle,shrink)
 		
 	}
 	//Pour dessiner un arbre à quatre étages, il faut dessiner un tronc de la taille indiquée,
