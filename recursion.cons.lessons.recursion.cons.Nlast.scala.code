@@ -1,3 +1,12 @@
 def nlast(l:List[Int], n:Int): List[Int] = {
-	
+	def fonctionInterne(l:List[int],n:Int){
+		if(l.tail==Nil){
+			return l.head;
+		}else if(n==0){
+			return l.head :: fonctionInterne(l.tail,0);
+		}else{
+			return fonctionInterne(l.tail,n-1);
+		}
+	}
+	return fonctionInterne(l,l.size-n);
 }
