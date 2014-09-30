@@ -8,8 +8,9 @@ def nlast(l:List[Int], n:Int): List[Int] = {
 			return fonctionInterne(l.tail,n-1);
 		}
 	}
-	if(l.size<n){ 
-		n=l.size;
+	if(l.size>n){ 
+		return fonctionInterne(l,l.size-n);
+	}else{
+	return fonctionInterne(l,0);
 	}
-	return fonctionInterne(l,l.size-n);
 }
