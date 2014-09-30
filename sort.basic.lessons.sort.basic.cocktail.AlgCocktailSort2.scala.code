@@ -3,20 +3,23 @@ def cocktailSort2() {
 	val l=getNombreValeurs() ;
 	var debut=0;
 	var fin = l-2;
+	var i=0;
 	while (b) {
 		b=false;
-		for (i<-debut to fin) {
+		while (i<fin) {
 			if (plusPetit(i+1,i)) {
 				echange(i,i+1);
 				b=true;
 			}
+			i+=1;
 		}
 		fin-=1;
-		for (i<-fin downto debut) {
+		while (i>debut) {
 			if (plusPetit(i+1,i)) {
 				echange(i,i+1);
 				b=true;
 			}
+			i-=1;
 		}
 		debut+=1;
 	}
