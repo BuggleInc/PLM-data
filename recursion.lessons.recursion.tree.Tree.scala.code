@@ -4,6 +4,8 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double){
 	}
 	avance(length);
 	gauche(angle);
-	subtree();
+	subtree(steps - 1, length * shrink, angle, shrink);
+	droite(angle*2);
+	subtree(steps - 1, length * shrink, angle, shrink);
 	//tree(steps - 1, length * shrink, angle, shrink);
 }
