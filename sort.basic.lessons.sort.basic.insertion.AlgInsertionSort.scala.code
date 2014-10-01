@@ -6,12 +6,29 @@ def insertionSort() {
 	for ( i <- 1 to getNombreValeurs -1)
 	{
 		v = getValeur(i);
-		j = i - 1 
+		j = i + 1 
 		
-		while (!plusPetitQue(j, v) && j > 0)
+		while (j != -1)
 		{
-				 copie(j , j + 1)
-				 j-= 1
+			if (j == 0 && !plusPetitQue(0,v) )
+			{
+				copie(0 ,1); 
+				setValeur (0,v);
+				j = -1;				
+			}
+			else if (plusPetitQue(j,v))
+			{
+				j += 1
+				setValeur (j,v);
+				j = -1;
+			}
+			else if(!plusPetitQue(j,v))
+			{
+				copie(j , j + 1); 
+			}
+
+			j -= 1;
+			
 		}
 
 		
