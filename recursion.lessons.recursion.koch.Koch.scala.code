@@ -10,7 +10,13 @@ def snowFlake (levels:Int, length:Double) {
 }
 def snowSide(levels:Int, length:Double) {
 	if ( levels != -1 ) {
-		avance(length/3)
-	snowSide(levels-1 , length)
+	snowSide(levels-1 , length/3)
+	gauche(120)
+	snowSide(levels-1 , length/3)
+	droite(240)
+	snowSide(levels-1 , length/3)
+	gauche(120)
+	snowSide(levels-1 , length/3)
+	avance(length/3)
 	} else { return }
 }
