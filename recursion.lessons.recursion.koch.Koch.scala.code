@@ -1,7 +1,4 @@
 def snowFlake (levels:Int, length:Double) {
-	if(levels ==0){
-		return;
-	}
     snowSide(levels, length);
     right(120);
     setColor(Color.blue);
@@ -13,5 +10,7 @@ def snowFlake (levels:Int, length:Double) {
 }
 def snowSide(levels:Int, length:Double) {
 	avance(length);
-	snowFlake(levels - 1, length);
+	if(levels == 0){
+		return;
+	}
 }
