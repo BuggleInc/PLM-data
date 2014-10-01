@@ -2,21 +2,21 @@ $package
 
 import plm.universe.sort.SortingEntity;
 
-public class AlgInsertionSort extends SortingEntity {
+class AlgInsertionSort extends SortingEntity {
 
-	public void run() {
-		this.insertionSort();
+	override def run() {
+		insertionSort();
 	}
 
 	/* BEGIN TEMPLATE */
-	public void insertionSort() {
+	def insertionSort() {
 		/* BEGIN SOLUTION */
-		for (int i = 1; i < getValueCount(); i++) {
-			int value = getValue(i);
-			int j = i;
+		for (i <- 1 to getValueCount()-1) {
+			var value = getValue(i);
+			var j = i;
 			while ((j > 0) && (!isSmallerThan(j-1,value))) {
 				copy(j-1,j);
-				j--;
+				j-=1;
 			}
 			setValue(j,value);
 		}
