@@ -1,2 +1,30 @@
-def pentaKoch(levels:Int, length:Double) {
+def pentaKoch (levels:Int, length:Double) {
+	setColor(Color.red);
+	pentaSide(levels, length);
+}
+def pentaSide(levels:Int, length:Double) {
+	val newlength = length*0.4;
+	if(levels > 1){
+		pentaSide(levels-1,length*0.3)
+	}else{
+		avance(length*0.3)
+	}
+	if(levels == 0){
+		avance(newlength)
+	}else{
+		left(360/5);
+		pentaSide(levels-1,newlength)
+		right(180-360/5);
+		pentaSide(levels-1,newlength)
+		right(180-360/5);
+		pentaSide(levels-1,newlength)
+		right(180-360/5);
+		pentaSide(levels-1,newlength)
+		left(360/5);
+	}
+	if(levels > 1){
+		pentaSide(levels-1,length*0.3)
+	}else{
+		avance(length*0.3)
+	}
 }
