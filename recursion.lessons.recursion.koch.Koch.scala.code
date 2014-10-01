@@ -11,8 +11,10 @@ def snowFlake (levels:Int, length:Double) {
 }
 def snowSide(levels:Int, length:Double) {	
 	if ( levels != 0 ) {
+		var compteur = 
 		var div = 3^levels;
 		var newlength = length/div;
+			     	     snowSide(levels-1,length);
 	     avance(newlength:Double);
 	     gauche(60:Double);
 	     avance(newlength:Double);
@@ -20,7 +22,7 @@ def snowSide(levels:Int, length:Double) {
 	     avance(newlength:Double);
 	     gauche(60:Double);
 	     avance(newlength:Double);	
-	     	     snowSide(levels-1,length);
+
 }
     if ( levels == 0 ) { avance(200:Double); }
 }
