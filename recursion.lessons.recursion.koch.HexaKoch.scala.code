@@ -3,3 +3,31 @@ def drawCurve(levels:Int, length:Double) {
 }
 def hexaKoch(levels:Int, length:Double) {
 }
+def pentaSide(levels:Int, length:Double) {
+	val newlength = length*0.4;
+	val leftangle = 180-360/5;
+	val rihtangle = 360/5;
+	if(levels > 1){
+		pentaSide(levels-1,newlength)
+	}else{
+		avance(newlength)
+	}
+	if(levels == 0){
+		avance(newlength)
+	}else{
+		left(leftangle);
+		pentaSide(levels-1,newlength)
+		right(rihtangle);
+		pentaSide(levels-1,newlength)
+		right(rihtangle);
+		pentaSide(levels-1,newlength)
+		right(rihtangle);
+		pentaSide(levels-1,newlength)
+		left(leftangle);
+	}
+	if(levels > 1){
+		pentaSide(levels-1,newlength)
+	}else{
+		avance(newlength)
+	}
+}
