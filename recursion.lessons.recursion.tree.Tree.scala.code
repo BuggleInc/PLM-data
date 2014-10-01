@@ -1,0 +1,12 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	if ( steps != 0 ) {
+		current(steps);
+		avance(length:Double);
+		droite(angle:Double);
+		tree(steps-1, length, angle, shrink);
+		gauche(2*angle:Double);
+		tree(steps-1, length, angle, shrink);
+		droite(angle:Double);
+		recule(length:Double);
+	}
+}
