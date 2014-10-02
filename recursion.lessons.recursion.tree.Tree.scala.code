@@ -1,5 +1,15 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double){
-current(steps)
-avance(length)
-gauche(angle)
+	if (steps == 0){
+		return
+	}else{
+		var x:Double = getX()
+		var y:Double = getY()
+		current(steps)
+		avance(length)
+		droite(angle)
+		tree(steps-1,shrink*length,angle,shrink)
+		droite(2*angle)
+		tree(steps-1,shrink*length,angle,shrink)
+		setPos(x,y)
+	}
 }
