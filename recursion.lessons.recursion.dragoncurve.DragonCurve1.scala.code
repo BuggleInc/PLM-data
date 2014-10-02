@@ -1,2 +1,12 @@
-def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+def dragon(order:Int, x:Double, y:Double, x2:Double, y2:Double) {
+	if (order == 1) {
+		setPos(x,y)
+		allerVers(x2,y2)
+	}
+	else { val u = (x + y + x2 - y2) / 2.
+		val v = (y + y2 - x2 + x) / 2.
+		dragon(order - 1,x,y,u,v);
+		dragon(order - 1,x2,y2,u,v)
+	}
+	
 }
