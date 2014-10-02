@@ -1,16 +1,15 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	var v=steps;
 	if (steps>0) {
 		current(steps);
+		baisseCrayon();
 		avance(length);
+		leveCrayon();
+		
 		droite(angle);
 		tree(steps-1, length*shrink, angle, shrink);
 		gauche(2*angle);
 		tree(steps-1, length*shrink, angle, shrink);
 		droite(angle);
 		recule(length);
-		if(steps<v) {
-			current(steps+1);
-		}
 	}
 }
