@@ -10,8 +10,11 @@ def snowFlake (levels:Int, length:Double) {
 }
 def snowSide(levels:Int, length:Double) {
 	if (levels!=0) {
-		leveCrayon();
-		avance(length/(levels+1));
+		snowSide(levels-1, length);
+		gauche(60);
+		snowSide(levels-1, length);
+		droite(120);
+		snowSide(levels-1, length);
 		gauche(60);
 		snowSide(levels-1, length);
 	}
