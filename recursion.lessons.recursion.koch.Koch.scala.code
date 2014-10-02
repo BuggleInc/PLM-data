@@ -13,12 +13,14 @@ def snowSide(levels:Int, length:Double) {
 		avance(length);
 	}
 	else {
-		var lengths = length/(3*levels);
-		var angle=180/3;
+		var lengths = length/3;
+		avance(lengths/(3*levels));
 		snowSide(levels-1, lengths);
-		droite(2*angle);
+		droite(120);
+		avance(lengths/(3*levels));
 		snowSide(levels-1, lengths);
-		gauche(angle);
+		gauche(60);
+		avance(lengths/(3*levels));
 		snowSide(levels-1, lengths);
 	}
 }
