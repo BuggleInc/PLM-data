@@ -1,18 +1,15 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
 	current(steps);
-	var arbreD = true;
-	
-	if(arbreD) {
-		avance(length);
-		droite(angle);
 
-		if(steps == 7)
-			arbreD = false;
-			
-	tree(steps-1, length * shrink, angle, shrink);
-	
+	avance(length);
+	droite(angle);
+
+	if(steps != 7) {
+		tree(steps-1, length * shrink, angle, shrink);
 	}
+
+	
 
 	
 	
