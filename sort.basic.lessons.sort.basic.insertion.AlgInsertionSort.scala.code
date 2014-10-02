@@ -2,27 +2,32 @@ def insertionSort()
 {
 	for (i <- 1 to getNombreValeurs()-1)
 	{
-		var j=i+1
-		while (j>1 && getValeur(j)<getValeur(j-1) && j<getNombreValeurs)
+		val item=getValeur(i)
+		var iHole=i
+		while (iHole>0 && getValeur(iHole-1)>item)
 		{
-			var c=getValeur(j)
-			copie(j,getValeur(j-1))
-			copie(j-1,c)
-			j=j-1
+			copie(iHole,getValeur(iHole-1))
+			iHole=iHole-1
 		}
+		copie(iHole,item)
 	}
 }
-/*for(i <- 0 until a.length)
-{
-  var j=i+1
-
-  while(j>1&&a(j)<a(j-1)&&j<a.length)
-  {
-      var c=a(j)
-      a(j)=a(j-1)
-      a(j-1)=c
-      j-=1
+/* def insertionSort(a: Array[Int]): Array[Int] = {
+  for (i <- 1 until a.length) {
+    // A[ i ] is added in the sorted sequence A[0, .. i-1]
+    // save A[i] to make a hole at index iHole
+    val item = a(i)
+    var iHole = i
+    // keep moving the hole to next smaller index until A[iHole - 1] is <= item
+    while (iHole > 0 && a(iHole - 1) > item) {
+      // move hole to next smaller index
+      a(iHole) = a(iHole - 1)
+      iHole = iHole - 1
+    }
+    // put item in the hole
+    a(iHole) = item
   }
+  a
 } */
 /* Pour tout i dans [1,lgr-1]
   stocker la valeur de la case i dans une variable v
