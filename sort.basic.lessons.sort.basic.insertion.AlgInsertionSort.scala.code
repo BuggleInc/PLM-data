@@ -6,17 +6,13 @@ var v:Int=0
 for (i <- 1 to getNombreValeurs()-1)
 {
 	v=getValeur(i)
-	
-	for (j <- 1 to i)
+	var j:Int=i
+	while (j>0 && getValeur(j-1)>v)
 	{
-		if (!(plusPetitQue(i-j,v)))
-		{
-			copie(i-j,i-j+1)
-			
-		}
-		setValeur(i-j,v)
+		getValeur(j)=getValeur(j-1)
+		j=j-1
 	}
-	
+getValeur(j)=v
 }
 
 }
