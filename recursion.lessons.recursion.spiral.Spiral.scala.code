@@ -1,9 +1,14 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
 
-for (x<-1 to 4)
+if (steps==0)
 {
-	avance(0+x)
-	gauche(90)
+	return
 }
-	
+avance(length)
+gauche(angle)
+return spiral(steps-1, angle, length+increment, increment)
+
+
+
+
 }
