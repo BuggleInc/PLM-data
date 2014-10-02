@@ -5,7 +5,13 @@ def reverse(l:List[Int]): List[Int] =
 	else return reverse(l.head::reverse(l.tail))
 }
 
-def butNlast(l:List[Int], n:Int): List[Int] = 
+def butNfirst(l:List[Int], n:Int): List[Int] = 
 {
-	
+	if(n>l.length)
+		return Nil
+	else if(n==0)
+		return l
+	else return butNfirst(l.tail,n-1)
 }
+
+def butNlast(l:List[Int], n:Int): List[Int] = reverse(butNfirst(l,n))
