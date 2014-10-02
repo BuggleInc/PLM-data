@@ -1,11 +1,16 @@
 def sierpinski(level:Int, length:Double) {
+	
 		if (level > 0 ) {
-		left(45);
-		crab(level-1,length/Math.sqrt(2));
-		right(90);
-		crab(level-1,length/Math.sqrt(2));
-		left(45);
-	} else {
-		avance(length);
-	}
+			sierpinski(level-1,length/2);
+			avance(length);
+			right(60);
+			sierpinski(level-1,length/2);
+			avance(length);
+			right(60);
+			sierpinski(level-1,length/2);
+			avance(length);
+			right(60);
+		} else {
+			avance(length);
+		}
 }
