@@ -5,9 +5,11 @@ def reverse(l:List[Int]): List[Int] =
 	else return reverse(l.head::reverse(l.tail))
 }
 
-def nlast(l:List[Int], n:Int): List[Int] = 
+def nfirst(l:List[Int], n:Int): List[Int] = 
 {
 	if(n==0)
 		return Nil
-	else	return 
+	else return l.head::nfirst(l.tail,n-1)
 }
+
+def nlast(l:List[Int], n:Int): List[Int] = nfirst(reverse(l))
