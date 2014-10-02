@@ -11,12 +11,13 @@ def snowFlake (levels:Int, length:Double) {
 def snowSide(levels:Int, length:Double) {
 	if(levels==0) forward(length);
 	else{	
-		forward(levels);
-		left(60);
+		forward(levels)
+		left(60)
 		snowSide(levels-1,length/3*levels)
-		right(120);
+		right(120)
+		backward(levels)
 		snowSide(levels-1,length/3*levels)
-		backward(levels-1)
+		
 	}	
 }
 
