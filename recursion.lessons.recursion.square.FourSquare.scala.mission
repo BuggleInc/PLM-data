@@ -13,6 +13,12 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
+.Java   {visibility: visible; color:#FF0000}
+.java   {visibility: visible; color:#FF0000}
+.python {visibility: visible; color:#008000}
+.Python {visibility: visible; color:#008000}
+.scala  {visibility: visible; color:#0000FF}
+.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -41,28 +47,29 @@ complètement les tortues.</p>
 <p>D'un point de vue pratique, la plupart des méthodes que vous connaissez à
 propos des buggles fonctionnent également avec les tortues, à quelques
 variantes près. En particulier, la méthode <code>avance</code> prend en
-argument le nombre de pas donné comme un double (voir «Aide / À propos de ce monde»
+argument le nombre de pas donné comme un <font color="008000">nombre à
+virgule</font><font color="EEEEEE">double</font> (voir «Aide / À propos de ce monde»
 dans le menu pour plus de détails).</p>
 
-
+<font color="EEEEEE">
 <h3>Des doubles ? Mais qu'est ce que c'est ?</h3>
 C'est simplement un nombre à virgule. Exemple:
 <pre>
 double x = 3.72;
 x + 1.234 // Valeur = 4.954
 x + 2. // Valeur = 5.72 (2. signifie 2.0)
-x + 2 // Erreur de typage (l'opérateur + operator ne mélange pas les Double avec les Int). Il faut convertir explicitement
+x + 2 // <font color="FFFF00">Valeur = 5.72 (2 converti en 2.0 automatiquement)</font><font color="0000FF">Erreur de typage (l'opérateur + operator ne mélange pas les Double avec les Int). Il faut convertir explicitement</font>
 x * 2. // Valeur = 7.44
 x / 2. // Valeur = 1.86 (2 converti en 2.0 automatiquement)
-x.asInstanceOf[Int] // Valeur = 1 (“transtypage en int”, converti en entier en tronquant)
+<font color="FFFF00">(int) x</font><font color="0000FF">x.asInstanceOf[Int]</font> // Valeur = 1 (“transtypage en int”, converti en entier en tronquant)
 Math.round(x) // Valeur = 2 (1.86 arrondi à l'entier le plus proche)
 Math.floor(x) // Valeur = 1 (1.86 arrondi en direction de moins l'infini)
 Math.floor(-5.12) // Vale = -6 (Arrondi en direction de moins l'infini)
 Math.ceiling(x) // Value = 2 (1.86 arrondi en direction de plus l'infini)
 Math.ceiling(-5.12) // Value = -5 (Arrondi en direction de plus l'infini)
-17.asInstanceOf[Double] // Value = 17.0 (“transtypage en double”, converti en double)
+<font color="FFFF00">(double) 17</font><font color="0000FF">17.asInstanceOf[Double]</font> // Value = 17.0 (“transtypage en double”, converti en double)
 </pre>
-
+</font>
 
 <h3>Objectif de l'exercice</h3>
 <p>Bien que ce soit le premier exercice de la leçon sur la récursivité, le code
