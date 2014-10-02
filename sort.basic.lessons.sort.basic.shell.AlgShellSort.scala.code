@@ -3,12 +3,12 @@ def shellSort()  {
 	while (ecart>0) {
 	var v=0;
 	var count=0;
-	for (i <- 1 to getNombreValeurs()-1) {
+	for (i <- ecart to getNombreValeurs()-1) {
 		v=getValeur(i); // valeur a trier
 		count=i;
-		while ((count>0) && (getValeur(count-1)>v)) { // fais de la place pour la valeur
-			setValeur(count,getValeur(count-1));
-			count=count-1
+		while ((count>0) && (getValeur(i)>v)) { // fais de la place pour la valeur
+			setValeur(count-ecart,getValeur(count));
+			count=count-ecart
 			}
 		setValeur(count, v); // place la valeur a sa place dans la partie triée
 	}
