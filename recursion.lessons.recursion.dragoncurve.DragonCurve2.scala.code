@@ -1,0 +1,23 @@
+def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	var u = (x + z)/2 + (t - y)/2;
+	var v = (y + t)/2 - (z - x)/2;
+		if (order > 1 ) {
+			dragon(order-1,x,y,u,v);
+			dragon(order-1,z,t,u,v);
+		} else {
+			setPos(x,y);
+			allerVers(z,t);
+		}
+}
+
+def dragonInverse(order:Int, x:Double, y:Double, z:Double, t:Double) {
+u = (x + z)/2 - (t - y)/2
+v = (y + t)/2 + (z - x)/2
+		if (order > 1 ) {
+			dragon(order-1,x,y,u,v);
+			dragon(order-1,z,t,u,v);
+		} else {
+			setPos(x,y);
+			allerVers(z,t);
+		}
+}
