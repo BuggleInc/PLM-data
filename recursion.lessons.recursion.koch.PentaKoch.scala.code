@@ -4,17 +4,17 @@ def pentaKoch(levels:Int, length:Double) {
 	}
 	else {
 		val lengths = length*0.4;
-		val angle = 180/5;
+		val angle = 360/5;
 		pentaKoch(levels-1, lengths);
-		gauche(2*angle);
-		pentaKoch(levels-1, lengths);
-		droite(angle);
+		gauche(angle);
 		pentaKoch(levels-1, lengths);
 		droite(angle);
 		pentaKoch(levels-1, lengths);
 		droite(angle);
 		pentaKoch(levels-1, lengths);
-		gauche(2*angle);
+		droite(angle);
+		pentaKoch(levels-1, lengths);
+		gauche(angle);
 		pentaKoch(levels-1, lengths);
 	}
 }
