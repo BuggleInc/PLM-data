@@ -1,0 +1,20 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	if(steps != 0) {
+			
+		current(steps);
+		
+		var posX = getX();
+		var posY = getY();
+		
+		avance(length);
+		droite(angle);
+		tree(steps-1, shrink*length, angle, shrink);
+	
+		gauche(angle);
+		gauche(angle);
+		tree(steps-1, shrink*length, angle, shrink);
+	
+		gauche(-angle);
+		setPos(posX, posY);
+	}
+}
