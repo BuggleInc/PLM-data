@@ -1,6 +1,17 @@
+def occurences(l:List[Int], v:Int): Int = 
+{
+	if(l==Nil)
+		return 0
+	else if(v==l.head)
+		return 1+occurences(l.tail,v)
+	else return occurences(l.tail,v)
+}
+
 def allDifferent(l:List[Int]): Boolean = 
 {
 	if(l==Nil)
 		return true
-	else return 
+	else if(occurences(l,l.head)>=2)
+		return false
+	else return allDifferent(l.tail)
 }
