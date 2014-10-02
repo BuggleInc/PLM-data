@@ -14,34 +14,37 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body>
-<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Flocons de neige</h2>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Snow flake</h2>
 
-Nous allons maintenant dessiner des flocons de neige en utilisant la
-fractale de Koch.  Une fractale est un dessin géométrique dont le motif se
-reproduit à n'importe quelle échelle.
+We will now draw snow flakes using the Koch fractal. A fractal is a
+geometric pattern repeated at every scale.
 
-<p>La forme générale est une sorte de triangle, dont chaque coté est généré par
-des appels récursifs.
-Vous ne devez dessiner qu'un coté de ce triangle dans la fonction
-<code>snowSide</code>.
-Pour simplifier les choses, chaque coté a une couleur
-particulière. Contentez vous de dessiner les choses en rouge (sans changer
-votre couleur), et les autres couleurs seront dessinées automatiquement. </p>
+<p>The general form is a triangle, with each side given by several recursive
+calls. Your work is only to write the code of the <code>snowSide</code> method so 
+that it draws one side of the triangle. To make it easier, each sides are represented 
+in a specific color. Just draw the red things (without changing your pen color), 
+and the other colors will be drawn automatically. </p>
 
-<p>Observez l'objectif de chaque monde pour comprendre la logique du motif à
-dessiner, puis reproduisez-le.
-Au niveau 0, la courbe de Koch est une simple ligne droite.
-Au niveau 1, elle est divisée en trois tiers, et la partie du milieu est
-remplacée par deux cotés d'un triangle équilatéral de même longueur que le
-segment supprimé.
-Au niveau 2, le processus est répété avec le tiers central de chaque segment
-remplacé par un petit triangle équilatéral.</p>
+<p>Observe the drawing in each world's objective to understand the pattern's
+logic, and then reproduce it. At level 0, the Koch curve is just a straight line. 
+At level 1, the curve is divided in three thirds, and the middle part is replaced by 
+the two sides of an equilateral triangle of the same length as the segment being removed.
+At level 2, the process is repeated, whith each segments split in three parts and the 
+middle part being replaced by the two sides of an equilateral triangle.</p>
 
-<p><a href="#tip-1">TL;DR. Vous pouvez me dessiner tout ça ?</a></p>
+<p>At the end, here is the pseudo-code of the general case (you should add the base case yourself):</p>
+<pre>
+  Move forward of the desired length
+  Draw (recursively) the right subtree
+  Draw (recursively) the left subtree
+  Move back to your initial position
+</pre> 
+<p>To draw the right subtree, you have to turn right and then draw the subtree.</p>
 
-<p>Vous devez écrire la fonction snowSide, qui est récursive. Mais <b>n'appelez
-pas snowFlake depuis snowSide</b>, car sinon le résultat sera vraiment
-étrange et inattendu.</p>
+<p><a href="#tip-1">Too much letters. Please picture it.</a></p>
+
+<p>You must write the <code>snowSide()</code> method, which is recursive but 
+<b>do not call snowFlake from snowSide</b>, or you will get very strange and unexpected 
+behaviors.</p>
 </body></html>
