@@ -1,9 +1,15 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
 	current(steps);
+	var arbreD = true;
 	
-	avance(length);
-	droite(angle);
+	if(arbreD) {
+		avance(length);
+		droite(angle);
+
+		if(steps == 0)
+			arbreD = false;
+	}
 
 	tree(steps-1, length * shrink, angle, shrink);
 	
