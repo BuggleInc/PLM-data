@@ -12,15 +12,20 @@ while firstTime and not exitReached():
          counter = counter + 1
        forward()
      if baggle >= 3:
+       brushDown()
+       setBrushColor(Color.red)
        left()
      elif baggle <= 2:
          right()
+         brushDown()
+         setBrushColor(Color.green)
          if isFacingWall():
-           left()
+           right()
            if isFacingWall():
              right()  
      counter = 0
      baggle = 0
+     brushUp()
 while exitReached():
   right()
   right()
