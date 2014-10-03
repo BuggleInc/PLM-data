@@ -3,19 +3,20 @@ public void run() {
 	while (!estFaceMur()) {
 		avance();
 		if (!porteBiscuit()) {
-			if(!estSurBiscuit()) {
+			if (!estSurBiscuit()) {
 				if (!estFaceMur()) {
 					avance();
 				}
-				} else {
+			} else {
 				prendBiscuit();
 				retourne();
 			}
+		} else {
+			while (!estSurBiscuit()) {
+				avance();
+			} recule();
+			poseBiscuit();
+			retourne();
 		}
-		} while (!estSurBiscuit()) {
-			avance();
-		} recule();
-		poseBiscuit();
-		retourne();
 	}
 }
