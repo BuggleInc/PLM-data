@@ -1,24 +1,7 @@
 public void run() { 
-	if (!porteBiscuit()&&!estSurBiscuit()) { //s'il ne porte pas de biscuit et qu'il ne se trouve pas sur un biscuit il doit aller à droite et avancer
-		if (estFaceMur()) {
+	while (!estSurBiscuit()&&!porteBiscuit())
+	if (estFaceMur()) {
 			droite();
 		} else {
 			avance();
 		}
-	} else {
-		if (!porteBiscuit()) { //si cette condition est vérifiée, il doit prendre le biscuit et se tourner vers la gauche
-			prendBiscuit();
-			gauche();
-			gauche();
-		} else { // si cette condition est vérifiée cela signifie qu'il porte un biscuit
-			if (!estSurBiscuit) { //si cette condition est vérifiée, alors il doit avancer
-				avance();
-			} else { //si vérifiée, il porte un biscuit et se trouve sur un biscuit
-				recule();
-				poseBiscuit();
-				droite();
-				droite();
-			}
-		}
-	}
-}
