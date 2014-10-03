@@ -2,7 +2,32 @@ public void run() {
 	while (!estFaceMur()) {
 		retourne();
 		avance();
-		while (!porteBiscuit()&&!estFaceMur) {
+		while (!porteBiscuit()) {
+			if(!estSurBiscuit()) {
+				if (!estFaceMur()) {
+					avance();
+				} else {
+					droite();
+					avance();
+					gauche();
+					avance();
+				}
+				} else {
+				prendBiscuit();
+				retourne();
+			}
+		} while (!estSurBiscuit()) {
+			avance();
+		} recule();
+		poseBiscuit();
+	}
+}
+
+
+while (!estFaceMur()) {
+		retourne();
+		avance();
+		while (!porteBiscuit()) {
 			if(!estSurBiscuit()) {
 				avance();
 			} else {
@@ -14,4 +39,3 @@ public void run() {
 		} recule();
 		poseBiscuit();
 	}
-}
