@@ -1,12 +1,14 @@
 def sierpinski(level:Int, length:Double) {
 	if (level!=0) {
-		sierpinski(level-1, length/2);
-		droite(120);
-		sierpinski(level-1, length/2);
-		droite(120);
-		sierpinski(level-1, length/2);
-		droite(120);
-		sierpinski(level-1, length);
+		for (i<-1 to 3) {
+			sierpinski(level-1, length/2);
+			droite(120);
+			sierpinski(level-1, length/2);
+			droite(120);
+			sierpinski(level-1, length/2);
+			droite(120);
+			sierpinski(level-1, length);
+		}
 	}
 	else {
 		avance(length);
