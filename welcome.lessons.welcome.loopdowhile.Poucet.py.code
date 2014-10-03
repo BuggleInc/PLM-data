@@ -3,8 +3,8 @@ baggle = 0
 color = getGroundColor()
 exit = (Color.orange)
 firstTime = True
-while not color == exit :
-  while firstTime or not crossig():
+while True:
+  while firstTime and not color == exit():
      firsTime = False
      for counter in range(5):
        if isOverBaggle():
@@ -13,6 +13,7 @@ while not color == exit :
        elif not isOverBaggle():
          counter = counter + 1
        forward()
+       getGroundColor()
      if baggle >= 3:
        left()
      elif baggle <= 2:
@@ -20,9 +21,7 @@ while not color == exit :
          if isFacingWall():
            left()
            if isFacingWall():
-             left()
-     getGroundColor()
-       
+             left()  
      counter = 0
      baggle = 0
   forward()
