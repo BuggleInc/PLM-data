@@ -5,16 +5,16 @@ public void run() {
 		while (!porteBiscuit()) {
 			while(!estSurBiscuit()&&!estFaceMur()) {
 				avance();
-			} if (!estFaceMur()) {
-				prendBiscuit();
-			}
+			} if (estFaceMur()) {
+				droite();
+				avance();
+				gauche();
+				avance();
+			} else { prendBiscuit();
 			retourne();
-		} while(!estSurBiscuit()&&!estFaceMur()) {
+		}
+	} while(!estSurBiscuit()&&!estFaceMur()) {
 			avance();
 		} recule();
 		poseBiscuit();
-	} droite();
-	avance();
-	gauche();
-	avance();
 }
