@@ -1,4 +1,9 @@
 def reverse(l:List[Int]): List[Int] = {
+	if (l == Nil)
+	{
+		return Nil
+	}
+	else return last(l)::reverse(butLast(l))
 	
 }
 
@@ -9,4 +14,10 @@ def butLast(l:List[Int]): List[Int] = {
 	}
 
 	else return l.head :: butLast(l.tail)
+}
+
+def last(l:List[Int]): Int = {
+	if (l.tail.length == 0)
+		return l.head
+	else last(l.tail)
 }
