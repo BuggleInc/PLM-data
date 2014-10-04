@@ -1,13 +1,14 @@
 firstTime = True
 countSteps = 0
 countBaggles = 0
-while (exitReached() == False):
+while exitReached() == False:
     while firstTime or not crossing():
         firstTime = False
-        if (countBaggles <= 2):
+        if countBaggles <= 2:
             right()
-        elif (countBaggles >= 3):
+        elif countBaggles >= 3:
             left()
+        countBaggles = 0
     while countSteps < 5:
         forward()
         if isOverBaggle() == True:
