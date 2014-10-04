@@ -1,8 +1,10 @@
 public void run() {
+	int nbPas = 0;
 	while (!estSurBiscuit()) {
 		avance();
+		nbPas = nbPas + 1;
 	} prendBiscuit();
-	for (; !estDosMur(); recule()) {
-		
+	for (; nbPas!=0; nbPas=nbPas-1) {
+		recule();
 	} poseBiscuit();
 }
