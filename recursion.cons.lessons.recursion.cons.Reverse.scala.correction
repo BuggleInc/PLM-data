@@ -1,0 +1,20 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class reverse extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = reverse( (if (t.getParameter(0) == null) {  Nil} else if (t.getParameter(0).isInstanceOf[lessons.recursion.cons.universe.RecList]) {  t.getParameter(0).asInstanceOf[lessons.recursion.cons.universe.RecList].toList().asInstanceOf[java.util.List[Int]].asScala.toList} else {  t.getParameter(0).asInstanceOf[java.util.List[Int]].asScala.toList}) );
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def reverse(l:List[Int]): List[Int] = {
+  def lambda(l:List[Int], tmp:List[Int]):List[Int] = {     if (l == Nil) return tmp
+     return lambda(l.tail, l.head::tmp)
+  }
+  lambda(l, Nil)
+} }
