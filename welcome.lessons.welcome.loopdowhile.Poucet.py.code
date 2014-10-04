@@ -2,26 +2,17 @@ firstTime = True
 countSteps = 0
 countBaggles = 0
 while (exitReached() == False):
-    while(countSteps <= 5):
-            if(countBaggles <= 2):
-                right()
-            elif:
-                left()
-            if(isOverBaggle() == True):
-                countBaggles = countBaggles + 1
-            firstTime = False
-            
-            
-            
-    while (crossing() == False):
+    while firstTime or not crossing():
+        firstTime = False
+        if (countBaggles <= 2):
+            right()
+        elif (countBaggles >= 3):
+            left()
+    while countSteps < 5:
         forward()
-        countSteps = countSteps + 1
+        if isOverBaggle() == True:
+            countBaggles = countBaggles + 1
+        if countSteps == 5:
+            firstTime = True
+  
     
-
-
-
-
-
-
-while firstTime or not crossing():
-  firstTime = False
