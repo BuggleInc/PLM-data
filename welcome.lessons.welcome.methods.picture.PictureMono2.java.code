@@ -1,2 +1,74 @@
+/**
+ * Réalise un "V" situé à une case de la position actuelle puis revient en position pour réaliser un autre V.
+ */
+	void faireV() {
+		avance();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		gauche();
+		avance();
+		droite();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		avance();
+		droite();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		gauche();
+		avance();
+		avance();
+		gauche();
+	}
+
+
+/**
+ * Réalise un motif constitué de 4 "V" et se place en position pour réaliser un autre motif.
+ * 
+ * Utilise la fonction void "faireV". Ne prend pas en compte la présence de murs.
+ */
+
+ 	void faireMotif() {
+ 		for (int vDessine=0; vDessine<4; vDessine = vDessine + 1) {
+		faireV();
+		} for (int pasEffectues=0; pasEffectues<7; pasEffectues = pasEffectues + 1) {
+			avance();
+		}
+ 	}
+
+
+/**
+ * Réalise une ligne de motifs puis se place en position pour réaliser une autre ligne de motifs.
+ * 
+ * Ne prends pas en compte la présence de murs.
+ */
+
+ 	void faireLigneMotif() {
+ 		for (int motifsRealises=0; motifsRealises<3; motifsRealises = motifsRealises + 1) {
+ 			faireMotif();
+ 		} gauche();
+ 		for (int pasEffectues=0; pasEffectues<7; pasEffectues = pasEffectues + 1) {
+			avance();
+		} droite();
+ 	}
+
+
+ /**
+  * Revient à l'emplacement d'origine depuis le dernier emplacement de la fonction "faireLigneMotif".
+  * 
+  * Spécifique à ce monde.
+  */
+
+  void retourAuBercail() {
+  	droite();
+  	for (int pasEffectues=0; pasEffectues<14, pasEffectues = pasEffectues + 1)
+  	avance();
+  } droite();
+
 public void run() {
+	for (int lignesFaites=0; lignesFaites<3; lignesFaites = lignesFaites + 1=) {
+		faireLigneMotif();
+	} retourAuBercail();
 }
