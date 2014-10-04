@@ -18,19 +18,19 @@
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Buggle Dance Revolution (BDR)</h2>
 
-<p>Après toutes ces courses, il est temps de faire la fête ! Pour cela, nous
-allons apprendre à nos buggles à jouer à Dance Revolution, ce jeu très prisé
-de certains étudiants où le joueur doit bouger sur un tapis prévu à cet
-effet en fonction des consignes présentées à l'écran en rythme avec la
-musique. Mais avant cela, nous avons quelques détails à étudier.</p>
+<p>AprÃ¨s toutes ces courses, il est temps de faire la fÃªte ! Pour cela, nous
+allons apprendre Ã  nos buggles Ã  jouer Ã  Dance Revolution, ce jeu trÃ¨s prisÃ©
+de certains Ã©tudiants oÃ¹ le joueur doit bouger sur un tapis prÃ©vu Ã  cet
+effet en fonction des consignes prÃ©sentÃ©es Ã  l'Ã©cran en rythme avec la
+musique. Mais avant cela, nous avons quelques dÃ©tails Ã  Ã©tudier.</p>
 
 
 <h3>Conditionnelles sans accolades</h3>
 <p>
-Il y a un détail que nous avons omis à propos de la syntaxe des
+Il y a un dÃ©tail que nous avons omis Ã  propos de la syntaxe des
 conditionnelles : si une branche ne contient qu'une seule instruction, les
 accolades sont optionnelles. Ainsi, les deux extraits suivants sont
-équivalents:</p>
+Ã©quivalents:</p>
 
  <pre>if (<b>condition</b>) {
     <b>quoiFaireSiLaConditionEstVraie();</b>
@@ -42,8 +42,8 @@ accolades sont optionnelles. Ainsi, les deux extraits suivants sont
 else
     <b>quoiFaireSinon();</b></pre>
 
-<p>Vous pouvez faire de même avec les boucles dont le corps se réduit à une
-seule instruction. Mais attention, ceci peut être dangereux si on enchaîne
+<p>Vous pouvez faire de mÃªme avec les boucles dont le corps se rÃ©duit Ã  une
+seule instruction. Mais attention, ceci peut Ãªtre dangereux si on enchaÃ®ne
 les <tt>if</tt> comme dans l'exemple suivant. </p>
 <pre>if (estSurBiscuit())    
      if (x == 5)
@@ -52,11 +52,11 @@ else
      droite();
 avance();</pre>
 
-<p>En fait, ça ne tourne pas à droite quand il n'y a pas un baggle par terre ET
-que x vaut 5, mais quand la buggle a trouvé un baggle, et que x vaut une
-autre valeur. Autrement dit, la buggle lit le code précédent comme suit
-(notez que le <tt>else</tt> est décalé vers la droite par rapport à
-précédemment) :</p>
+<p>En fait, Ã§a ne tourne pas Ã  droite quand il n'y a pas un baggle par terre ET
+que x vaut 5, mais quand la buggle a trouvÃ© un baggle, et que x vaut une
+autre valeur. Autrement dit, la buggle lit le code prÃ©cÃ©dent comme suit
+(notez que le <tt>else</tt> est dÃ©calÃ© vers la droite par rapport Ã 
+prÃ©cÃ©demment) :</p>
 <pre>if (estSurBiscuit())    
         if (x == 5)
             gauche();
@@ -64,33 +64,33 @@ précédemment) :</p>
             droite();
 avance();</pre>
 
-<p>La première leçon, c'est que l'indentation est très importante pour que les
+<p>La premiÃ¨re leÃ§on, c'est que l'indentation est trÃ¨s importante pour que les
 humains puissent comprendre le code, mais elle ne change pas la
-signification du code pour la machine. On aurait tout aussi bien pu écrire
-le code suivant et obtenir le même résultat. Mais attention, si on veut
+signification du code pour la machine. On aurait tout aussi bien pu Ã©crire
+le code suivant et obtenir le mÃªme rÃ©sultat. Mais attention, si on veut
 qu'un humain puisse relire le code, l'indentation est quasi
-indispensable. C'est par exemple le cas si votre code doit être relu par un
+indispensable. C'est par exemple le cas si votre code doit Ãªtre relu par un
 professeur (pour qu'il le note ou pour lui poser une question), ou si vous
-comptez réutiliser votre code plus tard, ou même si vous devez debugger
-votre propre code après l'avoir écrit.</p> 
+comptez rÃ©utiliser votre code plus tard, ou mÃªme si vous devez debugger
+votre propre code aprÃ¨s l'avoir Ã©crit.</p> 
 
 <pre>if (estSurBiscuit()) if (x == 5) gauche(); else droite(); avance();</pre>
 
-<p>La seconde leçon, c'est qu'une branche <tt>else</tt> se raccroche toujours
+<p>La seconde leÃ§on, c'est qu'une branche <tt>else</tt> se raccroche toujours
 au <tt>if</tt> le plus proche. C'est parfois un peu contre-intuitif, et il
-est préférable d'ajouter plus d'accolades que nécessaire pour lever toute
-ambiguïté.</p>
+est prÃ©fÃ©rable d'ajouter plus d'accolades que nÃ©cessaire pour lever toute
+ambiguÃ¯tÃ©.</p>
 
 
-<h3>Enchaînements de conditionnelles</h3>
+<h3>EnchaÃ®nements de conditionnelles</h3>
 
-<p>Il arrive que l'on veuille demander à la buggle quelque chose similaire à :</p> 
+<p>Il arrive que l'on veuille demander Ã  la buggle quelque chose similaire Ã  :</p> 
 <pre>s'il pleut, prend un parapluie; 
 si non, s'il fait chaud, prend une bouteille d'eau; 
-si non, si nous sommes le 14 juillet, prend un drapeau français</pre>
+si non, si nous sommes le 14 juillet, prend un drapeau franÃ§ais</pre>
 
-<p>Le piège étant que nous voudrions qu'au plus l'une de ces actions soient
-réalisées. C'est à dire, que s'il pleut un 14 juillet très chaud, on ne veut
+<p>Le piÃ¨ge Ã©tant que nous voudrions qu'au plus l'une de ces actions soient
+rÃ©alisÃ©es. C'est Ã  dire, que s'il pleut un 14 juillet trÃ¨s chaud, on ne veut
 pas que la buggle sorte avec un parapluie, de l'eau et un drapeau, mais
 juste avec un parapluie. Le code suivant est donc faux.</p>
 
@@ -102,10 +102,10 @@ if (sommes14Juillet())
     prendreDrapeau();</pre>
 
 
-<p>En effet, toutes les conditions sont évaluées les unes après les autres, et
-on risque donc d'aller au défilé un jour de pluie. À la place, il faut donc
-écrire quelque chose comme ce qui suit pour s'assurer que si l'on trouve une
-condition vraie, on n'évalue pas les suivants.</p>
+<p>En effet, toutes les conditions sont Ã©valuÃ©es les unes aprÃ¨s les autres, et
+on risque donc d'aller au dÃ©filÃ© un jour de pluie. Ã€ la place, il faut donc
+Ã©crire quelque chose comme ce qui suit pour s'assurer que si l'on trouve une
+condition vraie, on n'Ã©value pas les suivants.</p>
 
 <pre>if (ilPleut()) {
     prendreParapluie();
@@ -120,10 +120,10 @@ condition vraie, on n'évalue pas les suivants.</p>
 }</pre>
 
 
-<p>Une telle cascade de conditionnelles est un peu difficile à lire, et il est
-préférable
- d'omettre les accolades associées aux <tt>else</tt> comme
-suit. Il y a même certains langages qui introduisent un mot-clé spécial pour
+<p>Une telle cascade de conditionnelles est un peu difficile Ã  lire, et il est
+prÃ©fÃ©rable
+ d'omettre les accolades associÃ©es aux <tt>else</tt> comme
+suit. Il y a mÃªme certains langages qui introduisent un mot-clÃ© spÃ©cial pour
 ces <tt>else if</tt> (mais pas Scala).
 
 </p>
@@ -138,76 +138,77 @@ ces <tt>else if</tt> (mais pas Scala).
 
 <h3>Les graffitis dans le monde des buggles</h3>
 
-<p>Les buggles peuvent écrire des choses par terre dans leur monde. Pour ce
-faire, elles utilisent les quatre méthodes suivantes:</p>
+<p>Les buggles peuvent Ã©crire des choses par terre dans leur monde. Pour ce
+faire, elles utilisent les quatre mÃ©thodes suivantes:</p>
 
 <ul>
   <li><code>
 estSurMessage():Boolean</code>: renvoie
 <code>true</code> si et seulement
-s'il y a un message écrit par terre.</li>
+s'il y a un message Ã©crit par terre.</li>
   <li><code>litMessage(): String</code>
-: renvoie le message qu'il y a écrit par terre (s'il y a rien, on obtient
-une chaîne vide).</li>
-  <li><code> ecritMessage(msg: String)</code> : écrit le message spécifié en argument
-par terre. S'il y a déjà quelque chose écrit par terre, on ajoute le nouveau
-message à la fin du précédent.</li>
-  <li><code>clearMessage()</code> : efface ce qui est écrit par
+: renvoie le message qu'il y a Ã©crit par terre (s'il y a rien, on obtient
+une chaÃ®ne vide).</li>
+  <li><code> ecritMessage(msg: String)</code> : Ã©crit le message spÃ©cifiÃ© en argument
+par terre. S'il y a dÃ©jÃ  quelque chose Ã©crit par terre, on ajoute le nouveau
+message Ã  la fin du prÃ©cÃ©dent.</li>
+  <li><code>clearMessage()</code> : efface ce qui est Ã©crit par
 terre.</li>
 </ul>
 
 
 <h3>Objectif de cet exercice</h3>L'objectif est donc d'organiser une partie de BDR entre les buggles en leur
-apprenant à bouger en fonction des indications écrites par terre.  Ces
+apprenant Ã  bouger en fonction des indications Ã©crites par terre.  Ces
 indications sont des messages au sol, avec le code suivant:
 
 <table border="1">
  <tr><td>Indication</td>
      <td>Quoi faire</td>
-     <td>Mnémotechnique</td></tr>
+     <td>MnÃ©motechnique</td></tr>
 
- <tr><td>"R"</td><td>Tourner à droite et avancer d'une case</td><td>Right (signifie «droite» en anglais)</td></tr>
- <tr><td>"L"</td><td>Tourner à gauche et avancer d'une case</td><td>Left (signifie «gauche» en anglais)</td></tr>
+ <tr><td>"R"</td><td>Tourner Ã  droite et avancer d'une case</td><td>Right (signifie Â«droiteÂ» en anglais)</td></tr>
+ <tr><td>"L"</td><td>Tourner Ã  gauche et avancer d'une case</td><td>Left (signifie Â«gaucheÂ» en anglais)</td></tr>
  <tr><td>"I"</td><td>Se retourner (demi-tour) et avancer d'une case</td><td>Inverse</td></tr>
 
- <tr><td>"A"</td><td>Avancer d'une case</td><td>Première lettre de l'alphabet</td></tr>
- <tr><td>"B"</td><td>Avancer de deux cases</td><td>Deuxième lettre de l'alphabet</td></tr>
- <tr><td>"C"</td><td>Avancer de trois cases</td><td>Troisième lettre de l'alphabet</td></tr>
+ <tr><td>"A"</td><td>Avancer d'une case</td><td>PremiÃ¨re lettre de l'alphabet</td></tr>
+ <tr><td>"B"</td><td>Avancer de deux cases</td><td>DeuxiÃ¨me lettre de l'alphabet</td></tr>
+ <tr><td>"C"</td><td>Avancer de trois cases</td><td>TroisiÃ¨me lettre de l'alphabet</td></tr>
 
  <tr><td>"Z"</td><td>Reculer d'une case</td><td>A une lettre de la fin de l'alphabet</td></tr>
  <tr><td>"Y"</td><td>Reculer de deux cases</td><td>A deux lettres de la fin de l'alphabet</td></tr>
  <tr><td>"X"</td><td>Reculer de trois cases</td><td>A trois lettres de la fin de l'alphabet</td></tr>
- <tr><td><i>(n'importe quoi d'autre)</i></td><td>Arrêter de danser.</td><td></td></tr>
+ <tr><td><i>(n'importe quoi d'autre)</i></td><td>ArrÃªter de danser.</td><td></td></tr>
 </table>
 
 <h3>Indications</h3>
 
-Cet exercice peut sembler un peu compliqué, mais il s'agit principalement de
-traduire le contenu du tableau ci-dessus dans un enchaînement de
+Cet exercice peut sembler un peu compliquÃ©, mais il s'agit principalement de
+traduire le contenu du tableau ci-dessus dans un enchaÃ®nement de
 conditionnelles.
 
-<p>Vous devez continuer à danser tant qu'il reste des pas de danse à
-faire. c-à-d tant qu'on a pas trouvé une case n'étant pas décrite dans le
-tableau. Le plus simple pour cela est d'utiliser une variable booléenne
-(<code>fini</code>) en condition d'arrêt d'une boucle while. Cette variable
-est initialisée à la valeur faux
+<p>Vous devez continuer Ã  danser tant qu'il reste des pas de danse Ã 
+faire. c-Ã -d tant qu'on est sur une case dÃ©crite dans le tableau. Le plus
+simple pour cela est d'utiliser une variable boolÃ©enne (<code>fini</code>)
+en condition d'arrÃªt d'une boucle while. Cette variable est initialisÃ©e Ã  la
+valeur faux
 (<code>false</code>). Si on
-trouve une case ne répondant à aucune ligne du tableau, on change la valeur
-de cette variable à vrai
-(<code>true</code>). Cela arrête
+trouve une case ne rÃ©pondant Ã  aucune ligne du tableau, on change la valeur
+de cette variable Ã  vrai
+(<code>true</code>). Cela arrÃªte
 la boucle, et le programme. </p>
 
-
+.</p>
+[/!]
 
 <h3>Trucs et astuces</h3>
 
-Si vous ne parvenez plus à comprendre pourquoi votre buggle n'exécute pas
-les pas de danse demandés, essayez d'ajouter <code>baisseBrosse()</code>
-dans votre méthode. Cela demandera à la buggle de poser une brosse par
+Si vous ne parvenez plus Ã  comprendre pourquoi votre buggle n'exÃ©cute pas
+les pas de danse demandÃ©s, essayez d'ajouter <code>baisseBrosse()</code>
+dans votre mÃ©thode. Cela demandera Ã  la buggle de poser une brosse par
 terre, laissant une trace au sol quand elle avance. Cela devrait vous aider
-à suivre sa trajectoire, mais pensez à retirer cette appel lorsque vous
+Ã  suivre sa trajectoire, mais pensez Ã  retirer cette appel lorsque vous
 voulez tester si votre solution marche : on vous demande de faire danser les
-buggles, pas de dégrader le dance floor.
+buggles, pas de dÃ©grader le dance floor.
 
-<p>Quand votre programme fonctionne enfin, passez à l'exercice suivant.</p>
+<p>Quand votre programme fonctionne enfin, passez Ã  l'exercice suivant.</p>
 </body></html>
