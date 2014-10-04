@@ -3,9 +3,21 @@ def allDifferent(l:List[Int]): Boolean = {
 	{
 		return true
 	}
-	else if (l.head == l.tail.head)
+	else if (isMember(l.tail, l.head))
 	{
 		return false
 	}
 	else allDifferent(l.tail)
+}
+
+def isMember(l:List[Int], v:Int): Boolean = {
+	if (l.length == 0)
+	{
+		return false;
+	}
+	else if (l.head == v)
+	{
+		return true
+	}
+	else isMember(l.tail, v)
 }
