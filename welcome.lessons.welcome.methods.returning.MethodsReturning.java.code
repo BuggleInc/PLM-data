@@ -1,13 +1,15 @@
 boolean haveBaggle() {
 	boolean vuBiscuit=false;
-	while (vuBiscuit==false) {
-		for (int casesParcourues=0; casesParcourues<7; casesParcourues++) {
-			avance();
-			if (estSurBiscuit()) {
-				vuBiscuit=true;
-			}
-		} for (casesDeRetour=casesParcourues; casesDeRetour>0; casesDeRetour = casesDeRetour - 1) {
-				recule();
-			} return false;
-	} return true;
+	for (casesParcourues=0; casesParcourues<7; casesParcourues++) {
+		avance();
+		if (estSurBiscuit()==true) {
+			vuBiscuit=true;
+		}
+	} for (casesDeRetour=0; casesDeRetour<7; casesDeRetour++) {
+		recule();
+	} if (vuBiscuit==true) {
+		return true;
+	} else {
+		return false;
+	}
 }
