@@ -1,12 +1,30 @@
 def cocktailSort() {
 
+var trie : Boolean = false;
+var nb : Int = 0;
 
+	while (!trie) {
+		for (i <- 0 to getNombreValeurs() - 2) {
+			nb = 0;
+			if (!plusPetit(i,i+1)) {
+				echange(i,i+1);
+				nb = nb + 1;
+			}
+		}
+
+
+		for (j <- 0 to getNombreValeurs() - 2) {
+			nb = 0;
+			if (!plusPetit(j,j+1)) {
+				echange(j,j+1);
+				nb = nb + 1;
+			}
+		}
+		
+		
+	}
 	
+		if (nb == 0) {
+			trie = true;
+		}
 }
-
-Faire
-  Pour tout i dans [0,lgr-2], faire:
-    si i et i+1 doivent être échangées, le faire
-  Pour tout i dans [lgr-2,0] en descendant, faire:
-    si i et i+1 doivent être échangées, le faire
-tant qu'au moins l'un des parcours a inversé un élément
