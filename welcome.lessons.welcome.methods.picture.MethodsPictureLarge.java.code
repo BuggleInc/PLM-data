@@ -1,2 +1,49 @@
+void faireV() {
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	avance();
+	gauche();
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	droite();
+	avance();
+	droite();
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	gauche();
+	avance();
+	gauche();
+}
+
+void faireCarre() {
+	setCouleurBrosse(Color.YELLOW);
+	faireV();
+	setCouleurBrosse(Color.RED);
+	faireV();
+	setCouleurBrosse(Color.BLUE);
+	faireV();
+	setCouleurBrosse(Color.GREEN);
+	faireV();
+	for (int pasAFaire=0; pasAFaire<5; pasAFaire = pasAFaire + 1) {
+		avance();
+	}
+}
+
+void faireLigne() {
+	faireCarre();
+	faireCarre();
+	faireCarre();
+	gauche();
+	for (int pasAFaire=0; pasAFaire<5; pasAFaire = pasAFaire + 1) {
+		avance();
+	} droite();
+}
+
 public void run() {
+faireLigne();
+faireLigne();
+faireLigne();
 }
