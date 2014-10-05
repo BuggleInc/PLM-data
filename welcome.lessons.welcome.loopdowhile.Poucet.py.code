@@ -2,19 +2,15 @@ firstTime = True
 #countSteps = 0
 #countBaggles = 0
 while exitReached() == False:
-    countBaggles = 0
+    if isOverBaggle()== True:
+              countBaggles = countBaggles + 1
     if firstTime or not crossing():
           firstTime = False
           forward()
-          if isOverBaggle()== True:
-              countBaggles = countBaggles + 1
     if crossing():
-          if isOverBaggle()== True:
-              countBaggles = countBaggles + 1
           if countBaggles <= 2:
               right()
           elif countBaggles >= 3:
               left()
-          forward()
   
     
