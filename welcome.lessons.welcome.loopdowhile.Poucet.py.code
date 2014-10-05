@@ -1,15 +1,17 @@
 counter = 0
 baggle = 0
 firstTime = True
-while firstTime and not exitReached():
+color = (Color.white)
+while firstTime and color != (Color.orange):
      firsTime = False
-     getGroundColor()
      for counter in range(5):
        if isOverBaggle():
          counter = counter + 1
          baggle = baggle + 1
+         getGroundColor()
        elif not isOverBaggle():
          counter = counter + 1
+         getGroundColor()
        forward()
      if baggle >= 3:
        brushDown()
@@ -34,5 +36,3 @@ while exitReached():
   right()
   forward()
   break
-  
-
