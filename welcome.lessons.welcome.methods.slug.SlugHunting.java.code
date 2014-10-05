@@ -1,4 +1,40 @@
+boolean isFacingTrail() {
+if (estFaceMur()) {
+    	return false;
+    } else {
+    	avance();
+    	if (getCouleurSol().equals(Color.green)) {
+    		recule();
+    		return true;
+    	} else {
+    		recule();
+    		return false;
+    	}
+    }
+}
+
 public void hunt() {
+	while (!estSurBiscuit()) {
+		if (isFacingTrail()) {
+			baisseBrosse();
+			avance();
+			leveBrosse();
+		} else {
+			droite();
+			if (isFacingTrail()) {
+				baisseBrosse();
+				avance();
+				leveBrosse();
+			} else {
+				retourne();
+				if (isFacingTrail()) {
+					baisseBrosse();
+					avance();
+					leveBrosse();
+				}
+			}
+		}
+	} prendBiscuit();
     
 }        
 
