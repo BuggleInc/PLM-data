@@ -1,10 +1,11 @@
 def insertionSort() {
 val l= getNombreValeurs()
+var swapped = -1
 	for (i<-1 to l-1) {
 		var v=getValeur(i)
 		for(k<-i-1 to 0 by -1) {
-			if (!plusPetitQue(k,v)) {setValeur(k+1,v)}
+			if (!plusPetitQue(k,v)) {setValeur(k+1,k); swapped=k}
 		}
-		
+		setValeur(swapped,v)
 
 }}
