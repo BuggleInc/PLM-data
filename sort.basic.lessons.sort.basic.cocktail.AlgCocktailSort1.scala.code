@@ -2,6 +2,7 @@ def cocktailSort() {
 
 var trie : Boolean = false;
 var nb : Int = 0;
+var nb2 : Int = 0;
 
 	while (!trie) {
 		for (i <- 0 to getNombreValeurs() - 2) {
@@ -14,16 +15,16 @@ var nb : Int = 0;
 
 
 		for (j <- 0 to getNombreValeurs() - 2) {
-			nb = 0;
+			nb2 = 0;
 			if (!plusPetit(j,j+1)) {
 				echange(j,j+1);
-				nb = nb + 1;
+				nb2 = nb2 + 1;
 			}
 		}
 		
 
 
-		if (nb == 0) {
+		if ((nb == 0) && (nb2 == 0)) {
 			trie = true;
 		}
 	}
