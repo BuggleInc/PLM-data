@@ -1,0 +1,77 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Tri par insertion</h1>
+
+<p>
+Ce tri est relativement simple ? comprendre et ? ?crire, m?me s'il n'offre
+pas les meilleures performances possibles.  Il s'agit d'un algorithme
+quadratique (complexit? asymptotique en O(n2)), mais il est plus efficace en
+pratique (lin?aire dans le meilleur des cas, ie quand le tableau d?j? tri?
+et N2/4 en moyenne).
+</p>
+<p>L'id?e est de parcourir tous les ?l?ments du tableau, et d'ins?rer chacun ?
+sa place dans la partie du tableau d?j? tri?.  Lorsque l'on regarde un
+?l?ment x du tableau, on est dans la situation suivante : tous les ?l?ments
+? gauche du tableau sont d?j? tri?s, et il faut ins?rer x ? sa place dans le
+tableau.</p>
+<div style="text-align:center">
+	<img src="./InsertionsortBefore.png"/>
+</div>
+<p>Une fois ceci fait, on se retrouve dans la situation suivante:</p>
+<div style="text-align:center">
+	<img src="./InsertionsortAfter.png"/>
+</div>
+<p>Le pseudo-code de cet algorithme est donc le suivant :</p>
+<pre>Pour tout i dans [1,lgr-1]
+  stocker la valeur de la case i dans une variable v
+  recopier la case i-1 dans i, si i-1 contient une valeur plus grande que v
+  recopier la case i-2 dans i-1, si i-2 contient une valeur plus grande que v
+  recopier la case i-3 dans i-2, si i-3 contient une valeur plus grande que v
+  recopier la case i-4 dans i-3, si i-4 contient une valeur plus grande que v
+  ...
+  recopier v dans la derni?re case recopi?e plus haut
+</pre>
+<p>
+Bien entendu, il faut utiliser une boucle pour ?crire la grosse permutation
+circulaire au c?ur de la boucle.  L'?crire explicitement de la sorte serait
+vraiment ... contre-productif.
+</p>
+<p>Si vous vous ?tiez toujours demand? ce que font les chercheurs en
+informatique ? notre ?poque, voici un ?l?ment de r?ponse: certains d'entre
+eux am?liorent des algorithmes fondamentaux pour permettre ? d'autres de
+faire des programmes efficaces...</p>
+
+<h2>D'autres variantes du tri par insertion</h2>
+<p>
+TreeSort construit un arbre binaire ?quilibr? des donn?es pour les
+trier. Cela lui permet d'?tre en O(nlog n) en moyenne (mais O(n^2) dans le
+pire cas). Nous n'?tudierons pas cet algorithme ici puisque comprendre son
+fonctionnement demande de savoir ce qu'est un arbre binaire, ce qui est au
+del? de nos objectifs pr?sents. 
+</p>
+<p>Il existe d'autres variantes du tri par insertion, comme PatienceSorting,
+qui fait des paquets des valeurs et trie ensuite chaque paquet. Cet
+algorithme pr?sente un pire cas en O(nlog n), et une complexit? spatiale en
+O(n).  LibrarySort (propos? en 2004) ?change ?galement un peu d'espace pour
+du temps puisqu'il pr?sente une complexit? moyenne en O(n log n), mais
+n?cessite de stocker des donn?es suppl?mentaires.</p>
+ 
+<p>Wikipedia (en anglais) propose une description d?taill?e de tous ces
+algorithmes que nous n'avons pas le temps de d?tailler ici.</p> 
+</body></html>
