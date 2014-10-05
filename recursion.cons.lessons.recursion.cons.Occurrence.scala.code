@@ -3,6 +3,9 @@ def occurences(l:List[Int], v:Int): Int = {
 	if(l == Nil)
 		return 0;
 	
-	
+	if(l.head == v)
+		return 1 + occurences(l.tail);
+
+	return occurences(l.tail);
 
 }
