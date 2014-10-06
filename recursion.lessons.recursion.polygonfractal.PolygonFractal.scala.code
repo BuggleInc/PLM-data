@@ -1,0 +1,14 @@
+def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
+levels match {
+	case 0 => for(i<-1 to sides) {
+			avance(length)
+			droite(360/sides)
+			}
+	case _ => avance(length)
+			gauche(180 - 360/sides)
+			polygonFractal (levels-1, sides, shrink*length, shrink)
+			
+			
+			
+}
+}
