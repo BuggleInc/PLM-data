@@ -5,14 +5,13 @@ def sierpinski(level:Int, length:Double) {
 				avance(length)
 				droite(120)
 			}
-		case _ => {
-			gauche(45)
-			crab(levels-1,length/Math.sqrt(2))
-			droite(90)
-			crab(levels-1,length/Math.sqrt(2))
 		}
-		 	
-	}
-}
+		case _ => {
+			for(j<-0 to 2) {
+				sierpinski(level-1,length/2)
+				avance(length/2)
+			}
+		}
 
+	}
 }
