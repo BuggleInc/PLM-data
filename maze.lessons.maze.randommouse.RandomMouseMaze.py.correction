@@ -1,60 +1,30 @@
-$package 
+import java.util.Random
+rand = java.util.Random()
 
-import plm.core.model.Game;
+def random3():
+    n = rand.nextInt(3)
+    if n<0.33:
+        return 0
+    elif n <0.66:
+        return 1
+    return 2
 
-public class RandomMouseMaze extends plm.universe.bugglequest.AbstractBuggle {
-	@Override
-	public void setX(int i)  {
-		if (isInited())
-			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setX(x) in this exercise. Walk to your goal instead."));
-	}
-	@Override
-	public void setY(int i)  { 
-		if (isInited())
-			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setY(y) in this exercise. Walk to your goal instead."));
-	}
-	@Override
-	public void setPos(int i,int j)  { 
-		if (isInited())
-			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use setPos(x,y) in this exercise. Walk to your goal instead."));
-	}
+def setX(i):
+        errorMsg("Sorry Dave, I cannot let you use setX(x) in this exercise. Walk to your goal instead.")
+def setY(i):
+        errorMsg("Sorry Dave, I cannot let you use setY(y) in this exercise. Walk to your goal instead.")
+def setPos(x,y):
+        errorMsg("Sorry Dave, I cannot let you use setPos(x,y) in this exercise. Walk to your goal instead.")
 
-	/* BEGIN TEMPLATE */ 
-	public void run() {
-		
-		/* BEGIN SOLUTION */ 
-		while (!isOverBaggle()) 
-		{
-			switch(random3()) 
-			{
-			case 0:
-				if (!isFacingWall())
-				{
-					forward();
-				}
-				break;
-			case 1:
-				left();
-				break;
-			case 2:
-				right();
-				break;
-			}
-		}
-		pickupBaggle();
-		/* END SOLUTION */
-	}
-	/* END TEMPLATE */
-
-	public int random3() {
-		double n = Math.random();
-		if (n < 0.33) {
-			return 0;
-		} else if (n < 0.66) {
-			return 1;
-		} else {
-			return 2;
-		}
-	}
-
-}
+# BEGIN SOLUTION
+while not isOverBaggle():
+    n = random3()
+    if n == 0:
+        if not isFacingWall():
+            forward()
+    elif n == 1:
+        left()
+    else:
+        right()
+pickupBaggle()
+# END SOLUTION
