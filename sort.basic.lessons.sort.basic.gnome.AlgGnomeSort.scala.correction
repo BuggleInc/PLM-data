@@ -2,25 +2,25 @@ $package
 
 import plm.universe.sort.SortingEntity;
 
-public class AlgGnomeSort extends SortingEntity {
+class AlgGnomeSort extends SortingEntity {
 
-	public void run() {
-		this.gnomeSort();
+	override def run() {
+		gnomeSort();
 	}
 
 	/* BEGIN TEMPLATE */
-	public void gnomeSort() {
+	def gnomeSort() {
 		/* BEGIN SOLUTION */
-		int i=0;
+		var i=0;
 		while (i<getValueCount()-1) {
 			if (isSmaller(i,i+1))
-				i++;
+				i+=1;
 			else {
 				swap(i,i+1);
-				i--;
+				i-=1;
 			}
-			if (i==-1)
-				i=1; 
+			if (i == -1)
+				i=1 // Remaining at 0 would not mean "move forward" as stated in the mission text 
 		}
 		/* END SOLUTION */
 	}
