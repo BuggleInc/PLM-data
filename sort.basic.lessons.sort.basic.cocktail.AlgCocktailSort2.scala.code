@@ -1,12 +1,12 @@
 def cocktailSort2() {
 
-var m: Int = 0;
-var l: Int = 0;
+var m: Int = 1;
+
 var trie: Int = 0;
 while (trie == 0) {
    trie = 1;
    m=m+1;
- for(i <- 0 to (getNombreValeurs()-m-1))
+ for(i <- 0 to (getNombreValeurs()-m))
        {
        	if(getValeur(i+1) < getValeur(i))
         {  
@@ -15,7 +15,7 @@ while (trie == 0) {
         }
       }
  
- for(i <- (getNombreValeurs()-m-1) to 0 by -1) {
+ for(i <- (getNombreValeurs()-m) to 0 by -1) {
  	
   if(getValeur(i+1) < getValeur(i)) {
    echange(i+1,i);
