@@ -1,7 +1,7 @@
 def combSort() {
 var ecart = getNombreValeurs();
 var change = true;
-var i=0;
+
 	do {
 		change = false;
 		if (ecart>1) {
@@ -9,13 +9,14 @@ var i=0;
 			
 
 		}
+		var i=0;
 		while (i+ecart< getNombreValeurs()) { 
-			if (plusPetit(i,i+ecart)) {
+			if (!plusPetit(i,i+ecart)) {
 			echange(i,i+ecart);
 			change=true;
-			i=i+1;
-			}
 			
+			}
+			i=i+1;
 		}
 
 		
