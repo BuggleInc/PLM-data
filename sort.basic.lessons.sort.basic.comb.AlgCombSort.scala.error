@@ -1,21 +1,6 @@
-AlgCombSort:4: error: type mismatch;
- found   : Int
- required: ?{def /(x$1: ? >: Double(1.0)): ?}
-Note that implicit conversions are not applicable because they are ambiguous:
- both method int2long in object Int of type (x: Int)Long
- and method int2float in object Int of type (x: Int)Float
- are possible conversion functions from Int to ?{def /(x$1: ? >: Double(1.0)): ?}
-	var ecart: Float = lgr/1.0;
-                           ^AlgCombSort:4: error: overloaded method value / with alternatives:
-  (x: Float)Float <and>
-  (x: Long)Long <and>
-  (x: Int)Int <and>
-  (x: Char)Int <and>
-  (x: Short)Int <and>
-  (x: Byte)Int
- cannot be applied to (Double)
-	var ecart: Float = lgr/1.0;
-                              ^AlgCombSort:9: error: type mismatch;
+AlgCombSort:4: error: not found: value intToFloat
+	var ecart: Float = intToFloat(lgr);
+                           ^AlgCombSort:9: error: type mismatch;
  found   : Double
  required: Float
 			ecart = ecart/1.3;
