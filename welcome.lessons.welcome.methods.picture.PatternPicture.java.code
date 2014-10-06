@@ -72,12 +72,16 @@ void doMotif(int x, int y) {
 			doLine();
 		} for (int pasRetours=0; pasRetours<((y-1)*4); pasRetours = pasRetours + 1) {
 			recule();
-		} gauche();
+		} int lignesRestantes=0;
+		if (lignesRestantes<x-1) {
+			gauche();
 		avance();
 		avance();
 		avance();
 		avance();
 		droite();
+		lignesRestantes = lignesRestantes + 1;
+		}
 	}
 }
 
