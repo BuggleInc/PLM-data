@@ -1,0 +1,27 @@
+def snowSquare (levels:Int, length:Double) {
+    squareSide(levels, length);
+    right(90);
+    setColor(Color.blue);
+    squareSide(levels, length);
+    right(90);
+    setColor(Color.orange);
+    squareSide(levels, length);
+    right(90);
+    setColor(Color.magenta);
+    squareSide(levels, length);
+    right(90);
+}
+def squareSide(levels:Int, length:Double) {
+levels match {
+	case 0 => avance(length)
+	case _ => squareSide(levels-1, length/3)
+			gauche(90)
+			squareSide(levels-1, length/3)
+			droite(90)
+			squareSide(levels-1, length/3)
+			droite(90)
+			squareSide(levels-1, length/3)
+			gauche(90)
+			squareSide(levels-1, length/3)
+}
+}
