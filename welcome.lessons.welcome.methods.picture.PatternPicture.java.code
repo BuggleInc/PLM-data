@@ -9,16 +9,13 @@ void nextSquare() {
 	avance();
 	avance();
 	avance();
-	avance();
-}
-
-void nextLine() {
-	gauche();
-	avance();
-	avance();
-	avance();
-	avance();
-	droite();
+	if (!estFaceMur()) {
+		avance();
+	} else {
+		recule();
+		recule();
+		recule();
+	}
 }
 
 /**
@@ -58,7 +55,8 @@ void doSquare() {
 }
 
 /**
- * Réalise un "carré" du motif demandé et se place en position pour en réaliser un autre.
+ * Réalise un "carré" du motif demandé et se place en position pour en réaliser un autre. Si la fin de la ligne est détectée, la buggle se place
+ * au point d'origine du dernier carré.
  */
 void doLine() {
 	doSquare();
@@ -66,13 +64,20 @@ void doLine() {
 }
 
 /**
- * Réalise un motif composé de x lignes et de y colonnes.
+ * Réalise un motif composé de x lignes et de y colonnes. (Exprimées en largeur de motif.)
  */
 void doMotif(int x, int y) {
 	for (int nbLignes=0; nbLignes<x; nbLignes = nbLignes + 1) {
 		for (int nbColonnes=0; nbColonnes<y; nbColonnes = nbColonnes + 1) {
 			doLine();
-		} nextLine();
+		} for (int pasRetours=0; pasRetours<((y-1)*4)) {
+			recule();
+		} gauche();
+		avance();
+		avance();
+		avance();
+		avance();
+		droite();
 	}
 }
 
