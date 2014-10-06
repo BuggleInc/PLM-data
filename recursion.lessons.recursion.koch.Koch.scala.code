@@ -1,13 +1,23 @@
 
 
 def snowFlake (levels:Int, length:Double) {
-snowSide(levels-1, length/3);
+while(levels>1)
+{
+avance(length);
+gauche(60);
+gauche(120);
+avance(length);
+snowFlake (levels-1, length/3)
+
+}
+
+snowSide(levels, length);
 avance(length);
 right(120);
 setColor(Color.blue);
-snowSide(levels-1, length/3);
+snowSide(levels, length);
 right(120);
 setColor(Color.orange);
-snowSide(levels-1, length/3);
+snowSide(levels, length);
 right(120);
 }
