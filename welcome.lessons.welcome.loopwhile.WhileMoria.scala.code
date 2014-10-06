@@ -1,13 +1,31 @@
-while(!estFaceMur) {
+var mur :Boolean=false
 
-	retourne();
-	while(!estSurBiscuit()) {
-		avance();
-		if(estSurBiscuit()){
-			prendBiscuit();
-		}
-		retourne();
-		avance();
-		
-	}
+while(!mur)
+{
+  if(estDosMur())
+  {
+   mur=true
+   droite()
+   recule()
+   droite()
+   avance()
+  } 
+  else
+  {
+   recule()
+   mur=false
+  }
+ 
+ 
+  if(estSurBiscuit())
+  {
+   prendBiscuit()
+   while(!estSurBiscuit)
+   {
+    avance()
+   }
+   recule()
+   poseBiscuit()
+   recule()
+ }
 }
