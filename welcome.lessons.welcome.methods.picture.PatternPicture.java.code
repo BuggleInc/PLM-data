@@ -74,11 +74,15 @@ void doMotif(int x, int y) {
 		} for (int pasRetours=0; pasRetours<((y-1)*4); pasRetours = pasRetours + 1) {
 			recule();
 			lignesRestantes = lignesRestantes + 1;
-		} if (lignesRestantes<x) {
-			gauche();
-			avance(4);
-			droite();
-		}
+		} gauche();
+			avance(3);
+			if (!estFaceMur()) {
+				avance();
+				droite();
+			} else {
+				recule(3);
+				droite();
+			}
 	}
 }
 
