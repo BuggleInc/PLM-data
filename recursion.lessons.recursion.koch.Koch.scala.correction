@@ -1,12 +1,12 @@
 $package 
 
-import java.awt.Color;
-
 import plm.universe.turtles.Turtle;
+import java.awt.Color
 
-public class Koch extends Turtle {
+class Koch extends Turtle {
+
 	/* BEGIN TEMPLATE */
-	void snowFlake (int levels, double length) {
+	def snowFlake (levels:Int, length:Double) {
 		snowSide(levels, length);
 		right(120);
 		setColor(Color.blue);
@@ -16,7 +16,7 @@ public class Koch extends Turtle {
 		snowSide(levels, length);
 		right(120);
 	}
-	void snowSide(int levels, double length) {
+	def snowSide(levels:Int, length:Double) {
 		/* BEGIN SOLUTION */
 		if (levels == 0) {
 			forward(length);
@@ -32,26 +32,8 @@ public class Koch extends Turtle {
 		/* END SOLUTION */	
 	}
 	/* END TEMPLATE */
-	
-	public void run() {
-		snowFlake((Integer)getParam(0),(Double)getParam(1));
-	}
-	
-	public void drawHint() {
-	    clear();
-	    hide();
-	    setColor(Color.red);
-	    setPos(100,50);setHeading(0);
-	    snowSide(0,200);
-	    
-	    setPos(100,150); setHeading(0);
-	    snowSide(1,200);
 
-	    setPos(100,250); setHeading(0);
-	    snowSide(2,200);
-	    
-	    setPos(100,350); setHeading(0);
-	    snowSide(3,200);	    
+	override def run() {
+		snowFlake(getParam(0).asInstanceOf[Int],getParam(1).asInstanceOf[Double]);
 	}
-
 }
