@@ -67,12 +67,17 @@ void doLine() {
  * Réalise un motif composé de x lignes et de y colonnes. (Exprimées en largeur de motif.)
  */
 void doMotif(int x, int y) {
+	int lignesRestantes=0;
 	for (int nbLignes=0; nbLignes<x; nbLignes = nbLignes + 1) {
 		for (int nbColonnes=0; nbColonnes<y; nbColonnes = nbColonnes + 1) {
 			doLine();
 		} for (int pasRetours=0; pasRetours<((y-1)*4); pasRetours = pasRetours + 1) {
 			recule();
-		}
+			lignesRestantes = lignesRestantes + 1;
+		} if lignesRestantes<x
+			gauche();
+			avance(4);
+			droite();
 	}
 }
 
