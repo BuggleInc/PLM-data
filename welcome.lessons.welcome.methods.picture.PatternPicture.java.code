@@ -70,8 +70,6 @@ void doMotif(int x, int y) {
 	for (int nbLignes=0; nbLignes<x; nbLignes = nbLignes + 1) {
 		for (int nbColonnes=0; nbColonnes<y; nbColonnes = nbColonnes + 1) {
 			doLine();
-		} for (int pasRetours=0; pasRetours<((y-1)*4); pasRetours = pasRetours + 1) {
-			recule();
 		} int lignesRestantes=0;
 		if (lignesRestantes<x-1) {
 			gauche();
@@ -81,6 +79,9 @@ void doMotif(int x, int y) {
 		avance();
 		droite();
 		lignesRestantes = lignesRestantes + 1;
+		for (int pasRetours=0; pasRetours<((y-1)*4); pasRetours = pasRetours + 1) {
+			recule();
+		}
 		}
 	}
 }
