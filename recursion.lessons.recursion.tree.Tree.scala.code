@@ -1,28 +1,9 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
-var a:Double =0.0
-var b:Double =0.0
-var aa:Double=0.0
-var bb:Double=0.0
+def branche(steps:Int, length:Double, angle:Double, shrink:Double)
 avance(length)
 droite(angle)
-avance(length*shrink)
-droite(angle)
-a = getX()
-b = getY() 
-avance(length*shrink)
-droite(angle)
-aa = getX()
-bb = getY() 
-setPos(a,b)
-gauche(3*angle)
-current(steps)
-avance(length*shrink*shrink)
-setPos(aa,bb)
-
-
-
-tree(steps,length,angle,shrink)
+branche(steps, length*shrink, angle, shrink)
 
 
 
