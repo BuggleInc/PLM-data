@@ -1,27 +1,30 @@
 def cocktailSort2() {
 
-var m: Int = 0;
+var debut : Int = 0;
+
+var fin: Int = getNombreValeurs()-2;
 
 var trie: Int = 0;
+
 while (trie == 0) {
    trie = 1;
    
- for(i <- m to (getNombreValeurs()-2))
+ for(i <- debut to fin)
        {
        	if(getValeur(i+1) < getValeur(i))
         {  
   echange(i+1,i);
   trie = 0;
-  m=m+1;
+  fin = fin+1;
         }
       }
  
- for(i <- (getNombreValeurs()-2) to m by -1) {
+ for(i <- fin to debut by -1) {
  	
   if(getValeur(i+1) < getValeur(i)) {
    echange(i+1,i);
    trie = 0;
-   m=m+1;
+   debut = debut -1;
   }
  }
 }
