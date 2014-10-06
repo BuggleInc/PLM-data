@@ -7,25 +7,40 @@ def snowFlake (levels:Int, length:Double) {
     setColor(Color.orange);
     snowSide(levels, length);
     droite(120);
+    snowFlake(levels, length);
 }
 def snowSide(levels:Int, length:Double) {
-    
-    
-    
-    if(levels != 0)
+	droite(90);
+    leveCrayon();
+    avance(50);
+    baisseCrayon();
+    cercle(50);
+    leveCrayon();
+    recule(100);
+    baisseCrayon();
+    cercle(50);
+    gauche(90);
+    leveCrayon();
+    avance(50);
+    baisseCrayon();
+    avance(220);
+    for(i <- 1 to 90)
     {
-    		
-    		snowSide(levels - 1, length/(3*levels));
-    		avance(length);
-    		gauche(240);
-    		snowSide(levels - 1, length/(3*levels));
-    		avance(length);
-    		gauche(240);
+        avance(1);
+        droite(1.004);
     }
-    else
+    droite(90);
+    avance(20);
+    recule(20);
+    gauche(90);
+    for(i <- 1 to 90)
     {
-    	avance(length);
-    	return ;
+        avance(1);
+        droite(1.004);
     }
-
+    droite(90);
+    avance(110);
+    recule(110);
+    gauche(90);
+    avance(220); 
 }
