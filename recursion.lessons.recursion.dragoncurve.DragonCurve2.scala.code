@@ -8,7 +8,7 @@ def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
 		setCouleur(Color.red)
 		dragon(order-1,x,y,u,v)
 		setCouleur(Color.blue)
-		dragonInverse(order-1,u,v,z,t)
+		dragonInverse(order-1,z,t,u,v)
 	}
 }
 def dragonInverse(order:Int, x:Double, y:Double, z:Double, t:Double) {
@@ -16,13 +16,13 @@ var u=(x+z)/2+(t-y)/2
 var v=(y+t)/2-(z-x)/2
     if(order==1){
 		setCouleur(Color.blue)
-		allerVers(x,y)
+		allerVers(z,t)
     }else{
 		var u=(x+z)/2+(t-y)/2
 		var v=(y+t)/2-(z-x)/2
 		setCouleur(Color.red)
 		dragon(order-1,x,y,u,v)
 		setCouleur(Color.blue)
-		dragonInverse(order-1,u,v,z,t)
+		dragonInverse(order-1,z,t,u,v)
 	}
 }
