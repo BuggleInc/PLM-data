@@ -1,0 +1,28 @@
+def insertionSort() {
+var v:Int=0;
+var tmp:Int=0;
+
+
+for(i<-1 to getNombreValeurs()-1){
+	tmp=i;
+	v=getValeur(i);
+	for(j<-i to 0){
+		if(plusPetit(j,i)){
+			copie(j, i);
+			tmp=j;
+		}
+	}
+	setValeur(tmp, v)
+}
+
+}
+
+/*
+Pour tout i dans [1,lgr-1]
+  stocker la valeur de la case i dans une variable v
+  recopier la case i-1 dans i, si i-1 contient une valeur plus grande que v
+  recopier la case i-2 dans i-1, si i-2 contient une valeur plus grande que v
+  recopier la case i-3 dans i-2, si i-3 contient une valeur plus grande que v
+  recopier la case i-4 dans i-3, si i-4 contient une valeur plus grande que v
+  ...
+  recopier v dans la dernière case recopiée plus haut*/
