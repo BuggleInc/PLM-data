@@ -10,13 +10,17 @@ def snowFlake (levels:Int, length:Double) {
 }
 def snowSide(levels:Int, length:Double) {
 	def Motif {
-	avance(length/(3*levels))
+	avance(length)
 	left(60)
-	avance(length/(3*levels))
+	avance(length)
 	right(120)
-	avance(length/(3*levels))
+	avance(length)
 	left(60)
-	avance(length/(3*levels))
+	avance(length)
+	}
+	if (levels==0) {
+		Motif()}
+	else {snowSide(levels-1, lenght/(3*levels))}
 	}
 	
-	}
+	
