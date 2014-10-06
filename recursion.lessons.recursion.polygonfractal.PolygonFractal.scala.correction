@@ -2,15 +2,15 @@ $package
 
 import plm.universe.turtles.Turtle;
 
-public class PolygonFractal extends Turtle {
+class PolygonFractal extends Turtle {
 
 	/* BEGIN TEMPLATE */
-	void polygonFractal (int levels, int sides, double length, double shrink) {
+	def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
 		/* BEGIN SOLUTION */
 		if (levels == 0) {
 			/* do nothing */
 		} else {
-			for (int i=0;i<sides;i++) {
+			for (i <- 1 to sides) {
 				forward(length);
 
 				left((sides-2)*360/(sides*2));
@@ -24,7 +24,8 @@ public class PolygonFractal extends Turtle {
 	}
 	/* END TEMPLATE */
 
-	public void run() {
-		polygonFractal((Integer)getParam(0),(Integer)getParam(1),(Double)getParam(2),(Double)getParam(3));
+	override def run() {
+		polygonFractal(getParam(0).asInstanceOf[Int],getParam(1).asInstanceOf[Int],
+		    getParam(2).asInstanceOf[Double],getParam(3).asInstanceOf[Double]);
 	}
 }
