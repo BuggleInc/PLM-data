@@ -1,2 +1,15 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
+	if(level==0){
+		for(i<-0 to sides-1){
+			forward(length);
+			right(360/sides);
+		}
+	}
+	else{
+		for(i<-0 to sides-1){
+			sierpinski(levels-1,length/2);
+			forward(length);
+			right(360/sides);
+		}
+	}
 }
