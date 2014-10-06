@@ -1,9 +1,10 @@
 def combSort() {
 	var lgr: Int = getNombreValeurs();
 	var ecart: Int = lgr;
-	var chgt: Boolean = true;
+	var chgt: Boolean = false;
 	var i: Int = 0;
 	while (chgt == true || ecart > 1){
+		chgt = false;
 		if (ecart > 1){
 			ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
 		}
@@ -12,6 +13,7 @@ def combSort() {
 			if (plusPetit(i+ecart,i)){
 				echange(i+ecart,i);
 				i=i+1;
+				chgt=true;
 			}	
 		}
 	}
