@@ -1,7 +1,19 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
 
-	if (level == 0)
+	if (levels == 1)
 	{
-		
+		for (i <- 1 to sides)
+		{
+			avance(length);
+			gauche((3-sides)*180/sides);
+		}
+	}
+	else
+	{
+		for (i <- 1 to sides)
+		{
+			avance(length);
+			polygonFractal(levels - 1, sides, length * shrink, shrink);
+		}
 	}
 }
