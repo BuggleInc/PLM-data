@@ -1,7 +1,31 @@
-/**
- * doSide : effectue une partie du motif puis revient à la position d'origine.
- */
+void nextV() {
+	avance();
+	avance();
+	avance();
+	gauche();
+}
 
+void nextSquare() {
+	avance();
+	avance();
+	avance();
+	avance();
+}
+
+void nextLine() {
+	gauche();
+	avance();
+	avance();
+	avance();
+	avance();
+	droite();
+}
+
+/**
+ * doSideRight : effectue une partie du motif puis revient à la position d'origine.
+ * 
+ * En raison d'un dysfontionnement de la méthode "setCouleurBrosse(Color c)", la couleur de la brosse doit être modifiée préalablement.
+ */
 void doSide() {
 	gauche();
 	avance();
@@ -15,7 +39,43 @@ void doSide() {
 	recule();
 }
 
-public void run() {
+/**
+ * Réaliser un "carré" du motif demandé et se place à l'emplacement d'origine.
+ */
+void doSquare() {
 	setCouleurBrosse(Color.RED);
-	doSide ();
+	doSide();
+	nextV();
+	setCouleurBrosse(Color.BLUE);
+	doSide();
+	nextV();;
+	setCouleurBrosse(Color.GREEN);
+	doSide();
+	nextV();
+	setCouleurBrosse(Color.YELLOW);
+	doSide();
+	nextV();
+}
+
+/**
+ * Réalise un "carré" du motif demandé et se place en position pour en réaliser un autre.
+ */
+void doLine() {
+	doSquare();
+	nextSquare();
+}
+
+/**
+ * Réalise un motif composé de x lignes et de y colonnes.
+ */
+void doMotif(int x, int y) {
+	for (int nbLignes=0; nbLignes<x; nbLignes = nbLignes + 1) {
+		for (int nbColonnes=0; nbColonnes<y; nbColonnes = nbColonnes + 1) {
+			doLine();
+		} nextLine();
+	}
+}
+
+public void run() {
+	doMotif(2,2);
 }
