@@ -3,17 +3,13 @@ def combSort() {
 
 var ecart: Int = getNombreValeurs()-1;
 
-while(ecart !=0)
-{
-for(i <- 0 to getNombreValeurs()-1)
-{
- if(getValeur(i+ecart) < getValeur(i))	
-echange(i+ecart,i);
+while(ecart >1) {
+	ecart = (ecart.toDouble / 1.3).toInt
+	while(i+ecart<getNombreValeurs()) {
+		if(getValeur(i+ecart) < getValeur(i))
+			echange(i+ecart,i);
+	}
+	
 }
-ecart = (ecart.toDouble / 1.3).toInt
-}
-
-
-
 
 }
