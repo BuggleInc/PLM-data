@@ -1,2 +1,24 @@
 def shellSort()  {
+	var lgr = getNombreValeurs();
+	var ecart = lgr/2;
+
+	while(ecart > 0){
+		var i = 0;
+		for(i <- 1 to lgr-1){
+			var v = getValeur(i);
+			var j = i;
+			while(j > 0 && getValeur(j-1) > v){
+				setValeur(j, getValeur(j-1));
+				j = j-1;
+			}
+			setValeur(j, v);
+		}
+	}
 }
+
+/*
+ecart=lgr/2
+tant que ecart>0:
+  appliquer l'algorithme de tri par insertion en comparant i-ecart et i, 
+  puis i-2ecart et i-ecart, puis i-3ecart et i-2ecart, etc.
+ */
