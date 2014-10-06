@@ -5,8 +5,9 @@ var l: int = 0;
 var trie: Int = 0;
 while (trie == 0) {
    trie = 1;
- for(i <- 0 to (getNombreValeurs()-l-2))
-       {m=m+1;
+   m=m+1;
+ for(i <- 0 to (getNombreValeurs()-m-2))
+       {
        	if(getValeur(i+1) < getValeur(i))
         {  
   echange(i+1,i);
@@ -15,7 +16,7 @@ while (trie == 0) {
       }
  
  for(i <- (getNombreValeurs()-m-2) to 0 by -1) {
- 	l=l+1;
+ 	
   if(getValeur(i+1) < getValeur(i)) {
    echange(i+1,i);
    trie = 0;
