@@ -1,16 +1,20 @@
 def cocktailSort() {
+var ok:Int=0;
 do{
+	ok=1;
 	for(i<-0 to getNombreValeurs()-2){
 		if(plusPetit(i+1, i)){
 			echange(i+1,i)
+			ok=0;
 		}
 	}
 	for(i<-getNombreValeurs()-2 to 0){
 		if(plusPetit(i+1, i)){
 			echange(i+1,i)
+			ok=0;
 		}
 	}
-}
+}while(ok==0)
 }
 /*Faire
   Pour tout i dans [0,lgr-2], faire:
