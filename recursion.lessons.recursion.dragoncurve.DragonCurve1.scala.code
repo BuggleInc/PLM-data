@@ -1,2 +1,15 @@
 def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	if(levels==1){
+		setPos(x,y)
+		allerVers(z,t)
+	}else{
+		a=x
+		b=y
+		c=z
+		d=t
+		u = (a + c)/2 + (d - b)/2
+		v = (b + d)/2 - (c - a)/2
+		dragon(order-1,a,b,u,v)
+		dragon(order-1,c,d,u,v)
+	}
 }
