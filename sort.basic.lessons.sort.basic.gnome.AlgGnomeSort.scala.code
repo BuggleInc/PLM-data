@@ -1,7 +1,9 @@
 def gnomeSort() {
 	var trie = false
 	var i = 0
-	while (!trie) {
+	while (!trie) 
+		if (i==getNombreValeurs()-1) {trie = true}
+	
 		if (i==0) {
 			i = 1
 		}
@@ -28,12 +30,6 @@ def gnomeSort() {
 				else {
 					echange(i-1,i)
 					i = i-1
-					if (plusPetit(i,i+1)) {
-						i = i+1
-					}
-					else {echange(i,i+1)
-						i = i-1
-					}
 				}
 			}
 		}
