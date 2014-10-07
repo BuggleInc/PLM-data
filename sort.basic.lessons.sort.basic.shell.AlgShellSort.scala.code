@@ -4,16 +4,22 @@ def shellSort()  {
 while(ecart>0)
 {
 
- 	for (i <- 1 to getNombreValeurs()-1)
+while(j >= gap && (getValue(j-gap) > value)) {
+copy(j-gap,j);
+j -= gap;
+}
+
+ 	for (i <- ecart - 1 to getNombreValeurs()-1)
  	{ 
       var j=i;
       var valeur =getValeur(i)
-      while (j>=i && getValeur(j-i)>getValeur(i))
+      while (j>= gap && (getValeur(j-ecart)>valeur)
       { 
-        setValeur(j,getValeur(j-1))
-        j=j-i
+       copier(j-ecart,j)
+        j=j-ecart
       }
 	 setValeur(j,valeur);
     }
+    ecart = ecart/2;
 }
 }
