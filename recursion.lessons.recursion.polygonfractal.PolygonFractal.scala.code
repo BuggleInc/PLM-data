@@ -1,27 +1,9 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
-	avance(length)
-	droite(360/sides)
-	if(level>1){
-		polygonFractal(levels-1, sides, length*shrink, shrink)
-	}
-	avance(length)
-	droite(360/sides)
-	if(level>1){
-		polygonFractal(levels-1, sides, length*shrink, shrink)
-	}
-	avance(length)
-	droite(360/sides)
-	if(level>1){
-		polygonFractal(levels-1, sides, length*shrink, shrink)
-	}
-	avance(length)
-	droite(360/sides)
-	if(level>1){
-		polygonFractal(levels-1, sides, length*shrink, shrink)
-	}
-	avance(length)
-	droite(360/sides)
-	if(level>1){
-		polygonFractal(levels-1, sides, length*shrink, shrink)
+	for(i=0 to sides by 1){
+		avance(length)
+		droite(360/sides)
+		if(levels>1){
+			polygonFractal(levels-1, sides, length*shrink, shrink)
+		}	
 	}
 }
