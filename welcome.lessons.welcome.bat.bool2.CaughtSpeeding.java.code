@@ -1,53 +1,13 @@
-int notBirthday(int speed) {
+int caughtSpeeding(int speed, boolean isBirthday) {
+	if (!isBirthday) {
 	if (speed<61) {
 		return 0;
-	} else if (speed<81) {
-		return 1;
-	} else return 2;
-}
-
-int itsBirthday(int speed) {
-	if (speed<66) {
+		} else if (speed<81) {
+			return 1;
+			} else return 2;
+	} else if (speed<66) {
 		return 0;
 	} else if (speed<86) {
 		return 1;
 	} else return 2;
-}
-
-int caughtSpeeding(int speed, boolean isBirthday) {
-	if (!isBirthday) {
-		switch (notBirthday(speed)) {
-		case '0':
-		return 0;
-		break;
-
-		case 1:
-		return 1;
-		break;
-
-		case 2:
-		return 2;
-		break;
-
-		default:
-		return 0;
-	}	
-	} else {
-		switch (itsBirthday(speed)) {
-		case 0:
-		return 0;
-		break;
-
-		case 1:
-		return 1;
-		break;
-
-		case 2:
-		return 2;
-		break;
-
-		default:
-		return 0;
-	}
-	} return 0;
 }
