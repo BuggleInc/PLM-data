@@ -52,7 +52,6 @@ void doublePot() {
 	avance(2);
 	droite();
 	faisLePot();
-	if (jardinieresRestantes<x-1) {
 	droite();
 	avance();
 	gauche();
@@ -60,18 +59,33 @@ void doublePot() {
 	droite();
 	recule();
 	gauche();	
-	}	
+}
+
+void doublePotFinal() {
+	faisLePot();
+	avance(6);
+	gauche();
+	avance(2);
+	droite();
+	faisMoiUneFleur(Color.BLUE);
+	avance(2);
+	gauche();
+	avance(2);
+	droite();
+	faisLePot();
 }
 
 void laTotale(int x) {
 	int jardinieresRestantes=0;
 	for (int nbJardinieres=0; nbJardinieres<x; nbJardinieres=nbJardinieres+1) {
-		doublePot();
 		if (jardinieresRestantes<x-1) {
+			doublePot();
 			droite();
 			avance(4);
 			gauche();
 			jardinieresRestantes=jardinieresRestantes+1;
+		} else {
+			doublePotFinal();
 		}
 	}
 }
