@@ -10,16 +10,16 @@ def shellSort() {
 			v=getValeur(i);
 			b=true;
 			j=i;
-			while (b) {
+			while ((b)&&(j>=0)) {
 				b=false;
-				if (j==0) {
+				if (j<ecart) {
 					setValeur(0,v);
-				} else if (plusPetitQue(j-1,v)) {
+				} else if (plusPetitQue(j-ecart,v)) {
 					w=getValeur(j);
 					setValeur(j,v);
 				} else {
-					copie(j-1,j);
-					j-=1;
+					copie(j-ecart,j);
+					j-=ecart;
 					b=true;
 				}
 			}
