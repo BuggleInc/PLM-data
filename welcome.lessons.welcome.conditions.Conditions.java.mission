@@ -13,12 +13,6 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
-.Java   {visibility: visible; color:#FF0000}
-.java   {visibility: visible; color:#FF0000}
-.python {visibility: visible; color:#008000}
-.Python {visibility: visible; color:#008000}
-.scala  {visibility: visible; color:#0000FF}
-.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Conditional instructions</h2>
@@ -28,15 +22,13 @@ are quite boring. They always do the same thing, and cannot react to
 external conditions. A <b>conditional</b> let the program adapt by doing
 something like <i>if it's raining, take an umbrella</i>. 
 
-<p>The <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font> syntax is the following:</p>
+<p>The Java syntax is the following:</p>
 
-<pre><font color="EEEEEE">if (<b>condition</b>) {
+<pre>if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfTrue();</b>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoNextIfTrue();</b>
-}</font><font color="008000">if <b>condition</b>:
-&nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfTrue()</b>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoNextIfTrue()</b></font>
-<b>whatToDoAnyway()<font color="FFFF00">;</font></b></pre>
+}
+<b>whatToDoAnyway();</b></pre>
 
 <p>If the condition is true, the code of the next block will be executed and then it will continue with the rest of the code.
 If the condition is false, the next block is ignored and the execution continues after it.
@@ -47,18 +39,11 @@ will be executed if and only if the condition is true,
 while the instruction <code>whatToDoAnyway()</code> will be executed whether or not the condition is true. 
 </p>
 
-<p>In <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>, the blocks of code are
-<font color="EEEEEE">enclosed between curly brackets: a { sign opens the block, while a } sign closes it. 
-White spaces are not important</font><font color="FFFF00">.</font><font color="0000FF">, provided that your instructions are still separated with a semi-column or an end of line.</font>
-<font color="EEEEEE">It is still very important to correctly indent your code to keep it readable.</font>
-<font color="008000">marked by the indentation: every lines that are a bit shifted to the right with 
-white spaces belong to the block. Quite often, people use 4 spaces for indentation, 
-but it works if you use more or less spaces. Simply, any lines of the block must use the same amount of spaces.
-The end of Python code blocks are not marked by any specific char.
-Indenting lines starts a block and unindenting ends it. Do not forget the colon (:) at the end of 
-the <code>if</code> line, python needs it to know that a new block begins. The fact that python relies on 
-indentation to delimit blocks is a very good property for beginners: it will force you to adhere to strict 
-code presentation standards.</font>
+<p>In Java, the blocks of code are
+enclosed between curly brackets: a { sign opens the block, while a } sign closes it. 
+White spaces are not important.
+It is still very important to correctly indent your code to keep it readable.
+
 It is very easy to get lost in your own code if it's not properly indented, so you want to clean it up so that 
 working on your code remains pleasant and productive.</p>
 
@@ -77,38 +62,38 @@ errors.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoNext()</b> <span class="comment"># this block is not hanging to a condition line</span>
 </pre>
 
-<p>The condition must be a <code><font color="00FF00">int</font><font color="FF0000">boolean</font><font color="0080FF">Boolean</font></code> expression. 
-The inner block of code will get executed if the expression is evaluated to  <code><font color="00FF00">1</font><font color="FF00FF">true</font><font color="008000">True</font></code> 
-and it will be ignored if it is <code><font color="00FF00">0</font><font color="FF00FF">false</font><font color="008000">False</font></code>.
-<font color="FF80FF"><code><font color="FF00FF">true</font><font color="008000">True</font></code> and <code><font color="FF00FF">false</font><font color="008000">False</font></code> are constant values 
-defined by <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font> directly, just as 0 or 1 in mathematics.</font></p>
+<p>The condition must be a <code>boolean</code> expression. 
+The inner block of code will get executed if the expression is evaluated to  <code>true</code> 
+and it will be ignored if it is <code>false</code>.
+<code>true</code> and <code>false</code> are constant values 
+defined by Java directly, just as 0 or 1 in mathematics.</p>
 
-<p>The condition can be a <code><font color="00FF00">int</font><font color="FF0000">boolean</font><font color="0080FF">Boolean</font></code> variable 
+<p>The condition can be a <code>boolean</code> variable 
 (we will come back on variables in a latter exercise, don't worry) or 
 an arithmetic test, such as <code>x == 5</code>, which checks whether the current value of 
-<code>x</code> is 5, or such as <b>!=</b> (checking inequality, that is, returning <font color="00FF00">1</font><font color="FF00FF">true</font><font color="008000">True</font> 
+<code>x</code> is 5, or such as <b>!=</b> (checking inequality, that is, returning true 
 only if the left-hand side is different from the right-hand side), <b>&lt;</b> (smaller than), 
 <b>&gt;</b> (larger than), <b>&lt;=</b> (smaller or equal to), <b>&gt;=</b> (larger or equal to).</p>
 
 <p>Beware of the classical trap, which consists in testing the equality of a
-variable using = instead of ==. Hopefully, the <font color="EEEEEE">compiler</font><font color="008000">interpreter</font> 
+variable using = instead of ==. Hopefully, the compiler 
 detects this problem most of the time, but it could get trapped is some cases (such as when you are 
-affecting a <font color="00FF00">int</font><font color="FF80FF">boolean</font> variable). So you'd better to be careful...</p>
+affecting a boolean variable). So you'd better to be careful...</p>
 
 <p>The condition can also be a call to some particular methods returning a
 boolean. For example, the <code>isFacingWall()</code> method of the buggle
-returns <font color="00FF00">1</font><font color="FF80FF">true</font> if the buggle is facing a wall, and <font color="00FF00">0</font><font color="FF80FF">false</font> in the other case.</p>
+returns true if the buggle is facing a wall, and false in the other case.</p>
 
 <p>Finally, a condition can be composed of several sub-conditions connected by
 boolean operations:</p>
 <ul>
-  <li><code>cond1 <font color="EEEEEE">&&</font><font color="008000">and</font> cond2</code> is true when <tt>cond1</tt> <b>and</b>
+  <li><code>cond1 && cond2</code> is true when <tt>cond1</tt> <b>and</b>
       <tt>cond2</tt> are both true (if <tt>cond1</tt> is false,
       <tt>cond2</tt> is not even evaluated as we already know that the conjunction of both propositions cannot be true).</li> 
-  <li><code>cond1 <font color="EEEEEE">||</font><font color="008000">or</font> cond2</code> is true if <tt>cond1</tt> <b>or</b> 
+  <li><code>cond1 || cond2</code> is true if <tt>cond1</tt> <b>or</b> 
       <tt>cond2</tt> is true (if <tt>cond1</tt> is true, <tt>cond2</tt> is not even evaluated
       as we already know that the disjunction of both propositions cannot be false).</li>
-  <li><code><font color="EEEEEE">!</font><font color="008000">not </font>cond</code> is true if <tt>cond</tt> is false.</li>
+  <li><code>!cond</code> is true if <tt>cond</tt> is false.</li>
   <li>When the expression becomes complicated, it is better to add parenthesis to force the order of evaluation.
       Do not hesitate to add more parenthesis to remove any ambiguities that may appear in an expression.</li>
 </ul> 
@@ -116,14 +101,11 @@ boolean operations:</p>
 <p>Last, it is possible to specify what to do when the condition is false
 using the following syntax. In this case, the instruction <code>whatToDoIfItsFalse</code>
 will be executed only if the condition is false.</p>
- <pre><font color="EEEEEE">if (<b>condition</b>) {
+ <pre>if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfTheConditionIsTrue();</b>
 } else {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfItsFalse();</b>
-}</font><font color="008000">if (<b>condition</b>):
-&nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfTheConditionIsTrue()</b>
-else:
-&nbsp;&nbsp;&nbsp;&nbsp;<b>whatToDoIfItsFalse()</b></font></pre>
+}</pre>
 
 <p class="Python">Don't forget the colon (:) after the else, it is indicating 
 that a new block is beginning.</p>
