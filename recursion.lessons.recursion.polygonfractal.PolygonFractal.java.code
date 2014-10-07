@@ -6,25 +6,11 @@ void polygonFractal (int levels, int sides, double length, double shrink) {
 			droite(72);
 		}
 	}else{
-		avance(length);
-		gauche(72);
-		polygonFractal(levels-1, sides, length*shrink, shrink);
-
-		avance(length);
-		gauche(72);
-		polygonFractal(levels-1, sides, length*shrink, shrink);
-
-		avance(length);
-		gauche(72);
-		polygonFractal(levels-1, sides, length*shrink, shrink);
-
-		avance(length);
-		gauche(72);
-		polygonFractal(levels-1, sides, length*shrink, shrink);
-
-		avance(length);
-		gauche(72);
-		polygonFractal(levels-1, sides, length*shrink, shrink);
+		for(int i=0; i<sides; i++){
+			avance(length);
+			gauche(108);
+			polygonFractal(levels-1, sides, length*shrink, shrink);
+		}
 	}
 
 }
