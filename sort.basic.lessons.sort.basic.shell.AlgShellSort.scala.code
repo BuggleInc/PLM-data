@@ -8,14 +8,15 @@ def shellSort()  {
 		//algo du tri par insertion
 		for (i<-1 to getNombreValeurs()-1) {
 		v=getValeur(i)
-		cpt=i
-			while (cpt>=ecart && !plusPetitQue(cpt-1, v)) {
-			copie(cpt-1, cpt)
+		cpt=i-ecart
+			while (cpt>=ecart && !plusPetitQue(cpt, v)) {
+			copie(cpt, cpt+ecart)
 			cpt=cpt-ecart
 			}
 		setValeur(cpt, v)
 		//fin
 		}
+		//ecart divisé par 2
 		ecart = (ecart.toDouble / 2).toInt
 	}
 
