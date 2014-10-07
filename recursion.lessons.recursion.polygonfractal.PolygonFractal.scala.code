@@ -3,9 +3,9 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
 	else{
 		for(i<-1 to sides by 1){
 			avance(length)
-			droite(360/sides)
+			gauche((sides-2)*360/(2*sides))
 			polygonFractal(levels-1, sides, length*shrink, shrink)
-			droite(180)
+			
 		}
 		
 	}
