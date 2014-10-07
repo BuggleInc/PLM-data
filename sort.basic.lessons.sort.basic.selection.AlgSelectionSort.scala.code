@@ -3,10 +3,9 @@ def selectionSort() {
 	
 	for (i <- 0 to getNombreValeurs()-2) {
 		for (j <- i to getNombreValeurs()-1) {
-			for (k <- j to getNombreValeurs()-1) {
-				if (plusPetitQue(k, getValeur(j))) {l=j}
-			}
-			echange(j,l)
+			if (plusPetit(i,j)) {l=i}
+			else {l=j}
 		}
+		echange(i,l)
 	}
 }
