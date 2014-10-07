@@ -1,4 +1,7 @@
-void faitFleur(Color c) {
+/**
+ * Fais une fleur de la couleur indiquée (Color c) et revient à la position d'origine.
+ */
+void faisMoiUneFleur(Color c) {
 	setCouleurBrosse(c);
 	baisseBrosse();
 	leveBrosse();
@@ -19,9 +22,24 @@ void faitFleur(Color c) {
 	leveBrosse();
 	gauche();
 	recule();
-	
+}
+
+void faisLePot() {
+	faisMoiUneFleur(Color.RED);
+	avance(4);
+	faisMoiUneFleur(Color.CYAN);
+	droite();
+	avance(2);
+	droite();
+	faisMoiUneFleur(Color.ORANGE);
+	gauche();
+	avance(2);
+	gauche();
+	faisMoiUneFleur(Color.GREEN);
+	recule(4);
+	faisMoiUneFleur(Color.PINK);
 }
 
 void growFlowers() {
-	faitFleur(Color.RED);
+	faisLePot();
 }
