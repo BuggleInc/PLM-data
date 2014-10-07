@@ -1,0 +1,49 @@
+override def run() {
+	var indication:Int = 9999;
+	var x:Int = 0;
+	var y:Int = 0;
+	
+	for(x <- 0 to getMondeHauteur()-1; y <- 0 to getMondeLargeur()-1) {
+		if(aBiscuit(x,y)) {
+			setIndications(x, y, 0);
+		}
+	}
+	while(!estSurBiscuit()) {
+		indication = getIndication(getX(), getY());
+		if(isFacingTrail(indication)) {
+			avance();
+		}
+		else {
+			gauche();
+		}
+	}
+	prendBiscuit();
+}
+
+def setIndications(x:Int, y:Int, valeur:Int) {
+	if(getIndication(x,y) == 9999) {
+		setIndication(x, y, valeur);
+		if(!aMurNord(x, y)) {
+			setIndications(x, y-1, valeur+1);
+		}
+		if(y+1 < getMondeHauteur() && !aMurNord(x, y+1)) {
+			setIndications(x, y+1, valeur+1);
+		}
+		if(!aMurOuest(x, y)) {
+			setIndications(x-1, y, valeur+1);
+		}
+		if(x+1 < getMondeLargeur() && !aMurOuest(x+1, y)) {
+			setIndications(x+1, y, valeur+1);
+		}	
+	}
+}
+
+def isFacingTrail(indication:Int):Boolean = {
+	var isFacingTrail:Boolean = false;
+	if(!estFaceMur()) {
+		avance();
+		isFacingTrail = (getIndication(getX(), getY()) < indication);
+	     recule();
+	}
+     return isFacingTrail;
+}

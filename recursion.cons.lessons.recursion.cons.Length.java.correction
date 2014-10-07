@@ -1,0 +1,8 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; import lessons.recursion.cons.universe.*;import java.util.Vector;public class length extends BatEntity { public RecList cons(int head, RecList tail){  return new RecList(head, tail);} @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( length( (RecList)t.getParameter(0) ) ); }
+	int length(RecList seq) {
+		if (seq == null)
+			return 0;
+		return 1+length(seq.tail);
+	}
+ }

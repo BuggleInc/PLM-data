@@ -1,0 +1,15 @@
+def max1020(a:Int, b:Int):Int = {
+	/*if(Math.max(a, b) >= 10 && Math.max(a, b) <= 20) {
+		return Math.max(a, b);
+	}
+	if(Math.min(a, b) >= 10 && Math.min(a, b) <= 20) {
+		return Math.min(a, b);
+	}
+	return 0;
+	*/
+	(Math.max(a, b), Math.min(a, b)) match {
+		case (it1, it2) if 10 to 20 contains it1 => return it1;
+		case (it1, it2) if 10 to 20 contains it2 => return it2;
+		case _ => return 0;
+	}
+}

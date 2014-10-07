@@ -1,0 +1,93 @@
+override def run() {
+	faireFigure(2, 2);
+	avance(4);
+}
+
+def faireFigure(nbLignes:Int, nbMotifs:Int) {
+	var i:Int =0;
+	var j:Int =0;
+	for(i <- 1 to nbLignes) {
+		faireLigne(nbMotifs);
+		if(i!=nbLignes) {
+			gauche();
+			avance(4);
+			droite();
+		}
+	}
+}
+
+def faireLigne(nbMotifs:Int) {
+	var i:Int =0;
+	for(i <- 1 to nbMotifs) {
+		faireMotifComplet();
+		if(i!=nbMotifs) {
+			avance(4);
+		}
+	}
+	recule(4*(nbMotifs-1));
+}
+
+/**
+ * Permet de dessiner le motif suivant :
+ * 		
+ * 		-	X	X	-
+ * 		X	-	-	X
+ * 		X	- 	-	X
+ * 		-	X	X	-
+ * 	
+ */
+def faireMotifComplet() {
+	faireMotif(Color.red, true);
+	avance(2);
+	faireMotif(Color.blue, false);
+	recule(2);
+	gauche();
+	avance(2);
+	droite();
+	faireMotif(Color.yellow, false);
+	avance(2);
+	faireMotif(Color.green, true);
+	recule(2);
+	droite();
+	avance(2);
+	gauche();
+}
+
+/**
+ * Permet de dessiner le motif suivant :
+ * 		
+ * 		b	!b 
+ * 		!b	b
+ * 	
+ * 	c:Color	: couleur du motif dessiné
+ * 	b:Boolean	: cases colorier
+ */
+def faireMotif(c:Color, b:Boolean) {
+	var i:Int = 0;
+	setCouleurBrosse(c);
+	if(b) {
+		avance();
+	}
+	marqueSol();
+	if(!b) {
+		avance();
+	}
+	for(i <- 1 to 2) {
+		if(i == 2 && !b) {
+			marqueSol();
+		}
+		gauche();
+		avance();
+	}
+	if(b) {
+		marqueSol();
+	}
+	gauche();
+	avance();
+	gauche();
+}
+
+def marqueSol() {
+	baisseBrosse();
+	leveBrosse();	
+}
