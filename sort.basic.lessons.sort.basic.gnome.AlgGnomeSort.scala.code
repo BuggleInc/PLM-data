@@ -1,18 +1,30 @@
 def gnomeSort() {
 	
-var fin = false;
-do
-{
-for(i<-0 to length-2 by +1)
+var length = getNombreValeurs(); 
+	var echangé:Boolean = false;
+	
+	do
+	{
+		echangé=false;
+		
+		for(i<-0 to length-2 by +1)
 		{
 			if(!plusPetit(i,i+1))
 			{
 				echange(i,i+1);
-				fin=true;
+				echangé=true;
 			}
 			
 		}
-	
-}
-while(!fin)	
+		for(i<-length-2 to 0 by -1)
+		{
+			if(!plusPetit(i,i+1))
+			{
+				echange(i,i+1);
+				echangé=true;
+			}
+			
+		}
+		
+	} while (echangé)
 }
