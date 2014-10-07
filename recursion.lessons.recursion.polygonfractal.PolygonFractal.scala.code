@@ -1,0 +1,9 @@
+def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
+	for(i<-1 to sides) {
+		var angle = 360/sides;
+		avance(length);
+		gauche(360-angle);
+		polygonFractal(levels-1, sides, length*shrink, shrink);
+		gauche(360-angle);
+	}
+}
