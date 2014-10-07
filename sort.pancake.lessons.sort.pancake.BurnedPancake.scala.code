@@ -1,7 +1,7 @@
 def solve() {
 	val l=getTaillePile();
 	var p=0;
-	for (i<-0 to l-1) {
+	for (i<-0 to l-2) {
 		if ((!estTriee())&&(getRayonCrepe(l-1-i)!=(l-i))) {
 			for (j<-0 to l-i-1) {
 				if (getRayonCrepe(j)==l-i) {
@@ -16,5 +16,8 @@ def solve() {
 			}
 			retourne(l-i);
 		}
+	}
+	if (!estCrepeRetournee(0)) {
+		retourne(1);
 	}
 }
