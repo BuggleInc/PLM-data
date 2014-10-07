@@ -3,12 +3,12 @@ def insertionSort() {
 	for(i<- 1 to getNombreValeurs()-1) 
 	{
 		val valeur = getValeur(i);
-		var j=i;
-		while((j>0) && (!plusPetit(j-1,valeur)))
+		var j=i-1;
+		while((j>0) && (getValeur(j)>valeur)
 		{	
-			echange(j,j-1);
+			echange(j,j+1);
 			j-=1
 		}
-	setValeur(j,valeur);
+	setValeur(j+1,valeur);
 	}	
 }
