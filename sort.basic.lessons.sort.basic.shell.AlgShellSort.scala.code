@@ -1,6 +1,7 @@
 def shellSort() {
 	val l=getNombreValeurs();
 	var v=0;
+	var w=0;
 	var j=0;
 	var b=true;
 	var ecart=l/2;
@@ -14,13 +15,17 @@ def shellSort() {
 				if (j==0) {
 					setValeur(0,v);
 				} else if (plusPetitQue(j-1,v)) {
+					w=getValeur(j);
 					setValeur(j,v);
+					v=w;
+					b=true;
 				} else {
 					copie(j-1,j);
 					j-=1;
 					b=true;
+				}
 			}
 		}
-		
+		ecart/=2;
 	}
 }
