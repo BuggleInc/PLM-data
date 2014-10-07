@@ -1,5 +1,27 @@
-    def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
-    }
+def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	if (order==0) {
+		setPos(x,y)
+		setCouleur(Color.red)
+		allerVers(z,t)
+	} else {
+		var u = (x + z)/2 + (t - y)/2
+		var v = (y + t)/2 - (z - x)/2
+		dragon(order-1,x,y,u,v)
+		dragonInverse(order-1,u,v,z,t)
+	}
 
-    def dragonInverse(order:Int, x:Double, y:Double, z:Double, t:Double) {
-    }
+}
+
+def dragonInverse(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	if (order==0) {
+		setPos(z,t)
+		setCouleur(Color.blue)
+		allerVers(x,y)
+	} else {
+		var u = (x + z)/2 - (t - y)/2
+		var v = (y + t)/2 + (z - x)/2
+		dragonInverse(order-1,x,y,u,v)
+		dragon(order-1,u,v,z,t)
+	}
+
+}
