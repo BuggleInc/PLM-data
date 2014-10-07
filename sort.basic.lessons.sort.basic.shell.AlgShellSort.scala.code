@@ -1,4 +1,4 @@
-def shellSort()  {
+def shellSort() {
 	val l=getNombreValeurs();
 	var v=0;
 	var j=0;
@@ -9,19 +9,18 @@ def shellSort()  {
 			v=getValeur(i);
 			b=true;
 			j=i;
-			while ((b)&&(j>=ecart)) {
+			while (b) {
 				b=false;
 				if (j==0) {
 					setValeur(0,v);
-				} else if (plusPetitQue(j-ecart,v)) {
+				} else if (plusPetitQue(j-1,v)) {
 					setValeur(j,v);
 				} else {
-					copie(j-ecart,j);
-					j-=ecart;
+					copie(j-1,j);
+					j-=1;
 					b=true;
-				}
 			}
 		}
-		ecart/=2;
+		
 	}
 }
