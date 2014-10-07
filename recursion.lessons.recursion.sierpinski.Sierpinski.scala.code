@@ -1,17 +1,21 @@
 def sierpinski(level:Int, length:Double) {
-	
-	if (level==0) {
-		for (i <- 1 to 3) {
-			avance(length)
-			droite(120)
+	def sierBis(level:Int, length:Double, doitAvancer:Boolean) {
+		if (level==0) {
+			for (i <- 1 to 3) {
+				avance(length)
+				droite(120)
+			}
+		} else {
+			for (i <- 1 to 3) {
+				sierpinski(level-1,length/2)
+				droite(120)
+			}
 		}
-		avance(2*length)
-	} else {
-		for (i <- 1 to 3) {
-			sierpinski(level-1,length/2)
-			droite(120)
+		if (doitAvancer) {
+			avance(2*length)	
+		} else {
+			doitAvancer=true
 		}
-		avance(2*length)
 	}
-	
+	sierBis(level, length, false)
 }
