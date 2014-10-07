@@ -3,8 +3,10 @@ def selectionSort() {
 	
 	for (i <- 0 to getNombreValeurs()-2) {
 		for (j <- i to getNombreValeurs()-1) {
-			if (plusPetit(i,j)) {l=i}
-			else {l=j}
+			for (k <- j to getNombreValeurs()-1) {
+				if (plusPetit(j,k)) {l=j}
+				else {l=k}
+			}
 		}
 		echange(i,l)
 	}
