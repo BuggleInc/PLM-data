@@ -1,21 +1,18 @@
 def pentaKoch(levels:Int, length:Double) {
 	if(levels==0){
-		return
+		avance(length*0.4)
 	}
 	else{
-		avance(length*0.4)
+		pentaKoch(levels-1, length*0.4)
 		gauche(108.0)
-		avance(length*0.4)
+		pentaKoch(levels-1, length*0.4)
 		droite(72.0)
-		avance(length*0.4)
+		pentaKoch(levels-1, length*0.4)
 		droite(72.0)
-		avance(length*0.4)
+		pentaKoch(levels-1, length*0.4)
 		droite(72.0)
-		avance(length*0.4)
+		pentaKoch(levels-1, length*0.4)
 		gauche(108.0)
-		avance(length*0.4)
-		if(levels%2==0) gauche(108.0)
-		else gauche(108.0)
-		pentaKoch(levels-1, length)
+		pentaKoch(levels-1, length*0.4)
 	}
 }
