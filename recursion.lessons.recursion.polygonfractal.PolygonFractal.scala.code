@@ -1,17 +1,17 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
+	var a = 360/sides;
 	if (levels == 1) {
 		for(i<-1 to sides) {
 			avance(length);
-			droite(360/sides);
+			droite(a);
 		}
 	}
 	else{
-		var a = 360/sides;
 		for(i<-1 to sides) {
 			avance(length);
 			gauche(180-a);
 			polygonFractal(levels-1, sides, shrink*length, shrink);
-			droite(360/sides);
+			
 		}
 		
 		
