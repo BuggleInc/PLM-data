@@ -1,0 +1,77 @@
+/**
+ * Fais une fleur de la couleur indiquée (Color c) et revient à la position d'origine.
+ */
+void faisMoiUneFleur(Color c) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+	avance(2);
+	baisseBrosse();
+	leveBrosse();
+	recule();
+	droite();
+	avance();
+	baisseBrosse();
+	leveBrosse();
+	recule(2);
+	baisseBrosse();
+	leveBrosse();
+	avance();
+	setCouleurBrosse(Color.YELLOW);
+	baisseBrosse();
+	leveBrosse();
+	gauche();
+	recule();
+}
+
+void faisLePot() {
+	faisMoiUneFleur(Color.RED);
+	avance(4);
+	faisMoiUneFleur(Color.CYAN);
+	droite();
+	avance(2);
+	droite();
+	faisMoiUneFleur(Color.ORANGE);
+	gauche();
+	avance(2);
+	gauche();
+	faisMoiUneFleur(Color.GREEN);
+	recule(4);
+	faisMoiUneFleur(Color.PINK);
+}
+
+void doublePot() {
+	faisLePot();
+	avance(6);
+	gauche();
+	avance(2);
+	droite();
+	faisMoiUneFleur(Color.BLUE);
+	avance(2);
+	gauche();
+	avance(2);
+	droite();
+	faisLePot();
+	droite();
+	avance();
+	gauche();
+	recule(8);
+	droite();
+	recule();
+	gauche();
+}
+
+void laTotale(x) {
+	int jardinieresRestantes=0;
+	for (int nbJardinieres=0; nbJardinieres<x; nbJardinieres=nbJardinieres+1) {
+		doublePot();
+		jardinieresRestantes=jardinieresRestantes+1;
+		if (jardinieresRestantes<x-1) {
+			droite();
+			avance(4);
+			gauche();
+		}
+	}
+}
+
+laTotale(2);
