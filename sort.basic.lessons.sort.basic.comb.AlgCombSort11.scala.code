@@ -1,16 +1,16 @@
 def combSort11() {
 var ecart=getNombreValeurs()
 var exchange=true
-if (ecart==9) {
+while (ecart > 1 || exchange == true) {
+	exchange = false
+	if (ecart > 1) {
+		ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+		if (ecart==9) {
 	ecart=ecart+2
 }
 if (ecart==10){
 	ecart=ecart+1
 }
-while (ecart > 1 || exchange == true) {
-	exchange = false
-	if (ecart > 1) {
-		ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
 	}
 	for(i<-0 to getNombreValeurs()-ecart-1){
 		if (plusPetit(i+ecart,i)==true) {
