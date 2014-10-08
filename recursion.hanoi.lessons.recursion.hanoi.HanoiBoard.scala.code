@@ -3,4 +3,11 @@ def solve(src:Int, dst:Int, other:Int) {
 }
 
 def solve(src:Int, dst:Int, other:Int, height:Int) {
+	if(n==1){
+		deplace(src,dst);
+	}else{
+		hanoi(src,dst,other,heigh-1);
+		deplace(src,dst);
+		hanoi(other,dst,src,heigh-1);
+	}
 }
