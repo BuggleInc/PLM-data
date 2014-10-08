@@ -6,7 +6,10 @@ public void run() {
 				while(isCarryingBaggle() && !isOverBaggle()){
 					forward();
 				}
-				dropBaggle();
+				if(isOverBaggle()){
+					backward();
+					dropBaggle();
+				}
 			}
 	}
 }
