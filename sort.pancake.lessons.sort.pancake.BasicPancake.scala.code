@@ -1,2 +1,18 @@
 def solve() {
+	t=0;
+	while(!estTriee()) {
+		max=getRayonCrepe(t-1);
+		ind=t-1;
+		for (i <- t-2 : 0 by -1) {
+			if (max<getRayonCrepe(i)) {
+				max=getRayonCrepe(i);
+				ind=i;
+			}
+		}
+		if (ind>t) {
+			retourne(getTaillePile()-ind);
+			retourne(getTaillePile());
+		}
+		t=t-1;
+	}
 }
