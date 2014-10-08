@@ -1,0 +1,24 @@
+def solve() {for (rang <- getTaillePile-1 to 0 by -1) {
+		if (estTriee()) {
+			return;
+		}
+		if (getRayonCrepe(rang)!=rang+1) {
+			var rangGrosseCrepe = -1;
+			for (crepeActuelle <- 0 to rang) {
+				if (getRayonCrepe(crepeActuelle)==rang+1) {
+					rangGrosseCrepe=crepeActuelle;
+				}
+			}
+			if (rangGrosseCrepe!=0) {
+				retourne(rangGrosseCrepe+1);
+			}
+			if (!estCrepeRetournee(0)) {
+				retourne(0)
+				
+			}
+			if (rang!=0) {
+				retourne(getRayonCrepe(0));
+			}
+		}
+	}
+}
