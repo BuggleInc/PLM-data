@@ -1,5 +1,14 @@
+void faireLaColonne() {
+	int nCellule=0;
+	avance();
+	setCouleurBrosse(T[nCellule]);
+	baisseBrosse();
+	leveBrosse();
+}
+
 public void run() {
 int hauteur=getMondeHauteur();
+int largeur=getMondeLargeur();
 Color[] T=new Color[hauteur];
 	for (int nCase=0; nCase<hauteur; nCase=nCase+1) {
 		Color couleur=getCouleurSol();
@@ -7,5 +16,14 @@ Color[] T=new Color[hauteur];
 		if (nCase<hauteur-1) {
 			avance();
 		}
+	} for (int nColonnes=0; nColonnes<largeur; nColonnes=nColonnes+1) {
+		if (nColonnes<largeur-1) {
+			recule(largeur);
+		gauche();
+		avance();
+		droite();
+		} faireLaColonne;
+		
+		
 	}
 }
