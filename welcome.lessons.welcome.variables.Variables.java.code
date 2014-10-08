@@ -1,16 +1,16 @@
 public void run() { 
-int stepAmount = 0;
-int doneSteps = 0;
+int stepFwd = 0;
+int stepBack = 0;
 
 	while(!isOverBaggle()){
 		forward();
-		stepAmount ++;
+		stepFwd ++;
 
 		if(isOverBaggle()){
 			pickupBaggle();
-			while(stepAmount != doneSteps){
+			while(stepFwd != stepBack){
 				backward();
-				doneSteps ++;
+				stepBack ++;
 			}
 			dropBaggle();
 		}
