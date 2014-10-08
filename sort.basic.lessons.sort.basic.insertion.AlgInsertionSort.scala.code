@@ -5,9 +5,15 @@ for ( i<- 1 to getNombreValeurs-1) {
 	v=getValeur(i)
 	j=i-1
 	while (getValeur(j)>v) {
-			setValeur(j+1,getValeur(j))
-			j=j-1
+		setValeur(j+1,getValeur(j))
+			if (j!=0) {
+				j=j-1
+			} else {
+				setValeur(0,v)
+			}
 	}
-	setValeur(j+1,v)
+	if (j!=0) {
+		setValeur(j+1,v)
+	}
 }
 }
