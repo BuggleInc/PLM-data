@@ -10,12 +10,12 @@ var gap=getNombreValeurs()/2
 
 while(gap>0)
 {
-	for(i<-gap-1 to getNombreValeurs() -1)
+	for(i<-gap-1 to getNombreValeurs() -1) // Si on part à partir de i=1 on parcourt le tableau de gauche à droite tout le temps alors qu'on a pas besoin. 
 	{
 		var v=getValeur(i)
 		var j=i
 		
-			while(j>=gap && getValeur(j-gap) > v)
+			while(j>=gap && getValeur(j-gap) > v) //C'est tjr le gap le parametre sur lequel on joue ( voir enoncé)
 			{
 			copie(j-gap,j)
 			j=j-gap
@@ -23,7 +23,7 @@ while(gap>0)
 	setValeur(j,v)
 	}
 
-	gap=gap/2
+	gap=gap/2 // En divisant le gap on se rapproche de + en + de la gauche
 }
 
 }
