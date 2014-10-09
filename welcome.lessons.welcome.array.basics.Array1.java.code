@@ -2,7 +2,6 @@ public void run() {
 	Color[] Tab=new Color[getMondeHauteur()];
 	for (int nbCase=0; nbCase<getMondeHauteur();nbCase++) {
 		Tab[nbCase]=getCouleurSol();
-		ecritMessage(nbCase);
 		avance();
 	} gauche();
 	avance();
@@ -13,11 +12,13 @@ public void run() {
 		setCouleurBrosse(Tab[nbCasesFaites]);
 		baisseBrosse();
 		leveBrosse();
-	} ecritMessage("Avant gauche");
-	avance();
-	gauche();
+	}
+	if (nbColonnes<getMondeLargeur()-2) {
+		avance();
+		gauche();
 	avance();
 	droite();
+	}
 	}
 	
 }
