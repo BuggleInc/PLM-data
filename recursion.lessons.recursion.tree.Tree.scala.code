@@ -1,0 +1,30 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+ //noir,gris,vert,jaune,orange,violet,bleu
+
+
+var longueur=length
+current(steps)
+avance(length)
+// Cas trivial
+	if(steps!=1)
+	{	
+	droite(angle)
+	tree(steps-1,length*shrink,angle,shrink)
+	gauche(2*angle)
+	// On baisse d'un etage à chaque fois
+	tree(steps-1,length*shrink,angle,shrink) // Pb ici
+	droite(angle)
+	current(steps)
+	recule(length)
+	
+
+	// Pour faire le chemin retour sans changer les couleurs
+	
+	}
+
+	else
+	{
+	recule(longueur)
+	return
+	}
+}
