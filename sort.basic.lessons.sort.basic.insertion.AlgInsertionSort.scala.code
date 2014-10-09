@@ -1,10 +1,13 @@
 def insertionSort() {
 	for(i <- 1 to getNombreValeurs() - 1){
 		var v = getValeur(i);
-		for(j <- i - 1 to 1 by -1){
+		var last = 0;
+		for(j <- i to 1 by -1){
 			if(getValeur(j - 1) > v){
 				setValeur(j, getValeur(j - 1))
+				last = j - 1;
 			}
+			setValeur(last, v);
 		}
 	}
 }
