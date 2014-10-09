@@ -4,13 +4,18 @@ public void run() {
 		Tab[nbCase]=getCouleurSol();
 		ecritMessage(nbCase);
 		avance();
-	}	gauche();
+	} gauche();
 	avance();
 	droite();
-	for (int nbCasesFaites=0; nbCasesFaites<getMondeHauteur(); nbCasesFaites++) {
+	for (int nbColonnes=0; nbColonnes<getMondeLargeur()-1; nbColonnes++) {
+		for (int nbCasesFaites=0; nbCasesFaites<getMondeHauteur(); nbCasesFaites++) {
 		avance();
 		setCouleurBrosse(Tab[nbCasesFaites]);
 		baisseBrosse();
 		leveBrosse();
+	} gauche();
+	avance();
+	droite();
 	}
+	
 }
