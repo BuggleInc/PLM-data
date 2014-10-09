@@ -1,20 +1,16 @@
-void getColonne() {
+public void run() {
 	Color[] Tab=new Color[getMondeHauteur()];
 	for (int nbCase=0; nbCase<getMondeHauteur()-1;nbCase++) {
 		Tab[nbCase]=getCouleurSol();
 		avance();
-	}
-}
-
-void doColonne() {
+	} recule(getMondeHauteur()); 
 	for (int nbCasesFaites=0; nbCasesFaites<getMondeHauteur()-1; nbCasesFaites++) {
+		avance();
+		droite();
+		avance();
+		gauche();
 		setCouleurBrosse(Tab[nbCasesFaites]);
 		baisseBrosse();
 		leveBrosse();
-		avance();
 	}
-}
-
-
-public void run() {
 }
