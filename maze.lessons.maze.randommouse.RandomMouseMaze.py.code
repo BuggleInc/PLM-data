@@ -1,0 +1,21 @@
+import random
+
+cur = (0, 0)
+
+while cur != (3, 3):
+# if cur[0] == 0:
+    x = random.randrange(0, 3)
+    print(x)
+    if x == 0:
+        left()
+        if isFacingWall():
+            right()            
+    elif x == 1:
+        right()
+        if isFacingWall():
+            left()        
+    else:
+        forward()
+        if isFacingWall():
+            back()
+    cur = (get(x), get(y))
