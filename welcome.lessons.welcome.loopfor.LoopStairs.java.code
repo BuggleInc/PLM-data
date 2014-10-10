@@ -1,14 +1,16 @@
 public void run() {
 int stepFwd = 0;
 
-	for(int x=0; x<=stepFwd; x++){
+	for(; stepFwd>4;){
 		if(!isFacingWall()){
-			forward();
-			stepFwd++;
+			for(;stepFwd < 4; stepFwd++){
+				forward();
+			}
 		}else{
 			left();
 			forward();
 			right();
+			stepFwd = 0;
 		}
 	}
 
