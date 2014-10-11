@@ -5,24 +5,19 @@
 #Dirigir-se a saída.
 #Posicionar-se
 
-while (isOverBaggle()==False):
-    backward()
-    if(isBackingWall()):
+if(isBackingWall()==False):
+    while (isOverBaggle()==False):
+        backward()
+        if (isOverBaggle()==True):
+            pickupBaggle()
+        while(isCarryingBaggle()==True):
+            forward()
+            if(isOverBaggle()==True):
+                backward()
+                dropBaggle()
+                backward()
+else:
         right()
         backward()
         right()
         forward()
-    if (isOverBaggle()==True):
-        pickupBaggle()
-    while(isCarryingBaggle()==True):
-        forward()
-        if(isOverBaggle()==True):
-            backward()
-            dropBaggle()
-            backward()
-
-if(isBackingWall()):
-    right()
-    backward()
-    right()
-    forward()
