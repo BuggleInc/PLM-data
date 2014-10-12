@@ -16,6 +16,17 @@ public void run() {
 			forward();
 		}
 	} while (!isFacingWall());
+	if (isOverBaggle()) {
+		     pickupBaggle();
+			back();
+			while (!isOverBaggle()) {
+				forward();
+			}
+			back();
+			forward();
+			dropBaggle();
+			forward();
+		}
 	right();
 	forward();
 	left();
