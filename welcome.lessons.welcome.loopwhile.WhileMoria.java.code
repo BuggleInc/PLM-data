@@ -1,7 +1,10 @@
 public void run() {
 	back();
 	do {	
-	if (isOverBaggle()) {
+		if (!isOverBaggle()) {
+			forward();
+		}else{
+			
 			pickupBaggle();
 			back();
 			while (!isOverBaggle()) {
@@ -10,8 +13,6 @@ public void run() {
 			back();
 			forward();
 			dropBaggle();
-			forward();
-		}else{
 			forward();
 		}
 	} while (!isFacingWall());
