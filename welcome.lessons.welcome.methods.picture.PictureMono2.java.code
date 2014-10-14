@@ -1,2 +1,46 @@
 public void run() {
+	//call makeV() four times
+	for(int x = 0, step = 4; x < step; x++){
+		makeV();
+	}
+}
+
+void makeV() {
+	int steps = 6;
+	
+		for(int x = 0; x <= steps; x++){
+			
+			if(x == 2 || x == 4 || x == 6){
+				brushes();
+			}
+
+			if(x == 4 || x == 5){
+				left();
+			}
+
+			if(x < steps){
+				forward();
+			}
+				
+			if(x == 6){
+				leftFwd();
+				leftFwd();
+				fwdLeft();
+			}
+		}//end for
+}// end method
+void brushes(){
+	brushDown();
+	brushUp();
+}
+
+void leftFwd(){
+	left();
+	forward();
+}
+
+void fwdLeft(){
+	forward();
+	forward();
+	left();
 }
