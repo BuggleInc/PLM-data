@@ -9,7 +9,6 @@ void makeV() {
 	int steps = 6;
 	
 		for(int x = 0; x <= steps; x++){
-			//brushUp();
 			
 			if(x == 2 || x == 4 || x == 6){
 				brushes();
@@ -24,17 +23,22 @@ void makeV() {
 			}
 				
 			if(x == 6){
-				left();
-				forward();
-				left();
-				forward();
-				forward();
-				forward();
-				left();
+				leftFwd();
+				leftFwd();
+				fwdLeft();
 			}
 		}//end for
 }// end method
 void brushes(){
 	brushDown();
 	brushUp();
+}
+void leftFwd(){
+	left();
+	forward();
+}
+void fwdLeft(){
+	forward();
+	forward();
+	left();
 }
