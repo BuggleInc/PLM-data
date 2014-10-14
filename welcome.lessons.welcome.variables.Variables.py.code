@@ -1,8 +1,9 @@
 while (isOverBaggle() == False):
     forward()
+    steps = steps + 1
     if(isOverBaggle() == True):
         pickupBaggle()
         while(isCarryingBaggle==True):
-            backward()
+            backward(steps)
             if(isBackingWall()==True):
                 dropBaggle()
