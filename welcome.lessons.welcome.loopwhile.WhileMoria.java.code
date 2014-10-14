@@ -1,4 +1,5 @@
-public void run() { 
+public void run() {
+	//face the right direction 
 	back();
 	
 	while(!isFacingWall() && !isOverBaggle() ){
@@ -6,17 +7,20 @@ public void run() {
 		
 			if (isOverBaggle()){
 				pickupBaggle();
+				
 				while(isCarryingBaggle() && !isOverBaggle()){
 					backward();
 				}
+				
 				if(isOverBaggle()){
 					forward();
 					dropBaggle();
 					forward();
 				}
 			}
-
 	}
+
+	//get to the exit
 	if (isFacingWall()){
 		left();
 		backward();
