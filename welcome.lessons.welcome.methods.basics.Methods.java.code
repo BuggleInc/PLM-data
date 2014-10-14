@@ -1,13 +1,17 @@
 void goAndGet(){
-int steps = 0;
+int stepFwd = 0;
+int stepBwd = 0;
 
 	while(!isOverBaggle()){
 		forward();
-		steps++;
+		stepFwd++;
 		
 		if(isOverBaggle()){
 			pickupBaggle();
-			backward();
+			while(stepBwd < stepFwd){
+				backward();
+				stepBwd++;
+			}
 		}
 	}
 }
