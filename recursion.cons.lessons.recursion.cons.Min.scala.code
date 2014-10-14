@@ -1,0 +1,10 @@
+def min(l:List[Int]): Int = {
+	def lambda(n:Int): Int = {
+		if(l.head < n)
+		return lambda(l.head)
+		else return lambda(n)
+	}
+	if(l.tail == Nil)
+	return lambda(n)
+	else return min(l.tail)
+}
