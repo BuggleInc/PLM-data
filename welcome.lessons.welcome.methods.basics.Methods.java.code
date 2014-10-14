@@ -8,18 +8,21 @@ int stepBwd = 0;
 		
 		if(isOverBaggle()){
 			pickupBaggle();
+			
 			while(isCarryingBaggle()){
 				backward();
 				stepBwd++;
 			
 				if(stepFwd == stepBwd){
 					dropBaggle();
-				}
-
-				if(!isCarryingBaggle()){
 					stepFwd = 0;
 					stepBwd = 0;
 				}
+
+				/*if(!isCarryingBaggle()){
+					stepFwd = 0;
+					stepBwd = 0;
+				}*/
 			}
 		}
 	}
