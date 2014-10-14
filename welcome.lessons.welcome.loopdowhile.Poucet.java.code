@@ -1,6 +1,6 @@
 public void run() {
 int baggleCount = 0;
-int loops = 0;
+int loopCount = 0;
 
 	do{
 		forward();
@@ -9,7 +9,7 @@ int loops = 0;
 			baggleCount++;
 		}
 		
-		loops++;
+		loopCount++;
 
 		if(crossing()){
 			if(baggleCount >= 3){
@@ -18,12 +18,12 @@ int loops = 0;
 				right();
 			}
 			baggleCount = 0;
-			loops = 0;
+			loopCount = 0;
 		}
 
 		if(exitReached()){
 			forward();
 		}
 		
-	}while(loops < 5 && !exitReached()); 
+	}while(loopCount < 5 && !exitReached()); 
 }
