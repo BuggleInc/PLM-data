@@ -1,23 +1,23 @@
 public void run() {
-int countBaggles = 0;
+int baggleCount = 0;
 int loops = 0;
 
 	do{
 		forward();
 		
 		if(isOverBaggle()){
-			countBaggles++;
+			baggleCount++;
 		}
 		
 		loops++;
 
 		if(crossing()){
-			if(countBaggles >= 3){
+			if(baggleCount >= 3){
 				left();
-			}else if(countBaggles <= 2){
+			}else{
 				right();
 			}
-			countBaggles = 0;
+			baggleCount = 0;
 			loops = 0;
 		}
 
