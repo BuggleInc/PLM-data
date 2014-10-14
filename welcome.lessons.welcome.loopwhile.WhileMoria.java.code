@@ -1,30 +1,30 @@
 public void run() {
-	//face the right direction 
-	back();
-	
-	while(!isFacingWall() && !isOverBaggle() ){
-		forward();
-		
-			if (isOverBaggle()){
-				pickupBaggle();
-				
-				while(isCarryingBaggle() && !isOverBaggle()){
-					backward();
-				}
-				
-				if(isOverBaggle()){
-					forward();
-					dropBaggle();
-					forward();
-				}
-			}
-	}
+    //face the right direction 
+    back();
+    
+    while(!isFacingWall() && !isOverBaggle() ){
+        forward();
+        
+            if (isOverBaggle()){
+                pickupBaggle();
+                
+                while(isCarryingBaggle() && !isOverBaggle()){
+                    backward();
+                }
+                
+                if(isOverBaggle()){
+                    forward();
+                    dropBaggle();
+                    forward();
+                }
+            }
+    }
 
-	//get to the exit
-	if (isFacingWall()){
-		left();
-		backward();
-		right();
-		forward();
-	}
+    //get to the exit
+    if (isFacingWall()){
+        left();
+        backward();
+        right();
+        forward();
+    }
 }
