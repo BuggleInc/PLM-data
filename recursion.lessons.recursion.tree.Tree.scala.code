@@ -5,20 +5,13 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	current(steps);
 	avance(length);
 	droite(angle);
-	tree(steps-1,length*shrink,angle,shrink);
-	recule(length);
-	current(steps);
-	gauche(angle*2);
-	avance(length);
-	recule(length);
-	droite(angle);
-	recule(length);
-	tree(steps-1,length*shrink,angle,shrink);
 }
 
 /*
- Pour dessiner un arbre � quatre �tages, il faut dessiner un tronc de la taille indiqu�e, tourner � droite de l'angle indiqu�,
- faire un arbre � 3 �tages, tourner � gauche de deux fois l'angle indiqu�, faire un autre arbre � 3 �tages, puis revenir � sa position initiale.
+ Pour dessiner un arbre � quatre �tages, il faut dessiner un tronc de la taille indiqu�e, 
+ tourner � droite de l'angle indiqu�,
+ faire un arbre � 3 �tages, tourner � gauche de deux fois l'angle indiqu�, 
+ faire un autre arbre � 3 �tages, puis revenir � sa position initiale.
  N'oubliez pas de revenir � la position initiale !
 
 Si le tronc d'un arbre mesure length � l'�tage N, il mesure shrink*length � l'�tage N+1.
