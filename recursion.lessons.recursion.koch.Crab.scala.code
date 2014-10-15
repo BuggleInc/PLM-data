@@ -1,0 +1,14 @@
+def crab(levels:Int, length:Double) {
+	if (levels < 0) {
+		return;
+	}
+	var angle : Double = 45;
+	gauche(angle/Math.sqrt(2));
+	avance(length);
+	gauche(angle);
+	avance(2*length);
+	droite(angle);
+	avance(length);
+	angle = angle/Math.sqrt(2);
+	return crab(levels-1,length);
+}

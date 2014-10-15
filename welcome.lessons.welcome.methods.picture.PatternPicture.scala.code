@@ -1,0 +1,73 @@
+override def run() {
+	def faireDiagG(c : Color) {
+		setCouleurBrosse(c : Color);
+		gauche();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		droite();
+		droite();
+		avance();
+		gauche();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+	}
+	def faireDiagD (c : Color) {
+		setCouleurBrosse(c : Color);
+		baisseBrosse();
+		leveBrosse();
+		gauche();
+		avance();
+		droite();
+		avance();
+		baisseBrosse();
+		leveBrosse();
+		droite();
+		avance();
+		gauche();
+	}
+	def faireDMotif() {
+		faireDiagG(Color.RED);
+		avance();
+		faireDiagD(Color.BLUE);
+		avance();
+		faireDiagG(Color.RED);
+		avance();
+		faireDiagD(Color.BLUE);
+		gauche();
+		gauche();
+		for (j <- 1 to 7){
+			avance();
+		}
+		droite();
+		avance();
+		avance();
+		droite();
+		faireDiagD(Color.YELLOW);
+		avance();
+		faireDiagG(Color.GREEN);
+		avance();
+		faireDiagD(Color.YELLOW);
+		avance();
+		faireDiagG(Color.GREEN);
+	}
+	faireDMotif();
+	gauche();
+	gauche();
+	for (j <- 1 to 7){
+		avance();
+	}
+	droite();
+	avance();
+	avance();
+	droite();	
+	faireDMotif();
+	recule();
+	recule();
+	recule();
+	droite();
+	avance();
+	avance();
+	gauche();
+}
