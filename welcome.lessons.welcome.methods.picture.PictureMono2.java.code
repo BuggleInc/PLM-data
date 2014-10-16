@@ -1,16 +1,14 @@
 public void run() {
-	makeV();
-	makeV();
-	makeV();
-	shiftBuggle();
+	rowOfPatterns();
 }
 
-void makeV() {
+void makePattern() {
 int loops = 4;
 int steps = 6;
 
+	//this loop draws 4 V's
 	for(int i = 0; i < loops; i++){
-		
+		//this loop draws a V
 		for(int x = 0; x <= steps; x++){
 			
 			if(x == 2 || x == 4 || x == 6){
@@ -33,6 +31,7 @@ int steps = 6;
 		}//end for
 	}//end for
 
+	//new buggle start position
 	for(int i = 0; i < 7; i++){
 		forward();
 	}
@@ -64,4 +63,11 @@ void shiftBuggle(){
 	left();
 	sevenFwd();
 	right();
+}
+
+void rowOfPatterns(){
+	makePattern();
+	makePattern();
+	makePattern();
+	shiftBuggle();
 }
