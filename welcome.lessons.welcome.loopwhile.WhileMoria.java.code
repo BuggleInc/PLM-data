@@ -2,10 +2,19 @@ public void run()
 { 
 	droite(); droite();
 
-	while(!estSurBiscuit())
-		avance();
-	prendBiscuit();
-	while(!estSurBiscuit())
-		recule();
-	avance(); poseBiscuit();
+	while(!estFaceMur() && !estSurBiscuit())
+	{
+		while(!estSurBiscuit())
+			avance();
+		prendBiscuit();
+		while(!estSurBiscuit())
+			recule();
+		avance(); poseBiscuit();
+	}
+
+	droite();
+	avance();
+	gauche();
+	avance();
+	
 }
