@@ -14,7 +14,8 @@ int steps = 6;
 		for(int x = 0; x <= steps; x++){
 			
 			if(x == 2 || x == 4 || x == 6){
-				brushes();
+				brushDown();
+				brushUp();
 			}
 
 			if(x == 4 || x == 5){
@@ -55,15 +56,14 @@ void fwdLeft(){
 	left();
 }
 
-void sevenFwd(){
-	for(int i = 0; i < 7; i++){
-		forward();
-	}
-}
-
+//move buggle 7 cells
 void shiftBuggle(){
 	left();
-	sevenFwd();
+	
+		for(int i = 0; i < 7; i++){
+			forward();
+		}
+		
 	right();
 }
 
