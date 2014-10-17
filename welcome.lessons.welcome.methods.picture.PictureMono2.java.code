@@ -10,15 +10,7 @@ int loops = 4;
 	//this loop draws 4 V's
 	for(int i = 0; i < loops; i++){
 		makeV();
-
-		while(i < 2){
-			//move buggle to new start position
-			//to make a new pattern
-			for(int j = 0; j < 7; j++){
-				forward();
-			}
-		}
-	}//end for
+	}
 }//end method
 
 void makeV(){
@@ -69,8 +61,17 @@ void shiftBuggle(){
 	back();
 }
 
+void newStartPos(){
+	//move buggle to new start position
+	//to make a new pattern
+	for(int j = 0; j < 7; j++){
+		forward();
+	}
+}
+
 void rowOfPatterns(){
 	makePattern();
+	newStartPos();
 	//makePattern();
 	//makePattern();
 	//shiftBuggle();
