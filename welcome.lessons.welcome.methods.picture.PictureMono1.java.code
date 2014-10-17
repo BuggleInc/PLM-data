@@ -12,7 +12,8 @@ int loops = 4;
 		for(int x = 0; x <= steps; x++){
 			
 			if(x == 2 || x == 4 || x == 6){
-				brushes();
+				brushDown();
+				brushUp();
 			}
 
 			if(x == 4 || x == 5){
@@ -24,24 +25,14 @@ int loops = 4;
 			}
 				
 			if(x == 6){
-				leftFwd();
-				leftFwd();
-				fwdLeft();
+				left();
+				forward();
+				left();
+				forward();
+				forward();
+				forward();
+				left();
 			}
 		}//end for
 	}
 }// end method
-
-void brushes(){
-	brushDown();
-	brushUp();
-}
-void leftFwd(){
-	left();
-	forward();
-}
-void fwdLeft(){
-	forward();
-	forward();
-	left();
-}
