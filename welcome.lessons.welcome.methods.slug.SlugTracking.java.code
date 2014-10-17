@@ -1,19 +1,15 @@
 boolean isFacingTrail() {
 boolean greenCell = true;
 	do{
+    		if(getGroundColor().equals(Color.green)){
+    			greenCell = true;
+    			forward();
+    		}
+
     		if(isFacingWall()){
     			greenCell = false;
     			backward();
     		}
-
-    		if(getGroundColor().equals(Color.green)){
-    			greenCell = true;
-    			forward();
-    		}else{
-    			forward();
-    		}
-
-
 
     		if(isOverBaggle()){
     			greenCell = true;
@@ -22,4 +18,4 @@ boolean greenCell = true;
 	}while(!greenCell);
 
     return greenCell;
-}        
+}//end function 
