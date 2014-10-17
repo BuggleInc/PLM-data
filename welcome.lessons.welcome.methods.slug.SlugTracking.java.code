@@ -1,4 +1,5 @@
 boolean isFacingTrail() {
+boolean greenCell = false;
 
     forward();
 
@@ -7,10 +8,12 @@ boolean isFacingTrail() {
     }
 
     if(isFacingWall()){
-    	return false;
+    	greenCell = false;
     }
 
     if(isOverBaggle()){
-    	return false;
+    	greenCell = true;
     }
+
+    return greenCell;
 }        
