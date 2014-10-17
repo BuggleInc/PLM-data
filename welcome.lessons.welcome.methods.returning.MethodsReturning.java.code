@@ -2,13 +2,16 @@ boolean haveBaggle() {
 boolean seenBaggle = false;
 int steps = 7;
 
-	for(int i = 0; !seenBaggle; i++){
+	for(int i = 0; i < steps; i++){
 		forward();
+	}
 
-		if(isOverBaggle()){
-			i = steps + 2;
-			seenBaggle = true;
-		}
+	for(int i = 0; i < steps; i++){
+		backward();
+	}
+
+	if(isOverBaggle()){
+		seenBaggle = true;
 	}
 	
 	return seenBaggle;
