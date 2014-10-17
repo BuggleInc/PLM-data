@@ -49,7 +49,15 @@ int steps = 6;
 		}//end for
 }// end makeV
 
-//move buggle 7 cells so it can start a new row
+void newStartPos(){
+	//move buggle to new start position
+	//to make a new pattern
+	for(int j = 0; j < 7; j++){
+		forward();
+	}
+}
+
+//move buggle so it can start a new row
 void shiftBuggle(){
 	left();
 	
@@ -66,28 +74,21 @@ void shiftBuggle(){
 	back();
 }
 
-void newStartPos(){
-	//move buggle to new start position
-	//to make a new pattern
-	for(int j = 0; j < 7; j++){
-		forward();
-	}
-}
-
+//move buggle back to starting cell after drawing the last row
 void resetBuggle(){
 	back();
 		
-		for(int y = 0; y < 14; y++){
-			forward();
-		}
+	for(int y = 0; y < 14; y++){
+		forward();
+	}
 
-		left();
+	left();
 
-		for(int y = 0; y < 14; y++){
-			forward();
-		}
+	for(int y = 0; y < 14; y++){
+		forward();
+	}
 
-		left();
+	left();
 }
 
 void rowOfPatterns(){
@@ -96,5 +97,4 @@ void rowOfPatterns(){
 	makePattern();
 	newStartPos();
 	makePattern();
-//	shiftBuggle();
 }
