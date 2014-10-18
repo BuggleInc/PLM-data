@@ -1,0 +1,44 @@
+void brosse(Color c)
+{
+	baisseBrosse(); setCouleurBrosse(c); leveBrosse();
+}
+void faireV(Color c)
+{
+	gauche(); avance();
+	brosse(c);
+	recule();
+	droite(); avance();
+	brosse(c);
+	avance(); avance();
+	gauche();
+}
+void faireMotif()
+{
+	faireV(Color.YELLOW);
+	faireV(Color.RED);
+	faireV(Color.BLUE);
+	faireV(Color.GREEN);
+}
+	
+public void run() 
+{
+	for(int l=0 ; l<2; l++)
+	{
+		for(int j=0 ; j<2 ; j++)
+		{
+			faireMotif();
+			for(int k=0 ; k<4 ; k++)
+				avance();
+		}
+		if(l!=1)
+		{
+			for(int k=0 ; k<4 ; k++)
+				recule();
+			gauche();
+			for(int k=0 ; k<4 ; k++)
+				avance();
+			droite();
+		}		
+	}
+	
+}
