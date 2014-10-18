@@ -9,7 +9,8 @@ int loops = 4;
 	for(int i = 0; i < loops; i++){
 		makeSquare();
 		if(i == 2){
-			shiftBuggle();
+			newstartPosition();
+			//shiftBuggle();
 		}
 	}
 }
@@ -62,14 +63,16 @@ int steps = 18;
 			
 			if(x == 18){
 				left();
-				forward();
-				forward();
-				forward();
-				forward();
 			}
 
 		}//end for
 }// end method
+
+void newStartPosition(){
+	for(int x = 0; x < 4; x++){
+		forward();
+	}
+}
 
 //move buggle so it can start a new row
 void shiftBuggle(){
