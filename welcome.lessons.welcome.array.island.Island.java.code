@@ -1,13 +1,12 @@
 int island(int[] num) 
 {
-	List liste = Integer.parseList(num);
-	if(num.tail.tail==nil)
+	if(num[2]==null)
 	{
-		if(num.head<num.tail.head)
+		if(num[0]<num[1])
 			return 1;
 		return 0;
 	}
-	else if(num.head<num.tail.head)
+	else if(num.[0]<num[1])
 		return 1+island(num.tail);
 	return island(num.tail);
 }
