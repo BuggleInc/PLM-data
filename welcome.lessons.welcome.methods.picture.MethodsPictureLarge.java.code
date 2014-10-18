@@ -80,20 +80,24 @@ int across = 40;
 
 //move buggle back to starting cell after drawing the last row
 void resetBuggle(){
-int steps = 40;
+int steps = 80;
 	back();
 		
+	for(int y = 1; y <= steps; y++){
+		forward();
+		if(y == 40){
+			left();
+		}
+	}
+
+	left();
+/*
 	for(int y = 0; y < steps; y++){
 		forward();
 	}
 
 	left();
-
-	for(int y = 0; y < steps; y++){
-		forward();
-	}
-
-	left();
+	*/
 }
 
 void rowOfPatterns(){
