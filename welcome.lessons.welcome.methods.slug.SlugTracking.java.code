@@ -3,7 +3,7 @@ boolean greenCell = getGroundColor().equals(Color.green);
 	
 	if(getGroundColor().equals(Color.green)){
 		if(isFacingWall()){
-			backward();
+			return false;
 		}
 		forward();
 		return false;
@@ -16,6 +16,11 @@ boolean greenCell = getGroundColor().equals(Color.green);
 	if(!getGroundColor().equals(Color.green)){
 		//forward();
 		return true;
+	}
+
+	if(isFacingWall()){
+		backward();
+		return false;
 	}
 /*
 	if(!getGroundColor().equals(Color.green)){
