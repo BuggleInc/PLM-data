@@ -1,0 +1,51 @@
+void brosse(Color c)
+{
+	baisseBrosse(); setCouleurBrosse(c); leveBrosse();
+}
+void flower(Color c)
+{
+	brosse(c);
+	avance();
+	brosse(Color.YELLOW);
+	gauche(); avance();
+	brosse(c);
+	recule(); recule();
+	brosse(c);
+	avance(); droite(); avance();
+	brosse(c);
+}
+void growFlowers()
+{
+	flower(Color.RED);
+	avance(); avance();
+	flower(Color.CYAN);
+	recule(); recule(); recule(); recule(); droite(); avance(); avance(); gauche();
+	flower(Color.ORANGE);
+	droite(); avance(); avance(); gauche();
+	flower(Color.GREEN);
+	recule(); recule(); recule(); recule(); recule(); recule();
+	flower(Color.PINK);
+	recule(); recule();
+}
+void allerFaireFleurBleue()
+{
+	gauche(); avance(); avance(); droite();
+	for(int i=0 ; i<6 ; i++)	avance();
+	flower(Color.BLUE);
+	gauche(); avance(); avance(); droite();
+}
+void allerDeuxiemeLigne()
+{
+	gauche(); recule(); droite(); 
+	for(int i=0 ; i<8 ; i++)	recule();
+	gauche(); recule(); recule(); recule();
+	droite();
+}
+
+growFlowers();
+allerFaireFleurBleue();
+growFlowers();
+allerDeuxiemeLigne();
+growFlowers();
+allerFaireFleurBleue();
+growFlowers();
