@@ -54,24 +54,28 @@ int steps = 5;
 }// end makeV
 
 void newStartPos(){
+int steps = 5;
 	//move buggle to new start position
 	//to make a new pattern
-	for(int j = 0; j < 5; j++){
+	for(int j = 0; j < steps; j++){
 		forward();
 	}
 }
 
 //move buggle so it can start a new row
 void shiftBuggle(){
+int up = 5;
+int across = 10;
+
 	left();
 	
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < up; i++){
 			forward();
 		}
 
 		left();
 		
-		for(int y = 0; y < 10; y++){
+		for(int y = 0; y < across; y++){
 			forward();
 		}
 		
@@ -80,15 +84,16 @@ void shiftBuggle(){
 
 //move buggle back to starting cell after drawing the last row
 void resetBuggle(){
+int steps = 10;
 	back();
 		
-	for(int y = 0; y < 10; y++){
+	for(int y = 0; y < steps; y++){
 		forward();
 	}
 
 	left();
 
-	for(int y = 0; y < 10; y++){
+	for(int y = 0; y < steps; y++){
 		forward();
 	}
 
