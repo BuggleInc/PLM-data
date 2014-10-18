@@ -1,0 +1,15 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; public class indexOfMaxValue extends BatEntity {  @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( indexOfMaximum( (int[])t.getParameter(0)) ); }
+	
+	public int indexOfMaximum(int[] tab) {
+		int max = Integer.MIN_VALUE;
+		int index = 0;
+		for (int i=0; i<tab.length; i++) {
+			if (tab[i] > max) { 
+				max = tab[i];
+				index = i;
+			}
+		}
+		return index;
+	}
+ }
