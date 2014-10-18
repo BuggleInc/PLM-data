@@ -1,2 +1,71 @@
 public void run() {
+	makePattern();
 }
+
+void makePattern() {
+int loops = 4;
+
+	//this loop draws 4 square's
+	for(int i = 0; i < loops; i++){
+		makeSquare();
+	}
+}
+
+void makeSquare(){
+int steps = 16;
+
+		//this loop draws a V	
+		for(int x = 0; x <= steps; x++){
+
+			//red cells
+			if(x == 1 || x == 4){
+				setBrushColor(c);
+				brushDown();
+				brushUp();
+			}
+
+			//blue cells
+			if(x == 2 || x == 7){
+				setBrushColor(c);
+				brushDown();
+				brushUp();
+			}			
+
+			//yellow cells
+			if(x == 8 || x == 13){
+				setBrushColor(c);
+				brushDown();
+				brushUp();
+			}
+
+			//green cells
+			if(x == 11 || x == 14){
+				setBrushColor(c);
+				brushDown();
+				brushUp();
+			}
+						
+			if(x == 3 || x == 4 || x = 11 || x == 12 || x == 15){
+				left();
+			}
+
+			if(x == 7 || x == 8){
+				right();
+			}
+
+			if(x < steps){
+				forward();
+			}
+/*				
+			if(x == 6){
+				left();
+				forward();
+				left();
+				forward();
+				forward();
+				forward();
+				left();
+			}
+*/
+		}//end for
+}// end method
