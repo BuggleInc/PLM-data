@@ -64,27 +64,31 @@ int steps = 5;
 
 //move buggle so it can start a new row
 void shiftBuggle(){
-int up = 5;
+int up = 10;
 int across = 10;
 
 	left();
 	
-	for(int i = 0; i < up; i++){
+	for(int i = 1; i <= up; i++){
 		forward();
+		if(i == 5){
+			left();
+		}
 	}
-
+/*
 	left();
 		
-	for(int y = 0; y < across; y++){
+	for(int y = 1; y <= across; y++){
 		forward();
 	}
-		
+*/		
 	back();
 }
 
 //move buggle back to starting cell after drawing the last row
 void resetBuggle(){
 int steps = 20;
+
 	back();
 		
 	for(int y = 1; y <= steps; y++){
@@ -93,15 +97,6 @@ int steps = 20;
 			left();
 		}
 	}
-/*
-	left();
-
-	for(int y = 0; y < steps; y++){
-		forward();
-	}
-
-	left();
-*/
 }
 
 void rowOfPatterns(){
