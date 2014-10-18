@@ -1,6 +1,7 @@
 public void run() 
 {
 	Color[] T = new Color[getMondeHauteur()];
+	int decalage = 0;
 
 	T[0]=getCouleurSol();
 	for(int i=1 ; i<getMondeHauteur() ; i++)
@@ -9,5 +10,16 @@ public void run()
 		T[i]=getCouleurSol();
 	}
 	
-	for(int i=1 ; i<getMondeHauteur() ; i++) recule();
+	for(int i=1 ; i<getMondeHauteur() ; i++) recule(); gauche(); avance(); droite();
+
+	for(int i=0 ; i<getMondeHauteur()-1 ; i++)
+	{
+		decalage = Integer.parseInt(litMessage());
+		T[0]=decalage%T.length;
+		for(int j=1 ; j<getMondeHauteur() ; j++)
+		{
+			avance();
+			T[j]=decalage%
+		}
+	}
 }
