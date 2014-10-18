@@ -1,6 +1,12 @@
 #Chercher le biscuit à l'est
 while not estSurBiscuit():
      recule()
+     if estDosMur():   #Sortir de la Moria
+       avance()
+       droite()
+       avance()
+       gauche()
+       avance()
     if estSurBiscuit():
        prendBiscuit()    
        while not estSurBiscuit(): #Déposer le biscuit à l'ouest
@@ -9,9 +15,4 @@ while not estSurBiscuit():
        poseBiscuit()
        recule()
        
-    if estFaceMur():   #Sortir de la Moria
-       avance()
-       droit()
-       avance()
-       gauche()
-       avance()
+    
