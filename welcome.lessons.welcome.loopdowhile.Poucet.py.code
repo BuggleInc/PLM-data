@@ -1,0 +1,14 @@
+FirstTime = True
+nBaggle = 0
+while not exitReached():
+    while FirstTime or not crossing():
+        FirstTime = False
+        forward()
+        if isOverBaggle():
+            nBaggle = nBaggle+1
+    if nBaggle <= 2:
+        right()
+    elif nBaggle >= 3:
+        left()
+    FirstTime = True
+    nBaggle = 0    
