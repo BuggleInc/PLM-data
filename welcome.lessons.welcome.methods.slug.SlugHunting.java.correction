@@ -1,0 +1,44 @@
+$package 
+
+import java.awt.Color;
+
+
+public class SlugHunting extends plm.universe.bugglequest.AbstractBuggle {
+
+	@Override
+	public void run() {
+		hunt(); 
+	}
+
+	/* BEGIN TEMPLATE */
+	public void hunt() {
+		
+		/* BEGIN SOLUTION */
+		while (! isOverBaggle()) {
+			if (isFacingTrail()) {
+				brushDown();
+				forward();
+				brushUp();
+			} else {
+				left();
+			}
+		}
+		pickupBaggle();
+	}
+
+	boolean isFacingTrail() {
+		if (isFacingWall())
+			return false;
+
+		forward();
+		boolean res = getGroundColor().equals(Color.green);
+		backward();
+		return res;
+
+		/* END SOLUTION */
+	}		
+	
+	/* END TEMPLATE */
+
+
+}
