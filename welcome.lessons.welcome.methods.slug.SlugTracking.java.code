@@ -1,9 +1,16 @@
 boolean isFacingTrail() {
 boolean greenCell = getGroundColor().equals(Color.green);
-forward();
+
 	if(greenCell && isFacingWall()){
-		backward();
 		greenCell = false;
+	}
+
+	if(isFacingWall()){
+		greenCell = false;
+	}
+
+	if(isOverBaggle()){
+		greenCell = true;
 	}
 
 return greenCell;
