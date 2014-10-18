@@ -1,0 +1,12 @@
+int island(int[] num) 
+{
+	if(num.tail.tail==nil)
+	{
+		if(num.head<num.tail.head)
+			return 1;
+		return 0;
+	}
+	else if(num.head<num.tail.head)
+		return 1+island(num.tail);
+	return island(num.tail);
+}
