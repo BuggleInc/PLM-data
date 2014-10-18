@@ -1,2 +1,73 @@
 public void run() {
+	for(int x = 0, y = 9; x < y; x++){
+		rowOfPatterns();
+	}
 }
+
+void makePattern(Color c) {
+int loops = 4;
+int steps = 6;
+
+	//this loop draws 4 V's
+	for(int i = 0; i < loops; i++){
+		//this loop draws a V
+		for(int x = 0; x <= steps; x++){
+			
+			if(x == 1 || x == 3 || x == 5){
+				setBrushColor(c);
+				brushDown();
+				brushUp();
+			}
+
+			if(x == 3 || x == 4){
+				left();
+			}
+
+			if(x < steps){
+				forward();
+			}
+				
+			if(x == 5){
+				left();
+				forward();
+				left();
+				forward();
+				forward();
+				//forward();
+				left();
+			}
+		}//end for - draw a V
+	}//end for - draw 4 V's
+
+	//new buggle start position
+	for(int i = 0; i < 5; i++){
+		forward();
+	}
+}// end method
+
+//move buggle 7 cells
+void shiftBuggle(){
+int steps = 5;
+	left();
+	
+		for(int i = 0; i < steps; i++){
+			forward();
+		}
+		
+	right();
+}
+
+void rowOfPatterns(){
+int rows = 9;
+
+	for(int i = 0; i < rows; i++){
+		if(i == 0){makePattern(Color.yellow)};
+		if(i == 0){makePattern(Color.red)};
+		if(i == 0){makePattern(Color.blue)};
+		if(i == 0){makePattern(Color.green)};
+	}
+
+	shiftBuggle();
+}
+
+
