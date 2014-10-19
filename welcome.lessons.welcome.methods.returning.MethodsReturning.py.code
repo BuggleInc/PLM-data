@@ -1,9 +1,13 @@
+sawBaggle = False
+FirstTime = True
 def haveBaggle():
-    sawBaggle = False
-    FirstTime = True
-    right()
-    while sawBaggle !=True:
-        forward()
-        if isOverBaggle():
-            sawBaggle = True
-haveBaggle()
+    while not sawBaggle:
+        if not FirstTime:
+            right()
+            forward()
+            left()
+        for i in range(7):
+            forward()
+            if isOverBaggle():
+                sawBaggle = True
+        FirstTime = False
