@@ -1,1 +1,28 @@
 # Copy your isFacingTrail, and write your code below
+def Mark():
+    brushDown()
+    brushUp()
+
+def isFacingTrail():
+    if not isFacingWall():
+        forward()
+        getGroundColor()
+        if getGroundColor() != Color.green:
+            backward()
+            left()
+            return False
+        else:
+            backward()
+            return True
+    else: 
+        left()
+        return False
+def hunt():
+    while not isOverBaggle():
+        isFacingTrail()
+        if isFacingTrail():
+            forward()
+            Mark()
+
+hunt()
+pickupBaggle()
