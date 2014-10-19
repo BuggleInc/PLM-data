@@ -1,15 +1,13 @@
-global sawBaggle
-sawBaggle = False
-global FirstTime
-FirstTime = True
 def haveBaggle():
-    while not global sawBaggle:
-        if not global FirstTime:
+    FirstTime = True
+    sawBaggle = False
+    while not sawBaggle:
+        if not FirstTime:
             right()
             forward()
             left()
         for i in range(7):
             forward()
             if isOverBaggle():
-                global sawBaggle = True
-        global FirstTime = False
+                sawBaggle = True
+        FirstTime = False
