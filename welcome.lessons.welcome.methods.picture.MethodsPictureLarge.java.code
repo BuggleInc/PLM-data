@@ -1,5 +1,5 @@
 public void run() {
-	//fmake 9 rows
+	//make 9 rows
 	for(int x = 0; x < 9; x++){
 		rowOfPatterns();
 		if(x < 8){
@@ -8,15 +8,15 @@ public void run() {
 			resetBuggle();
 		}
 	}
-}
+}end run
 
 void makePattern() {
-	//this draws 4 V's
+	//this draws 4 V's of different colours
 		makeV(Color.yellow);
 		makeV(Color.red);
 		makeV(Color.blue);
 		makeV(Color.green);
-}//end method
+}//end makePattern
 
 void makeV(Color c){
 int steps = 5;
@@ -63,7 +63,7 @@ void shiftBuggle(){
 int up = 45;
 
 	left();
-	
+		//go 5 steps up then 40 steps across
 		for(int i = 1; i <= up; i++){
 			forward();
 			if(i == 5){
@@ -71,13 +71,13 @@ int up = 45;
 			}
 		}
 	back();
-}
+}//end shiftBuggle
 
 //move buggle back to starting cell after drawing the last row
 void resetBuggle(){
 int steps = 80;
 	back();
-		
+	//go 40 steps across then 40 steps down	
 	for(int y = 1; y <= steps; y++){
 		forward();
 		if(y == 40){
@@ -86,14 +86,14 @@ int steps = 80;
 	}
 
 	left();
-}
+}//end resetBuggle
 
 void rowOfPatterns(){
 int rows = 8;
-	for(int i = 0; i < rows; i++){
+	for(int x = 1; x <= rows;xi++){
 		makePattern();
 		newStartPos();
 	}
 
 	makePattern();
-}
+}//end rowOfPatterns
