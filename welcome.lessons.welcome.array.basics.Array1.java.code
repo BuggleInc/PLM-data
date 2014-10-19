@@ -4,9 +4,11 @@ Color[] cell;
 cell = new Color[size];
 
 	for(int i = 0; i < size; i++){
-		for(int j = 0; j < size-1; j++){
+		for(int j = 0; j < size; j++){
 			cell[j] = getGroundColor();
-			forward();
+			if(j < size - 1){
+				forward();
+			}
 		}
 		if(i < size - 1){
 			left();
