@@ -20,7 +20,7 @@ int loops = 4;
 void makeSquare(){
 int steps = 18;
 
-		//this loop draws a V	
+		//this loop draws a square
 		for(int x = 0; x <= steps; x++){
 
 			//red cells
@@ -78,23 +78,16 @@ void newStartPosition(){
 
 //move buggle so it can start a new row
 void shiftBuggle(){
-int up = 8;
-int across = 4;
+int steps = 8;
 
 	left();
-	
-		for(int i = 1; i <= up; i++){
+		//go up 4 steps then across 4 steps
+		for(int i = 1; i <= steps; i++){
 			forward();
 			if(i == 4){
 				left();
 			}
 		}
-/*
-		left();
-		
-		for(int y = 1; y <= across; y++){
-			forward();
-		}
-*/		
+	
 	back();
 }//end shiftBuggle
