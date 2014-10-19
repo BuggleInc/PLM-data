@@ -1,9 +1,15 @@
 def haveBaggle():
     sawBaggle = False
+    FirstTime = True
     while not sawBaggle:
-        for i in range(6):
+        if not FirstTime:
+            right()
             forward()
-            if isOverBaggle():
-                sawBaggle = True
-            backward(6)
-    
+            left()
+            
+                for i in range(6):
+                    forward()
+                    if isOverBaggle():
+                        sawBaggle = True
+                    backward(6)
+        FirstTime = False
