@@ -1,11 +1,14 @@
 def isFacingTrail():
-    forward()
-    Color = getGroundColor()
-    backward()
-    if Color != Color.green:
+    if not isFacingWall():
+        forward()
+        Color = getGroundColor()
+        backward()
+        if Color != Color.green:
+            return False
+        else:
+            return True
+    else: left()
         return False
-    else:
-        return True
 while not isOverBaggle():
     isFacingTrail()
     if isFacingTrail():
