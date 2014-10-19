@@ -1,21 +1,22 @@
 void growFlowers(){
 	for(int i = 0; i < 2; i++){
-	makeFlower(Color.RED);
-	shiftRight1();
-	makeFlower(Color.CYAN);
-	shiftDown1();
-	makeFlower(Color.GREEN);
-	shiftCentral();
-	makeFlower(Color.ORANGE);
-	shiftDown2();
-	makeFlower(Color.PINK);
-	shiftRightUp1();
-	if(i == 0){
-	makeBlueFlower(Color.BLUE);
-	shiftRightUp2();
-	}
-}
-}//end run
+		makeFlower(Color.RED);
+		shiftRight1();
+		makeFlower(Color.CYAN);
+		shiftDown1();
+		makeFlower(Color.GREEN);
+		shiftCentral();
+		makeFlower(Color.ORANGE);
+		shiftDown2();
+		makeFlower(Color.PINK);
+		shiftRightUp1();
+		
+		if(i == 0){
+			makeBlueFlower(Color.BLUE);
+			shiftRightUp2();
+		}
+	}//end for
+}//end growFlowers
 
 void makeFlower(Color c){
 int steps = 7;
@@ -155,3 +156,19 @@ int steps = 4;
 	
 	back();
 }//end shiftCentral
+
+void newstartPos(){
+int steps = 20;
+
+	right();
+
+	for(int i = 0; i < steps; i++){
+		if(i == 3){
+			right();
+		}
+		if(i == 16){
+			left();
+		}
+		forward();
+	}
+}
