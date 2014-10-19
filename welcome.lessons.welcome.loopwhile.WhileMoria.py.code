@@ -1,22 +1,19 @@
-for i in range(20):
-    if estFaceMur()==1:    
-        droite()
-        avance()
-        gauche()
-        avance()
-    else:
-        retourne()
-        while estSurBiscuit()==0:
+i=0
+while i==0:
+    retourne()
+    while estSurBiscuit()==0:
             avance()
             if estFaceMur()==1 and estSurBiscuit()==0:
                 droite()
                 avance()
                 gauche()
                 avance()
-        prendBiscuit()
-        retourne()
-        while estSurBiscuit()==0:
-            avance()
-        recule()
-        poseBiscuit()
-        recule()
+                i=1
+        if i==0:
+            prendBiscuit()
+            retourne()
+            while estSurBiscuit()==0:
+                avance()
+            recule()
+            poseBiscuit()
+            recule()
