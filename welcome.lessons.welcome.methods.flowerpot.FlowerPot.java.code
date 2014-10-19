@@ -5,9 +5,9 @@ void growFlowers(){
 	shiftDown();
 	makeCross(Color.GREEN);
 	shiftLeft();
-	makeCross(Color.PINK);
-	shiftCentral();
 	makeCross(Color.ORANGE);
+	shiftCentral();
+	makeCross(Color.PINK);
 }//end run
 
 void makeCross(Color c){
@@ -73,7 +73,9 @@ int steps = 4;
 
 void shiftCentral(){
 int steps = 4;
-	//go right 2 steps then up 2 steps
+
+	left();
+	//go up 2 steps then left 2 steps
 	for(int i = 0; i < steps; i++){
 		if(i == 2){
 			left();
@@ -81,5 +83,5 @@ int steps = 4;
 		forward();
 	}
 
-	right();
+	back();
 }//end shiftCentral
