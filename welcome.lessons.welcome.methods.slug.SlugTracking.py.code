@@ -8,12 +8,11 @@ def isFacingTrail():
         return True
 
 while not isOverBaggle():
-    if isFacingWall():
-        left()
-    elif isFacingTrail():
-        forward()
-    else:
+    if not isFacingWall():
         isFacingTrail()
-        
+    else:
+        left()
+    if isFacingTrail():
+        forward()    
     
     
