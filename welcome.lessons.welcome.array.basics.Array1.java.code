@@ -3,11 +3,13 @@ int size = getWorldHeight();
 Color[] cell;
 cell = new Color[size];
 
-	for(int i = 0; i < size; i++){
-		cell[i] = getGroundColor();
+	for(int i = 0; i < size - 1; i++){
+		for(int j = 0; j < size; j++){
+			cell[j] = getGroundColor();
+			forward();
+		}
+		left();
 		forward();
+		right();
 	}
-	left();
-	forward();
-	right();
 }
