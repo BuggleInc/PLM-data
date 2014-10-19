@@ -1,6 +1,6 @@
 public void run() {
 	makePattern();
-}
+}//end run
 
 void makePattern() {
 int loops = 4;
@@ -15,7 +15,7 @@ int loops = 4;
 		}
 		makeSquare();
 	}
-}
+}//end makePattern
 
 void makeSquare(){
 int steps = 18;
@@ -68,30 +68,33 @@ int steps = 18;
 			}
 
 		}//end for
-}// end method
+}// end makeSquare
 
 void newStartPosition(){
 	for(int x = 1; x <= 4; x++){
 		forward();
 	}
-}
+}//end newStartPosition
 
 //move buggle so it can start a new row
 void shiftBuggle(){
-int up = 4;
+int up = 8;
 int across = 4;
 
 	left();
 	
 		for(int i = 1; i <= up; i++){
 			forward();
+			if(i == 4){
+				left();
+			}
 		}
-
+/*
 		left();
 		
 		for(int y = 1; y <= across; y++){
 			forward();
 		}
-		
+*/		
 	back();
-}
+}//end shiftBuggle
