@@ -2,13 +2,13 @@ def isFacingTrail():
    # write your code here
    if getGroundColor() == Color.green :
        return True
-   elif getGroundColor() != Color.green or isFacingWall():
+   elif getGroundColor() != Color.green:
        return False
 
 def findslug():
     while isOverBaggle() != True:
         forward()
-        if isFacingTrail() == True:
+        if isFacingTrail() == True or isFacingWall != True:
             forward()
         else:
             backward()
