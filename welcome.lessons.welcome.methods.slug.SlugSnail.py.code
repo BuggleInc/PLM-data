@@ -1,4 +1,16 @@
 def isFacingTrail(color):
    # write your code here
-
+     if not isFacingWall() and not isOverBaggle():
+        forward()
+        getGroundColor()
+        if getGroundColor() != Color.green:
+            backward()
+            left()
+            return False
+        else:
+            backward()
+            return True
+    else: 
+        left()
+        return False
 def hunt(color):
