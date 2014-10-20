@@ -1,16 +1,13 @@
 def haveBaggle():
     seenBaggle = False
     steps = 0
-    while steps <= 6 and seenBaggle == False:
+    while steps <= 6:
         forward()
         steps = steps + 1
         if isOverBaggle() == True:
             seenBaggle = True
-        if isFacingWall() == True:
-            while steps >= 0:
-                backward()
-                steps = steps - 1
-            right()
-            forward()
-            left()
+    while steps >= 0:
+           backward()
+           steps = steps -1
+       
     return seenBaggle
