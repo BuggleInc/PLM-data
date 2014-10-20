@@ -1,13 +1,4 @@
 def mark():
-    if nColor == 2:
-        setBrushColor(Color.yellow)
-    else:
-        setBrushColor(c)
-    brushDown()
-    brushUp()
-    nColor = nColor + 1
-def drawFlower():
-    nColor = 1
     if nFlower ==1:
         c = Color.red
     elif nFlower ==2:
@@ -18,6 +9,16 @@ def drawFlower():
         c = Color.pink
     else:
         c = Color.green
+    if nColor == 2:
+        setBrushColor(Color.yellow)
+    else:
+        setBrushColor(c)
+    brushDown()
+    brushUp()
+    nColor = nColor + 1
+def drawFlower():
+    nColor = 1
+    
     mark()
     forward()
     mark()
@@ -34,9 +35,9 @@ def drawFlower():
     backward()
     nFlower = nFlower + 1
 def drawLine():
-    drawFlower(c)
+    drawFlower()
     forward(4)
-    drawFlower(c)
+    drawFlower()
 nFlower = 1
 drawLine()
 backward(2)
