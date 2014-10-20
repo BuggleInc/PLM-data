@@ -3,26 +3,27 @@ def Mark():
     brushUp()
 
 def isFacingTrail(color):
-    while not isCarryingBaggle():
-        if not isFacingWall() and not isOverBaggle():
-            forward()
-            getGroundColor()
-            if getGroundColor() != color:
-                backward()
-                left()
-                return False
-            else:
-                backward()
-                return True
-        else: 
+
+    if not isFacingWall() and not isOverBaggle():
+        forward()
+        getGroundColor()
+        if getGroundColor() != color:
+            backward()
             left()
             return False
+        else:
+            backward()
+            return True
+    else: 
+        left()
+        return False
 def hunt(color):
-    while not isOverBaggle():
-        isFacingTrail(color)
-        if isFacingTrail(color):
-            forward()
-            Mark()
+    while not isCarryingBaggle():
+        while not isOverBaggle():
+            isFacingTrail(color)
+            if isFacingTrail(color):
+                forward()
+                Mark()
      
     
 forward()
