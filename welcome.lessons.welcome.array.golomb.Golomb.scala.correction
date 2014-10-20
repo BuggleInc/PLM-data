@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class golomb extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( golomb( t.getParameter(0).asInstanceOf[Int]) )
+   }
+def golomb(num:Int): Int = {
+  if(num==1)
+  		return 1;
+  else
+  		return 1+golomb(num-golomb(golomb(num-1)));
+} }

@@ -1,0 +1,35 @@
+def growFlowers() {
+	growFlower(Color.red);
+	avance(3);
+	growFlower(Color.cyan);
+	recule(5);
+	goToNewLine();
+	avance(2);
+	growFlower(Color.orange);
+	recule(3);
+	goToNewLine();
+	growFlower(Color.pink);
+	avance(3);
+	growFlower(Color.green);
+	recule(5);
+}
+
+def goToNewLine() {
+	droite();
+	avance(2);
+	gauche();
+}
+
+def growFlower(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	avance(2);
+	recule();
+	gauche();
+	avance();
+	recule(2);
+	avance();
+	setCouleurBrosse(Color.yellow);
+	leveBrosse();
+	droite();
+}

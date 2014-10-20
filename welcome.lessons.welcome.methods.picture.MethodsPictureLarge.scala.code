@@ -1,0 +1,58 @@
+override def run() {
+	var i:Int = 0;
+	for(i <- 1 to 9) {
+		faireLigne(9);
+		repositionne();
+	}
+}
+
+def marqueSol() {
+	baisseBrosse();
+	leveBrosse();
+}
+
+def faireV(c:Color) {
+	var i:Int = 0;
+
+	setCouleurBrosse(c);
+	
+	avance();
+	marqueSol();
+	
+	gauche();
+	avance();
+	
+	droite();
+	avance();
+	marqueSol();
+	avance();
+	
+	droite();
+	avance();
+	marqueSol();
+
+	gauche();
+	avance();
+	gauche();
+}
+
+def faireMotif() {
+	faireV(Color.YELLOW);
+	faireV(Color.RED);
+	faireV(Color.BLUE);
+	faireV(Color.GREEN);
+}
+
+def faireLigne(nbMotifs:Int) {
+	var i:Int = 0;
+	for(i <- 1 to nbMotifs) {
+		faireMotif();
+		avance(5);
+	}
+}
+
+def repositionne() {
+	gauche();
+	avance(5);
+	droite();
+}

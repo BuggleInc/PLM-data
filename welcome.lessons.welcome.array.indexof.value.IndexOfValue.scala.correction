@@ -1,0 +1,13 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+class indexOfValue extends BatEntity { 
+   override def run(t: BatTest) {
+   t.setResult( indexOfValue( t.getParameter(0).asInstanceOf[Array[Int]], t.getParameter(1).asInstanceOf[Int]) )
+   }
+def indexOfValue(nums:Array[Int] ,value:Int): Int = {
+  for (i <- 0 to nums.length-1)
+    if (nums(i)==value) 
+      return i
+  return -1
+} }

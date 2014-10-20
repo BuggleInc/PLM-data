@@ -1,0 +1,32 @@
+override def run() {
+    var suitMur:Boolean = false;
+    while(!estSurBiscuit()) {
+        if(getDirection() == Direction.NORTH) {
+            suitMur = false;
+        }
+        if(suitMur) {
+            keepHandOnSideWall();
+        }
+        else {
+            if(estFaceMur()) {
+                suitMur = true;
+                droite();
+                keepHandOnSideWall();
+            }
+            else {
+                avance();
+            }
+        }
+    }
+    prendBiscuit();
+}
+
+def keepHandOnSideWall() {
+    while (!estFaceMur()) {
+        avance();
+        gauche();
+    }
+    droite();
+}
+
+avance();

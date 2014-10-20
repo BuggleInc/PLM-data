@@ -1,0 +1,82 @@
+def growFlowers() {
+	growHalf();
+	droite();
+	recule();
+	gauche();
+	recule(8);
+	goToNewLine(5);
+	growHalf();
+}
+
+def growHalf() {
+	grow4Flowers();
+	goToNewLine(-2);
+	grow3Flowers();
+	recule();
+	gauche();
+	avance(2);
+	droite();
+	recule(2);
+	grow4Flowers();
+}
+
+def grow2Flowers(b:Boolean) {
+	var c1:Color = null;
+	var c2:Color = null;
+	if(b) {
+		c1 = Color.red;
+		c2 = Color.cyan;
+	}
+	else {
+		c1 = Color.pink;
+		c2 = Color.green;
+	}
+	growFlower(c1);
+	avance(3);
+	growFlower(c2);
+	recule(5);
+}
+
+def grow4Flowers() {
+	grow2Flowers(true);
+	goToNewLine(4);
+	grow2Flowers(false);
+}
+
+def grow3Flowers() {
+	avance(2);
+	growFlower(Color.orange);
+	avance(3);
+	growFlower(Color.blue);
+	avance(3);
+	growFlower(Color.orange);
+}
+
+def goToNewLine(nbPas:Int) {
+	droite();
+	if(nbPas < 0) {
+		recule(nbPas*(-1));	
+	}
+	else if(nbPas > 0) {
+		avance(nbPas);
+	}
+	else {
+		avance(10);
+		recule(10);
+	}
+	gauche();
+}
+
+def growFlower(c:Color) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	avance(2);
+	recule();
+	gauche();
+	avance();
+	recule(2);
+	avance();
+	setCouleurBrosse(Color.yellow);
+	leveBrosse();
+	droite();
+}
