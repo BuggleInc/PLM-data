@@ -1,11 +1,13 @@
 while (not estFaceMur()):
     setDirection(Direction.EAST)
     while not estSurBiscuit():
-        avance()
+        if not estFaceMur():
+            avance()
     prendBiscuit()
     setDirection(Direction.WEST)
     while not estSurBiscuit():
-        avance()
+        if not estFaceMur():
+            avance()
     recule()
     poseBiscuit()
     recule()    
