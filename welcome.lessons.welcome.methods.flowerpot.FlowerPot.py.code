@@ -1,40 +1,4 @@
-def growFlowers():
-    def brushColor():
-        global nFlower
-        
-        if nFlower ==1:
-            global c
-            c = Color.red
-        elif nFlower ==2:
-            global c
-            c = Color.cyan
-        elif nFlower ==3:
-            global c
-            c = Color.orange
-        elif nFlower ==4:
-            global c
-            c = Color.pink
-        else:
-            global c
-            c = Color.green
-        setBrushColor(c)
-        nFlower = nFlower + 1
-    def drawFlower():
-        brushColor()
-        brushDown()
-        forward(2)
-        backward()
-        left()
-        forward()
-        backward(2)
-        forward()
-        setBrushColor(Color.yellow)
-        brushUp()    
-    def drawLine():
-        drawFlower()
-        right()
-        forward(3)
-        drawFlower()
+def growFlower():
     global nFlower
     nFlower = 1
     drawLine()
@@ -48,6 +12,55 @@ def growFlowers():
     drawLine()
     right()
     backward(5)
+def brushColor():
+   global nFlower
+   
+   if nFlower ==1:
+       global c
+       c = Color.red
+   elif nFlower ==2:
+       global c
+       c = Color.cyan
+   elif nFlower ==3:
+       global c
+       c = Color.orange
+   elif nFlower ==4:
+       global c
+       c = Color.pink
+   else:
+       global c
+       c = Color.green
+   setBrushColor(c)
+   nFlower = nFlower + 1
+def drawFlower():
+   brushColor()
+   brushDown()
+   forward(2)
+   backward()
+   left()
+   forward()
+   backward(2)
+   forward()
+   setBrushColor(Color.yellow)
+   brushUp()    
+def drawLine():
+   drawFlower()
+   right()
+   forward(3)
+   drawFlower()
+global nFlower
+nFlower = 1
+drawLine()
+backward(2)
+right()
+backward(3)
+drawFlower()
+backward(2)
+right()
+backward(3)
+drawLine()
+right()
+backward(5)
     
         
         
