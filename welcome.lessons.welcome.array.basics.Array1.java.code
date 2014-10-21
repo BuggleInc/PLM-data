@@ -2,8 +2,9 @@ public void run() {
 int size = getWorldHeight();
 Color[] cell;
 cell = new Color[size];
+cell2 = new Color[size];
 
-//	for(int i = 0; i < size; i++){
+		//load colours into array
 		for(int j = 0; j < size - 1; j++){
 			cell[j] = getGroundColor();
 			
@@ -11,10 +12,24 @@ cell = new Color[size];
 				forward();
 			}
 		}
+		
+	for(int i = 0; i < size; i++){
+
+		for(int j = 0; j < size - 1; j++){
+			cell2[j] = cell[j];
+			brushDown();
+			brushUp();
+			
+			if(j < size){
+				forward();
+			}
+		}
+
+		
 //		if(i < size - 1){
 //			left();
 //			forward();
 //			right();
 //		}
-//	}
+	}
 }
