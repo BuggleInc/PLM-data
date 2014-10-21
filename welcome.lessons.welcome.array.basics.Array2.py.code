@@ -1,16 +1,17 @@
 def storeArray():
+    global L
     L = []
     for a in range(getWorldHeight()-1):
         L.append(getGroundColor())
         forward()
     L.append(getGroundColor())
     backward(getWorldHeight()-1)
-    return L
+    
 
 def array():
     offset = int(readMessage())
-    for b in range(len(storeArray())):
-        setBrushColor(storeArray()[b]
+    for b in range(len(L)):
+        setBrushColor(L[b]
         brushDown()
         brushUp()
         
