@@ -1,0 +1,28 @@
+public void run() {
+int size = getWorldHeight();
+Color[] cell;
+cell = new Color[size];
+
+	//loop thru columns
+	for(int x = 0; x < size; x++){
+		//load colours into array
+		for(int j = 0; j < size; j++){
+			if(x == 0){
+				cell[j] = getGroundColor();
+				forward();
+			}else{
+				setBrushColor(cell[j]);
+				brushDown();
+				brushUp();
+				forward();
+			}
+		}//end for
+		
+		if(x < size - 1){
+			forward();
+			left();
+			forward();
+			right();
+		}
+	}//end for
+}//end run
