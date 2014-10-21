@@ -2,13 +2,19 @@ i=0
 j=0
 while 2*j<i+1:
     avance()
-    if estSurOrange() and estSurBiscuit():
-        i=i+1
-        j=j+1
-    elif estsurOrange():
-        i=i+1
-    elif estSurBiscuit():
-        j=j+1
-    else:
-        i=i
-        j=j
+    while estSurOrange() or estSurBiscuit():
+        if estSurOrange() and estSurBiscuit():
+            i=i+1
+            j=j+1
+        else:
+            i=i
+            j=j
+        if estSurOrange():
+            i=i+1
+        else:
+            i=i
+        if estSurBiscuit():
+            j=j+1
+        else:
+            j=j
+        
