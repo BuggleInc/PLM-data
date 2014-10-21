@@ -17,8 +17,9 @@ forward()
 right()
 
 offset = int(readMessage())
-for b in range(len(L)-1):
+for b in range(len(L)):
     setBrushColor(L[(b+offset)%len(L)])
     brushDown()
     brushUp()
-    forward()
+    if b != len(L):
+        forward()
