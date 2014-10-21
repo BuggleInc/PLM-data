@@ -7,19 +7,24 @@ def storeArray():
     L.append(getGroundColor())
     backward(getWorldHeight()-1)
     
-
-
+def array():
+    offset = int(readMessage())
+    for b in range(len(L)):
+        setBrushColor(L[(b+offset)%len(L)])
+        brushDown()
+        brushUp()
+        if b != len(L)-1:
+            forward()
+        backward(getWorldHeight()-1)
  
-        
-storeArray()
-left()
-forward()
-right()
-
-offset = int(readMessage())
-for b in range(len(L)):
-    setBrushColor(L[(b+offset)%len(L)])
-    brushDown()
-    brushUp()
-    if b != len(L)-1:
+def draw():
+    storeArray()
+    for c in range(getWorldHeight()-1):
+        left()
         forward()
+        right()
+        array()
+
+draw()
+
+
