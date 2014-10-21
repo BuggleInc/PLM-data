@@ -2,6 +2,7 @@ public void run() {
 int size = getWorldHeight();
 Color[] cell;
 cell = new Color[size];
+int offset = 0;                 
 
 	//loop thru columns
 	for(int x = 0; x < size - 1; x++){
@@ -11,7 +12,7 @@ cell = new Color[size];
 				cell[j] = getGroundColor();
 				forward();
 			}else{
-				setBrushColor(cell[j + 1]);
+				setBrushColor(cell[j + offset]);
 				brushDown();
 				brushUp();
 				forward();
@@ -26,6 +27,7 @@ cell = new Color[size];
 			right();
 			forward();
 			right();
+			offset = integer.parseint(readMessage());
 		}
 	}//end for
 }//end run
