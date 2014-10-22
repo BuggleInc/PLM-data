@@ -20,25 +20,21 @@ int offset = 0;
 	offset = Integer.parseInt(readMessage());
 
 	
-
+				int j = 0;
 	//loop thru columns
 	for(int x = 0; x < size - 1; x++){
 		//load colours into array
-//		for(int j = 0; j < size - 1; j++){
-//			if(x == 0){
-//				cell[j] = getGroundColor();
-//				forward();
-//			}else{
-				do{
-				int j = 0;
+		for(int j = 0; j < size - 1; j++){
+			if(x == 0){
+				cell[j] = getGroundColor();
+				forward();
+			}else{
 				setBrushColor(cell[j]);
 				brushDown();
 				brushUp();
 				forward();
-				j = j++;
-				}while(j < size - 1);
-//			}
-//		}//end for
+			}
+		}//end for
 		
 		if(x < size - 1){
 			back();
