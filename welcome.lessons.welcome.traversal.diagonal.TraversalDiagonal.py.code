@@ -1,7 +1,10 @@
-
 nDiag=1
 n=0
-
-setPos(3,2)
-for i in range(nDiag-1):
-    writeMessage("o")
+writeMessage(n)
+while getX() != getWorldWidth()-1 or getY() != getWorldHeight()-1:
+    for i in range(nDiag-1):
+        writeMessage(n)
+        setPos(getX()+1,getY()-1)
+        n+=1
+    setPos(getX()-nDiag+1,getY()-nDiag)        
+    nDiag+=1
