@@ -1,11 +1,14 @@
 n=0
 d=1
+firstTime = True
 while getY() != getWorldHeight()-1 or getX() != getWorldWidth()-1:
     writeMessage(n)
-    if 1<getX()<getWorldWidth()-1:
+    if 1<getX()<getWorldWidth()-1 or firstTime:
         setPos(getX()+d,getY())
-    elif getX()==getWorldWidth()-1:
+        firstTime = False
+    elif getX()==getWorldWidth()-1 or getX() == 0:
         setPos(getX(),getY()+1)
+        firstTime = True
         d= -d
     n +=1
 writeMessage(n)
