@@ -17,7 +17,13 @@ def isWallRight():
         return False
         
 def keepHandOnSideWall():
-    if getDirection() == Direction.NORTH and not isFacingWall():
+    if getDirection() == Direction.NORTH and not isFacingWall() and not top:
+        forward()
+    elif getDirection() == Direction.EAST and not isWallLeft() and not top:
+        right()
+        forward()
+    elif getDirection() == Direction.WEST and not isWallRight() and not top:
+        Left()
         forward()
     else:
         if isWallLeft():
@@ -28,7 +34,9 @@ def keepHandOnSideWall():
         else:
             left()
             forward()
-               
+     if getY() == 0:
+         top = True
+top = False
 while not isOverBaggle():
     keepHandOnSideWall()
 pickupBaggle()
