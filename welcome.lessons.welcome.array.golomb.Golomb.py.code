@@ -4,7 +4,6 @@ def golomb(num):
         a.append(0)
     for n in range(2,len(a)):
        nValeurs=0
-       nRang=1
        for i in a:
            if i == n-nRang:
                nValeurs +=1
@@ -13,4 +12,5 @@ def golomb(num):
            nRang +=1
        elif nValeurs == a[n-1]:
            a[n] =n
+           nRang=1
     return a[num]
