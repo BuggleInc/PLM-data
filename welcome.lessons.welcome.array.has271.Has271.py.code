@@ -4,9 +4,5 @@ def has271(nums):
     for i in range(len(nums)-2):
         if 269<=tab[i]*100+tab[1+i]*10+tab[i+2]<=273:
             return True
-        else:
-            min = tab[i]*100+(tab[i]+5)*10+tab[i]-3
-            max = tab[i]*100+(tab[i]+5)*10+tab[i]+1
-            if min<=tab[i]*100+(tab[i+1])*10+tab[i+2]+1<=max:
-                return True
+        elif tab[i+1] == tab[i]+5 and tab[i+2] == tab[i]-1:
     return False
