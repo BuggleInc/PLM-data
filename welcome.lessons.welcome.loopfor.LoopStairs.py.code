@@ -1,5 +1,6 @@
 while not estFaceMur():
-    avance()
+    longitude = getX()
+    setX(longitude + 1)
 
 
 for i in range(8):
@@ -7,11 +8,9 @@ for i in range(8):
     longitude = getX()
     gauche()
     if estFaceMur():
-        setX(longitude + 1)
+        droite()
+        setX(longitude + 3)
     else : 
-        gauche()
-        if estFaceMur() :
-            droite()
         setY(altitude - 1)
         droite()
         setX(longitude + 1)
