@@ -14,41 +14,48 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Multicolor Langton's ant</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>La fourmi de Langton multicolore</h2>
 
-<p>There is several ways to extend the concept of Langton's ant. In this exercise, 
-we explore first one, using more than two colors. It remains very similar to the 
-base case: the behavior at each step still depends on the ground color, but you 
-have more than 2 possibilities. It allows to have more than one kind of ant, 
-depending on what you decide to do for each color. For example, the ant LRL takes
-3 colors. It turns left on the first color, right on the second one and left 
-on the third color. According to this definition, the basic ant is a RL (since it 
-turns right on white cells and left on black ones).</p>
+<p>Il y a plusieurs façons de changer le concept de la fourmi de Langton. Dans
+cet exercice, nous allons tout d'abord étudier le fait d'utiliser plus de
+deux couleurs. Cela reste très similaire au cas de base : le comportement à
+chaque pas dépendra toujours de la couleur du sol, mais vous aurez plus de
+deux possibilités. Cela permet d'avoir plus qu'une seule sorte de fourmi,
+selon ce que l'on décide de faire pour chaque couleur. Par exemple, la
+fourmi LRL reconnaît trois couleurs. Elle tourne à gauche sur la première, à
+droite sur la seconde et à gauche sur la troisième. Selon cette définition,
+la fourmi de base est de type RL ( puisqu'elle tourne à droite sur les cases
+blanches et à gauche sur les noires).</p>
 
-<p>Some of these ants draw fascinating patterns (switch the world to see them): 
-LLRR build a symmetric figure resembling loosely to a ball, LRRRRRLLR draws a 
-square, LLRRRLRLRLLR draws a convoluted regular pattern after a period of 
-seemingly chaotic behavior, and RRLLLRLLLRRR seems to fill a hour glass...</p>  
+<p>Certaines de ces fourmis dessinent des schémas fascinants ( changez de monde
+pour les voir ):LLRR construit une figure symétrique ressemblant vaguement à
+une balle. LRRRRRLLR dessine un carré, LLRRRLRLRLLR dessine un schéma
+régulier tordu après une période ressemblant à un comportement chaotique, et
+RRLLLRLLLRRR semble remplir un sablier...</p>  
 
-<p>Changing your buggle into a generic Langton's ant is not very complicated, 
-although it is not completely trivial. As previously, you have to write a 
-<code>step</code> function. But this time, it receives two arrays as parameters. 
-The first one defines the rules to follow depending on the ground color while the 
-second one gives the sequence of colors to use. For example, the basic ant would 
-have 
+<p>Métamorphoser votre buggle en une fourmi de Langton générique n'est pas très
+compliqué, même si ce n'est pas complètement trivial. Comme précédemment,
+vous avez à écrire une fonction <code>step</code>. Mais cette fois, elle
+reçoit deux tableaux comme paramètres. Le premier définit les règles à
+suivre selon la couleur du sol tandis que le deuxième donne la séquence de
+couleurs à utiliser. Par exemple, la fourmi de base aurait
 
-<code>['R', 'L']</code> and <code>[Color.white, Color.black]</code>
+<code>['R', 'L']</code> et <code>[Color.white,
+Color.black]</code>
 
-as arguments.</p>
+comme arguments.</p>
 
-<p>At each step, you thus have to apply the following pseudo-code:</p>
+<p>A chaque pas, vous avez toujours à appliquer le pseudo-code suivant :</p>
 <ul>
- <li>Find the position of the ground color in the color sequence;</li>
- <li>Turn left or right depending on the content of the rule array at that position;</li>
- <li>Mark the current ground with the next color in the sequence (the last color being followed by the first one);</li>
- <li>Move forward by one step.</li>
+ <li>Trouver la position de la couleur du sol dans la séquence de couleur;</li>
+ <li>Tourner à gauche ou à droite selon le contenu du tableau de règle à cette
+position;</li>
+ <li>Marquer le sol de la case courante avec la prochaine couleur dans la
+séquence ( la dernière couleur est suivie par la première);</li>
+ <li>Avancer d'un pas</li>
 </ul> 
 
-<p>You now should have enough information to succeed.</p>
+<p>Vous devriez maintenant avoir assez d'informations pour réussir.</p>
 </body></html>
