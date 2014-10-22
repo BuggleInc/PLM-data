@@ -1,1 +1,26 @@
-# Copy your isFacingTrail, and write your code below
+def isFacingTrail():
+    r=False
+    while estSurBiscuit()!=1 or porteBiscuit()!=1:
+        if estFaceMur()==1:
+            left()
+            return False
+        else:
+            forward()
+            if getCouleurSol()==Color.green:
+                r=True
+                baisseBrosse()
+                leveBrosse()
+                backward()
+                return True 
+            else:
+                backward()
+                left()
+    if estSurBiscuit()==1:
+        prendBiscuit()
+        return False
+k=0
+while estSurBiscuit()!=1:
+    if isFacingTrail()==True:
+        forward()
+    else:
+        k=1
