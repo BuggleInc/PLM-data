@@ -1,21 +1,29 @@
 nDiag=0
 firstPart = True
+n = 0
+writeMessag(n)
 while getX() != getWorldWidth()-1 or getY() != getWorldHeight()-1:
     if nDiag<getWorldHeight()-1 and firstPart == True:
         for i in range(nDiag):
+            writeMessage(n)
             setPos(getX()+1,getY()-1)
+            n+=1
         setPos(getX()-nDiag,getY()+nDiag+1)
         nDiag+=1
         
     elif nDiag == getWorldHeight()-1:
         for i in range(nDiag):
+            writeMessage(n)
             setPos(getX()+1,getY()-1)
+            n+=1
         setPos(getX()-nDiag+1,getWorldHeight()-1)
         nDiag = nDiag-1
         firstPart = False
     else:
         for i in range(nDiag):
+            writeMessage(n)
             setPos(getX()+1,getY()-1)
+            n+=1
         setPos(getX()-nDiag+1,getWorldHeight()-1)
         nDiag = nDiag-1
         
