@@ -1,13 +1,13 @@
 fini = False
-while not estFaceMur() :
-    avance()
-
 while not fini :
-    gauche()
-    if estFaceMur() :
+    if not estFaceMur():
+        avance()
+    else : 
+        gauche()
+        if estFaceMur() :
+            droite()
+            fini = True
+        avance()
         droite()
-        fini = True
-    avance()
-    droite()
-    avance()
+        avance()
 avance(3)
