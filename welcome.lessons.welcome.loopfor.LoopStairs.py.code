@@ -3,14 +3,36 @@ while not estFaceMur():
     setCouleurBrosse(Color.lightGray)
     baisseBrosse()
     setX(longitude + 1)
+    leveBrosse()
 
 
 for i in range(9):
+    if i == 0:
+        setCouleurBrosse(Color.lightGray)
+    elif i == 1:
+        setCouleurBrosse(Color.blue)
+    elif i == 2:
+        setCouleurBrosse(Color.cyan)
+    elif i == 3:
+        setCouleurBrosse(Color.green)
+    elif i == 4:
+        setCouleurBrosse(Color.yellow)
+    elif i == 5:
+        setCouleurBrosse(Color.orange)
+    elif i == 6:
+        setCouleurBrosse(Color.red)
+    elif i == 7:
+        setCouleurBrosse(Color.magenta)
+    elif i == 8:
+        setCouleurBrosse(Color.pink)        
     altitude = getY()
     longitude = getX()
     gauche()
+    baisseBrosse()
+    leveBrosse()
     if estFaceMur():
         droite()
+        baisseBrosse()
         setX(longitude + 1)
         setX(longitude + 2)
         setX(longitude + 3)
