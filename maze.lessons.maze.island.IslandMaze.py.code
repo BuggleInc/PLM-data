@@ -8,15 +8,18 @@ def isWallLeft():
         right()
         return False
 def keepHandOnSideWall():
+    if getDirection == Direction.NORTH and not isFacingWall():
+        forward()
+    else:
         if isWallLeft():
-           if not isFacingWall():
-               forward()
-           else:
-               right()
+            if not isFacingWall():
+                forward()
+            else:
+                right()
         else:
-           left()
-           forward()
-           
+            left()
+            forward()
+               
 while not isOverBaggle():
     keepHandOnSideWall()
 pickupBaggle()
