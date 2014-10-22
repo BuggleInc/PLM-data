@@ -1,0 +1,24 @@
+def isWallLeft():
+    left()
+    if isFacingWall():
+        right()
+        firstTime = False
+        return True
+    else:
+        right()
+        return False
+def keepHandOnSideWall():
+    while not isWallLeft() and firstTime:
+        left()
+        if isWallLeft():
+           if not isFacingWall():
+               forward()
+           else:
+               right()
+        else:
+           left()
+           forward()
+firstTime = true
+while not isOverBaggle():
+    keepHandOnSideWall()
+pickupBaggle()
