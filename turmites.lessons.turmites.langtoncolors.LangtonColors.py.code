@@ -3,18 +3,18 @@ def mark(color):
     brushDown()
     brushUp()
 def step(rule, colors):
-
-    for a in range(len(colors)):
-        if getGroundColor() == colors[a]:
-            if a == len(colors):
-                color = colors[0]
-                mark(color)
-            else:
-                color = colors[a+1]
-                mark(color)
-            if rule[a] == 'R':
-                right()
-            elif rule[a] == 'L':
-                left()
+    a = 0
+    while colors[a] != getGroundColor():
+        a+=1
+    if a == len(colors):
+        color = colors[0]
+        mark(color)
+    else:
+        color = colors[a+1]
+        mark(color)
+    if rule[a] == 'R':
+        right()
+    elif rule[a] == 'L':
+        left()
     forward()
     
