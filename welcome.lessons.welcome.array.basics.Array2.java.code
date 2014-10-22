@@ -3,7 +3,7 @@ int size = getWorldHeight();
 Color[] cell;
 cell = new Color[size];
 int offset = 0;
-
+/*
 	//load colours into array
 	for(int i = 0; i < size - 1; i++){
 		cell[i] = getGroundColor();
@@ -18,20 +18,20 @@ int offset = 0;
 	forward();
 	right();
 	offset = Integer.parseInt(readMessage());
-
+*/
 	//loop thru columns
 	for(int x = 0; x < size - 1; x++){
 		//load colours into array
 		for(int j = 0; j < size - 1; j++){
-//			if(x == 0){
-//				cell[j] = getGroundColor();
-//				forward();
-//			}else{
+			if(x == 0){
+				cell[j] = getGroundColor();
+				forward();
+			}else{
 				setBrushColor(cell[offset]);
 				brushDown();
 				forward();
 				brushUp();
-//			}
+			}
 		}//end for
 		
 		if(x < size - 1){
