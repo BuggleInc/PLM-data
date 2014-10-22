@@ -1,13 +1,20 @@
 nDiag=0
 while getX() != getWorldWidth()-1 or getY() != getWorldHeight()-1:
-    if nDiag<getWorldHeight()-1:
+    if nDiag<getWorldHeight()-1 and FirstPart == True:
         for i in range(nDiag):
             setPos(getX()+1,getY()-1)
         setPos(getX()-nDiag,getY()+nDiag+1)
         nDiag+=1
-    elif nDiag >= getWorldHeight()-1:
+        
+    elif nDiag == getWorldHeight()-1:
         for i in range(nDiag):
             setPos(getX()+1,getY()-1)
         setPos(getX()-nDiag+1,getWorldHeight()-1)
         nDiag = nDiag-1
-    
+        FirstPart = False
+    else:
+        for i in range(nDiag):
+            setPos(getX()+1,getY()-1)
+        setPos(getX()-nDiag+1,getWorldHeight()-1)
+        nDiag = nDiag-1
+        
