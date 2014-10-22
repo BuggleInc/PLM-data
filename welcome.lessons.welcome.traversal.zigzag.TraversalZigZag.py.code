@@ -1,0 +1,42 @@
+def isWallSouth():
+    if getDirection() == Direction.EAST:
+        right()
+        if isFacingWall():
+            left()
+            return True
+        else:
+            left()
+            return False
+    elif getDirection() == Direction.WEST:
+        left()
+        if isFacingWall():
+            right()
+            return True
+        else:
+            right()
+            return False
+        
+def snakeBuggle():
+    while not isFacingWall():
+        forward()
+    isWallSouth()
+    if not isWallNorth():
+        if getDirection() == Direction.EAST:
+            right()
+            forward()
+            right()
+            return True
+        elif getDirection() == Direction.WEST:
+            left()
+            forward()
+            left()
+            return True
+    else:
+        return False
+
+n = 0       
+while snakeBuggle():
+    writeMessage(n)
+    n +=1
+    snakeBuggle()
+
