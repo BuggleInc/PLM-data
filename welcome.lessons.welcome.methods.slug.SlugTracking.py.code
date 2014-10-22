@@ -1,2 +1,29 @@
 def isFacingTrail():
-   # write your code here
+    r=False
+    g=False
+    if estFaceMur()==1:
+        return False
+    else:
+        forward()
+        while r!=True:
+            if getCouleurSol()==Color.green:
+                r=True
+                return True 
+            else:
+                backward()
+                left()
+                forward()
+                if getCouleurSol()==Color.green:
+                    r=True
+                    return True
+                backward()
+
+while estSurBiscuit()!=1:
+    c=isFacingTrail()
+    if c==True:
+        forward()
+    
+                
+            
+            
+        
