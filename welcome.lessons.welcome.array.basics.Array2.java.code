@@ -24,8 +24,12 @@ int offset = 0;
 		//load colours into array
 		for(int j = 0; j <= size - 1; j++){
 			if(x == 0){
+				if(j == 0){
 				cell[j] = getGroundColor();
+				}else{
 				forward();
+				getGroundColor();
+				}
 			}else{
 				setBrushColor(cell[offset]);
 				brushDown();
