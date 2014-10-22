@@ -2,13 +2,28 @@ def isWallLeft():
     left()
     if isFacingWall():
         right()
-        firstTime = False
         return True
     else:
         right()
         return False
+        
+def isWallRight():
+    right()
+    if isFacingWall():
+        left()
+        return True
+    else:
+        left()
+        return False
+        
 def keepHandOnSideWall():
     if getDirection() == Direction.NORTH and not isFacingWall():
+        forward()
+    elif getDirection() == Direction.EAST and not isWallLeft():
+        left()
+        forward()
+    elif getDirection() == Direction.EAST and not isWallRight():
+        right()
         forward()
     else:
         if isWallLeft():
