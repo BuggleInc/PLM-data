@@ -24,17 +24,21 @@ int offset = 0;
 	//loop thru columns
 	for(int x = 0; x < size - 1; x++){
 		//load colours into array
-		for(int j = 0; j < size - 1; j++){
+//		for(int j = 0; j < size - 1; j++){
 //			if(x == 0){
 //				cell[j] = getGroundColor();
 //				forward();
 //			}else{
+				do{
+				int j = 0;
 				setBrushColor(cell[j]);
 				brushDown();
 				brushUp();
 				forward();
+				j++;
+				}while(j < size - 1);
 //			}
-		}//end for
+//		}//end for
 		
 		if(x < size - 1){
 			back();
@@ -42,9 +46,9 @@ int offset = 0;
 				forward();
 			}
 			if(x < size - 2){
-			right();
-			forward();
-			right();
+				right();
+				forward();
+				right();
 			}
 			offset = Integer.parseInt(readMessage());
 		}
