@@ -1,5 +1,6 @@
 nDiag=0
 firstPart = True
+firstTime = True
 n = 0
 writeMessage(n)
 while getX() != getWorldWidth()-1 or getY() != getWorldHeight()-1:
@@ -8,11 +9,12 @@ while getX() != getWorldWidth()-1 or getY() != getWorldHeight()-1:
             n+=1
             writeMessage(n)
             setPos(getX()+1,getY()-1)
-            
-        n+=1
-        writeMessage(n)    
+        if not FirstTime:    
+            n+=1
+            writeMessage(n)    
         setPos(getX()-nDiag,getY()+nDiag+1)
         nDiag+=1
+        FirstTime = False
         
     elif nDiag == getWorldHeight()-1:
         for i in range(nDiag):
