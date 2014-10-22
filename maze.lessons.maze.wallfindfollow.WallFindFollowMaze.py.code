@@ -8,8 +8,6 @@ def isWallLeft():
         right()
         return False
 def keepHandOnSideWall():
-    while (not isWallLeft()) and firstTime:
-        left()
         if isWallLeft():
            if not isFacingWall():
                forward()
@@ -18,7 +16,8 @@ def keepHandOnSideWall():
         else:
            left()
            forward()
-firstTime = True
+while not isWallLeft():
+    left()
 while not isOverBaggle():
     keepHandOnSideWall()
 pickupBaggle()
