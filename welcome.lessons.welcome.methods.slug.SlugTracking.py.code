@@ -1,7 +1,6 @@
 def isFacingTrail():
     r=False
-    c=0
-    while estSurBiscuit()!=1 or porteBiscuit()!=1 and c==4:
+    while estSurBiscuit()!=1 or porteBiscuit()!=1:
         if estFaceMur()==1:
             left()
             return False
@@ -16,11 +15,10 @@ def isFacingTrail():
             else:
                 backward()
                 left()
-                c=c+1
     if estSurBiscuit()==1:
         return False
 k=0
-while estSurBiscuit()!=1 or k==0 and porteBiscuit()!=1:
+while estSurBiscuit()!=1 or k==0 or porteBiscuit()!=1:
     if isFacingTrail()==True:
         forward()
     else:
