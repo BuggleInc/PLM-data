@@ -1,16 +1,22 @@
-while estSurBiscuit()==False: #or estDosMur()==False:
-    recule();
-else:
-    if estSurBiscuit() is True:
-        prendBiscuit();
-        while estSurBiscuit()==False:
+while estDosMur():
+    while estSurBiscuit()==False: #or estDosMur()==False:
+        recule();
+    else:
+        if estSurBiscuit() is True:
+            prendBiscuit();
+            while estSurBiscuit()==False:
+                avance();
+            else:
+                recule();
+                poseBiscuit();
+                recule();
+        else: #Donc si estDosMur()==True
+            gauche();
             avance();
-        else:
-            recule();
-            poseBiscuit();
-            recule();
-    else: #Donc si estDosMur()==True
-        gauche();
-        avance();
-        gauche();
-        avance();
+            gauche();
+            avance();
+else:
+    gauche();
+    avance();
+    gauche();
+    avance();
