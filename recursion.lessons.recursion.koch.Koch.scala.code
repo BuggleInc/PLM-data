@@ -8,16 +8,28 @@ def snowFlake (levels:Int, length:Double) {
     snowSide(levels, length);
     right(120);
 }
-def snowSide(levels:Int, length:Double) {
-	if (levels < 0) {
+def snowSide(levels:Int, length:Double) { 
+	if (levels == 0) {
+		avance(length);
 		return;
 	}
-	avance(length);
+	snowSide(levels-1,length/3);
 	gauche(60);
-	avance(length);
+	snowSide(levels-1,length/3);
 	droite(120);
-	avance(length);
+	snowSide(levels-1,length/3);
 	gauche(60);
-	avance(length);
-	return snowSide(levels-1,length);
+	snowSide(levels-1,length/3);
+
 }
+
+
+/*
+Draw recursively a smaller segment
+  Turn 60 degrees to the left
+  Draw recursively a smaller segment  
+  Turn 120 degrees to the right
+  Draw recursively a smaller segment
+  Turn 60 degrees to the left
+  Draw recursively a smaller segment
+ */

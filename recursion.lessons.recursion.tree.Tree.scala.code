@@ -6,22 +6,21 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	avance(length);
 	droite(angle);
 	tree(steps-1,length*shrink,angle,shrink);
-	gauche(angle);
-	recule(length);
-	current(steps);
-	gauche(angle*2);
-	avance(length);
-	recule(length);
-	droite(angle);
-	recule(length);
+	gauche(2*angle);
 	tree(steps-1,length*shrink,angle,shrink);
+	droite(angle);
+	leveCrayon();
+	recule(length);
+	baisseCrayon();
 }
 
 /*
- Pour dessiner un arbre à quatre étages, il faut dessiner un tronc de la taille indiquée, tourner à droite de l'angle indiqué,
- faire un arbre à 3 étages, tourner à gauche de deux fois l'angle indiqué, faire un autre arbre à 3 étages, puis revenir à sa position initiale.
- N'oubliez pas de revenir à la position initiale !
+ Pour dessiner un arbre ï¿½ quatre ï¿½tages, il faut dessiner un tronc de la taille indiquï¿½e, 
+ tourner ï¿½ droite de l'angle indiquï¿½,
+ faire un arbre ï¿½ 3 ï¿½tages, tourner ï¿½ gauche de deux fois l'angle indiquï¿½, 
+ faire un autre arbre ï¿½ 3 ï¿½tages, puis revenir ï¿½ sa position initiale.
+ N'oubliez pas de revenir ï¿½ la position initiale !
 
-Si le tronc d'un arbre mesure length à l'étage N, il mesure shrink*length à l'étage N+1.
+Si le tronc d'un arbre mesure length ï¿½ l'ï¿½tage N, il mesure shrink*length ï¿½ l'ï¿½tage N+1.
 
  */

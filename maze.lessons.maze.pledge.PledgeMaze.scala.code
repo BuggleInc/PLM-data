@@ -1,0 +1,27 @@
+override def run() {
+	var sommeAngle:Int = 0
+	def isDirectionFree(dir: Direction) : Boolean = {
+		setDirection(dir);
+		if (!estFaceMur) {
+			true;
+		} else {
+			false;
+		}
+	}
+	while (!estFaceMur()) {
+		avance();
+	}
+	droite();
+	sommeAngle = sommeAngle - 1;
+	while (!estSurBiscuit) {
+		if (isDirectionFree(getDirection())) {
+			avance();
+		} else {
+			while(estFaceMur) {
+				droite();
+			}
+			sommeAngle = sommeAngle - 1;
+			ecritMessage(sommeAngle.toString)
+		}
+	}	
+}

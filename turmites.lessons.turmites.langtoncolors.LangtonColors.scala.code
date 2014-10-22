@@ -1,0 +1,28 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+	var i = 0;
+	while (colors(i) != getCouleurSol())  {
+		i = i+1;
+	}
+		if (rule(i)=='R') {
+			droite();
+		} else {
+			gauche();
+		}
+		if ( i == colors.length-1) {
+			setCouleurBrosse(colors(0));
+			baisseBrosse();
+			leveBrosse();
+			avance();
+		} else {
+			setCouleurBrosse(colors(i+1));
+			baisseBrosse();
+			leveBrosse();
+			avance();
+		}
+}
+
+
+//Trouver la position de la couleur du sol dans la séquence de couleur;
+//Tourner à gauche ou à droite selon le contenu du tableau de règle à cette position;
+//Marquer le sol de la case courante avec la prochaine couleur dans la séquence ( la dernière couleur est suivie par la première);
+//Avancer d'un pas
