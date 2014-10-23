@@ -3,44 +3,30 @@ int size = getWorldHeight();
 Color[] cell;
 cell = new Color[size];
 int offset = 0;
-/*
-	//load colours into array
-	for(int i = 0; i < size - 1; i++){
-		cell[i] = getGroundColor();
-		forward();		
-	}
 
-	back();
-	for(int y = 0; y < size - 1; y++){
-		forward();
-	}
-	right();
-	forward();
-	right();
-	offset = Integer.parseInt(readMessage());
-*/
 	//loop thru columns
 	for(int x = 0; x <= size - 1; x++){
 		//load colours into array
-		for(int j = 0; j <= size - 1; j++){
+		for(int j = 0, k = offset; j <= size - 1; j++, k++){
 			if(x == 0){
 				if(j == 0){
+					//get colour of the first cell
 					cell[j] = getGroundColor();
 				}else{
 					forward();
 					cell[j] = getGroundColor();
 				}
 			}else{
-				setBrushColor(cell[(j + offset) % size]);
+				setBrushColor(cell[(k);
+//				setBrushColor(cell[(j + offset) % size]);
 				brushDown();
 				brushUp();
-				if(j < size - 1){
+				if(k < size - 1){
 				forward();
 				}
 			}
 		}//end for
 		
-//		if(x < size){
 			back();
 			for(int y = 0; y < size - 1; y++){
 				forward();
@@ -53,6 +39,5 @@ int offset = 0;
 				back();
 			}
 			offset = Integer.parseInt(readMessage());
-//		}
 	}//end for
 }//end run
