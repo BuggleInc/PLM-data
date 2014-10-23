@@ -22,7 +22,7 @@ int offset = 0;
 	//loop thru columns
 	for(int x = 0; x <= size - 1; x++){
 		//load colours into array
-		for(int j = 0, k = offset; j <= size - 1; j++, k++){
+		for(int j = 0; j <= size - 1; j++){
 			if(x == 0){
 				if(j == 0){
 					cell[j] = getGroundColor();
@@ -31,13 +31,12 @@ int offset = 0;
 					cell[j] = getGroundColor();
 				}
 			}else{
-				if(k == size){ k = 0;}
 				setBrushColor(cell[(j + offset) % size]);
 				brushDown();
 				brushUp();
+				if(j < size - 1){
 				forward();
-//				brushUp();
-
+				}
 			}
 		}//end for
 		
