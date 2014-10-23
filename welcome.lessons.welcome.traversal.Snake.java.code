@@ -23,5 +23,14 @@ int steps = 7;
 }//end snakeBuggle
 
 boolean finalPos(){
-	return(isFacingWall());
+int spins = 4;
+Direction d;
+
+	for(int i = 0; i < spins; i++){
+		left();
+		if(isFacingWall()){
+			d = getDirection();
+		}
+	}
+	return(isFacingWall() && d == direction.NORTH);
 }//end finalpos
