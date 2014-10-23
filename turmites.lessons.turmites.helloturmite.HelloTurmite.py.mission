@@ -14,73 +14,84 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Turmites</h2>
 
-<p>This exercise explores a new way to extend the concept of Langton's ant. Now, 
-the behavior of the ant not only depends on the color on the ground, but also on 
-its internal state (represented by an integer value). The idea of changing the 
-ant into such an automata naturally comes from the Turing machine concept. This 
-explains the name of these new animals, which is a portemanteau of <i>Turing</i> 
-and <i>Termite</i> (if you don't know what a Turing machine is, you should run 
-to wikipedia, because it is simply impossible to be a real computer scientist 
-before that).</p>     
+<p>Cette exercice explore une nouvelle façon d'étendre le concept de la fourmi
+de Langton. Maintenant, le comportement de la fourmi ne dépend plus
+seulement de la couleur du sol, mais aussi de son état interne (représenté
+par une valeur entière). L'idée de changer la fourmi en un automate découle
+naturellement du concept de la machine de Turing. Ceci explique le nom de
+ces nouveaux animaux, qui est un mélange de <i>Turing</i> et de
+<i>Termite</i> (si vous ne savez pas ce qu'est une machine de Turing, vous
+devriez vous jeter sur Wikipedia parce qu'il est tout simplement impossible
+d'être un vrai informaticien sans le savoir).</p>     
 
-<p>Once again, you just have to write the <code>step()</code> method, in charge 
-of doing one turmite's step. Once again, you should first find the rank of the 
-current's cell ground color in the color sequence. But this time, the 
-<code>rule</code> data depends both on the current color and the current state. 
-<code>rule</code> actually contains 3 information in each situation: 
-the color to write, the move to do, and the next state value. For 
-example, rule[1][0] contains the informations 
-to use when <code>state==1</code> and <code>color==0</code>. 
-In other worlds, you can retrieve the information relative 
-to your current situation by using 
-<code>rule[state][currentColor]</code>.</p> 
+<p>Une fois encore, vous devez seulement écrire la méthode <code>step()</code>,
+qui s'occupe de faire faire un pas à la turmite. Une fois encore, vous devez
+tout d'abord trouver le rang de la couleur actuelle du sol dans la liste des
+couleurs. Mais cette fois, <code>rule</code> dépend à la fois de la couleur
+courante et de l'état courant. <code>rule</code> contient en fait trois
+informations dans chaque situation : la couleur à mettre, le mouvement à
+effectuer, et la valeur du prochain état.
+Par exemple, rule[1][0] contient
+l'information à utiliser quand <code>state==1</code> et
+<code>color==0</code>. En d'autres mots, vous pouvez récupérer l'information
+relative à votre situation actuelle en utilisant
+<code>rule[etatCourant][couleurActuelle]</code></p> 
 
-<p>Each such information set contains 3 values. The first one is the rank of the 
-color to write on the ground. The second is the move to do, with the following 
-notation: 0=stop, 1=noturn, 2=left, 4=u-turn, 8=right. Note that if the command is stop, 
-you shouldn't even move forward on that step (but you shouldn't stop your program 
-either: the next steps can do something else in a future state). Finally, the third integer is the 
-next <code>state</code> value to go into after this iteration.</p> 
+<p>Chaque ensemble d'informations contient trois valeurs.
+La première est le rang de la couleur à mettre sur le sol.
+La deuxième est le mouvement à effectuer, avec la notation suivante :
+0=stop, 1=pas de virage, 2=gauche, 4=demi-tour, 8=droite. Veuillez noter que
+si l'instruction est stop, vous ne devez même pas avancer sur cette étape
+(mais vous ne devez pas arrêter votre programme pour autant : les prochains
+pas peuvent faire quelque chose d'autre). Finalement, le troisième entier
+est la valeur du prochain <code>state</code> à avoir après cette itération.</p> 
 
-<p>Since these arbitrary notations are somehow difficult to remember, you should define a set of 
-constants that you should use instead of the direct numerical values. 
-Their names could be NOTURN, LEFT, RIGHT and so on. 
+<p>Puisque ces notations arbitraires sont parfois difficiles à se souvenir,
+vous devriez définir un ensemble de constantes que vous pouvez utiliser à la
+place des valeurs numériques. Leurs noms pourraient être GAUCHE, DROITE,
+etc.
 
 
-By convention, such constant variables are written in upper case in python. 
-  Technically, you can still modify them, but that would be a very bad idea.
-You should write them out of any method so that they are globally visible.</p>
+Par convention, de telles «variables constantes» sont écrites tout
+en majuscule en Python.
+  Rien ne vous empêche d'un point de vue technique de les modifier, mais ca
+serait une très mauvaise idée.
+Vous devriez les écrire en dehors de toute méthode pour les rendre visible
+de partout.</p>
 
-<p>Using such constants greatly help making the code easier to read. Compare the next two code chunks:</p> 
+<p>Utilisez de telles constantes aident beaucoup à rendre le code plus lisible.
+Comparez les deux morceaux de code suivant:</p> 
 
-<pre>if rule[state][currentColor][NEXT_MOVE] == LEFT:
-    left()
+<pre>if rule[etat][couleurActuelle][MVT_SUIVANT] == GAUCHE:
+    gauche()
 </pre>
-<p>This is much more easier to read (although longer) than the following:</p>
+<p>C'est un peu plus long, mais bien plus agréable à lire que ceci&nbsp;:</p>
 <pre>if rule[i][j][1] == 2:
-    left()
+    gauche()
 </pre>
  
-<p>Finally, you probably want to write a <code>elif</code> branch for the 
-<code>STOP</code> condition too. Having a <code>else</code> branch displaying an error 
-message such as "unknown case" is a good practice: it makes your assumptions about your 
-code more explicit, and you will get an error message if they fall short. When doing so, 
-the next problem is that you have nothing to do in the <code>STOP</code> case, but python 
-do not allows you to write empty <code>elif</code> branches. You should use the <code>pass</code> 
-instruction as a placeholder: it says python that you have a branch here, and that it 
-does not contain anything.</p>
- 
+<p>Enfin, vous devriez également écrire une branche <code>elif</code> pour la
+condition <code>STOP</code>. Avoir une branche <code>else</code> qui affiche
+un message d'erreur tel que "situation inattendue" est une bonne
+pratique. Celà permet d'expliciter les présupposés du code, et assure un
+message d'erreur plus explicite si ces suppositions s'avèrent erronées. Le
+problème suivant est que nous n'avons rien à faire faire dans la branche du
+cas <code>STOP</code>, mais que python n'autorise pas de branche
+<code>else</code> vide. Il faut alors utiliser l'instruction
+<code>pass</code> là où il n'y a rien à faire. Cela indique à Python qu'il y
+a bien une branche à cet emplacement, mais qu'elle ne fait rien.</p> 
 
+<p>Vous devriez maintenant avoir assez d'informations pour réussir.</p>
 
-<p>You now should have enough information to succeed.</p>
-
-<h2>Bibliographical notes</h2>
-<p>According to wikipedia, turmites were invented independently by the end of 
-the eighties. It has been shown that turmites in general are exactly equivalent 
-in power to one-dimensional Turing machines with an infinite tape, as either can 
-simulate the other. This means that absolutely any program that you can think of 
-could theoretically be computed on this device...</p>
+<h2>Notes bibliographiques</h2>
+<p>D'après Wikipedia, les turmites ont été inventés indépendamment à la fin des
+années 80. Il a été démontré que les turmites en général sont exactement
+équivalent en terme de puissance à des machines de Turing à une dimension
+avec un ruban infini, et peut donc simuler les autres. Cela signifie
+qu'absolument tous les programmes auxquels vous pouvez penser peuvent
+théoriquement être calculé sur cet outil.</p>
 </body></html>
