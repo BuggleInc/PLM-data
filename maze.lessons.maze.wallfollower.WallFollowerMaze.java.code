@@ -3,12 +3,18 @@ public void run() {
 }
 
 public void keepHandOnsidewall(){
-	
+int spins = 4;
+
 	do{
+		for(int i = 0; i < spins; i++){
+			if(isFacingWall() && getDirection() == Direction.EAST){
+				right();
+			}
+		}
 		if(!isFacingWall()){
 			forward();
 		}else{
-			left();
+			right();
 		}
 		if(isOverBaggle()){
 			pickUpBaggle();
