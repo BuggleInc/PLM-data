@@ -1,16 +1,17 @@
-while not estFaceMur():
-    while not estSurBiscuit(): 
-        recule()
-    else: 
+setDirection(Direction.EAST)
+while estFaceMur() == False: 
+    avance()
+    if estSurBiscuit() == True:
         prendBiscuit()
-        porteBiscuit()
-        while not estSurBiscuit():
+    if porteBiscuit()== True:
+        setDirection(Direction.WEST)
+        while estSurBiscuit() == False: 
             avance()
-        else: 
-            recule()
-            poseBiscuit()    #a posé un premier biscuit
-            recule()
-            
-else estFaceMur():
-    droite()
-    gauche()
+        set direction(Direction.EAST) 
+        avance()
+        poseBiscuit()
+
+setDieection(Direction.SOUTH)
+avance()
+setDirection(Direction.EAST)
+avance()
