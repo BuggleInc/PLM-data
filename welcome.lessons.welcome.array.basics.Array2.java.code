@@ -1,8 +1,8 @@
 public void run() {
 int size = getWorldHeight();
+int offset = 0;
 Color[] cell;
 cell = new Color[size];
-int offset = 0;
 
 	//loop thru columns
 	for(int x = 0; x <= size - 1; x++){
@@ -20,23 +20,23 @@ int offset = 0;
 				setBrushColor(cell[(j + offset) % size]);
 				brushDown();
 				brushUp();
-//				if(j < size - 1){
+				if(j < size - 1){
 				forward();
-//				}
+				}
 			}
 		}//end for
 		
+		back();
+		for(int y = 0; y < size - 1; y++){
+			forward();
+		}
+		if(x < size - 1){
+			right();
+			forward();
+			right();
+		}else{
 			back();
-			for(int y = 0; y < size - 1; y++){
-				forward();
-			}
-			if(x < size - 1){
-				right();
-				forward();
-				right();
-			}else{
-				back();
-			}
-			offset = Integer.parseInt(readMessage());
+		}
+		offset = Integer.parseInt(readMessage());
 	}//end for
 }//end run
