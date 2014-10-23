@@ -5,13 +5,14 @@ public void run() {
 void snakeBuggle(){
 int steps = 7;
 
-	for(int i = 0; i < steps; i++){
+	//loop rows
+//	for(int i = 0; i < steps; i++){
+do{
+		//paint cells
 		for(int j = 1; j < steps; j++){
 			setBrushColor(Color.RED);
 			brushDown();
-//			brushUp();
 			forward();
-//			brushUp();
 		}
 
 		if(!finalPos()){
@@ -26,7 +27,7 @@ int steps = 7;
 			}
 		}	
 	}//end for	
-}//end snakeBuggle
+}while(!finalPos);//end snakeBuggle
 
 public boolean finalPos(){
 int spins = 4;
@@ -34,6 +35,7 @@ boolean d = false;
 
 	for(int i = 0; i < spins; i++){
 		left();
+		//check for north facing wall
 		if(isFacingWall() && getDirection() == Direction.NORTH){
 			d = true;
 		}
