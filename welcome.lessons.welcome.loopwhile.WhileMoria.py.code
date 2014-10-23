@@ -1,31 +1,21 @@
 retourne()
 while not estFaceMur():
-    avance()
-if estSurBiscuit():
-    while not estDosMur():
-        recule()
-    while estSurBiscuit():
-        avance()
-    while not estSurBiscuit():
-        avance()
-    prendBiscuit()
-    while not estSurBiscuit():
-        recule()
-    avance()
-    poseBiscuit()
-    avance()
-    
-         
-if estSurBiscuit():
-        prendBiscuit()
-        while not estDosMur():
-            recule()
-        while estSurBiscuit():
+    if not estFaceMur():
+        if estSurBiscuit():
+            prendBiscuit()
+            while not estSurBiscuit():
+                recule()
             avance()
-        poseBiscuit()
-        avance()
-while not estFaceMur():
-    avance()
+            poseBiscuit()
+        else :
+            avance()
+    if estFaceMur():
+        if estSurBiscuit():
+            prendBiscuit()
+            while not estSurBiscuit():
+                recule()
+            avance()
+            poseBiscuit()
 droite()
 avance()
 gauche()
