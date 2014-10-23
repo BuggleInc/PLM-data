@@ -3,19 +3,16 @@ public void run() {
 }
 
 public void mouseMaze(){
-int random;
-
+	
 	do{
-		random = random3();
+		int random = random3();
 
 		if(random == 0){
 			left();
 		}else if(random == 1){
 			right();
-		}else if(random == 2){
-			if(!isFacingWall()){
+		}else if(random == 2 && !isFacingWall()){
 				forward();
-			}
 		}
 
 		if(isOverBaggle()){
