@@ -9,27 +9,21 @@ cell = new Color[size];
 		//load colours into array
 		for(int j = 0; j <= size - 1; j++){
 			if(x == 0){
-/*				if(j == 0){
-					//get colour of the first cell, first column
-					cell[j] = getGroundColor();
-				}else{
-					//get remainding colours of first column
-					forward();
-					cell[j] = getGroundColor();
-				}
-*/
 				cell[j] = getGroundColor();
-			if(j < size - 1){
-				forward();
-			}
+//				if(j < size - 1){
+//					forward();
+//				}
 			}else{
 				setBrushColor(cell[(j + offset) % size]);
 				brushDown();
 				brushUp();
+//				if(j < size - 1){
+//					forward();
+//				}
+			}
 				if(j < size - 1){
 					forward();
 				}
-			}
 		}//end for
 		
 		back();
