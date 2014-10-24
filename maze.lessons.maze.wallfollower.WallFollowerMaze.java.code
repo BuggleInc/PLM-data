@@ -10,15 +10,23 @@ left();
 		//left();
 		if(isFacingWall() && getDirection() == Direction.WEST){
 			right();
-		}else if(isFacingWall() && getDirection() == Direction.SOUTH){
+		}
+		if(isFacingWall() && getDirection() == Direction.SOUTH){
+			right();
+		}
+		if(isFacingWall() && getDirection() == Direction.NORTH){
+			left();
+		}
+		if(isFacingWall() && getDirection() == Direction.EAST){
 			right();
 		}
 		
 		if(!isFacingWall()){
 			forward();
-		}else{
+			left()
+		}/*else{
 			left();
-		}
+		}*/
 		if(isOverBaggle()){
 			pickUpBaggle();
 		}
