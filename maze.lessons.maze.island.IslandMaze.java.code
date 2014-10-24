@@ -6,8 +6,10 @@ public void keepHandOnSideWall(){
 	//first, look for a LH wall
 	//left();
 	
-	do{
-		if(isFacingWall()){
+	do{	
+		if(isFacingWall() && getDirection() == Direction.NORTH){
+			right();
+		}else if(isFacingWall()){
 			right();
 		}else if(!isFacingWall()){
 			forward();
