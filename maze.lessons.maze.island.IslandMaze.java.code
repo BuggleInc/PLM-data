@@ -4,11 +4,13 @@ public void run() {
 
 public void keepHandOnSideWall(){
 	//first, look for a LH wall
-	//left();
+	left();
 	
 	do{
-		if(isFacingWall() || getDirection() == Direction.NORTH){
+		if(isFacingWall() && getDirection() == Direction.NORTH){
 			right();
+		}else if(!isFacingWall() && getDirection == Direction.NORTH){
+			forward();
 		}else{
 			forward();
 			left();			
