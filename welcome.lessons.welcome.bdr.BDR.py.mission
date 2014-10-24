@@ -13,12 +13,6 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
-.Java   {visibility: visible; color:#FF0000}
-.java   {visibility: visible; color:#FF0000}
-.python {visibility: visible; color:#008000}
-.Python {visibility: visible; color:#008000}
-.scala  {visibility: visible; color:#0000FF}
-.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -30,33 +24,7 @@ de certains étudiants où le joueur doit bouger sur un tapis prévu à cet
 effet en fonction des consignes présentées à l'écran en rythme avec la
 musique. Mais avant cela, nous avons quelques détails à étudier.</p>
 
-<font color="EEEEEE">
-<h3>Conditionnelles sans accolades</h3>
-<p>
-Il y a un détail que nous avons omis à propos de la syntaxe des
-conditionnelles : si une branche ne contient qu'une seule instruction, les
-accolades sont optionnelles. Ainsi, les deux extraits suivants sont
-équivalents:</p>
-
- <pre>if (<b>condition</b>) {
-    <b>quoiFaireSiLaConditionEstVraie();</b>
-} else {
-    <b>quoiFaireSinon();</b>
-}</pre>
- <pre>if (<b>condition</b>)
-    <b>quoiFaireSiLaConditionEstVraie();</b>
-else
-    <b>quoiFaireSinon();</b></pre>
-
-<p>Vous pouvez faire de même avec les boucles dont le corps se réduit à une
-seule instruction. Mais attention, ceci peut être dangereux si on enchaîne
-les <tt>if</tt> comme dans l'exemple suivant. </p>
-<pre>if (estSurBiscuit())    
-     if (x == 5)
-          gauche();
-else
-     droite();
-<font color="00FF00">avancePas();</font><font color="FF00FF">avance();</font></pre>
+</pre>
 
 <p>En fait, ça ne tourne pas à droite quand il n'y a pas un baggle par terre ET
 que x vaut 5, mais quand la buggle a trouvé un baggle, et que x vaut une
@@ -68,7 +36,7 @@ précédemment) :</p>
             gauche();
         else
             droite();
-<font color="00FF00">avancePas();</font><font color="FF00FF">avance();</font></pre>
+</pre>
 
 <p>La première leçon, c'est que l'indentation est très importante pour que les
 humains puissent comprendre le code, mais elle ne change pas la
@@ -80,13 +48,13 @@ professeur (pour qu'il le note ou pour lui poser une question), ou si vous
 comptez réutiliser votre code plus tard, ou même si vous devez debugger
 votre propre code après l'avoir écrit.</p> 
 
-<pre>if (estSurBiscuit()) if (x == 5) gauche(); else droite(); <font color="00FF00">avancePas();</font><font color="FF00FF">avance();</font></pre>
+<pre>if (estSurBiscuit()) if (x == 5) gauche(); else droite(); </pre>
 
 <p>La seconde leçon, c'est qu'une branche <tt>else</tt> se raccroche toujours
 au <tt>if</tt> le plus proche. C'est parfois un peu contre-intuitif, et il
 est préférable d'ajouter plus d'accolades que nécessaire pour lever toute
 ambiguïté.</p>
-</font>
+[/!]
 
 <h3>Enchaînements de conditionnelles</h3>
 
@@ -100,17 +68,12 @@ réalisées. C'est à dire, que s'il pleut un 14 juillet très chaud, on ne veut
 pas que la buggle sorte avec un parapluie, de l'eau et un drapeau, mais
 juste avec un parapluie. Le code suivant est donc faux.</p>
 
-<pre><font color="EEEEEE">if (ilPleut())
-    prendreParapluie();
-if (ilFaitChaud())
-    prendreDeLEau();
-if (sommes14Juillet())
-    prendreDrapeau();</font><font color="008000">if ilPleut():
+<pre>if ilPleut():
     prendreParapluie()
 if ilFaitChaud():
     prendreDeLEau()
 if sommes14Juillet():
-    prendreDrapeau()</font></pre>
+    prendreDrapeau()</pre>
 
 
 <p>En effet, toutes les conditions sont évaluées les unes après les autres, et
@@ -118,47 +81,29 @@ on risque donc d'aller au défilé un jour de pluie. À la place, il faut donc
 écrire quelque chose comme ce qui suit pour s'assurer que si l'on trouve une
 condition vraie, on n'évalue pas les suivants.</p>
 
-<pre><font color="EEEEEE">if (ilPleut()) {
-    prendreParapluie();
-} else {
-    if (ilFaitChaud()) {
-        prendreDeLEau();
-    } else {
-        if (sommes14Juillet()) {
-            prendreDrapeau();
-        }
-    }
-}</font><font color="008000">if ilPleut():
+<pre>if ilPleut():
     prendreParapluie()
 else:
     if ilFaitChaud():
         prendreDeLEau()
     else:
         if sommes14Juillet():
-            prendreDrapeau()</font></pre>
+            prendreDrapeau()</pre>
 
 
 <p>Une telle cascade de conditionnelles est un peu difficile à lire, et il est
 préférable
-<font color="EEEEEE"> d'omettre les accolades associées aux <tt>else</tt> comme
-suit. Il y a même certains langages qui introduisent un mot-clé spécial pour
-ces <tt>else if</tt> (mais pas <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>).</font>
-<font color="008000"> d'introduire les sous-blocs avec le mot-clé <code>elif</code>
-(abréviation de «else if») pour expliciter ces branches «sinon si».</font>
+).[/!]
+ d'introduire les sous-blocs avec le mot-clé <code>elif</code>
+(abréviation de «else if») pour expliciter ces branches «sinon si».
 </p>
 
-<pre><font color="EEEEEE">if (ilPleut()) { 
-    prendreParapluie();
-} else if (ilFaitChaud()) {
-    prendreDeLEau();
-} else if (sommes14Juillet()) {
-    prendreDrapeau();
-}</font><font color="008000">if ilPleut():
+<pre>if ilPleut():
     prendreDrapeau()
 elif ilFaitChaud():
     prendreDeLEau()
 elif sommes14Juillet():
-    prendreDrapeau()</font></pre>
+    prendreDrapeau()</pre>
 
 <h3>Les graffitis dans le monde des buggles</h3>
 
@@ -166,18 +111,17 @@ elif sommes14Juillet():
 faire, elles utilisent les quatre méthodes suivantes:</p>
 
 <ul>
-  <li><code><font color="00FF00">int</font><font color="FF0000">boolean</font>
-estSurMessage()<font color="0000FF">:Boolean</font></code>: renvoie
-<code><font color="00FF00">1</font><font color="FF00FF">true</font><font color="008000">True</font></code> si et seulement
+  <li><code>
+estSurMessage()</code>: renvoie
+<code>True</code> si et seulement
 s'il y a un message écrit par terre.</li>
-  <li><code><font color="00FF00">char*</font><font color="FF0000">String </font>litMessage()<font color="0000FF">: String</font></code>
+  <li><code>litMessage()</code>
 : renvoie le message qu'il y a écrit par terre (s'il y a rien, on obtient
 une chaîne vide).</li>
-  <li><code><font color="FFFF00">void</font> ecritMessage(<font color="00FF00">char*</font><font color="FF0000">String
-</font>msg<font color="0000FF">: String</font>)</code> : écrit le message spécifié en argument
+  <li><code> ecritMessage(msg)</code> : écrit le message spécifié en argument
 par terre. S'il y a déjà quelque chose écrit par terre, on ajoute le nouveau
 message à la fin du précédent.</li>
-  <li><code><font color="FFFF00">void </font>clearMessage()</code> : efface ce qui est écrit par
+  <li><code>clearMessage()</code> : efface ce qui est écrit par
 terre.</li>
 </ul>
 
@@ -191,17 +135,17 @@ indications sont des messages au sol, avec le code suivant:
      <td>Quoi faire</td>
      <td>Mnémotechnique</td></tr>
 
- <tr><td><font color="FFFF00">'R'</font><font color="0080FF">"R"</font></td><td>Tourner à droite et avancer d'une case</td><td>Right (signifie «droite» en anglais)</td></tr>
- <tr><td><font color="FFFF00">'L'</font><font color="0080FF">"L"</font></td><td>Tourner à gauche et avancer d'une case</td><td>Left (signifie «gauche» en anglais)</td></tr>
- <tr><td><font color="FFFF00">'I'</font><font color="0080FF">"I"</font></td><td>Se retourner (demi-tour) et avancer d'une case</td><td>Inverse</td></tr>
+ <tr><td>"R"</td><td>Tourner à droite et avancer d'une case</td><td>Right (signifie «droite» en anglais)</td></tr>
+ <tr><td>"L"</td><td>Tourner à gauche et avancer d'une case</td><td>Left (signifie «gauche» en anglais)</td></tr>
+ <tr><td>"I"</td><td>Se retourner (demi-tour) et avancer d'une case</td><td>Inverse</td></tr>
 
- <tr><td><font color="FFFF00">'A'</font><font color="0080FF">"A"</font></td><td>Avancer d'une case</td><td>Première lettre de l'alphabet</td></tr>
- <tr><td><font color="FFFF00">'B'</font><font color="0080FF">"B"</font></td><td>Avancer de deux cases</td><td>Deuxième lettre de l'alphabet</td></tr>
- <tr><td><font color="FFFF00">'C'</font><font color="0080FF">"C"</font></td><td>Avancer de trois cases</td><td>Troisième lettre de l'alphabet</td></tr>
+ <tr><td>"A"</td><td>Avancer d'une case</td><td>Première lettre de l'alphabet</td></tr>
+ <tr><td>"B"</td><td>Avancer de deux cases</td><td>Deuxième lettre de l'alphabet</td></tr>
+ <tr><td>"C"</td><td>Avancer de trois cases</td><td>Troisième lettre de l'alphabet</td></tr>
 
- <tr><td><font color="FFFF00">'Z'</font><font color="0080FF">"Z"</font></td><td>Reculer d'une case</td><td>A une lettre de la fin de l'alphabet</td></tr>
- <tr><td><font color="FFFF00">'Y'</font><font color="0080FF">"Y"</font></td><td>Reculer de deux cases</td><td>A deux lettres de la fin de l'alphabet</td></tr>
- <tr><td><font color="FFFF00">'X'</font><font color="0080FF">"X"</font></td><td>Reculer de trois cases</td><td>A trois lettres de la fin de l'alphabet</td></tr>
+ <tr><td>"Z"</td><td>Reculer d'une case</td><td>A une lettre de la fin de l'alphabet</td></tr>
+ <tr><td>"Y"</td><td>Reculer de deux cases</td><td>A deux lettres de la fin de l'alphabet</td></tr>
+ <tr><td>"X"</td><td>Reculer de trois cases</td><td>A trois lettres de la fin de l'alphabet</td></tr>
  <tr><td><i>(n'importe quoi d'autre)</i></td><td>Arrêter de danser.</td><td></td></tr>
 </table>
 
@@ -216,22 +160,14 @@ faire. c-à-d tant qu'on est sur une case décrite dans le tableau. Le plus
 simple pour cela est d'utiliser une variable booléenne (<code>fini</code>)
 en condition d'arrêt d'une boucle while. Cette variable est initialisée à la
 valeur faux
-(<code><font color="00FF00">0</font><font color="FF00FF">false</font><font color="008000">False</font></code>). Si on
+(<code>False</code>). Si on
 trouve une case ne répondant à aucune ligne du tableau, on change la valeur
 de cette variable à vrai
-(<code><font color="00FF00">1</font><font color="FF00FF">true</font><font color="008000">True</font></code>). Cela arrête
+(<code>True</code>). Cela arrête
 la boucle, et le programme. </p>
 
-<font color="FFFF00">
-<p>Une autre subtilité est qu'il est un peu pénible en Java de déterminer si
-deux chaînes de caractères sont identiques. Nous utiliserons donc la méthode
-<code>char getIndication<font color="00FF00">Bdr</font>()</code> à la place de
-<code><font color="FF0000">String</font><font color="00FF00">char*</font> litMessage()</code>. Cette méthode, qui
-n'est connue que des buggles des exercices BDR, renvoie le premier caractère
-du message au sol (ou ' ' --une espace-- s'il n'y a rien d'écrit au
-sol). Cela nous permet de travailler avec des caractères
-(<code>char</code>), qui sont moins pénibles que les chaînes en <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>.</p>
-</font>
+.</p>
+[/!]
 
 <h3>Trucs et astuces</h3>
 
