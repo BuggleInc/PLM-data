@@ -3,25 +3,18 @@ public void run() {
 }
 
 public void keepHandOnsidewall(){
-int count = 0;
-
 	do{
-		if(count > 1){
-			//back();
-		}
-		
 		if(isFacingWall() ){
-			count++;
 			right();
 		}
 		if(!isFacingWall()){
-			count = 0;
 			forward();
 			left();
 		}
 	
 		if(isOverBaggle()){
-			pickUpBaggle();right();
+			pickUpBaggle();
+			right();
 		}
 	}while(!isCarryingBaggle());
 }//end keepHandOnSideWall
