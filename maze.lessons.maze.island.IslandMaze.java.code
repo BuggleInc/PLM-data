@@ -1,2 +1,23 @@
 public void run() {
+	keepHandOnSideWall();
 }
+
+public void keepHandOnSideWall(){
+	//first, look for a LH wall
+	left();
+	
+	do{
+		if(isFacingWall() ){
+			right();
+		}else{
+			forward();
+			left();			
+		}
+
+		if(isOverBaggle()){
+			pickUpBaggle();
+			right();
+		}
+	}while(!isCarryingBaggle());
+}//end keepHandOnSideWall
+
