@@ -1,12 +1,16 @@
 x=0
-while estSurBiscuit()==False:
-    avance(x)
-    x=x+1
-    if estSurBiscuit:
-        prendBiscuit()
-        recule(x)
-        porteBiscuit()
-        poseBiscuit()
+if estSurBiscuit():
+    avance(1)
+    recule(1)
+else:
+    while estSurBiscuit()==False:
+        x=x+1
+        avance(x)
+        if estSurBiscuit():
+            prendBiscuit()
+            recule(x)
+            porteBiscuit()
+            poseBiscuit()
 
 
 
