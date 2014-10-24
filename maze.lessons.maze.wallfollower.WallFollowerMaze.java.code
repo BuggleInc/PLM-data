@@ -4,36 +4,23 @@ public void run() {
 
 public void keepHandOnsidewall(){
 int count = 0;
-boolean d = false;
-//left();
+
 	do{
 		if(count > 1){
 			back();
 		}
+		
 		left();
 		if(isFacingWall() ){
 			count++;
 			right();
 		}
-/*		if(isFacingWall() && getDirection() == Direction.SOUTH){
-			right();
-		}
-		if(isFacingWall() && getDirection() == Direction.NORTH){
-			left();
-		}
-		if(isFacingWall() && getDirection() == Direction.EAST){
-			back();
-		}
-		if(isFacingWall() && getDirection() == Direction.WEST){
-			back();
-		}
-*/
+
 		if(!isFacingWall()){
 			count = 0;
 			forward();
-		}/*else{
-			left();
-		}*/
+		}
+		
 		if(isOverBaggle()){
 			pickUpBaggle();
 		}
