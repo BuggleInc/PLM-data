@@ -5,21 +5,20 @@
 nbBiscuit = 0
 while not  sortieTrouvee() :
     premiereFois = True
-    while premiereFois or croisement():
+    while premiereFois or not croisement():
         premiereFois = False
-
-        for i in range(5):                  #ct parcourir un corridor
-            forward()
-            if estSurBiscuit():
-                nbBiscuit = nbBiscuit + 1
-            
-        if nbBiscuit <= 3 :                    # definit la direction à prendre
+        nbBiscuit = 0
+        forward()
+        if estSurBiscuit() :
+            nbBiscuit = nbBiscuit + 1
+        if nbBiscuit <= 3 :
             gauche()
-            nbBiscuit = 0
         else :
             droite()
-            nbBiscuit = 0
-            
+        
+        
+
+        
 
         
         
@@ -28,7 +27,6 @@ while not  sortieTrouvee() :
 
 
 avance()
-
 
 
 
