@@ -1,15 +1,14 @@
 droite()
 droite()
 while not estFaceMur():
-    while not estSurBiscuit():
-        if not estFaceMur():
+    while not estSurBiscuit() or not estFaceMur():
             avance()
-    prendBiscuit()
-    while not estSurBiscuit():
-        recule()
-    avance()
-    poseBiscuit()
-    avance()
+    if estSurBiscuit():
+            prendBiscuit()
+            while not estSurBiscuit():
+                recule()
+            avance()
+            poseBiscuit()
 droite()
 avance()
 gauche()
