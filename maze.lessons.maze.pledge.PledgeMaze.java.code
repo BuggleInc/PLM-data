@@ -3,18 +3,23 @@ public void run() {
 }
 
 public void escapeTheMaze(){
+int turns = 0;
 
 	do{	
 		//go north
-		while(!isFacingWall() && getDirection() == Direction.NORTH){
-			forward();
+		if(turns == 0){
+			while(!isFacingWall() && getDirection() == Direction.NORTH){
+				forward();
+			}
 		}
 
 		if(isFacingWall()){
 			right();
+			turns--;
 		}else{
 			forward();
-			if(!isFacingWall()) { left(); }			
+			left();
+			turns++;
 		}
 
 		//pick up baggle
