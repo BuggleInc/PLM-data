@@ -2,15 +2,18 @@
 #while premiereFois or (getCouleurSol()==Color.yellow):
 #    premiereFois = False
 #    avance()
+
+
 nbBiscuit = 0
-while not  sortieTrouvee() :
-    premiereFois = False
+while not  sortieTrouvee() :     # corps principal
+    premiereFois = True
     while premiereFois or not croisement():
         premiereFois = False
         nbBiscuit = 0
-        forward()
-        if estSurBiscuit() :
-            nbBiscuit = nbBiscuit + 1
+        for i in range(5):
+            forward()
+            if estSurBiscuit() :
+                nbBiscuit = nbBiscuit + 1
         if nbBiscuit <= 3 :
             gauche()
         else :
