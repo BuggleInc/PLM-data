@@ -1,2 +1,34 @@
 public void run() {
+	escapeTheMaze();
 }
+
+public void escapeTheMaze(){
+int turns = 0;
+//set favourite direction
+setDirection(Direction.NORTH);
+
+	do{	
+		//go in favourite direction
+		if(turns == 0){
+			while(!isFacingWall()){
+				forward();
+			}
+		}
+
+		if(isFacingWall()){
+			right();
+			turns--;
+		}else{
+			forward();
+			left();
+			turns++;
+		}
+
+		//pick up baggle
+		if(isOverBaggle()){
+			pickUpBaggle();
+			setDirection(Direction.EAST);
+		}
+		
+	}while(!isCarryingBaggle());
+}//end escapeTheMaze
