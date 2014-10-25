@@ -1,0 +1,73 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>La buggle Petite Poucette</h2>
+
+<p>Votre buggle est perdue dans un étrange labyrinthe, et elle a besoin de vous
+pour trouver la sortie (représentée par les cases orange). Vous ne pouvez
+pas lui donner son chemin tout simplement avec quelque chose comme
+<code>droite();avance();avance();</code> parce qu'il faut secourir deux
+buggles à la fois, perdues dans des labyrinthes similaires mais
+différents. Vous pouvez passer à l'autre monde en cliquant sur le menu
+défilant au dessus de l'endroit où est dessiné le monde. C'est là où il est
+écrit "Deep Forest" pour l'instant (forêt profonde), et si vous passez à
+"Deeper Forest" (forêt encore plus profonde), vous verrez l'autre monde.</p>
+
+<p>La bonne nouvelle est que le chemin vers la sortie est en quelque sorte
+écrit au sol. Ces mondes sont composés de plusieurs corridors, avec des
+baggles par terre. À chaque embranchement, il faut prendre à gauche si le
+corridor qu'on vient de parcourir contient 3 baggles ou plus, ou à droite
+s'il contient 2 baggles ou moins.</p>
+
+<p>Vous devez compter exactement 5 cases par couloir. Les cases aux
+intersections doivent être comptées comme les dernières de leur couloir, pas
+comme les premières après avoir tourné. </p>     
+
+<p>La forme générale de votre code doit donc être quelque chose comme «tant que
+je n'ai pas trouvé la sortie, prendre le prochain couloir pour décider s'il
+faut tourner à gauche ou à droite au prochain embranchement». Vous pouvez
+déterminer si vous avez rejoint la sortie (indiquée en orange) avec la
+méthode <code>sortieTrouvee()</code> fournie.</p>
+
+<p>Pour prendre un couloir, il suffit de courir d'une intersection à l'autre
+tout en comptant les biscuits en chemin. La méthode
+<code>croisement()</code> indique si vous vous trouvez actuellement à un
+embranchement. Ce qui complique un peu, c'est qu'au début du couloir, vous
+vous trouvez bien entendu à une intersection, mais vous souhaitez avancer
+quand même.
+
+Pour cela, utilisez une variable supplémentaire indiquant si vous
+êtes déjà entré dans le couloir, comme dans l'exemple suivant. Ainsi, vous
+exécuterez le corps de la boucle au moins une fois (quand
+<code>premiereFois</code> est vrai) tandis qu'aux tours de boucles suivants,
+c'est la valeur de retour de <code>croisement()</code> qui détermine s'il
+faut s'arrêter ou non.</p>
+
+
+<pre>premiereFois = True
+while premiereFois or not croisement():
+  premiereFois = False
+  (le corps de votre boucle)
+</pre>
+ 
+
+<p><a href="#tip-1">Je n'arrive pas à imaginer comment compter les baggles que je vois</a></p>
+
+<p>Oh, et quand vous parviendrez à trouver la sortie, n'oubliez pas de faire un
+pas de plus pour vous échapper effectivement.</p> 
+</body></html>
