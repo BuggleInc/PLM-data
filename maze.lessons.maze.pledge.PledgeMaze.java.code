@@ -5,10 +5,10 @@ public void run() {
 public void escapeTheMaze(){
 int turns = 0;
 //set favourite direction
-setDirection(Direction.WEST);
+setDirection(Direction.NORTH);
 
 	do{	
-		//go north
+		//go in favourite direction
 		if(turns == 0){
 			while(!isFacingWall()){
 				forward();
@@ -28,10 +28,6 @@ setDirection(Direction.WEST);
 		if(isOverBaggle()){
 			pickUpBaggle();
 			setDirection(Direction.EAST);
-//			right();
-//			if(isBackingWall()){
-//				back();
-//			}
 		}
 		
 	}while(!isCarryingBaggle());
