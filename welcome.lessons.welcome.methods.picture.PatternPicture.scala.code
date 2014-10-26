@@ -1,4 +1,26 @@
 override def run() {
+faireCarre16()
+}
+fe faireCarre16() {
+	faireCarre4()
+	move(4,true)
+	faireCarre4()
+	move(4,true)
+	gauche()
+	move(4,true)
+	droite()
+	faireCarre4()
+	move(4,true)
+	faireCarre4()
+	move(4,true)
+	
+}
+
+def faireCarre4() {
+	faireMotif(Color.red)
+	faireMotif(Color.blue)
+	faireMotif(Color.green)
+	faireMotif(Color.yellow)
 }
 def faireMotif(c:Color) {
 	avance()
@@ -15,4 +37,12 @@ def faireMotif(c:Color) {
 	gauche
 }
 
-
+def move(nbPas:Int, versLAvant:Boolean) {
+	for (i<- 1 to nbPas) {
+		if (versLAvant) {
+			avance()
+		} else {
+			recule()
+		}
+	}
+}
