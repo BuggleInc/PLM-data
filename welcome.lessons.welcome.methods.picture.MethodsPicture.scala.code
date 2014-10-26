@@ -1,4 +1,5 @@
 override def run() {
+faireCarre15()
 }
 def faireV(c:Color) {
 	setCouleurBrosse(c)
@@ -39,6 +40,31 @@ def faireLigne15() {
 	for (i<- 1 to 3) {
 		faireCarre5()
 		droite()
-		
+		move(5, true)
+		gauche()	
+	}
+	recule()
+	recule()
+	droite()
+	recule()
+	recule()
+}
+
+def fairCarre15() {
+	for (i<- 1 to 3 {
+		faireLigne15()
+		gauche()
+		move(5,true)
+		droite()
+	}
+}
+
+def move(nbPas:Int, versLAvant:Boolean) {
+	for (i<- 1 to nbPas) {
+		if (versLAvant) {
+			avance()
+		} else {
+			recule()
+		}
 	}
 }
