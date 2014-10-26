@@ -6,12 +6,14 @@ def isFacingTrail():
        return False
 def findslug():
     while isOverBaggle()!= True:
-            forward()
+            #forward()
             if isFacingWall() == True:
               left()
-            elif isFacingTrail()== True:
+              forward()
+            elif isFacingTrail()== True and isFacingWall()!= True:
                 brushDown()
                 brushUp()
+                forward()
             
             
 findslug()
