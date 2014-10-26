@@ -1,6 +1,9 @@
 def isFacingTrail():
    # write your code here
-   while not getCouleurSol() == Color.green:
-    avance()
+    if not estFaceMur():
+        avance()
+    if getCouleurSol() == Color.green:
+        recule()
+        return True
     gauche()
-    recule()
+
