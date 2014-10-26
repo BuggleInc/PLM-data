@@ -1,2 +1,85 @@
 override def run() {
+faireCarre45()
+}
+def faireV(c:Color) {
+	setCouleurBrosse(c)
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	avance()
+	gauche()
+	avance()
+	baisseBrosse()
+	leveBrosse()
+	recule()
+	recule()
+	baisseBrosse()
+	leveBrosse()
+	avance()
+	droite()
+	recule()
+	recule()
+}
+def faireCarre5() {
+	faireV(Color.blue)
+	gauche()
+	faireV(Color.green)
+	gauche()
+	faireV(Color.yellow)
+	gauche()
+	faireV(Color.red)
+	gauche()
+	
+}
+def faireLigne15() {
+	avance()
+	avance()
+	gauche()
+	avance()
+	avance()
+	for (i<- 1 to 3) {
+		faireCarre5()
+		droite()
+		move(5, true)
+		gauche()	
+	}
+	recule()
+	recule()
+	droite()
+	recule()
+	recule()
+}
+
+def faireCarre15() {
+	for (i<- 1 to 3) {
+		faireLigne15()
+		gauche()
+		move(5,true)
+		droite()
+	}
+}
+
+def faireLigne45() {
+	for (i<- 1 to 3) {
+		faireCarre15()
+		move(15,true)
+	}
+}
+
+def faireCarre45() {
+	for (i<- 1 to 3) {
+		faireLigne45()
+		gauche()
+		move(15, true)
+		droite()
+	}
+}
+def move(nbPas:Int, versLAvant:Boolean) {
+	for (i<- 1 to nbPas) {
+		if (versLAvant) {
+			avance()
+		} else {
+			recule()
+		}
+	}
 }
