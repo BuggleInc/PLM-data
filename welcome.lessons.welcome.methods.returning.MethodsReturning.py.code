@@ -1,14 +1,21 @@
+def reculer():
+    for i in range(6):
+        backward()
+
+def decaler():
+    droite()
+    forward()
+    gauche()
+
+
 def haveBaggle():
     vuBiscuit = False
     for i in range(6):
         if estSurBiscuit():
             vuBiscuit = True
         forward()
-    for i in range(6):
-        backward()
-    droite()
-    forward()
-    gauche()
+    reculer()
+    decaler()
     return vuBiscuit
 
 while haveBaggle()==False:
