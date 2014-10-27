@@ -17,22 +17,17 @@ def faireMotif():
     for coul in (Color.red,Color.blue,Color.green,Color.yellow):
         faireMotifCouleur(coul)
 
-def faireLigne(nbmot):
-    for i in range(nbmot):
-        faireMotif()
-        if i<(nbmot-1):
-            avance(4)
-        else:
-            recule(4*i)
+def faireLigne():
+    faireMotif()
+     avance(4)
+     faireMotif()
 
-def faireDessin(nbmot,nbligne):
-    for j in range(nbligne):
-        faireLigne(nbmot)
-        gauche()
-        if j<(nbligne-1):
-            avance(4)
-        else:
-            recule(4*j)
-        droite()
+def faireDessin():
+    faireLigne()
+    recule(4)
+    gauche()
+    avance(4)
+    droite()
+    faireLigne()
 
-faireDessin(2,2)
+faireDessin()
