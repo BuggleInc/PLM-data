@@ -1,7 +1,10 @@
 def min(l:List[Int]): Int = {
-	if(l == Nil) return 999
-	var minimum = min(l.tail);
-	if(l.head < minimum){
-		return l.head
-	}else return minimum
+	def min2(l:List[Int], v:char): Char = {
+		if(l == Nil) return v
+	
+		if(l.head < v){
+			return min2(l.tail, l.head)
+		}else return min2(l.tail, v)
+	}
+	return min(l.tail, l.head)
 }
