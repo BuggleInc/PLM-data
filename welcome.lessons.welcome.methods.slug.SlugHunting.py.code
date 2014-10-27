@@ -8,12 +8,16 @@ def isFacingTrail():
         recule()
         return True
     recule()
-
+    
+def hunt():
+    for i in range(4):
+        if isFacingTrail():
+            baisseBrosse()
+            avance()
+            leveBrosse()
+        else:
+            gauche()
 
 while not estSurBiscuit():
-    if isFacingTrail():
-        avance()
-    else:
-        gauche()
-
+    hunt()
 prendBiscuit()
