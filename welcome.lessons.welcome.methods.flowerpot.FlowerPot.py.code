@@ -1,10 +1,26 @@
 def growFlowers():
-    growFleur(Color.RED)
-    avance(4)
-    growFleur(Color.CYAN)
+    growRangee((Color.RED,Color.CYAN),1)
+    droite()
+    avance(2)
+    gauche()
+    avance(2)
+    growRangee((Color.ORANGE),1)
     recule(2)
-    
+    droite()
+    avance(2)
+    gauche()
+    growRangee((Color.PINK,Color.GREEN),1)
 
+def growRangee(couleurs,nbrep):
+    nbcouleurs=len(couleurs)
+    for i in range(nbrep):
+        
+        for j in range(nbcouleurs):
+            growFleur(couleurs[j])
+            if i<(nbrep-1) and j<(nbcouleurs-1):
+                avance(4)
+    recule(4*nbcouleurs*nbrep-1)
+    
 def peindrePoint():
     baisseBrosse()
     leveBrosse()
