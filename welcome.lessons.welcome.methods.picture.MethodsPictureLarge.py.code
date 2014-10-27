@@ -1,0 +1,35 @@
+def faireV(c):
+    setCouleurBrosse(c)
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    gauche()
+    for i in range(2):
+        avance()
+        droite()
+        avance()
+        baisseBrosse()
+        leveBrosse()
+    gauche()
+    avance()
+    gauche()    
+
+def faireMotif():
+    for couleur in (Color.YELLOW,Color.RED,Color.BLUE,Color.GREEN):
+        faireV(couleur)
+
+def faireLigne(nbMotifs):
+    for i in range(nbMotifs):
+        faireMotif()
+        avance(5)
+
+def faireDessin(nbLignes,nbMotifs):
+    for j in range(nbLignes):
+        faireLigne(nbMotifs)
+        gauche()
+        avance(5)
+        droite()
+
+faireDessin(9,9)
+        
+    
