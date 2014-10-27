@@ -11,15 +11,14 @@ def isFacingTrail():
     
 def hunt():
     for i in range(4):
-        if isFacingTrail():
+        if isFacingTrail() && not estSurBiscuit():
             baisseBrosse()
             avance()
             leveBrosse()
         else:
             gauche()
-        if estSurBiscuit():
-            return True
 
-while not hunt():
+
+while not estSurBiscuit():
     hunt()
 prendBiscuit()
