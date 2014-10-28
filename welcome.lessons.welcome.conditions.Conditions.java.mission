@@ -13,6 +13,12 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
+.Java   {visibility: visible; color:#FF0000}
+.java   {visibility: visible; color:#FF0000}
+.python {visibility: visible; color:#008000}
+.Python {visibility: visible; color:#008000}
+.scala  {visibility: visible; color:#0000FF}
+.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -24,13 +30,15 @@ ne peuvent pas réagir aux conditions extérieurs. Une <b>instruction
 conditionnelle</b> permet au programme de s'adapter en disant quelque chose
 comme <i>S'il pleut, prend un parapluie</i>. 
 
-<p>La syntaxe en Java est la suivante :</p>
+<p>La syntaxe en <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font> est la suivante :</p>
 
-<pre>if (<b>condition</b>) {
+<pre><font color="EEEEEE">if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiVraie();</b>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireEnsuiteSiVraie();</b>
-}
-<b>aFaireDansTousLesCas();</b></pre>
+}</font><font color="008000">if <b>condition</b>:
+&nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiVraie()</b>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireEnsuiteSiVraie()</b></font>
+<b>aFaireDansTousLesCas()<font color="FFFF00">;</font></b></pre>
 
 <p>Le mot <code>if</code> signifie «si» en anglais. Si la condition est vraie,
 alors le code du bloc suivant sera exécuté, puis l'exécution se poursuivra
@@ -46,14 +54,26 @@ condition est vraie tandis que l'instruction
 vraie ou fausse. 
 </p>
 
-<p>En Java, les blocs sont
-délimités par des accolades : le symbole { commence un bloc
+<p>En <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>, les blocs sont
+<font color="EEEEEE">délimités par des accolades : le symbole { commence un bloc
 tandis
 que le symbole } le ferme.  Les caractères blancs ne sont pas pris en
-compte.
-Il reste très important d'indenter correctement votre code
-pour qu'il reste lisible.
-
+compte</font><font color="FFFF00">.</font><font color="0000FF">, tant que les instructions restent séparées
+soit par des points-virgules, soit par des retour à la ligne.</font>
+<font color="EEEEEE">Il reste très important d'indenter correctement votre code
+pour qu'il reste lisible.</font>
+<font color="008000">marqués par l'indentation : toutes les lignes indentés (=décalées
+vers la droite par des espaces) font partie du bloc. Il est assez courant
+d'utiliser quatre espaces pour indenter le code, mais cela fonctionne quel
+que soit le nombre de caractères blancs utilisés pour cela. Simplement,
+toutes les lignes d'un bloc donné doivent utiliser le même nombre de
+blancs. La fin des blocs de code n'est pas marquée par un symbole
+particulier: il s'arrête dès que les lignes ne sont plus
+indentées. N'oubliez pas les deux points (:) à la fin de la ligne
+<code>if</code>, python en a besoin pour savoir qu'un nouveau bloc commence.
+Le fait que python utilise l'indentation pour maquer les blocs est un
+avantage pour les débutants: cela vous forcera à respecter des critères
+stricts de mise en forme de votre code.</font>
 Il est très facile de se perdre dans un code qui n'est pas correctement
 indenté. Il est donc important que vous fassiez en sorte que votre code
 reste clair et lisible pour que le relire et le modifier reste plaisant et
@@ -75,14 +95,14 @@ sont incorrects et vont générer des erreurs.</p>
 </pre>
 
 <p>La condition doit être une expression de type
-<code>boolean</code>
+<code><font color="00FF00">int</font><font color="FF0000">boolean</font><font color="0080FF">Boolean</font></code>
 (expression booléenne).  Le sous-bloc sera exécuté seulement si cette
-expression vaut <code>true</code>
+expression vaut <code><font color="00FF00">1</font><font color="FF00FF">true</font><font color="008000">True</font></code>
 (vrai), et il sera ignoré si sa valeur est
-<code>false</code> (faux).
-<code>true</code> et
-<code>false</code> sont des constantes
-définies directement par Java, tout comme 0 ou 1 en mathématiques.</p>
+<code><font color="00FF00">0</font><font color="FF00FF">false</font><font color="008000">False</font></code> (faux).
+<code><font color="FF00FF">true</font><font color="008000">True</font></code> et
+<code><font color="FF00FF">false</font><font color="008000">False</font></code> sont des constantes
+définies directement par <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>, tout comme 0 ou 1 en mathématiques.</p>
 
 <p>La condition peut aussi être une variable booléenne (nous reviendrons sur
 les variables dans un autre exercice, pas de panique) ou un test
@@ -93,8 +113,8 @@ membre gauche a une valeur différente du membre droit), <b>&lt;</b>
 à), <b>&gt;=</b> (supérieur ou égal à).</p>
 
 <p>Attention au piège classique, qui consiste à tester l'égalité d'une variable
-avec = au lieu de ==. Heureusement, le
-compilateur détecte le plus souvent ce
+avec = au lieu de ==. Heureusement, <font color="EEEEEE">le
+compilateur</font><font color="008000">l'interpréteur</font> détecte le plus souvent ce
 problème et vous le signale, mais pas tout le temps. Si la variable est de
 type booléen, il peut se faire prendre au piège, et il convient donc d'être
 attentif...</p>
@@ -102,21 +122,21 @@ attentif...</p>
 <p>La condition peut également être un appel à certaines méthodes
 particulières, dont le résultat est un booléen. Par exemple, la méthode
 <tt>estFaceMur()</tt> de la buggle renvoie
-vrai si la buggle est face à un mur, et
-faux sinon.</p>
+<font color="00FF00">1</font><font color="FF80FF">vrai</font> si la buggle est face à un mur, et
+<font color="00FF00">0</font><font color="FF80FF">faux</font> sinon.</p>
 
 <p>Enfin, il est possible de construire une condition composée de plusieurs
 sous-conditions reliées par des opérations booléennes:</p>
 <ul>
-  <li><code>cond1 && cond2</code> est vraie si
+  <li><code>cond1 <font color="EEEEEE">&&</font><font color="008000">and</font> cond2</code> est vraie si
 <tt>cond1</tt> <b>et</b> <tt>cond2</tt> est vraie (d'ailleurs, si
 <tt>cond1</tt> est fausse, <tt>cond2</tt> n'est même pas évaluée puisqu'on
 sait déjà que la conjonction des deux propositions ne peut pas être vraie).</li> 
-  <li><code>cond1 || cond2</code> est vraie si
+  <li><code>cond1 <font color="EEEEEE">||</font><font color="008000">or</font> cond2</code> est vraie si
 <tt>cond1</tt> <b>ou</b> <tt>cond2</tt> est vraie (d'ailleurs, si
 <tt>cond1</tt> est vraie, <tt>cond2</tt> n'est même pas évaluée puisqu'on
 sait déjà que la disjonction des deux propositions ne peut pas être fausse).</li>
-  <li><code>!cond</code> est vraie si
+  <li><code><font color="EEEEEE">!</font><font color="008000">not </font>cond</code> est vraie si
 <tt>cond</tt> ne l'est pas.</li>
   <li>Quand les expressions deviennent compliquées, il est préférable d'ajouter
 quelques parenthèses pour lever toute ambiguïté sur l'ordre
@@ -129,11 +149,14 @@ condition est fausse, en utilisant la syntaxe suivante («else» signifie
 «sinon» en anglais). Dans ce cas, l'instruction
 <code>aFaireSiLaConditionEstFausse()</code> ne sera exécutée que si la
 condition est fausse.</p>
- <pre>if (<b>condition</b>) {
+ <pre><font color="EEEEEE">if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiLaConditionEstVraie();</b>
 } else {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiElleEstFausse();</b>
-}</pre>
+}</font><font color="008000">if (<b>condition</b>):
+&nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiLaConditionEstVraie()</b>
+else:
+&nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiElleEstFausse()</b></font></pre>
 
 <p class="Python">N'oubliez pas les deux points (:) après le else, ils indiquent qu'un nouveau
 bloc débute.</p>
