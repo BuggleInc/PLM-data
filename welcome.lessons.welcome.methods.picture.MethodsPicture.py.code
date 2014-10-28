@@ -1,0 +1,42 @@
+def plot() :
+    baisseBrosse()
+    leveBrosse()
+
+
+def faireV(c) :
+     setCouleurBrosse(c)
+    avance(2)
+    plot()
+    gauche()
+    avance()
+    droite()
+    avance()
+    plot()
+    avance()
+    droite()
+    avance()
+    gauche()
+    plot()
+    avance(2)
+    gauche()
+
+def faireMotif():
+    for i in range(4):
+        if i == 0:
+            c = Color.YELLOW
+        elif i == 1:
+            c = Color.RED
+        elif i == 2:
+            c = Color.BLUE
+        else:
+            c = Color.GREEN
+        faireV(c)
+    avance(7)
+
+for j in range(3):
+    for i in range(3):
+        faireMotif()
+    recule(21)
+    gauche()
+    avance(7)
+    droite()
