@@ -13,7 +13,7 @@ def isFacingTrail(color):
     
 def hunt(color):
     for i in range(4):
-        if estSurBiscuit():
+        if estSurBiscuit() or porteBiscuit():
             return
         if isFacingTrail(color) :
             baisseBrosse()
@@ -26,7 +26,7 @@ color = getCouleurSol()
 recule()
 
 
-while not estSurBiscuit() and not porteBiscuit():
+while not estSurBiscuit() :
     hunt(color)
 
 prendBiscuit()
