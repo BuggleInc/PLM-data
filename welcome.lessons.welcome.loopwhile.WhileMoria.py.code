@@ -1,10 +1,10 @@
 retourne()
-while estFaceMur()== False:
-    while (estSurBiscuit()== False) and (estFaceMur()== False):
+while not estFaceMur() or estSurBiscuit():
+    while (not estSurBiscuit()) and (not estFaceMur()):
             avance()
-    if estSurBiscuit()== True:
+    if estSurBiscuit():
         prendBiscuit()
-    while estSurBiscuit()== False and estFaceMur()== False:
+    while (not estSurBiscuit()) and (not estFaceMur()):
         recule()
     if porteBiscuit()== True:
         avance()
