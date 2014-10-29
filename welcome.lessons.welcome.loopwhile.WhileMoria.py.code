@@ -1,11 +1,12 @@
-while estDosMur()==False and estSurBiscuit()==False:
+while estDosMur()==False or porteBiscuit() and estSurBiscuit()==False:
     recule()
-prendBiscuit()
-avance()
-    while estSurBiscuit()==False:
-        avance()
-    recule()
-    poseBiscuit()
+    if estSurBiscuit():
+        prendBiscuit()
+    if porteBiscuit():
+        while estSurBiscuit()==False:
+            avance()
+        recule()
+        poseBiscuit()
     
     
     
