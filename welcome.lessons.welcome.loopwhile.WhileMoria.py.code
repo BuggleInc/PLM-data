@@ -13,11 +13,16 @@ while estFaceMur()!=True:
         droite()
         avance()
     else:
-        if estSurBiscuit():
-            prendBiscuit()
-            droite(2)
-        else:
-            avance()
+        avance()
+if estSurBiscuit():
+    prendBiscuit()
+    droite(2)
+    while estSurBiscuit()!=True:
+        avance()
+    recule()
+    poseBiscuit()
+    droite(2)
+    avance()
 droite()
 avance()
 gauche()
