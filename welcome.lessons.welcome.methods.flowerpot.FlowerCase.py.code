@@ -1,0 +1,53 @@
+def plot():
+    baisseBrosse()
+    leveBrosse()
+
+
+def faireFleur(c):
+    setCouleurBrosse(c)
+    baisseBrosse()
+    avance(2)
+    recule()
+    gauche()
+    avance()
+    recule(2)
+    avance()
+    droite()
+    leveBrosse()
+    setCouleurBrosse(Color.YELLOW)
+    plot()
+    avance()
+
+
+def faireLigne(couleur1,couleur2):
+    faireFleur(couleur1)
+    avance(2)
+    faireFleur(couleur2)
+    recule(6)
+
+def growFlowers():
+    faireLigne(Color.RED, Color.CYAN)
+    droite()
+    avance(2)
+    gauche()
+    avance(2)
+    faireFleur(Color.ORANGE)
+    recule(4)
+    droite()
+    avance(2)
+    gauche()
+    faireLigne(Color.PINK, Color.GREEN)
+
+def faireBac():
+    growFlowers()
+    avance(6)
+    gauche()
+    avance(2)
+    droite()
+    faireFleur(Color.BLUE)
+    gauche()
+    avance(2)
+    droite()
+    growFlowers()
+
+faireBac()
