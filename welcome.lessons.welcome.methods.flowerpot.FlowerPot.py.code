@@ -16,6 +16,31 @@ def faireFleur(c):
     leveBrosse()
     setCouleurBrosse(Color.YELLOW)
     plot()
+    avance()
 
 
-faireFleur(Color.RED)
+def faireLigne(couleur1,couleur2):
+    for i in range(2):
+        if i == 0:
+            c = couleur1
+        else:
+            c = couleur2
+        faireFleur(c)
+        avance(2)
+        faireFleur(c)
+    recule(6)
+
+def growFlowers():
+    faireLigne(Color.RED, Color.CYAN)
+    droite()
+    avance(2)
+    gauche()
+    avance(2)
+    faireFleur(Color.YELLOW)
+    recule(4)
+    droite()
+    avance(2)
+    gauche()
+    faireLigne(Color.PINK, Color.GREEN)
+
+growFlowers()
