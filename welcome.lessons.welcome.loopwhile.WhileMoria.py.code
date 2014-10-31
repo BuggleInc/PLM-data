@@ -1,9 +1,19 @@
-while estDosMur()==False or porteBiscuit() and estSurBiscuit()==False:
-    recule()
-    if estSurBiscuit():
+#estSurBiscuit(), porteBiscuit(), prendBiscuit() et poseBiscuit(). 
+setDirection(Direction.EAST)
+while (estSurBiscuit == False or porteBiscuit()==False) and estFaceMur()==False:
+    avance()
+    if estSurBiscuit() == True:
         prendBiscuit()
-    if porteBiscuit():
-        while estSurBiscuit()==False:
+    if porteBiscuit() == True:
+        setDirection(Direction.WEST)
+        while estSurBiscuit() == False:
             avance()
-        recule()
+        setDirection(Direction.EAST)
+        avance()
         poseBiscuit()
+
+setDirection(Direction.SOUTH)
+avance()
+setDirection(Direction.EAST)
+avance()        
+        
