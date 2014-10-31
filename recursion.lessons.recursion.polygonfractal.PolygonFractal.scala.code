@@ -7,7 +7,9 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
 			}
 		}
 		else {
-			droite(360*2/sides);
-			avance(length/shrink);
+			for (l <- 1 to sides) {
+				avance(length);
+				droite(360/sides);
+			}
 		}
 }
