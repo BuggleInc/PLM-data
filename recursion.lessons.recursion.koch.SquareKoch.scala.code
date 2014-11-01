@@ -11,7 +11,8 @@ def snowSquare (levels:Int, length:Double) {
     squareSide(levels, length);
     right(90);
 }
-def motif(length:Double,levels:Int){
+def motif(length:Double,levels:Int,k:Int){
+	while (k !=levels)
 	avance(length/(3*levels))
 	gauche(90)
 	avance(length/(3*levels))
@@ -21,6 +22,7 @@ def motif(length:Double,levels:Int){
 	avance(length/(3*levels))
 	gauche(90)
 	avance(length/(3*levels))
+	motif(length:Double,levels:Int,k+1)
 	}
 
 def squareSide(levels:Int, length:Double) {
