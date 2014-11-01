@@ -5,13 +5,15 @@ def goAndGet():
   """Avance, récupère le biscuit, et le ramène à la position d'origine
 
   Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur."""
-    pas = 0
-    while not estSurBiscuit():
-        avance()
-        pas+=1
-    prendBiscuit()
-    for i in range(pas):
-        recule()    
+    compteur=0
+while estSurBiscuit()==False:
+    avance()
+    compteur+=1
+prendBiscuit()
+for retour in range(compteur):
+    recule()
+poseBiscuit()        
+ 
 
   
 
