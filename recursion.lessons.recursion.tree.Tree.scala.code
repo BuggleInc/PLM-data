@@ -1,6 +1,16 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-subtree(steps:Int, length:Double, angle:Double, shrink:Double)
 
- 
+def sousarbre(steps:Int, length:Double, angle:Double, shrink:Double) {
+	if (steps==0) return
+	avance(length)
+	droite(angle)
+	sousarbre(steps-1:Int, length*shrink:Double, angle:Double, shrink:Double)
+	recule(length)
+	gauche(2*angle)
+	sousarbre(steps-1:Int, length*shrink:Double, angle:Double, shrink:Double)
+	
+}
+
+
 }
 
