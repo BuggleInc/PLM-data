@@ -2,7 +2,7 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
 def sousarbre(steps:Int, length:Double, angle:Double, shrink:Double) {
 	current(steps) 
-	if (steps==0) return {gauche(angle);recule(length);sousarbregauche(steps:Int, length:Double, angle:Double, shrink:Double)}
+	if (steps==0) return {gauche(angle);recule(length)}
 	avance(length)
 	droite(angle)
 	sousarbre(steps-1:Int, length*shrink:Double, angle:Double, shrink:Double)
@@ -12,8 +12,7 @@ def sousarbre(steps:Int, length:Double, angle:Double, shrink:Double) {
 	
 }
 
-def sousarbregauche(steps:Int, length:Double, angle:Double, shrink:Double){
-	gauche(angle);avance(length);recule(length)
+
 }
 
 sousarbre(steps:Int, length:Double, angle:Double, shrink:Double) 
