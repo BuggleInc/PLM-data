@@ -1,34 +1,33 @@
 def marque():
     baisseBrosse()
     leveBrosse()
-    
-setCouleurBrosse(Color.red)
-gauche()
-for i in range(15):
-    forward()    
-droite()
-for i in range(31):
-    forward()
-baisseBrosse()
-leveBrosse()
-for i in range(7):
-    forward()
-    gauche()
-    forward()
-    droite()
+
+def faireV():
+    forward(2)    
     marque()
-for i in range(7):
-    recule()
-    droite()
-    forward()
     gauche()
-
-gauche()
-gauche()
-
-for i in range(7):
     forward()
     droite()
     forward()
+    marque()
+    forward()
+    droite()
+    forward()
+    marque()
     gauche()
-    marque()    
+    forward(2)
+    gauche()
+
+def chgt_ligne():
+   gauche()
+   forward(7)
+   droite()   
+
+for b in range(9): 
+#Pour faire 9 lignes   
+    for a in range(9):
+    #Pour faire 9 motifs sur une ligne    
+        for i in range(4):
+            faireV()
+        forward(7)    
+    chgt_ligne()    
