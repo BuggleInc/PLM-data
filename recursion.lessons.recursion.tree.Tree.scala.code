@@ -3,12 +3,17 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 if (steps == 0 )     return
 
 def treer(steps:Int, length:Double, angle:Double, shrink:Double){
-	if (steps==1) return 
+	if (steps==1) return treeg(steps:Int, length:Double, angle:Double, shrink:Double)
 	droite(angle)
 	avance(length*shrink)
 	treer(steps-1,length*shrink,angle,shrink)
 }
 
+def treeg(steps:Int, length:Double, angle:Double, shrink:Double){
+recule(length)
+gauche(angle)
+avance(length)
+}
 avance(length)
 
  treer(steps:Int, length:Double, angle:Double, shrink:Double)
