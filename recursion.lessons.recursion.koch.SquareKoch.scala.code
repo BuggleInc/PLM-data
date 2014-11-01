@@ -12,28 +12,16 @@ def snowSquare (levels:Int, length:Double) {
     right(90);
 }
 
-def motif(length:Double,levels:Int,k:Int){
+def squareSide(length:Double,levels:Int){
 	
-	if (k != levels){
-	avance(length/(3*levels))
+	if (levels==0) return avance(length)
+	squareSide(length/3:Double,levels-1:Int)
 	gauche(90)
-	avance(length/(3*levels))
+	squareSide(length/3:Double,levels-1:Int)
 	droite(90)
-	avance(length/(3*levels))
+	squareSide(length/3:Double,levels-1:Int)
 	droite(90)
-	avance(length/(3*levels))
+	squareSide(length/3:Double,levels-1:Int)
 	gauche(90)
-	avance(length/(3*levels))
+	squareSide(length/3:Double,levels-1:Int)
 	
-	motif(length,levels,k+1)
-	}
-	return
-}
-
-def squareSide(levels:Int, length:Double) {
-	if (levels==0) return {avance(length)}
-	
-	motif(length,levels,0)
-	
-	
-}
