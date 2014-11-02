@@ -1,0 +1,22 @@
+public void run() { 
+	do {
+		baggleCount = corridor();
+		if(baggleCount >= 3) {
+			left();
+		} else {
+			right();
+		}
+	} while (!exitReached());
+}
+
+public int corridor() {
+	int b = 0;
+	do {
+		forward();
+		if(isOverBaggle()) {
+			b++;
+		}
+	} while(!crossing());
+
+	return b;
+}
