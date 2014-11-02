@@ -1,6 +1,19 @@
 public void run() { 
-	forward();
-	
+	right();
+	right();
+
+	while(!isFacingWall()) {
+		while(!overBaggle()) {
+			forward();
+		}
+		pickupBaggle();
+
+		while(!overBaggle()) {
+			backward();
+		}
+		forward();
+		dropBaggle();
+	}
 }
 
 public void escape() {
