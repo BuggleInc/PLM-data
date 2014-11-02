@@ -3,21 +3,25 @@ public void run() {
 	right();
 
 	while(!isFacingWall()) {
-		while(!isOverBaggle()) {
+		while(!isOverBaggle()&&!isFacingWall()) {
 			forward();
 		}
-		pickupBaggle();
+		if(isOverBaggle()) {
+			pickupBaggle();
+		} else {
+			escape();
+			return;
+		}
 
 		while(!isOverBaggle()) {
 			backward();
 		}
-		if(hasBaggle()) {
-		forward();
-		dropBaggle();
-		forward();
+		if(isCarryingBaggle()) {
+			forward();
+			dropBaggle();
+			forward();
 		}
 	}
-	escape();
 }
 
 public void escape() {
