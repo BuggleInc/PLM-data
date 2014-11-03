@@ -1,12 +1,14 @@
 caseOrange=0
 biscuits=0
 while 2*biscuits!=caseOrange+1:
-     while estSurOrange()==False or estSurBiscuit()==False:
-         avance()
-     if estSurBiscuit()==True: 
+    avance()
+     if estSurBiscuit()and not estSurOrange():: 
          biscuits=biscuits+1
-     elif estSurOrange()==True: 
+     elif estSurOrange()and not estSurBiscuit(): 
          caseOrange=caseOrange+1
+     elif estSurOrange() and estSurBiscuit():
+         caseOrange=caseOrange+1
+         biscuits=biscuits+1
      
      
       
