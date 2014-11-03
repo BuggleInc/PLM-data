@@ -1,2 +1,71 @@
 public void run() {
+	final int maxRows = 9, maxCols = 9;
+	Color[] colors = {Color.yellow, Color.blue, Color.red, Color.green};
+	
+	for (int sweep = 0; sweep < 2; sweep++) {
+		for (int row = 0; row < maxRows; row++) {
+			
+			for (int col = 0; col < maxCols; col++) {
+				makeV(colors[2 * sweep]);
+				if (col < maxCols - 1) {
+					forward();
+				} else {
+					wideLeft();
+				}
+			}
+			for (int col = 0; col < maxCols; col++) {
+				makeV(colors[2 * sweep + 1]);
+				if (col < maxCols - 1) {
+					forward();
+				} else if ((sweep == 1&&row == maxRows - 1)){
+					left();
+				} else {
+					hardRight();
+				} 
+			}
+		}
+		if (sweep > 0) {
+			continue;
+		}
+		backward();
+		left();
+	}
+}
+
+public void wideLeft() {
+	left();
+	for (int i = 0; i < 4; i++) {
+		forward();
+	}
+	left();
+}
+
+public void hardRight() {
+	right();
+	forward();
+	right();
+}
+
+public void makeV(Color c) {
+	setBrushColor(c);
+	forward();
+	mark();
+	left();
+	corner();
+	mark();
+	corner();
+	mark();
+	left();
+	forward();
+}
+
+public void mark() {
+	brushDown();
+	brushUp();
+}
+
+public void corner() {
+	forward();
+	right();
+	forward();
 }
