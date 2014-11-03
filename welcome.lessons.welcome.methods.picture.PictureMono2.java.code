@@ -1,2 +1,62 @@
 public void run() {
+	for (int sweep = 0; sweep < 2; sweep++) {
+		for (int row = 0; row < 3; row++) {
+			for (int col = 0; col < 3; col++) {
+				makeV();
+				if (col < 2) {
+					forward();
+				} else {
+					wideLeft();
+				}
+			}
+			for (int col = 0; col < 3; col++) {
+				makeV();
+				if (col < 2) {
+					forward();
+				} else {
+					hardRight();
+				}
+			}
+		}
+		left();
+	}
+}
+
+public void wideLeft() {
+	left();
+	for (i = 0; i < 6; i++) {
+		forward();
+	}
+	left();
+}
+
+public void hardRight() {
+	right();
+	forward();
+	right();
+}
+
+public void makeV() {
+	forward();
+	forward();
+	mark();
+	left();
+	corner();
+	mark();
+	corner();
+	mark();
+	left();
+	forward();
+	forward();
+}
+
+public void mark() {
+	brushDown();
+	brushUp();
+}
+
+public void corner() {
+	forward();
+	right();
+	forward();
 }
