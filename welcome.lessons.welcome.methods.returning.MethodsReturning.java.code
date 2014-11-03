@@ -1,0 +1,15 @@
+boolean haveBaggle() {
+	boolean sawBaggle = false;
+	int i;
+	frwrd: for (i = 0; i < 6; i++) {
+		if (isOverBaggle()) {
+			sawBaggle = true;
+			break frwrd;
+		}
+		forward();
+	}
+	for (i; i >= 0; i--) {
+		backward();
+	}
+	return sawBaggle;
+}
