@@ -1,0 +1,24 @@
+public void run() {
+	Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow};
+	int turns = 0;
+
+	for (int rounds = 0; rounds < 4; rounds++) {
+		for (int side = 0; side < 4; side++) {
+			paint(colors[turns%4],colors[(turns+1)%4]);
+			left();
+			turns++;
+		}
+		right();
+		turns--;
+		forward();
+	}
+}
+
+public void paint(Color a, Color b) {
+	forward();
+	brushDown();
+	setBrushColor(a);
+	forward();
+	setBrushColor(b);
+	brushUp();
+}
