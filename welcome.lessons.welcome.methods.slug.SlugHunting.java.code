@@ -1,5 +1,13 @@
 public void hunt() {
-    turnAround();
+	while(!isOverBaggle()) {
+		while(isFacingTrail()&&(!isOverBaggle()) {
+    			forward();
+			mark();
+		}
+		
+		findTrail();
+	}
+	pickupBaggle();
 }        
 
 boolean isFacingTrail() {
@@ -13,8 +21,20 @@ boolean isFacingTrail() {
 	result = getGroundColor().equals(Color.green);
 	backward();
 	return result;
-}        
+}
+
+public void mark() {
+	brushDown();
+	brushUp();
+}
 
 public void turnAround() {
 	for (int i = 0; i < 2; i++, right());
+}
+
+public void findTrail() {
+	right();
+	if(!isFacingTrail()) {
+		turnAround();
+	}
 }
