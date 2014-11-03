@@ -1,4 +1,20 @@
 public void hunt() {
-    
+    turnAround()
 }        
 
+boolean isFacingTrail() {
+	boolean result = false;
+	
+	if(isFacingWall()) {
+    		return false;
+	}
+
+	forward();
+	result = getGroundColor().equals(Color.green);
+	backward();
+	return result;
+}        
+
+public void turnAround() {
+	for (int i = 0; i < 2; i++, right());
+}
