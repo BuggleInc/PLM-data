@@ -1,0 +1,75 @@
+public void growFlowers() {
+	fill();
+	right();
+	forward();
+	right();
+	forward(8);
+	left();
+	forward(3);
+	left();
+	fill();
+}
+
+public void fill() {
+	plant();
+	forward(6);
+	right();
+	forward(2);
+	right();
+	flower(Color.BLUE);
+	left();
+	forward(2);
+	right();
+	plant();
+}
+
+public void plant() {
+	flower(Color.RED);
+	forward(2);
+	flower(Color.CYAN);
+	right();
+	forward();
+	right();
+	forward(3);
+	left();
+	flower(Color.ORANGE);
+	left();
+	forward(3);
+	right();
+	forward();
+	right();
+	flower(Color.GREEN);
+	forward(2);
+	flower(Color.PINK);
+	right();
+	right();
+}
+
+public void flower(Color c) {
+	mark(c);
+	forward();
+	mark(Color.YELLOW);
+	left();
+	forward();
+	mark(c);
+	backward(2);
+	mark(c);
+	forward();
+	right();
+	forward();
+	mark(c);
+}
+
+public void mark(Color c) {
+	setBrushColor(c);
+	brushDown();
+	brushUp();
+}
+/*
+Color.RED
+Color.PINK
+Color.CYAN
+Color.ORANGE
+Color.GREEN
+Color.YELLOW
+*/
