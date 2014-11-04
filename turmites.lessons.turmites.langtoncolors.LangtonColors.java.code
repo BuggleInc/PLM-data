@@ -1,0 +1,27 @@
+public void step(char[] rule, Color[] colors) {
+	int c = findColor(getGroundColor());
+	switch(rule[c]) {
+		case 'L':
+			left();
+			break;
+		case 'R':
+			right();
+			break;
+	}
+	setGroundColor(colors[(c+1)%colors.length()]);
+	forward();
+}
+
+public void setGroundColor(Color c) {
+	setBrushColor(c);
+	brushDown();
+	brushUp();
+}
+
+public int findColor(Color c, Color[] colors) {
+	for (int i = 0; i < colors.length(); i++) {
+		if (c.equals(colors[i])) {
+			return i;
+		}
+	}
+}
