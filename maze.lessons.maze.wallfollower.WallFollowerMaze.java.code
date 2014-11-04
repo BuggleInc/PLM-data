@@ -1,0 +1,20 @@
+public void run() {
+	keepHandsOnSideWall()
+}
+
+public void keepHandOnSideWall() {
+	while (!leftIsClear()) {
+		if(!isFacingWall()) {
+			forward();
+		} else {
+			right();
+		}
+	}
+}
+public boolean leftIsClear() {
+	left();
+	boolean result = !isFacingWall();
+	right();
+
+	return result;
+}
