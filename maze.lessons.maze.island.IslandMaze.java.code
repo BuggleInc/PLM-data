@@ -1,0 +1,27 @@
+public void run() {
+	while(!isOverBaggle()) {
+		keepHandOnSideWall();
+	}
+	pickupBaggle();
+}
+
+public void keepHandOnSideWall() {
+	if (!leftIsClear()) {
+		if(!isFacingWall()) {
+			forward();
+		} else {
+			right();
+		}
+	} else {
+		left();
+		forward();
+	}
+	
+}
+public boolean leftIsClear() {
+	left();
+	boolean result = !isFacingWall();
+	right();
+
+	return result;
+}
