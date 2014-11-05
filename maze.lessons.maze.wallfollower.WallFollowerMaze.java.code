@@ -4,17 +4,6 @@ public void run() {
 
 public void keepHandOnSideWall(){
 	do{
-/*		if(isFacingWall() ){
-			right();
-		}else{
-			forward();
-			left();			
-		}
-*/
-		if(isOverBaggle()){
-			pickUpBaggle();
-			//right();
-		}
 		while(isFacingWall() ){
 			right();
 		}
@@ -22,6 +11,11 @@ public void keepHandOnSideWall(){
 		forward();
 		left();
 
-
+		if(isOverBaggle()){
+			pickUpBaggle();
+			//right();
+		}else{
+			left();
+		}
 	}while(!isCarryingBaggle());
 }//end keepHandOnSideWall
