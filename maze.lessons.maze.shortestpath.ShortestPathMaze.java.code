@@ -1,10 +1,12 @@
 public void run() {
 	findBaggle();
-//	escapeTheMaze();
+	escapeTheMaze();
 }
 public void findBaggle(){
 int height = getWorldHeight();
 int width = getWorldWidth();
+int x = 0;
+int y = 0;
 
 	//loop rows
 	for(int i = 0; i < height; i++){
@@ -12,6 +14,9 @@ int width = getWorldWidth();
 		for(int j = 0; j < width; j++){
 			if(hasBaggle(i, j)){
 				setIndication(i, j, 0);
+				//save coordinates
+				x = i;
+				y = j;
 				//stop loops when baggle is found
 				i = 99;
 				j = 99;
@@ -45,10 +50,10 @@ setDirection(Direction.NORTH);
 		}
 
 		//pick up baggle
-		if(isOverBaggle()){
+/*		if(isOverBaggle()){
 			pickUpBaggle();
 			setDirection(Direction.NORTH);
 		}
-		
+*/		
 	}while(!isCarryingBaggle());
 }//end escapeTheMaze
