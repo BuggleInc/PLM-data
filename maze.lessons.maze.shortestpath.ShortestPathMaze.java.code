@@ -1,6 +1,6 @@
 public void run() {
 	findBaggle();
-	escapeTheMaze();
+//	escapeTheMaze();
 }
 public void findBaggle(){
 int height = getWorldHeight();
@@ -41,19 +41,19 @@ setDirection(Direction.NORTH);
 			}
 		}
 
-		if(isFacingWall()){
+		while(isFacingWall()){
 			right();
 			turns--;
-		}else{
-			forward();
-			left();
-			turns++;
 		}
+		
+		forward();
+		left();
+		turns++;
 
 		//pick up baggle
 		if(isOverBaggle()){
-//			pickUpBaggle();
-//			setDirection(Direction.NORTH);
+			pickUpBaggle();
+			setDirection(Direction.NORTH);
 		}
 		
 	}while(!isCarryingBaggle());
