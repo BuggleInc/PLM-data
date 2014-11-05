@@ -10,10 +10,14 @@ public void keepHandOnSideWall(){
 
 		forward();
 
-		if(isOverBaggle() ){
-			pickUpBaggle();
-		}else{
+		while(!isFacingWall() ){
 			left();
 		}
+
+		if(isOverBaggle() ){
+			pickUpBaggle();
+		}//else{
+			//left();
+		//}
 	}while(!isCarryingBaggle() );
 }//end keepHandOnSideWall
