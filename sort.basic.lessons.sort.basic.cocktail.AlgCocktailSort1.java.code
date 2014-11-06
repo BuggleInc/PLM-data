@@ -10,13 +10,17 @@ public void cocktailSort() {
 				swap(i, i+1);
 				swapped = true;
 			}
+			if (!isSmaller(getValueCount() - i, getValuecount() - i + 1)) {
+				swap(getValueCount() - i, getValueCount() - i+1);
+				swapped = true;
+			}
 		}
-		for (int i = getValueCount() - 1; i > passes + 1; i--) {
+		/*for (int i = getValueCount() - 1; i > passes + 1; i--) {
 			if (!isSmaller(i-1, i)) {
 				swap(i-1, i);
 				swapped = true;
 			}
-		}
+		}*/
 		passes++;
 	} while(swapped||passes < 150);
 }
