@@ -1,5 +1,7 @@
 public void spiral(int steps, int angle, int length, int increment)    {
-	forward(steps);
-	left(angle);
-	spiral(steps,angle,length+increment,increment);
+	if (steps > 0) {
+		forward(length);
+		left(angle);
+		spiral(steps - 1,angle,length+increment,increment);
+	}
 }
