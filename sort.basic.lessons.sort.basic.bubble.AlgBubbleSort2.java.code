@@ -1,2 +1,19 @@
 public void bubbleSort2() {
+	boolean swapped = false;
+	int passes = 1;
+	do {
+		swapped = false;
+		System.out.println("Values:  " + getValueCount());
+		for (int i = 0; i < getValueCount() - passes; i++, passes++) {
+			System.out.println("i:    " + i);
+			if (!isSmaller(i, i+1)) {
+				swap(i, i+1);
+				swapped = true;
+				System.out.println("Swapped: " + i + " and " + (i + 1));
+			} else {
+				System.out.println(i + ", " + (i+1));
+			}
+		}
+	} while(swapped);
 }
+
