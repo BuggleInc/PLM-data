@@ -16,6 +16,8 @@ int loops = 4;
 	for(int i = 0; i < loops; i++){
 		makeV();
 	}
+
+	forward(7);
 }//end method
 
 void makeV(){
@@ -25,8 +27,7 @@ int steps = 6;
 		for(int x = 0; x <= steps; x++){
 			
 			if(x == 2 || x == 4 || x == 6){
-				brushDown();
-				brushUp();
+				mark();
 			}
 
 			if(x == 4 || x == 5){
@@ -41,9 +42,7 @@ int steps = 6;
 				left();
 				forward();
 				left();
-				forward();
-				forward();
-				forward();
+				forward(3);
 				left();
 			}
 		}//end for
@@ -52,10 +51,8 @@ int steps = 6;
 void newStartPos(){
 	//move buggle to new start position
 	//to make a new pattern
-	for(int j = 0; j < 7; j++){
-		forward();
-	}
-}
+	forward(7);
+}//end newStartPos()
 
 //move buggle so it can start a new row
 void shiftBuggle(){
@@ -97,4 +94,9 @@ void rowOfPatterns(){
 	makePattern();
 	newStartPos();
 	makePattern();
+}
+
+void mark(){
+	brushDown();
+	brushUp();
 }
