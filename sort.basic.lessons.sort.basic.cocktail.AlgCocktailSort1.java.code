@@ -1,9 +1,37 @@
 public void cocktailSort() {
 	boolean swapped;
 	System.out.println("\n - - B E G I N - - \n");
-	do {
+	outer: do {
 		swapped = false;
 		int i = 0;
+		int compDir = 1;
+
+		do { //fix condition
+			
+			if (!isSmaller(i, i + compDir) {
+				swap(i, i + compDir);
+				swapped = true;
+			}
+			
+			i+=compDir;
+			
+			switch(i) {
+				case 0:
+					if(swapped) {
+						compDir = 1;
+						swapped = false;
+					} else {
+						break outer;
+					}
+					break;
+				case getValueCount() - 1:
+					swapped = false;
+					compDir = -1;
+					break;
+			}
+		} while (true)
+
+		/*
 		while(i < getValueCount() - 1) {
 			System.out.println("-> i:  " + i);
 			if (isSmaller(i + 1, i)) {
@@ -21,7 +49,7 @@ public void cocktailSort() {
 				swapped = true;
 			}
 			i--;
-		}
+		}*/
 	} while(swapped);
 }
 
