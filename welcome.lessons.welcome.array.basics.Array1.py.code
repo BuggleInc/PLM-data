@@ -1,7 +1,22 @@
+def getMotif():
+    for i in range(getMondeLargeur()):    # on récupère le motif
+        motif=[]
+        c = getCouleurSol
+        motif.append(c)
+        forward()
+    return motif
 
-for i in range(getMondeLargeur()):    # on récupère le motif
-    motif=[]
-    c = getCouleurSol
-    motif.append(c)
-    forward()
 
+    
+motifADupliquer = getMotif()
+
+for i in range(getMondeLargeur())-1:
+    gauche()
+    avance()
+    droite()
+    avance()                     # on se décale
+    baisseBrosse()
+    for j in range(len(motifADupliquer)):
+        setCouleurBrosse(motifADupliquer[j])
+        avance()
+    leveBrosse()
