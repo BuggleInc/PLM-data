@@ -1,16 +1,17 @@
 forward()
 nbB=0
+ if estSurBiscuit():
+    nbB=nbB+1
 while not sortieTrouvee():        
     while not croisement():
          forward()
-if estSurBiscuit():
-        nbB=nbB+1
-    if nbB<=2:
+        if nbB<=2:
             droite()
             forward()
-    if nbB>=3:
+        if nbB>=3:
             gauche()
             forward()
+
     if estFaceMur():
         nbB=0
         gauche() or droite()
