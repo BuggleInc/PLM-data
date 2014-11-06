@@ -1,6 +1,7 @@
  public void hunt(Color c) {
  	while(!isOverBaggle()){
- 		if(isFacingTrail()){
+ 		
+ 		if(isFacingTrail(c)){
  			forward();
  		}else{
  			left();
@@ -11,7 +12,7 @@
      
  }
 
-boolean isFacingTrail() {
+boolean isFacingTrail(Color c) {
 boolean pinkCell = false;
 
 	if(isFacingWall()){
@@ -19,7 +20,7 @@ boolean pinkCell = false;
 	}
 
 	forward();
-	pinkCell = getGroundColor().equals(Color.pink); 
+	pinkCell = getGroundColor().equals(c); 
 	backward();
 	
 	return pinkCell;
