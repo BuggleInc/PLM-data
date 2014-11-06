@@ -2,9 +2,9 @@ public void tree(int steps, double length, double angle, double shrink)    {
 	if (steps > 0) {
 		forward(length);
 		right(angle);
-		tree(1,length*shrink,angle,shrink);
+		tree(steps - 1,length*shrink,angle,shrink);
 		left(angle * 2);
-		tree(1,length*shrink,angle,shrink);
+		tree(steps - 1,length*shrink,angle,shrink);
 		right(angle);
 		backward(length);
 	}
