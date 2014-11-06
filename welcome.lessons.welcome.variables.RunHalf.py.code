@@ -1,8 +1,11 @@
 b=0
 o=0
-n=2*b
-r=o+1
-while not n!=r:
+avance(1)
+if estSurBiscuit():
+    b=b+1
+if estSurOrange():
+    o=o+1
+if not estSurOrange() and estSurBiscuit():
     avance(1)
     if estSurBiscuit():
         b=b+1
@@ -10,6 +13,12 @@ while not n!=r:
         o=o+1
     n=2*b
     r=o+1
+    while not n!=r:
+        avance(1)
+        if estSurBiscuit():
+            b=b+1
+        if estSurOrange():
+            o=o+1
 
         
     
