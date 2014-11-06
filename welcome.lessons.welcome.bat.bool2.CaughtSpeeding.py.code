@@ -1,13 +1,14 @@
 def caughtSpeeding(speed, isBirthday):
-    if not isBirthday and (speed<=60):
-        return 0
-    elif not isBirthday and (speed>=61 and speed<=80):
-        return 1
-    elif not isBirthday and (speed<=81):
-        return 2
-    elif isBirthday and ((speed+5)<=60):
+    if isBirthday and ((speed+5)<=60):
         return 0
     elif isBirthday and ((speed+5)>=61 and (speed+5)<=80):
         return 1
     elif isBirthday and ((speed+5)<=81):
+        return 2
+    
+    elif not isBirthday and (speed<=60):
+        return 0
+    elif not isBirthday and (speed>=61 and speed<=80):
+        return 1
+    elif not isBirthday and (speed<=81):
         return 2
