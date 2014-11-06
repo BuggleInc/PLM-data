@@ -19,22 +19,15 @@ public void cocktailSort() {
 			
 			i+=compDir;
 			
-			switch(i) {
-				case 0:
-					if(swapped) {
-						compDir = 1;
-						swapped = false;
-						break;
-					} else {
-						break outer;
-					}
-				case i==maxIndex:
+			if(i==0||i==(getValueCount() - 1)) {
+				if (swapped) {
+					compDir *= -1;
 					swapped = false;
-					compDir = -1;
-					break;
-				default:
-					break;
+				} else {
+					break Outer;
+				}
 			}
+			
 		} while (true);
 
 		/*
