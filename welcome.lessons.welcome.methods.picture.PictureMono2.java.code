@@ -1,5 +1,5 @@
 public void run() {
-	for(int x = 0, y = 3; x < y; x++){
+	for(int x = 0, y = 3; x < 3; x++){
 		rowOfPatterns();
 		if(x < 2){
 			shiftBuggle();
@@ -17,6 +17,7 @@ int loops = 4;
 		makeV();
 	}
 
+	//move buggle to new start position
 	forward(7);
 }//end method
 
@@ -48,27 +49,15 @@ int steps = 6;
 		}//end for
 }// end makeV
 
-void newStartPos(){
-	//move buggle to new start position
-	//to make a new pattern
-	forward(7);
-}//end newStartPos()
-
 //move buggle so it can start a new row
 void shiftBuggle(){
 	left();
 	
-		for(int i = 0; i < 7; i++){
-			forward();
-		}
+	for(int i = 0; i < 7; i++){
+		forward();
+	}
 
-		right();
-		
-//		for(int y = 0; y < 14; y++){
-//			forward();
-//		}
-		
-//	back();
+	right();
 }
 
 //move buggle back to starting cell after drawing the last row
@@ -86,17 +75,15 @@ void resetBuggle(){
 	}
 
 	left();
-}
+}//end resetBuggle()
 
 void rowOfPatterns(){
 	makePattern();
-//	newStartPos();
 	makePattern();
-//	newStartPos();
 	makePattern();
-}
+}//end rowOfPatterns()
 
 void mark(){
 	brushDown();
 	brushUp();
-}
+}//end mark()
