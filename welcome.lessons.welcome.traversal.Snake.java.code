@@ -14,14 +14,22 @@ void snakeBuggle(){
 		//if(!finalPos() ){
 			if(getDirection() == Direction.EAST){
 				left();
+				if(!isFacingWall() {
+					forward();
+					left();
+				}
 			}
 			if(getDirection() == Direction.WEST){
 				right();
+				if(!isFacingWall() ){
+					forward();
+					right();
+				}
 			}
-			if(!isFacingWall() && getDirection() == Direction.NORTH){
-				forward();
+			//if(!isFacingWall() && getDirection() == Direction.NORTH){
+				//forward();
 				//left();
-			}//else{
+			//}//else{
 				//right();
 				//forward();
 				//right();
