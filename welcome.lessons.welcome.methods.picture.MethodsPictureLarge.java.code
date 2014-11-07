@@ -63,33 +63,19 @@ int steps = 5;
 //	}
 }
 
-//move buggle so it can start a new row
-void shiftBuggle(){
-int up = 45;
 
+void shiftBuggle(){
+	//move buggle so it can start a new row
 	left();
-	//go 5 steps up then 40 steps across
-//	for(int i = 1; i <= up; i++){
-		forward(5);
-//		if(i == 5){
-			left();
-//		}
-//	}
+	forward(5);
+	left();
 	back();
 }//end shiftBuggle
 
 //move buggle back to starting cell after drawing the last row
 void resetBuggle(){
-int steps = 80;
-	back();
-	//go 40 steps across then 40 steps down	
-	for(int y = 1; y <= steps; y++){
-		forward();
-		if(y == 40){
-			left();
-		}
-	}
-
+	right();
+	forward(40);
 	left();
 }//end resetBuggle
 
