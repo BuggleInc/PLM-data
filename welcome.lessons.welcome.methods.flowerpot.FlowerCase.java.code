@@ -84,17 +84,10 @@ int steps = 4;
 }//end shiftLeft()
 
 void shiftCentral(){
-int steps = 4;
-
 	left();
-	//go up 2 steps then left 2 steps
-	for(int i = 0; i < steps; i++){
-		if(i == 2){
-			left();
-		}
-		forward();
-	}
-	
+	forward(2);
+	left();
+	forward(2);
 	back();
 }//end shiftCentral()
 
@@ -102,16 +95,17 @@ void newStartPos(){
 int steps = 20;
 
 	right();
-
-	for(int i = 0; i < steps; i++){
-		if(i == 3){
+	forward(3);
+	//for(int i = 0; i < steps; i++){
+	//	if(i == 3){
 			right();
-		}
-		if(i == 17){
+	//	}
+	//	if(i == 17){
+	forward(14);
 			left();
-		}
-		forward();
-	}
+	//	}
+		forward(3);
+	//}
 	left();
 }//end newStartPos
 
