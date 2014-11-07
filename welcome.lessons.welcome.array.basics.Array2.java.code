@@ -12,8 +12,7 @@ cell = new Color[size];
 				cell[j] = getGroundColor();
 			}else{
 				setBrushColor(cell[(j + offset) % size]);
-				brushDown();
-				brushUp();
+				mark();
 			}
 			if(j < size - 1){
 				forward();
@@ -36,3 +35,9 @@ cell = new Color[size];
 		offset = Integer.parseInt(readMessage());
 	}//end for
 }//end run
+
+void mark(){
+	brushDown();
+	brushUp();
+}
+
