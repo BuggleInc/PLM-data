@@ -44,47 +44,20 @@ int steps = 7;
 	right();
 }//end makeFlower()
 
-void makeBlueFlower(Color c){
-int steps = 7;
-
-	for(int i = 0; i <= steps; i++){
-		if(i == 2 || i == 3 || i == 4){
-			left();
-		}
-		if(i == 6 || i == 7){
-			right();
-		}
-		if(i == 1){
-			setBrushColor(Color.yellow);
-			mark();
-		}else if(i == 0 || i == 2 || i == 4 || i == 6){
-			setBrushColor(c);
-			mark();			
-		}
-		forward();
-	}
-	right();
-}//end makeBlueflower()
-
 void shiftRight1(){
-int steps = 4;
-
-	//go right 4 steps
-	for(int i = 0; i < steps; i++){
-		forward();
-	}
+	forward(4);
 }//end shiftRight1()
 
 void shiftRightUp1(){
 int steps = 8;
-
+	forward(6);
 	//go right 6 steps
-	for(int i = 0; i < steps; i++){
-		if(i == 6){
+	//for(int i = 0; i < steps; i++){
+	//	if(i == 6){
 			left();
-		}
-		forward();
-	}
+	//	}
+		forward(2);
+	//}
 
 	right();
 }//end shiftRightUp1()
