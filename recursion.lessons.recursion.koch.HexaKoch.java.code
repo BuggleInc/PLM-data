@@ -1,0 +1,18 @@
+void drawCurve(int levels, double length) {
+    hexaKoch(levels, length);
+}
+void hexaKoch(int levels, double length) {
+	if (levels == 0) {
+		forward (length);
+	} else {
+		hexaKoch(levels - 1, length * 0.14);
+		left(180 - (360 / 6));
+		for (int i = 0; i < 4; i ++) {
+			hexaKoch(levels - 1, length * 0.14);
+			right (360 / 6);
+		}
+		hexahexaKoch(levels - 1, length * 0.14);
+		left (180 - (360 / 6));
+		hexaKoch(levels - 1, length * 0.14);
+	}
+}
