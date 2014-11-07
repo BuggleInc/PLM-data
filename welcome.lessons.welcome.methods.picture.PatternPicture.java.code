@@ -5,7 +5,7 @@ public void run() {
 void makePattern() {
 int loops = 4;
 
-	//this loop draws 4 square's
+	//draw 4 square's
 	for(int i = 0; i < loops; i++){
 		if(i == 1 || i == 3){
 			newStartPosition();
@@ -26,8 +26,7 @@ int steps = 18;
 			//red cells
 			if(x == 1 || x == 7){
 				setBrushColor(Color.red);
-				brushDown();
-				brushUp();
+				mark();
 			}
 
 			//blue cells
@@ -70,12 +69,12 @@ int steps = 18;
 void mark(){
 	brushDown();
 	brushUp();
-}//end mark
+}//end mark()
 
 void newStartPosition(){
-	for(int x = 1; x <= 4; x++){
-		forward();
-	}
+//	for(int x = 1; x <= 4; x++){
+		forward(4);
+//	}
 }//end newStartPosition
 
 //move buggle so it can start a new row
