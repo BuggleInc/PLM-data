@@ -12,12 +12,12 @@ void snowSide(int levels, double length) {
 	if (levels == 0) {
 		forward(length);
 	} else {
-		forward(length/3);
+		snowSide(levels - 1, length/3);
 		left(60);
 		snowSide(levels - 1, length/3);
 		right(120);
 		snowSide(levels - 1, length/3);
 		left(60);
-		forward(length/3);
+		snowSide(levels - 1, length/3);
 	}
 }
