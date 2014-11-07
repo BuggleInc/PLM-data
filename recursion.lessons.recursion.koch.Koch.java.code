@@ -1,0 +1,23 @@
+void snowFlake (int levels, double length) {
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.blue);
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.orange);
+    snowSide(levels, length);
+    right(120);
+}
+void snowSide(int levels, double length) {
+	if (levels == 0) {
+		forward(length);
+	} else {
+		forward(length/3);
+		left(60);
+		snowSide(levels - 1, length/3);
+		right(120);
+		snowside(levels - 1, length/3);
+		left(60);
+		forward(length/3);
+	}
+}
