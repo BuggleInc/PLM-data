@@ -12,10 +12,11 @@ void makeRows(int rows){
 			resetBuggle();
 		}
 	}
-}
+}//end makeRows
 
 void makePattern() {
 	//this draws 4 V's of different colours
+	//then positions buggle to start a new pattern
 	makeV(Color.yellow);
 	makeV(Color.red);
 	makeV(Color.blue);
@@ -26,33 +27,37 @@ void makePattern() {
 void makeV(Color c){
 int steps = 5;
 
-		//this loop draws a V
-		for(int x = 0; x <= steps; x++){
+	//this loop draws a V
+	for(int x = 0; x <= steps; x++){
 			
-			if(x == 1 || x == 3 || x == 5){
-				setBrushColor(c);
-				brushDown();
-				brushUp();
-			}
+		if(x == 1 || x == 3 || x == 5){
+			setBrushColor(c);
+			mark();
+		}
 
-			if(x == 3 || x == 4){
-				left();
-			}
+		if(x == 3 || x == 4){
+			left();
+		}
 
-			if(x < steps){
-				forward();
-			}
+		if(x < steps){
+			forward();
+		}
 				
-			if(x == 5){
-				left();
-				forward();
-				left();
-				forward(2);
-				left();
-			}
-		}//end for
+		if(x == 5){
+			left();
+			forward();
+			left();
+			forward(2);
+			left();
+		}
+	}//end for
 
 }// end makeV()
+
+void mark(){
+	brushDown();
+	brushUp();	
+}//end mark()
 
 //move buggle so it can start a new row
 void shiftBuggle(){
@@ -74,4 +79,3 @@ void rowOfPatterns(){
 	makePattern();
 	makePattern();
 }//end rowOfPatterns()
-
