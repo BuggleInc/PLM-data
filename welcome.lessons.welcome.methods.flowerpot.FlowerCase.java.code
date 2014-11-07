@@ -20,7 +20,7 @@ void growFlowers(){
 			newStartPos();
 		}
 	}//end for
-}//end growFlowers
+}//end growFlowers()
 
 void makeFlower(Color c){
 int steps = 7;
@@ -34,15 +34,15 @@ int steps = 7;
 		}
 		if(i == 1){
 			setBrushColor(Color.yellow);
-			brushes();
+			mark();
 		}else if(i == 0 || i == 2 || i == 4 || i == 6){
 			setBrushColor(c);
-			brushes();			
+			mark();			
 		}
 		forward();
 	}
 	right();
-}//end makeFlower
+}//end makeFlower()
 
 void makeBlueFlower(Color c){
 int steps = 7;
@@ -64,7 +64,7 @@ int steps = 7;
 		forward();
 	}
 	right();
-}//end makeBlueflower
+}//end makeBlueflower()
 
 void shiftRight1(){
 int steps = 4;
@@ -73,7 +73,7 @@ int steps = 4;
 	for(int i = 0; i < steps; i++){
 		forward();
 	}
-}//end shiftRight1
+}//end shiftRight1()
 
 void shiftRightUp1(){
 int steps = 8;
@@ -87,7 +87,7 @@ int steps = 8;
 	}
 
 	right();
-}//end shiftRightUp1
+}//end shiftRightUp1()
 
 void shiftRightUp2(){
 int steps = 4;
@@ -101,7 +101,7 @@ int steps = 4;
 	}
 
 	right();
-}//end shiftRightUp2
+}//end shiftRightUp2()
 
 void shiftDown1(){
 int steps = 4;
@@ -113,34 +113,23 @@ int steps = 4;
 	}
 
 	left();
-}//end shiftDown
+}//end shiftDown()
 
 void shiftDown2(){
-int steps = 4;
-
 	right();
-	//go down 2 steps
-	for(int i = 0; i < steps; i++){
-		if(i == 2){
-			right();
-		}
-		forward();
-	}
-
+	forward(2);
+	right();
+	forward(2);
 	back();
-}//end shiftDown2
+}//end shiftDown2()
 
 void shiftLeft(){
 int steps = 4;
 	//go left 4 steps
 	back();
-	
-	for(int i = 0; i < steps; i++){
-		forward();
-	}
-
+	forward(4);
 	back();
-}//end shiftLeft
+}//end shiftLeft()
 
 void shiftCentral(){
 int steps = 4;
@@ -155,7 +144,7 @@ int steps = 4;
 	}
 	
 	back();
-}//end shiftCentral
+}//end shiftCentral()
 
 void newStartPos(){
 int steps = 20;
@@ -172,9 +161,9 @@ int steps = 20;
 		forward();
 	}
 	left();
-}
+}//end newStartPos
 
-void brushes(){
+void mark(){
 	brushDown();
 	brushUp();
-}
+}//end mark()
