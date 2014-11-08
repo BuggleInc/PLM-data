@@ -2,8 +2,7 @@ L=[getCouleurSol()]
 for i in range(getWorldHeight()-1):
     avance()
     L.append(getCouleurSol())
-while estDosMur() is False:
-    backward()
+backward(getWorldHeight()-1)
 left()
 forward()
 right()
@@ -13,7 +12,8 @@ for i in range(getMondeLargeur()):
     setCouleurbrosse(L[0+M])
     leveBrosse()
     for j in range(getWorldHeight()-1):
-        setCoueleurBrosse(L[(j+M)%len(L)])
+        setCouleurBrosse(L[(j+M)%len(L)])
         forward()
         baisseBrosse
         leveBrosse()
+    backward(getWorldHeight()-1)
