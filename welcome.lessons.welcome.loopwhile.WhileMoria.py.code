@@ -1,29 +1,20 @@
 gauche()
 gauche()
-if(estFaceMur()==True):
-    droite()
-    avance()
-    gauche()
-    avance()
-else:
-    while(porteBiscuit()==False):
+while(porteBiscuit()==False):
+    while(estSurBiscuit()==False):
+        avance()
+    if(estSurBiscuit()==True):
+        prendBiscuit()
+    while(porteBiscuit()==True):
         while(estSurBiscuit()==False):
-                if(estFaceMur()==True):
-                    droite()
-                    avance()
-                    gauche()
-                    avance()
-                else:
-                    avance()
-        if(estSurBiscuit()==True):
-                prendBiscuit()
-        while(porteBiscuit()==True):
-            while(estSurBiscuit()==False):
-                    recule()
-            avance()
-            poseBiscuit()
-            avance()
-
+            recule()
+    avance()
+     poseBiscuit()
+     avance()
+droite()
+avance()
+gauche()
+avance()
 
 
 
