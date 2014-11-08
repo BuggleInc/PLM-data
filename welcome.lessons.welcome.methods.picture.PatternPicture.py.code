@@ -1,16 +1,37 @@
 def mini(c):
-    setCouleurBrosse(c)
-    for i in range(2):
-        forward()
-        baisseBrosse()
-        leveBrosse()
-        backward()
-        left()
-    for i in range(3):
-        backward()
-    right()
+        setCouleurBrosse(c)
+        for l in range(2):
+            forward()
+            baisseBrosse()
+            leveBrosse()
+            backward()
+            left()
+        for l in range(3):
+            backward()
+        right()
+def carre():
+    n=0
+     for k in range(4):
+            if n==0:
+                mini(Color.red)
+            elif n==1:
+                mini(Color.blue)
+            elif n==2:
+                mini(Color.green)
+            else:
+                mini(Color.yellow)
+            n=n+1
 
-for i in range(2):
-    for i in range(2):
-        n=0
+def ligne():
+    carre()
+    for i in range(4):
+        forward()
+    carre()
         
+ligne()
+for i in range(4):
+    backward()
+    left()
+    forward()
+    right()
+ligne()
