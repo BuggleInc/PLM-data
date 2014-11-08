@@ -17,9 +17,15 @@ override def run() {
 		avance();
 		droite();
 		val decalage = litMessage().toInt;
+		setCouleurBrosse(couleur((decalage) % taille));
+		baisseBrosse();
+		leveBrosse();
+		avance();
 
-		for(i <- 0 to getMondeHauteur()-2) {
-			
+		for(i <- 1 to getMondeHauteur()-1) {
+			setCouleurBrosse(couleur((i + decalage) % taille));
+			baisseBrosse();
+			leveBrosse();
 			avance();
 		}
 	}
