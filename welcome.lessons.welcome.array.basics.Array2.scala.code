@@ -1,6 +1,7 @@
 override def run() {
 
 	var couleur = new Array[Color](getMondeHauteur());
+	var taille = getMondeHauteur();
 	
 	couleur(0) = getCouleurSol();
 	
@@ -17,7 +18,9 @@ override def run() {
 		droite();
 		val decalage = litMessage().toInt
 		for(i <- 0 to getMondeHauteur()-2)
-			
+			setCouleurBrosse(couleur((i + decalage) % taille));
+			baisseBrosse();
+			leveBrosse();
 			avance();
 		
 	}
