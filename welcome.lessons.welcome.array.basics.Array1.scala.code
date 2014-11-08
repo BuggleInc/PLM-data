@@ -5,4 +5,17 @@ override def run() {
 		avance();
 		couleur(i) = getCouleurSol();
 	}
+	for(i <- 0 to getMondeLargeur()-1) {
+		gauche();
+		avance();
+		droite();
+		
+		for(i <- 0 to getMondeHauteur()-1) {
+			avance();
+			setCouleurBrosse(couleur(i));
+			baisseBrosse();
+			leveBrosse();
+		}
+		
+	}
 }
