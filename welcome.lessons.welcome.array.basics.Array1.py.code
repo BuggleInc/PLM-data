@@ -1,7 +1,19 @@
 L=[]
 L0=getCouleurSol()
 premier=True
+n=0
 while (getCouleurSol()!=L0 or premier==True):
     premier=False
     L.append(getCouleurSol())
     forward()
+    n=n+1
+
+for i in range(n-1):
+    left()
+    forward()
+    right()
+    forward()
+    baisseBrosse()
+    for j range(n):
+        setCouleurBrosse(L[i])
+    leveBrosse()
