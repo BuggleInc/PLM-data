@@ -3,10 +3,13 @@ override def run() {
 	var couleur = new Array[Color](getMondeHauteur());
 	couleur(0) = getCouleurSol();
 	
-	
 	for(i <- 1 to getMondeHauteur()-1) {
 		avance();
 		couleur(i) = getCouleurSol();
-		
+	}
+
+	for(i <- 0 to getMondeLargeur()-1) {
+		for(i <- 0 to getMondeHauteur()-1)
+			recule();
 	}
 }
