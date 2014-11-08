@@ -15,9 +15,22 @@ def positionFinale():Boolean = {
 }
 
 override def run() {
+	baisseBrosse();
 	while (!positionFinale()) {
-		baisseBrosse();
-		avance();
+		if(!estFaceMur())
+			avance();
+		else{
+			if(getDirection() == Direction.EST) {
+				gauche();
+				avance();
+				gauche();
+			}
+			if(getDirection() == Direction.OUEST) {
+				droite();
+				avance();
+				droite();
+					
+			}	
+		}
 	}
-
 }
