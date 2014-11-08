@@ -11,22 +11,20 @@ override def run() {
 	}
 
 	for(j <- 0 to getMondeLargeur()-2) {
-		for(i <- 0 to getMondeHauteur()-2)
-			recule();
+		
 		gauche();
 		avance();
 		droite();
 		val decalage = litMessage().toInt;
-		for(i <- 0 to getMondeHauteur()-1) {
+		
 			
 			
-			setCouleurBrosse(couleur((i + decalage) % taille));
+			setCouleurBrosse(couleur((0 + decalage) % taille));
 			baisseBrosse();
 			leveBrosse();
 			avance();
-		}
+		
 	}
 
-	for(i <- 0 to getMondeHauteur()-2)
-			recule();
+	
 }
