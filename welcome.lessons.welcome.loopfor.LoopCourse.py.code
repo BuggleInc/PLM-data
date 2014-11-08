@@ -1,10 +1,14 @@
 pas=0        #nombre de case parcourue
 cote=0       #nombre de coté parcouru
-for pas in range(8):
-    if(estFaceMur()==False):
-        forward()
-        pas=pas+1
-gauche()
-cote=cote+1
-pas=0
+tour=0
+for tour in range (10):
+    for cote in range (4):
+        for pas in range(8):
+            forward()
+            pas=pas+1
+        gauche()
+        cote=cote+1
+        pas=0
+    tour=tour+1
+    cote=0
 
