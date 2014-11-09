@@ -1,4 +1,28 @@
+def marque():
+        setCouleurBrosse(Color.lightGray)
+        baisseBrosse()
+        leveBrosse()
+        
 def isFacingTrail(color):
-   # write your code here
+   if estFaceMur():
+        return False
+    else:
+        forward()
+        if getCouleurSol() == color:
+            recule()
+            return True
+        else:
+            recule()
+            return False
 
 def hunt(color):
+    while not estSurBiscuit():
+        if isFacingTrail()==True:
+            avance()
+            marque()
+        else:
+            droite()
+    prendBiscuit()
+
+
+hunt()                
