@@ -10,18 +10,18 @@ void snakeBuggle(){
 		while(!isFacingWall() ){
 			forward();
 		}
-		
-		if(getDirection() == Direction.EAST){
-			left();
-			if(!isFacingWall()) {
+
+		if(isFacingWall()){
+			if(getDirection() == Direction.EAST){
+				left();
 				forward();
 				left();
-			}
-		}else if(getDirection() == Direction.WEST){
-			right();
-			if(!isFacingWall() ){
+				}
+			}else{
+				right();
 				forward();
 				right();
+				}
 			}
 		}
 	}while(!finalPos() );//end while
