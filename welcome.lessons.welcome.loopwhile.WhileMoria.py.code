@@ -1,17 +1,16 @@
-recule()
-while not estFaceMur():
-    while (not isOverBaggle()) and (not estFaceMur()):
+while estDosMur()==False or porteBiscuit() and estSurBiscuit()==False:
+    recule()
+if estSurBiscuit():
+    prendBiscuit()
+if porteBiscuit():
+    while estSurBiscuit()==False:
         avance()
-    if isOverBaggle():
-        pickupBaggle()
         recule()
-        while not isOverBaggle():
-            forward()
-        backward()
-        dropBaggle()
-        recule()
+        poseBiscuit()
+        gauche()
         avance()
-droite()
-avance()
-gauche()
-avance()
+        droite()
+        recule()
+        gauche()
+        gauche()
+        
