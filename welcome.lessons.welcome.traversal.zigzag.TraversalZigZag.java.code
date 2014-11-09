@@ -1,0 +1,31 @@
+public void run() {
+	zigZag();
+}
+
+void zigZag(){
+int width = getWorldWidth();
+int height = getWorldHeight();
+int gx = getX();
+int gy = getY();
+int count = 0;
+
+	for(int x = gx; x < width; x++){
+		for(int y = gy; y < height; y++){
+			
+			if(!finalPos()){
+				setPos(x, y);
+				writeMessage(count);
+				count++;
+			}			
+		}
+	}
+}
+
+boolean finalPos(){
+	if(getX() == getWorldWidth() && getY() == getWorldHeight()){
+		return true;
+	}
+
+	return false;
+}//end finalPos
+
