@@ -14,15 +14,21 @@ for(i<-1 to getMondeLargeur()){
 	     gauche()
 	     avance()
 	     droite()
-	    for (j<- 0 to getMondeHauteur()-3){
+	    for (j<- 0 to getMondeHauteur()-i){
 	     	setCouleurBrosse(t(j+i))
 	     	baisseBrosse()
 	     	leveBrosse()
 	     	avance()
 	     }
-	     setCouleurBrosse(t(i-1))
+	     for(k<-1 to i-1 ){
+	     setCouleurBrosse(t(k))
 	     baisseBrosse()
 	     leveBrosse()
+	     	avance()
+	     	if(k==i-1){
+	     	   baisseBrosse()
+	     leveBrosse()	}
+	     	}
 	     for(j<-0 to getMondeHauteur()-2){
 	     recule() }
 	  
