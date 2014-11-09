@@ -11,17 +11,20 @@ void snakeBuggle(){
 			forward();
 		}
 
-		if(isFacingWall()){
 			if(getDirection() == Direction.EAST){
 				left();
-				forward();
-				left();
+				if(!isFacingWall()){
+					forward();
+					left();
+				}
 			}else{
 				right();
-				forward();
-				right();
+				if(!isFacingWall()){
+					forward();
+					right();
+				}
 			}
-		}
+
 	}while(!finalPos() );//end while
 }//end snakeBuggle()
 
