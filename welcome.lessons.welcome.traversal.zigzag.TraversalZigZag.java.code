@@ -8,17 +8,28 @@ int height = getWorldHeight();
 int gx = getX();
 int gy = getY();
 int count = 0;
+int x = 0;
 
 	for(int y = gy; y < height; y++){
-		for(int x = gx; x < width; x++){
-			
-			if(!finalPos()){
-				setPos(x, y);
-				writeMessage(count);
-				count++;
-			}			
+		if(x < width){
+			for(x = gx; x < width; x++){
+				
+				if(!finalPos()){
+					setPos(x, y);
+//					writeMessage(count);
+//					count++;
+				}			
+			}else{
+				for(; x > 0; x--){
+					if(!finalPos()){
+						setPos(x, y);
+					}
+				}
+			}
+					writeMessage(count);
+					count++;			
 		}
-		setPos(gx -1,getY()+1);
+		//setPos(gx -1,getY()+1);
 	}
 }
 
