@@ -7,25 +7,23 @@ void snakeBuggle(){
 	brushDown();
 
 	do{
-		
 		while(!isFacingWall() ){
 			forward();
 		}
 		
-			if(getDirection() == Direction.EAST){
+		if(getDirection() == Direction.EAST){
+			left();
+			if(!isFacingWall()) {
+				forward();
 				left();
-				if(!isFacingWall()) {
-					forward();
-					left();
-				}
-			}else if(getDirection() == Direction.WEST){
-					right();
-					if(!isFacingWall() ){
-						forward();
-						right();
-					}
-				//}
 			}
+		}else if(getDirection() == Direction.WEST){
+			right();
+			if(!isFacingWall() ){
+				forward();
+				right();
+			}
+		}
 	}while(!finalPos() );//end while
 }//end snakeBuggle()
 
