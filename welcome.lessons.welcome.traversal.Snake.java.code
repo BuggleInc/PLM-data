@@ -19,22 +19,14 @@ void snakeBuggle(){
 					left();
 				}
 			}else{
-			if(getDirection() == Direction.WEST){
-				right();
-				if(!isFacingWall() ){
-					forward();
+				if(getDirection() == Direction.WEST){
 					right();
+					if(!isFacingWall() ){
+						forward();
+						right();
+					}
 				}
 			}
-			//if(!isFacingWall() && getDirection() == Direction.NORTH){
-				//forward();
-				//left();
-			//}//else{
-				//right();
-				//forward();
-				//right();
-			//}
-		}
 	}while(!finalPos() );//end while
 }//end snakeBuggle()
 
@@ -42,24 +34,17 @@ public boolean finalPos(){
 boolean e = false;
 boolean n = false;
 
-		//left();
+		//check for north facing wall
 		if(isFacingWall() && getDirection() == Direction.NORTH){
 			//right();
 			n = true;
 			right();
 		}		
 		
-		//check for north facing wall
+		//check for east facing wall
 		if(isFacingWall() && getDirection() == Direction.EAST){
-			//right();
 			e = true;
-			//left();
 		}
-
-
-		//left();
-		
-		//right();
 
 	return (e && n);
 }//end finalpos()
