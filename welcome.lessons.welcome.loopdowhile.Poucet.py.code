@@ -1,17 +1,19 @@
 
 PremiereFois=True
 
+while not estSurSortie():
 
+    while (PremiereFois or not croisement()):
+        PremiereFois=False
+        biscuit=0
 
-while (PremiereFois or not croisement()):
-    PremiereFois=False
-    biscuit=0
-
-    if estSurBiscuit():
-        biscuit=biscuit+1
-    forward()
+        if estSurBiscuit():
+            biscuit=biscuit+1
+        forward()
 
     if biscuit>=3:
         gauche()
     else:
         droite()
+
+forward()
