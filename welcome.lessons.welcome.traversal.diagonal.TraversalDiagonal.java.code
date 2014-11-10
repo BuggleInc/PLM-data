@@ -6,35 +6,21 @@ int count = 0;
 	writeMessage(count);
 
 	do{
-		zigZag();
+		diagonal();
 		count++;
 		writeMessage(count);
 	}while(!finalPos());
 
 }
 
-void zigZag(){
+void diagonal(){
 int width = getWorldWidth();
 int height = getWorldHeight();
 int x = getX();
 int y = getY();
 
-	if(y % 2 == 0){
-		if(x < width - 1){
-			x++;
-		}else{
-			if(y < height -1){
-				y++;
-			}
-		}
-	}else{
-		if(x > 0){
-			x--;
-		}else{
-			if(y < height -1){
-				y++;
-			}
-		}
+	if(y < height){
+		y++;
 	}
 	setPos(x, y);
 }//end zigZag()
