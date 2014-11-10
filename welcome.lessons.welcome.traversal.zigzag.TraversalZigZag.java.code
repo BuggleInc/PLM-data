@@ -1,8 +1,8 @@
 public void run() {
-	zigZag();zigZag();
+//	zigZag();
 }
 
-void zigZag(){
+void zz(){
 int width = getWorldWidth();
 int height = getWorldHeight();
 int gx = getX();
@@ -15,9 +15,18 @@ int x = 0;
 		setPos(gx+1, gy);		
 		writeMessage(count);
 		count++;
-	}
+	}	
+}
 
-/*	for(int y = gy; y < height; y++){
+void zigZag(){
+int width = getWorldWidth();
+int height = getWorldHeight();
+int gx = getX();
+int gy = getY();
+int count = 0;
+int x = 0;
+
+	for(int y = gy; y < height; y++){
 		if(x < width){
 			for(x = gx; x < width; x++){
 				
@@ -26,7 +35,7 @@ int x = 0;
 					writeMessage(count);
 					count++;
 				}			
-			}
+			}//end for
 		}else if(x > 0){
 			for(x = width-1; x >= 0; x--){
 				if(!finalPos()){
@@ -34,10 +43,9 @@ int x = 0;
 					writeMessage(count);
 					count++;						
 				}
-			}
-		}
-	}
-*/
+			}//end for
+		}//end if
+	}//end for
 }
 
 boolean finalPos(){
