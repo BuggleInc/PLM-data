@@ -1,13 +1,8 @@
 while not sortieTrouvee():
-    forward()
-    nbBis=0    
+    nbBis=0
     premiereFois=True
-    while premiereFois==True or not croisement():
-        forward()
+    while premiereFois==True or not (croisement() or estSurBiscuit()):
         premiereFois=False
-        if estSurBiscuit():
+        if estSurBiscuit() and croisement():
             nbBis=nbBis+1
-    if nbBis==2 or nbBis==1 or nbBis==0:
-        droite()
-    else:
-        gauche()
+        forward()
