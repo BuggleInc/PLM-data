@@ -25,10 +25,14 @@ this.setDirection(Direction.NORTH);
 		turns++;
 
 		//pick up baggle
-		if(isOverBaggle()){
-			pickUpBaggle();
-			this.setDirection(Direction.EAST);
-		}
+		grabBaggle();
 		
 	}while(!isCarryingBaggle());
 }//end escapeTheMaze
+
+void grabBaggle(){
+	if(isOverBaggle()){
+		pickUpBaggle();
+		setDirection(Direction.EAST);
+	}	
+}
