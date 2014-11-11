@@ -1,7 +1,14 @@
-N=0
-while getCouleurCorps()!=yellow:
-    for i in range(5):
-        if estSurBiscuit():
-            N=N+1
+premierefois=True
+while premiereFois or not croisement():
+    premiereFois=False
+    while sortieTrouvee()==False:
+        N=0
+        for i in range(5):
+            forward()
+            if estSurBiscuit():
+                    N=N+1
+        if N<3:
+            droite()
         else:
-            N=N
+            gauche()
+forward()
