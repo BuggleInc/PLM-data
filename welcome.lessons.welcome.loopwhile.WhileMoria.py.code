@@ -1,10 +1,18 @@
-while (estSurBiscuit()) is False:
-    getDirection.WEST(ouest)
+setDirection(Direction.EST)
+while estSurBiscuit() is False:
     avance()
-while (estSurBiscuit()) is True:
+while estSurBiscuit() is True:
     prendBiscuit()
-    porteBiscuit()
-    recule(1)
+    while estSurBiscuit() is False:
+        setDirection(Direction.OUEST)
+        avance()
+    recule()
     poseBiscuit()
-    getDirection.WEST(ouest)
-    avance()
+    recule()
+    setDirection(Direction.EST)
+    while estSurBiscuit() is False and estFaceMur() is False:
+        avance()
+setDirection(Direction.SUD)
+avance()
+setDirection(Direction.EST)
+avance()
