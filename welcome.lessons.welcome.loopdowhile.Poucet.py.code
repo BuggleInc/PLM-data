@@ -1,18 +1,19 @@
 p=0
-
-while p<5:
-    b=0
-    p=0
-    forward(1)
-    p=p+1
-    if estSurBiscuit():
-       b=b+1
-    if p==5:
-       if b>=3:
-           gauche()
-           forward()
-           p=1
-       elif b<=2:
-           droite()
-           forward()
-           p=1    
+if croisement():
+    avance(1)
+    while p<5:
+        b=0
+        p=0
+        forward(1)
+        p=p+1
+        if estSurBiscuit():
+           b=b+1
+        if p==5:
+           if b>=3:
+               gauche()
+               forward()
+               p=1
+           elif b<=2:
+               droite()
+               forward()
+               p=1    
