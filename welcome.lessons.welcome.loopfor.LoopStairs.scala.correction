@@ -19,14 +19,18 @@ class Runner extends AbstractBuggle {
 	var step = -3
 	override def forward() {
 		super.forward();
+    var nextColor:Color = null;
 		if (step<0 || step%2 == 1 || (step/2)>=colors.length) {
 			if (step < 0)
-				setBrushColor(Color.lightGray);
+				nextColor = Color.lightGray;
 			else if ((step/2)>=colors.length)
-				setBrushColor(Color.pink);
+				nextColor = Color.pink;
 			else
-				setBrushColor(colors((step/2)%colors.length));
-			brushDown();
+				nextColor = colors((step/2)%colors.length);
+      var oldColor:Color = getCell().getColor();
+      getWorld().getBridge().addCommand("changeCellColor", Int.box(getX()), Int.box(getY()), oldColor, nextColor);
+			setBrushColor(nextColor);
+      brushDown();
 			brushUp();
 		}
 		step += 1; 
