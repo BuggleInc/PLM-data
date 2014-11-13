@@ -1,19 +1,13 @@
-baggel = 0
-premiereFois = True
-while sortieTrouvee() == False :
-    while premiereFois == True or croisement()==False :
+
+while not sortieTrouvee() :
+    baggel = 0
+    premiereFois = True
+    while premiereFois or not croisement() :
             premiereFois == False
             forward()
-    if estSurBiscuit()==True :
-            baggel=baggel+1
-    elif croisement() == True and baggel>=3 :
-            baggel=0
-            gauche()
-            if estSurBiscuit()==True :
+              if estSurBiscuit() :
                 baggel=baggel+1
-            for k in range(4):
-                forward()
-    elif croisement() == True and baggel<=2 :
+    if baggel>=3 :
+            gauche()
+    else:
             droite()
-            for k in range(4) :
-                forward()
