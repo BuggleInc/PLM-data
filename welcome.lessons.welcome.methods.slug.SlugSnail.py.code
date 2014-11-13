@@ -1,4 +1,18 @@
 def isFacingTrail(color):
-   # write your code here
+       if estFaceMur():
+            return False
+       forward()
+       coul = getCouleurSol()
+       backward()
+       if coul == Color.green:
+           return True
 
 def hunt(color):
+    if estSurBiscuit():
+        prendBiscuit()
+    elif isFacingTrail() == True:
+        baisseBrosse()
+        avance()
+        leveBrosse()
+    else:
+        left()
