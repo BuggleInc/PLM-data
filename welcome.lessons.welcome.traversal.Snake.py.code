@@ -2,33 +2,19 @@ def pasDeSerpent():
     baisseBrosse()
     forward(getWorldHeight()-1)
     leveBrosse()
-
-def positionfinale():
     if getDirection==Direction.EAST:
         right()
-        if estFaceMur()==0:
-            return False
-        else:
-            return True
     else:
         left()
-        if estFaceMur()==0:
-            return False
-        else:
-            return True
+    
+def positionfinale():
+    return estFaceMur()
 
 
 i=False
-j=0
-while i==False or j==0:
-    if not j==0:
-        forward()
-        left()
-        if getDirection==Direction.WEST:
-            retourne()
+while i==False :
     pasDeSerpent()
     i=positionfinale()
-    j=1
 
 
 
