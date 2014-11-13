@@ -2,21 +2,23 @@ color = getCouleurSol()
 def isFacingTrail(color):
        if estFaceMur():
             return False
+       forward()
+       coul = getCouleurSol()
+       backward()
        if coul == color:
            return True
 
 def hunt(color):
     if estSurBiscuit():
         prendBiscuit()
-    elif isFacingTrail(color) == True:
+    elif isFacingTrail() == True:
         baisseBrosse()
         avance()
         leveBrosse()
     else:
         left()
-        
-forward()
 
+forward()
 backward()
 while not porteBiscuit():
     hunt(color)
