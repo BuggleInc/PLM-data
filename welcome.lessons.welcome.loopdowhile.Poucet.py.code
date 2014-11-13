@@ -7,10 +7,13 @@ while sortieTrouvee() == False :
     elif estSurBiscuit() :
             b=b+1
     elif croisement() == True and baggel>=3 :
+            b=0
             gauche()
+            if estSurBiscuit() :
+                b=b+1
             for k in range(4):
                 forward()
     elif croisement() == True and baggel<=2 :
             droite()
             for k in range(4) :
-                avance()
+                forward()
