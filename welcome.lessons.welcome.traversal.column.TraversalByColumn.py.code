@@ -9,11 +9,14 @@ def posFinale():
         return False
 
 
-
+compt = 0
 while not posFinale():
     for j in range(getMondeLargeur()):
         for i in range(getMondeHauteur()):
+            ecritMessage(compt())
             X = getX()
             setPos(X,i)
+            compt = compt+1
         if getY() == (getMondeHauteur()-1) and getX()<getMondeLargeur()-1:
             setPos(getX()+1,0)
+            compt = compt+1
