@@ -1,29 +1,46 @@
-# BEGIN SOLUTION
-def endingPosition():
-	if not isFacingWall():
-		return False
-	else:
-		res = False
-		left()
-		if isFacingWall():
-			res = True
-		right()
-		return res
+$package 
 
-def snakeStep():
-	if isFacingWall():
-		if getDirection().toString() == "EAST":
-			left()
-			forward()
-			left()
-		else:
-			right()
-			forward()
-			right()
-	else:
-		forward()
+import plm.universe.Direction;
+import plm.universe.bugglequest.AbstractBuggle;
 
-brushDown()
-while not endingPosition():
-	snakeStep()
-# END SOLUTION
+public class SnakeBuggle extends AbstractBuggle {
+	@Override
+	/* BEGIN TEMPLATE */
+	public void run() {
+		/* BEGIN SOLUTION */
+		brushDown();
+		while (!endingPosition()) {
+			snakeStep();
+		}
+	}
+	boolean endingPosition() {
+		if (! isFacingWall()) 
+			return false;
+
+		boolean res = false;
+		left();
+		if (isFacingWall()) 
+			res = true;
+		right();		
+		return res;
+	}
+
+	void snakeStep() {
+		if (isFacingWall()) {
+			if (getDirection() == Direction.EAST) {
+				left();
+				forward();
+				left();
+			} else {
+				right();
+				forward();
+				right();
+			}
+		} else {
+			forward();
+		}
+
+		/* END SOLUTION */
+	}
+	/* END TEMPLATE */	
+}
