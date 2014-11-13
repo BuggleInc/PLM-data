@@ -1,6 +1,6 @@
 def getMondeLargeur(L,longueurmonde,numeromaille):
     for i in range(longueurmonde-1):
-        setCouleurBrosse(L[i+numeromaille])
+        setCouleurBrosse(L[(i+numeromaille)/(longueurmonde-1)])
         baisseBrosse()
         leveBrosse()
         if estFaceMur()==0:
@@ -16,10 +16,9 @@ backward(H-1)
 left()
 forward()
 right()
-Liste=L+L
 
 for i in range(H-1):
     Message=int(litMessage())
-    getMondeLargeur(Liste,H,Message)
+    getMondeLargeur(L,H,Message)
     
 
