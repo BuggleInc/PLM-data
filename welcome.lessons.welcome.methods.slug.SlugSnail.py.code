@@ -1,9 +1,6 @@
 def isFacingTrail(color):
        if estFaceMur():
             return False
-       forward()
-       coul = getCouleurSol()
-       backward()
        if coul == color:
            return True
 
@@ -17,6 +14,8 @@ def hunt(color):
     else:
         left()
         
-global color
+forward()
+color = getCouleurSol()
+backward()
 while not porteBiscuit():
     hunt(color)
