@@ -9,6 +9,9 @@ for i in range(a):    # on récupère le motif
     c = getCouleurSol()
     motif.append(c)
     forward()
+    if i==a:
+        c = getCouleurSol()
+        motif.append(c)
 recule(a)
 # on a le motif
 
@@ -16,7 +19,7 @@ for k in range(a):
     decalerCol()
     decalage = int( litMessage() )  # on lit le décalage
     for j in range(len(motif)):
-        c = motif[(j+decalage)%len(motif)+1]       # on récupère la couleur
+        c = motif[(j+decalage)%len(motif)]       # on récupère la couleur
         setCouleurBrosse(c)    #on trace
         baisseBrosse()
         leveBrosse()
