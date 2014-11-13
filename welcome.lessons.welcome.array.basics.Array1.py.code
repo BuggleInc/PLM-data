@@ -1,1 +1,18 @@
-def getMondeLargeur():
+def getMondeLargeur(L):
+    n=len(L)
+    for i in range(n):
+        setCouleurbrosse(L[i])
+        baisseBrosse()
+        leveBrosse()
+        forward()
+
+L=[]
+i=1
+j=0
+while L[j]!=L[0] or i==1:
+    i=0
+    L.append(getCouleurSol())
+    forward()
+    j=j+1
+
+getMondeLargeur(L)
