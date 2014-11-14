@@ -1,2 +1,44 @@
-for i in range(63):
-    backward()
+
+
+
+
+
+def brosse():
+    baisseBrosse(),leveBrosse()
+
+def faireV():
+    forward(),forward()
+    brosse()
+    forward(),left(),forward()
+    brosse()
+    backward(),right(),forward()
+    brosse()
+    forward(),forward(),left()
+    
+
+def faireMotif():
+    for i in range(0,4):
+        faireV()
+       
+def retour():
+    for i in range(63):
+        backward()
+
+def nouveau():
+    forward(),forward(),forward(),forward(),forward(),forward(),forward()
+
+def ligne():
+    for i in range(0,3):
+        faireMotif()
+        nouveau()
+
+def newLigne():
+    left()
+    for i in range(7):
+        forward()
+    right()
+    
+for i in range(3):
+    ligne()
+    retour()
+    newLigne()
