@@ -1,0 +1,43 @@
+def marque():
+    baisseBrosse()
+    leveBrosse()
+
+def faireV(c):
+    setCouleurBrosse(c)
+    forward()    
+    marque()
+    gauche()
+    forward()
+    droite()
+    forward()
+    marque()
+    forward()
+    droite()
+    forward()
+    marque()
+    gauche()
+    forward()
+    gauche()
+
+def faire_carre():
+    faireV(Color.yellow)
+    faireV(Color.red)
+    faireV(Color.blue)
+    faireV(Color.green)
+    for i in range(5):
+        forward() 
+
+def chgt_ligne():
+   gauche() 
+   for i in range(5):
+       forward()
+   droite()
+    
+
+def faire_ligne():
+    for i in range(9):
+        faire_carre()
+
+for i in range(9):
+    faire_ligne()
+    chgt_ligne()
