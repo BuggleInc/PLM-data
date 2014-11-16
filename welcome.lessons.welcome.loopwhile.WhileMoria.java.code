@@ -2,9 +2,11 @@ public void run() {
 	droite();
 	droite();
 	while (!estFaceMur() && !estSurBiscuit()){
-		avance();
-		if(estSurBiscuit()){
-			prendBiscuit();
+		while (!estSurBiscuit()){
+			avance();
+			if (estSurBiscuit()){
+				prendBiscuit();
+			}
 		}
 		while (!estSurBiscuit()){
 			recule();
