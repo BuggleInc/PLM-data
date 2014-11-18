@@ -1,18 +1,19 @@
 
-if croisement():
-    b=0
-    p=0
-    while not p>5:
-        forward()
-        p=p+1
-    if estSurBiscuit():
-        b=b+1
-    elif croisement():
-        if b>=3:
-            gauche()
+
+while not sortieTrouvee():
+    if croisement():
+        b=0
+        p=0
+        for p in range (0,5):
             forward()
-            p=0
-        else:
-            droite()
-            forward()
-            p=0    
+            p=p+1
+            if estSurBiscuit():
+                b=b+1
+            if p=5 and b>=3:
+                gauche()
+                forward()
+            if p=5 and b<=2:
+                droite()
+                forward()
+                
+        
