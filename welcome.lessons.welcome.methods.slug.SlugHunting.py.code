@@ -1,11 +1,12 @@
 def isFacingTrail():
+    couleur=False
     if not estFaceMur():
         forward()
-        a=getCouleurSol()
+        if getCouleurSol()==Color.green:
+            couleur=True
         backward()
-        if a==Color.green:
-            return True
-            
+    return couleur
+    
 def hunt():
     isFacintrail()
     
