@@ -1,4 +1,23 @@
 def isFacingTrail(color):
-   # write your code here
+    if estFaceMur()==True:
+        return False
+    else:
+        forward()
+        if getCouleurSol()==Color.color:
+            backward()
+            return True
+        else:
+            backward()
+            return False
 
 def hunt(color):
+    while isOverBaggle()==False:
+        if isFacingTrail()==True:
+            forward()
+            baisseBrosse()
+            leveBrosse()
+        else:
+            left()
+    if isOverBaggle()==True:
+        prendBiscuit()
+
