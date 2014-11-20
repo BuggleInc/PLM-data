@@ -1,9 +1,11 @@
 while not sortieTrouvee():
     n=0
-    while not croisement():
+    premiereFois=True
+    while premiereFois or not croisement():
         if estSurBiscuit():
             n=n+1
         forward()
+        premiereFois=False
     if n <= 2:
         droite()
     else: 
