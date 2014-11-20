@@ -1,18 +1,11 @@
-ecart = getNombreValeurs()
-fini = False
-while ecart > 1 or (not fini):
-    if ecart > 1:
-        ecart = int(ecart/1.3)
-    if ecart == 10 or ecart == 9:
-        ecart = 11
-    i = 0
-    action  = False
-    while i + ecart < getNombreValeurs():
-        
-        if plusPetit(i+ecart,i):
-            echange(i,i+ecart)
+
+
+fin = False
+while not fin:
+    action = False
+    for j in range(getNombreValeurs()-1):
+        if plusPetit(j+1,j):
+            echange(j+1,j)
             action = True
-        i = i+1
     if action == False:
-        fini = True
-        
+        fin = True
