@@ -1,10 +1,15 @@
 k=getNombreValeurs()
-for j in range(int(k/2)):
+for j in range(k):
     n=0
-   
-    for i in range(k-j-1):
-        if plusPetit(k-i,k-1-i):
-            echange(k-i,k-i-1)
-            n=1
+   if j%2==0:
+        for i in range(k-j-1):
+            if plusPetit(i+1,i):
+                echange(i,i+1)
+                n=1
+    else:
+        for i in range(k-j-1):
+            if plusPetit(k-i,k-1-i):
+                echange(k-i,k-i-1)
+                n=1
     if n==0:
         break
