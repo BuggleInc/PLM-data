@@ -1,0 +1,22 @@
+def pasDeSerpent():
+    ecritMessage(n)
+    forward(getWorldHeight()-1)
+    if getDirection()==Direction.EAST:
+        left()
+    else:
+        right()
+    
+def positionfinale():
+    return estFaceMur()
+
+
+i=False
+while i==False :
+    pasDeSerpent()
+    i=positionfinale()
+    if estFaceMur()==0:
+        forward()
+        left()
+        if estFaceMur()==1:
+            retourne()
+    
