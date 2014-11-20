@@ -6,19 +6,20 @@ def isFacingTrail(color):
        backward()
        if coul == color:
            return True
+       else:
+           return False
 
 def hunt(color):
-    if estSurBiscuit():
-        prendBiscuit()
-    elif isFacingTrail(color) == True:
+    if isFacingTrail(color) == True:
         baisseBrosse()
         avance()
         leveBrosse()
     else:
         left()
-    
+
 forward()
 color = getCouleurSol()
 backward()
-while not porteBiscuit():
+while not estSurBiscuit():
     hunt(color)
+prendBiscuit()
