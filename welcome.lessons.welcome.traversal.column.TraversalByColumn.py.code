@@ -1,0 +1,28 @@
+
+def posFinale():
+    h = getMondeHauteur()-1
+    l = getMondeLargeur()-1
+    x= getX()
+    y = getY()
+    if x==l and y==h:
+        return True
+    else :
+        return False
+
+
+compt = 0
+while not posFinale():
+    for j in range(getMondeLargeur()):
+        
+        for i in range(getMondeHauteur()):
+            
+            X = getX()
+            setPos(X,i)
+            ecritMessage(compt)
+            compt = compt+1
+            
+        if getY() == (getMondeHauteur()-1) and getX()<getMondeLargeur()-1:
+            setPos(getX()+1,0)
+            
+        
+
