@@ -1,4 +1,6 @@
 
+
+
 def posFinale():
     h = getMondeHauteur()-1
     l = getMondeLargeur()-1
@@ -10,16 +12,21 @@ def posFinale():
         return False
 
 
-compt = 0
+compt = -1
 while not posFinale():
     for i in range(7):
         for j in range(i+1):
-            setPos(j,i-j)    
+            compt = compt+1
+            
+            setPos(j,i-j)
+            ecritMessage(compt)
+    for k in range(6):
+        for l in range(7-(k+1)):
+            compt = compt+1
+            
+            setPos(k+1+l,6-l)
+            ecritMessage(compt)
     
     
-    
-    
-    
-    
-    
+       
     
