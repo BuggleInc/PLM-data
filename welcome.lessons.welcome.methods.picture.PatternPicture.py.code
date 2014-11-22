@@ -9,16 +9,25 @@ def faireJumeau():
     leveBrosse()
 
 forward()
-diag=0
-while diag<4:
-    if diag==0:
-        setCouleurBrosse(Color.BLUE)
-    if diag==1:
-        setCouleurBrosse(Color.GREEN)
-    if diag==2:
-        setCouleurBrosse(Color.YELLOW)
-    if diag==3:
-        setCouleurBrosse(Color.RED)
-    faireJumeau()
-    diag=diag+1
+colonne=0
+while colonne<2:
+    ligne=0
+    while ligne<2:
+        diag=0
+        while diag<4:
+            if diag==0:
+                setCouleurBrosse(Color.BLUE)
+            if diag==1:
+                setCouleurBrosse(Color.GREEN)
+            if diag==2:
+                setCouleurBrosse(Color.YELLOW)
+            if diag==3:
+                setCouleurBrosse(Color.RED)
+            faireJumeau()
+            diag=diag+1
+        backward()
+        gauche()
+        forward(4)
+        droite()
+        ligne=ligne+1
     
