@@ -1,0 +1,47 @@
+def getIndication():
+    if isOverMessage():
+        return readMessage()[0]
+    else:
+        return ' '
+    
+# BEGIN SOLUTION
+def doR(): right(); forward()
+def doL(): left();  forward()
+def doI(): back();  forward()
+
+
+finished = False
+while not finished:
+    c = getIndication()
+    if c == 'R':
+        doR()
+    elif c == 'L':
+        doL()
+    elif c == 'I':
+        doI()
+    elif c == 'A':
+        forward()
+    elif c == 'B':
+        forward(2)
+    elif c == 'C':
+        forward(3)
+    elif c == 'D':
+        forward(4)
+    elif c == 'E':
+        forward(5)
+    elif c == 'F':
+        forward(6)
+    elif c == 'Z':
+        backward()
+    elif c == 'Y':
+        backward(2)
+    elif c == 'X':
+        backward(3)
+    elif c == 'W':
+        backward(4)
+    elif c == 'V':
+        backward(5)
+    elif c == 'U':
+        backward(6)
+    else:        
+        finished = True
