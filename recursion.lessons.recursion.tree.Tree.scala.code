@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	if (steps==0) return
 	else {
@@ -19,3 +20,20 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	//faire un autre arbre à 3 étages,
 	//puis revenir à sa position initiale.
 }
+=======
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	if (steps>0) {
+		current(steps);
+		baisseCrayon();
+		avance(length);
+		leveCrayon();
+		
+		droite(angle);
+		tree(steps-1, length*shrink, angle, shrink);
+		gauche(2*angle);
+		tree(steps-1, length*shrink, angle, shrink);
+		droite(angle);
+		recule(length);
+	}
+}
+>>>>>>> refs/remotes/origin/PLMb08ec186b1914e03e4bcaec7e8fa4fbcab29c7cd

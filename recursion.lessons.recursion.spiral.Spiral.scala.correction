@@ -1,4 +1,5 @@
 $package 
+<<<<<<< HEAD
 
 class Spiral extends plm.universe.turtles.Turtle {
 
@@ -21,3 +22,27 @@ class Spiral extends plm.universe.turtles.Turtle {
 		    getParam(2).asInstanceOf[Int],getParam(3).asInstanceOf[Int]);
 	}
 }
+=======
+
+class Spiral extends plm.universe.turtles.Turtle {
+
+	/* BEGIN TEMPLATE */
+	def spiral(steps:Int, angle:Int, length:Int, increment:Int)	{
+		/* BEGIN SOLUTION */
+		if (steps <= 0) {
+			// do nothing
+		} else {
+			forward(length);
+			left(angle);
+			spiral(steps-1, angle, length+increment, increment);
+		}
+		/* END SOLUTION */	
+	}
+	/* END TEMPLATE */
+
+	override def run() {
+		spiral(getParam(0).asInstanceOf[Int],getParam(1).asInstanceOf[Int],
+		    getParam(2).asInstanceOf[Int],getParam(3).asInstanceOf[Int]);
+	}
+}
+>>>>>>> refs/remotes/origin/PLMb08ec186b1914e03e4bcaec7e8fa4fbcab29c7cd
