@@ -1,8 +1,13 @@
 def golomb(num:Int): Int = {
-	var Nieme=0
-	var T=new Array[Int](num)
-	for (i<-0 to num){
-		
+	var Nieme=2
+	var T=new Array[Int]
+	T=[1]
+	T(Nieme)=T(Nieme-1)+1
+	{
+		for (i<-0 to T(Nieme)-1){
+			T(Nieme+i)=Nieme
+		}
+		Nieme+=T(Nieme)
 	}
-	return Nieme
+	return T(Nieme)
 }
