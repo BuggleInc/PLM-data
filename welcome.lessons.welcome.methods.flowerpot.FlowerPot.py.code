@@ -1,4 +1,4 @@
-def reblochon(c):
+def reblochon(c):  #Faire une fleur de couleur c 
     avance()
     setCouleurBrosse(Color.yellow)
     baisseBrosse()
@@ -27,4 +27,21 @@ def reblochon(c):
     droite()
     recule()
     gauche()
-reblochon(Color.red)    
+for i in (Color.red,Color.cyan,Color.green,Color.pink):
+    reblochon(i)
+    avance(2)
+    if estFaceMur()==True:
+        droite()
+        avance()
+        if estFaceMur()==True:
+            gauche()
+            avance(6)
+            droite()
+            avance()
+        avance(3)
+        droite()
+        avance(2)
+        droite()
+        droite()
+    avance(2)
+            
