@@ -1,10 +1,10 @@
 listeCouleur= []
 
 def lireCouleur():
-    listeCouleur.append(getCouleurSol())
-    while not estFaceMur():
-        listeCouleur.append(getCouleurSol())
+    listeCouleur.append(getCouleurSol())    
+    for i in range(getWorldHeight()-1):
         forward()
+        listeCouleur.append(getCouleurSol())
     for i in range(getWorldHeight()-1):
             backward()
 
