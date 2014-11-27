@@ -1,1 +1,19 @@
-print(getMondeLargeur())
+listeCouleur = []
+
+def lireCouleur():
+    for i in range(getMondeLargeur() + 1):
+        listeCouleur.append(getCouleurSol())
+        forward()
+
+def peindreSol():
+    for i in range(getMondeLargeur() + 1):
+        setCouleurBrosse(listeCouleur[i])
+        forward()
+        
+lireCouleur()
+for i in range(getMondeLargeur() + 1):
+    left()
+    forward()
+    right()
+    forward()
+    peindreSol()
