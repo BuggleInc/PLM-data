@@ -9,8 +9,7 @@ def lireCouleur():
 
 def peindreSol(decalage):
       for i in range(getWorldHeight()-1):
-          while i + decalage < getWorldHeight():
-            setCouleurBrosse(listeCouleur[i + decalage])
+            setCouleurBrosse(listeCouleur[i + decalage% getWorldHeigth() -1])
             baisseBrosse()
             leveBrosse()
             forward()
