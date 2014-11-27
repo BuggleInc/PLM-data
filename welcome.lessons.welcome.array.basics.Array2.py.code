@@ -1,8 +1,24 @@
 listeCouleur= []
 
 def lireCouleur():
-    for i in range(getHeightWorld() - 1):
+    while not estFaceMur():
         listeCouleur.append(getCouleurSol())
+    for i in range(getWorldHeight()-1):
+            backward()
 
- def peindreSol()
-            
+ def peindreSol(decalage):
+      for i in range(getWorldHeight()-1):
+        setCouleurBrosse(listeCouleur[i + decalage])
+        baisseBrosse()
+        leveBrosse()
+        forward()
+        if estFaceMur():
+            for i in range(getWorldHeight() - 1):
+                backward()
+
+lireCouleur()
+left()
+forward()
+right()
+decalage = int(litMessage())
+peindreSol(decalage)
