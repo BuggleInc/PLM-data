@@ -9,16 +9,14 @@ def lireCouleur():
             backward()
 
 def peindreSol(decalage):
-    for i in range(getWorldHeight()-1):
+    while not estFaceMur():
         setCouleurBrosse(listeCouleur[(i + decalage)%(getWorldHeight())])
         baisseBrosse()
         leveBrosse()
-        if estFaceMur():
-            for i in range(getWorldHeight() - 1):
-                backward()
-        else:
-            forward() 
-
+        forward() 
+    for i in range(getWorldHeight()-1):
+        backward()
+        
 lireCouleur()
 for i in range(getMondeLargeur()-1):
     left()
