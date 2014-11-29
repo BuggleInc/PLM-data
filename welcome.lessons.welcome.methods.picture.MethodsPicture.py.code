@@ -1,0 +1,42 @@
+def brosse():
+    baisseBrosse(),leveBrosse()
+
+def faireV(color):
+    forward(),forward()
+    setCouleurBrosse(color)
+    brosse()
+    forward(),left(),forward()
+    setCouleurBrosse(color)
+    brosse()
+    backward(),right(),forward()
+    setCouleurBrosse(color)
+    brosse()
+    forward(),forward(),left()
+    
+
+def faireMotif():
+    for i in range(0,4):
+        faireV()
+       
+def retour():
+    for i in range(21):
+        backward()
+
+def nouveau():#change de ligne
+    forward(),forward(),forward(),forward(),forward(),forward(),forward()
+
+def ligne():
+    for i in range(0,3):
+        faireMotif()
+        nouveau()
+
+def newLigne():
+    left()
+    for i in range(7):
+        forward()
+    right()
+    
+for i in range(3):
+    ligne()
+    retour()
+    newLigne()
