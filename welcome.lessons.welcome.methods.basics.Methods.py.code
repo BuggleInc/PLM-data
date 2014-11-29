@@ -3,16 +3,15 @@
 
 
 def goAndGet():
-    nbPas=0
-    while estSurBiscuit()==False:
-        forward()
-        nbPas=nbPas+1
+   while estSurBiscuit()==False:
+       avance()
+     nbPas=nbPas+1
     prendBiscuit()
     dejaFait=0
-    while dejaFait!=nbPas:
-        recule()
-        dejaFait=dejaFait+1
-    poseBiscuit()    
+    for dejaFait in range(nbPas):
+            recule()
+    poseBiscuit()
+
 
 for i in range(7):
   goAndGet()
