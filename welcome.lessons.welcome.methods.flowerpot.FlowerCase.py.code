@@ -58,6 +58,33 @@ def motif_central():
         forward()
     faire_croix(Color.blue)  
 
-growFlowers()
-motif_central()      
-               
+def changer_colonne():
+    forward()
+    gauche()
+    forward()
+    forward()
+    droite()
+
+def changer_grande_ligne():
+    gauche()
+    backward()
+    droite()
+    for i in range(8):
+        backward()
+    droite()
+    for i in range(3):
+        forward()
+    gauche()
+
+def flowerCase():
+    growFlowers()                          
+    motif_central()          
+    changer_colonne()
+    growFlowers()
+    changer_grande_ligne()
+    growFlowers()                          
+    motif_central()          
+    changer_colonne()
+    growFlowers()
+
+flowerCase()    
