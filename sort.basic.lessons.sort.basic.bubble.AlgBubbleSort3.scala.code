@@ -1,12 +1,17 @@
 def bubbleSort3() {
 	var ech:Boolean = true
-	while (ech) {
-		ech=false
-		for (i<- 0 to getNombreValeurs()-2) {
-			if (plusPetit(i+1,i)) {
-				echange(i,i+1)
-				ech= true
+	var N:Int= getNombreValeurs()
+	for (i<-0 to N-2) {
+		var k = N-2-i
+		ech = false
+		for (j<-0 to k) {
+			if(plusPetit(j+1,j)){
+				echange(j,j+1)
+				ech=true
 			}
+		}
+		if (!ech) {
+			return
 		}
 	}
 }
