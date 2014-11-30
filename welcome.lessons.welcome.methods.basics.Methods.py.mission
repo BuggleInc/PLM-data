@@ -13,12 +13,6 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
-.Java   {visibility: visible; color:#FF0000}
-.java   {visibility: visible; color:#FF0000}
-.python {visibility: visible; color:#008000}
-.Python {visibility: visible; color:#008000}
-.scala  {visibility: visible; color:#0000FF}
-.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -37,32 +31,27 @@ soit répéter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
 les deux cas, il faut que vous évitiez de dupliquer votre code pour qu'il
 reste simple et lisible. Il serait mieux que la buggle comprenne un ordre de
 type <code>vaChercher()</code> tout comme elle comprend un
-<code><font color="00FF00">avancePas()</font><font color="FF80FF">avance()</font></code>.</p>
+<code>avance()</code>.</p>
 
 <h3>Définir des méthodes</h3>
 
-<p>La syntaxe <font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font> pour écrire une méthode simple nommée
+<p>La syntaxe python pour écrire une méthode simple nommée
 <code>vaChercher</code> est la suivante:</p>
-<pre><font color="FFFF00">void vaChercher() {</font><font color="008000">def vaChercher():</font><font color="0000FF">def vaChercher() {</font>
-  actions()<font color="FFFF00">;</font>
-  encoreDesActions()<font color="FFFF00">;</font>
-  dautresTrucs()<font color="FFFF00">;</font>
-<font color="EEEEEE">}</font></pre>
+<pre>def vaChercher():
+  actions()
+  encoreDesActions()
+  dautresTrucs()
+</pre>
 
 <p>Le corps de la méthode
-<font color="EEEEEE">(c'est-à-dire le bloc entre accolades)</font>
-<font color="008000">(c'est-à-dire le bloc indenté)</font>
+
+(c'est-à-dire le bloc indenté)
 sera exécuté à chaque appel de cette méthode (c'est-à-dire à chaque fois que
 nous écrirons <code>vaChercher()</code> quelque part dans notre code).
 Ce corps de boucle peut contenir autant d'instructions que l'on veut, et
 toutes les constructions que nous avions vu jusque là (comme les boucles et
 les conditionnelles).
-<font color="FF0000">Le mot-clé <code>void</code> («néant» en anglais) signifie que cette
-méthode ne renvoie pas de résultat. Au contraire, la méthode
-<code>estSurBiscuit()</code> renvoie un résultat booléen indiquant si nous
-nous trouvons oui ou non sur un biscuit. Nous apprendrons bientôt à faire de
-telles méthodes. En attendant, écrivez juste <code>void</code> à cet
-endroit.</font>
+
 </p>
 
 <h3>Documenter les méthodes</h3>
@@ -73,43 +62,36 @@ semblent clairs, mais la plupart du temps, ça ne dure pas. On oublie vite
 les détails d'une méthode particulière, et quand cela arrive, on est content
 de pouvoir lire sa documentation.
 Dans l'exemple ci-dessous, nous utilisons le formalisme spécifique de
-<font color="FF0000">javadoc</font><font color="0000FF">scaladoc</font><font color="008000">pydoc</font>, un programme qui
+pydoc, un programme qui
 extrait la documentation du code source pour en faire de belles pages
 web. Le principal avantage de cette approche est que la documentation se
 trouve à coté du code. Donc, quand on change le code, il y a un peu plus de
 chance pour qu'on pense à mettre la documentation à jour.</p>
 
-<p><font color="FF00FF">Les commentaires <font color="FF0000">javadoc</font><font color="0000FF">scaladoc</font>
-commencent avec le marqueur <code>/**</code> (avec deux étoiles). Ces
-commentaires doivent être placés juste avant la méthode qu'ils documentent
-pour que l'outil les trouve</font>
-<font color="008000">Les commentaire pydoc doivent être placés au début du corps de la
+<p>
+Les commentaire pydoc doivent être placés au début du corps de la
 méthode pour que l'outil les trouve. Ils doivent être placés entre
 <code>"""</code>, qui marquent les chaînes de caractères sur plusieurs
-lignes en python.</font>
+lignes en python.
 La première ligne devrait décrire brièvement la méthode tandis que le reste
 de la documentation devrait donner tous les points importants de la méthode.</p>
 
-<pre><font color="EEEEEE">/**
- *  Avance, récupère le biscuit, et le ramène à la position d'origine
- *
- *  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur.
- */</font>
-<font color="FFFF00">void goAndGet() {</font>
-<font color="0000FF">def goAndGet() {</font>
-<font color="008000">def goAndGet():
+<pre>
+
+
+def goAndGet():
   """Avance, récupère le biscuit, et le ramène à la position d'origine
 
-  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur."""</font>
-  actions()<font color="FFFF00">;</font>
-  a()<font color="FFFF00">;</font>
-  faire()<font color="FFFF00">;</font>
-<font color="EEEEEE">}</font></pre>
+  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur."""
+  actions()
+  a()
+  faire()
+</pre>
 
 <h3>Conventions de nommage</h3>
 <p>La plupart des langages de programmation interdisent d'utiliser des espaces
 dans les noms de variables et de méthodes. Certains langages (comme le
-<font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>) autorisent l'usage des caractères accentués dans ces
+python) autorisent l'usage des caractères accentués dans ces
 identificateurs, mais cela pose parfois des problèmes de portabilité entre
 les systèmes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
 les identificateurs, même si c'est parfois désagréable en français.</p>
@@ -146,11 +128,9 @@ baggle, reculer à la case départ, poser le baggle).</p>
 exécuté par la buggle, mais juste une méthode qui sera invoquée
 automagiquement quand vous exécutez l'exercice. Votre buggle va alors
 appeler votre méthode <code>goAndGet()</code> sur chaque colonne du monde,
-jusqu'à trouver le biscuit. <font color="0080FF">Le code pour cela est déjà donné
+jusqu'à trouver le biscuit. Le code pour cela est déjà donné
 (en anglais) sous la méthode <code>goAndGet()</code> qui reste à écrire,
-mais vous ne devriez pas le modifier.</font> <font color="FF0000">Vous n'avez pas à écrire
-vous-même le code qui va appeler<code>goAndGet()</code>. Il est
-automagiquement donné, même si vous ne pouvez pas le voir.</font></p> 
+mais vous ne devriez pas le modifier. </p> 
 
 <p>Mais pour que cela fonctionne, il faut que vous écriviez maintenant cette
 fonction <code>goAndGet()</code>...</p>
