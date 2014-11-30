@@ -1,19 +1,22 @@
 def cocktailSort2() {
-	var N:Int= getNombreValeurs()-2
 	var ech:Boolean = true
+	var N:Int = getNombreValeurs()-2
 	while(ech) {
 		ech=false
 		for (i<-0 to N) {
-		var j = N-i
-			if(plusPetit(j+1,j)){
-				echange(j,j+1)
+			if (plusPetit(i+1,i)){
+				echange(i+1,i)
 				ech=true
 			}
-			if(plusPetit(i+1,i)){
-				echange(i,i+1)
-				ech=true
-			}	
 		}
-		N-=1
+		for (j<-0 to N) {
+			var j=N-i
+			if (plusPetit(i+1,i)){
+				echange(i+1,i)
+				ech=true
+			}
+		}
+		
 	}
+	
 }
