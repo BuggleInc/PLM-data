@@ -1,0 +1,90 @@
+def marque():
+    baisseBrosse()
+    leveBrosse()
+
+def faire_croix(c):
+    setCouleurBrosse(c)
+    baisseBrosse()
+    for i in range(2):
+        forward()
+    backward()
+    gauche()
+    forward()
+    for i in range(2):
+        backward()    
+    forward()
+    setCouleurBrosse(Color.yellow)
+    marque()
+    droite()
+
+def faire_ligne_1():
+    faire_croix(Color.red)    
+    for i in range(3):
+        forward()
+    faire_croix(Color.cyan)
+
+def faire_ligne_2():
+    faire_croix(Color.orange)
+        
+def faire_ligne_3():
+    faire_croix(Color.pink)    
+    for i in range(3):
+        forward()
+    faire_croix(Color.green)
+
+def changer_ligne():
+    for i in range(3):
+        backward()
+    gauche()
+    for i in range(2):
+        backward() 
+    droite()   
+
+def Flowers():
+    faire_ligne_1()
+    changer_ligne()
+    faire_ligne_2()
+    changer_ligne()
+    faire_ligne_3()
+    for i in range(5):
+        backward()
+
+def motif_central():
+    gauche()
+    for i in range(2):
+        forward()
+    droite()
+    for i in range(6):
+        forward()
+    faire_croix(Color.blue)  
+
+def changer_colonne():
+    forward()
+    gauche()
+    forward()
+    forward()
+    droite()
+
+def changer_grande_ligne():
+    gauche()
+    backward()
+    droite()
+    for i in range(8):
+        backward()
+    droite()
+    for i in range(3):
+        forward()
+    gauche()
+
+def growFlowers():
+    Flowers()                          
+    motif_central()          
+    changer_colonne()
+    Flowers()
+    changer_grande_ligne()
+    Flowers()                          
+    motif_central()          
+    changer_colonne()
+    Flowers()
+
+   
