@@ -1,8 +1,25 @@
 def positionFinale():
-    if getDirection() == Direction.EST:
-        left()
-        return estFaceMur()
-    elif getDirection() == Direction.OUEST
-        right()
-        return estFaceMur()
-    
+    if estFaceMur():
+        if getDirection() == Direction.EST:
+            left()
+            return estFaceMur()
+        elif getDirection() == Direction.OUEST:
+            right()
+            return estFaceMur()
+
+def snakeWalk():
+    if not estFaceMur():
+        forward()
+    else:
+        if getDirection() == Direction.OUEST:
+            right()
+            forward()
+            right()
+        elif getDirection() == Direction.EST:
+            left()
+            forward()
+            left()
+            
+baisseBrosse()
+while not positionFinale():
+    snakeWalk()
