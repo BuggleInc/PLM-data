@@ -1,12 +1,19 @@
 def lastDigit(a, b):
     unite_a=0
     unite_b=0
-    while a%10 > 10:
-        a=a%10
+    if a<10:
         unite_a=a
-    while b%10 > 10:
-        b=b%10
+    else:
+        while a%10 > 10:
+            a=a%10
+            unite_a=a
+    if b<10:
         unite_b=b
+    else:            
+        while b%10 > 10:
+            b=b%10
+            unite_b=b
+            
     if unite_a==unite_b:
         return True
     else:
