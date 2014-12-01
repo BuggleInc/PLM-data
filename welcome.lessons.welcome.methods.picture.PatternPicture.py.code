@@ -1,0 +1,42 @@
+def marque():
+    baisseBrosse()
+    leveBrosse()
+
+def fairemotif():
+    setCouleurBrosse(Color.red)
+    forward()    
+    marque()
+    faire_deux_points(Color.blue)
+    faire_deux_points(Color.green)
+    faire_deux_points(Color.yellow)
+    setCouleurBrosse(Color.red)
+    forward()    
+    marque()
+    forward()
+    gauche()
+
+def faire_deux_points(c):
+    setCouleurBrosse(c)
+    forward()
+    marque()
+    forward()
+    gauche()
+    forward()
+    marque()
+
+def faire_ligne():
+    fairemotif()
+    for i in range(4):
+        forward()
+    fairemotif()
+
+def dessin():
+    faire_ligne()
+    for i in range(4):
+        backward()
+    gauche()
+    for i in range(4):
+        forward()           
+    droite()
+    faire_ligne()
+dessin()
