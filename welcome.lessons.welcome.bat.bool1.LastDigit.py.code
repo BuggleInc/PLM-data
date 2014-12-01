@@ -1,23 +1,11 @@
-def unite1(x):
-    if x>=100:
-        unite1=x%100
-    if x>=10:
-        unite1=x%10
-    if x<10:
-        unite1=x    
-
-def unite2(x):
-    if x>=100:
-        unite2=x%100
-    if x>=10:
-        unite2=x%10
-    if x<10:
-        unite2=x  
-
 def lastDigit(a, b):
-    unite1(a)
-    unite2(b)
-    if unite1==unite2:
+    while a%10 > 10:
+        a=a%10
+        unite_a=a
+    while b%10 > 10:
+        b=b%10
+        unite_b=b
+    if unite_a==unite_b:
         return True
     else:
-        return False    
+        return False             
