@@ -1,19 +1,17 @@
 public void bubbleSort()  {
 	int k=1;
-	int compt = 0;
+	boolean  aucunEchange = false;
 	int tab = getNombreValeurs();
-	while(compt<tab)
+	while(!aucunEchange)
 	{
 		for(int i=0; i<=tab ; i++)
 		{    
-			if(getValeur(i)<getValeur(i+1))
-			{
-				compt++;
-				
-			}
-			else
+			aucunEchange = true;
+			if(getValeur(i)>getValeur(i+1))
 			{
 				echange(i,i+1);
+				aucunEchange = false;
+				
 			}
 			
 		}
