@@ -1,25 +1,26 @@
 public void bubbleSort2() {
 
-	int compteurBoucle =0;
-	boolean aucunEchange = false;
-	int tab = getNombreValeurs();
+	public void cocktailSort() {
 
-	while(!aucunEchange)
+	boolean inversion = true;
+	int lgr = getNombreValeurs();
+
+	do
 	{
-		aucunEchange = true;
-		
-		for(int i=0 ; i < tab -1 - compteurBoucle ; i++)
+		inversion = false;
+		for(int i=0; i <= lgr - 2 ; i ++)
 		{
 			if(getValeur(i)>getValeur(i+1))
 			{
 				echange(i,i+1);
-				aucunEchange = false;
-								
+				inversion = true;
 			}
-			
 		}
-		compteurBoucle++;
-	}
+		
+	}while(inversion);
+
+}
+
 	
 
 
