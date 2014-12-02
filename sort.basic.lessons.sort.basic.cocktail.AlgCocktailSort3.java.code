@@ -1,2 +1,37 @@
-public void cocktailSort3() {
+public void cocktailSort2() {
+
+	int debut = 0;
+	int lgr = getNombreValeurs();
+	int fin = lgr-2;
+	boolean inversion = true;
+
+	do
+	{
+		inversion = false;
+		for(int i = debut; i<= fin ; i++)
+		{
+			if(getValeur(i)>getValeur(i+1))
+			{
+				echange(i,i+1);
+				inversion = true;
+				
+			}
+			
+		}
+		if(!inversion){break;}
+		fin--;
+		for(int i = fin; i>= debut; i--)
+		{
+			if(getValeur(i)>getValeur(i+1))
+			{
+				echange(i,i+1);
+				inversion = true;
+				
+			}
+		}
+		if(!inversion){break;}
+		debut++;
+		
+	}while(inversion);
+	
 }
