@@ -14,105 +14,125 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Methods</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Méthodes</h2>
 
 <p>
-We will now write our own methods. It somehow comes down to extending the
-buggle vocabulary by learning it new tricks. 
+Nous allons maintenant voir comment écrire nos propres méthodes. Il s'agit
+en quelque sorte d'étendre le vocabulaire de la buggle en lui apprenant à
+faire de nouvelles choses. 
 </p>
-<p>For example, we saw in a previous exercise how to ask the buggle to go get the
-baggle in front of it, and bring it back. If there is several baggles on the
-board, and if we want to bring all of them on the bottom line, you have to
-repeat this code several times, or include it in a loop. In any case, you should avoid
-to duplicate your code to keep it pleasant to read and easily understandable.
-It would be better if the buggle could obey an <code>goAndGet()</code> order 
-just like it understands a <code>forward()</code> one.</p>
+<p>Par exemple, nous avons vu dans un exercice précédent comment demander à la
+buggle d'aller chercher le biscuit qui se trouve devant elle, et la ramener
+à sa position initiale. S'il y a maintenant plusieurs biscuits sur le
+plateau, et que nous voulons tous les ramener sur la ligne du bas, il faut
+soit répéter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
+les deux cas, il faut que vous évitiez de dupliquer votre code pour qu'il
+reste simple et lisible. Il serait mieux que la buggle comprenne un ordre de
+type <code>vaChercher()</code> tout comme elle comprend un
+<code>avance()</code>.</p>
 
-<h3>Defining methods</h3>
+<h3>Définir des méthodes</h3>
 
-<p>The python syntax to write a simple method called <code>goAndGet</code> is the
-following:</p>
-<pre>def goAndGet():
+<p>La syntaxe python pour écrire une méthode simple nommée
+<code>vaChercher</code> est la suivante:</p>
+<pre>def vaChercher():
   actions()
-  to()
-  do()
+  encoreDesActions()
+  dautresTrucs()
 </pre>
 
-<p>The method body 
-(the indented block) will be
-executed when we call the method later on (that is, when we write
-<code>goAndGet()</code> somewhere in our code). This method body  
-can contain as many instructions as you want, and any construction we saw so far 
-(for, while, if, etc). 
+<p>Le corps de la méthode
+
+(c'est-à-dire le bloc indenté)
+sera exécuté à chaque appel de cette méthode (c'est-à-dire à chaque fois que
+nous écrirons <code>vaChercher()</code> quelque part dans notre code).
+Ce corps de boucle peut contenir autant d'instructions que l'on veut, et
+toutes les constructions que nous avions vu jusque là (comme les boucles et
+les conditionnelles).
 
 </p>
 
-<h3>Documenting methods</h3>
+<h3>Documenter les méthodes</h3>
 
-<p>You should strive to document your code to keep it readable. When you
-write it, its purpose and limitations are clear to you, but most of the time, this does not
-last for long. You will soon forget about the details of every specific method, and this day
-you will be happy to read its documentation. In the following example, we use the 
-specific formalism of pydoc, a program 
-that extracts the documentation of python source code to produce html pages. The
-main advantage is that it allows to keep the documentation near to the code.  So, when
-you change your code, you have less chances to forget to update the documentation.</p>
+<p>Vous devez toujours vous efforcer de documenter votre code pour qu'il reste
+lisible. À l'instant où vous l'écrivez, son objectif et ses limitations vous
+semblent clairs, mais la plupart du temps, ça ne dure pas. On oublie vite
+les détails d'une méthode particulière, et quand cela arrive, on est content
+de pouvoir lire sa documentation.
+Dans l'exemple ci-dessous, nous utilisons le formalisme spécifique de
+pydoc, un programme qui
+extrait la documentation du code source pour en faire de belles pages
+web. Le principal avantage de cette approche est que la documentation se
+trouve à coté du code. Donc, quand on change le code, il y a un peu plus de
+chance pour qu'on pense à mettre la documentation à jour.</p>
 
 <p>
-pydoc comments should be placed at the beginning of the method body so that
-the tool finds them. They should be placed between <code>"""</code>, which mark 
-multi-line strings in python.
-The first line should  be a brief description of what this method does while any subsequent
-lines should provide any important details about the method.</p>
+Les commentaire pydoc doivent être placés au début du corps de la
+méthode pour que l'outil les trouve. Ils doivent être placés entre
+<code>"""</code>, qui marquent les chaînes de caractères sur plusieurs
+lignes en python.
+La première ligne devrait décrire brièvement la méthode tandis que le reste
+de la documentation devrait donner tous les points importants de la méthode.</p>
 
 <pre>
 
 
 def goAndGet():
-  """Go, retrieves the baggle in front of the buggle, and brings it back.
+  """Avance, récupère le biscuit, et le ramène à la position d'origine
 
-  Does not check for walls, so be careful to not call it when walls are present."""
+  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur."""
   actions()
-  to()
-  do()
+  a()
+  faire()
 </pre>
 
-<h3>Naming conventions</h3>
-<p>Most programming language forbid the use of spaces in method and variable identifiers (=their names).  
-Accented letters are sometimes allowed (as in python), but they can lead to
-portability issues between operating systems and should thus be avoided when possible.</p>
+<h3>Conventions de nommage</h3>
+<p>La plupart des langages de programmation interdisent d'utiliser des espaces
+dans les noms de variables et de méthodes. Certains langages (comme le
+python) autorisent l'usage des caractères accentués dans ces
+identificateurs, mais cela pose parfois des problèmes de portabilité entre
+les systèmes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
+les identificateurs, même si c'est parfois désagréable en français.</p>
 
-<p>Across all programming languages, there is two main conventions to
-name variables and methods. The first one, consists in concatenating all words with 
-only the first letter of each word in upper case. "go and get" becomes goAndGet(). 
-It is called CamelCase because identifiers written this way graphically remind of a camel
-back. The other convention, called snake_case, is to write every words in lower case,
-separated with underscores symbols (_). "go and get" becomes go_and_get().</p>
+<p>Parmi tous les langages de programmation, il y a deux conventions de nomage
+majeures. La première consiste à concaténer tous les mots en ne laissant que
+la première lettre de chaque mot en majuscule. «va chercher le biscuit»
+devient VaChercherLeBiscuit(). Cette convention est nommée CamelCase en
+anglais, c'est-à-dire casse du chameau, car les identificateurs écrits de
+cette façon font un peu penser au dos d'un chameau. L'autre convention,
+nommée snake_case (casse du serpent), consiste à concaténer tous les mots en
+minuscule en les séparant du caractère souligné (_). «va chercher le
+biscuit» devient va_chercher_le_biscuit().</p>
 
-<p>Which convention to use is the topic of heated discussion across developers, but
-each programming language has its own habits. In Python, Perl and the C language, the 
-snake_case is often used for methods and variables. Java and Scala prefer the
-lowerCamelCase (the very first letter is lower case) for that.</p> 
-<p>The CamelCase convention is used everywhere in PLM because this program is written
-in Java itself, so we kept our habits when adding new languages. But the fact that the
-Python bindings of PLM use the CamelCase instead of the snake_case is considered as a
-bug that we will fix in further releases.</p>
+<p>Le choix de la convention de nommage est le sujet de «discussions» très
+animées entre programmeurs, mais certaines habitudes prédominent pour chaque
+langage. En Python, Ruby, Perl ou en langage C, la casse_du_serpent
+prédomine pour les noms de variables et de méthodes. En Java et en Scala, on
+préfère habituellement la casseDuChameau, en laissant la toute première
+lettre en minuscule.</p> 
+<p>La casseDuChameau est utilisé partout dans PLM car c'est un programme écrit
+en Java à la base, et que nous avons gardé nos habitudes en écrivant le
+support pour d'autres langages. Mais nous considérons le fait Python ne soit
+pas en casse_du_serpent comme un bug, que nous corrigerons dans une version
+future.</p>
 
-<h3>Exercise goal</h3>
-<p>The goal of this exercise is to write a method called <code>goAndGet()</code>
-which does the same than in a previous exercises (move forward until over a baggle, 
-pick it up, move back to initial position, drop baggle).</p>
+<h3>Objectif de cet exercice</h3>
+<p>L'objectif de cet exercice est donc d'écrire une méthode nommée
+<code>goAndGet()</code> (va chercher) et qui fait la même chose que dans un
+exercice précédent (avance tant qu'on ne trouve pas de baggle, ramasser le
+baggle, reculer à la case départ, poser le baggle).</p>
 
-<p>This exercise is a bit different because you will not write all of
-the code executed by the buggle. Instead, you should only write one 
-method that get called automagically added when you click on
-<b>Start</b>. Your buggle calls your <code>goAndGet()</code> method on
-each row, until the baggle is found. The code for that is already provided 
-under the <code>goAndGet()</code> method, but you probably don't want to change it.
-</p> 
+<p>Cet exercice est un peu différent : vous n'allez pas écrire tout le code
+exécuté par la buggle, mais juste une méthode qui sera invoquée
+automagiquement quand vous exécutez l'exercice. Votre buggle va alors
+appeler votre méthode <code>goAndGet()</code> sur chaque colonne du monde,
+jusqu'à trouver le biscuit. Le code pour cela est déjà donné
+(en anglais) sous la méthode <code>goAndGet()</code> qui reste à écrire,
+mais vous ne devriez pas le modifier. </p> 
 
-<p>But for that to work, you have to actually write this
-<code>goAndGet()</code> method now.</p>
+<p>Mais pour que cela fonctionne, il faut que vous écriviez maintenant cette
+fonction <code>goAndGet()</code>...</p>
 
 </body></html>
