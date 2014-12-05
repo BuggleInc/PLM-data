@@ -5,16 +5,19 @@ def av(i):
 init=1
 while not(estDosMur() and not(estSurBiscuit)): 
    c=0
-   while not(estSurBiscuit()):
+   while not(estSurBiscuit()) or (estDosMur() and not(estSurBiscuit)) :
       c=c+1
       recule()
-   prendBiscuit()
+   if estSurBiscuit():
+      prendBiscuit()
    if init==1:
       init=0
       while estSurBiscuit()==False:
          avance()
       recule()
       poseBiscuit()
+   elif not(estSurBiscuit()):
+      return
    else:
       av(c)
       poseBiscuit()
