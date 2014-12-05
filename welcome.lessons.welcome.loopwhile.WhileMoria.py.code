@@ -1,7 +1,25 @@
+def av(i):
+   for k in range(i):
+      avance()
 
-
-
+init=1
 while estDosMur() and not(estsurbiscuit()): 
+   c=0
    while estSurBiscuit()==False:
+      c=c+1
       recule()
    prendBiscuit()
+   if init==1:
+      init=0
+      while estSurBiscuit()==False:
+         avance()
+      recule()
+      poseBiscuit()
+   else:
+      av(c-1)
+      poseBiscuit()
+
+gauche()
+avance()
+droite()
+avance()   
