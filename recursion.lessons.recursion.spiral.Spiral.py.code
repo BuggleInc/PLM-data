@@ -1,21 +1,8 @@
 def spiral(steps, angle, length, increment):
-   for i in range(steps):
-      avance(0)
+   if steps==0:
+      return
+   avance(length)
+   gauche(angle)
+   spiral(steps-1, angle, length+increment, increment)
 
-
-
-spiral(5, 90, 0, 3);
-avance(0);
-gauche(90);
-spiral(4,90,3,3);
-avance(3);
-gauche(90);
-spiral(3,90,6,3);
-avance(6);
-gauche(90);
-spiral(2,90,9,3);
-gauche(90);
-spiral(1,90,12,3);
-avance(12);
-gauche(90);
-spiral(0,90,12,3);
+spiral(5, 90, 0, 3)
