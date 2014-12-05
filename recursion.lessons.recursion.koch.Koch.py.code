@@ -1,0 +1,24 @@
+
+def snowSide(levels, length):
+    if levels==0:
+        avance(length)
+    else:
+        snowSide(levels-1,length/3)
+        gauche(60)
+        snowSide(levels-1,length/3)
+        droite(120)    
+        snowSide(levels-1,length/3)
+        gauche(60)
+        snowSide(levels-1,length/3)
+        
+def snowFlake (levels, length):
+    snowSide(levels, length)
+    right(120)
+    setColor(Color.blue)
+    snowSide(levels, length)
+    right(120)
+    setColor(Color.orange)
+    snowSide(levels, length)
+    right(120)
+
+snowFlake(5,100)
