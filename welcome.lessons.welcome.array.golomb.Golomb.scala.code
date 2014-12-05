@@ -1,13 +1,21 @@
 def golomb(num:Int): Int = {
-	var Nieme=2
-	var T=new Array[Int](num+3)
+	var T=new Array[Int](num+1)
 	T(1)=1
-	T(Nieme)=T(Nieme-1)+1
+	var resultat = 1
+	var cour = 2
+	var prec = 1
+	var glb = T(resultat)
+	
 	do {
-		for (i<-1 to T(Nieme)-1){
-			T(Nieme+i)=Nieme
+		if (cour-prec == glb) {
+			prec = cour
+			resultat += 1
+			T(cour) = resultat
+			glb = T(resultat)
 		}
-		Nieme+=T(Nieme)
-	} while (Nieme <= num)
-	return T(num)
+		T(cour)=resultat
+		cour += 1
+		
+	} while (cour != num+1)
+	return resultat
 }
