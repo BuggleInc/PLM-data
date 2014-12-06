@@ -1,7 +1,9 @@
 while not(estSurBiscuit()):
    dire=getDirection()
-   print dire
-   print type(dire)
+   if dire==Direction.NORTH :
+      nord=True
+   else : 
+      nord=False
    face=estFaceMur()
    gauche()
    gau=estFaceMur()
@@ -9,11 +11,11 @@ while not(estSurBiscuit()):
    if not(face) and nord:
       while not(estFaceMur()):
          avance()
-   elif not(face) and gau and not(nord):
+   elif not(face) and gau:
       avance()
    elif face and gau:
       droite()
-   elif face and not(gau) and not(nord):
+   elif face and not(gau):
       gauche()
       avance()
       gauche()
@@ -22,7 +24,7 @@ while not(estSurBiscuit()):
       if not(gau):
          gauche()
          avance()
-   elif not(face) and not(gau) and not(nord):
+   elif not(face) and not(gau):
       gauche()
       avance()
       gauche()
