@@ -1,0 +1,48 @@
+N=6
+i=1
+while i<N:
+   face=estFaceMur()
+   gauche()
+   gau=estFaceMur()
+   droite()
+   droite()
+   droi=estFaceMur()   
+   gauche()
+   if not(face):
+      avance()
+      i=i+1
+   elif face and not(droi):
+      droite()
+      avance()
+      gauche()
+
+gauche()
+
+while not(estSurBiscuit()):
+   face=estFaceMur()
+   gauche()
+   gau=estFaceMur()
+   droite()
+   if not(face) and gau:
+      avance()
+   elif face and gau:
+      droite()
+   elif face and not(gau):
+      gauche()
+      avance()
+      gauche()
+      gau=estFaceMur()
+      droite()
+      if not(gau):
+         gauche()
+         avance()
+   elif not(face) and not(gau):
+      gauche()
+      avance()
+      gauche()
+      gau=estFaceMur()
+      droite()
+      if not(gau):
+         gauche()
+         avance() 
+prendBiscuit()
