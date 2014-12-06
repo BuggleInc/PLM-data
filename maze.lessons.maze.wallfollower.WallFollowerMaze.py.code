@@ -11,6 +11,15 @@ while not(estSurBiscuit()):
       avance()
    elif face and gau:
       droite()
+   elif face and not(gau):
+      gauche()
+      avance()
+      gauche()
+      gau=estFaceMur()
+      droite()
+      if not(gau):
+         gauche()
+         avance()
    elif not(face) and not(gau):
       gauche()
       avance()
