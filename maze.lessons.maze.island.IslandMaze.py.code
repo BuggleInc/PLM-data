@@ -1,3 +1,42 @@
+saut=True
+while not(estSurBiscuit()):
+   dire=getDirection()
+   if dire==Direction.NORTH :
+      nord=True
+   else : 
+      nord=False
+   face=estFaceMur()
+   gauche()
+   gau=estFaceMur()
+   droite()
+   if not(face) and nord and saut:
+      saut=not(saut)
+      while not(estFaceMur()):
+         avance()
+   elif not(face) and gau:
+      avance()
+   elif face and gau:
+      droite()
+   elif face and not(gau):
+      gauche()
+      avance()
+      gauche()
+      gau=estFaceMur()
+      droite()
+      if not(gau):
+         gauche()
+         avance()
+   elif not(face) and not(gau):
+      gauche()
+      avance()
+      gauche()
+      gau=estFaceMur()
+      droite()
+      if not(gau):
+         gauche()
+         avance() 
+prendBiscuit()
+
 N=6
 i=1
 while i<N:
