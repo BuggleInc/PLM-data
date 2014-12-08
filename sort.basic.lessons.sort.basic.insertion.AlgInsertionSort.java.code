@@ -1,18 +1,29 @@
 public void insertionSort() {
 	int lgr = getNombreValeurs();
-	int v = 0;
+	int x = 0;
 	int k=0;
 	for(int i = 1 ; i < lgr; i++)
 	{
-		v = getValeur(i);
-		k=i-1;
+		x = getValeur(i);
+		k=i;
 		
-		while(k>0 && getValeur(k)>v)
+		while(k>0 && getValeur(k)>x)
 		{
 			setValeur(k+1, getValeur(k));
 			k--;
 		}
-		setValeur(k,v);
+		setValeur(k,x);
 	}
 }
 
+procédure tri_insertion(tableau T, entier n)
+      pour i de 1 à n-1
+          x ? T[i]
+          j ? i
+          tant que j > 0 et T[j - 1] > x
+              T[j] ? T[j - 1]
+              j ? j - 1
+          fin tant que
+          T[j] ? x
+     fin pour
+  fin procédure 
