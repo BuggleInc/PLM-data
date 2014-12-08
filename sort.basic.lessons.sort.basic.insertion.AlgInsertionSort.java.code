@@ -1,16 +1,18 @@
 public void insertionSort() {
 	int lgr = getNombreValeurs();
 	int v = 0;
+	int k=0;
 	for(int i = 1 ; i < lgr; i++)
 	{
 		v = getValeur(i);
-
-		for(int k=i-1; k>=0; k--)
+		k=i;
+		
+		while(k>0 && getValeur(k)>v)
 		{
-			if(getValeur(k)<v)
-			{
-				echange(k+1,i);
-			}
+			setValeur(k, getValeur(k-1));
+			k--;
 		}
+		setValeur(k,v);
 	}
 }
+
