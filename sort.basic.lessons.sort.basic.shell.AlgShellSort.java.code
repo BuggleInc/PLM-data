@@ -3,28 +3,26 @@ public void shellSort()  {
 	int lgr = getNombreValeurs();
 	int ecart = lgr / 2 ;
 	int x = 0;
-	int j=0;
-	
 	while(ecart>0)
 	{
-			
-			
-			for(int i = 1 ; i < lgr; i++)
+		for(int i=1; i<lgr;i++)
+		{
+			x = getValeur(i);
+
+			for(int j=i; j>= ecart && getValeur(j-ecart)>x ; j = j-ecart)
 			{
-				x = getValeur(i);
-				j=i;
-				int k=1;
-								
-				while((j-(k*ecart))>0 && getValeur(j-(k*ecart))>x)
-				{
-					setValeur(j, getValeur(j-(k*ecart)));
-					//j--;
-					k++;
-				}
-				setValeur(j,x);
+				setValeur(j,getValeur(j-ecart));
 			}
-			ecart = ecart / 2;
+			
+			setValeur(j,x);
+			
+			
+		}
+		ecart = ecart / 2;		
 	}
+
+
+	
 }
 /*
 ecart=lgr/2
