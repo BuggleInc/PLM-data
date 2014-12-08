@@ -9,9 +9,11 @@ public void shellSort()  {
 		{
 			x = getValeur(i);
 			int j=i;
-			for(j=i; j>= ecart && getValeur(j-ecart)>x ; j = j-ecart)
+			int valjec = getValeur(j-ecart);
+			for(j=i; j>= ecart && valjec >x ; j = j-ecart)
 			{
-				setValeur(j,getValeur(j-ecart));
+				setValeur(j,valjec);
+				valjec = getValeur(j-ecart);
 			}
 			
 			setValeur(j,x);
