@@ -3,9 +3,9 @@ def island(num:Array[Int]): Int = {
 	var level = 0
 	var i=0
 	while (i != num.length) {
-		if (num(i)==level+1) {
-			levelNb += 1
-			level = level + 1
+		if (num(i)-level>0) {
+			levelNb += (num(i)-level)
+			level = num(i)
 		}
 		
 		if (i != 0) {
