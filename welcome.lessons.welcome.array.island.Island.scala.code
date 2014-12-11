@@ -3,13 +3,13 @@ def island(num:Array[Int]): Int = {
 	var level = 0
 	var i=0
 	while (i != num.length) {
-		if (num(i)==level+1) level = level + 1
+		if (num(i)==level+1) {
+			levelNb += level
+			level = level + 1
+		}
 		
 		if (i != 0) {
-			if (num(i)<num(i-1)) {
-				levelNb += level
-				level=num(i)
-			}
+			if (num(i)<num(i-1)) level=num(i)
 		}
 		i += 1
 	}
