@@ -1,24 +1,21 @@
-x = 0
 retourne()
-while x == 0:
-    while estSurBiscuit() == False and porteBiscuit() == False:
-        avance()
-        if estSurBiscuit() == True:
-            prendBiscuit()
-        elif estFaceMur() == True:
-            droite()
-            avance()
-            gauche()
-            avance()
-            x = 1
-    while porteBiscuit() == True and estSurBiscuit() == False:
-        recule()
-        if estSurBiscuit() == True:
-            avance()
-            poseBiscuit()
-            avance()
-    if estFaceMur() == True:
+while estSurBiscuit() == False and porteBiscuit() == False:
+    avance()
+    if estSurBiscuit() == True:
+        prendBiscuit()
+    elif estFaceMur() == True:
         droite()
         avance()
         gauche()
         avance()
+while porteBiscuit() == True and estSurBiscuit() == False:
+    recule()
+    if estSurBiscuit() == True:
+        avance()
+        poseBiscuit()
+        avance()
+if estFaceMur() == True:
+    droite()
+    avance()
+    gauche()
+    avance()
