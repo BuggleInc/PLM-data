@@ -1,56 +1,12 @@
-def a():
-    #Lorsqu'il ne porte pas de Biscuit
-    while porteBiscuit() == False:
-        if estSurBiscuit() == True:
-            prendBiscuit()
-        else:
-            recule()
-            
-    #Lorqu'il porte un Biscuit
-    while porteBiscuit() == True:
-        if estSurBiscuit() == False:
-            avance()
-        else:
-            recule()
-            poseBiscuit()
-            recule()
-    retourne()
+while estSurBiscuit() == False:
+    recule()
 
-def b():
-    #Lorsqu'il ne porte pas de Biscuit
-    while porteBiscuit() == False:
-        if estSurBiscuit() == True:
-            prendBiscuit()
-        else:
-            avance()
-            
-    #Lorqu'il porte un Biscuit
-    while porteBiscuit() == True:
-        if estSurBiscuit() == False:
-            recule()
-        else:
-            avance()
-            poseBiscuit()
-            avance()
-    retourne()
+if estSurBiscuit() == True:
+    prendBiscuit()
 
-a()
-b()
-a()
-b()
-a()
-b()
-a()
-b()
-a()
-b()
-a()
-b()
-
-while faceAuMur() == False:
-    avance()
-if faceAuMur() == True:
-    droite()
-    avance()
-    gauche()
-    avance()
+while porteBiscuit() == True:
+    if estSurBiscuit() == False:
+        avance()
+    else:
+        recule()
+        poseBiscuit()
