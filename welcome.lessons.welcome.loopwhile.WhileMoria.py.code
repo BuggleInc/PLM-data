@@ -1,10 +1,6 @@
 x = 0
 retourne()
 while x == 0:
-    while estSurBiscuit() == False and porteBiscuit() == False:
-        avance()
-        if estSurBiscuit() == True:
-            prendBiscuit()
     if estFaceMur() == True:
         droite()
         avance()
@@ -13,6 +9,10 @@ while x == 0:
         x = 1
     else:
         pass
+    while estSurBiscuit() == False and porteBiscuit() == False:
+        avance()
+        if estSurBiscuit() == True:
+            prendBiscuit()
     while porteBiscuit() == True and estSurBiscuit() == False:
         recule()
         if estSurBiscuit() == True:
