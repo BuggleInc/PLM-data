@@ -2,11 +2,13 @@ nbPas = 0
 
 while porteBiscuit() == False:
     if estSurBiscuit == False:
-        avance()
+        avance(1)
         nbPas = nbPas + 1
     else:
         prendBiscuit()
 
 while porteBiscuit() == True:
-    recule(nbPas)
-    poseBiscuit()
+    if nbPas != 0:
+        recule(nbPas)
+    else:
+        pass
