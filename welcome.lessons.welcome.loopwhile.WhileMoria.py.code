@@ -1,4 +1,17 @@
-while estSurBiscuit() == False and porteBiscuit() == False:
-    recule()
-    if estSurBiscuit() == True:
-        prendBiscuit()
+x = 0
+while x == 0:
+    while estSurBiscuit() == False and porteBiscuit() == False:
+        recule()
+        if estSurBiscuit() == True:
+            prendBiscuit()
+    while porteBiscuit() == True and estSurBiscuit() == False:
+        avance()
+        if estSurBiscuit() == True:
+            recule()
+            poseBiscuit()
+            recule()
+    if estFaceMur() == True:
+        gauche()
+        avance()
+        gauche()
+        avance()
