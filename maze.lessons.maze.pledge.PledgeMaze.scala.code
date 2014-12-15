@@ -1,11 +1,29 @@
 override def run() {
 //copier/coller
+var sommeAngle :Int = 0
+
+def isDirectionFree(dir:Direction) ={
+	val myDirection = getDirection
+	setDirection(dir)
+	if (estFaceMur) {
+		setDirection(myDirection)
+		return false
+	}
+	return true
+}
 
 def keepHandOnSideWall() ={
 	if (!estFaceMur) avance
-	else droite
+	else {
+		droite
+		sommeAngle--
+	}
 	gauche
-	if (estFaceMur) droite
+	sommeAngle++
+	if (estFaceMur) {
+		droite
+		sommeAngle--
+	}
 }
 
 	while (!estSurBiscuit) {
