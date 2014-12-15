@@ -1,33 +1,33 @@
 override def run() {
 
-var sommeAngle :Int = 0
-
-def keepHandOnSideWall() ={
-	if (!estFaceMur) avance
-	else {
-		droite
-		sommeAngle -= 1
-	}
-	gauche
-	sommeAngle += 1
-	if (estFaceMur) {
-		droite
-		sommeAngle -= 1
-	}
-}
-
-	while (!estSurBiscuit) {
-		if (estFaceMur) {
-			keepHandOnSideWall
-			while (sommeAngle != 0 && !estSurBiscuit) {
-				keepHandOnSideWall
-			}
+for (i <- 0 to getLargeurMonde) {
+	for (j <- 0 to getHauteurMonde) {
+		if (aBiscuit(i,j)) {
+			val xBaggle = i
+			val yBaggle = j
 		}
-		else avance
-		sommeAngle = 0
 	}
-	prendBiscuit
-
 }
-    
+
+def fini() :Boolean ={
+	for (i <- 0 to getLargeurMonde) {
+		for (j <- 0 to getHauteurMonde) {
+			if (setIndication(i,j)==9999) return false
+		}
+	}
+	return true
+}
+var indic = 0
+var x = xBaggle
+var y = yBaggle
+while (!fini) {
+	setIndication(x,y,indic)
+	if (!aMurNord(x,y)) y -= 1
+	else {
+		if (!aMurOuest(x,y)) y += 1
+		else y += 1
+	}
+	
+}
+
 }
