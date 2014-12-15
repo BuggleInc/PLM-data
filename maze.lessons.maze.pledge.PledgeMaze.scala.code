@@ -29,8 +29,12 @@ def keepHandOnSideWall() ={
 	while (!estSurBiscuit) {
 		if (estFaceMur) {
 			keepHandOnSideWall
-			while (!(Direction.NORTH)) && sommeAngle < 0) {
+			while (!(getDirection == Direction.NORTH) && !estFaceMur) {
 				keepHandOnSideWall
+				if (sommeAngle == 0 && isDirectionFree(Direction.NORTH)) {
+					setDirection(Direction.NORTH)
+					avance
+				}
 			}
 		}
 		else avance
