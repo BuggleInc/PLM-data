@@ -1,2 +1,40 @@
+void mark() {
+	brushDown();
+	brushUp();
+}
+	
+void makeV() {
+	mark();
+	forward(2);
+	mark();
+	backward();
+	left();
+	forward();
+	mark();
+	backward();
+	right();
+}
+
+void makePattern() {
+	for (int i=0; i<4; i++) {
+		forward(2);
+		makeV();
+		forward(3);
+		left();
+	}
+}
+
+void makeRow(int len) {
+	for (int i=0; i<len; i++) {
+		makePattern();
+		forward(7);
+	}
+}
 public void run() {
+	for (int i=0; i<9; i++) {
+		makeRow(9);
+		left();
+		forward(7);
+		right();
+	}
 }
