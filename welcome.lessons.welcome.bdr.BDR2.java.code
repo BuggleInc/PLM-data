@@ -1,0 +1,53 @@
+int nForward, nBackward;
+boolean done=false;
+char activity;
+
+while (!done) {
+	nForward = nBackward = 0;
+	activity = getIndication();
+	switch (activity) {
+		case 'R':
+			right();
+			nForward += 1;
+			break;
+		case 'L':
+			left();
+			nForward += 1;
+			break;
+		case 'I':
+			back();
+			nForward += 1;
+			break;
+		case 'A':
+			nForward += 1;
+		case 'B':
+			nForward += 1;
+		case 'C':
+			nForward += 1;
+		case 'D':
+			nForward += 1;
+		case 'E':
+			nForward += 1;
+		case 'F':
+			nForward += 1;
+			break;
+		case 'U':
+			nBackward += 1;
+		case 'V':
+			nBackward += 1;
+		case 'W':
+			nBackward += 1;
+		case 'X':
+			nBackward += 1;
+		case 'Y':
+			nBackward += 1;
+		case 'Z':
+			nBackward += 1;
+			break;
+		default:
+			done = true;
+	}
+	forward(nForward);
+	backward(nBackward);
+
+}
