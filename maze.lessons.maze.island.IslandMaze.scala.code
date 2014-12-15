@@ -4,15 +4,13 @@ def keepHandOnSideWall() ={
 	else droite
 	gauche
 	if (estFaceMur) droite
-	
 }
-	while (!estFaceMur) {
-		gauche
-		if (!estFaceMur) avance
-	}
-	droite
+
 	while (!estSurBiscuit) {
-		keepHandOnSideWall
+		setDirection(Direction.NORTH)
+		if (estFaceMur) keepHandOnSideWall
+		avance
 	}
 	prendBiscuit
+	
 }
