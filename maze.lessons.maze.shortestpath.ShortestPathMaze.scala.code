@@ -23,17 +23,17 @@ setIndication(xBaggle,yBaggle,0)
 
 def markAround(x:Int,y:Int) ={
 	var indic = getIndication(x,y) + 1
-	if (!aMurNord(x,y)) {
-		if (y != 0) setIndication(x,y-1,indic)
+	if (y != 0) {
+		if (!aMurNord(x,y) && getIndication(x,y-1) == 9999) setIndication(x,y-1,indic)
 	}
-	if (!aMurOuest(x,y)) {
-		if (x != 0) setIndication(x-1,y,indic)
+	if (x != 0) {
+		if (!aMurOuest(x,y) && getIndication(x-1,y) == 9999) setIndication(x-1,y,indic)
 	}
 	if (y != getMondeLargeur-1) {
-		if (!aMurNord(x,y+1)) setIndication(x,y+1,indic)
+		if (!aMurNord(x,y+1) && getIndication(x,y+1) == 9999) setIndication(x,y+1,indic)
 	}
 	if (x != getMondeHauteur-1) {
-		if (!aMurOuest(x+1,y)) setIndication(x+1,y,indic)
+		if (!aMurOuest(x+1,y) && getIndication(x+1,y) == 9999) setIndication(x+1,y,indic)
 	}
 }
 
