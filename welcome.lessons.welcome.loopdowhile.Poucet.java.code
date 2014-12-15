@@ -1,2 +1,16 @@
 public void run() { 
+	while (getGroundColor() != Color.orange) {
+		int i=0, nBaggles = 0;
+		do {
+			forward();
+			if (isOverBaggle())
+				nBaggles++;
+			i++;
+		} while(i<5);
+		if (nBaggles <= 2)
+			right();
+		else
+			left();
+	}
+	forward();
 }
