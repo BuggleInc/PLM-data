@@ -18,12 +18,11 @@ def fini() :Boolean ={
 	}
 	return true
 }
-var indic = 0
-var x = xBaggle
-var y = yBaggle
-setIndication(x,y,indic)
-while (!fini) {
-	indic = getIndication(x,y) + 1
+
+setIndication(xBaggle,yBaggle,0)
+
+def markAround(x,y) ={
+	var indic = getIndication(x,y) + 1
 	if (!aMurNord(x,y)) {
 		if (y != 0) setIndication(x,y-1,indic)
 	}
@@ -36,6 +35,13 @@ while (!fini) {
 	if (x != getMondeHauteur-1) {
 		if (!aMurOuest(x+1,y)) setIndication(x+1,y,indic)
 	}
+}
+
+var x = xBaggle
+var y = yBaggle
+while (!fini) {
+	markAround(x,y)
+	
 }
 
 }
