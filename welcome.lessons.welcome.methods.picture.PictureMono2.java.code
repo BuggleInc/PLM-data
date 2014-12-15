@@ -24,18 +24,17 @@ void makePattern() {
 	}
 }
 
+void makeRow(int len=3) {
+	for (int i=0; i<len; i++) {
+		makePattern();
+		forward(7);
+	}
+}
 public void run() {
 	for (int i=0; i<3; i++) {
-		for (int j=0; j<3; j++) {
-			makePattern();
-			forward(7);
-		}
-		backward(21);
+		makeRow();
 		left();
 		forward(7);
 		right();
 	}
-	right();
-	forward(21);
-	left();
 }
