@@ -1,3 +1,33 @@
 override def run() {
+
+var sommeAngle :Int = 0
+
+def keepHandOnSideWall() ={
+	if (!estFaceMur) avance
+	else {
+		droite
+		sommeAngle -= 1
+	}
+	gauche
+	sommeAngle += 1
+	if (estFaceMur) {
+		droite
+		sommeAngle -= 1
+	}
+}
+
+	while (!estSurBiscuit) {
+		if (estFaceMur) {
+			keepHandOnSideWall
+			while (sommeAngle != 0 && !estSurBiscuit) {
+				keepHandOnSideWall
+			}
+		}
+		else avance
+		sommeAngle = 0
+	}
+	prendBiscuit
+
+}
     
 }
