@@ -1,12 +1,18 @@
 N=getNombreValeurs()
 i=0
-while i<(N-2):
-    if getValeur(i)<getValeur(i+1):
+avant=getValeur(0)
+apres=getValeur(1)
+while i<N-1:
+    if avant<apres:
        i=i+1
+       avant=apres
+       apres=getValeur(i)
     else :
        echange(i,i+1)
        if i>0:
           i=i-1
-       
+          avant=getValeur(i)
+       else:
+          avant,apres=apres,avant
           
    
