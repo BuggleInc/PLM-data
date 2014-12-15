@@ -1,14 +1,16 @@
 public void run() { 
+	boolean done = false;
+	
 	while (!isFacingWall())
 		forward();
 
-	while (true) {
+	while (!done) {
 		left();
 		forward();
 		right();
 		forward();
 		if (!isFacingWall())
-			break;
+			done = true;
 	}
 
 	forward(3);
