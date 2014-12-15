@@ -22,13 +22,19 @@ var indic = 0
 var x = xBaggle
 var y = yBaggle
 while (!fini) {
-	setIndication(x,y,indic)
-	if (!aMurNord(x,y)) y -= 1
-	else {
-		if (!aMurOuest(x,y)) y += 1
-		else y += 1
+	indic = getIndication(x,y) + 1
+	if (!aMurNord(x,y)) {
+		if (y != 0) setIndication(x,y-1,indic)
 	}
-	indic += 1
+	if (!aMurOuest(x,y)) {
+		if (x != 0) setIndication(x-1,y,indic)
+	}
+	if (y != getMondeLargeur-1) {
+		if (!aMurNord(x,y+1)) setIndication(x,y+1,indic)
+	}
+	if (x != getMondeHauteur-1) {
+		if (!aMurOuest(x+1,y)) setIndication(x+1,y,indic)
+	}
 }
 
 }
