@@ -3,15 +3,17 @@ public void run() {
 		back();
 		while (!isOverBaggle() && !isFacingWall())
 			forward();
-		if (isFacingWall())
+		if (isOverBaggle()) {
+			pickupBaggle();
+			back();
+			while (!isOverBaggle())
+				forward();
+			backward();
+			dropBaggle();
+			backward();
+		}
+		else
 			break;
-		pickupBaggle();
-		back();
-		while (!isOverBaggle())
-			forward();
-		backward();
-		dropBaggle();
-		backward();
 	}
 	right();
 	forward();
