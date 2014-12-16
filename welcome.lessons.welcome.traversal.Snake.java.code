@@ -1,0 +1,26 @@
+public void run() {
+	brushDown();
+	boolean right = true;
+	boolean atTop = false;
+
+	while (!atTop && !isFacingWall()) {
+		if (isFacingWall())
+			if (right) {
+				left();
+				forward();
+				if (isFacingWall())
+					atTop = true;
+				left();
+				right=false;		
+			}
+			else {
+				right();
+				forward();
+				if (isFacingWall())
+					atTop = true;
+				right();
+				right=true;
+			}
+			forward();
+	
+}
