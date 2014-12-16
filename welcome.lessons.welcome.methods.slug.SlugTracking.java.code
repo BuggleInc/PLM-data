@@ -1,7 +1,14 @@
 boolean isFacingTrail() {
+	boolean facingGreen;
+	
 	if (isFacingWall())
     		return false;
     	forward();
     	if (getGroundColor().equals(Color.green))
-    		return true;
+    		facingGreen = true;
+    	else
+    		facingGreen = false;
+    		
+    	backward();
+    	return facingGreen;
 }        
