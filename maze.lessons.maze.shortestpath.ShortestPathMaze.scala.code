@@ -13,9 +13,8 @@ for (i <- 0 to getMondeLargeur-1) {
 def fini() :Boolean ={
 	for (i <- 0 to getMondeLargeur-1) {
 		for (j <- 0 to getMondeHauteur-1) {
-			if (getIndication(i,j)>=9999) {
-				return false
-			}
+			if (getIndication(i,j)==9999) return false
+			if (getIndication(i,j)==10000) setIndication(i,j,"")
 		}
 	}
 	return true
@@ -46,7 +45,10 @@ while (!fini) {
 	num += 1
 	for (i <- 0 to getMondeLargeur-1) {
 		for (j <- 0 to getMondeHauteur-1) {
-			if (getIndication(i,j) == num) markAround(i,j)
+			if (getIndication(i,j) == num) {
+				if (num != 9999) markAround(i,j)
+				else setIndication(i,j,10000)
+			}
 		}
 	}
 }
