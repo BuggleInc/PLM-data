@@ -2,10 +2,13 @@ public void run() {
 	brushDown();
 	boolean right = true;
 	boolean atTop = false;
+	boolean done = false;
 
-	while (!(atTop && isFacingWall())) {
+	while (!done) {
 		forward();
 		if (isFacingWall())
+			if (atTop)
+				break;
 			if (right) {
 				left();
 				forward();
