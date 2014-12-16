@@ -7,14 +7,16 @@ public void run() {
 		forward();
 	}
 
-	brushDown();
 	for (int i=1; i<h; i++) {
 		left();
 		forward();
 		right();
+		brushDown();
 		for (int j=0; j<h; j++) {
 			forward();
 			setBrushColor(rainbow[j]);
 		}
+		brushUp();
+		forward();
 	}
 }
