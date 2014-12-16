@@ -1,0 +1,27 @@
+public void run() {
+	int h = getWorldHeight();
+	Color rainbow[] = new Color[h];
+
+	rainbow[0] = getGroundColor();
+	for (int i=1; i<h; i++) {
+		forward();
+		rainbow[i]=getGroundColor();
+	}
+	backward(h);
+
+	int offset;
+	for (i=1; i<h; i++) {
+		left();
+		forward();
+		right();
+		offset = integer.parseInt(readMessage());
+		brushDown();
+		for (int j=0; j<h-1; j++) {
+			setBrushColor(rainbow[(offset+j)%h]);
+			forward();
+		}
+		setBrushColor(rainbow[(offset+j)%h]);
+		brushUp();
+		backward(h);
+	}
+}
