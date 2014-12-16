@@ -1,2 +1,39 @@
+void mark() {
+	brushDown();
+	brushUp();
+}
+	
+void makeV(Color c) {
+	setBrushColor(c);
+	forward();
+	mark();
+	forward(2);
+	mark();
+	backward();
+	left();
+	forward();
+	mark();
+	backward();
+	right();
+	forward(2);
+	left();
+}
+
+void makeCell() {
+	makeV(Color.yellow);
+	makeV(Color.red);
+	makeV(Color.blue);
+	makeV(Color.green);
+}
+
 public void run() {
+	for (int i=0; i<9; i++) {
+		for (int j=0; j<9; j++) {
+			makeCell();
+			forward(5);
+		}
+		left();
+		forward(5);
+		right();
+	}
 }
