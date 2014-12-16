@@ -13,3 +13,19 @@ while not sortieTrouvee() :
     else:
         droite()
 avance()
+
+while not exitReached() :
+    seen = 0
+    within = False
+    
+    while not within or not croisement():
+        within = True
+        forward()
+        if estSurBiscuit():
+            seen += 1
+    
+    if seen > 2:
+        droite()
+    else:
+        droite()
+avance()
