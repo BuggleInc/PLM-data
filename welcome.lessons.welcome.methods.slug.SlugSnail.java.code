@@ -1,5 +1,29 @@
- public void hunt(Color c) {
-     
+ boolean isFacingTrail(Color c) {
+	boolean facingGreen;
+	
+	if (isFacingWall())
+    		return false;
+    	forward();
+    	if (getGroundColor().equals(c))
+    		facingGreen = true;
+    	else
+    		facingGreen = false;
+    		
+    	backward();
+    	return facingGreen;
+}        
+
+public void hunt(Color c) {
+    	while (!isOverBaggle()) {
+		if (isFacingTrail(c)) {
+			brushDown();
+			forward();
+			brushUp();
+		}
+		else
+			left();    
+	}
+	pickupBaggle();
  }
 
  
