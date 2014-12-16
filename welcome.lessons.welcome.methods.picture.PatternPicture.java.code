@@ -1,0 +1,36 @@
+void mark() {
+	brushDown();
+	brushUp();
+}
+
+void markTwo(Color c) {
+	setBrushColor(c);
+	left();
+	forward();
+	mark();
+	backward();
+	right();
+	forward();
+	mark();
+	forward(2);
+	left();
+}
+
+void makeCell() {
+	markTwo(Color.red);
+	markTwo(Color.blue);
+	markTwo(Color.green);
+	markTwo(Color.yellow);
+}
+
+public void run() {
+	for (int i=0; i<2; i++) {
+		for (int j=0; j<2; j++) {
+			makeCell();
+			forward(4);
+		}
+		left();
+		forward(4);
+		right();	
+	}
+}
