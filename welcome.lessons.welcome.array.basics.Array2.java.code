@@ -9,14 +9,14 @@ public void run() {
 	}
 	backward(h);
 
-	int offset;
+	int offset, j;
 	for (int i=1; i<h; i++) {
 		left();
 		forward();
 		right();
 		offset = Integer.parseInt(readMessage());
 		brushDown();
-		for (int j=0; j<h-1; j++) {
+		for (j=0; j<h-1; j++) {
 			setBrushColor(rainbow[(offset+j)%h]);
 			forward();
 		}
