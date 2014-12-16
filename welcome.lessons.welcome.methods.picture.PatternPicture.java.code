@@ -23,14 +23,31 @@ void makeCell() {
 	markTwo(Color.yellow);
 }
 
-public void run() {
-	for (int i=0; i<2; i++) {
-		for (int j=0; j<2; j++) {
-			makeCell();
-			forward(4);
+void makeRow() {
+	int nCell = 0;
+	while (true) {
+		makeCell();
+		forward(3);
+		if (isFacingWall()) {
+			backward(nCell*4+3);
+			return;
 		}
+		nCell++;
+		forward();
+	}
+}
+public void run() {
+	int nRow = 0;
+	
+	while (true) {
+		makeRow();
 		left();
-		forward(4);
-		right();	
+		forward(3);
+		if (isFacingWall()) {
+			backward(nRow*4+3);
+			right();
+			break;	
+		}
+		nRow++;
 	}
 }
