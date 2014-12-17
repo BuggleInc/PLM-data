@@ -1,7 +1,7 @@
 public void run(){
-	while(isCarryingBaggle()==false && isBackingWall()==false){
+	while(isBackingWall==false){
 		backward();
-		while(isOverBaggle()==true){
+		if(isOverBaggle()==true){
 			pickupBaggle();
 			while(isCarryingBaggle()==true){
 				forward();
@@ -11,7 +11,8 @@ public void run(){
 					}
 			}
 		}
-	while(isBackingWall()==true){
+	}
+	if(isBackingWall()==true){
 		left();
 		forward();
 		left();
