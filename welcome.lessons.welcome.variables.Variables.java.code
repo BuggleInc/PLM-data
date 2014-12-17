@@ -2,19 +2,20 @@ public void run(){
 
 int stepAmount = 0;
 
-while (isOverBaggle()==false){
-	forward();
-	stepAmount = stepAmount + 1;
-	if(isOverBaggle()==true){
-		pickupBaggle();
-		if(isCarryingBaggle()==true){
-			while(stepAmount != 0)
-				backward();
-				stepAmount = stepAmount - 1;
-				if(stepAmount == 0){
-					dropBaggle();
-				}
+	while (isOverBaggle()==false){
+		forward();
+		stepAmount = stepAmount + 1;
+		if(isOverBaggle()==true){
+			pickupBaggle();
+			if(isCarryingBaggle()==true){
+				while(stepAmount != 0)
+					backward();
+					stepAmount = stepAmount - 1;
 			}
 		}
+	}
+				
+	if(stepAmount == 0){
+		dropBaggle();
 	}
 }
