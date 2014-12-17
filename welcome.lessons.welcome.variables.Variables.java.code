@@ -5,18 +5,15 @@ int stepAmount = 0;
 	while (isOverBaggle()==false){
 		forward();
 		stepAmount = stepAmount + 1;
-		
 		if(isOverBaggle()==true){
 			pickupBaggle();
-		
-			 while(isCarryingBaggle()==true){
-					backward();
-					stepAmount = stepAmount - 1;
-					if(stepAmount == 0){
-						dropBaggle();
+			while(isCarryingBaggle()==true){
+				backward();
+				stepAmount = stepAmount - 1;
+				if(stepAmount == 0){
+					dropBaggle();
+				}
 			}
-		}
-	}
-			
+		}		
 	}
 }
