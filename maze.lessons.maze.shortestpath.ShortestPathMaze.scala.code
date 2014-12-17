@@ -53,21 +53,29 @@ while (num!=1000) {
 }
 while (!estSurBiscuit) {
 	var indic = getIndication(getX,getY)-1
-	if (getIndication(getX+1,getY)==indic) {
-		setDirection(Direction.EAST)
-		avance
+	if (getX!=getMondeLargeur-1) {
+		if (getIndication(getX+1,getY)==indic) {
+			setDirection(Direction.EAST)
+			avance
+		}
 	}
-	if (getIndication(getX-1,getY)==indic) {
-		setDirection(Direction.WEST)
-		avance
+	if (getX!=0) {
+		if (getIndication(getX-1,getY)==indic) {
+			setDirection(Direction.WEST)
+			avance
+		}
 	}
-	if (getIndication(getX,getY+1)==indic) {
-		setDirection(Direction.SOUTH)
-		avance
+	if (getY!=getMondeHauteur-1) {
+		if (getIndication(getX,getY+1)==indic) {
+			setDirection(Direction.SOUTH)
+			avance
+		}
 	}
-	if (getIndication(getX,getY-1)==indic) {
-		setDirection(Direction.NORTH)
-		avance
+	if (getY!=0) {
+		if (getIndication(getX,getY-1)==indic) {
+			setDirection(Direction.NORTH)
+			avance
+		}
 	}
 }
 prendBiscuit
