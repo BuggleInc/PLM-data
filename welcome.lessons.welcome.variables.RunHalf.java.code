@@ -5,10 +5,12 @@ public void run() {
 
 	while(2 * baggles != orangeCells + 1){
 		forward();
-		if(isOverBaggle()==true){
+		while(isOverBaggle()==true){
 			baggles = baggles + 1;
-			if(isOverOrange()==true){
+			forward();
+			while(isOverOrange()==true){
 				orangeCells = orangeCells + 1;
+				forward();
 			}
 		}
 	}
