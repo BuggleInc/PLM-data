@@ -5,13 +5,11 @@ def step(rule:Array[Char], colors:Array[Color]) {
 		leveBrosse
 	}
 
-	for (i<- 0 to colors.length-1) {
-		if (getCouleurSol == colors(i)) {
-			if (i!=colors.length-1) changerCouleur(colors(i+1))
-			else changerCouleur(colors(1))
-			if (rule(i) == 'R') droite
-			else gauche
-		}
-	}
+	var i = 0
+	while (getCouleurSol != colors(i)) i+=1
+	if (i!=colors.length-1) changerCouleur(colors(i+1))
+	else changerCouleur(colors(1))
+	if (rule(i) == 'R') droite
+	else gauche
 	avance
 }
