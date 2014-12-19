@@ -1,5 +1,22 @@
     var state = 0;
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-        /* Your code comes here */
+
+    def changerCouleur(c:Color) ={
+		setCouleurBrosse(c)
+		baisseBrosse
+		leveBrosse
+	}
+
+	var etat = 0
+	var couleurActuelle = 0
+	while (getCouleurSol != colors(couleurActuelle)) couleurActuelle+=1
+	if (couleurActuelle != colors.length-1) changerCouleur(colors(couleurActuelle+1))
+	else changerCouleur(colors(0))
+	if (rule(etat)(couleurActuelle) == 0) recule
+	if (rule(etat)(couleurActuelle) == 2) gauche
+	if (rule(etat)(couleurActuelle) == 4) retourne
+	if (rule(etat)(couleurActuelle) == 8) droite
+	etat = rule(etat)(couleurActuelle)
+	avance
     }
