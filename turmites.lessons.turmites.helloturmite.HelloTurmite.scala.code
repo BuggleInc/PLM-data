@@ -1,4 +1,6 @@
     var state = 0;
+	val 
+
 
     def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
@@ -8,14 +10,15 @@
 		leveBrosse
 	}
 
+	//recherche de la couleur sur le sol et changement
 	var couleurActuelle = 0
 	while (getCouleurSol != colors(couleurActuelle)) couleurActuelle+=1
-	if (couleurActuelle != colors.length-1) changerCouleur(colors(couleurActuelle+1))
-	else changerCouleur(colors(0))
-	if (rule(state)(couleurActuelle)(0) == 0) recule
+	changerCouleur(colors(rule(state)(couleurActuelle)(0)))
+	
+	if (rule(state)(couleurActuelle)(1) == 0) recule
 	if (rule(state)(couleurActuelle)(1) == 2) gauche
 	if (rule(state)(couleurActuelle)(1) == 4) retourne
 	if (rule(state)(couleurActuelle)(1) == 8) droite
-	state = rule(state)(couleurActuelle)
+	state = rule(state)(couleurActuelle)(2)
 	avance
     }
