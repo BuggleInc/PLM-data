@@ -13,10 +13,10 @@
 	while (getCouleurSol != colors(couleurActuelle)) couleurActuelle+=1
 	if (couleurActuelle != colors.length-1) changerCouleur(colors(couleurActuelle+1))
 	else changerCouleur(colors(0))
-	if (rule(etat)(couleurActuelle) == 0) recule
-	if (rule(etat)(couleurActuelle) == 2) gauche
-	if (rule(etat)(couleurActuelle) == 4) retourne
-	if (rule(etat)(couleurActuelle) == 8) droite
-	etat = rule(etat)(couleurActuelle)
+	if (rule(etat)(couleurActuelle)(1) == 0) recule
+	if (rule(etat)(couleurActuelle)(1) == 2) gauche
+	if (rule(etat)(couleurActuelle)(1) == 4) retourne
+	if (rule(etat)(couleurActuelle)(1) == 8) droite
+	etat = rule(etat)(couleurActuelle)(1)
 	avance
     }
