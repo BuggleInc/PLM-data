@@ -8,15 +8,14 @@
 		leveBrosse
 	}
 
-	var etat = rule(0)(0)(0)
 	var couleurActuelle = 0
 	while (getCouleurSol != colors(couleurActuelle)) couleurActuelle+=1
 	if (couleurActuelle != colors.length-1) changerCouleur(colors(couleurActuelle+1))
 	else changerCouleur(colors(0))
-	if (rule(etat)(couleurActuelle)(0) == 0) recule
-	if (rule(etat)(couleurActuelle)(1) == 2) gauche
-	if (rule(etat)(couleurActuelle)(1) == 4) retourne
-	if (rule(etat)(couleurActuelle)(1) == 8) droite
-	etat = rule(etat)(couleurActuelle)(1)
+	if (rule(state)(couleurActuelle)(0) == 0) recule
+	if (rule(state)(couleurActuelle)(1) == 2) gauche
+	if (rule(state)(couleurActuelle)(1) == 4) retourne
+	if (rule(state)(couleurActuelle)(1) == 8) droite
+	state = rule(etat)(couleurActuelle)
 	avance
     }
