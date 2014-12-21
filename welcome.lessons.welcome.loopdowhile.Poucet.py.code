@@ -1,17 +1,16 @@
 premiereFois = True
 biscuit = 0
-while sortieTrouvee() == False:
-    while premiereFois == True or not croisement():
-        premiereFois = False
-        for i in range (5):
-            forward()
-            if estSurBiscuit() == True:
-                biscuit = biscuit + 1
-        if biscuit >= 3:
-            gauche()
-            premiereFois = True
-            biscuit = 0
-        elif biscuit <= 2:
-            droite()
-            premiereFois = True
-            biscuit = 0
+while premiereFois == True and not sortieTrouvee():
+    premiereFois = False
+    for i in range (5):
+        forward()
+        if estSurBiscuit() == True:
+            biscuit = biscuit + 1
+    if biscuit >= 3:
+        gauche()
+        premiereFois = True
+        biscuit = 0
+    elif biscuit <= 2:
+        droite()
+        premiereFois = True
+        biscuit = 0
