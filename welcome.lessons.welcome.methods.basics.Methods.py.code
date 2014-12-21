@@ -1,10 +1,17 @@
+compteur = 0
 def goAndGet():
     while porteBiscuit() == False:
         if estSurBiscuit() == False:
             forward()
+            compteur = compteur + 1
         else:
             prendBiscuit()
     while porteBiscuit() == True:
+        for i in range(compteur):
+            recule()
+        poseBiscuit()
+
+    
 # Add your code here
 
 
