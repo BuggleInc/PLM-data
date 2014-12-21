@@ -1,0 +1,19 @@
+public void changeColor(int color) {
+	setBrushColor(color);
+	brushDown();
+	brushUp();
+}
+
+public void step() {
+	Color c = getGroundColor();
+	if (c.equals(Color.black)) {
+		changeColor(Color.white);
+		left();
+		forward();
+	}
+	if (c.equals(Color.white)) {
+		changeColor(Color.black);
+		right();
+		forward();
+	}
+}
