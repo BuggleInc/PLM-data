@@ -18,44 +18,46 @@
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h1>Se poser pour les nuls</h1>
 
-<p>Bravo ! Vous avez gagné dans une boîte de céréales un voyage (aller simple)
-pour Mars. La NASA vous a même fourni un module d'excursion lunaire pour
-l'occasion, et c'est donc avec ce véhicule que vous voyagerez.</p>
+<p>Bravo ! Vous avez gagnÃ© dans une boÃ®te de cÃ©rÃ©ales un voyage (aller simple)
+pour Mars. La NASA vous a mÃªme fourni un module d'excursion lunaire pour
+l'occasion, et c'est donc avec ce vÃ©hicule que vous voyagerez.</p>
 
-<p>Avant le décollage, vous devez vous entraîner sur simulateur aux bases de
-l'alunissage. Si tout se passe comme prévu, vous ne devriez pas avoir à
-voler en mode manuel, mais mieux vaut prévenir que guérir, comme ils disent.</p>
+<p>Avant le dÃ©collage, vous devez vous entraÃ®ner sur simulateur aux bases de
+l'alunissage. Si tout se passe comme prÃ©vu, vous ne devriez pas avoir Ã 
+voler en mode manuel, mais mieux vaut prÃ©venir que guÃ©rir, comme ils disent.</p>
 
 <p>Votre mission est de <b>poser le module avec une vitesse verticale
-inférieure à 10 m/s</b>. Il y a deux façons d'influer sur la trajectoire du
-module : en modifiant son angle, ou en réglant la poussée de son
-moteur. Dans cette simulation, nous ne nous intéressons qu'à la poussée,
-exprimée en m/s².</p>
+infÃ©rieure Ã  10 m/s</b>. Il y a deux faÃ§ons d'influer sur la trajectoire du
+module : en modifiant son angle, ou en rÃ©glant la poussÃ©e de son
+moteur. Dans cette simulation, nous ne nous intÃ©ressons qu'Ã  la poussÃ©e,
+exprimÃ©e en m/sÂ².</p>
 
-<p>Vous devez écrire le code qui sera appellé tous les dixièmes
-de seconde pendant la simulation. Il faut ajuster la poussée du moteur en
-utilisant la fonction <code>setPousseeDesiree(poussee:Integer)</code> où <code>poussee</code> est un
-entier entre 0 et 4 (représentant une poussée entre 0 m/s² et 4 m/s²). Vous
-ne pouvez incrémenter ou décrémenter la poussée que de 1 entre deux pas de
-la simulation. Ainsi, si la poussée du moteur est actuellement de 2 et que
-vous demandez 4, vous n'aurez que 3 à la prochaine étape. Si vous demandez
-une valeur inférieure à 0 (ou supérieure à 4), tout se passera comme si vous
-aviez demandé 0 (ou 4).</p>
+<p>Vous devez Ã©crire le code qui sera appellÃ© tous les dixiÃ¨mes
+de seconde pendant la simulation. Assurez vous que votre code ne dure pas
+trop longtemps, et Ã©vitez en particulier les boucles <code>while</code>. Il
+faut juste ajuster la poussÃ©e du moteur en utilisant la fonction
+<code>setPousseeDesiree(poussee:Integer)</code> oÃ¹ <code>poussee</code> est un
+entier entre 0 et 4 (reprÃ©sentant une poussÃ©e entre 0 m/sÂ² et 4 m/sÂ²). Vous
+ne pouvez incrÃ©menter ou dÃ©crÃ©menter la poussÃ©e que de 1 entre deux pas de
+la simulation. Ainsi, si la poussÃ©e du moteur est actuellement de 2 et que
+vous demandez 4, vous n'aurez que 3 Ã  la prochaine Ã©tape. Si vous demandez
+une valeur infÃ©rieure Ã  0 (ou supÃ©rieure Ã  4), tout se passera comme si vous
+aviez demandÃ© 0 (ou 4).</p>
 
-<p>Afin de prendre des décisions informées, vous pouvez demander des
-informations sur l'état actuel du module. Dans cette simulation, vous ne
-serez probablement intéressé que par sa position verticale (accessible grâce
-à <code>getY():Double</code>) et sa vitesse
-verticale (accessible grâce à <code>getVitesseY():Double</code>). Vous pouvez également demander
-la poussée actuelle du moteur (avec <code>getPoussee():Integer</code>) si vous avez oublié ce que vous
-avez demandé. Rappelez vous que la gravité martienne est de 3.711 m/s², cela
-peut vous être utile.</p>
+<p>Afin de prendre des dÃ©cisions informÃ©es, vous pouvez demander des
+informations sur l'Ã©tat actuel du module. Dans cette simulation, vous ne
+serez probablement intÃ©ressÃ© que par sa position verticale (accessible grÃ¢ce
+Ã  <code>getY():Double</code>) et sa vitesse
+verticale (accessible grÃ¢ce Ã  <code>getVitesseY():Double</code>). Vous pouvez Ã©galement demander
+la poussÃ©e actuelle du moteur (avec <code>getPoussee():Integer</code>) si vous avez oubliÃ© ce que vous
+avez demandÃ©. Rappelez vous que la gravitÃ© martienne est de 3.711 m/sÂ², cela
+peut vous Ãªtre utile.</p>
 
-<p>Une dernière chose : le module est plutôt petit, et vous n'avez pas tant de
-carburant que cela. À chaque pas de simulation, il consomme autant d'unité
-de carburant que la poussée actuelle du moteur. Si vous tombez en panne
-sèche, vous serez en chute libre alors attention ! Vous pouvez consulter le
-niveau du réservoir avec <code>getFuel():Integer</code>.</p>
+<p>Une derniÃ¨re chose : le module est plutÃ´t petit, et vous n'avez pas tant de
+carburant que cela. Ã€ chaque pas de simulation, il consomme autant d'unitÃ©
+de carburant que la poussÃ©e actuelle du moteur. Si vous tombez en panne
+sÃ¨che, vous serez en chute libre alors attention ! Vous pouvez consulter le
+niveau du rÃ©servoir avec <code>getFuel():Integer</code>.</p>
 
 <p>Bon courage !</p>
 </body></html>
