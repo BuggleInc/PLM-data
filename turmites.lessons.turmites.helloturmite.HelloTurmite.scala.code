@@ -1,0 +1,22 @@
+var state = 0;
+
+var tab = new Array[Int](2)
+var c:Int=0;
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+    c=0;
+    while (colors(c)!=getCouleurSol()) {
+        c+=1;
+    }
+    tab = rule(state)(c);
+    setCouleurBrosse(colors(tab(0)));
+    baisseBrosse();
+    leveBrosse();
+     tab(1) match {
+         case 0 =>
+         case 1 => avance();
+         case 2 => gauche(); avance();
+         case 4 => droite(); droite(); avance();
+         case 8 => droite(); avance();
+     }
+     state=tab(2)
+}

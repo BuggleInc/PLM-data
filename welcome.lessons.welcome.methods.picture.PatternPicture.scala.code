@@ -1,33 +1,50 @@
 override def run() {
-	def faireMotif(c:Color);{
+	def faireMotif(c:Color){
+		setCouleurBrosse(c:Color);
+		gauche();avance();
+		baisseBrosse();
+		leveBrosse();
+		droite();avance();droite();avance();
+		baisseBrosse();
+		leveBrosse();
+	}
+	def Motif(c:Color){
 		setCouleurBrosse(c:Color);
 		baisseBrosse();
 		leveBrosse();
 		gauche();avance();droite();avance();
 		baisseBrosse();
 		leveBrosse();
-		/*setCouleurBrosse(d:Color);*/
-		gauche();avance();
-		//baisseBrosse;
-		//leveBrosse();
-		avance();gauche();avance();
-		//baisseBrosse();
-		//leveBrosse();
-		droite();avance();
-		//setCouleurBrosse(c:Color);
-		baisseBrosse();
-		leveBrosse();
-		avance();droite();avance(à);
-		baisseBrosse();
-		leveBrosse();
-		gauche();avance();
-		//setCouleurBrosse(d:Color);
-		//baisseBrosse();
-		//leveBrosse();
-		avance();gauche();avance();
-		//baisseBrosse();
-		//leveBrosse();
-		droite();avance();droite();avance();
 	}
+def Motif1(){
+	faireMotif(Color.RED);
+	gauche();avance();avance();avance();
+	faireMotif(Color.RED);
+	gauche();recule();recule();recule();gauche();avance();avance();droite();
 	faireMotif(Color.GREEN);
+	gauche();avance();avance();avance();
+	faireMotif(Color.GREEN);
+	
+}
+def Motif2(){
+	Motif(Color.YELLOW);
+	avance();avance();droite();avance();gauche();avance();
+	Motif(Color.YELLOW);
+	for(i<- 1 to 7){ recule(); }
+	gauche();avance();droite();
+	Motif(Color.BLUE);
+	droite();avance();gauche();avance();avance();avance();
+	Motif(Color.BLUE);
+	
+}
+Motif1();
+gauche(); 
+for(i<- 1 to 7){ recule(); }
+gauche();avance();avance();droite();
+Motif1();
+recule();droite();avance();avance();
+Motif2();
+recule();recule();recule();gauche();avance();droite();
+Motif2();
+recule();recule();droite();avance();avance();avance();avance();droite();
 }

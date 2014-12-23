@@ -1,0 +1,40 @@
+override def run() {
+	var direct=Direction.SUD;
+	var a=0;
+def wall(){
+	if(estFaceMur){
+		droite();
+		if(estFaceMur){
+			droite();
+			if(estFaceMur){
+				droite();
+			}else avance();a=a+2;
+		}else avance();a=a+1;
+	}else{
+		gauche();
+		if(estFaceMur){
+			droite();
+			avance();
+		}else{
+			avance();
+			a=a-1;
+			}
+		}
+	}
+def direction(d:Direction){
+	direct=getDirection();
+	setDirection(d);
+	if(estFaceMur){
+		setDirection(direct);
+		return false
+	}
+	return true
+}
+while(!estSurBiscuit){
+	wall();
+	if(direction(Direction.SUD)==true && a!=0){
+		while(!estFaceMur){ avance(); }
+	}
+}
+}
+
