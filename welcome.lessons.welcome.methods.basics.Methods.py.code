@@ -1,13 +1,15 @@
 def goAndGet():
     compteur = 0
-    while estSurBiscuit() == False:
-        forward()
-        compteur = compteur + 1
-    prendBiscuit()
-    
-    for i in range(compteur):
-        backward()
-    poseBiscuit()
+    while porteBiscuit() == False:
+    if estSurBiscuit() == False:
+            forward()
+            compteur = compteur + 1
+        else:
+            prendBiscuit()
+    while porteBiscuit() == True:
+        for i in range(compteur):
+            backward()
+        poseBiscuit()
 
 for i in range(7):
     goAndGet()
