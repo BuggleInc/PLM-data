@@ -4,16 +4,16 @@ def croisement():
 def sortieTrouvee():
     return exitReached()
 #Programme
-while not exitReached() :
+while not sortieTrouvee() :
     seen = 0
-    within = False
-while not within or not crossing():
-    within = True
-    forward()
+    premiereFois = False
+    while not within or not croissement():
+        premiereFois = True
+        forward()
     if isOverBaggle():
         seen += 1
-if seen > 2:
-    left()
-else:
-    right()
-    forward()
+    if seen > 2:
+        left()
+    else:
+        right()
+        forward()
