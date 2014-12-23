@@ -1,0 +1,36 @@
+def dessine():
+    baisseBrosse()
+    leveBrosse()
+
+def faireV():
+    for i in range(2):
+        forward()
+    dessine()
+    forward()
+    gauche()
+    forward()
+    dessine()
+    recule()
+    droite()
+    forward()
+    dessine()
+    for i in range(2):
+        forward()
+    gauche()
+
+def faireMotif():
+    for i in range(4):
+        faireV()
+
+def ligne():
+    for i in range(9):
+        faireMotif()
+        for i in range(7):
+            forward()
+    gauche()                #Passer à la ligne suivante
+    for i in range(7):
+        forward()
+    droite()
+
+for i in range(9):
+    ligne()
