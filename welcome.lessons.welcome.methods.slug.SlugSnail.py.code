@@ -1,0 +1,31 @@
+def isFacingTrail(color):
+    couleur=getCouleurSol()
+    while couleur!=color:
+        if estFaceMur()==True:
+            while estFaceMur()==True:
+                droite()
+        forward()
+        couleur=getCouleurSol()
+        backward()
+        if couleur!=color:
+            droite()    
+    return True
+
+def hunt(color):
+    while estSurBiscuit()==False:
+        isFacingTrail(color)
+        baisseBrosse()
+        forward()
+        leveBrosse()
+    prendBiscuit()
+
+forward()
+if getColorSol()==Color.pink:
+    hunt(pink)
+elif getColorSol()==Color.orange:
+    hut(orange)
+
+
+    
+        
+
