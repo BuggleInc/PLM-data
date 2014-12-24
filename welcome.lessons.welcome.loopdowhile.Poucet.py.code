@@ -1,14 +1,14 @@
-while not exitReached() :
-    seen = 0
-    within = False
+while not sortieTrouvee() :
+    compteur = 0
+    PremiereFois = False
     
-    while not within or not crossing():
-        within = True
+    while not PremiereFois or not croisement():
+        PremiereFois = True
         forward()
-        if isOverBaggle():
-            seen += 1
-    if seen > 2:
-        left()
+        if estSurBiscuit():
+            compteur += 1
+    if compteur > 2:
+        gauche()
     else:
-        right()
+        droite()
 forward()    
