@@ -1,13 +1,14 @@
 
 def goAndGet():
-    nbPas=0
+    
     while not estSurBiscuit():
         forward()
-        nbPas=nbPas+1
-    else:    
+    else:
         prendBiscuit()
-        recule(nbPas)
-        poseBiscuit()
+        while not estFaceMur():
+            backward()
+        else:
+            poseBiscuit()
 
 for i in range(7):
   goAndGet()
