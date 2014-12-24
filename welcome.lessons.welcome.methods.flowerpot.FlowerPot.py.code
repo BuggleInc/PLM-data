@@ -1,4 +1,4 @@
-def growFlowers(color):
+def flower(color):
     setCouleurBrosse(color)
     baisseBrosse()
     forward(2)
@@ -10,21 +10,23 @@ def growFlowers(color):
     setCouleurBrosse(Color.YELLOW)
     leveBrosse()
     forward(3)
-
+def growFlowars():
+    for i in range(len(couleur)):
+        color=couleur[i]
+        flower(color)
+    backward()
+    droite()
+    forward()
+    flower(Color.ORANGE)
+    backward()
+    gauche()
+    backward(2)
 
 couleur=[Color.RED,Color.CYAN,Color.GREEN,Color.PINK]
 forward()
 gauche()
 backward()
-for i in range(len(couleur)):
-    color=couleur[i]
-    growFlowers(color)
-backward()
-droite()
-forward()
-growFlowers(Color.ORANGE)
-backward()
-gauche()
-backward(2)
+growFlowers()
+
 
         
