@@ -16,14 +16,17 @@ def hunt():
             forward()
         gauche()
         leveBrosse()
-        while isFacingTrail() == True :
-            baisseBrosse()
-            forward()
-        droite()
-        droite()
-        while isFacingTrail() == True :
-            baisseBrosse()
-            forward()
+        if isFacingTrail() == True :
+            while isFacingTrail() == True :
+                baisseBrosse()
+                forward()
+        else :
+            droite()
+            droite()
+            while isFacingTrail() == True :
+                baisseBrosse()
+                forward()
+        forward()
     prendBiscuit()            
 
 hunt()
