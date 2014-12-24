@@ -1,12 +1,10 @@
 def vaChercher():
-    compteur=0
     while estSurBiscuit() is False and porteBiscuit() is False:
-        compteur+=1
         forward()
-    if estSurBiscuit() and porteBiscuit() is False:
-        prendBiscuit()
-        recule(compteur)
-        poseBiscuit()
+        if estSurBiscuit() and porteBiscuit() is False:
+            prendBiscuit()
+            recule()
+            poseBiscuit()
 for i in range(7):
   vaChercher()
   right()
