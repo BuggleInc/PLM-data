@@ -1,8 +1,10 @@
 def vaChercher():
     compteur=0
     while estSurBiscuit() is False:
+        compteur+=1
         forward()
-    prendBiscuit()
+        if estSurBiscuit():
+            prendBiscuit()
     for i in range(compteur):
         recule()
     poseBiscuit()
