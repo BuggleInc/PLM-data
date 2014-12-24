@@ -1,12 +1,15 @@
 def hunt():
     while estSurBiscuit == False:
-        forward()
-        getCouleurSol()
-        backward()
-        baisseBrosse()
-        leveBrosse()
-        if getCouleurSol() == Color.green:
+        if estFaceMur() == False:
             forward()
+            getCouleurSol()
+            backward()
+            baisseBrosse()
+            leveBrosse()
+            if getCouleurSol() == Color.green:
+                forward()
+            else:
+                gauche()
         else:
             gauche()
 
