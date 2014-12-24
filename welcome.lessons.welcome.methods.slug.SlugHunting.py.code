@@ -1,0 +1,20 @@
+def isFacingTrail():
+    if estFaceMur() == True :
+        return False
+    forward()
+    if getCouleurSol() == Color.green :
+        backward()
+        return True
+    else :
+        backward()
+        return False
+
+def hunt():
+    while isFacingTrail() == True :
+        for i in range(4) :
+            baisseBrosse()
+            forward()
+            leveBrosse()
+            gauche()
+        
+    
