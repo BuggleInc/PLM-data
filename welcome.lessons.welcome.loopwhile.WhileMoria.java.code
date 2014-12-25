@@ -3,10 +3,13 @@ public void run() {
 		left();
 		left();
 		forward();
-		wall();
+		boolean testWall = wall();
 		while(!isOverBaggle()) {
 			forward();
-			wall();
+			testWall = wall();
+		}
+		if(testWall) {
+			break;
 		}
 		pickUpBaggle();
 		left();
@@ -19,11 +22,13 @@ public void run() {
 	}
 }
 
-public void wall() {
+public boolean wall() {
 	if(isFacingWall()) {
 		right();
 		forward();
 		left();
 		forward();
+		return true;
 	}
+	return false;
 }
