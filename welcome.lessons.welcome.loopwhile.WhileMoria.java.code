@@ -3,40 +3,27 @@ public void run() {
 		left();
 		left();
 		forward();
-		if(isFacingWall()) {
-			right();
-			forward();
-			left();
-			forward();
-		}
+		wall();
 		while(!isOverBaggle()) {
 			forward();
-			if(isFacingWall()) {
-				right();
-				forward();
-				left();
-				forward();
-			}
+			wall();
 		}
 		pickUpBaggle();
 		left();
 		left();
 		while(!isOverBaggle()) {
 			forward();
-			if(isFacingWall()) {
-				right();
-				forward();
-				left();
-				forward();
-			}
 		}
 		backward();
 		dropBaggle();
 	}
-	/*if(isFacingWall()) {
+}
+
+public void wall() {
+	if(isFacingWall()) {
 		right();
 		forward();
 		left();
 		forward();
-	}*/
+	}
 }
