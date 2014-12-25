@@ -1,16 +1,10 @@
 def isFacingTrail():
+    while not estFaceMur():
     forward()
-    while getCouleurSol()==Color.green and not estFaceMur():
-        forward()
-    while getCouleurSol()==Color.green and estFaceMur():
-        left()
-    while getCouleurSol()!=Color.green and not estFaceMur():
-        backward()
-        right()
-        forward()
-    if getCouleurSol()==Color.green and estFaceMur():
-        while estFaceMur():
-            right()
+    backward()
+    if getCouleurSol()==Color.green:
+        forward(2)
+        
         
 
 
