@@ -9,7 +9,7 @@ public void run() {
 			forward();
 			testWall = wall();
 		}
-		if(!testWall) {
+		if((testWall && isOverBaggle()) || !testWall) {
 			pickUpBaggle();
 			left();
 			left();
@@ -28,7 +28,6 @@ public boolean wall() {
 		forward();
 		left();
 		forward();
-		
 		return true;
 	}
 	return false;
