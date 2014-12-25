@@ -1,26 +1,42 @@
 public void run() { 
-	while(getGroundColor()!=Color.green) {
-		while(!isFacingWall()) {
-			left();
-			left();
-			forward();
-			while(!isOverBaggle()) {
-				forward();
-			}
-			pickUpBaggle();
-			left();
-			left();
-			while(!isOverBaggle()) {
-				forward();
-			}
-			backward();
-			dropBaggle();
-		}
+	while(!isFacingWall()) {
+		left();
+		left();
+		forward();
 		if(isFacingWall()) {
 			right();
 			forward();
 			left();
 			forward();
 		}
+		while(!isOverBaggle()) {
+			forward();
+			if(isFacingWall()) {
+				right();
+				forward();
+				left();
+				forward();
+			}
+		}
+		pickUpBaggle();
+		left();
+		left();
+		while(!isOverBaggle()) {
+			forward();
+			if(isFacingWall()) {
+				right();
+				forward();
+				left();
+				forward();
+			}
+		}
+		backward();
+		dropBaggle();
 	}
+	/*if(isFacingWall()) {
+		right();
+		forward();
+		left();
+		forward();
+	}*/
 }
