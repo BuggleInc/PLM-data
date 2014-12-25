@@ -1,24 +1,24 @@
 public void run() { 
-	while(!isFacingWall()) {
+	boolean testWall = false;
+	while(!isFacingWall() || !testWall) {
 		left();
 		left();
 		forward();
-		boolean testWall = wall();
+		testWall = wall();
 		while(!isOverBaggle()) {
 			forward();
 			testWall = wall();
 		}
-		if(testWall) {
-			break;
+		if(!testWall) {
+			pickUpBaggle();
+			left();
+			left();
+			while(!isOverBaggle()) {
+				forward();
+			}
+			backward();
+			dropBaggle();
 		}
-		pickUpBaggle();
-		left();
-		left();
-		while(!isOverBaggle()) {
-			forward();
-		}
-		backward();
-		dropBaggle();
 	}
 }
 
@@ -28,6 +28,7 @@ public boolean wall() {
 		forward();
 		left();
 		forward();
+		
 		return true;
 	}
 	return false;
