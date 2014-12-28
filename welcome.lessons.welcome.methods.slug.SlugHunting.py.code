@@ -10,28 +10,16 @@ def isFacingTrail():
         return False
 
 def hunt():    
+    while estSurBiscuit() == False :
+        leveBrosse()
         if isFacingTrail() == True :
-            while isFacingTrail() == True :
-                baisseBrosse()
-                forward()
-                leveBrosse()
-        else:
-            droite()
-            if isFacingTrail() == True :
-                while isFacingTrail() == True :
-                    baisseBrosse()
-                    forward()
-                    leveBrosse()
-            else:
-                gauche()
-                gauche()
-                while isFacingTrail() == True :
-                    baisseBrosse()
-                    forward()
-                    leveBrosse()                
+            baisseBrosse()
+            forward()
+            leveBrosse()
+        else :
+            gauche()
+    prendBiscuit()
 
-while estSurBiscuit() == False :
-    hunt()
-prendBiscuit()
+hunt()
         
     
