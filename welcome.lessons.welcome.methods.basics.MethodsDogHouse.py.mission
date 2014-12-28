@@ -14,46 +14,55 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Building methodically</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Construire avec méthode</h2>
 
-We now would like to learn the buggle to build a doghouse. The naive
-approach consists in directly writing the needed code as follows.  This
-works because the buggle of this exercise leaves a red path as it moves.
+Nous souhaitons maintenant apprendre à la buggle à se faire une niche.  La
+première approche, la plus simple au premier abord, est d'écrire directement
+le code permettant de le faire, comme ci-dessous (cela marche car la buggle
+de cet exercice laisse une traînée rouge dans son sillage quand elle se
+déplace).
 
-<pre>forward()
-forward()
+<pre>avance()
+avance()
 left()
-forward()
-forward()
+avance()
+avance()
 left()
-forward()
-forward()
+avance()
+avance()
 left()
-forward()
-forward()
+avance()
+avance()
 left()</pre>
 
-<p>It becomes harder when we want to draw two doghouses: we have to rewrite the
-same code twice, which is not really handy. When the code becomes a bit long as this
-one, it becomes easier to see why we insist since a while on the pure evilness that code
-duplication represents. Indeed, if you realize that an error sneaked into a code that you
-copied at several locations, you will have to fix it several times. And mind your back if you forget one of these locations.</p> 
+<p>Les problèmes commencent quand nous voulons faire faire deux cabanes à la
+buggle : Il faut réécrire le code deux fois, ce qui n'est pas très
+pratique. Quand le code devient un peu long comme dans ce cas, on voit mieux
+pourquoi il faut toujours éviter de dupliquer du code. En effet, si vous
+vous rendez compte que vous vous êtes trompé dans votre code, et que vous
+l'avez recopier à plusieurs endroits, il va falloir le corriger plusieurs
+fois. Et gare si vous oubliez de corriger un exemplaire.</p> 
 
-<p>There is even a name to this good principle in programming: DRY/SPOT, which means
-"Don't Repeat Yourself / Single Point Of Truth". The latter part means that each information
-must be written in only one location of your program to avoid the differing locations to get
-out of synch when you modify your code.</p>
+<p>Ce principe de programmation a même un nom en anglais : DRY/SPOT (qui
+signifie «point sec»). C'est l'acronyme de «Don't Repeat Yourself» (ne vous
+répétez pas) et «Single Point Of Truth» (point unique de vérité). Chaque
+information doit se trouver à un seul endroit de votre programme pour éviter
+que les différentes copies ne se désynchronisent quand vous modifiez votre
+programme.</p>
 
-<p>So, let's apply this good principle and <b>factorize our code</b>, 
-ie to write it only once, for example in a method. You should even to go further by 
-factorizing the method body with a <code>for</code> loop, as seen previously.
-If you do it correctly (what you should), you can use the method <code>left()</code> only 
-once.</p>
+<p>Nous allons donc appliquer ce beau principe et <b>factoriser le code</b>,
+c'est-à-dire écrire le code une seule fois, par exemple dans une
+méthode. Vous devriez même aller plus loin en factorisant le code de la
+méthode avec une boucle <code>for</code> comme vu précédemment. Si vous vous
+y prenez bien (ce que vous devriez faire), vous n'écrirez qu'un seul appel à
+la méthode <code>gauche()</code> dans votre programme.</p>
 
-<h3>Exercise goal</h3>
-<p>The goal of this exercise is to write a method called <code>dogHouse</code>
-achieving the same result than the code above, but with a for loop to keep it short. 
-The buggle will call your creation to create several dog houses around its world. </p>
+<h3>Objectif de cet exercice</h3>
+<p>L'objectif de cet exercice est d'écrire une méthode nommée
+<code>dogHouse()</code> et ayant un comportement identique au code
+ci-dessus. La buggle invoquera plusieurs fois votre œuvre afin de dessiner
+des cabanes un peu partout. </p>
 
 </body></html>
