@@ -1,1 +1,26 @@
 # Copy your isFacingTrail, and write your code below
+   # BEGIN SOLUTION
+   if isFacingWall():
+      return False
+   else:
+      forward()
+      res = (getGroundColor() == color)
+      backward()
+      return res
+   # END SOLUTION
+
+def hunt(color):
+   # BEGIN HIDDEN
+   while not isOverBaggle():
+      brushUp()
+      if isFacingTrail(color):
+         brushDown()
+         forward()
+         brushUp()
+      else:
+         left()
+   pickupBaggle()
+   # END HIDDEN
+# END TEMPLATE
+
+hunt(getParam(0))
