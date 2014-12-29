@@ -1,22 +1,23 @@
 left()
 left()
 while isFacingWall() == False:
-    while isOverBaggle() != True:
+    if (isFacingWall() == False):
+        while isOverBaggle() != True:
+            forward()
+        while isOverBaggle() == True:
+            pickupBaggle()
+        while isCarryingBaggle() == True:
+            if (isOverBaggle()):
+                forward(1)
+                dropBaggle()
+                forward(1)
+            else:
+                backward()
+    else isFacingWall() == True:
+        right()
         forward()
-    while isOverBaggle() == True:
-        pickupBaggle()
-    while isCarryingBaggle() == True:
-        if (isOverBaggle()):
-            forward(1)
-            dropBaggle()
-            forward(1)
-        else:
-            backward()
-while isFacingWall() == True:
-    right()
-    forward()
-    left()
-    forward()
+        left()
+        forward()
 
 '''
 if (isOverBaggle()):
