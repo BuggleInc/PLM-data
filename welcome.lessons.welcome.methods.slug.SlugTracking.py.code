@@ -1,36 +1,23 @@
-def Sol():
-    if getCouleurSol()==Color.green: 
-        return True
+def isFacingTrail():
+    if not estFaceMur():
+        avance()
+        if getColorSol()==Color.green:
+            return True
+        else:
+            return False
     else:
         return False
 
-def Changement1():
-    recule()
-    left()
-    avance()
-    recule()
-    right()
-    
-def Changement2(): 
-    recule()
-    droite()
-    avance()
-    recule()
-    left()
-
-
-def isFacingTrail():
-   if estFaceMur()==False:
-       avance()
-       if Sol()==True:
-           return True
-       else:
-           return False
-
-while isFacingTrail()==True:
+if isFacingTrail()==True:
     avance()
 else:
-    while not isFacingTrail()==True:
-        Changement1()
-        Changement2()
-        
+    gauche()
+    avance()
+    if isFacingTrail()==True:
+        avance()
+    else: 
+        recule()
+        droite()
+        droite()
+        avance()
+    
