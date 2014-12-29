@@ -3,10 +3,11 @@ left()
 forward()
 if (isOverBaggle()):
     pickupBaggle()
-    while isOverBaggle == False:
+    while isCarryingBaggle() == True:
         backword()
-    forward(1)
-    dropBaggle()
-    forward(1)
+        if (isOverBaggle()):
+            forward(1)
+            dropBaggle()
+            forward(1)
 else:
     forward()
