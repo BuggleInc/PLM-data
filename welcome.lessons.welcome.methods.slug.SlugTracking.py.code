@@ -1,6 +1,20 @@
-def isFacingTrail():
-    while estsurBiscuit() is false:
-        return(getCouleurSol())
-        avance()
-        if EstFaceMur() is true: 
-            recule()
+def haveBaggle():
+    vuBiscuit=False
+    if estsurBiscuit():
+        vuBiscuit=True
+    for i in range(6):
+        forward()
+        if estsurBiscuit():
+            vuBiscuit=True
+    for i in range(6):
+        backward()
+    if vuBiscuit==True:
+        return True
+    else:
+        return False
+
+while haveBaggle()==False:
+    haveBaggle()
+    right()
+    forward()
+    left()
