@@ -1,23 +1,19 @@
 def haveBaggle():
-    int res = 0;
-    int i;
-    for (i=0; i<6; i++) {
-        if (isOverBaggle())
-            res = 1;
-        forward(1);
-    }
-    for (i=0; i<6; i++)
-        backward(1);
-    return res;
-    /* END SOLUTION */
-}
-/* END TEMPLATE */
+    # BEGIN SOLUTION 
+    res = False
+    for i in range(6):
+        if isOverBaggle():
+            res = True
+        forward()
+    for i in range(6):
+        backward()
+    return res
+    # END SOLUTION
+#END TEMPLATE
 
-void run(){
-    int i;
-    for (i=0; i<7; i++) {
-        if (haveBaggle())
-            return;
-        right();
-        forward(1);
-        left()
+for i in range(7):
+    if haveBaggle():
+        break
+    right()
+    forward()
+    left()
