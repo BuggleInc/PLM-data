@@ -1,22 +1,22 @@
 back()
-if (isFacingWall() and isOverBaggle()):
+if (isFacingWall() and isOverBaggle() != True):
+    while isFacingWall() != True:
+        if (isCarryingBaggle()):
+            if (isOverBaggle()):
+                back()
+                forward(1)
+                dropBaggle()
+                forward()
+            else:
+                forward()
+        else:
+            if (isOverBaggle()):
+                pickupBaggle()
+                back()
+            else:
+                forward()
+else:
     back()
-while isFacingWall() != True:
-    if (isCarryingBaggle()):
-        if (isOverBaggle()):
-            back()
-            forward(1)
-            dropBaggle()
-            forward()
-        else:
-            forward()
-    else:
-        if (isOverBaggle()):
-            pickupBaggle()
-            back()
-        else:
-            forward()
-
 
 
 
