@@ -2,16 +2,22 @@ def lessBy10(a, b, c):
     if (0<=a<=10 and 0<=b<=10 and (c>10 or c<0)):
         if (a==10 or b==10) and (b>=2 or a>=2):
             return False
+        elif (a==10 or b==10) and (b<=1 or a<=1):
+            return True
         else:
             return True
     elif (0<=b<=10 and 0<=c<=10 and (a>10 or a<0)):
         if (b==10 or c==10) and (b>=2 or c>=2):
             return False
+        elif (b==10 or c==10) and (b<=1 or c<=1):
+            return True
         else:
             return True
     elif (0<=a<=10 and 0<=c<=10 and (b>10 or b<0)):
         if (a==10 or c==10) and (a>=2 or c>=2):
             return False
+        elif (a==10 or c==10) and (a<=1 or c<=1):
+            return True
         else:
             return True
     else:
