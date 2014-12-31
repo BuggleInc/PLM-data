@@ -1,6 +1,36 @@
 stepper = 0
+
+while isFacingWall() != True:
+    stepper = stepper +1
+    forward()
+    brushDown()
+
+while isFacingWall() == True:
+    left()
+    brushDown()
+    brushUp()
+    forward()
+    right()
+    forward()    
+
+
+
+
+
+'''
 while True == True:
-    if stepper > 0:
+    if (isFacingWall() != True):
+        stepper = stepper +1
+        forward()
+        brushDown()
+    elif (isFacingWall() == True):
+        left()
+        brushDown()
+        brushUp()
+        forward()
+        right()
+        forward()
+    elif stepper > 0:
         while stepper > 0:
             stepper = stepper - 1
             forward()
