@@ -1,16 +1,18 @@
-while estDosMur()==False or porteBiscuit()==False and estSurBiscuit()==False:
-    recule()
-if estSurBiscuit():
-    prendBiscuit()
-if porteBiscuit():
-    while estSurBiscuit()==False:
-        avance()
-        recule()
-        poseBiscuit()
-        gauche()
-        avance()
-        droite()
-        recule()
-        gauche()
-        gauche()
+back()
+while not isFacingWall():
+    while (not isOverBaggle()) and (not isFacingWall()):
+        forward()
+    if isOverBaggle():
+        pickupBaggle()
+        back()
+        while not isOverBaggle():
+            forward()
+        backward()
+        dropBaggle()
+        back()
+        forward()
+right()
+forward()
+left()
+forward()
         
