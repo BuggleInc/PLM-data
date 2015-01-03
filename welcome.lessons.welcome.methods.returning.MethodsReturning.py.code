@@ -1,4 +1,4 @@
-seenBaggle = False;
+'''seenBaggle = False;
 
 def forwardAndCheck():
     if (isOverBaggle() == True):
@@ -14,12 +14,33 @@ def walk():
 def haveBaggle():
     for i in range(6):
         walk()
-        return seenBaggle;
+        return seenBaggle;'''
 '''    else:
         walk()
         right()
         forwardAndCheck()
         left()'''
+
+'''for i in range(7):
+    if haveBaggle():
+        break
+    right()
+    forward()
+    left()'''
+
+# BEGIN TEMPLATE
+def haveBaggle():
+    # BEGIN SOLUTION 
+    res = False
+    for i in range(6):
+        if isOverBaggle():
+            res = True
+        forward()
+    for i in range(6):
+        backward()
+    return res
+    # END SOLUTION
+#END TEMPLATE
 
 for i in range(7):
     if haveBaggle():
