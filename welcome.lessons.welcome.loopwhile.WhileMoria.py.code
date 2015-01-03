@@ -1,19 +1,11 @@
 while isFacingWall()!=1:
-    setDirection(Direction.EAST)
-    while isOverBaggle()!=1:
-        forward()
-    pickupBaggle()
-    setDirection(Direction.west)
-    while isOverBaggle()!=1:
-        foeward()
-    backward()
-    dropBaggle()
-right()
-forward()
-left()
-forward()
-
-
-
-
-    
+    while getDirection()!=Direction.EAST:
+        setDitection(Direction.EAST)
+    forward()
+    while isOverBaggle()==1:
+        picupBaggle()
+        setDirection(Direction.WEST)
+        while isOverBaggle()!=1:
+            forward()
+        backward()
+        dropBaggle()
