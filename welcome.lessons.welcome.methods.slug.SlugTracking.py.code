@@ -4,12 +4,13 @@ def isFacingTrail():
         if (isFacingWall()):
             left()
         else:
+            if (getGroundColor() != Color.green):
+                backward()
+                left()
+                forward()
             brushDown()
             brushUp()
             forward()
-        if (getGroundColor() != Color.green):
-            backward()
-            left()
-            forward()
+        
 
 isFacingTrail()
