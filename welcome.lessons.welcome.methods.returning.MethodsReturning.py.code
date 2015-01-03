@@ -1,18 +1,21 @@
 seenBaggle = False
+def forwardAndCheck():
+    forward()
+    if (isOverBaggle() == True):
+        sennBaggle = True
+
+
 def haveBaggle():
     seenBaggle = False;
     for i in range(6):
-        forward()
-        if (isOverBaggle()):
-            seenBaggle = True;
+        forwardAndCheck()
     for i in range(6):
         backward()
     if (seenBaggle == True):
         return;
     else:
         right()
-        forward()
+        forwardAndCheck()
         left()
 
-while (seenBaggle != True):
-    haveBaggle()
+haveBaggle()
