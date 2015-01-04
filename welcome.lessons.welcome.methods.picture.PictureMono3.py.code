@@ -1,0 +1,41 @@
+def marquer():
+    baisseBrosse()
+    leveBrosse()
+
+
+
+
+def faireV():
+    forward(2)
+    marquer()
+    forward()
+    gauche()
+    forward()
+    marquer()
+    recule()
+    droite()
+    forward()
+    marquer()
+    forward(2)
+    gauche()
+
+
+def fairemotif():
+    for i in range(4):
+        faireV()
+    forward(7)
+
+def faireligne(n):
+    for i in range(n):
+        fairemotif()
+    recule(n*7)
+
+
+def prochaineligne():
+    gauche()
+    forward(7)
+    droite()
+
+for i in range(9):
+    faireligne(9)
+    prochaineligne()
