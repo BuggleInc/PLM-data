@@ -7,8 +7,13 @@ def isFacingTrail():
     backward()
     if getCouleurSol()==Color.green:
         return(True)
-          
-def hunt():
-    isFacingTrail()
-    if estSurBiscuit()==True:
+
+def hunt():       
+    while isFacingTrail() and not estSurBiscuit():
+        baisseBrosse()
+        forward()
+        leveBrosse()
+    while not isFacingTrail() and not estSurBiscuit():
+        left()
+    if estSurBiscuit():
         prendBiscuit()
