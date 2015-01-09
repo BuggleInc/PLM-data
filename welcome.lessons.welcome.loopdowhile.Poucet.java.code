@@ -7,9 +7,15 @@ int baggles = 0;
 	for(int stepper=0; stepper<5; stepper++){
 		forward();
 
-		while(isOverBaggle()){
+		if(isOverBaggle()){
 			baggles++;
 		}
+	}
+
+	if(baggles>2){
+		left();
+	}else{
+		right();
 	}
 
 	baggles = 0;
