@@ -1,15 +1,18 @@
 public void run() {
 	
-	for(int stepper=0;!isOverBaggle(); stepper++){
+	for(int stepper=0;stepper<7; stepper++){
 		forward();
+		if(isOverBaggle()){
+			pickupBaggle();
+		}
+		while(isCarryingBaggle()){
+			backward();
+			stepper--;
+			if(stepper==0){
+				dropBaggle();
+			}
+		}
 	}
-	pickupBaggle();
-
-	for(int stepper=0; isBackingWall(); stepper++){
-		backward();
-	}
-
-	dropBaggle();
 }
 
 
