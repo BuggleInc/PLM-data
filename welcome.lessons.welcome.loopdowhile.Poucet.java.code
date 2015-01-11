@@ -5,12 +5,11 @@ int nbBiscuits = 0;
 while (!sortieTrouvee()) {
 	do {
 		avance();
+		if (estSurBiscuit()) {
+			nbBiscuits = nbBiscuits + 1;
+		}
 	}
 	while (!croisement());
-
-	if (estSurBiscuit()) {
-		nbBiscuits = nbBiscuits + 1;
-	}
 
 	if (croisement()) {
 		if (nbBiscuits < 3) {
