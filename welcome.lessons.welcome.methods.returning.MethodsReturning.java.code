@@ -2,9 +2,6 @@ boolean dejaVu = false;
 
 boolean haveBaggle() {
 
-
-
-
 	if (estSurBiscuit()) {
 		dejaVu = true;
 	}
@@ -16,13 +13,20 @@ boolean haveBaggle() {
 				dejaVu = true;
 			}
 	}
+	
 	for (int j = 0 ; j < 6 ; j = j + 1) {
 		recule();
-		return dejaVu;
 	}
+
+	if (dejaVu)
+		return true;
+	
 	droite();
 	avance();
 	gauche();
-}
+	
+	}
+	
 return dejaVu;
+
 }
