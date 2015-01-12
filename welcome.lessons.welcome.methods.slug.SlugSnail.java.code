@@ -1,5 +1,46 @@
- public void hunt(Color c) {
-     
- }
+ boolean isFacingTrail(Color c) {
+	
+    if (estFaceMur())
+	 return false;
+    else{
+    	 avance();
+    	 if (getCouleurSol().equals(Color.c)) {
+    	 	recule();
+    	 	return true;
+    	 }
+    	 else
+    	   recule();
+    	   return false;
+    }
+    
+}
+
+
+
+void dessiner() {
+	
+	baisseBrosse();
+	leveBrosse();
+	
+}
+
 
  
+public void hunt(Color c) {
+while (!estSurBiscuit()) {
+    while (isFacingTrail(c)) {
+    	 dessiner();
+    	 avance();
+    	 if (estSurBiscuit()) {
+    	   dessiner();
+    	   prendBiscuit();
+    	   return;
+    	 }
+    }
+    if (!isFacingTrail(c)) {
+    	 gauche();
+    }
+}
+prendBiscuit();
+
+}
