@@ -1,0 +1,54 @@
+void dessiner(Color c) {
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+
+void growFlower(Color c) {
+	dessiner(c);
+	avance();
+	dessiner(Color.YELLOW);
+	avance();
+	dessiner(c);
+	gauche();
+	avance();
+	gauche();
+	avance();
+	dessiner(c);
+	gauche();
+	avance();
+	avance();
+	dessiner(c);
+}
+
+void growFlowers() {
+	growFlower(Color.RED);
+	avance();
+	gauche();
+	avance();
+	growFlower(Color.ORANGE);
+	avance();
+	gauche();
+	avance();
+	growFlower(Color.GREEN);
+	gauche();
+	gauche();
+	for (int i = 0 ; i < 5 ; i = i + 1) {
+		avance();
+	}
+	droite();
+	recule();
+	growFlower(Color.CYAN);
+	avance();
+	avance();
+	avance();
+	gauche();
+	for (int i = 0 ; i < 5 ; i = i + 1) {
+		recule();
+	}
+	growFlower(Color.PINK);
+	recule();
+	gauche();
+	recule();
+}
