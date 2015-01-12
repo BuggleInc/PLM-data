@@ -1,10 +1,13 @@
+boolean dejaVu = false;
+
 boolean haveBaggle() {
 	for (int i = 0 ; i < 7 ; i = i + 1) {
-		avance();
-		if (estSurBiscuit()) {
-			return true;
-		}
-		else
-			return false;
+		for (int j = 0 ; i < 7 ; i = i + 1) {
+			avance();
+			if (estSurBiscuit()) {
+				dejaVu = true;
+			}
+			recule();
 	}
+	return dejaVu;
 }
