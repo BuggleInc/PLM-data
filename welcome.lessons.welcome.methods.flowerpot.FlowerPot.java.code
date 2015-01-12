@@ -5,9 +5,48 @@ void dessiner(Color c) {
 }
 
 
-
-void growFlowers() {
+void growFlower(Color c) {
+	dessiner(c);
 	avance();
-	dessiner(Color.RED);
+	dessiner(Color.YELLOW);
+	avance();
+	dessiner(c);
+	gauche();
+	avance();
+	gauche();
+	avance();
+	dessiner(c);
+	gauche();
+	avance();
+	avance();
+	dessiner(c);
 }
 
+void growFlowers() {
+	growFlower(Color.RED);
+	avance();
+	gauche();
+	growFlower(Color.ORANGE);
+	avance();
+	gauche();
+	growFlower(Color.GREEN);
+	gauche();
+	gauche();
+	for (int i = 0 ; i < 6 ; i = i + 1) {
+		avance();
+	}
+	droite();
+	recule();
+	growFlower(Color.CYAN);
+	avance();
+	avance();
+	avance();
+	gauche();
+	for (int i = 0 ; i < 6 ; i = i + 1) {
+		recule();
+	}
+	growFlower(Color.PINK);
+	recule();
+	gauche();
+	recule();
+}
