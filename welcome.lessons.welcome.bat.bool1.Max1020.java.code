@@ -1,5 +1,13 @@
 boolean in1020(int a, int b) {
-	if (((a > 9) && (a < 21)) || ((b > 9) && (b < 21)))
+	if (((a > 9) && (a < 21)) && ((b > 9) && (b < 21)))
+		return true;
+	else
+		return false;
+}
+
+
+boolean in1020(int a) {
+	if ((a > 9) && (a < 21))
 		return true;
 	else
 		return false;
@@ -10,6 +18,10 @@ int max1020(int a, int b) {
 	if (in1020(a,b)) {
 		return Math.max(a,b);
 	}
+	else if (in1020(a))
+		return a;
+	else if (in1020(b))
+		return b;
 	else
 		return 0;
 }
