@@ -1,4 +1,5 @@
 boolean isFacingTrail() {
+	
     if (estFaceMur())
 	 return false;
     else{
@@ -11,22 +12,31 @@ boolean isFacingTrail() {
     	   recule();
     	   return false;
     }
+    
 }
+
+
 
 void dessiner() {
+	
 	baisseBrosse();
 	leveBrosse();
+	
 }
 
+
+
 public void hunt() {
+	
 while (!estSurBiscuit()) {
     while (isFacingTrail()) {
     	 dessiner();
     	 avance();
     }
-    while (!isFacingTrail()) {
+    if (!isFacingTrail()) {
     	 gauche();
     }
 }
 prendBiscuit();
+
 }        
