@@ -22,7 +22,8 @@ void growFlower(Color c) {
 	dessiner(c);
 }
 
-void growFlowers() {
+
+void growLittleFlowers() {
 	growFlower(Color.RED);
 	avance();
 	gauche();
@@ -48,6 +49,38 @@ void growFlowers() {
 		recule();
 	}
 	growFlower(Color.PINK);
+}
+
+
+void growBigerFlowers() {
+	growLittleFlowers();
+	recule();
+	recule();
+	recule();
+	gauche();
+	for (int i = 0 ; i < 5 ; i = i + 1) {
+		avance();
+	}
+	growFlower(Color.BLUE);
+	gauche();
+	avance();
+	droite();
+	avance();
+	growLittleFlowers();
+}
+
+void growFlowers() {
+	growBigerFlowers();
+	droite();
+	for (int i = 0 ; i < 9 ; i = i + 1) {
+		avance();
+	}
+	gauche();
+	for (int i = 0 ; i < 7 ; i = i + 1) {
+		avance();
+	}
+	gauche();
+	growBigerFlowers();
 	recule();
 	gauche();
 	recule();
