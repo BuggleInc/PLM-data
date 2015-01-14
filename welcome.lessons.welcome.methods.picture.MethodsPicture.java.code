@@ -1,2 +1,59 @@
 public void run() {
+	for (int y =0; y < 3 ; y ++)
+	{
+		ligne();
+	}
+	
+}
+
+public void coupBrosse(int couleur) {
+	switch(couleur)
+	{
+		case '1':
+		setCouleurBrosse(Color.yellow);
+		break;
+		case '2':
+		setCouleurBrosse(Color.red);
+		break;
+		case '3':
+		setCouleurBrosse(Color.blue);
+		break;
+		case '4':
+		setCouleurBrosse(Color.green);
+		break;
+	}
+	baisseBrosse();
+	leveBrosse();
+}
+
+public void motif (int couleur) {
+	avance();coupBrosse(couleur);
+	avance();gauche();avance(); coupBrosse(couleur);
+	recule(); droite(); avance(); coupBrosse(couleur);
+	avance();gauche();
+}
+
+public void ligne() {
+	for (int k = 0 ; k < 3; k ++)
+	{
+		pligne();
+	}
+	gauche();
+	for ( int t = 0; t < 7 ; t++)
+	{
+		avance();
+	}
+	droite();
+}
+
+public void pligne () {
+	for ( int i = 0 ; i < 4 ; i ++)
+	{
+		motif (i + 1);
+	}
+
+	for (int j = 0; j < 7; j++)
+	{
+		avance();
+	}
 }
