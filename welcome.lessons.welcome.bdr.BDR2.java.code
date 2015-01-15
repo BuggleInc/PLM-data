@@ -1,4 +1,7 @@
-while(isOverMessage()==true){
+boolean finished;
+finished = false;
+
+while(finished==false){
 	readMessage();
 	switch (getIndication()) {
 	 case 'R':
@@ -48,6 +51,9 @@ while(isOverMessage()==true){
 	  break;
 	 case'U':
 	  backward(6);
+	  break;
+	 case ' ':
+	  finished = true;
 	  break;
 	 default:
 	  return;
