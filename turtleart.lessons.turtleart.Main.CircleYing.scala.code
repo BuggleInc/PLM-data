@@ -6,7 +6,9 @@ override def run() {
 		}
 	}
 	def polygoneMoitie(taille:Int,cote:Int) ={
-		for (i<-1 to cote) {
+		var nbPas = cote
+		if (cote < 0) nbPas = -cote
+		for (i<-1 to nbPas) {
 			avance(taille)
 			droite(180/cote)
 		}
