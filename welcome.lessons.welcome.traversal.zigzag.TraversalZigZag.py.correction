@@ -1,63 +1,35 @@
-$package 
+def forward(i):
+	errorMsg("Sorry Dave, I cannot let you use forward() in this exercise. Use setPos(x,y) instead.")
 
-import plm.core.model.Game;
-import plm.universe.bugglequest.AbstractBuggle;
+def backward(i):
+	errorMsg("Sorry Dave, I cannot let you use backward() in this exercise. Use setPos(x,y) instead.")
 
-public class ZigZag extends AbstractBuggle {
-	/* BEGIN TEMPLATE */		
-	public void run() {
-		/* BEGIN SOLUTION */
-		int cpt=0;
-		writeMessage(cpt);
-		while (!endingPosition()) {
-			nextStep();
-			cpt++;
-			writeMessage(cpt);
-		}
-	}
+# BEGIN TEMPLATE
+# BEGIN SOLUTION
+def nextStep():
+	x=getX()
+	y=getY()
 
-	public void nextStep() {        
-		int x=getX();
-		int y=getY();
+	if y % 2 == 0:
+		if x < getWorldWidth()-1:
+			x += 1
+		elif y < getWorldHeight()-1:
+			y += 1
+	else:
+		if 0 < x:
+			x -= 1
+		elif y < getWorldHeight()-1:
+			y += 1 
+	setPos(x,y)
 
-		if (y % 2 == 0) {
-			if (x < getWorldWidth()-1) {
-				x++;
-			} else if (y < getWorldHeight()-1) {
-				y++; 
-			}
-		} else {
-			if (0 < x) {
-				x--;
-			} else if (y < getWorldHeight()-1) {
-				y++; 
-			}
-		}
+def endingPosition():
+	return (getX() == getWorldWidth() -1) and (getY() == getWorldHeight()-1)
 
-		setPos(x,y);
-	}
-
-	public boolean endingPosition() {
-		return (getX() == getWorldWidth() -1) && (getY() == getWorldHeight()-1);
-		/* END SOLUTION */
-	}
-	/* END TEMPLATE */	
-
-	@Override
-	public void forward(int i)  { 
-		throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use forward() in this exercise. Use setPos(x,y) instead."));
-	}
-	@Override
-	public void forward()  {
-		if (isInited())
-			throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use forward() in this exercise. Use setPos(x,y) instead."));
-	}
-	@Override
-	public void backward(int i) {
-		throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use backward() in this exercise. Use setPos(x,y) instead."));
-	}
-	@Override
-	public void backward() {
-		throw new RuntimeException(Game.i18n.tr("Sorry Dave, I cannot let you use backward() in this exercise. Use setPos(x,y) instead."));
-	}
-}
+cpt = 0
+writeMessage(cpt)
+while not endingPosition():
+	nextStep()
+	cpt += 1
+	writeMessage(cpt)
+# END SOLUTION
+# END TEMPLATE
