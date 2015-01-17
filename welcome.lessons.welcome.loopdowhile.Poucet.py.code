@@ -1,5 +1,12 @@
 def sortir():
-    for i in range(5):
-        forward()
-
+    while sortieTrouvee()==False:
+        k=0
+        for i in range(5):
+            forward()
+            if estSurBiscuit():
+                k=k+1
+        if k>2:
+            left()
+        else:
+            right()
 sortir()
