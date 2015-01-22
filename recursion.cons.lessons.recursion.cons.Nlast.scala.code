@@ -1,10 +1,8 @@
 def nlast(l:List[Int], n:Int): List[Int] = {
-	if(n==l.size)
-	
-		return Nil
-
-	if (n == 0)
-	 	return Nil
-	else
-		return nlast(l.tail, n-1)
+	def ButnFirst(l:List[Int], n:Int): List[Int] = {
+		if (n<=0 || l==Nil) 	
+			return l
+			return ButnFirst(l.tail, n-1)
+	}
+		return ButnFirst(l, l.size-n)
 }
