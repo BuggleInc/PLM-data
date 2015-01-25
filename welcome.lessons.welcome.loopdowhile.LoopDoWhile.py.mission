@@ -48,17 +48,25 @@ d'éviter la duplication du code quand c'est possible. Et la bonne nouvelle
 est que c'est toujours possible...</p>
 
 <h3>Exécuter le corps de boucle au moins une fois</h3>
- 
-<p>Dans une boucle <tt>while</tt>, la condition est évaluée avant toute chose,
-et si elle est fausse, le corps de la boucle n'est jamais exécuté. Il arrive
-parfois que l'on veuille que le corps de la boucle soit évalué au moins une
-fois, même si la condition est initialement fausse. On utilise pour cela une
-variante de la boucle <tt>while</tt>, dont la syntaxe est la suivante en
-Java.Ne pas oublier le point virgule (;) après la condition,
-c'est obligatoire.
+
+<p>Certain langage ont une construction spécifique pour cela, mais pas
+Python. Qu'à cela ne tienne, on s'en sort très bien sans. Une bonne manière
+est d'avoir une variable dédiée indiquant si c'est la première fois que l'on
+rentre dans la boucle :</p>
+<pre>premiereFois = True
+while premiereFois or (les autres conditions):
+  premiereFois = False
+  (le corps de la boucle)
+</pre>
+
+<p>Quand <code>premiereFois</code> est vraie, le corps de la boucle est exécuté
+même si les autres conditions impliqueraient le contraire. Une fois que le
+corps de boucle a été exécuté, <code>premiereFois</code> est mis à faux et
+n'influe plus jamais la décision d'entrer dans le corps de boucle.</p>
+ .
 
 <pre>do {
-    <b>action()</b>;
-} while (<b>condition</b>);</pre></p>
-
+    <b>action()</b>
+} while (<b>condition</b>)</pre></p>
+[/!]
 </body></html>
