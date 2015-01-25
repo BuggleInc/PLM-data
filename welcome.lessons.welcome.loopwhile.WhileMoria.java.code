@@ -1,14 +1,25 @@
+public void run() { 
+
 
 while(!estDosMur()){
 
-	while(!estSurBiscuit()){
+	while(!estSurBiscuit() && !estDosMur() ){
 		recule();
 	}
-prendBiscuit();
+	
+	if(estSurBiscuit()){	
+		prendBiscuit();
 
-while(!estSurBiscuit()){
+		while(!estSurBiscuit()){
 		avance();
-	}	
-	recule();
-	poseBiscuit();
+		}	
+		recule();
+		poseBiscuit();
+	}
+}
+
+	gauche();		
+	avance();
+	gauche();
+	avance();
 }
