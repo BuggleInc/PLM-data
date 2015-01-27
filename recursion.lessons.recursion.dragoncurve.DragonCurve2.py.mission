@@ -1,0 +1,67 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Courbe du Dragon (2)</h2>
+
+<p>La solution précédente nécessite que la tortue se téléporte ou qu'elle lève
+parfois le crayon pour tracer la courbe.  En effet, entre la destination du
+trait tracé par le premier appel récursif ne correspond pas à la source du
+trait qui doit être tracé par le second appel récursif.  C'est pourquoi il
+était nécessaire d'utiliser la méthode <code>setPos()</code></p>	
+
+<p>Dans cette leçon, vous allez donc réaliser une méthode récursive qui permet
+de tracer la courbe du dragon sans lever le crayon. Pour ce faire, vous
+définirez une seconde méthode récursive qui trace la courbe à l'envers.</p>
+
+<p>La méthode <code>dragon()</code> sera définie récursivement en fonction des
+méthodes <code>dragon()</code> et <code>dragonInverse()</code>. De même, la
+méthode <code>dragonInverse()</code> sera définie récursivement en terme de
+<code>dragon()</code> et de <code>dragonInverse()</code>. Voici un bien bel
+exemple de <i>récursivité croisée</i>.
+</p>
+
+<p>
+Le prototype de la méthode <code>dragon()</code> reste le même que
+précédemment :</p>
+<pre>dragon(ordre, x, y, z, t)</pre>
+
+<p>Les coordonnées (u, v) du nouveau point introduit par la méthode
+<code>dragon()</code> seront :</p>
+<pre>
+u = (x + z)/2 + (t - y)/2
+v = (y + t)/2 - (z - x)/2
+</pre>
+
+<p>Le prototype de la méthode <code>dragonInverse()</code> est identique : :</p>
+<pre>dragonReverse(ordre, x, y, z, t)</pre>
+
+<p>Les coordonnées (u, v) du nouveau point introduit par la méthode
+<code>dragonInverse()</code> seront :</p>
+<pre>
+u = (x + z)/2 - (t - y)/2
+v = (y + t)/2 + (z - x)/2
+</pre>
+
+<p>Afin de rendre, plus visible le travail de chacune des deux méthodes
+récursives, le trait tracé par la méthode <code>dragon()</code> devra être
+rouge (<code>Color.red</code>) et le trait tracé par la méthode
+<code>dragonInverse</code> devra être bleu (<code>Color.blue</code>).</p>
+
+<p>Consultez les objectifs de chaque monde pour comprendre comment écrire la
+fonction.</p> 
+</body></html>
