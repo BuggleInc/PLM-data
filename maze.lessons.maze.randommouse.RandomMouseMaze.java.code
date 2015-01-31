@@ -1,11 +1,11 @@
 public void run() {
-	while(true) {
+	while(!isOverBaggle()) {
     move();
 	}
 }
 
-public int move() {
-    int nextMove = random3();
+public void move() {
+	int nextMove = random3();
     switch(nextMove) {
     	case 0:
     	left();
@@ -13,8 +13,10 @@ public int move() {
     	case 1:
     	right();
     	break;
+    	case 2:
+    	if(!isFrontOfWall()){
+    	forward();
+    	}
+    	break;
     }
-    forward();
-    pickBaggle();
-    return nextMove;
 }
