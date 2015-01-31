@@ -4,7 +4,13 @@ public void run() {
 	while(!topOfStairs) {
 		for(int i=0;i<3&&!isFacingWall();i++) {
 			forward();
-			topOfStairs = stairsReached && i > 2;
+			if(stairsReached && i > 2) {
+				topOfStairs = true;
+				break;
+			}
+		}
+		if(topOfStairs) {
+			break;
 		}
 		stairsReached = true;
 		left();
