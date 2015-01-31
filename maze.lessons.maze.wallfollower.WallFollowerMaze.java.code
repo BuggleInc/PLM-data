@@ -1,13 +1,22 @@
 public void run() {
 	while(!isOverBaggle()) {
-		keepHandOnSideWall();
+		while(keepHandOnSideWall()){
+			step();
+		}
+		step();
 	}
 }
 
-void keepHandOnSideWall(){
+boolean keepHandOnSideWall(){
 	left();
-	if(isFacingWall()) {
-		right();
+	boolean isOnWall = isFacingWall();
+	right();
+	return isOnWall;
+}
+
+void step(){
+	if(!isFacingWall()){
+		forward();
 	}
-	forward();
+	right();
 }
