@@ -1,6 +1,21 @@
 Done = False
-i=0
+gauche()
+gauche()
 while not Done:
-    if i==10:
-        Done=True
-    i+=1
+    if estSurBiscuit():
+        prendBiscuit()
+        gauche()
+        gauche()
+        while not estSurBiscuit():
+            avance()
+        recule()
+        poseBiscuit()
+        gauche()
+        gauche()
+    avance()
+    if estFaceMur():
+        Done = True
+droite()
+avance()
+gauche()
+avance()
