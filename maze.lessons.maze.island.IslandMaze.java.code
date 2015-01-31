@@ -1,18 +1,24 @@
 public void run() {
 	searchWall();
+	boolean northFollower  = false;
 	while(!isOverBaggle()) {
-		keepHandOnSideWall();
+		keepHandOnSideWall(northFollower);
 	}
 	pickUpBaggle();
 }
 
-void keepHandOnSideWall(){
-	if(!isFacingWall()) {
-		forward();
-		left();
+void keepHandOnSideWall(boolean northFollower){
+	if(northFollower){
+		
 	}
-	if(isFacingWall()){
-		right();
+	else{
+		if(!isFacingWall()) {
+			forward();
+			left();
+		}
+		if(isFacingWall()){
+			right();
+		}
 	}
 }
 
