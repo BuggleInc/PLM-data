@@ -6,22 +6,19 @@ public void run() {
 			if(isOverBaggle()) {
 				backward();
 				dropBaggle();
-				hasBaggle = direction(hasBaggle);
+				left();
+				left();
+				hasBaggle = false;
 			}
 		}
 		else {
 			forward();
 			if(isOverBaggle()){
 				pickUpBaggle();
-				direction();
-				hasBaggle = direction(hasBaggle);
+				left();
+				left();
+				hasBaggle = true;
 			}
 		}
 	}
-}
-
-public boolean direction(boolean currentDirection) {
-	left();
-	left();
-	return !currentDirection;
 }
