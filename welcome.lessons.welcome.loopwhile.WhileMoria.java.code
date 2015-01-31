@@ -1,8 +1,19 @@
 public void run() { 
-	while(true) {
-		if(isOverBaggle()) {
-			pickUpBaggle();
+	boolean hasBaggle = false;
+	while(!isFacingWall()) {
+		if(hasBaggle) {
+			if(isOverBaggle()) {
+				backward();
+				dropBaggle();
+				hasBaggle = false;
+			}
 		}
-		forward();
+		else {
+			backward();
+			if(isOverBaggle()){
+				pickUpBaggle();
+				hasBaggle = true;
+			}
+		}
 	}
 }
