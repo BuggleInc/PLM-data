@@ -1,3 +1,5 @@
+int dir = 0;
+
 public void run() {
 	searchWall();
 	while(!isOverBaggle()) {
@@ -7,15 +9,24 @@ public void run() {
 }
 
 void keepHandOnSideWall(){
-	if(!isFacingWall()) {
-		forward();
-	}
-	if(isFacingWall()){
-		right();
-		if(isFacingWall()) {
-			forward();
-			left();
-		}
+	switch(dir){
+		case 0:
+			if(!isFacingWall()) {
+				forward();
+				left();
+			}
+			if(isFacingWall()){
+				right();
+			}
+			dir = 1;
+		break;
+		case 1:
+			while(!isFacingWall()){
+				forward();
+			}
+			right();
+			dir = 0;
+		break;
 	}
 }
 
@@ -23,4 +34,5 @@ void searchWall() {
 	while(!isFacingWall()){
 		left();
 	}
+	right();
 }
