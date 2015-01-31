@@ -1,10 +1,12 @@
 public void run() { 
 	boolean topOfStairs = false;
+	boolean stairsReached = false;
 	while(!topOfStairs) {
 		for(int i=0;i<3&&!isFacingWall();i++) {
 			forward();
+			topOfStairs = stairsReached && i > 2;
 		}
-		topOfStairs = true;
+		stairsReached = true;
 		left();
 		forward();
 		right();
