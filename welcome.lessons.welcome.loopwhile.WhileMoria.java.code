@@ -2,23 +2,23 @@ public void run() {
 	boolean hasBaggle = false;
 	while(!isFacingWall()) {
 		if(hasBaggle) {
-			forward();
 			if(isOverBaggle()) {
 				backward();
 				dropBaggle();
-				left();
-				left();
 				hasBaggle = false;
+				left();
+				left();
 			}
+			forward();
 		}
 		else {
-			forward();
 			if(isOverBaggle()){
 				pickUpBaggle();
-				left();
-				left();
 				hasBaggle = true;
+				left();
+				left();
 			}
+			forward();
 		}
 	}
 }
