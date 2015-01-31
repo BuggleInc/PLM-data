@@ -1,17 +1,20 @@
 public void run() { 
 	while(!exitReached()) {
-		int count = 0;
-		for(int i=0;i<5;i++){
-			forward();
-			if(isOverBaggle()){
-				count++;
+		do {
+			int count = 0;
+			for(int i=0;i<5;i++){
+				forward();
+				if(isOverBaggle()){
+					count++;
+				}
 			}
-		}
-		if(count > 2) {
-			left();
-		}
-		else {
-			right();
-		}
+			if(count > 2) {
+				left();
+			}
+			else {
+				right();
+			}
+		} while(!crossing())
+		forward();
 	}
 }
