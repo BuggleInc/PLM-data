@@ -9,10 +9,13 @@ public void run() {
 void keepHandOnSideWall(){
 	if(!isFacingWall()) {
 		forward();
-		left();
 	}
 	if(isFacingWall()){
 		right();
+		if(!isFacingWall()) {
+			forward();
+			left();
+		}
 	}
 }
 
