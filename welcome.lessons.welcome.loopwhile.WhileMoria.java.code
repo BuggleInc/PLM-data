@@ -1,6 +1,6 @@
 public void run() { 
 	retourne();
-	while(!estFaceMur() && !estSurBiscuit()){
+	while(!estFaceMur()){
 		if(!estSurBiscuit()){
 			avance();
 		}else{
@@ -14,9 +14,19 @@ public void run() {
 			retourne();	
 			avance();
 			}
-		
 	}
-		
+	if(estSurBiscuit()){
+		prendBiscuit();
+		retourne();
+		while(!estSurBiscuit()){
+			avance();
+		}
+		recule();
+		poseBiscuit();
+		retourne();	
+			while(!estFaceMur){
+				avance();}
+		}
 		/*
 		else{
 			prendBiscuit();
