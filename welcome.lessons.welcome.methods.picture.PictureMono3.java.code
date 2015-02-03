@@ -1,2 +1,63 @@
 public void run() {
+	for(int a=0; a<3; a++){
+		faireLigne();
+		changeLigne();
+		}
+	//retourenAuPointDeDepart();
+}
+
+void retourenAuPointDeDepart(){
+	for (int k=0; k<2; k++){
+		//droite();
+		avance(14);
+	}
+	retourne();
+}
+void avanceJusqMur(){
+	while(!estFaceMur()){
+		avance();
+	}
+}
+void changeLigne(){
+	for(int l=0; l<14; l++){
+		recule();	
+	}
+	gauche();
+	avance(7);
+	droite();
+}
+void faireLigne(){
+	for(int j=0; j<3; j++){
+		faire4V();
+		if (j!=2) avance(7);
+	}
+}
+void faire4V(){
+	for(int i=0; i<4; i++){
+		faireV();
+	}
+}
+void faireV(){
+		avance();
+		avance();
+		gauche();
+		marqueSol();
+		avance();
+		droite();
+		avance();
+		marqueSol();
+		avance();
+		droite();
+		avance();
+		marqueSol();
+		gauche();
+		avance();
+		avance();
+		gauche();
+}
+void marqueSol(){
+		baisseBrosse();
+		leveBrosse();
+}
+
 }
