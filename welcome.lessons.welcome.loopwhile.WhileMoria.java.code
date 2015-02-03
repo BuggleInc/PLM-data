@@ -3,29 +3,31 @@ public void run() {
 	droite();
 	droite();
 	// on avance tant qu'on n'est pas sur un biscuit ou face au mur
-	while (!(estSurBiscuit() || estFaceMur()))
+	while (!(estSurBiscuit() || estFaceMur())) {
 		avance();
-	// quand on trouve un biscuit
-	if (estSurBiscuit()) {
-		// on le ramasse et on fait demi-tour
-		prendBiscuit();
-		droite();
-		droite();
-		// avance jusqu'au biscuit de gauche
-		while (!estSurBiscuit())
+
+		// quand on trouve un biscuit
+		if (estSurBiscuit()) {
+			// on le ramasse et on fait demi-tour
+			prendBiscuit();
+			droite();
+			droite();
+			// avance jusqu'au biscuit de gauche
+			while (!estSurBiscuit())
+				avance();
+			// se retourne, avance d'un pas et pose le biscuit
+			droite();
+			droite();
 			avance();
-		// se retourne, avance d'un pas et pose le biscuit
-		droite();
-		droite();
-		avance();
-		poseBiscuit();
-		avance();
-	}
-	// on a ramassé tous les biscuits et on est face au mur
-	else {
-		droite();
-		avance();
-		gauche();
-		avance();
+			poseBiscuit();
+			avance();
+		}
+		// on a ramassé tous les biscuits et on est face au mur
+		else {
+			droite();
+			avance();
+			gauche();
+			avance();
+		}
 	}
 }
