@@ -2,9 +2,10 @@ public void run() {
 	// on se retourne
 	droite();
 	droite();
-	// on avance tant qu'on n'est pas sur un biscuit ou face au mur
-	while (!(estSurBiscuit() || estFaceMur())) {
-		avance();
+	while (!estFaceMur()) {
+		// on avance tant qu'on n'est pas sur un biscuit ou face au mur
+		while (!(estSurBiscuit() || estFaceMur()))
+			avance();
 
 		// quand on trouve un biscuit
 		if (estSurBiscuit()) {
