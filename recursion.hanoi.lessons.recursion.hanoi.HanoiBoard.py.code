@@ -1,6 +1,10 @@
 def solve(src,dst,other, height=-1):
     if height==-1: # initial case
         height=getSlotSize(src)
+    if getRayon(dst)<getRayon(src) or getTaillePiquet(dst)==0:
+        deplace(src, dst)
+    elif getRayon(src)<getRayon(other) or getTaillePiquet(dst)==0:
+        deplace(src, other)
     
         
             
@@ -11,10 +15,7 @@ def solve(src,dst,other, height=-1):
         
     
     # Your code here
-    if getRayon(dst)<getRayon(src) or getTaillePiquet(dst)==0:
-        deplace(src, dst)
-    elif getRayon(src)<getRayon(other) or getTaillePiquet(dst)==0:
-        deplace(src, other)
+    
         
 
         
