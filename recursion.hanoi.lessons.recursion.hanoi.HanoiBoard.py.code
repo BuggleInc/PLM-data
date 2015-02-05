@@ -4,6 +4,10 @@ def solve(src,dst,other, height=-1):
     if  getTaillePiquet(dst)==0:
         deplace(src,dst)
         return solve(other,src,dst, height)
+    else:
+        deplace(src,other)
+        return solve(other,src,dst, height)
+        
 
         
          
