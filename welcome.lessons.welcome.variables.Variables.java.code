@@ -1,0 +1,23 @@
+public void run() 
+{ 
+	int nbPas;
+	
+	while(!estSurBiscuit()) //on avance tant que l'on n'est pas sur un biscuit
+	{
+		avancer();
+		nbPas++;
+	}
+	if(estSurBiscuit())//on arrive sur le biscuit
+	{
+		prendBiscuit();
+		int pasRetour = 0;
+		while(nbPas != pasRetour)//on revien en arrière
+		{
+			reculer();
+			pasRetour++;
+		}
+	}
+
+
+
+}
