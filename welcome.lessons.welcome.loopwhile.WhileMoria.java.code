@@ -1,6 +1,5 @@
 public void run() {
 	setDirection(Direction.EAST);
-	forward();
 	while (isOverBaggle() == false) {
 		forward();
 		pickupBaggle(); {
@@ -13,7 +12,10 @@ public void run() {
 							forward(); {
 								while (isOverBaggle() == false) {
 									dropBaggle();
-									forward();									}
+									forward();
+									while (isOverBaggle() == true)
+									setDirection(Direction.WEST)
+									}
 								}
 							}
 						}
