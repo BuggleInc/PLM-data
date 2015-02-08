@@ -9,7 +9,12 @@ public void run() {
 					forward(); {
 						while (isOverBaggle() == true) {
 							setDirection(Direction.EAST);
-							forward(1);
+							forward(1); {
+								while (isOverBaggle() == false) {
+									dropBaggle();
+									forward();
+								}
+							}
 						}
 					}
 				}
