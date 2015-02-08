@@ -11,7 +11,11 @@ public void run() {
 							setDirection(Direction.EAST);
 							forward(); {
 								while (isOverBaggle() == false) {
-									dropBaggle();
+									dropBaggle(); {
+										while (isCarryingBaggle() == false) {
+											forward();
+										}
+									}
 									}
 								}
 							}
@@ -20,24 +24,4 @@ public void run() {
 				}
 			}
 		}
-	} while (isOverBaggle() == false) {
-		setDirection(Direction.EAST);
-		forward();
-		pickupBaggle(); {
-			while (isCarryingBaggle() == true) {
-				setDirection(Direction.WEST);
-				while (isOverBaggle() == false) {
-					forward(); {
-						while (isOverBaggle() == true) {
-							setDirection(Direction.EAST);
-							forward(); {
-								while (isOverBaggle() == false) {
-									dropBaggle();
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+	}
