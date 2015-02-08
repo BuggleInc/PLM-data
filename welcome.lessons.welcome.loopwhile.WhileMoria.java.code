@@ -5,7 +5,13 @@ public void run() {
 		pickupBaggle(); {
 			while (isCarryingBaggle() == true) {
 				setDirection(Direction.WEST);
-				forward();
+				while (isOverBaggle() == false) {
+					forward(); {
+						while (isOverBaggle() == true) {
+							forward(1);
+						}
+					}
+				}
 			}
 		}
 	}
