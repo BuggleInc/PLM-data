@@ -21,3 +21,26 @@ public void run() {
 			}
 		}
 	}
+public void run() {
+	setDirection(Direction.EAST);
+	while (isOverBaggle() == false) {
+		forward();
+		pickupBaggle(); {
+			while (isCarryingBaggle() == true) {
+				setDirection(Direction.WEST);
+				while (isOverBaggle() == false) {
+					forward(); {
+						while (isOverBaggle() == true) {
+							setDirection(Direction.EAST);
+							forward(); {
+								while (isOverBaggle() == false) {
+									dropBaggle();
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
