@@ -2,6 +2,15 @@ public void run() {
 	boolean blocked = true;
 
 	while(blocked) {
+
+		if (estFaceMur()) {
+			gauche();
+			avance();
+			gauche();
+			avance();
+			blocked = false;
+		}
+		
 		recule();
 		while(!estSurBiscuit())
 			recule();
@@ -11,13 +20,5 @@ public void run() {
 			avance();
 		recule();
 		poseBiscuit();
-
-		if (estFaceMur()) {
-			gauche()
-			avance();
-			gauche();
-			avance();
-			blocked = false;
-		}
 	}
 }
