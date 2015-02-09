@@ -12,11 +12,9 @@ public void run() {
 							forward(); {
 								while (isOverBaggle() == false) {
 									dropBaggle(); {
-										while (isCarryingBaggle() == false)
+										while (isCarryingBaggle() || isOverBaggle() == false) 
 										forward();
-										while (isOverBaggle() == true)
-										pickupBaggle();
-										setDirection(Direction.WEST);									
+										while (isOverBaggle() == true)									
 									}
 									}
 								}
