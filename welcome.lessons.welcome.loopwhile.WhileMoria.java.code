@@ -2,15 +2,18 @@ public void run() {
 	boolean block = true;
 	
 	while(block) {
+
+		droite();
+		droite();
 		
-		recule();
-		while(!estSurBiscuit() || !estFaceMur()) {
-			recule();
+		avance();
+		while(!estSurBiscuit() && !estFaceMur()) {
+			avance();
 		}
 		prendBiscuit();
 		while(!estSurBiscuit())
-			avance();
-		recule();
+			recule();
+		avance();
 		poseBiscuit();
 		}
 	}
