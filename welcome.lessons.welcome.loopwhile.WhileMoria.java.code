@@ -4,16 +4,8 @@ public void run() {
 	while(block) {
 		
 		recule();
-		while(!estSurBiscuit()) {
+		while(!estSurBiscuit() || !estFaceMur) {
 			recule();
-			
-			if (!estFaceMur()) {
-				gauche();
-				avance();
-				gauche();
-				avance();
-				block = false;
-			}
 		}
 		prendBiscuit();
 		while(!estSurBiscuit())
