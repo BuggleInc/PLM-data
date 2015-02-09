@@ -3,14 +3,13 @@ public void run() {
 		setDirection(Direction.EAST);
 		forward(); {
 			while (isFacingWall() == true && isOverBaggle() == false) {
-				right();
+				setDirection(Direction.SOUTH);
 				forward();
-				left(); {
-					while (isBackingWall() == true) {
-						forward(1);
+				left();
 			}
-				}
-			}			
+			while (isBackingWall() == true) {
+				forward();
+			}
 			while (isOverBaggle() == true) {
 				pickupBaggle(); {
 				}
