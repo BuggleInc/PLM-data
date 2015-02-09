@@ -3,7 +3,11 @@ public void run() {
 		setDirection(Direction.EAST);
 		forward(); {
 			while (isOverBaggle() == true) {
-				pickupBaggle();
+				pickupBaggle(); {
+					while (isFacingWall() == true && isCarryingBaggle() == false) {
+						setDirection(Direction.SOUTH);
+					}
+				}
 	}
 	while (isCarryingBaggle() == true && isOverBaggle() == false) {
 		setDirection(Direction.WEST);
