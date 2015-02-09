@@ -1,17 +1,16 @@
 public void run() { 
 	while(true) {
-
-		if (estFaceMur()) {
-			gauche();
-			avance();
-			gauche();
-			avance();
-			break;
-		}
 		
 		recule();
-		while(!estSurBiscuit())
+		while(!estSurBiscuit()) {
 			recule();
+			if (estFaceMur()) {
+				gauche();
+				avance();
+				gauche();
+				avance();
+				break;
+			}
 		prendBiscuit();
 		avance();
 		while(!estSurBiscuit())
