@@ -1,8 +1,25 @@
 public void run() {
-	private void one(){
-		avance();
+	boolean fin = false;
+	while (!fin){
+		while (!estFaceMur()){
+			avance();
 		}
-//	while ((getDirection()==Direction.EST)&&){
-//		} 
-	one();
+		if (getDirection()==Direction.EST){
+			gauche();
+			if (estFaceMur()){
+				fin = true;
+				droite();
+			}
+			else {
+				avance();
+				gauche();
+			}
+		}
+		else{
+			droite();
+			avance();
+			gauche();
+		}
+	} 
+	
 }
