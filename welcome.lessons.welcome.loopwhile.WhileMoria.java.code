@@ -9,8 +9,16 @@ public void run() {
 
 		
 		avance();
-		while(!estSurBiscuit() && !estFaceMur()) {
+		while(!estSurBiscuit()) {
 			avance();
+
+			if (estFaceMur()) {
+				droite();
+				avance();
+				gauche();
+				avance();
+				blocked = false;
+			}
 		}
 		prendBiscuit();
 		while(!estSurBiscuit())
