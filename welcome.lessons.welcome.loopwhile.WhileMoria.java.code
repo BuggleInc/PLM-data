@@ -11,8 +11,13 @@ public void run() {
 							setDirection(Direction.EAST);
 							forward(); {
 								while (isOverBaggle() == false) {
-									dropBaggle(); 
-									forward();									
+									dropBaggle(); {
+										while (isCarryingBaggle() == false)
+										forward();
+										while (isOverBaggle() == true)
+										pickupBaggle();
+										setDirection(Direction.WEST);									
+									}
 									}
 								}
 							}
