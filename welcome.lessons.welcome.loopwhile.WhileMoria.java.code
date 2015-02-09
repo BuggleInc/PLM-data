@@ -6,6 +6,14 @@ public void run() {
 		recule();
 		while(!estSurBiscuit()) {
 			recule();
+			
+			if (!estFaceMur()) {
+				gauche();
+				avance();
+				gauche();
+				avance();
+				block = false;
+			}
 		}
 		prendBiscuit();
 		while(!estSurBiscuit())
@@ -14,4 +22,3 @@ public void run() {
 		poseBiscuit();
 		}
 	}
-}
