@@ -51,4 +51,20 @@ public void run() {
 	while (isOverBaggle() == false) {
 		forward();
 	}
+	while (isOverBaggle() == true) {
+		pickupBaggle();
+	}
+	while (isCarryingBaggle() == true && isOverBaggle() == false) {
+		setDirection(Direction.WEST);
+		forward();
+	}
+	while (isOverBaggle() == true && isCarryingBaggle() == true) {
+		setDirection(Direction.EAST);
+		forward();
+		dropBaggle();
+		forward();
+	}
+	while (isOverBaggle() == false) {
+		forward();
+	}
 }
