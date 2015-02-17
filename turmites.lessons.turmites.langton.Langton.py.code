@@ -1,0 +1,19 @@
+def setCouleurSol(couleur):
+    setBrosseCouleur(couleur)
+    baisseBrosse()
+    leveBrosse()
+
+def step():
+    if getCouleurSol() == Color.white:
+        setCouleurSol(Color.black)
+        droite()
+        avance()
+    else:
+        setCouleurSol(Color.white)
+        gauche()
+        avance()
+
+i=0
+while i<1000:
+    step()
+    i++
