@@ -13,6 +13,12 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
+.Java   {visibility: visible; color:#FF0000}
+.java   {visibility: visible; color:#FF0000}
+.python {visibility: visible; color:#008000}
+.Python {visibility: visible; color:#008000}
+.scala  {visibility: visible; color:#0000FF}
+.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
@@ -48,7 +54,7 @@ d'éviter la duplication du code quand c'est possible. Et la bonne nouvelle
 est que c'est toujours possible...</p>
 
 <h3>Exécuter le corps de boucle au moins une fois</h3>
-
+<font color="008000">
 <p>Certain langage ont une construction spécifique pour cela, mais pas
 Python. Qu'à cela ne tienne, on s'en sort très bien sans. Une bonne manière
 est d'avoir une variable dédiée indiquant si c'est la première fois que l'on
@@ -63,10 +69,17 @@ while premiereFois or (les autres conditions):
 même si les autres conditions impliqueraient le contraire. Une fois que le
 corps de boucle a été exécuté, <code>premiereFois</code> est mis à faux et
 n'influe plus jamais la décision d'entrer dans le corps de boucle.</p>
- .
+</font> <font color="EEEEEE">
+<p>Dans une boucle <tt>while</tt>, la condition est évaluée avant toute chose,
+et si elle est fausse, le corps de la boucle n'est jamais exécuté. Il arrive
+parfois que l'on veuille que le corps de la boucle soit évalué au moins une
+fois, même si la condition est initialement fausse. On utilise pour cela une
+variante de la boucle <tt>while</tt>, dont la syntaxe est la suivante en
+<font color="FF0000">Java</font><font color="008000">python</font><font color="0000FF">Scala</font><font color="00FF00">C</font>.<font color="FFFF00">Ne pas oublier le point virgule (;) après la condition,
+c'est obligatoire.</font>
 
 <pre>do {
-    <b>action()</b>
-} while (<b>condition</b>)</pre></p>
-[/!]
+    <b>action()</b><font color="FF0000">;</font>
+} while (<b>condition</b>)<font color="FF0000">;</font></pre></p>
+</font>
 </body></html>
