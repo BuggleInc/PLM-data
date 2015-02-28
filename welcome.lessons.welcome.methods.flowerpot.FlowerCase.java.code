@@ -1,0 +1,79 @@
+void growFlowers() {
+	growSection();
+	nextSection();
+	growSection();
+}
+
+void growSection() {
+	growTop();
+	next();
+	growBot();
+	toMid();
+	growMid();
+	toTop();
+	growTop();
+	next();
+	growBot();
+}
+void nextSection() {
+	right();
+	forward();
+	left();
+	backward(8);
+	right();
+	forward(3);
+	left();
+}
+
+void growTop() {
+	growFlower(Color.RED);
+	forward(3);
+	growFlower(Color.CYAN);
+	backward(5);
+}
+void toTop() {
+	backward(3);
+	left();
+	forward(2);
+	right();
+}
+void growMid() {
+	forward(2);
+	growFlower(Color.ORANGE);
+	forward(2);
+	growFlower(Color.BLUE);
+	forward(2);
+	growFlower(Color.ORANGE);
+	backward(3);
+}
+void growBot() {
+	growFlower(Color.PINK);
+	forward(3);
+	growFlower(Color.GREEN);
+	backward(5);
+}
+
+void next() {
+	right();
+	forward(4);
+	left();
+}
+void toMid() {
+	left();
+	forward(2);
+	right();
+}
+
+void growFlower(Color c) {
+	setBrushColor(c);
+	brushDown();
+	forward(2);
+	backward();
+	left();
+	forward();
+	backward(2);
+	forward();
+	setBrushColor(Color.YELLOW);
+	brushUp();
+	right();
+}
