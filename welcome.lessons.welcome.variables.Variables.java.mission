@@ -1,0 +1,156 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Storing and manipulating data</h2>
+  <p>The programs we wrote so far are missing a fundamental point in computing.
+   Actually, it is all about processing <b>data</b> through specific 
+   <b>instructions</b>. In the buggle world, the main data are a bit hidden behind 
+   the graphical representation, but that's no reason to never manipulate some 
+   data explicitly. </p>
+
+  <h3>Data in Java</h3>
+<p>In a program, you can use several <i>types</i> of data, such as integers or strings
+of chars. If you want to use a data several times, you need to store it
+within a <i>variable</i>, which is a memory cell containing a value:
+you put your data (say the value '5') in the variable (say 'length'), and you can retrieve it 
+latter when you need it. That's very similar to a box of label 'gift' in which you would put 
+some stuff, like a bottle of perfume "Channel N°5".  </p>
+
+<h3>Variable declarations</h3>  
+
+<p><b>Declaring</b> (ie, creating) a variable in Java, is very simple. You just need to write
+  its type, a space, and the variable name.
+  
+  
+  The variable name is the label to retrieve it afterward
+   while the type is the kind of data that this variable accepts to store.
+  It is forbidden to use spaces in variable names. You can name a variable <code>stepAmount</code> if you want, 
+  but <code>step amount</code> is not a valid name.
+  </p>
+
+
+  <p>So, to create a variable named <b>x</b> intended to contain integers, one should write:</p> 
+  <pre>int x;</pre>
+  <p>If you want, you can specify the initial value of the variable by adding an equal sign (=) followed by the value 
+     after the declaration.</p>
+  <pre>int x=5;</pre>
+
+
+
+
+
+  
+
+<p>As you can see, the variables are <b>typed</b> in Java, which means that they are somehow specialized: 
+  A given variable can only store data of a given type; Don't even think of storing numbers in a variable that is tailored for letters!  
+  The Java language is said to be <b>statically typed</b>.</p>
+<p>Other languages (such as Python) are less picky and allow you to store any kind of data in any variable, without restriction 
+  (those languages are said to be <b>dynamically typed</b>).
+  This seems easier at the first glance, but this kind of restriction allows the compiler to catch 
+  more logic errors for you, which is also good. In some sense, Python is easier to write but errors can sneak in more easily than in Java.</p>
+<p>Here are some existing types in Java:</p>
+<ul>
+  <li><b>int</b>, for integers;</li>
+  <li><b>double</b>, for dot numbers;</li> 
+  <li><b>boolean</b>, for booleans that are values being either true or false;</li>
+  <li><b>String</b>, for char strings.</li>
+</ul>
+
+
+
+  
+
+<p class="scala">If you know that the value of your "variable" will never change (eg because it contains the screen 
+size or some other constant value), then you should make it a <b>value</b> instead of a variable. Simply change the 
+<code>var</code> keyword with the <code>val</code> one. The compiler can then check your actions and catch your error 
+when you inadvertently modify the value. More interestingly, the compiler can produce faster code in some cases.</p>
+
+<p>Variables work very similarly for strings, floating point numbers and boolean values.</p>
+
+<pre class="c">char* name = "Martin Quinson";
+double height=1.77; <span class="comment">// in meters</span>
+int married=1;<span class="comment">// 1 means "true"; "false" would be written 0</span></pre>
+
+
+<pre class="java">String name = "Martin Quinson";
+double height=1.77; <span class="comment">// in meters</span>
+boolean married=true;<span class="comment">// the contrary would be written "false"</span></pre>
+
+<pre class="scala">val name:String = "Martin Quinson"; <span class="comment">// this cannot be modified (it's a value)</span>
+var height: Double = 1.77; <span class="comment">// in meters</span>
+var married = true; <span class="comment">// the contrary would be written "false"</span>
+<span class="comment">// Scala knows that 'true' is a Boolean value, no need to repeat it here</span></pre>
+
+<pre class="python">firstName = "Martin"
+lastName = 'Quinson' <span class="comment"># both single and double quote work here</span>
+motto = "I never finish anyth' (but I keep trying)" <span class="comment"># having single quote within double quote is fine</span> 
+height=1.77 <span class="comment"># in meters</span>
+married=True <span class="comment"># the contrary would be written "False"</span></pre>
+
+<h3>Affectations</h3>
+
+<p>Once your variable is declared, you can <b>affect</b> a new value to it later in the program. That's really easy:</p> 
+<pre>x = 3;</pre>
+
+<p>To the right of the equal symbol, you can put an arithmetic expression containing constants, variables and operations.</p>
+
+<pre>x = 3 + 2;
+x = 3 * x;
+greeting = "Hello "+name; <span class="comment">// + is (also) the operation to concatenate (ie, to join) strings</span></pre> 
+
+<h3>Exercise goal</h3>
+It is now time to do more challenging exercises, don't you think? 
+The objective is now to move forward until you find a baggle,
+pick it up, and then move back to your initial location before dropping the
+baggle.
+
+<h3>How to do this?</h3> 
+<p>To solve this problem, you have to decompose it in easier sub-parts. For
+example, you may want to do the following steps:
+<ol>
+  <li>Move forward until located over a baggle</li>
+  <li>Pickup the baggle</li>
+  <li>Move backward of the same amount of steps than done in first step</li>
+  <li>Drop back the baggle</li>
+</ol></p>
+
+<p>Naturally, it is impossible to do the right amount of steps backward at step
+3 if you didn't count the amount of steps done in the first phase. You can
+use a variable for that, which can be named <code>stepAmount</code>.</p>
+
+<p>Create an integer variable before phase 1, initialize it to 0,
+  and each time you move one step forward, increment its value by one
+  (<code>stepAmount = stepAmount + 1;</code> or <code>stepAmount++;</code>,
+  both syntaxes being equivalent).
+  Such variable which takes every values of a given range is often called a <b>stepper</b>.</p>
+  
+. 
+  This is because it would be difficult to define this operator for every data types. 
+  For example, what should ++ do when applied to a Complex value or to a String? 
+  The problem does not occur in Java as <code>int</code> is not an object but a primitive type. 
+  (if you don't know the <code>++</code>, just ignore this paragraph: it does not exist in Java)</p>
+[/!]
+
+<p>Then, phase 3 consists in simply creating a new integer variable
+<code>doneSteps</code> initialized to 0, and do one step backward as
+long as <code>doneSteps</code> is not equal to
+<code>stepAmount</code>, incrementing <code>doneSteps</code> each
+time. The <code>!=</code> operator should be used to test the
+inequality (whether some values are NOT equal).</p> 
+
+<p>It's your turn now!</p>
+</body></html>
