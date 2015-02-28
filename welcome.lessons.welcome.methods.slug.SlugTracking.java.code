@@ -1,10 +1,11 @@
 boolean isFacingTrail() {
-    forward();
-    if(getGroundColor().equals(Color.green)) {
-    	backword();
-    	return true;
-    } else {
-    	backward();
-    	return false;
-    }
+	if(!isFacingWall()) {
+		forward();
+		if(getGroundColor().equals(Color.green)) {
+			backward();
+			return true;
+		}
+		backward();
+	}
+	return false;
 }        
