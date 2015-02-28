@@ -8,12 +8,16 @@ boolean isFacingTrail() {
 		backward();
 	}
 	return false;
-}        
-
+}
+void paint() {
+	brushDown();
+	brushUp();
+}
 public void hunt() {
 	while(!isOverBaggle()) {
 		if(isFacingTrail()) {
 			forward();
+			paint();
 		} else {
 			left();
 			if(isFacingTrail()) {
@@ -22,6 +26,7 @@ public void hunt() {
 				right();
 				right();
 				forward();
+				paint();
 			}
 		}
 	}
