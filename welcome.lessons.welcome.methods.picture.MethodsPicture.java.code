@@ -1,2 +1,48 @@
+void paintSquare() {
+	brushDown();
+	brushUp();
+}
+void makeV(Color c) {
+	setBrushColor(c);
+	forward(2);
+	paintSquare();
+	forward();
+	left();
+	forward();
+	paintSquare();
+	backward();
+	right();
+	forward();
+	paintSquare();
+	forward(2);
+}
+
+void vSquare() {
+	makeV(Color.YELLOW);
+	left();
+	makeV(Color.RED);
+	left();
+	makeV(Color.BLUE);
+	left();
+	makeV(Color.GREEN);
+	left();
+}
+
+void sRow(int x) {
+	for(int j = 0; j < x; j++) {
+		vSquare();
+		forward(7);
+	}
+}
+void rCol(int x, int y) {
+	for(int i = 0; i < y; i++) {
+		sRow(x);
+		left();
+		forward(7);
+		right();
+	}
+}
+
 public void run() {
+	rCol(3, 3);
 }
