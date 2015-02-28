@@ -1,90 +1,62 @@
-void paint() {
-	brushDown();
-	brushUp();
-}
-
-void array(int x, int y) {
-	for(int i=0; i<y; i++) {
-		for(int j=0; j<x; j++) {
-			square();
-			backward(2);
-			left();
-			backward(2);
-			right();
-			forward(4);
-		}
-		backward(x*4);
-		left();
-		forward(4);
-		right();
-	}
-	backward(2);
-	left();
-	backward(2);
-	right();
-}
-
 void square() {
-	botColSq();
-	backward(2);
+	bottom(Color.RED, Color.BLUE);
+	back();
+	up();
+	top(Color.YELLOW, Color.GREEN);
+	back();
+	down();
+}
+	
+void top(Color c, Color d) {
+	fwd(c);
+	next();
+	bck(d);
+}
+void bottom(Color c, Color d) {
+	bck(c);
+	next();
+	fwd(d);
+}
+void up() {
 	left();
 	forward(2);
 	right();
-	topColSq();
 }
-void topColSq() {
-	yel();
+void down() {
+	right();
 	forward(2);
-	gre();
+	left();
 }
-void botColSq() {
-	red();
+void goLeft() {
+	left();
+	forward();
+}
+void next() {
 	forward(2);
-	blu();
+}
+void back() {
+	backward(2);
 }
 
-void forSla() {
+void fwd(Color c) {
+	paint(c);
+	forward();
+	goLeft();
 	paint();
-	forward();
-	left();
-	forward();
-	paint();
-	left();
-	forward();
-	left();
-	forward();
+	goLeft();
+	goLeft();
 	left();
 }
-void bacSla() {
+void bck(Color c) {
 	forward();
-	paint();
+	paint(c);
+	goLeft();
+	goLeft();
+	paint(c);
+	goLeft();
 	left();
-	forward();
-	left();
-	forward();
-	paint();
-	left();
-	forward();
-	left();
-}
-//Following four methods assume facing right
-void yel() {
-	setBrushColor(Color.YELLOW);
-	forSla();
-}
-void gre() {
-	setBrushColor(Color.GREEN);
-	bacSla();
-	}
-void red() {
-	setBrushColor(Color.RED);
-	bacSla();
-}
-void blu() {
-	setBrushColor(Color.BLUE);
-	forSla();
 }
 
 public void run() {
-	array(2,2);
+	square();
 }
