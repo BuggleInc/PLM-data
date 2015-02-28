@@ -1,0 +1,45 @@
+void growFlowers() {
+	growTop();
+	next();
+	growMid();
+	next();
+	growBot();
+}
+
+void growTop() {
+	growFlower(Color.RED);
+	forward(3);
+	growFlower(Color.CYAN);
+	backward(5);
+}
+void growMid() {
+	forward(2);
+	growFlower(Color.ORANGE);
+	backward(3);
+}
+void growBot() {
+	growFlower(Color.PINK);
+	forward(3);
+	growFlower(Color.GREEN);
+	backward(5);
+}
+
+void next() {
+	right();
+	forward(2);
+	left();
+}
+
+void growFlower(Color c) {
+	setBrushColor(c);
+	brushDown();
+	forward(2);
+	backward();
+	left();
+	forward();
+	backward(2);
+	forward();
+	setBrushColor(Color.YELLOW);
+	brushUp();
+	right();
+}
