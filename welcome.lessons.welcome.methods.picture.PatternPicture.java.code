@@ -1,20 +1,26 @@
 void square() {
 	bottom(Color.RED, Color.BLUE);
-	back();
+	backward(2);
 	up();
 	top(Color.YELLOW, Color.GREEN);
-	back();
+	backward(2);
 	down();
 }
-	
+
+void paint(Color c) {
+	setBrushColor(c);
+	brushDown();
+	brushUp();
+}
+
 void top(Color c, Color d) {
 	fwd(c);
-	next();
+	forward(2);
 	bck(d);
 }
 void bottom(Color c, Color d) {
 	bck(c);
-	next();
+	forward(2);
 	fwd(d);
 }
 void up() {
@@ -30,12 +36,6 @@ void down() {
 void goLeft() {
 	left();
 	forward();
-}
-void next() {
-	forward(2);
-}
-void back() {
-	backward(2);
 }
 
 void fwd(Color c) {
