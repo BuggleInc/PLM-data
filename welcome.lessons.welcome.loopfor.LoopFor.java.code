@@ -1,10 +1,11 @@
 public void run() {
-	int steps = 0;
-	for(;!isOverBaggle();forward()) {
-		steps += 1;
+	int stepAmount = 0;
+	while(!isOverBaggle()) {
+		forward();
+		stepAmount++;
 	}
 	pickUpBaggle();
-	for(;steps==0;steps--) {
+	for(int i = stepAmount; i>0; i--) {
 		backward();
 	}
 	dropBaggle();
