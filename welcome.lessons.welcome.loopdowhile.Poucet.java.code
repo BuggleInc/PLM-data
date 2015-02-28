@@ -1,0 +1,16 @@
+public void run() {
+	while(!exitReached()) {
+		int numBaggles = 0;
+		do {
+			if(isOverBaggle()) {
+				numBaggles += 1;
+			}
+			forward();
+		} while(!crossing());
+		if(numBaggles >= 3) {
+			left();
+		} else {
+			right();
+		}
+	}
+}
