@@ -1,8 +1,8 @@
 String alarmClock(int day, boolean vacation) {
+	if(!isWeekend(day) && vacation) {
+		return "off";
+	}
 	if(sleepIn(isWeekday(day),vacation)) {
-		if(!isWeekday(day)) {
-			return "off";
-		}
 		return "10:00";
 	}return "7:00";
 }
