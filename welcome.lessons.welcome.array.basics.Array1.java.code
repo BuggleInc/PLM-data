@@ -1,2 +1,23 @@
+int wh = getWorldHeight();
+Color c = new Color[wh];
 public void run() {
+	for(int x=0; x<wh; x++) {
+		c[x] = getGroundColor();
+		forward();
+	}
+	for(int i=1; i<wh; i++) {
+		left();
+		forward();
+		right();
+		forward();
+		for(int j=0; j<wh; j++) {
+			paint(c[j]);
+			forward();
+		}
+	}
+}
+void paint(Color d) {
+	setBrushColor(d);
+	brushDown();
+	brushUp();
 }
