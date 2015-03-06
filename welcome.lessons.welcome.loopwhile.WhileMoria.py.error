@@ -1,24 +1,32 @@
-Script evaluation raised an exception that is not a ScriptException but a class org.python.core.PyException.
- Please report this as a bug against the PLM, with all details allowing to reproduce it.
-Exception message: null
-org.python.core.Py.IOError(Py.java:159)
-org.python.core.io.StreamIO.write(StreamIO.java:132)
-org.python.core.io.BufferedWriter.flush(BufferedWriter.java:78)
-org.python.core.io.TextIOBase.flush(TextIOBase.java:148)
-org.python.core.PyFile.file_flush(PyFile.java:431)
-org.python.core.PyFile.flush(PyFile.java:435)
-org.python.core.StdoutWrapper.print(StdoutWrapper.java:134)
-org.python.core.StdoutWrapper.print(StdoutWrapper.java:198)
-org.python.core.Py.displayException(Py.java:1007)
-org.python.core.PyException.printStackTrace(PyException.java:79)
-org.python.core.PyException.toString(PyException.java:98)
-java.lang.Throwable.<init>(Throwable.java:311)
-java.lang.Exception.<init>(Exception.java:102)
-javax.script.ScriptException.<init>(ScriptException.java:63)
-org.python.jsr223.PyScriptEngine.scriptException(PyScriptEngine.java:192)
-org.python.jsr223.PyScriptEngine.eval(PyScriptEngine.java:43)
-org.python.jsr223.PyScriptEngine.eval(PyScriptEngine.java:33)
-javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264)
-plm.core.lang.ScriptingLanguage.runEntity(Unknown Source)
-plm.universe.World$1.run(Unknown Source)
-java.lang.Thread.run(Thread.java:745)
+The world 'Moria' differs:
+  In (1,1), there should be a baggle.
+  In (2,1), there should be a baggle.
+  In (2,4), there should be a baggle.
+  In (3,4), there should be a baggle.
+  In (3,7), there should be a baggle.
+  In (5,4), there should be a baggle.
+  In (6,1), there should be a baggle.
+  In (8,7), there should be a baggle.
+  In (9,1), there should be a baggle.
+  In (9,4), there should be a baggle.
+  In (10,7), there should be a baggle.
+  In (12,4), there should be a baggle.
+  In (13,1), there shouldn't be this baggle.
+  In (13,4), there shouldn't be this baggle.
+  In (14,4), there shouldn't be this baggle.
+  In (15,1), there shouldn't be this baggle.
+  In (15,4), there shouldn't be this baggle.
+  In (16,4), there shouldn't be this baggle.
+  In (16,7), there shouldn't be this baggle.
+  In (17,1), there shouldn't be this baggle.
+  In (17,4), there shouldn't be this baggle.
+  In (17,7), there shouldn't be this baggle.
+  In (18,1), there shouldn't be this baggle.
+  In (18,7), there shouldn't be this baggle.
+  Something is wrong about buggle 'Balin':
+    Its position is (3,1); expected: (19,2).
+  Something is wrong about buggle 'Dwalin':
+    Its position is (3,4); expected: (19,5).
+  Something is wrong about buggle 'Gimli':
+    Its position is (4,7); expected: (19,8).
+
