@@ -1,19 +1,19 @@
 public void run() { 
 
-	int x=0;
-	
-
-	while (isOverBaggle()==true && isCarryingBaggle()==true) {
+	while (isOverBaggle()==false) {
 		backward();
-		dropBaggle();
+
 		
-			if (isCarryingBaggle()==false) {
-				backward(); 
+			if (isOverBaggle==true) {
+				pickupBaggle();					
 			}
 
-			//if (
-	}
 
+			
+			if (isCarryingBaggle()==true) {
+				forward();
+			}
+	}
 
 
 
@@ -30,6 +30,6 @@ public void run() {
 
 //So, you have to find the first baggle blocking the exit (simply walk to the east until you are over a baggle), take it and move it back to the other side of the tunnel 
 // (walk to the west while you are not over a baggle, and then move back one step to the east and drop your baggle), and iterate until you find the exit (that is, the wall to the east side). 
-// Afterward, move out as in the objective world. That's only a few more steps away.
-//To make things worse, you have to write a program that works for every buggle, even if writing a specific program for each of them would be easier. 
+// Afterward, move out as in the objective world. That's only a few more steps away.  To make things worse, you have to write a program that works for every buggle, even if writing a specific program
+//for each of them would be easier. 
 //It seems that using while loops is the only solution to move the buggles correctly.
