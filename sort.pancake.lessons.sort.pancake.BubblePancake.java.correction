@@ -15,22 +15,22 @@ public class BubblePancake extends PancakeEntity {
 		int stackSize = getStackSize();
 		boolean sorted = false;
 		
-		
+		while (!sorted) {
 			sorted = true; 
 			
-			for( int rank = 0 ; rank < stackSize - 1 ; rank++ ) { 
+			for(int rank = 0; rank < stackSize - 1; rank++) { 
 				
-				if ( getPancakeRadius(rank) > getPancakeRadius(rank + 1) ) {
+				if(getPancakeRadius(rank) > getPancakeRadius(rank + 1)) {
 					
 					
 					sorted = false; 
 					
-					flip(rank + 1); 
+					flip(rank + 2); 
 					flip(2); 
-					flip(rank + 1); 
+					flip(rank + 2); 
 				}
 			}
-		
+		}
 		/* END SOLUTION */
 	}
 	/* END TEMPLATE */
