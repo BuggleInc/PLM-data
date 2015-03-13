@@ -1,0 +1,37 @@
+$package 
+
+import lessons.sort.pancake.universe.PancakeEntity;
+
+public class BubblePancake extends PancakeEntity {
+
+	
+	public void run() {
+		this.solve();
+	}
+	
+	/* BEGIN TEMPLATE */
+	public void solve() {
+		/* BEGIN SOLUTION */
+		int stackSize = getStackSize();
+		boolean sorted = false;
+		
+		
+			sorted = true; 
+			
+			for( int rank = 0 ; rank < stackSize - 1 ; rank++ ) { 
+				
+				if ( getPancakeRadius(rank) > getPancakeRadius(rank + 1) ) {
+					
+					
+					sorted = false; 
+					
+					flip(rank + 1); 
+					flip(2); 
+					flip(rank + 1); 
+				}
+			}
+		
+		/* END SOLUTION */
+	}
+	/* END TEMPLATE */
+}
