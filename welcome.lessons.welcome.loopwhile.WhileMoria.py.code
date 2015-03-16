@@ -6,8 +6,11 @@ turn_180()
 
 while not isFacingWall() and not isOverBaggle():
     while not isOverBaggle():
-        if isFacingWall():
-            break
+        if isFacingWall() and not isOverBaggle():
+            right()
+            forward()
+            left()
+            forward()
         forward()
     pickupBaggle()
     turn_180()
