@@ -1,2 +1,17 @@
-while isFacingWall() == False:
-    forward()
+def turn_180():
+    right()
+    right()
+
+turn_180()
+while not isFacingWall() and not isCarryingBaggle():
+    while not isOverBaggle():
+        forward()
+    
+    pickupBaggle()
+    turn_180()
+
+    while isOverBaggle():
+        forward()
+
+    dropBaggle()
+    turn_180()
