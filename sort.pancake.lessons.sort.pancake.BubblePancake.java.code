@@ -1,22 +1,25 @@
 /* BEGIN TEMPLATE */
 public void solve() {
-	/* BEGIN SOLUTION */		
-	for ( int rank = getStackSize()-1 ; rank != -1 && !this.isSorted() ; rank-- ) {
-		if ( getPancakeRadius(rank) != rank+1 ) { // Current pancake is still to be sorted
-			int indexBigPancake =-1;
-			for (int currentPancake = 0 ; currentPancake < rank+1; currentPancake++)
-				if ( getPancakeRadius(currentPancake) == rank+1) {
-					indexBigPancake = currentPancake;	// gotcha !
-					break;
-				}
+	/* BEGIN SOLUTION */
+	int stackSize = getStackSize();
+	boolean swapped;
+	
+	do {
+		swapped = false; 
+		
+		for(int rank = 0; rank < stackSize - 1; rank++) { // Check all pancakes
 			
-			if ( indexBigPancake != 0 )
-				flip(indexBigPancake+1);	// putting the pancake at the top
+			if(getPancakeRadius(rank) > getPancakeRadius(rank + 1)) {
+				// When the pancake above is bigger than the next one...
 				
-			if ( rank != 0 )
-				flip(getPancakeRadius(0));	// hit the bottom now !
-		}	
-	}
+				swapped = true; // We have to check all the pancakes again next time
+				
+				flip(rank + 2); // Flip all the pancakes to get the two get on top
+				flip(2); // Flip the two pancakes to sort
+				flip(rank + 2); // Flip all the pancakes back in place
+			}
+		}
+	} while (swapped);
 	/* END SOLUTION */
 }
 /* END TEMPLATE */
