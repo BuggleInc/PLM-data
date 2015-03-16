@@ -5,13 +5,10 @@ def turn_180():
 turn_180()
 
 while not isFacingWall() and not isOverBaggle():
-    while not isOverBaggle():
-        if isFacingWall() and not isOverBaggle():
-            right()
-            forward()
-            left()
-            forward()
+    while not isOverBaggle() and not isFacingWall():
         forward()
+    if isFacingWall() and not isOverBaggle():
+        break
     pickupBaggle()
     turn_180()
     while not isFacingWall():
@@ -21,3 +18,4 @@ while not isFacingWall() and not isOverBaggle():
         forward()
     dropBaggle()
     forward()
+
