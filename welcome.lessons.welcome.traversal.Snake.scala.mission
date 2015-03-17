@@ -16,50 +16,50 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Mondo di Snake</h2>
+<h2>Monde de serpents</h2>
 
-<p>Ora insegneremo al buggle ad esplorare il suo mondo. La sua posizione
-iniziale è nell'angolo in basso a sinistra, dovrai fargli visitare tutte le
-celle fino a sopra (colorando il terreno al suo passaggio). Il ciclo
-principale del tuo codice sarà qualcosa come:</p>
+<p>Nous allons maintenant apprendre à la buggle à explorer son monde. Sa
+position de départ est en bas à gauche, et elle doit visiter toutes les
+cases jusqu'en haut (en coloriant le sol sur son passage).  La boucle
+principale de votre code doit être de la forme :</p>
 <pre>
- abbassa il pennello
- fintanto che non raggiungi la posizione finale
-   muoviti come un serpente
+ baisser le crayon
+ tant que l'on est pas à la position finale
+   avancer comme un serpent
 </pre>
 
-<p>Dobbiamo quindi scrivere due metodi specifici: il primo che ritorna un
-valore booleano indicante se siamo sulla posizione finale mentre il secondo
-dovrà muovere il buggle un passo da serpente in avanti.</p>
+<p>Il faut donc écrire deux méthodes spécifiques. L'une renvoie un booléen
+indiquant si l'on se trouve à la position finale, tandis que l'autre avance
+d'un pas de serpent.</p>
 
-<p>Raggiungeremo la posizione finale solo e solamente se entrambe queste
-condizioni saranno vere:</p>
+<p>On se trouve sur une position finale si et seulement si les deux conditions
+suivantes sont vraies.:</p>
 <ul>
-  <li>Stiamo fronteggiando un muro</li>
-  <li>C'è un muro a nord del buggle. Quindi se il buggle è rivolto ad est dovrai
-controllare se ci sono muri alla sua sinistra e se invece è rivolto a ovest
-dovrai controllare il lato destro.<br/>
-      We can get the current heading of the buggle using the
-<code>getDirection()</code>, and we know whether it looks east using
-<code>getDirection() == Direction.EAST</code> (WEST
-for west).<br/>
-      Per effettuare il controllo non bisogna fare nulla di magico: devi girare il
-buggle e verificare se si trova dinnanzi ad un muro.</li>
+  <li>On est face à un mur</li>
+  <li>Il y a un mur au nord de la buggle. Donc, si la buggle regarde à l'est, il
+faut vérifier s'il y a un mur à gauche, et si la buggle regarde à l'ouest,
+il faut vérifier s'il y a un mur à droite.<br/>
+      On obtient la direction actuelle de la buggle avec la méthode
+<code>getDirection()</code>, et on sait si elle regarde à l'est avec le test
+<code>getDirection() == Direction.EST</code> (ou
+bien OUEST).<br/>
+      Pour la vérification elle-même, rien de magique : il faut se tourner et
+regarder si on est face à un mur une fois tourné.</li>
 </ul>
 
-<p>Quindi il passo da serpente può essere compiuto avanzando se non abbiamo un
-muro difronte o viceversa spostandosi alla linea successiva (ad esempio se
-guardando a ovest vedete un muro dovrete girate a destra, andare avanti e
-girare di nuovo a destra).</p>
+<p>Ensuite un pas de serpent se fait en avançant d'un pas si l'on est pas face
+à un mur, et en montant à la ligne du dessus sinon (dit autrement, si on
+regarde à l'ouest face à un mur, il faut tourner à droite, avancer, tourner
+à droite).</p>
 
-<p>Hint: the main loop of your code must continue while the testing function
-returns false. There is two ways of writing it:</p>
-<pre>while (testingFunction() == false) {</pre>
-<p> Since the
-exclamation mark (!) denotes the boolean negation in Scala, you may
-write it as:</p>
-<pre>while (!testingFunction()) {</pre>
+<p>Indication: la boucle principale de votre code doit continuer tant que la
+fonction adéquate renvoie faux. On peut l'écrire de deux façons:</p>
+<pre>while (fonctionTest() == false) {</pre>
+<p>
+Comme le point d'exclamation (!) dénote la négation booléenne
+en Scala, vous pouvez aussi l'écrire:</p>
+<pre>while (!fonctionTest()) {</pre>
 
-<p>È il tuo turno...</p>
+<p>À vous de jouer...</p>
 
 </body></html>
