@@ -67,17 +67,22 @@ class RunnerCode extends AbstractBuggle {
   
 	override def run() {
 		/* BEGIN SOLUTION */
+    var nbSteps = 0
     dropBaggle()
     do {
     	if (!waterOnRight()) {
     		right()
+        nbSteps += 1
         forward()
       } else if (isFacingWater()) {
         left();
       } else {
+        nbSteps += 1
     	  forward()
       }
     } while (!isOverBaggle())
+    pickupBaggle()
+    writeMessage(nbSteps)
 		/* END SOLUTION */
 	}
 }
