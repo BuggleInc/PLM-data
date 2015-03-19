@@ -16,119 +16,129 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Metodi</h2>
+<h2>Méthodes</h2>
 
 <p>
-È arrivato il momento di scrivere i nostri metodi. In qualche modo vedremo
-come estendere il vocabolario dei buggle insegnandogli nuovi trucchi. 
+Nous allons maintenant voir comment écrire nos propres méthodes. Il s'agit
+en quelque sorte d'étendre le vocabulaire de la buggle en lui apprenant à
+faire de nouvelles choses. 
 </p>
-<p>For example, we saw in a previous exercise how to ask the buggle to go get
-the baggle in front of it, and bring it back. If there is several baggles on
-the board, and if we want to bring all of them on the bottom line, you have
-to repeat this code several times, or include it in a loop. In any case, you
-should avoid to duplicate your code to keep it pleasant to read and easily
-understandable.  It would be better if the buggle could obey an
-<code>goAndGet()</code> order just like it understands a
-<code>forward()</code> one.</p>
+<p>Par exemple, nous avons vu dans un exercice précédent comment demander à la
+buggle d'aller chercher le biscuit qui se trouve devant elle, et la ramener
+à sa position initiale. S'il y a maintenant plusieurs biscuits sur le
+plateau, et que nous voulons tous les ramener sur la ligne du bas, il faut
+soit répéter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
+les deux cas, il faut que vous évitiez de dupliquer votre code pour qu'il
+reste simple et lisible. Il serait mieux que la buggle comprenne un ordre de
+type <code>vaChercher()</code> tout comme elle comprend un
+<code>avance()</code>.</p>
 
-<h3>Definire i metodi</h3>
+<h3>Définir des méthodes</h3>
 
-<p>La sintassi di Java per scrivere un semplice metodo chiamato
-<code>goAndGet</code> è la seguente.</p>
-<pre>void goAndGet() {
+<p>La syntaxe Java pour écrire une méthode simple nommée
+<code>vaChercher</code> est la suivante:</p>
+<pre>void vaChercher() {
   actions();
-  to();
-  do();
+  encoreDesActions();
+  dautresTrucs();
 }</pre>
 
-<p>The method body (between curly braces) will be executed when we call the method later on (that
-is, when we write <code>goAndGet()</code> somewhere in our code). This
-method body can contain as many instructions as you want, and any
-construction we saw so far (for, while, if, etc).  The
-<code>void</code> keyword means that this method does not return any
-result. For example, the <code>isOverBaggle()</code> method does return a
-result, which is a boolean indicating whether or not
-the buggle is located over a baggle. We will soon learn to define such
-methods too. For now, just write <code>void</code> at this location.
+<p>Le corps de la méthode
+(c'est-à-dire le bloc entre accolades)
+
+sera exécuté à chaque appel de cette méthode (c'est-à-dire à chaque fois que
+nous écrirons <code>vaChercher()</code> quelque part dans notre code).
+Ce corps de boucle peut contenir autant d'instructions que l'on veut, et
+toutes les constructions que nous avions vu jusque là (comme les boucles et
+les conditionnelles).
+Le mot-clé <code>void</code> («néant» en anglais) signifie que cette
+méthode ne renvoie pas de résultat. Au contraire, la méthode
+<code>estSurBiscuit()</code> renvoie un résultat booléen indiquant si nous
+nous trouvons oui ou non sur un biscuit. Nous apprendrons bientôt à faire de
+telles méthodes. En attendant, écrivez juste <code>void</code> à cet
+endroit.
 </p>
 
-<h3>Documentare un metodo</h3>
+<h3>Documenter les méthodes</h3>
 
-<p>Bisognerebbe sforzarsi di documentare il proprio codice per mantenerlo
-leggibile. Quando voi lo state scrivendo il suo scopo e le sue limitazioni
-vi sono chiari ma per la maggiorparte delle volte queste certezze non
-dureranno a lungo. Dimenticherete in fretta i dettagli di ogni metodo
-specifico e in quel momento sarete felici di leggere la sua
-documentazione. Nel seguente esempio noi ci avvaleremo di un formalismo
-specifico di javadoc, uno
-programma che estrae la documentazione dal sorgente in Java per
-produrre pagine html. Il principale vantaggio è che esso permette di
-mantenere la documentazione vicina al codice. Quindi quando cambierete il
-codice avrete meno opportunità di dimenticare di aggiornare la
-documentazione.</p>
+<p>Vous devez toujours vous efforcer de documenter votre code pour qu'il reste
+lisible. À l'instant où vous l'écrivez, son objectif et ses limitations vous
+semblent clairs, mais la plupart du temps, ça ne dure pas. On oublie vite
+les détails d'une méthode particulière, et quand cela arrive, on est content
+de pouvoir lire sa documentation.
+Dans l'exemple ci-dessous, nous utilisons le formalisme spécifique de
+javadoc, un programme qui
+extrait la documentation du code source pour en faire de belles pages
+web. Le principal avantage de cette approche est que la documentation se
+trouve à coté du code. Donc, quand on change le code, il y a un peu plus de
+chance pour qu'on pense à mettre la documentation à jour.</p>
 
-<p>In javadoc i commenti
-comminciano con il marcatore <code>/**</code> (con due asterischi). Essi
-devono essere posizionati prima del metodo che devono documentare perché
-vengano rinvenuti correttamente.   La prima riga dovrebbe essere una breve
-descrizione di cosa fa il metodo mentre le seguenti dovrebbero fornire
-qualsiasi altro dettaglio importante che lo riguardano.</p>
+<p>Les commentaires javadoc
+commencent avec le marqueur <code>/**</code> (avec deux étoiles). Ces
+commentaires doivent être placés juste avant la méthode qu'ils documentent
+pour que l'outil les trouve
+
+La première ligne devrait décrire brièvement la méthode tandis que le reste
+de la documentation devrait donner tous les points importants de la méthode.</p>
 
 <pre>/**
- * Avanza, recupera il baggle di fronte al buggle e lo riporta indietro 
+ *  Avance, récupère le biscuit, et le ramène à la position d'origine
  *
- *   Non controlla la presenza di muri quindi fate attenzione a non chiamarlo quando ne sono presenti.
+ *  Ne vérifie pas la présence de mur; à ne pas l'utiliser en cas de risques de mur.
  */
 void goAndGet() {
 
 
-  azioni();
-  direzione();
-  fai();
+  actions();
+  a();
+  faire();
 }</pre>
 
-<h3>Convenzioni sui nomi</h3>
-<p>Molti linguaggi di programmazione non permettono l'uso di spazi negli
-identificatori di metodi e variabili (cioè i loro nomi). Le lettere
-accentate sono a volte permesse (come in Java) ma è meglio evitarle
-perché potrebbero portare a problemi di portabilità fra diversi sistemi
-operativi.</p>
+<h3>Conventions de nommage</h3>
+<p>La plupart des langages de programmation interdisent d'utiliser des espaces
+dans les noms de variables et de méthodes. Certains langages (comme le
+Java) autorisent l'usage des caractères accentués dans ces
+identificateurs, mais cela pose parfois des problèmes de portabilité entre
+les systèmes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
+les identificateurs, même si c'est parfois désagréable en français.</p>
 
-<p>Al di sopra di tutti i linguaggi di programmazione vengono adottate due
-principali convenzioni per i nomi di variabili e metodi. La prima consiste
-nel concatenare tutte le parole con solo la prima lettera di ogni parola in
-maiuscolo. "vai e prendi" diventa goAndGet(). Viene chiamato CamelCase
-perché gli identificatori scritti in questo modo ricordano le gobbe di un
-cammello. L'altra convenzione è chiamata snake_case e consiste nello
-scrivere tutte le parole in minuscolo separandole da un trattino basso
-(_). "vai e prendi" diventa vai_e_prendi().</p>
+<p>Parmi tous les langages de programmation, il y a deux conventions de nomage
+majeures. La première consiste à concaténer tous les mots en ne laissant que
+la première lettre de chaque mot en majuscule. «va chercher le biscuit»
+devient VaChercherLeBiscuit(). Cette convention est nommée CamelCase en
+anglais, c'est-à-dire casse du chameau, car les identificateurs écrits de
+cette façon font un peu penser au dos d'un chameau. L'autre convention,
+nommée snake_case (casse du serpent), consiste à concaténer tous les mots en
+minuscule en les séparant du caractère souligné (_). «va chercher le
+biscuit» devient va_chercher_le_biscuit().</p>
 
-<p>Quale convenzione utilizzare è il tema di accese discussioni fra gli
-sviluppatori, ma ogni linguaggio di programmazione ha le proprie
-abitudini. Nei linguaggi Python, Perl e C lo snake_case è spesso usato per
-metodi e variabili. Invece in Java e Scala si preferisce il lowerCamelCase
-(la lettera iniziale è in minuscolo).</p> 
-<p>In PLM viene usata la convenzione CamelCase perché è un programma scritto in
-Java ed abbiamo mantenuto quest'abitudine quando abbiamo aggiunto nuovi
-linguaggi.  Ma in realtà consideriamo come un errore l'utilizzo del
-CamelCase invece dello snake_case per le varianti in Python e lo
-correggeremo nei rilasci futuri di PLM.</p>
+<p>Le choix de la convention de nommage est le sujet de «discussions» très
+animées entre programmeurs, mais certaines habitudes prédominent pour chaque
+langage. En Python, Ruby, Perl ou en langage C, la casse_du_serpent
+prédomine pour les noms de variables et de méthodes. En Java et en Scala, on
+préfère habituellement la casseDuChameau, en laissant la toute première
+lettre en minuscule.</p> 
+<p>La casseDuChameau est utilisé partout dans PLM car c'est un programme écrit
+en Java à la base, et que nous avons gardé nos habitudes en écrivant le
+support pour d'autres langages. Mais nous considérons le fait Python ne soit
+pas en casse_du_serpent comme un bug, que nous corrigerons dans une version
+future.</p>
 
-<h3>Traguardo dell'esercizio</h3>
-<p>Lo scopo di questo esercizio è di scrivere un metodo chiamato
-<code>goAndGet()</code> che fa le stesse cose del vecchio esercizio
-(muoversi in avanti finché non si incontra un baggle, prenderlo e tornare
-indientro alla posizione iniziale per depositarlo sul terreno).</p>
+<h3>Objectif de cet exercice</h3>
+<p>L'objectif de cet exercice est donc d'écrire une méthode nommée
+<code>goAndGet()</code> (va chercher) et qui fait la même chose que dans un
+exercice précédent (avance tant qu'on ne trouve pas de baggle, ramasser le
+baggle, reculer à la case départ, poser le baggle).</p>
 
-<p>This exercise is a bit different because you will not write all of the code
-executed by the buggle. Instead, you should only write one method that get
-called automagically added when you click on <b>Start</b>. Your buggle calls
-your <code>goAndGet()</code> method on each row, until the baggle is
-found.  You don't need to write the code calling
-<code>goAndGet()</code> yourself. It's automagically there already, even if
-you cannot see it.</p> 
+<p>Cet exercice est un peu différent : vous n'allez pas écrire tout le code
+exécuté par la buggle, mais juste une méthode qui sera invoquée
+automagiquement quand vous exécutez l'exercice. Votre buggle va alors
+appeler votre méthode <code>goAndGet()</code> sur chaque colonne du monde,
+jusqu'à trouver le biscuit.  Vous n'avez pas à écrire
+vous-même le code qui va appeler<code>goAndGet()</code>. Il est
+automagiquement donné, même si vous ne pouvez pas le voir.</p> 
 
-<p>Ma per far si che questo avvenga ora dovrai scrivere il metodo
-<code>goAndGet()</code>.</p>
+<p>Mais pour que cela fonctionne, il faut que vous écriviez maintenant cette
+fonction <code>goAndGet()</code>...</p>
 
 </body></html>
