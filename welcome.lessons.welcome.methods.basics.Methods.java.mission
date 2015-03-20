@@ -14,110 +14,123 @@
               color:#00AA00;
               font-style: italic; }
   </style>
-</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Methods</h2>
+</head><body>
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Métodos</h2>
 
 <p>
-We will now write our own methods. It somehow comes down to extending the
-buggle vocabulary by teaching it new tricks. 
+Nós vamos agora escrever nossos próprios métodos. Isto é como extender o
+vocabulário do buggle ensinando novos truques. 
 </p>
-<p>For example, we saw in a previous exercise how to ask the buggle to go get the
-baggle in front of it, and bring it back. If there is several baggles on the
-board, and if we want to bring all of them on the bottom line, you have to
-repeat this code several times, or include it in a loop. In any case, you should avoid
-to duplicate your code to keep it pleasant to read and easily understandable.
-It would be better if the buggle could obey an <code>goAndGet()</code> order 
-just like it understands a <code>forward()</code> one.</p>
+<p>Por exemplo, nós vimos num exercício anterior como pedir ao buggle para
+pegar o baggle na frente dele, e trazê-lo de volta. Se existem vários
+baggles no tabuleiro, e se nós queremos trazê-los todos para a linha de
+baixo, você tem que repetir este código várias vezes, ou incluir ele num
+loop. Em qualquer caso, você deve evitar duplicar seu código para mantê-lo
+agradável de ler e fácil de entender. Será melhor se o buggle puder obedecer
+uma ordem <code>vaiEPega()</code> assim como entende uma
+<code>avançar()</code>.</p>
 
-<h3>Defining methods</h3>
+<h3>Definindo métodos</h3>
 
-<p>The Java syntax to write a simple method called <code>goAndGet</code> is the
-following:</p>
-<pre>void goAndGet() {
-  actions();
-  to();
-  do();
+<p>A sintaxe de Java para escrever um método simples chamado
+<code>vaiEPega</code> é a seguinte:</p>
+<pre>void vaiEPega() {
+  ações();
+  ações();
+  eMaisAções();
 }</pre>
 
-<p>The method body 
-(between curly braces) will be
-executed when we call the method later on (that is, when we write
-<code>goAndGet()</code> somewhere in our code). This method body  
-can contain as many instructions as you want, and any construction we saw so far 
-(for, while, if, etc). 
-The <code>void</code> keyword means that this method does not return any
-result. For example, the <code>isOverBaggle()</code> method does return a result,
-which is a boolean indicating whether or not the buggle is located over a baggle. We
-will soon learn to define such methods too. For now, just write <code>void</code> at
-this location.
+<p>O corpo do método (entre chaves) será executado quando nós chamarmos o método mais tarde (ou
+seja, quando nós escrevermos <code>vaiEPega()</code> em algum lugar do
+código). Este corpo do método pode conter tantas instruções quanto você
+queira, e qualquer construção que nós queiramos (for, while, if, etc).
+A palavra-chave <code>void</code> significa que este método não
+retorna qualquer resultado. Por exemplo, o método
+<code>estáSobreBaggle()</code> retorna um resultado, que é um booleano
+indicando se o buggle está ou não localizado sobre um baggle. Vamos em breve
+aprender a definir tais métodos também. Por agora, apenas escreva
+<code>void</code> neste local.
 </p>
 
-<h3>Documenting methods</h3>
+<h3>Documentando métodos</h3>
 
-<p>You should strive to document your code to keep it readable. When you
-write it, its purpose and limitations are clear to you, but most of the time, this does not
-last for long. You will soon forget about the details of every specific method, and this day
-you will be happy to read its documentation. In the following example, we use the 
-specific formalism of javadoc, a program 
-that extracts the documentation of Java source code to produce html pages. The
-main advantage is that it allows to keep the documentation near to the code.  So, when
-you change your code, you have less chances to forget to update the documentation.</p>
+<p>Você deve se esforçar para documentar seu código para mantê-lo
+legível. Quando você escreve código, fica claro o objetivo e as limitações,
+mas na maioria das vezes, isto é esquecido. Você rapidamente esquecerá dos
+detalhes de cada método específico, e vai chegar o dia em que você ficará
+feliz em ler a documentação. No exemplo seguinte, nós usamos o formalismo
+específico de javadoc, um
+programa que extrai a documentação do código-fonte de Java e produz
+páginas html. A principal vantagem é que ele permite que a documentação
+fique junto ao código. Então, quando você mudar o código, você tem menos
+chances de esquecer de atualizar a documentação.</p>
 
-<p>javadoc comments begin with the
-<code>/**</code> marker (with two asterisks). They must be placed right before the
-method they document for the tool to find them.
-
-The first line should  be a brief description of what this method does while any subsequent
-lines should provide any important details about the method.</p>
+<p>comentários em javadoc
+começam com a marca <code>/**</code> (com dois asteriscos). Eles devem
+ser colocados exatamente antes do método que documentam para a
+ferramenta encontrá-los.  A primeira linha deve ser
+uma breve descrição do que o método faz enquanto que as linhas
+subsequentes devem fornecer qualquer detalhes importantes sobre o
+método.</p>
 
 <pre>/**
- *  Go, retrieves the baggle in front of the buggle, and brings it back 
+ *  Vai, recupera o baggle na frente do buggle, e trás de volta 
  *
- *   Does not check for walls, so be careful to not call it when walls are present.
+ *  Não verifica se tem paredes, então cuidado para não chamar ele
+ *  quando uma parede estiver presente.
  */
-void goAndGet() {
+void vaiEPega() {
 
 
-  actions();
+  ações();
   to();
   do();
 }</pre>
 
-<h3>Naming conventions</h3>
-<p>Most programming language forbid the use of spaces in method and variable identifiers (=their names).  
-Accented letters are sometimes allowed (as in Java), but they can lead to
-portability issues between operating systems and should thus be avoided when possible.</p>
+<h3>Convenções de nomes</h3>
+<p>A maioria das linguagens de programação proíbe o uso de espaços em
+indentificadores de métodos e variáveis (=seus nomes).  Letras acentuadas
+são algumas vezes permitidas (como em Java), mas elas geram problemas
+de portabilidade entre sistemas operacionais e devem ser evitadas sempre que
+possível.</p>
 
-<p>Across all programming languages, there is two main conventions to
-name variables and methods. The first one, consists in concatenating all words with 
-only the first letter of each word in upper case. "go and get" becomes goAndGet(). 
-It is called CamelCase because identifiers written this way graphically remind of a camel
-back. The other convention, called snake_case, is to write every words in lower case,
-separated with underscores symbols (_). "go and get" becomes go_and_get().</p>
+<p>Entre todas as linguagens de programação, existem duas convenções para
+nomear variáveis e métodos. A primeira, consiste em concatenar todas as
+palavras com apenas a primeria letra de cada palavra em maiúscula. "vai e
+Pega" se torna vaiEPega(). Isto é chamado "CamelCase" por que
+identificadores escritos desta forma parecem graficamente com as costas de
+um camelo. A outra convenção, chamada "snake_case", é escrever todas as
+palavras em minúsculas, separadas com sublinhados (_). "vai e pega" se torna
+vai_e_pega().</p>
 
-<p>Which convention to use is the topic of heated discussion across developers, but
-each programming language has its own habits. In Python, Perl and the C language, the 
-snake_case is often used for methods and variables. Java and Scala prefer the
-lowerCamelCase (the very first letter is lower case) for that.</p> 
-<p>The CamelCase convention is used everywhere in PLM because this program is written
-in Java itself, so we kept our habits when adding new languages. But the fact that the
-Python bindings of PLM use the CamelCase instead of the snake_case is considered as a
-bug that we will fix in further releases.</p>
+<p>Que convenção usar é o tópico de discussões acaloradas entre
+desenvolvedores, mas cada linguagem de programação tem seus próprios
+hábitos. Em Python, Perl e C, o snake_case é normalmente usado para métodos
+e variáveis. Java e Scala preferemo lowerCamelCase (só a primeira letra
+inicial é minúscula) para isto.</p> 
+<p>A convenção CamelCase é sempre usada no PLM por que este programa foi
+escrito em Java, então mantivemos o hábito quando inserimos novas
+linguagens. Mas o fato de os vínculos Python do PLM usarem CamelCase e não
+snake_case é considerado um bug que será corrigido em algum lançamento
+futuro.</p>
 
-<h3>Exercise goal</h3>
-<p>The goal of this exercise is to write a method called <code>goAndGet()</code>
-which does the same than in a previous exercises (move forward until over a baggle, 
-pick it up, move back to initial position, drop baggle).</p>
+<h3>Objetivo do exercício</h3>
+<p>O objetivo deste exercício é escrever um método chamado
+<code>vaiEPega()</code> que faça a mesma coisa que foi feita num exercício
+anterior (vai para a frente até estar sobre um baggle, pega ele, vai para
+trás até a posição inicial e solta o baggle).</p>
 
-<p>This exercise is a bit different because you will not write all of
-the code executed by the buggle. Instead, you should only write one 
-method that get called automagically added when you click on
-<b>Start</b>. Your buggle calls your <code>goAndGet()</code> method on
-each row, until the baggle is found. 
-You don't need to write the code calling <code>goAndGet()</code> yourself. It's 
-automagically there already, even if you cannot see it.</p> 
+<p>Este exercício é um pouco diferente por que você não vai precisar
+escrever todo o código executado pelo buggle. Ao invés disto, você
+deve apenas escrever um método que será chamado automagicamente quando
+você clica em <b>Iniciar</b>. Seu buggle vai chamar seu método
+<code>vaiEPega()</code> em cada linha, até que o baggle seja
+encontrado.  Você não precisa escrever o código chamado
+<code>vaiEPega()</code>. Ele já está lá automaticamente, mesmo se você
+não possa vê-lo.</p> 
 
-<p>But for that to work, you have to actually write this
-<code>goAndGet()</code> method now.</p>
+<p>Mas para isto funcionar, você tem que na verdade escrever este método
+<code>vaiEPega()</code> agora.</p>
 
 </body></html>
