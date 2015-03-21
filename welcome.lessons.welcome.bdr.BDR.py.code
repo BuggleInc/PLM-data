@@ -1,8 +1,11 @@
 def move(direction,n):
     if direction == "forward":
-        forward(n)
+        for i in range(n):
+            forward()
     elif direction == "backward":
-        backward(n)
+        for i in range(n):
+            backward()
+        
         
 while isOverMessage():
     msg = readMessage()
@@ -26,9 +29,6 @@ while isOverMessage():
     elif msg == "Z":
         backward()
     elif msg == "Y":
-        backward()
-        backward()
+        move(forward,2)
     elif msg == "X":
-        backward()
-        backward()
-        backward()
+        move(backward,3)
