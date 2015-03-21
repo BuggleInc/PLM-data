@@ -11,11 +11,10 @@ while not isFacingWall() and not isOverBaggle():
         break
     pickupBaggle()
     turn_180()
-    while not isFacingWall():
+    while isCarryingBaggle() and not isOverBaggle():
         forward()
     turn_180()
-    while isOverBaggle():
-        forward()
+    forward()  
     dropBaggle()
     forward()
 
