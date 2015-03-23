@@ -4,7 +4,15 @@ def paint():
 
 def check_square():
     move_forward()
+    if getGroundColor() == Color.green:
+        paint()
+    else:
+        backward()
     
 def hunt():
-    if not isFacingWall:
-        check_square()
+    while not isOverBaggle():
+            if not isFacingWall:
+             check_square()
+         else:
+           right()
+           check_square()
