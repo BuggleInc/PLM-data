@@ -16,57 +16,56 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Parcours en colonne</h2>
+<h2>Percorrer pelas colunas</h2>
 
-<p>L'objectif de cette série d'exercices est de faire parcourir le monde à la
-buggle.  Elle doit de plus numéroter les différentes cases rencontrées pour
-montrer son ordre de parcours.</p>
+<p>O objetivo desta série de exercícios é fazer o buggle percorrer seu
+mundo. Ele deve numerar as células por onde passa para mostrar a ordem
+do caminho.</p>
 
-<p>La boucle principale du code que vous devez écrire est de la forme :</p>
+<p>O loop principal de seu código deve ser algo como:</p>
 <pre>
- tant que l'on n'est pas à la position finale
-   aller à la prochaine position
-   marquer le numéro de case au sol
+ enquanto não estiver na posição final
+   vá para a próxima posição
+   rotule a célula com um número
 </pre>
 
-<p>À la différence des exercices vus jusque là, nous n'allons pas utiliser les
-méthodes <code>avance()</code>, <code>recule()</code> et autres, mais nous
-allons calculer les coordonnées de la prochaine position de la buggle, et
-utiliser la méthode <code>setPos(x, y)</code> pour <i>téléporter</i> la
-buggle directement à cette position. Par exemple, <code>setPos(3, 5)</code>
-téléporte la buggle sur la case où x=3 et y=5.</p>
+<p>Ao contrário dos exercícios que vimos até agora, não vamos usar os
+métodos <code>avançar()</code>, <code>recuar()</code> e similares. Ao
+invés disto, vamos calcular as coordenadas da próxima posição
+de buggle e usar o método <code>setPos(x, y)</code> para
+<i>teletransportar</i> o buggle diretamente para esta posição. Por
+exemplo, <code>setPos(3, 5)</code> teletransporta o buggle para a
+célula onde x=3 e y=5.</p>
 
-<p>Le premier objectif est donc d'écrire une fonction booléenne indiquant si la
-buggle a atteint la position finale ou non, càd si elle est arrivée en bas à
-droite du monde.  Vous utiliserez pour cela les méthodes
-<code>getMondeHauteur()</code> et <code>getMondeLargeur()</code> qui
-retournent respectivement la hauteur et la largeur du monde.  Votre test est
-de comparer les coordonnées actuelles de votre buggle (que vous pouvez
-retrouver avec les méthodes <code>getX()</code> et <code>getY()</code>) aux
-dimensions du monde.<br/>
-Attention, la première ligne et la première colonne sont numérotées 0 au
-lieu de 1, et l'origine (0, 0) est dans le coin en haut à gauche. Cela peut
-sembler étonnant, mais ces choses sont traditionnelles en informatique.</p>  
+<p>Sua primeira tarefa é escrever uma função booleana indicando se o
+buggle alcançou a posição final ou não, ou seja se ele alcançou o
+canto inferior direito do mundo. Para isto, você pode usar
+<code>getWorldWidth()</code> e <code>getWorldHeight()</code> que
+retornam respectivamente a largura e altura do mundo. Seu teste é deve
+comparar a posição atual do buggle (que vocẽ pode acessar com
+<code>getX()</code> e <code>getY()</code>) com as dimensões do mundo.<br/>
+Beware, the first line and column are numbered 0 and not 1, and the point
+(0,0)  is on the top left corner. This may seem surprising, but it is very
+often so in Computer Science.</p>  
 
-<p>Ensuite, il faut écrire le code pour aller à la position suivante. Dans cet
-exercice, il faut parcourir le monde colonne par colonne. Donc, si on est
-tout en bas d'une colonne, il faut aller en haut de la colonne suivante et
-sinon, il faut aller à la case du dessous.</p>
+<p>Then, you have to write the code to reach the next position. In this
+exercise, you have to traverse the world row after row. So, if you are at
+the bottom of a row, you have to move to the top of next row, and you have
+to move to the cell below else.</p>
 
-<p>À ce point, vous pouvez lancer votre programme pour vérifier que la buggle
-parcours bien le monde dans l'ordre souhaité, et s'arrête bien quand il
-faut. Pensez à utiliser le bouton <b>stop</b> pour arrêter l'exécution si
-votre programme ne se termine pas correctement.</p>
+<p>Neste ponto, você pode lançar seu programa para verificar se o buggle
+percorre corretamente o mundo na ordem esperada, e que ele pára quando
+tem que parar. Use oo botão <b>stop</b> se o buggle não parar
+corretamente.</p>
 
-<p>Il est temps d'écrire au sol les numéros de case. Pour cela, vous aurez
-besoin d'un compteur initialisé à zéro au début de votre code, et incrémenté
-à chaque pas (par exemple avec <code>cpt += 1;</code>). Ensuite, il faut
-écrire cette valeur au sol (avec <code>ecritMessage()</code>).
+<p>Agora é hora de escrever os números das células. Para isto, você vai
+precisar de um contador iniciando em zero no começo do seu código, e
+incrementar de um em cada passo (por exemplo com <code>counter +=
+1;</code>).  Então, você terá que usar <code>escreverMensagem()</code>
+para escrever o valor no chão.
 </p>
 
-<p>Il est sans doute nécessaire d'écrire la valeur de la
-première case en dehors de la boucle
-principale.</p>
+<p>Você provavelmente vai precisar escrever o primeiro valor fora do loop principal .</p>
 
-<p>À vous de jouer...</p>
+<p>Sua vez...</p>
 </body></html>
