@@ -1,0 +1,16 @@
+def snake_step():
+    while not isFacingWall():
+        forward()
+    if getDirection() == Direction.EAST:
+        left()
+        if isFacingWall():
+            break
+        else:
+            forward()
+            left()
+            snake_step()
+    elif getDirection() == Direction.WEST:
+        right()
+        forward()
+        right()
+        snake_step()
