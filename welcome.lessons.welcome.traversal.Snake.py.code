@@ -1,8 +1,16 @@
+brushDown()
+
 def wall_to_the_north():
     """
     Returns True if there's a wall to the north of the current position,
     False if there is no wall. 
     """
+    if getDirection() == Direction.EAST:
+        left()
+    elif getDirection() == Direction.WEST:
+        right()
+    return isFacingWall()
+
     
 while not isFacingWall() and not wall_to_the_north():
     forward()
