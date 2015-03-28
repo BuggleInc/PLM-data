@@ -7,11 +7,14 @@ def wall_to_the_north():
     """
     if getDirection() == Direction.EAST:
         left()
+        return_value = isFacingWall()
+        right()     
     elif getDirection() == Direction.WEST:
         right()
-    return isFacingWall()
-
-    
+           return_value = isFacingWall()
+        left()
+    return return_value
+   
 while not isFacingWall() and not wall_to_the_north():
     forward()
     if isFacingWall() and Direction() == Direction.EAST:
