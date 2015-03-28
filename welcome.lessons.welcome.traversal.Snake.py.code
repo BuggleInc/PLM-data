@@ -1,30 +1,19 @@
-brushDown()
-
-def wall_to_the_north():
-    """
-    Returns True if there's a wall to the north of the current position,
-    False if there is no wall. 
-    """
+def snake_step():
+    brushDown()
+    while not isFacingWall():
+        forward()
     if getDirection() == Direction.EAST:
-        left()
-        return_value = isFacingWall()
-        right()     
-    elif getDirection() == Direction.WEST:
-        right()
-        return_value = isFacingWall()
-        left()
-    return return_value
-   
-while not isFacingWall() and not wall_to_the_north():
-    forward()
-    if isFacingWall() and Direction() == Direction.EAST:
         left()
         if isFacingWall():
             right()
         else:
             forward()
             left()
+            snake_step()
     elif getDirection() == Direction.WEST:
         right()
         forward()
         right()
+        snake_step()
+
+snake_step()
