@@ -13,15 +13,12 @@ public void step(char[] rule, Color[] colors) {
 }
 
 private int getIDColor(Color[] colors, Color currentColor){
-	int retour = -1;
-	int i = 0;
-	while(retour == -1){
+	for(int i = 0; i < colors.length; i++){
 		if(colors[i].equals(currentColor)){
-			retour = i;
+			return i;
 		}
-	i++;
 	}
-	return retour;	
+	return -1;	
 }
 
 
