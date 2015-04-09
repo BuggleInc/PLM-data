@@ -28,24 +28,24 @@
    (or someone else) want to read it afterward, although over-commenting 
    (describing obvious stuff) is a bad idea as the important idea get lost in the noise.</p>
    
-  <p>There is two types of comments in python, instructing 
-  the interpreter to not read the text you add for humans:</p>
+  <p>There is three types of comments in Java, instructing 
+  the compiler to not read the text you add for humans:</p>
    
   <ul>
-    <li><b>Comments on a single line</b>. When the interpreter
-      encounters the symbol #, it ignores the end of the line.</li>      
-    <li><b>Comments on several lines</b>. The interpreter
+    <li><b>Comments on a single line</b>. When the compiler
+      encounters the symbol //, it ignores the end of the line.</li>      
+    <li><b>Comments on several lines</b>. The compiler
       ignores anything placed between 
-      
-      a line beginning with ''' until the next line ending with '''.</li>
+      the symbols /* and */ even if they are placed on differing lines.
+      </li>
   </ul>
 
 <pre>
-methodCallReadByTheInterpreter() <span class="comment"># all this is ignored</span>
-otherCall() 
-<span class="comment">''' This is</span>
-<span class="comment">also ignored  '''</span>
-yetAnotherCall()
+methodCallReadByTheCompiler(); <span class="comment">// all this is ignored</span>
+otherCall(); <span class="comment">/* This is</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="comment"> also ignored */</span>
+
+yetAnotherCall();
 </pre>  
   <p class="Java">There is a third kind of comments in Java, between /** and */, which are read by a
 specific program called JavaDoc to generate automatically the documentation
