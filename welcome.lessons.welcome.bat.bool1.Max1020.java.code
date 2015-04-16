@@ -1,7 +1,6 @@
 int max1020(int a, int b) {
-	int resultA = 0;
-	if (a >= 10 && a <= 20) resultA = a;
-	int resultB = 0;
-	if (b >= 10 && b <= 20) resultB = b;
-	return (resultA >= resultB ? (resultA == 0 ? resultA : a) : b);
+	int result = 0;
+	if (a >= 10 && a <= 20) result = a;
+	if (b >= 10 && b <= 20 && (a < b && result > 0)) result = b;
+	return result;
 }
