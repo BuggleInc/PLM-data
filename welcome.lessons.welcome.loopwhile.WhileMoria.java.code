@@ -1,8 +1,14 @@
 public void run() 
-{ 
-	while(!estSurBiscuit())
-		avance();
-	prendBiscuit();
-	while(!estSurBiscuit())
+{
+	while(!estFaceMur())
+	{
+		while(!estSurBiscuit())
+			avance();
+		prendBiscuit();
 		recule();
+		while(!estSurBiscuit())
+			recule();
+		poseBiscuit();
+		avance();
+	}
 }
