@@ -24,7 +24,33 @@ de certains étudiants où le joueur doit bouger sur un tapis prévu à cet
 effet en fonction des consignes présentées à l'écran en rythme avec la
 musique. Mais avant cela, nous avons quelques détails à étudier.</p>
 
-</pre>
+
+<h3>Conditionnelles sans accolades</h3>
+<p>
+Il y a un détail que nous avons omis à propos de la syntaxe des
+conditionnelles : si une branche ne contient qu'une seule instruction, les
+accolades sont optionnelles. Ainsi, les deux extraits suivants sont
+équivalents:</p>
+
+ <pre>if (<b>condition</b>) {
+    <b>quoiFaireSiLaConditionEstVraie();</b>
+} else {
+    <b>quoiFaireSinon();</b>
+}</pre>
+ <pre>if (<b>condition</b>)
+    <b>quoiFaireSiLaConditionEstVraie();</b>
+else
+    <b>quoiFaireSinon();</b></pre>
+
+<p>Vous pouvez faire de même avec les boucles dont le corps se réduit à une
+seule instruction. Mais attention, ceci peut être dangereux si on enchaîne
+les <tt>if</tt> comme dans l'exemple suivant. </p>
+<pre>if (estSurBiscuit())    
+     if (x == 5)
+          gauche();
+else
+     droite();
+avance();</pre>
 
 <p>En fait, ça ne tourne pas à droite quand il n'y a pas un baggle par terre ET
 que x vaut 5, mais quand la buggle a trouvé un baggle, et que x vaut une
@@ -36,7 +62,7 @@ précédemment) :</p>
             gauche();
         else
             droite();
-</pre>
+avance();</pre>
 
 <p>La première leçon, c'est que l'indentation est très importante pour que les
 humains puissent comprendre le code, mais elle ne change pas la
@@ -48,13 +74,13 @@ professeur (pour qu'il le note ou pour lui poser une question), ou si vous
 comptez réutiliser votre code plus tard, ou même si vous devez debugger
 votre propre code après l'avoir écrit.</p> 
 
-<pre>if (estSurBiscuit()) if (x == 5) gauche(); else droite(); </pre>
+<pre>if (estSurBiscuit()) if (x == 5) gauche(); else droite(); avance();</pre>
 
 <p>La seconde leçon, c'est qu'une branche <tt>else</tt> se raccroche toujours
 au <tt>if</tt> le plus proche. C'est parfois un peu contre-intuitif, et il
 est préférable d'ajouter plus d'accolades que nécessaire pour lever toute
 ambiguïté.</p>
-[/!]
+
 
 <h3>Enchaînements de conditionnelles</h3>
 
@@ -68,12 +94,12 @@ réalisées. C'est à dire, que s'il pleut un 14 juillet très chaud, on ne veut
 pas que la buggle sorte avec un parapluie, de l'eau et un drapeau, mais
 juste avec un parapluie. Le code suivant est donc faux.</p>
 
-<pre>if ilPleut():
-    prendreParapluie()
-if ilFaitChaud():
-    prendreDeLEau()
-if sommes14Juillet():
-    prendreDrapeau()</pre>
+<pre>if (ilPleut())
+    prendreParapluie();
+if (ilFaitChaud())
+    prendreDeLEau();
+if (sommes14Juillet())
+    prendreDrapeau();</pre>
 
 
 <p>En effet, toutes les conditions sont évaluées les unes après les autres, et
@@ -81,29 +107,34 @@ on risque donc d'aller au défilé un jour de pluie. À la place, il faut donc
 écrire quelque chose comme ce qui suit pour s'assurer que si l'on trouve une
 condition vraie, on n'évalue pas les suivants.</p>
 
-<pre>if ilPleut():
-    prendreParapluie()
-else:
-    if ilFaitChaud():
-        prendreDeLEau()
-    else:
-        if sommes14Juillet():
-            prendreDrapeau()</pre>
+<pre>if (ilPleut()) {
+    prendreParapluie();
+} else {
+    if (ilFaitChaud()) {
+        prendreDeLEau();
+    } else {
+        if (sommes14Juillet()) {
+            prendreDrapeau();
+        }
+    }
+}</pre>
 
 
 <p>Une telle cascade de conditionnelles est un peu difficile à lire, et il est
 préférable
-).[/!]
- d'introduire les sous-blocs avec le mot-clé <code>elif</code>
-(abréviation de «else if») pour expliciter ces branches «sinon si».
+ d'omettre les accolades associées aux <tt>else</tt> comme
+suit. Il y a même certains langages qui introduisent un mot-clé spécial pour
+ces <tt>else if</tt> (mais pas Scala).
+
 </p>
 
-<pre>if ilPleut():
-    prendreDrapeau()
-elif ilFaitChaud():
-    prendreDeLEau()
-elif sommes14Juillet():
-    prendreDrapeau()</pre>
+<pre>if (ilPleut()) { 
+    prendreParapluie();
+} else if (ilFaitChaud()) {
+    prendreDeLEau();
+} else if (sommes14Juillet()) {
+    prendreDrapeau();
+}</pre>
 
 <h3>Les graffitis dans le monde des buggles</h3>
 
@@ -112,13 +143,13 @@ faire, elles utilisent les quatre méthodes suivantes:</p>
 
 <ul>
   <li><code>
-estSurMessage()</code>: renvoie
-<code>True</code> si et seulement
+estSurMessage():Boolean</code>: renvoie
+<code>true</code> si et seulement
 s'il y a un message écrit par terre.</li>
-  <li><code>litMessage()</code>
+  <li><code>litMessage(): String</code>
 : renvoie le message qu'il y a écrit par terre (s'il y a rien, on obtient
 une chaîne vide).</li>
-  <li><code> ecritMessage(msg)</code> : écrit le message spécifié en argument
+  <li><code> ecritMessage(msg: String)</code> : écrit le message spécifié en argument
 par terre. S'il y a déjà quelque chose écrit par terre, on ajoute le nouveau
 message à la fin du précédent.</li>
   <li><code>clearMessage()</code> : efface ce qui est écrit par
@@ -160,10 +191,10 @@ faire. c-à-d tant qu'on est sur une case décrite dans le tableau. Le plus
 simple pour cela est d'utiliser une variable booléenne (<code>fini</code>)
 en condition d'arrêt d'une boucle while. Cette variable est initialisée à la
 valeur faux
-(<code>False</code>). Si on
+(<code>false</code>). Si on
 trouve une case ne répondant à aucune ligne du tableau, on change la valeur
 de cette variable à vrai
-(<code>True</code>). Cela arrête
+(<code>true</code>). Cela arrête
 la boucle, et le programme. </p>
 
 .</p>
