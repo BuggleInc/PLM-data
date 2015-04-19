@@ -1,7 +1,17 @@
-void goAndGet();
-int i = 0;
-while(i != 7)
+void goAndGet()
 {
-	goAndGet();
-	i++;
+	int i = 0;
+	while(!estSurBiscuit())
+	{
+		avance();
+		i++;
+	}
+	prendBiscuit();
+	while(i != 0)
+	{
+		recule();
+		i--;
+	}
+	poseBiscuit();
 }
+
