@@ -18,27 +18,19 @@
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Buggle Dance Revolution 2 (BDR2)</h2>
 
-
-<p>Le BDR, c'est cool, mais c'est un peu le chaos. Tout d'abord, les buggles
-gigotent en tout sens, et en plus, le code que vous avez écrit pour les
-faire bouger est très difficile à lire. Voici un nouveau monde de BDR, où
-les buggles vont faire une gentille petite ronde plus reposante. Nous
-profiterons de cette accalmie pour nettoyer un peu le code grâce aux
-nouveaux éléments que nous allons maintenant étudier.</p>
-
-<h3>Conditionnelle <code>switch</code></h3>
+</h3>
 
 <p>Le plus difficile à lire du code précédent est certainement la cascade de
 conditionnelles. Quelque part dans votre programme, vous avez sans doute
 écrit quelque chose comme:</p>
 
-<pre>if (getIndication() == 'R') {
+<pre>if () {
   droite();
   avance();
-} else if (getIndication() == 'L') {
+} else if () {
   gauche();
   avance();
-} else if (getIndication() == 'I') {
+} else if () {
   retourne();
   avance();
 <span class="comment">/* d'autre if */</span>
@@ -49,82 +41,39 @@ conditionnelles. Quelque part dans votre programme, vous avez sans doute
 
 <p>À la première lecture du code, il n'est pas évident qu'il ne s'agit que d'un
 choix avec 4 branches en fonction du résultat de
-getIndication().
-Pour améliorer ceci, nous allons utiliser un <code>switch</code>,
-dont la syntaxe est la suivante en Java.
+.
+Pour améliorer ceci, nous allons utiliser 
 </p>
- 
-<pre>
-switch (<b>expression</b>) {
-  case <b>premierValeur</b>: 
-    <b>queFaireSiExpressionVautPremiereValeur();</b>
-    break;
-  case <b>deuxiemeValeur</b>: 
-    <b>queFaireSiExpressionVautDeuxiemeValeur();</b>
-    break;
-  case <b>troisiemeValeur</b>: 
-    <b>queFaireSiExpressionVautTroisiemeValeur();</b>
-    break;
-    /* autant de cas sur le même modèle qu'on le souhaite */
-  default: 
-    <b>queFaireSiExpressionVautAucuneDesValeursProposees();</b>
-}</pre>
-
-<p>Remarquez que chaque branche du <tt>switch</tt> doit être terminée par un
-<code>break</code>. Si on l'oublie, la machine continue d'exécuter le cas
-suivant dans la liste quand elle a fini le code du cas où elle a sauté dans
-le switch. Il y a même quelques <b>très rares</b> cas où ce comportement est
-pratique.</p>
-
-<p>On peut réécrire le code BDR précédent bien plus clairement grâce à la
-construction <tt>switch</tt> de la façon suivante.</p>
-
-<pre>switch (getIndication()) {
-  case 'R':
-    droite(); 
-    avance(); 
-    break;
-  case 'L':
-    gauche();
-    avance(); 
-    break;
-  case 'I':
-    retourne();
-    avance();
-    break;
-  default: 
-    return;
-}</pre>
- 
+[/!]  
 
 <h3>Objectif de cet exercice</h3>
-<p>Appliquez les améliorations que nous venons de voir pour
-adapter le code de votre buggle au nouveau pas de danse explicité
-ci-dessous.
-
+<p>
+Nous allons maintenant apprendre un nouveau pas de danse à nos
+buggles. Il est un peu plus complexe, mais sinon, c'est toujours la même
+histoire.
 Remarquez qu'il est maintenant possible d'avancer jusqu'à 6 cases à la fois.</p>
 
 <table border="1">
  <tr><td>Indication</td>
      <td>Quoi faire</td></tr>
 
- <tr><td>'R'</td><td>Tourner à droite et avancer d'une case</td></tr>
- <tr><td>'L'</td><td>Tourner à gauche et avancer d'une case</td></tr>
- <tr><td>'I'</td><td>Se retourner (faire demi-tour) et avancer d'une case</td></tr>
+ <tr><td>"R"</td><td>Tourner à droite et avancer d'une case</td></tr>
+ <tr><td>"L"</td><td>Tourner à gauche et avancer d'une case</td></tr>
+ <tr><td>"I"</td><td>Se retourner (faire demi-tour) et avancer d'une case</td></tr>
 
- <tr><td>'A'</td><td>Avancer d'une case</td></tr>
- <tr><td>'B'</td><td>Avancer de deux cases</td></tr>
- <tr><td>'C'</td><td>Avancer de trois cases</td></tr>
- <tr><td>'D'</td><td>Avancer de quatre cases</td></tr>
- <tr><td>'E'</td><td>Avancer de cinq cases</td></tr>
- <tr><td>'F'</td><td>Avancer de six cases</td></tr>
+ <tr><td>"A"</td><td>Avancer d'une case</td></tr>
+ <tr><td>"B"</td><td>Avancer de deux cases</td></tr>
+ <tr><td>"C"</td><td>Avancer de trois cases</td></tr>
+ <tr><td>"D"</td><td>Avancer de quatre cases</td></tr>
+ <tr><td>"E"</td><td>Avancer de cinq cases</td></tr>
+ <tr><td>"F"</td><td>Avancer de six cases</td></tr>
 
- <tr><td>'Z'</td><td>Reculer d'une case</td></tr>
- <tr><td>'Y'</td><td>Reculer de deux cases</td></tr>
- <tr><td>'X'</td><td>Reculer de trois cases</td></tr>
- <tr><td>'W'</td><td>Reculer de quatre cases</td></tr>
- <tr><td>'V'</td><td>Reculer de cinq cases</td></tr>
- <tr><td>'U'</td><td>Reculer de six cases</td></tr>
+ <tr><td>"Z"</td><td>Reculer d'une case</td></tr>
+ <tr><td>"Y"</td><td>Reculer de deux cases</td></tr>
+ <tr><td>"X"</td><td>Reculer de trois cases</td></tr>
+ <tr><td>"W"</td><td>Reculer de quatre cases</td></tr>
+ <tr><td>"V"</td><td>Reculer de cinq cases</td></tr>
+ <tr><td>"U"</td><td>Reculer de six cases</td></tr>
  <tr><td><i>(n'importe quoi d'autre)</i></td><td>Arrêter de danser.</td></tr>
 
 </table>
