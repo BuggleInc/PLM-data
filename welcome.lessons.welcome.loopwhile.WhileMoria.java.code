@@ -2,9 +2,11 @@ public void run() {
 	while (!isFacingWall()){
 		right();
 		right();
-		while(!isOverBaggle()){
+		forward();
+		while(!isOverBaggle() && !isFacingWall()){
 			forward();
 		}
+		if (isFacingWall()) {
 		pickupBaggle();
 		left();
 		left();
@@ -12,8 +14,13 @@ public void run() {
 			forward();
 		}
 		backward();
-		dropBaggle();
-		backward();
+		dropBaggle();} else {
+			right();
+			forward();
+			left();
+			forward();
+			breaK;
+		}
 	}
 	
 }
