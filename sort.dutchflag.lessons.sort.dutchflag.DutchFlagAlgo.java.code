@@ -1,4 +1,25 @@
 void solve() {
-  
-  swap(1,2);
-}
+		
+		int afterBlue=0;
+		int beforeWhite=getSize()-1;
+		int beforeRed=getSize()-1;
+		while (afterBlue <= beforeWhite) {
+			
+			switch (getColor(afterBlue)) {
+			case BLUE:
+				afterBlue++;
+				break;
+			case WHITE:
+				swap(afterBlue, beforeWhite);
+				beforeWhite --;
+				break;
+			case RED:
+				swap(afterBlue, beforeWhite);
+				swap(beforeRed, beforeWhite);
+				beforeWhite--;
+				beforeRed--;
+			}
+		}
+		((DutchFlagWorld) world).assertSorted();
+		
+	}
