@@ -1,23 +1,28 @@
-public void run() {
-		hunt((Color) getParam(0)); 
-	}
-
-	/* BEGIN TEMPLATE */
-	public void hunt(Color c) {
-		
-		/* BEGIN SOLUTION */
-		while (! isOverBaggle()) {
-			if (isFacingTrail(c)) {
-				brushDown();
-				forward();
-				brushUp();
-			} else {
-				left();
-			}
+public void hunt(Color c) 
+{
+	while (!estSurBiscuit()) 
+	{
+		if (isFacingTrail(c)) 
+		{
+			baisseBrosse();
+			avance();
+			leveBrosse();
+		} 
+		else 
+		{
+			gauche();
 		}
-		pickupBaggle();
-		/* END SOLUTION */
 	}
-
+prendBiscuit();
+}
+boolean isFacingTrail() 
+{
+	if (estFaceMur())
+		return false;
+	avance();
+	boolean vert = getGroundColor().equals(Color.green); 
+	recule();
+	return vert;
+}
     
 
