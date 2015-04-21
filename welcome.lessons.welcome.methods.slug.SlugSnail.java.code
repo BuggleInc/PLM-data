@@ -1,7 +1,29 @@
-    public void hunt(Color c) {
-        
-    }
-   
+public void hunt(Color c) 
+{
+	while (!estSurBiscuit()) 
+	{
+		if (isFacingTrail()) 
+		{
+			baisseBrosse();
+			avance();
+			leveBrosse();
+		} 
+		else 
+		{
+			gauche();
+		}
+	}
+prendBiscuit();
+}
+boolean isFacingTrail() 
+{
+	if (estFaceMur())
+		return false;
+	avance();
+	boolean vert = getGroundColor().equals(Color.green); 
+	recule();
+	return vert;
+}
 
     
 
