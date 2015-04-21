@@ -1,13 +1,3 @@
-def hunt():
-    while estSurBiscuit() == False: 
-        if isFacingTrail():
-            baisseBrosse()
-            forward()
-            leveBrosse()
-        else:
-            gauche()
-    prendBiscuit()
-    
 def isFacingTrail():
     if estFaceMur():
         return False
@@ -15,3 +5,14 @@ def isFacingTrail():
     vert = getGroundColor() == Color.green
     backward()
     return vert
+
+while estSurBiscuit() == False: 
+    if isFacingTrail():
+        baisseBrosse()
+        forward()
+        leveBrosse()
+    else:
+        gauche()
+    prendBiscuit()
+    
+
