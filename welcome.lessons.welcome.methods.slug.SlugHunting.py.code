@@ -1,1 +1,17 @@
-# Copy your isFacingTrail, and write your code below
+def hunt():
+    while estSurBiscuit() == False: 
+        if isFacingTrail():
+            baisseBrosse()
+            avance()
+            leveBrosse()
+        else:
+            gauche()
+    prendBiscuit()
+    
+def isFacingTrail():
+    if estFaceMur():
+        return False
+    avance()
+    vert = getGroundColor() == Color.green
+    recule()
+    return vert
