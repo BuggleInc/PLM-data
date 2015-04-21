@@ -1,8 +1,17 @@
 public void hunt() 
 {
-    if (estFaceMur())
-			return false;
-		forward();
-		backward();
-}        
-
+	while (!estSurBiscuit()) 
+	{
+		if (isFacingTrail()) 
+		{
+			baisseBrosse();
+			avance();
+			leveBrosse();
+		} 
+		else 
+		{
+			gauche();
+		}
+	}
+pickupBaggle();
+}
