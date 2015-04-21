@@ -1,26 +1,28 @@
-def hunt() 
+hunt() 
 {
-	while (!estSurBiscuit()) 
+	while (! isOverBaggle()) 
 	{
-		if (isFacingTrail()) 
+		if (isFacingTrail())
 		{
-			baisseBrosse()
-			avance()
-			leveBrosse()
+			brushDown();
+			forward();
+			brushUp();
 		} 
-		else 
+		else
 		{
-			gauche()
+			left();
 		}
 	}
-prendBiscuit()
+		pickupBaggle();
 }
-def isFacingTrail():Boolean =
+	
+def isFacingTrail():Boolean = 
 {
-	if (estFaceMur())
-		return false
-	forward()
-	val vert = getGroundColor() == equals(Color.green)
-	backward()
-	return vert
+	if (isFacingWall())
+		return false;
+	forward();
+	var res = getGroundColor() == Color.green;
+	backward();
+	return res;
 }
+	
