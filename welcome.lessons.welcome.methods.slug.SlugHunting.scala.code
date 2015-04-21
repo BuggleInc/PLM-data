@@ -1,0 +1,26 @@
+def hunt() 
+{
+	while (!estSurBiscuit()) 
+	{
+		if (isFacingTrail()) 
+		{
+			baisseBrosse()
+			avance()
+			leveBrosse()
+		} 
+		else 
+		{
+			gauche()
+		}
+	}
+prendBiscuit()
+}
+boolean isFacingTrail() 
+{
+	if (estFaceMur())
+		return false
+	avance()
+	val vert = getGroundColor() == equals(Color.green)
+	recule()
+	return vert
+}
