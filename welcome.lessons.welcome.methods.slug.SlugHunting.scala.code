@@ -4,25 +4,25 @@ def hunt()
 	{
 		if (isFacingTrail())
 		{
-			brushDown();
-			forward();
-			brushUp();
+			baisseBrosse();
+			avance();
+			leveBrosse();
 		} 
 		else
 		{
-			left();
+			gauche();
 		}
 	}
-	pickupBaggle();
+	prendBiscuit();
 }
 	
 def isFacingTrail():Boolean = 
 {
-	if (isFacingWall())
+	if(estFaceMur())
 		return false;
-	forward();
-	var res = getGroundColor() == Color.green;
-	backward();
-	return res;
+	avance()
+	var vert = getGroundColor() == Color.green;
+	recule();
+	return vert;
 }
 	
