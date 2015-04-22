@@ -3,7 +3,7 @@ $package
 import lessons.sort.pancake.universe.PancakeEntity;
 
 public class CohenPancake extends PancakeEntity {
-	
+
 	public void run() {
 		this.solve();
 	}
@@ -23,7 +23,7 @@ public class CohenPancake extends PancakeEntity {
 				System.out.print( (isPancakeUpsideDown(rank)?"-":"") + getPancakeRadius(rank)+", ");
 			System.out.print("}  ");
 			if (nl)
-				getGame().getLogger().log("");
+				System.out.println();
 		}
 	}
 	/* END HIDDEN */
@@ -53,14 +53,14 @@ public class CohenPancake extends PancakeEntity {
 			
 			if (sorted) { 
 				if (debug > 0) 
-					getGame().getLogger().log("It's sorted now. Get out of here\n");
+					System.out.println("It's sorted now. Get out of here\n");
 				break;
 			}
 			
 			if (maxupside != -1) { 
 				if (maxupside == maxPos) { 
 					if (debug > 0) 
-						getGame().getLogger().log("Case 1.C; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside);
+						System.out.println("Case 1.C; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside);
 					if (maxupsidePos+1 != maxPos) {
 						flip(maxupsidePos+1);
 						flip(maxPos);
@@ -70,12 +70,12 @@ public class CohenPancake extends PancakeEntity {
 					int pPlus1 = getRankOf(maxupside+1);
 					if (pPlus1 > maxupsidePos) {
 						if (debug > 0) 
-							getGame().getLogger().log("Case 1.A; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);
+							System.out.println("Case 1.A; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);
 						flip(pPlus1+1);showStack(true);
 						flip(pPlus1-maxupsidePos);
 					} else {
 						if (debug > 0) 
-							getGame().getLogger().log("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);						
+							System.out.println("Case 1.B; maxupsidePos = "+maxupsidePos+", maxupside = "+maxupside+", pPlus1 = "+pPlus1);						
 						flip(maxupsidePos+1);
 						flip(maxupsidePos-pPlus1);
 					}
@@ -88,7 +88,7 @@ public class CohenPancake extends PancakeEntity {
 				
 				if (reverted) {
 					if (debug > 0) 
-						getGame().getLogger().log("Case 2.B");
+						System.out.println("Case 2.B");
 					for (int i=0; i<maxPos; i++) {
 						flip(maxPos);
 						if (maxPos>1)
@@ -105,7 +105,7 @@ public class CohenPancake extends PancakeEntity {
 							p=-99;
 						if (pPlus1!=-99 && pPlus1<p) { 
 							if (debug > 0) 
-								getGame().getLogger().log("Case 2.A; p="+p+", radius="+radius+", pPlus1="+pPlus1);
+								System.out.println("Case 2.A; p="+p+", radius="+radius+", pPlus1="+pPlus1);
 							flip(p+1);
 							if (pPlus1!=0)
 								flip(pPlus1+1);
