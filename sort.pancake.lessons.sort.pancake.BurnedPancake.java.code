@@ -1,4 +1,28 @@
 public void solve() {
-  
-  flip(5);
-}
+		
+		int stackSize = this.getStackSize();
+		for ( int rank = stackSize-1 ; rank != -1 && !isSorted(); rank-- ) {
+			
+			if ( getPancakeRadius(rank)!=rank+1 || isPancakeUpsideDown(rank)) { // current pancake not sorted yet
+				int indexBigPancake =-1;
+				for ( int iter = 0 ; iter < rank+1; iter++)
+					if ( getPancakeRadius(iter) == rank+1) {
+						indexBigPancake = iter;	
+						break;
+					}
+				
+				if ( indexBigPancake != 0 )
+					flip(indexBigPancake+1);	
+				if ( ! ( rank == 0) ) {
+					if (!isPancakeUpsideDown(0)) 
+						flip(1);	
+					flip(getPancakeRadius(0));	
+				} else {
+					if (isPancakeUpsideDown(0)) 
+						flip(1);	
+					
+				}
+			}	
+		}
+		
+	}
