@@ -1,0 +1,50 @@
+$package 
+
+import lessons.sort.baseball.universe.BaseballEntity;
+import lessons.sort.baseball.universe.BaseballWorld;
+
+public class InsertBaseball extends BaseballEntity {
+	
+	/* BEGIN TEMPLATE */
+	public void run() {
+		/* BEGIN SOLUTION */
+		/* Bring the hole in 0,1 */
+		if (getHole() == 0) 
+			move(1);
+		while (getHole() > 1)
+			move(getHole()-1);
+		
+		for (int player = 2; player < getBasesAmount()*getPositionsAmount(); player ++) {
+			
+			
+			
+			while (getHole()>0 && getPlayerColor(getHole()+1) < getPlayerColor(getHole()-1)) {  
+				int center = getHole();
+				move(center+1);        
+				move(center-1);        
+			}
+			while (getHole() != player) 
+				move(getHole()+1);
+		}
+		((BaseballWorld) world).assertSorted("insertion sort");
+		/* END SOLUTION */
+	}
+	/* END TEMPLATE */
+	
+	/* BEGIN HIDDEN */	
+	int getPlayerColor(int pos) {
+		return getPlayerColor(pos / getPositionsAmount(), pos % getPositionsAmount());
+	}
+	void move(int pos) {
+		move(pos / getPositionsAmount(), pos % getPositionsAmount());
+	}
+	int getHole() {
+		return getPositionsAmount()*getHoleBase()+getHolePosition();
+	}
+	
+	void out(String msg) {
+		if (isSelected())
+			System.out.println(msg);
+	}
+	/* END HIDDEN */
+}
