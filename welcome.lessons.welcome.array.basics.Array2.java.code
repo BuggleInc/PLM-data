@@ -16,8 +16,8 @@ public void run() {
 		forward();
 		right();
 		for (int j = 0; j < worldHeight; j++){
-			int index = j - i;
-			if (index < 0) index += worldHeight;
+			int index = j + i;
+			if (index > worldHeight - 1) index -= worldHeight;
 			brushDown();
 			setBrushColor(colors[index]);
 			brushUp();
