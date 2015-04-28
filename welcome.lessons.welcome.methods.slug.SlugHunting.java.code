@@ -1,4 +1,21 @@
 public void hunt() {
+	if (isFacingTrail()){
+		brushDown();
+		forward();
+		brushUp();
+	} else {
+		right();
+	}
     
-}        
+} 
 
+boolean isFacingTrail() {
+	boolean stillOnTrail = false;
+	if (!isFacingWall()){
+	forward();
+	if (getGroundColor().equals(Color.green)) {
+		stillOnTrail = true;
+	}
+	backward();}
+    	return stillOnTrail;
+}
