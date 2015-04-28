@@ -3,7 +3,13 @@ public void run() {
 	Color[] colors = new Color[worldHeight];
 	for (int i = 0; i < worldHeight; i++){		
 		colors[i] = getGroundColor();
-		forward();
+		if (i < worldHeight - 1) {
+			forward();
+		} else {
+			for (int j = 0; j < worldHeight - 1; j++) {
+				backward();
+			}
+		}
 	}
 	for (int i = 1; i < worldHeight; i++){
 		left();
@@ -15,7 +21,13 @@ public void run() {
 			brushDown();
 			setBrushColor(colors[index]);
 			brushUp();
+			if (i < worldHeight - 1) {
 			forward();
+		} else {
+			for (int j = 0; j < worldHeight - 1; j++) {
+				backward();
+			}
+		}
 		}
 	}
 	backward();
