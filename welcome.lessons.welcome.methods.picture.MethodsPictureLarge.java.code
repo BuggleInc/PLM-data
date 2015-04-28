@@ -1,2 +1,57 @@
 public void run() {
+	for (int h = 0; h < 3; h++){
+		for (int i = 0; i < 3; i++){
+			makeSquare();
+			moveOn();
+		}
+		left();
+		moveOn();
+		right();
+	}
 }
+
+void moveOn() {
+	for (int i = 0; i < 5; i++) forward();	
+}
+
+void makeSquare() {
+	 for (int i = 0; i < 4; i++) {
+	 	Color c = null;
+	 	switch (i){
+	 		case 0:
+	 		makeV(Color.YELLOW);
+	 		break;
+	 		case 1:
+	 		makeV(Color.RED);
+	 		break;
+	 		case 2:
+	 		makeV(Color.BLUE);
+	 		break;
+	 		case 3:
+	 		makeV(Color.GREEN);
+	 		break;
+	 	}
+	 }
+}
+
+void makeV(Color c){
+	for (int i = 0; i < 4; i++){
+		forward();
+		if (i == 0 || i == 2) setMark(c);
+		if (i == 1){
+			left();
+			forward();
+			setMark(c);
+			backward();
+			right();
+		}
+	}
+	left();
+}
+
+void setMark(Color c){
+	brushDown();
+	setBrushColor(c);
+	brushUp();
+}
+
