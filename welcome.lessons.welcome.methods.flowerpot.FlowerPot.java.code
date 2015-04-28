@@ -1,0 +1,96 @@
+growFlowers(){
+	for (int i = 0; i < 5; i++){
+		Color c = switchFlowerColor(i);
+		growFlower(c);
+		positionGardener(i);
+	}
+}
+
+Color switchFlowerColor(int i){
+	Color c = null;
+	switch (i){
+		case 0:
+		c = new Color(Color.RED);
+		break;		
+		case 1:
+		c = new Color(Color.CYAN);
+		break;
+		case 2:
+		c = new Color(Color.PINK);
+		break;
+		case 3:
+		c = new Color(Color.GREEN);
+		break;
+		case 4:
+		c = new Color(Color.ORANGE);
+		break;
+	}
+	return c;
+}
+
+void growFlower(Color c){
+	for (int i = 0; i < 4; i++){
+		drawLeaf(c);
+		right();
+		forward();
+		left();
+		forward();
+		left();
+	}
+	forward();
+	drawLeaf(new Color(Color.YELLOW));
+	backward();
+}
+
+void drawLeaf(Color c){
+	brushDown();
+	setBrushColor(new Color(c));
+	brushUp();
+}
+
+positionGardener(int i){
+	switch(i){
+	case 0:
+	case 2:
+	for (int j = 0; j < 4; j++){
+		forward();
+	}
+	break;
+	case 1:
+	right();
+	for (int j = 0; j < 4; j++){
+		forward();
+	}
+	right();
+	for (int j = 0; j < 4; j++){
+		forward();
+	}
+	right();
+	right();
+	break;
+	case 3:
+	left();
+	for (int j = 0; j < 2; j++){
+		forward();
+	}
+	left();
+	for (int j = 0; j < 2; j++){
+		forward();
+	}	
+	left();
+	left();
+	break;
+	case 4:
+	right();
+	for (int j = 0; j < 2; j++){
+		forward();
+	}
+	right();
+	for (int j = 0; j < 2; j++){
+		forward();
+	}
+	right();
+	right();	
+	}
+	break;
+}
