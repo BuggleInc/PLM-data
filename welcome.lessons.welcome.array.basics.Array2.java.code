@@ -1,0 +1,22 @@
+public void run() {
+	int worldHeight = getWorldHeight();
+	Color[] colors = new Color[worldHeight];
+	for (int i = 0; i < worldHeight; i++){		
+		colors[i] = getGroundColor();
+		forward();
+	}
+	for (int i = 1; i < worldHeight; i++){
+		left();
+		forward();
+		right();
+		for (int j = 0; j < worldHeight; j++){
+			int index = j - i;
+			if (index < 0) index += worldHeight;
+			brushDown();
+			setBrushColor(colors[index]);
+			brushUp();
+			forward();
+		}
+	}
+	backward();
+}
