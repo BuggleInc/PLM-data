@@ -15,9 +15,9 @@ public void run() {
 		left();
 		forward();
 		right();
+		int offset = Integer.parseInt(readMessage())
 		for (int j = 0; j < worldHeight; j++){
-			int index = j + i;
-			if (index > worldHeight - 1) index -= worldHeight;
+			int index = (j + offset) % worldHeight;
 			brushDown();
 			setBrushColor(colors[index]);
 			brushUp();
