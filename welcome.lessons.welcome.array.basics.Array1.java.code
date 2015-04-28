@@ -4,4 +4,15 @@ public void run() {
 	for (int i = 0; i < worldHeight; i++){
 		colors[i] = getGroundColor();
 	}
+	for (int i = 1; i < worldHeight; i++){
+		left();
+		forward();
+		left();
+		for (int j = 0; j < worldHeight; j++){
+			int index = j + i;
+			if (index > worldHeight - 1) index -= worldHeight;
+			setGroundColor(colors[index]);
+			forward();
+		}
+	}
 }
