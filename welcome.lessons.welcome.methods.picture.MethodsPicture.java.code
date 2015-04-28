@@ -16,7 +16,7 @@ void moveOn() {
 
 void makeSquare() {
 	 for (int i = 0; i < 4; i++) {
-	 	int c = null;
+	 	Color c = null;
 	 	switch (i){
 	 		case 0:
 	 		c = Color.YELLOW;
@@ -38,11 +38,11 @@ void makeSquare() {
 void makeV(Color c){
 	for (int i = 0; i < 6; i++){
 		forward();
-		if (i == 1 || i == 3) setMark();
+		if (i == 1 || i == 3) setMark(c);
 		if (i == 2){
 			left();
 			forward();
-			setMark();
+			setMark(c);
 			backward();
 			right();
 		}
@@ -50,8 +50,9 @@ void makeV(Color c){
 	left();
 }
 
-void setMark(){
-	brushDown();	
+void setMark(Color c){
+	brushDown();
+	setColor(c);
 	brushUp();
 }
 
