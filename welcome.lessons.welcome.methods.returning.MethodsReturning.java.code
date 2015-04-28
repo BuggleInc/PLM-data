@@ -1,7 +1,9 @@
 boolean haveBaggle() {
 	boolean seenBaggle = false;
+	right();
 	while (!isFacingWall()){
-	int progressY = 0;
+		left();
+		int progressY = 0;
 		while (!isFacingWall()){
 			if (isOverBaggle()){
 				seenBaggle = true;
@@ -13,6 +15,8 @@ boolean haveBaggle() {
 			backward();
 			progressY--;
 		}
+		right();
+		forward();
 	}
 	return seenBaggle;
 }
