@@ -1,0 +1,217 @@
+<html><head>  <style type="text/css">
+    body { font-family: tahoma, "Times New Roman", serif; font-size:10px; margin:10px; }
+    code { background:#EEEEEE; }
+    pre { background: #EEEEEE;
+          margin: 5px;
+          padding: 6px;
+          border: 1px inset;
+          width: 640px;
+          overflow: auto;
+          text-align: left;
+          font-family: "Courrier New", "Courrier", monospace; }
+   .comment { background:#EEEEEE;
+              font-family: "Times New Roman", serif;
+              color:#00AA00;
+              font-style: italic; }
+  </style>
+</head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Arrays and Knotting</h1>
+
+The goal of this exercise is to reproduce the pattern of the first row in
+the other rows with a shift of one cell (see the Objective tab for
+details). The biggest difference between this exercise and the others we had
+on patterns is that you have to read the pattern (on first row) before
+reproducing it. You cannot do otherwise because the same code will be
+executed on three different worlds, each of them having a specific
+pattern.
+
+<p>One solution is to read the next cell, and go copy it in position before
+coming back to read the second cell. But since it is forbidden to use the
+methods to teleport the buggle to a specific position (<code>setPos()</code>
+and similar), this approach will be a pain to implement. </p>
+ 
+<p>The simplest is to store the sequence of colors that constitute 
+the whole pattern in an <b>array</b>.
+But before we can do so, we should learn a bit what arrays are.</p>
+
+<h2>Arrays</h2> 
+
+<p>An array is an ordered sequence of variables that go together.
+It is somehow similar to a shelve where each level can store a separate value. Each 
+variable of the sequence is identified by its position, and can store
+a specific value. All cells of the array must store values of the same
+type because arrays are homogeneous in Java. It is possible to trick this 
+restriction by using the datatype <code>Object</code> 
+that can contain almost any other datatype. Primitive types such 
+as the ones we saw so far (int, boolean, double, char, etc) cannot be stored in an 
+Object variable, but their objectified counter-part (Integer, Boolean, Double, 
+Char, Boolean, etc) can. It is however a good practice to make the type of an array 
+as specific as possible, i.e., if you plan to store some integers in your array, make it an 
+array of integers, not of Object.
+</p>
+
+<div style="text-align:center"><img src="lessons/welcome/array/array.png"/></div>
+
+<p>T is the array's name, 
+T[0] is the name of the first cell, 
+T[1] the name of the second cell, 
+T[2] the third one, etc. And yes, the first cell is
+numbered T[0] while the last one of an array 
+of size N is T[N-1]. It may seem funny to count starting from 0 and not from 1 
+as usual, but some historical reasons make it unavoidable here.</p>
+
+<h3>Basic usage</h3>
+
+<p>We can use an integer variable <i>i</i> to access with T[i] to the 
+cells: when the value of <i>i</i> is 0, then T[i] accesses 
+T[0]; 
+when the value of <i>i</i> is 10, then T[i] accesses 
+T[10]. 
+<i>i</i> is said to be the <b>index</b> in T. 
+<code>T[i]</code> can be used just like any
+variable. We can set a new value:</p> 
+<pre>T[i] = 78;</pre>
+
+<p>We can retrieve and use its value: </p>
+<pre>x = T[i];</pre>
+
+<p>We can test this value:</p>
+<pre>if (T[i] > 0) {
+    // instructions...
+}</pre>
+
+<p>It is very easy to traverse the whole array, for 
+example to initialize each cells.</p>
+
+<pre>for (int i = 0; i&lt;T.length; i++) {
+   T[i] = 3;
+}</pre>
+
+<p>The notation <code>T.length</code> retrieves the length of the array T,
+ 
+allowing to build a classical for loop easily. 
+ 
+</p>
+
+<p>If you just want to iterate over the values of T without keeping track of their index, you can simply write:</p>
+<pre>for (int i: T) {
+  action();
+}</pre>
+<p>This construct is called an <i>extended loop</i> in Java. The variable <i>i</i> takes all values
+of the set located to the right of the colon (:), one after the other.
+
+ offers much more elegant ways to traverse  and 
+other data collections, but this should be the topic of a specific set of exercises (that are still to be 
+written in PLM).[/!]</p>
+
+
+<h3>Declaring an array</h3>
+
+
+ 
+
+<p>To declare a variable named <b>T</b> that can store an array of integers, one should write:</p>
+<pre>int[] T;</pre>
+
+<p><code>int</code> means that the elements of the array are of type integer;
+<code>[]</code> means that we are speaking of an array and <code>T</code> is the name of the variable. 
+For historical reasons, this can also be written as  <code>int T[]</code> (with the [] after the variable name), 
+but this is less readable and should probably be avoided.
+
+</p>
+
+<h3>Allocating an array</h3>
+
+<p>Declaring a variable <code>T</code> that stores an array only reserve the <b>name</b> <code>T</code> for
+later use, but not the memory area to store the cells. The array is not initialized yet: it does not have any
+value. What would <code>T[4]</code> mean if we didn't say that the array is
+5 cells long?</p>
+
+<p>First and foremost, we have to give a value to <code>T</code>:</p>
+<pre>T = new int[10];</pre>
+
+<p><code>new</code> means that we want to create something, and
+<code>int[10]</code> means that it is an array of 10 integer values. 
+In return, an array of 10 integer cells is created in memory, and the <code>T</code> variable 
+<b>references</b> this array.</p>
+
+<p>The size of an array is fixed and cannot be changed after the creation of
+the array. The size of a <code>T</code> array can be retrieve by consulting the
+variable <code>T.length</code>.</p>
+
+<p>While allocating, you can specify the size with a variable: <code>int[] T = new int[i];</code>
+In this case, the array's size will be set to the value of <code>i</code> <i>when <code>new</code> gets called</i>. 
+The size of the array still cannot be modified: even if the variable <code>i</code> changes afterward, 
+the size remains to the value given when it was allocated.
+Also, it is forbidden to write something like <code>int T[10];</code> when declaring the variable.
+You are required to use the <code>new</code> instruction to allocate it, as in 
+<code>int[] T = new int[10];</code> </p>
+
+<h4>Declaration and initialization</h4>
+<p>If you know beforehand the content of your array, you can declare, allocate and initialize it in one shoot:</p>
+<pre>int[] T = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</pre>
+
+<p>To know the size of the array to allocate, the compiler counts the provided values. 
+This code is equivalent to:</p>
+<pre>int[] T = new int[10];
+T[0] = 1;
+T[1] = 2;
+...
+T[9] = 10;</pre>
+
+<p>It is also equivalent to:</p>
+<pre>int[] T = new int[10];
+for (int i=0; i&lt;T.length; i++) {
+  T[i] = i+1;
+}</pre>
+
+
+<!-- end of java|scala. python comes back -->
+
+<h3>Arrays and method parameters</h3>
+<p>It is perfectly OK to pass an array to a method as a parameter. 
+This method can then use this parameter as if it were defined locally:</p>
+<pre>boolean has42First(int[] array) {
+    return array[0] == 42;
+}</pre>
+
+<p>On the caller side, that also very simple:</p>
+<pre>int[] tab = new int[10];
+<span class="comment">// Values initialization omitted</span>
+if (has42First(tab)) {
+   <span class="comment">// do something</span>
+}</pre>
+
+
+<p>If you want to allocate and initialize the array in one shoot, that's 
+a bit more complicated as the compiler has to know the type of the parameter you are creating. 
+For that, use the following (ugly) construct:</p>
+<pre>if (has42First(   new int[] {1, 3, 5, 7, 9}   ) {
+   <span class="comment">// do something</span>
+}</pre>
+
+
+<p>Methods can also return arrays as result without any complication. 
+Here is a method that returns an array of the requested size, filled with 42s.</p>
+
+<pre>int[] fill42(int size) {
+    int[] res = new int[size];
+    for (int i=0; i&lt;size; i++) 
+        res[i] = 42;
+    return res;
+}</pre>
+
+<h2>Goal of this exercise</h2>
+
+<p>At least! After this long explanation, we can come back to the exercise.</p>
+<p>Your mission is rather simple actually. 
+Your code should save the color pattern observed on the first row into an array. 
+
+For that, you should declare and allocate an array of <code>Color</code>. Beware, there is several
+worlds, of differing size; use <code>getWorldHeight()</code> to retrieve the size of the current world.
+Once the array allocated, fill it by reading the ground color in each locations (with <code>getGroundColor()</code>).</p>  
+
+<p>Once you managed to read and save the pattern on the first row, you have to reapply the 
+pattern on every rows, for example by executing <code>getWorldHeight()</code> times 
+a method written specifically for this.</p> 
+</body></html>
