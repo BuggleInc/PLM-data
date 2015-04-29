@@ -1,3 +1,20 @@
+/*
+Exercise goal
+You will once again write a function that the buggle will use. Its name must be haveBaggle,
+and it returns a boolean value indicating whether the row in front of the buggle contains a
+baggle or not. The buggle will use it to search the first row containing a baggle, and stop
+here.
+The easier for this function is to use a boolean variable called seenBaggle indicating
+whether or not we saw a baggle so far. Its initial value is 'false'.
+Then, move 6 steps forward (the world contains 7 cells and we already are on one of them).
+For each cell, if it contains a baggle, we store true in sawBaggle (and we don't do
+anything but moving forward if not).
+At the end, we move back by 6 steps, and we return the value of seenBaggle to the caller.
+This exercise is a bit different since there is two initial worlds, each with a specific
+objective. Your code must work for each of them. Observe that the world selection scrolling
+menu (right below the speed slider) allows to switch the observed world.
+*/
+
 boolean haveBaggle(){
 	for (int stepper=1; !isOverBaggle(); stepper++){
 		forward();
