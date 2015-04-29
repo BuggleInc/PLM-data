@@ -1,6 +1,6 @@
 void goAndGet(){
 	
-	for(int stepper=0; !isOverBaggle(); stepper++){
+	for(int stepper=1; !isOverBaggle(); stepper++){
 		forward();
 		if(isOverBaggle()){
 			pickupBaggle();
@@ -8,7 +8,7 @@ void goAndGet(){
 		while(isCarryingBaggle()){
 			backward();
 			stepper--;
-			if(stepper==-1){
+			if(stepper==0){
 				dropBaggle();
 			}
 		}
