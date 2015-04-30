@@ -7,12 +7,13 @@ public void run() {
 	}
 }
 
-void goRight(){
-	if (!isFacingWall()){
+void goRight(){	
 	right();
-	forward();
-	right();
-}}
+	if (!isFacingWall()) {
+		forward();
+		right();
+	} else left();
+}
 
 void goLeft(){
 	if (!isFacingWall()){
