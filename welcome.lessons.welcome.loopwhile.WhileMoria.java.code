@@ -2,13 +2,14 @@ public void run() {
 	left();
 	left();	
 	while (isFacingWall() == false) {
-		while (isOverBaggle() == false) {forward();}
+		while (isOverBaggle() == false && isFacingWall() == false) {forward();}
 			pickupBaggle();			
 			while (isCarryingBaggle()== true && isOverBaggle() == false) {
 			backward();}
 			if (isCarryingBaggle() == true && isFacingWall() == false) {
 			forward();
-			dropBaggle();}			
+			dropBaggle();
+			forward();}			
 			//forward();
 
 			
