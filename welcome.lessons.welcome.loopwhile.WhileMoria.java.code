@@ -1,10 +1,15 @@
 public void run() {
-	right();
-	right();
 		while (isFacingWall() == false) {
 		while (isOverBaggle() == false){
-			forward();
-			} pickupBaggle();		
+			backward();
+			} pickupBaggle();
+			while (isCaryyingBaggle()) {
+				while (isOverBaggle() == false){
+					forward();
+					}
+					backward();
+					dropBaggle();
+				}		
 	}
 }
 	/* isFacingWall() isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle().*/
