@@ -1,8 +1,13 @@
 public void run() {
-	while (isOverBaggle() == false) {
+int stepAmount=0;
+int doneSteps=0;
+	while (isOverBaggle() == false && isCarryingBaggle() == false) {
 		forward();
+		stepAmount = stepAmount + 1;
 		if (isOverBaggle() == true) {pickupBaggle();}
-		} 
+		}
+		if (isCarryingBaggle() == true && stepAmount != doneSteps){backward();}
+		dropBaggle(); 
 }
 
 /* isFacingWall() isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle().*/
