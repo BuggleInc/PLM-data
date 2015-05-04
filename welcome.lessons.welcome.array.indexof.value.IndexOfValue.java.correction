@@ -1,0 +1,12 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; public class indexOfValue extends BatEntity {  @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( indexOf( (int[])t.getParameter(0), (Integer)t.getParameter(1) ) ); }
+	
+	public int indexOf(int[] tab, Integer lookingFor) {
+		for (int i=0; i<tab.length; i++) 
+			if (tab[i] == lookingFor) 
+				return i;
+		
+		return -1;
+	}
+
+ }
