@@ -1,14 +1,12 @@
-int golomb(int num) {
-	int[] result = new int[num + 1];
-	result[1] = 1;
-	for (int i = 1; i <= num; i++){
-		int timesthisnumber = result[i];
-		int pointer = i;
-		while (result[pointer] == 0) {pointer+;}
-		for (int iii = pointer; iii < pointer + timesthisnumber; iii++){
-			result[iii] = i;
-			pointer++;
+	int golomb(int num) {
+		int[] result = int[num];
+		int pointer = 2;
+		for (int i = 2; i <= num; i++) {
+			int times = result[i];
+			for (int j = pointer; j <= Math.min(num, (pointer + times - 1)); j++) {
+				result[j] = i;
+			}
+			pointer += times;
 		}
+		return result[num];
 	}
-	return result[num];
-}
