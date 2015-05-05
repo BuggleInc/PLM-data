@@ -1,12 +1,25 @@
-int island(int[] num) {
-	if (num[0] == getMax(num)) return 1;
-	return 0;
-}
+	int island(int[] num) {
+		int max = getMax(num);
+		if (max == 0)
+			return 1;
 
-int getMax(int[] num){
-	int max = num[0];
-	for (int number : num){
-		if (number > max) max = number;
+		int count = 0;
+		for (int i = 0; i < num.length; i++) {
+			if (num[i] == max) {
+				num[i] = -1;
+				if (num[i + 1] != max && num[i + 1] == -1) {
+					count++;
+				}
+			}
+		}
+		return count + island(num);
 	}
-	return max;
-}
+
+	int getMax(int[] num) {
+		int max = 0;
+		for (int number : num) {
+			if (number > max)
+				max = number;
+		}
+		return max;
+	}
