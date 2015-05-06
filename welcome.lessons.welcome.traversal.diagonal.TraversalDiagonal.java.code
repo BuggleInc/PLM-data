@@ -1,11 +1,9 @@
 public void run() {
 	int counter = 0;
-	for (int x = 0; x < getWorldWidth(); x++) {
-		for (int y = 0; y < getWorldHeight(); y++){
-			setPos(y,x);
-			int message = (int) ((((x + y) * (x + y + 1)) / 2) + y);
-			if (message >= 29) message -= 1;
-			writeMessage(message);
+	for (int x = 0; x < getWorldWidth() * 2 - 1; x++) {
+		for (int y = 0; y < x + 1; y++){
+			setPos(x,y);			
+			writeMessage(counter++);
 			counter++;
 		}
 	}
