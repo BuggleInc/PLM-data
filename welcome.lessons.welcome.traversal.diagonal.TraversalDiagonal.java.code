@@ -1,12 +1,13 @@
 public void run() {
-	int counter = 0;
 	for (int x = 0; x < getWorldWidth(); x++) {
 		for (int y = 0; y < getWorldHeight() - x; y++){
 			setPos(y,x);
 			int message = (int) ((((x + y) * (x + y + 1)) / 2) + y);
-			if (message >= 29) message -= 1;
 			writeMessage(message);
-			counter++;
+		}
+		for (int y = getWorldHeight() - x; y > 0; y--){
+			setPos(y,x);
+			writeMessage(99);
 		}
 	}
 }
