@@ -3,7 +3,7 @@ public void run() {
 	for (int x = 0; x < getWorldWidth(); x++) {
 		for (int y = 0; y < getWorldHeight(); y++){
 			setPos(y,x);
-			int message = (int) (y + (.5 * ((x + y) * (x + y + 1))));
+			int message = (int) ((x + y) * (x + y + 1) / 2) + y);
 			if (message >= 29) message -= 1;
 			writeMessage(message);
 			counter++;
