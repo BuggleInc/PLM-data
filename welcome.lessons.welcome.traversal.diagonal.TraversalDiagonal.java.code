@@ -1,8 +1,12 @@
 public void run() {
-	for (int z = 0; z < getWorldWidth() * getWorldHeight() - 1; z++) {		
-		int y = (int) (((Math.floor((Math.sqrt(8 * z + 1)+1)/2)*Math.floor((Math.sqrt(8 * z + 1)+3)/2))/2) - z - 1);
-		int x = (int) (z - ((Math.floor((Math.sqrt(8 * z + 1)+1)/2)*Math.floor((Math.sqrt(8 * z + 1)-1)/2))/2));
-		setPos(x,y);
-		writeMessage(z);
+	int counter = 0;
+	for (int x = 0; x < getWorldWidth(); x++) {
+		for (int y = 0; y < getWorldHeight() - x; y++){
+			setPos(y,x);
+			int message = (int) ((((x + y) * (x + y + 1)) / 2) + y);
+			if (message >= 29) message -= 1;
+			writeMessage(message);
+			counter++;
+		}
 	}
 }
