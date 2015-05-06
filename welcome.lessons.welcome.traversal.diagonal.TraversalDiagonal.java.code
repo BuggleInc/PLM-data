@@ -1,9 +1,8 @@
 public void run() {
-	int counter = 0;
-	for (int x = 0; x < getWorldWidth() * 2 - 1; x++) {
-		for (int y = x; y >= 0; y--){
-			setPos(x,y);			
-			writeMessage(counter++);
-		}
+	for (int z = 0; z < getWorldWidth() * getWorldHeight() - 1; z++) {		
+		int x = ((Math.floor((Math.sqrt(8 * z + 1)+1)/2)*Math.floor((Math.sqrt(8 * z + 1)+3)/2))/2) - z - 1;
+		int y = z - ((Math.floor((Math.sqrt(8 * z + 1)+1)/2)*Math.floor((Math.sqrt(8 * z + 1)-1)/2))/2);
+		setPos(x,y);
+		writeMessage(z);
 	}
 }
