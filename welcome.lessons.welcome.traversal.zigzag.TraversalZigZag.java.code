@@ -1,10 +1,16 @@
 public void run() {
 	int counter = 0;
 	for (int x = 0; x < getWorldWidth(); x++) {
+		if (x%2==0){
 		for (int y = 0; y < getWorldHeight(); y++){
 			setPos(y,x);
 			writeMessage(x*7+y);
 			counter++;
+		}} else{
+		for (int y = getWorldHeight() - 1; y >= 0; y--){
+			setPos(y,x);
+			writeMessage(x*7+y);
+			counter++;			
 		}
 	}
 }
