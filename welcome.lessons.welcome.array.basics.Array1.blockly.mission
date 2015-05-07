@@ -1,0 +1,131 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1> et tricot</h1>
+
+L'objectif de cet exercice est de reproduire le motif de la première colonne
+en le décalant d'une case (voir l'onglet «Objectif» pour plus de
+détails). La grande différence entre cet exercice et les précédents sur les
+motifs, c'est qu'il faut maintenant lire (sur la première colonne) le motif
+souhaité, puis le reproduire ensuite. Il est impossible de faire autrement
+car votre programme sera exécuté par trois buggles dans trois mondes
+différents, chacune ayant un motif propre à reproduire.
+
+<p>Une possibilité est de lire la prochaine case, puis d'aller la recopier en
+position, avant de revenir lire la case suivante, etc. Mais comme vous
+n'avez pas le droit d'utiliser les méthodes permettant de téléporter la
+buggle à une case particulière (<code>setPos()</code> et autres), cette
+façon de faire va être très pénible à mettre en place. </p>
+ 
+<p>Le plus simple est de stocker l’enchaînement de couleurs constituant le
+motif dans
+.
+Mais avant de pouvoir faire cela, nous devons en apprendre un peu plus sur
+les .</p>
+
+<h2></h2> 
+
+<p> est une séquence ordonnée
+de variables qui marchent ensemble.
+C'est un peu similaire à une commode dont les différents tiroirs peuvent
+stocker des valeurs différentes.
+Chaque variable de la séquence est identifiée par sa position et peut
+stocker une valeur spécifique.
+
+</p>
+
+<div style="text-align:center"><img src="lessons/welcome/array/array.png"/></div>
+
+<p>T est le nom ,
+ est le nom de la première case,
+ de la deuxième case,
+ de la troisième case, etc...
+Et oui, la première case est  et la
+dernière case
+ de taille N est
+.
+Cela peut sembler étrange de commencer à compter à partir de 0 et non de 1,
+mais c'est ainsi (et cela s'explique par des raisons historiques obscures).</p>
+
+<h3>Usage de base</h3>
+
+<p>On peut utiliser une variable entière <i>i</i> pour accéder avec
+ aux cases.
+Quand <i>i</i> vaut 0 alors  dénote la
+case ;
+lorsque <i>i</i> vaut 10,   dénote
+.
+On dit alors que <i>i</i> est un <b>indice</b> dans  T.
+<code></code> peut être utilisé comme
+n'importe quelle variable.
+On peut lui affecter une nouvelle valeur:</p> 
+<pre> = 78</pre>
+
+<p>On peut réutiliser et tester cette valeur : </p>
+<pre>x = </pre>
+
+<p>On peut tester cette valeur :</p>
+<pre>if ( > 0) 
+     instructions...
+</pre>
+
+<p>Il est également très simple de parcourir , par exemple pour initialiser chaque
+cellule.</p>
+
+<pre>
+    = 3
+</pre>
+
+<p>
+
+ce qui permet de construire facilement la boucle.
+
+</p>
+
+<p>Si vous souhaitez simplement parcourir les valeurs de T sans avoir besoin de
+l'index de chaque valeur, vous pouvez écrire simplement :</p>
+<pre>
+  action()
+</pre>
+<p>
+</p>
+
+
+<h3>Déclarer </h3>
+
+ 
+
+<h3>Les  et les paramètres de
+méthodes</h3>
+<p>On peut tout à fait passer 
+en paramètre d'une méthode. La méthode peut alors l'utiliser comme si la
+variable avait été définie localement:</p>
+<pre></pre>
+
+<p>Coté appelant, c'est aussi simple :</p>
+<pre>
+if (a42Premier(tab))
+   <span class="comment"> faire des choses</span>
+</pre>
+
+
+
+<p>Les méthodes peuvent également retourner des
+ comme résultat sans aucun
+problème.
+Voici une méthode retournant  de la taille demandée après avoir initialisé toutes les cases à la
+valeur 42.</p>
+
+<pre></pre>
+
+<h2>Objectif de l'exercice</h2>
+
+<p>Enfin ! Après toutes ces explications, nous pouvons revenir à l'exercice.</p>
+<p>Votre mission est plutôt simple au fond. Votre code doit sauvegarder le
+motif de couleurs observé sur la première colonne. Il faut bien entendu
+sauvegarder ces valeurs dans .
+
+</p>  
+
+<p>Une fois le motif de la première colonne lu et sauvegardé, il faut le
+répliquer sur toutes les colonnes, par exemple en exécutant
+<code>getMondeLargeur()</code> fois une méthode écrite tout exprès.</p> 
