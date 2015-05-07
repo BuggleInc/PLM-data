@@ -9,6 +9,12 @@ def mark(color):
   brushDown()
   brushUp()
 
+def makeLine(color):
+  global i
+  setBrushColor(color)
+  brushDown()
+  brushUp()
+
 def upRange(start, stop, step):
   while start <= stop:
     yield start
@@ -23,6 +29,6 @@ def downRange(start, stop, step):
 colors = []
 i_end = float(getWorldHeight())
 for i in (0 <= i_end) and upRange(0, i_end, 1) or downRange(0, i_end, 1):
-  colors[-1] = 0
-  colors.insert(-1, 0)
+  colors[-1] = getGroundColor()
+  forward()
 mark(None)
