@@ -1,5 +1,7 @@
 color = None
+set2 = None
 i = None
+colors = None
 
 def mark(color):
   global i
@@ -18,6 +20,9 @@ def downRange(start, stop, step):
     start -= abs(step)
 
 
+colors = []
 i_end = float(getWorldHeight())
 for i in (0 <= i_end) and upRange(0, i_end, 1) or downRange(0, i_end, 1):
-  mark(None)
+  colors[-1] = 0
+  colors.insert(-1, 0)
+mark(None)
