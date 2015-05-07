@@ -1,16 +1,12 @@
 color = None
-set2 = None
-i = None
 colors = None
+set2 = None
+j = None
+i = None
+k = None
 
 def mark(color):
-  global i
-  setBrushColor(color)
-  brushDown()
-  brushUp()
-
-def makeLine(color):
-  global i
+  global colors, j, i, k
   setBrushColor(color)
   brushDown()
   brushUp()
@@ -25,10 +21,22 @@ def downRange(start, stop, step):
     yield start
     start -= abs(step)
 
+def makeLine(colors):
+  global color, j, i, k
+  j_end = float(getWorldHeight())
+  for j in (1 <= j_end) and upRange(1, j_end, 1) or downRange(1, j_end, 1):
+    mark(Color.cyan)
+    forward()
+
 
 colors = []
 i_end = float(getWorldHeight())
-for i in (0 <= i_end) and upRange(0, i_end, 1) or downRange(0, i_end, 1):
+for i in (1 <= i_end) and upRange(1, i_end, 1) or downRange(1, i_end, 1):
   colors[-1] = getGroundColor()
   forward()
-mark(None)
+k_end = float(getWorldWidth())
+for k in (1 <= k_end) and upRange(1, k_end, 1) or downRange(1, k_end, 1):
+  left()
+  forward()
+  right()
+  makeLine(colors)
