@@ -1,32 +1,38 @@
+
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Do .. while loops</h2>
+<h2>Boucles jusqu'à<tt> (do ... while)</tt></h2>
 
-<p>Some cells of the world are yellow, but your buggle cannot stand being in 
-such cells. Write the necessary code to move forward until the ground 
-gets white. For that, use the provided method <code>isGroundWhite()</code>.</p>
+<p>Certaines cases du monde sont jaunes, mais les buggles ne supportent pas de
+s'y trouver. Écrivez le code nécessaire pour avancer jusqu'à ce que le sol
+devienne blanc. Vous pourrez utiliser la méthode <code>estSurBlanc()</code>
+qui retourne vrai si le sol est blanc..</p>
 
-<p>The trick is that most buggles of this world are currently on this yellow ground 
-that they dislike so much. That is why they are in panic, and every buggle rushes 
-one cell forward, even the buggle that was not on a yellow cell at first. In other worlds,  
-even if the ground is white on the first cell, you still want to move forward to the next cell.</p>    
+<p>Le truc est que la plupart des buggles de ce monde se trouvent actuellement
+sur ce sol jaune qui les énerve tant. Cela explique sans doute leur état de
+panique, et le fait que toutes les buggles se ruent vers l'avant au début,
+même la buggle qui ne se trouve pas sur du jaune. En d'autres mots, même si
+le sol est blanc le premier coup, il faut quand même avancer d'un pas.</p>    
 
-<p>The general idea is to do something like: </p>
-<pre>move forward until located in a white cell</pre>
+<p>L'idée générale est donc de faire: </p>
+<pre>avancer jusqu'à se trouver sur une case blanche</pre>
 
-<p>The main difficulty is that we want this loop body to be executed once, even we are already on a white cell. 
-It would be easy to do so by duplicating the loop content before the actual loop, but this would be a bad idea: 
-code duplication is a <b>very</b> bad habit, and you should <b>always</b> avoid it.</p>
+<p>La principale difficulté est que nous voulons exécuter le corps de boucle au
+moins une fois, même si la buggle se trouve déjà sur une case blanche. Il
+serait facile de dupliquer le corps de la boucle avant la boucle pour cela,
+mais  ça serait une <b>très mauvaise idée</b>. Dupliquer du code est une
+<b>très mauvaise habitude</b> et il faut toujours éviter de le faire.</p>
 
-<p>Code duplication easily turns code maintenance into a nightmare: reading the code becomes difficult as the reader must ensure 
-that no slight difference exist between the versions. Debugging the code becomes difficult, as bugs have to be fixed 
-in all versions. Actually, every modification of the code becomes difficult. So, really, you should <b>always</b> 
-strive to not duplicate your code if you can avoid. And the good news is that you always can...</p>
+<p>Quand on duplique le code, sa maintenance tourne facilement au cauchemar :
+la lecture du code est très pénible puisque le lecteur doit s'assurer qu'il
+n'y a effectivement aucune différence, même minime, entre les versions du
+même code. Debugger le code devient plus long, puisqu'il faut corriger
+toutes les versions. En fait, toutes les modifications deviennent
+pénibles. Alors, vraiment, vous devrez <b>toujours</b> vous efforcer
+d'éviter la duplication du code quand c'est possible. Et la bonne nouvelle
+est que c'est toujours possible...</p>
 
-<h3>Executing the loop body at least once</h3>
-
-
-
-
+<h3>Exécuter le corps de boucle au moins une fois</h3>
+ 
 
 <pre>do {
     <b>action()</b>
