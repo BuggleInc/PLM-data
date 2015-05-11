@@ -1,149 +1,180 @@
+
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h1>Arrays and Knotting</h1>
+<h1>Tableaux et tricot</h1>
 
-The goal of this exercise is to reproduce the pattern of the first row in
-the other rows with a shift of one cell (see the Objective tab for
-details). The biggest difference between this exercise and the others we had
-on patterns is that you have to read the pattern (on first row) before
-reproducing it. You cannot do otherwise because the same code will be
-executed on three different worlds, each of them having a specific
-pattern.
+L'objectif de cet exercice est de reproduire le motif de la première colonne
+en le décalant d'une case (voir l'onglet «Objectif» pour plus de
+détails). La grande différence entre cet exercice et les précédents sur les
+motifs, c'est qu'il faut maintenant lire (sur la première colonne) le motif
+souhaité, puis le reproduire ensuite. Il est impossible de faire autrement
+car votre programme sera exécuté par trois buggles dans trois mondes
+différents, chacune ayant un motif propre à reproduire.
 
-<p>One solution is to read the next cell, and go copy it in position before
-coming back to read the second cell. But since it is forbidden to use the
-methods to teleport the buggle to a specific position (<code>setPos()</code>
-and similar), this approach will be a pain to implement. </p>
+<p>Une possibilité est de lire la prochaine case, puis d'aller la recopier en
+position, avant de revenir lire la case suivante, etc. Mais comme vous
+n'avez pas le droit d'utiliser les méthodes permettant de téléporter la
+buggle à une case particulière (<code>setPos()</code> et autres), cette
+façon de faire va être très pénible à mettre en place. </p>
  
-<p>The simplest is to store the sequence of colors that constitute 
-the whole pattern in an <b>array</b>.
-But before we can do so, we should learn a bit what arrays are.</p>
+<p>Le plus simple est de stocker l’enchaînement de couleurs constituant le
+motif dans
+un <b>tableau</b>.
+Mais avant de pouvoir faire cela, nous devons en apprendre un peu plus sur
+les tableau.</p>
 
-<h2>Arrays</h2> 
+<h2>Les tableaux</h2> 
 
-<p>An array is an ordered sequence of variables that go together.
-It is somehow similar to a shelve where each level can store a separate value. Each 
-variable of the sequence is identified by its position, and can store
-a specific value. All cells of the array must store values of the same
-type because arrays are homogeneous in Java. It is possible to trick this 
-restriction by using the datatype <code>Object</code> 
-that can contain almost any other datatype. Primitive types such 
-as the ones we saw so far (int, boolean, double, char, etc) cannot be stored in an 
-Object variable, but their objectified counter-part (Integer, Boolean, Double, 
-Char, Boolean, etc) can. It is however a good practice to make the type of an array 
-as specific as possible, i.e., if you plan to store some integers in your array, make it an 
-array of integers, not of Object.
+<p>Un tableau est une séquence ordonnée
+de variables qui marchent ensemble.
+C'est un peu similaire à une commode dont les différents tiroirs peuvent
+stocker des valeurs différentes.
+Chaque variable de la séquence est identifiée par sa position et peut
+stocker une valeur spécifique.
+Toutes les cellules d'un tableau doivent stocker des valeurs du
+même type de données parce que les tableaux sont homogènes en Java.
+Il est cependant possible de contourner cette restriction en utilisant le
+type de données <code>Object</code> qui peut
+contenir presque tous les autres type de données.
+Les types primitifs comme ceux que nous avons utilisé jusqu'à présent
+(int, boolean, double, char, etc) ne peuvent pas être stockés dans une
+variable Object, mais leurs variantes objectifiées (Integer, Boolean,
+Double, Char, Boolean, etc) peuvent l'être.
+Il est cependant raisonnable de rendre ses tableaux aussi spécifiques que
+possible. Si vous avez l'intention de stocker des entiers, faites en un
+tableau de integer, pas de
+Object.
 </p>
 
 <div style="text-align:center"><img src="lessons/welcome/array/array.png"/></div>
 
-<p>T is the array's name, 
-T[0] is the name of the first cell, 
-T[1] the name of the second cell, 
-T[2] the third one, etc. And yes, the first cell is
-numbered T[0] while the last one of an array 
-of size N is T[N-1]. It may seem funny to count starting from 0 and not from 1 
-as usual, but some historical reasons make it unavoidable here.</p>
+<p>T est le nom du tableau,
+T[0] est le nom de la première case,
+T[1] de la deuxième case,
+T[2] de la troisième case, etc...
+Et oui, la première case est T[0] et la
+dernière case
+d'un tableau de taille N est
+T[N-1].
+Cela peut sembler étrange de commencer à compter à partir de 0 et non de 1,
+mais c'est ainsi (et cela s'explique par des raisons historiques obscures).</p>
 
-<h3>Basic usage</h3>
+<h3>Usage de base</h3>
 
-<p>We can use an integer variable <i>i</i> to access with T[i] to the 
-cells: when the value of <i>i</i> is 0, then T[i] accesses 
-T[0]; 
-when the value of <i>i</i> is 10, then T[i] accesses 
-T[10]. 
-<i>i</i> is said to be the <b>index</b> in T. 
-<code>T[i]</code> can be used just like any
-variable. We can set a new value:</p> 
+<p>On peut utiliser une variable entière <i>i</i> pour accéder avec
+T[i] aux cases.
+Quand <i>i</i> vaut 0 alors T[i] dénote la
+case T[0];
+lorsque <i>i</i> vaut 10,  T[i] dénote
+T[10].
+On dit alors que <i>i</i> est un <b>indice</b> dans le
+tableau T.
+<code>T[i]</code> peut être utilisé comme
+n'importe quelle variable.
+On peut lui affecter une nouvelle valeur:</p> 
 <pre>T[i] = 78;</pre>
 
-<p>We can retrieve and use its value: </p>
+<p>On peut réutiliser et tester cette valeur : </p>
 <pre>x = T[i];</pre>
 
-<p>We can test this value:</p>
+<p>On peut tester cette valeur :</p>
 <pre>if (T[i] > 0) {
     // instructions...
 }</pre>
 
-<p>It is very easy to traverse the whole array, for 
-example to initialize each cells.</p>
+<p>Il est également très simple de parcourir tout le
+tableau, par exemple pour initialiser chaque
+cellule.</p>
 
 <pre>for (int i = 0; i&lt;T.length; i++) {
    T[i] = 3;
 }</pre>
 
-<p>The notation <code>T.length</code> retrieves the length of the array T,
- 
-allowing to build a classical for loop easily. 
- 
+<p>La notation <code>T.length</code> permet d'accéder à la taille
+(«length» en anglais) du tableau T,
+
+ce qui permet de construire facilement la boucle.
+
 </p>
 
-<p>If you just want to iterate over the values of T without keeping track of their index, you can simply write:</p>
+<p>Si vous souhaitez simplement parcourir les valeurs de T sans avoir besoin de
+l'index de chaque valeur, vous pouvez écrire simplement :</p>
 <pre>for (int i: T) {
   action();
 }</pre>
-<p>This construct is called an <i>extended loop</i> in Java. The variable <i>i</i> takes all values
-of the set located to the right of the colon (:), one after the other.
+<p>Cette construction s'appelle une boucle <code>for</code> étendue en
+Java.
+La variable <i>i</i> prend successivement toutes les valeurs de l'ensemble
+placé à droite des deux-points (:).
+ offre d'autres moyens très élégants de traverser des
 
- offers much more elegant ways to traverse  and 
-other data collections, but this should be the topic of a specific set of exercises (that are still to be 
-written in PLM).[/!]</p>
+et d'autres collections de données. Mais cela devrait être le sujet
+d'exercices spécifiques (qui restent à écrire dans PLM).[/!]</p>
 
 
-<h3>Declaring an array</h3>
-
+<h3>Déclarer un tableau</h3>
 
  
-
-<p>To declare a variable named <b>T</b> that can store an array of integers, one should write:</p>
+<p>Pour créer une variable nommée <b>T</b> pouvant contenir un tableau
+d'entiers, on écrira :</p>
 <pre>int[] T;</pre>
 
-<p><code>int</code> means that the elements of the array are of type integer;
-<code>[]</code> means that we are speaking of an array and <code>T</code> is the name of the variable. 
-For historical reasons, this can also be written as  <code>int T[]</code> (with the [] after the variable name), 
-but this is less readable and should probably be avoided.
+<p><code>int</code> indique que les éléments du tableau sont de type
+entier;
+<code>[]</code> indique que nous parlons d'un tableau tandis que
+<code>T</code> est le nom de la variable.
+Pour des raisons historiques, cela peut également être écrit sous la forme
+<code>int T[]</code> (avec [] à droite du nom de la variable),
+mais cette forme est moins lisible et devrait probablement être évitée.
 
 </p>
 
-<h3>Allocating an array</h3>
+<h3>Allocation d'un tableau</h3>
 
-<p>Declaring a variable <code>T</code> that stores an array only reserve the <b>name</b> <code>T</code> for
-later use, but not the memory area to store the cells. The array is not initialized yet: it does not have any
-value. What would <code>T[4]</code> mean if we didn't say that the array is
-5 cells long?</p>
+<p>Déclarer un tableau <code>T</code> nous réserve juste le nom <code>T</code>
+pour l'utiliser plus tard, mais pas la place en mémoire pour stocker les
+cases. Le tableau n'est pas initialisé : il n'a pas de valeur. Que voudrait
+dire <code>T[4]</code> si nous n'avons pas encore dit que <code>T</code> est
+un tableau de 5 éléments ?</p>
 
-<p>First and foremost, we have to give a value to <code>T</code>:</p>
+<p>Avant tout, il faut donc lui affecter une valeur à <code>T</code>:</p>
 <pre>T = new int[10];</pre>
 
-<p><code>new</code> means that we want to create something, and
-<code>int[10]</code> means that it is an array of 10 integer values. 
-In return, an array of 10 integer cells is created in memory, and the <code>T</code> variable 
-<b>references</b> this array.</p>
+<p><code>new</code> indique qu'il faut créer quelque chose, et
+<code>int[10]</code> indique qu'il
+s'agit d'un tableau de 10 valeur entières. En réponse, un tableau d'entiers
+de longueur 10 est crée en mémoire, et la variable <code>T</code>
+<b>référence</b> ce tableau.</p>
 
-<p>The size of an array is fixed and cannot be changed after the creation of
-the array. The size of a <code>T</code> array can be retrieve by consulting the
-variable <code>T.length</code>.</p>
+<p>La taille d'un tableau est fixée et ne peut plus être changée après la
+création du tableau. Pour connaître la taille d'un tableau <code>T</code>,
+on peut consulter la variable <code>T.length</code>.</p>
 
-<p>While allocating, you can specify the size with a variable: <code>int[] T = new int[i];</code>
-In this case, the array's size will be set to the value of <code>i</code> <i>when <code>new</code> gets called</i>. 
-The size of the array still cannot be modified: even if the variable <code>i</code> changes afterward, 
-the size remains to the value given when it was allocated.
-Also, it is forbidden to write something like <code>int T[10];</code> when declaring the variable.
-You are required to use the <code>new</code> instruction to allocate it, as in 
-<code>int[] T = new int[10];</code> </p>
+<p>Lors de l'allocation, vous pouvez spécifier la taille à utiliser avec une
+variable:
+<code>int[] T = new int[i];</code>
+Dans ce cas, la taille du tableau est fixée à la valeur de <code>i</code>
+<i>quand <code>new</code> a été appelé</i>.
+La taille du tableau ne peut toujours pas être modifiée. Même si la valeur
+de <code>i</code> est modifiée ensuite, la taille reste la même.
+Enfin, il est interdit d'écrire quelque chose comme <code>int
+T[10];</code> pour déclarer la variable. Il faut absolument utiliser
+<code>new</code> pour l'allouer, comme dans <code>int[] T = new
+int[10];</code> </p>
 
-<h4>Declaration and initialization</h4>
-<p>If you know beforehand the content of your array, you can declare, allocate and initialize it in one shoot:</p>
+<h4>Déclaration et initialisation</h4>
+<p>Si vous connaissez le contenu de votre tableau à l'avance, vous pouvez le
+déclarer, l'allouer et l'initialiser en un coup:</p>
 <pre>int[] T = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</pre>
 
-<p>To know the size of the array to allocate, the compiler counts the provided values. 
-This code is equivalent to:</p>
+<p>Pour connaître la taille du tableau à allouer, le compilateur compte les
+valeurs données.  Ce code est équivalent à :</p>
 <pre>int[] T = new int[10];
 T[0] = 1;
 T[1] = 2;
 ...
 T[9] = 10;</pre>
 
-<p>It is also equivalent to:</p>
+<p>C'est aussi équivalent au code :</p>
 <pre>int[] T = new int[10];
 for (int i=0; i&lt;T.length; i++) {
   T[i] = i+1;
@@ -152,49 +183,60 @@ for (int i=0; i&lt;T.length; i++) {
 
 <!-- end of java|scala. python comes back -->
 
-<h3>Arrays and method parameters</h3>
-<p>It is perfectly OK to pass an array to a method as a parameter. 
-This method can then use this parameter as if it were defined locally:</p>
-<pre>boolean has42First(int[] array) {
-    return array[0] == 42;
+
+<h3>Les tableaux et les paramètres de
+méthodes</h3>
+<p>On peut tout à fait passer un tableau
+en paramètre d'une méthode. La méthode peut alors l'utiliser comme si la
+variable avait été définie localement:</p>
+<pre>boolean a42Premier(int[] tableau) {
+    return tableau[0] == 42;
 }</pre>
 
-<p>On the caller side, that also very simple:</p>
+<p>Coté appelant, c'est aussi simple :</p>
 <pre>int[] tab = new int[10];
-<span class="comment">// Values initialization omitted</span>
-if (has42First(tab)) {
-   <span class="comment">// do something</span>
+<span class="comment">// Initialisation des valeurs omise</span>
+if (a42Premier(tab)) {
+   <span class="comment">// faire des choses</span>
 }</pre>
 
 
-<p>If you want to allocate and initialize the array in one shoot, that's 
-a bit more complicated as the compiler has to know the type of the parameter you are creating. 
-For that, use the following (ugly) construct:</p>
+<p>Si vous voulez allouer et initialiser le tableau au vol lors du passage de
+paramètre, c'est un peu plus compliqué car il faut dire au compilateur le
+type du paramètre que vous construisez. Il faut alors utiliser la
+construction suivante, même si elle n'est pas très belle.</p>
 <pre>if (has42First(   new int[] {1, 3, 5, 7, 9}   ) {
-   <span class="comment">// do something</span>
+   <span class="comment">// faire des choses</span>
 }</pre>
 
 
-<p>Methods can also return arrays as result without any complication. 
-Here is a method that returns an array of the requested size, filled with 42s.</p>
+<p>Les méthodes peuvent également retourner des
+tableaux comme résultat sans aucun
+problème.
+Voici une méthode retournant un tableau de la taille demandée après avoir initialisé toutes les cases à la
+valeur 42.</p>
 
-<pre>int[] fill42(int size) {
-    int[] res = new int[size];
-    for (int i=0; i&lt;size; i++) 
+<pre>int[] remplir42(int taille) {
+    int[] res = new int[taille];
+    for (int i=0; i&lt;taille; i++) 
         res[i] = 42;
     return res;
 }</pre>
 
-<h2>Goal of this exercise</h2>
+<h2>Objectif de l'exercice</h2>
 
-<p>At least! After this long explanation, we can come back to the exercise.</p>
-<p>Your mission is rather simple actually. 
-Your code should save the color pattern observed on the first row into an array. 
+<p>Enfin ! Après toutes ces explications, nous pouvons revenir à l'exercice.</p>
+<p>Votre mission est plutôt simple au fond. Votre code doit sauvegarder le
+motif de couleurs observé sur la première colonne. Il faut bien entendu
+sauvegarder ces valeurs dans un tableau.
 
-For that, you should declare and allocate an array of <code>Color</code>. Beware, there is several
-worlds, of differing size; use <code>getWorldHeight()</code> to retrieve the size of the current world.
-Once the array allocated, fill it by reading the ground color in each locations (with <code>getGroundColor()</code>).</p>  
+Pour cela, il faut déclarer et créer un tableau de variables de
+type <code>Color</code>. Attention, les différents mondes ne sont pas tous
+de la même taille et il faut utiliser <code>getMondeHauteur()</code> pour
+trouver la taille du monde courant. Une fois créé, remplissez le tableau en
+lisant les couleurs au sol de la première colonne (avec
+<code>getCouleurSol()</code>).</p>  
 
-<p>Once you managed to read and save the pattern on the first row, you have to reapply the 
-pattern on every rows, for example by executing <code>getWorldHeight()</code> times 
-a method written specifically for this.</p> 
+<p>Une fois le motif de la première colonne lu et sauvegardé, il faut le
+répliquer sur toutes les colonnes, par exemple en exécutant
+<code>getMondeLargeur()</code> fois une méthode écrite tout exprès.</p> 
