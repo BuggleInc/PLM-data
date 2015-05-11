@@ -1,24 +1,21 @@
 n=0
 while(True):
-  n-=1
-  gauche()
   while(n%4==0 and (not estFaceMur())):
     print("j'avance")
     avance()
+  n-=1
+  gauche()
+  
   if estFaceMur():
     n+=1
     droite()
-    while(n%4==0 and (not estFaceMur())):
-      print("j'avance")
-      avance()
+    
     if not estFaceMur():
       avance()
     else :
       n+=1
       droite()
-      while(n%4==0 and (not estFaceMur())):
-        print("j'avance")
-        avance()
+     
   else :
     avance()
   print(n%4)
