@@ -8,6 +8,7 @@
 			if (num[i] == max) {
 				num[i] = -1;
 				if (num[i + 1] != max) {
+					copyArray(num, i);
 					count++;
 				}
 			}
@@ -22,4 +23,16 @@
 				max = number;
 		}
 		return max;
+	}
+
+	int[] copyArray(int[] in, int pos){
+		int[] out = new int[in.length - 1];
+		int countOut = 0;
+		for (int i = 0; i < in.length; i++){
+			if (i <> pos) {
+				out[countOut] = in[i];
+				countOut++;
+			}
+		}		
+		return out;
 	}
