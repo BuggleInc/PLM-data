@@ -1,26 +1,17 @@
 n=0
 while(True):
-  #Partie où il est face au nord
-  if n%4==0:
+  n-=1
+  gauche()
+  if estFaceMur:
+    droit()
     if not estFaceMur():
-      while(not estFaceMur()):
-        avance()
-   
-  #Partie où il n'est pas face au nord
-  else:
-    n-=1
-    gauche()
-    
-    if estFaceMur:
+      avance()
+    else :
       n+=1
-      droite()
-      
-      if not estFaceMur():
-        avance()
-      else :
-        n+=1
-        droite()
-        
-  print(n)
+      droite() 
+  if(n%4==0):
+    while(not estFaceMur):
+      avance()
+print(n)
   
         
