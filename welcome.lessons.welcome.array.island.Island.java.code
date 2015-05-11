@@ -1,37 +1,23 @@
-	int island(int[] num) {
-		int max = getMax(num);
-		if (max == 0)
-			return 0;
-
-		int count = 0;
-		for (int i = 0; i < num.length; i++) {
-			if (num[i] == max) {
-				num[i] = num[i-1];
-				if (num[i + 1] != max) {
-					count++;
-				}
+int island(int[] num) {
+	int max = getMax(num);
+	if (max == 0) return 0;
+	int count = 0;
+	for (int i = 0; i < num.length; i++) {
+		if (num[i] == max) {
+			num[i] = num[i-1];
+			if (num[i + 1] != max) {
+				count++;
 			}
 		}
-		return count + island(num);
 	}
+	return count + island(num);
+}
 
-	int getMax(int[] num) {
-		int max = 0;
-		for (int number : num) {
-			if (number > max)
-				max = number;
-		}
-		return max;
+int getMax(int[] num) {
+	int max = 0;
+	for (int number : num) {
+		if (number > max)
+		max = number;
 	}
-
-	int[] copyArray(int[] in, int pos){
-		int[] out = new int[in.length - 1];
-		int countOut = 0;
-		for (int i = 0; i < in.length; i++){
-			if (i != pos) {
-				out[countOut] = in[i];
-				countOut++;
-			}
-		}		
-		return out;
-	}
+	return max;
+}
