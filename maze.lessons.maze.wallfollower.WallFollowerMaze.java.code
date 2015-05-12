@@ -1,8 +1,19 @@
 public void run() {
 	while (!isOverBaggle()) {
+		findSideWall();
 		keepHandOnSideWall();
 	}
 	pickupBaggle();
+}
+
+public void findSideWall(){
+	while (isFacingWall()){
+		right();
+	}
+	left();
+	if (!isFacing()){
+		findSideWall();
+	}
 }
 
 public void keepHandOnSideWall(){
