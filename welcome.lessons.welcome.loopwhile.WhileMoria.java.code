@@ -1,0 +1,19 @@
+public void run() { 
+	while (getCouleurSol() != Color.Green){
+		recule();
+		if (estSurBiscuit()){
+			prendBiscuit();
+			while (!estSurBiscuit()){
+				avance();
+			}
+			recule();
+			poseBiscuit();
+		}
+		if (estDosMur()){
+			gauche();
+			avance();
+			gauche();
+			avance();
+		}
+	}
+}
