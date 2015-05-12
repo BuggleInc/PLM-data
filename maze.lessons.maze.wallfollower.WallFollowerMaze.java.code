@@ -8,8 +8,12 @@ public void run() {
 public void keepHandOnSideWall(){
 	while (!isFacingWall()) {
 		forward();
+		left();
+		if (isFacingWall()) {
+			right();
+		}
 	}
 	while (isFacingWall()) {
-		right();
+		left();
 	}
 }
