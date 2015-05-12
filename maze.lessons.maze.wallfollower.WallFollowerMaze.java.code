@@ -6,8 +6,11 @@ public void run() {
 }
 
 public void keepHandOnSideWall(){
-	if (!isFacingWall()) forward();
-	while (isFacingWall()) {
+	if (!isFacingWall()) {
+		forward();
 		left();
+		if (isFacingWall()) {
+			right();
+		}
 	}
 }
