@@ -3,10 +3,10 @@ void polygonFractal (int levels, int sides, double length, double shrink) {
 		//forward(length);
 		return;
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < sides; i++) {
 	forward(length);
 	polygonFractal(levels-1, sides, length*shrink, shrink);
-	left(72.0);
-	if (i == 4) right(144.0);
+	left(360 / sides);
+	if (i == sides - 1) right(360 / sides * 2);
 	}
 }
