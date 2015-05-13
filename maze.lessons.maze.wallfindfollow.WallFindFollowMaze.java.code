@@ -3,7 +3,7 @@ public void run() {
 	while (!isOverBaggle()) {
 		keepHandOnSideWall();
 	}
-	pickupBaggle();
+	pickupBaggle();	
 }
 
 public void findSideWall(){
@@ -19,7 +19,7 @@ public void keepHandOnSideWall(){
 	if (!isFacingWall()) {
 		forward();
 		left();
-		while (isFacingWall()) {
+		while (isFacingWall() && !isOverBaggle()) {
 			right();
 		}
 	}
