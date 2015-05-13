@@ -16,10 +16,10 @@ public void findSideWall(){
 }
 
 public void keepHandOnSideWall(){
-	while (!isFacingWall()) {
+	if (!isFacingWall()) {
 		forward();
 		left();
-		if (isFacingWall()) {
+		while (isFacingWall()) {
 			right();
 		} else {
 			forward();
