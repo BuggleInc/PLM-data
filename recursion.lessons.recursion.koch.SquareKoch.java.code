@@ -14,15 +14,14 @@ void snowSquare (int levels, double length) {
 void squareSide(int levels, double length) {
 	if (levels == 0) {
 		forward(length);
-		left(90.0);
-		forward(length);
-		right(90.0);
-		forward(length);
-		right(90.0);
-		forward(length);
-		left(90.0);
-		forward(length);
 		return;
 	}
-	squareSide(levels - 1, length / 3);	
+		left(90.0);
+		squareSide(levels - 1, length / 3);
+		right(90.0);
+		squareSide(levels - 1, length / 3);			
+		right(90.0);
+		squareSide(levels - 1, length / 3);
+		left(90.0);		
+		squareSide(levels - 1, length / 3);	
 }
