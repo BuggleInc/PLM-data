@@ -1,5 +1,6 @@
 public void tree(int steps, double length, double angle, double shrink)    {
-	current(steps);
+	if (steps == 0) return;
+	int color = current(steps);
 	forward(length);
 	right(angle);
 	tree(steps - 1, length * shrink, angle, shrink);
