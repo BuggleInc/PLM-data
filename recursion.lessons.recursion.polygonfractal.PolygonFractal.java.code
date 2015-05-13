@@ -6,13 +6,13 @@ void polygonFractal (int levels, int sides, double length, double shrink) {
 	for (int i = 0; i < sides; i++) {
 		forward(length);
 		polygonFractal(levels-1, sides, length*shrink, shrink);
-		if (levels % 2 == 0) {
+		if (levels % 2 != 0) {
 			left(360 / sides);
 		} else {
 			right(360 /sides);
 		}
 	}
-	if (levels % 2 == 0) {
+	if (levels % 2 != 0) {
 		right(720 / sides);
 	} else {
 		left(720 / sides);
