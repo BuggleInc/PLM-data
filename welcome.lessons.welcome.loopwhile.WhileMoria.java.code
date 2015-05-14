@@ -12,22 +12,23 @@ public void run() {
 		}
 
 		if (!isFacingWall()) {
+			if (isOverBaggle()) {
 	
-			// Move baggle
-			pickupBaggle();
-			while (!isOverBaggle()) {
-				backward();
+				// Move baggle
+				pickupBaggle();
+				while (!isOverBaggle()) {
+					backward();
+				}
+			
+				// Move forward one cell (so in a free space)
+				forward();
+				dropBaggle();
+				forward();
 			}
-		
-			// Move forward one cell (so in a free space)
-			forward();
-			dropBaggle();
-			forward();
 		}
 	}
 
 	// Exit mines
-	backward();
 	right();
 	forward();
 	left();
