@@ -1,11 +1,11 @@
-boolean isFacingTrail(Color c) {
+boolean isFacingTrail() {
 	boolean solVert;
 	leveBrosse();
 	if (estFaceMur()){
 		solVert = false;
 	} else {
 		avance();
-		if (getCouleurSol()==Color c){
+		if (getCouleurSol().equals(Color c)){
 			solVert = true;
 		} else {
 			solVert = false;
@@ -16,20 +16,19 @@ boolean isFacingTrail(Color c) {
 	return solVert;
 }        
 void caseSuivante(){
-	while (!isFacingTrail(Color c)){
+	while (!isFacingTrail()){
 		gauche();
 	}
 	avance();
 }
-void pister(Color c){
+void pister(){
 	while (!estSurBiscuit()){
-		caseSuivante(Color c);
+		caseSuivante();
 	}
 	prendBiscuit();
 }
-
 public void hunt(Color c) {
-	pister(Color c());
+        
 }
    
     
