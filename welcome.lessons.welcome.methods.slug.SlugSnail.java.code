@@ -1,4 +1,4 @@
-boolean isFacingTrail(String Color) {
+boolean isFacingTrail(Color) {
 	boolean solVert;
 	leveBrosse();
 	if (estFaceMur()){
@@ -15,20 +15,20 @@ boolean isFacingTrail(String Color) {
 	baisseBrosse();
 	return solVert;
 }        
-void caseSuivante(String Color){
+void caseSuivante(Color){
 	while (!isFacingTrail(Color)){
 		gauche();
 	}
 	avance();
 }
-void pister(String Color){
+void pister(Color){
 	while (!estSurBiscuit()){
 		caseSuivante(Color);
 	}
 	prendBiscuit();
 }
-public void hunt(String Color){
-	pister(Color);
+public void hunt(Color c){
+	pister(Color c);
 }
 
 
