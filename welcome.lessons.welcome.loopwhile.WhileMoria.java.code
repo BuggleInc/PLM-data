@@ -8,7 +8,9 @@ public void run() {
 	while (!isFacingWall() && !isOverBaggle()) {
 		// Find first baggle
 		while (!isOverBaggle()) {
-			forward();
+			if (!isFacingWall()) {
+				forward();
+			}
 		}
 
 		if (isOverBaggle()) {
