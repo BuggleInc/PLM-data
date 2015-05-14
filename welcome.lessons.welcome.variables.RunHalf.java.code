@@ -7,6 +7,12 @@ public void run() {
 	//Move forward until correct number reached
 	while (2 * BaggleCount != OrangeCells + 1) {
 		forward();
+		if isOverOrange() {
+			OrangeCells = OrangeCells + 1;
+		}
+		if isOverBaggle() {
+			BaggleCount = BaggleCount + 1;
+		}
 	}
 	
 }
