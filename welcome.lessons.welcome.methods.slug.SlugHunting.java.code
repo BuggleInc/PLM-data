@@ -1,4 +1,33 @@
+boolean isFacingTrail() {
+	boolean solVert;
+	leveBrosse();
+	if (estFaceMur()){
+		solVert = false;
+	} else {
+		avance();
+		if (getCouleurSol().equals(Color.green)){
+			solVert = true;
+		} else {
+			solVert = false;
+		}
+		recule();
+	}
+	baisseBrosse();
+	return solVert;
+}        
+void caseSuivante(){
+	while (!isFacingTrail()){
+		gauche();
+	}
+	avance();
+}
+void pister(){
+	while (!estSurBiscuit()){
+		caseSuivante();
+	}
+	prendBiscuit();
+}
 public void hunt() {
-    
+    pister()
 }        
 
