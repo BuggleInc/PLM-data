@@ -5,26 +5,25 @@ public void run() {
 	right();
 
 	// Do while not facing the wall on exit
-	while (!isFacingWall()) {
+	while (!isFacingWall() && !isOverBaggle()) {
 		// Find first baggle
 		while (!isOverBaggle()) {
 			forward();
 		}
 
-		if (!isFacingWall()) {
-			if (isOverBaggle()) {
+		if (isOverBaggle()) {
 	
-				// Move baggle
-				pickupBaggle();
-				while (!isOverBaggle()) {
-					backward();
-				}
-			
-				// Move forward one cell (so in a free space)
-				forward();
-				dropBaggle();
-				forward();
+			// Move baggle
+			pickupBaggle();
+			while (!isOverBaggle()) {
+				backward();
 			}
+		
+			// Move forward one cell (so in a free space)
+			forward();
+			dropBaggle();
+			forward();
+				
 		}
 	}
 
