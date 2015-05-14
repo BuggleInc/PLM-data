@@ -4,23 +4,22 @@ public void run() {
 	right();
 	right();
 
-// Do while not facing the wall on exit
-//while (!isFacingWall()) {
+	// Do while not facing the wall on exit
+	while (!isFacingWall()) {
 
-	// Find first baggle
-	while (!isOverBaggle()) {
-		forward();
-	}
+		// Find first baggle
+		while (!isOverBaggle()) {
+			forward();
+		}
 
-	// Move baggle
-	pickupBaggle();
-	while (!isOverBaggle()) {
-		backward();
-	}
+		// Move baggle
+		pickupBaggle();
+		while (!isOverBaggle()) {
+			backward();
+		}
 	
-	// Move forward one cell (so in a free space)
-	forward();
-	dropBaggle();
+		// Move forward one cell (so in a free space)
+		forward();
+		dropBaggle();
+	}
 }
-
-//}
