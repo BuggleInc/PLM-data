@@ -2,6 +2,7 @@ void marquage(){
 	baisseBrosse();
 	leveBrosse();
 }
+
 void quartDeCarreHautGauche() {
 	avance();
 	marquage();
@@ -28,8 +29,28 @@ void quartDeCarreHautDroite(){
 	gauche();
 }
 
-public void run() {
+void demiCarreBas(){
 	quartDeCarreHautGauche();
 	avance(2);
 	quartDeCarreHautDroite();
+	recule(2);
+}
+
+void demiCarreHaut(){
+	quartDeCarreHautDroite();
+	avance(2);
+	quartDeCarreHautGauche();
+	recule(2);
+}
+
+void carre(){
+	demiCarreBas();
+	droite();
+	avance(2);
+	gauche();
+	demiCarreHaut();
+}
+
+public void run() {
+	carre();
 }
