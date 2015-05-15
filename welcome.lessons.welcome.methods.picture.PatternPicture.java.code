@@ -1,4 +1,4 @@
-void marquage(){
+void marquage() {
 	baisseBrosse();
 	leveBrosse();
 }
@@ -16,7 +16,7 @@ void quartDeCarreHautGauche() {
 	gauche();
 }
 
-void quartDeCarreHautDroite(){
+void quartDeCarreHautDroite() {
 	marquage();
 	avance();
 	gauche();
@@ -29,7 +29,7 @@ void quartDeCarreHautDroite(){
 	gauche();
 }
 
-void demiCarreBas(){
+void demiCarreBas() {
 	setCouleurBrosse(Color.red);
 	quartDeCarreHautGauche();
 	avance(2);
@@ -38,7 +38,7 @@ void demiCarreBas(){
 	recule(2);
 }
 
-void demiCarreHaut(){
+void demiCarreHaut() {
 	setCouleurBrosse(Color.yellow);
 	quartDeCarreHautDroite();
 	avance(2);
@@ -47,7 +47,7 @@ void demiCarreHaut(){
 	recule(2);
 }
 
-void carre(){
+void carre() {
 	demiCarreBas();
 	gauche();
 	avance(2);
@@ -58,6 +58,12 @@ void carre(){
 	droite();
 }
 
-public void run() {
+void demiPlateau() {
 	carre();
+	avance(4);
+	carre();
+}
+
+public void run() {
+	demiPlateau();
 }
