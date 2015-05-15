@@ -1,5 +1,5 @@
 
-
+"""
 n=0
 while(True):
   n-=1
@@ -21,3 +21,31 @@ while(True):
   else :
     avance()
 
+"""
+
+m=0
+n=0
+while(True):
+  n-=1
+  gauche()
+  while(m==0 and (not estFaceMur())):
+   
+    avance()
+  if estFaceMur():
+    n+=1
+    droite()
+    while(m==0 and (not estFaceMur())):
+     
+      avance()
+    if not estFaceMur():
+      avance()
+    else :
+      n+=1
+      droite()
+      while(m==0 and (not estFaceMur())):
+        
+        avance()
+  else :
+    avance()
+  m=n
+  print(n,m)
