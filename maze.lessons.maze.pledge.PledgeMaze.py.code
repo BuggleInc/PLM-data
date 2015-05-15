@@ -1,16 +1,16 @@
       
-
+m=0
 n=0
 while(True):
   n-=1
   gauche()
-  while(n%4==0 and (not estFaceMur())):
+  while(m==0 and (not estFaceMur())):
    
     avance()
   if estFaceMur():
     n+=1
     droite()
-    while(n%4==0 and (not estFaceMur())):
+    while(m==0 and (not estFaceMur())):
      
       avance()
     if not estFaceMur():
@@ -18,9 +18,10 @@ while(True):
     else :
       n+=1
       droite()
-      while(n%4==0 and (not estFaceMur())):
+      while(m==0 and (not estFaceMur())):
         
         avance()
   else :
     avance()
-  print(n)
+  m=n+m
+  print(n,m)
