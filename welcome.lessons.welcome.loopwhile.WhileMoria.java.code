@@ -4,9 +4,12 @@ right();
 	while(!isOverBaggle()){
 		forward();
 		
-		if(isOverBaggle()){
+		if(isOverBaggle()&&!isCarryingBaggle()){
 			pickupBaggle();
 			right();right();
+		}else if(isCarryingBaggle()){
+			backward();
+			dropBaggle();
 		}
 		forward();
 		
