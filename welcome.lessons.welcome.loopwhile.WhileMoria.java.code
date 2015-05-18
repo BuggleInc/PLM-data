@@ -1,17 +1,19 @@
 public void run() { 
 	while(!isBackingWall()){
-		while(!isOverBaggle()){
+		while(!isOverBaggle() || isBackingWall()){
 			backward();
 		} 
 		if(isOverBaggle()){
 			pickupBaggle();
+			if(isCarryingABaggle()){
+				while(!isOverBaggle()){
+					forward();	
+				}	
+				backward();
+				dropBaggle();
+				backward();
+			}
 		}
-		while(!isOverBaggle()){
-			forward();	
-		}
-		backward();
-		dropBaggle();
-		backward();
 	}
 	right();
 	while(!isBackingWall()){
