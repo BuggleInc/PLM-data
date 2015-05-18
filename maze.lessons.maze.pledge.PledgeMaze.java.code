@@ -20,13 +20,13 @@ public int keepHandOnSideWall(int counter){
 	if (isFacingWall()) {
 		right();
 		counter++;
-		keepHandOnSideWall();
+		counter = keepHandOnSideWall(counter);
 	} else {
 		while(isFacingWall()){
 			right();
 			counter++;
 		}
-		keepHandOnSideWall();
+		counter = keepHandOnSideWall(counter);
 	}
 	return counter;
 }
