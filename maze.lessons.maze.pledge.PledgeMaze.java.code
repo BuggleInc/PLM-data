@@ -1,17 +1,17 @@
 public void run() {
-	setDirection(Direction.NORTH);
-	while(!isFacingWall()){
-		forward();
-	}
-	int counter = 0;
-	Direction direction = getDirection();
-	while(isFacingWall()){
-		right();
-		counter++;
-		if (getDirection() == direction && counter == 0){
-			break;
+	while(!isOverBaggle()){
+		setDirection(Direction.NORTH);
+		while(!isFacingWall()){
+			forward();
 		}
-	}
-	
-	
+		int counter = 0;
+		Direction direction = getDirection();
+		while(isFacingWall()){
+			right();
+			counter++;
+			if (getDirection() == direction && counter == 0){
+				break;
+			}
+		}
+	}	
 }
