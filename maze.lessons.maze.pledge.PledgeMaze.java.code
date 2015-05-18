@@ -12,21 +12,12 @@ public void run() {
 }	
 
 public int keepHandOnSideWall(int counter){
-	if (!isFacingWall()) {
+	while (!isFacingWall()) {
 		forward();
 	}
-	left();
-	counter--;
-	if (isFacingWall()) {
+	while (isFacingWall()) {
 		right();
 		counter++;
-		counter = keepHandOnSideWall(counter);
-	} else {
-		while(isFacingWall()){
-			right();
-			counter++;
-		}
-		counter = keepHandOnSideWall(counter);
 	}
 	return counter;
 }
