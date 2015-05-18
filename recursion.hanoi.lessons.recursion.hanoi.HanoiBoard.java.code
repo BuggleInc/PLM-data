@@ -1,10 +1,8 @@
 
-	public void linearHanoi(int height, int src, int mid, int dst) {
+	public void hanoi(int height, int src, int other, int dst) {
 		if (height != 0) {
-			linearHanoi(height-1, src, mid, dst);
-			move(src,mid);
-			linearHanoi(height-1, dst,mid,src);
-			move(mid,dst);
-			linearHanoi(height-1, src, mid, dst);
+			hanoi(height-1, src, dst, other);
+			move(src,dst);
+			hanoi(height-1, other,src, dst);
 		}
 	}
