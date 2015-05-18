@@ -14,15 +14,19 @@ public void run() {
 public int keepHandOnSideWall(int counter){
 	if (!isFacingWall()) {
 		forward();
-		left();
-		counter--;
-		while (isFacingWall()) {
+	}
+	left();
+	counter--;
+	if (isFacingWall()) {
+		right();
+		counter++;
+		keepHandOnSideWall();
+	} else {
+		while(isFacingWall()){
 			right();
 			counter++;
 		}
-	} else {
-		right();
-		counter++;
+		keepHandOnSideWall();
 	}
 	return counter;
 }
