@@ -11,15 +11,22 @@ public void run() {
 	}
 }	
 
-public int keepHandOnSideWall(int counter){
-	while (!isFacingWall()) {
+ublic int keepHandOnSideWall(int counter){
+	if (!isFacingWall()) {
 		forward();
+		left();
+		counter--;
+		if (isFacingWall()) {
+			right();
+			counter++;
+		}
+	} else {
+		left();
+		counter--;
+		if (!isFacingWall()) {
+			forward();
+		}
 	}
-	while (isFacingWall()) {
-		right();
-		counter++;
-	}
-	return counter;
 }
 
 public boolean isDirectionFree(Direction queriedDir){
