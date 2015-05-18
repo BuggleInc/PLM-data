@@ -8,27 +8,38 @@ public void run() {
 	}
 }	
 
-public void keepHandOnSideWall(){
-	int counter = 0;
-	writeMessage(counter);
-	do {
-		if (!isFacingWall()) {
-			forward();
-			left();
-			counter--;
-			if (isFacingWall()) {
-				right();
+void keepHandOnSideWall(){
+	while (!isFacingWall() && wallToLeft()){
+		forward();
+	}
+	if (isFacingWall()){
+		left();
+		counter--;
+		if (isFacingWall()){
+			right();
 			counter++;
-			}
-		} else {
-			left();
-			counter--;
-			if (!isFacingWall()) {
-				forward();
+			right();
+			counter++;
+			if (isFacingWall()){
+				right();
+				counter++;
+				keepHandOnSideWall();
 			}
 		}
 	}
-	while (counter != 0);
+	if (!wallToLeft()){
+		left();
+		counter--;
+		forward();
+		keepHandOnSideWall();
+	}
+}
+
+boolean wallToLeft(){
+	left();
+	boolean wallToLeft = isFacingWall();
+	right();
+	return wallToLeft;
 }
 
 public boolean isDirectionFree(Direction queriedDir){
