@@ -4,11 +4,11 @@ public void run() {
 		while(!isFacingWall()){
 			forward();
 		}
-		keepHandOnSideWall();
+		keepHandOnSideWall(0);
 	}
 }	
 
-void keepHandOnSideWall(){
+void keepHandOnSideWall(int counter){
 	while (!isFacingWall() && wallToLeft()){
 		forward();
 	}
@@ -23,7 +23,7 @@ void keepHandOnSideWall(){
 			if (isFacingWall()){
 				right();
 				counter++;
-				keepHandOnSideWall();
+				keepHandOnSideWall(counter);
 			}
 		}
 	}
@@ -31,7 +31,7 @@ void keepHandOnSideWall(){
 		left();
 		counter--;
 		forward();
-		keepHandOnSideWall();
+		keepHandOnSideWall(counter);
 	}
 }
 
@@ -40,12 +40,4 @@ boolean wallToLeft(){
 	boolean wallToLeft = isFacingWall();
 	right();
 	return wallToLeft;
-}
-
-public boolean isDirectionFree(Direction queriedDir){
-	Direction currentDir = getDirection();
-	setDirection(queriedDir);
-	boolean result = isFacingWall();
-	setDirection(currentDir);
-	return result;
 }
