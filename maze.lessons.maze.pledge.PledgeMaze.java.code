@@ -1,12 +1,12 @@
 public void run() {
-	setDirection(Direction.NORTH);
-	int counter;
+	int counter = 0;
 	while(!isOverBaggle()){
+		setDirection(Direction.NORTH);
 		while(!isFacingWall()){
 			forward();
 		}
 		while (counter != 0){
-			counter = keepHandOnSideWall(0);
+			counter = keepHandOnSideWall(counter);
 		}
 	}
 }	
