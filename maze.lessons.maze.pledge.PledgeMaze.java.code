@@ -5,17 +5,29 @@ public void run() {
 			forward();
 		}
 		int counter = 0;
-		Direction direction = getDirection();
-		while(isFacingWall()){
+		while(counter != 0 && isDirectionFree(Direction.NORTH){
+			counter = keepHandOnSideWall(counter);
+		}
+	}
+}	
+
+public int keepHandOnSideWall(int counter){
+	if (!isFacingWall()) {
+		forward();
+		left();
+		counter--;
+		while (isFacingWall() && !isOverBaggle()) {
 			right();
 			counter++;
 		}
-		if (getDirection() == direction && counter == 0){
-			while(!isFacingWall()){
-				forward();
-			}
-				break;
-			}
-		}
-	}	
-Then, put a paw on a wall (using (keepHandOnSideWall()) while the sum of turns is not null and the favorite direction is not free. Do that until you find your baggle.
+	}
+	return counter;
+}
+
+public boolean isDirectionFree(Direction queriedDir){
+	Direction currentDir = getDirection();
+	setDirection(queriedDir);
+	boolean result = isFacingWall();
+	setDirection(currentDir);
+	return result;
+}
