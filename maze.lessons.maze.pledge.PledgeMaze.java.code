@@ -4,15 +4,13 @@ public void run() {
 		while(!isFacingWall()){
 			forward();
 		}
-		int counter = 0;
-		counter = keepHandOnSideWall(counter);
-		while(counter != 0 && isDirectionFree(Direction.NORTH)){
-			counter = keepHandOnSideWall(counter);
-		}
+		keepHandOnSideWall();
 	}
 }	
 
-public int keepHandOnSideWall(int counter){
+public void keepHandOnSideWall(){
+	int counter = 0;
+	do {
 	if (!isFacingWall()) {
 		forward();
 		left();
@@ -28,7 +26,7 @@ public int keepHandOnSideWall(int counter){
 			forward();
 		}
 	}
-	return counter;
+	while (counter != 0 && isDirectionFree(Direction.NORTH));
 }
 
 public boolean isDirectionFree(Direction queriedDir){
