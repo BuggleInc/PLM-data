@@ -1,7 +1,11 @@
 public void run() {
 	while (!isOverBaggle()) {
-		findNorthWall();
-		keepHandOnSideWall();
+		if (!isFacingWall() && getDirection == Direction.NORTH){
+			findNorthWall();
+		} else {
+			findSideWall();
+			keepHandOnSideWall();
+		}
 	}
 	pickupBaggle();
 }
@@ -12,6 +16,15 @@ public void findNorthWall(){
 		forward();
 	}
 	while(isFacingWall()){
+		right();
+	}	
+}
+
+public void findSideWall(){
+	while (!isFacingWall()){
+		forward();
+	}
+	while (isFacingWall()){
 		right();
 	}
 }
