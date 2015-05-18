@@ -11,19 +11,20 @@ public void run() {
 public void keepHandOnSideWall(){
 	int counter = 0;
 	do {
-	if (!isFacingWall()) {
-		forward();
-		left();
-		counter--;
-		if (isFacingWall()) {
-			right();
-			counter++;
-		}
-	} else {
-		left();
-		counter--;
 		if (!isFacingWall()) {
 			forward();
+			left();
+			counter--;
+			if (isFacingWall()) {
+				right();
+			}
+			counter++;
+		} else {
+			left();
+			counter--;
+			if (!isFacingWall()) {
+				forward();
+			}
 		}
 	}
 	while (counter != 0 && isDirectionFree(Direction.NORTH));
