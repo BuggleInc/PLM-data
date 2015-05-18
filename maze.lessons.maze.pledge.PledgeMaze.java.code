@@ -16,10 +16,13 @@ public int keepHandOnSideWall(int counter){
 		forward();
 		left();
 		counter--;
-		while (isFacingWall() && !isOverBaggle()) {
+		while (isFacingWall()) {
 			right();
 			counter++;
 		}
+	} else {
+		right();
+		counter++;
 	}
 	return counter;
 }
