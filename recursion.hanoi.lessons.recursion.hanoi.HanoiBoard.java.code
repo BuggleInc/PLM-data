@@ -1,6 +1,10 @@
-public void solve(int src, int dst, int other) {
-    solve(src, dst, other, getSlotSize(src));
-}
 
-public void solve(int src, int dst, int other, int height) {
-}
+	public void linearHanoi(int height, int src, int mid, int dst) {
+		if (height != 0) {
+			linearHanoi(height-1, src, mid, dst);
+			move(src,mid);
+			linearHanoi(height-1, dst,mid,src);
+			move(mid,dst);
+			linearHanoi(height-1, src, mid, dst);
+		}
+	}
