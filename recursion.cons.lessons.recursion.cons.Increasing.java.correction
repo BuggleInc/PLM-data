@@ -1,0 +1,10 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; import lessons.recursion.cons.universe.*;import java.util.Vector;public class increasing extends BatEntity { public RecList cons(int head, RecList tail){  return new RecList(head, tail);} @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( increasing( (RecList)t.getParameter(0) ) ); }
+	boolean increasing(RecList seq) {
+		if (seq == null || seq.tail == null)
+			return true;
+		if (seq.head > seq.tail.head)
+			return false;
+		return increasing(seq.tail);
+	}
+ }

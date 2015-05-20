@@ -1,0 +1,10 @@
+boolean increasing(RecList seq) {
+	int previous = seq.head;
+	return inc(seq.tail, previous);
+}
+
+boolean inc(RecList seq, int previous){
+	if (seq == null) return true;
+	if (seq.head >= previous) return inc(seq.tail, seq.head);
+	return false;
+}
