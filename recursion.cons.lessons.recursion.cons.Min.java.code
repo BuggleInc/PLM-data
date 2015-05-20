@@ -1,0 +1,10 @@
+int min(RecList seq) {
+	int min = seq.head;
+	return minimum(seq, min);
+}
+
+int minimum(RecList seq, int min){
+	if (seq == null) return min;
+	if (seq.head < min) return minimum(seq.tail, seq.head);
+	else return minimum(seq.tail, min);
+}
