@@ -1,5 +1,5 @@
 int occurences(RecList seq, int val) {
 	if (seq == null) return 0;
-	if (seq.head == val) return 1 + (seq.tail, val);
-	return (seq.tail, val);
+	if (seq.head == val) return 1 + occurences(seq.tail, val);
+	return occurences(seq.tail, val);
 }
