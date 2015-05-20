@@ -1,6 +1,4 @@
 Boolean isMember(RecList seq, int val) {
-	for (int value : seq) {
-		if (value == val) return true;
-	}
-	return false;
+	if (seq.head == val) return true;
+	return isMember(seq.tail, val);
 }
