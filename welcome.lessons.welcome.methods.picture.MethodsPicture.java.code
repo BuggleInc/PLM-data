@@ -1,2 +1,60 @@
 public void run() {
+	makePatternIn(9, 9);
+
+}
+void makePatternIn(int x, int y){	
+	for(int i = 0; i < x; i++){
+		for(int j = 0; j < y; j++){
+			makeSubPattern();
+			goLeft();
+		}
+		goUp();
+	}
+}
+Color nextColor(){
+	Color c = getBodyColor();
+	if(c.equals(Color.green)
+		return Color.yellow;
+	else if c.equals(Color.yellow)
+		return Color.red;
+	else if c.equals(Color.red)
+		return Color.blue;
+	else if c.equals(Color.blue)
+		return Color.green;		
+	return Color.yellow;
+}
+void makeSubPattern(){
+	for(int i = 0; i < 4; i++)
+		makeV(nextColor());
+}
+
+void goLeft(){
+	forward(7);
+}
+
+void goUp(){
+	left();
+	forward(7);
+	right();
+}
+
+void makeV(Color c){
+	setBodyColor(c);
+	forward(2);
+	mark();
+	forward();
+	left();
+	forward();
+	mark();
+	backward();
+	right();
+	forward();
+	mark();
+	forward(2);
+	left();
+}
+
+void mark(){
+	brushDown();
+	brushUp();
 }
