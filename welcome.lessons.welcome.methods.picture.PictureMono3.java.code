@@ -1,2 +1,37 @@
 public void run() {
+	for(int i = 0; i < 3; i++)
+		makePattern();
+
+}
+void makePattern(){
+	for(int j = 0; j < 3; j++){
+		makeSubPattern();
+	}
+	left();
+	forward(7);
+	right();
+}
+void makeSubPattern(){
+	for(int i = 0; i < 4; i++)
+		makeV();
+	forward(7);
+}
+void makeV(){
+	forward(2);
+	mark();
+	forward();
+	left();
+	forward();
+	mark();
+	backward();
+	right();
+	forward();
+	mark();
+	forward(2);
+	left();
+}
+
+void mark(){
+	brushDown();
+	brushUp();
 }
