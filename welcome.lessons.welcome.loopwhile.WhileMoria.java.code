@@ -1,9 +1,6 @@
 public void run() {
 
 	boolean c = false;
-	boolean ctrl = false;
-	Color controllo1 = Color.white;
-	Color controllo2 = Color.white;
 	
 	while ( ctrl==false ) {
 
@@ -14,17 +11,8 @@ public void run() {
 
 
 
-		while ( !isOverBaggle() ) {		//da ordine di proseguire fino a un baggle
+		while ( !isOverBaggle() )		//da ordine di proseguire fino a un baggle
 			forward();
-
-			if ( controllo1 != getGroundColor() && controllo1 != controllo2 ) {
-				controllo1 = getGroundColor();
-				if ( controllo2 != getGroundColor() && controllo1 != controllo2 ) {
-					controllo2 = getGroundColor();
-					ctrl = true;
-				}
-			}
-
 			
 			
 			if ( isFacingWall() && !isOverBaggle() ) {			//uscita verso zona verde
