@@ -18,14 +18,10 @@ public void run() {
 				forward();
 				left();
 				forward();
-			else
-				if ( isOverBaggle() && isFacingWall() ) {			//deposita il baggle
-					pickupBaggle();
-					right(); right();
 			}
-		
+		}
 
-		if ( isOverBaggle() )	{		//raccoglie il baggle
+		if ( isOverBaggle() || (isOverBaggle() && isFacingWall()) )	{		//raccoglie il baggle
 			pickupBaggle();
 			right(); right();
 
