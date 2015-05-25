@@ -3,29 +3,34 @@ public void run() {
 	int c = 0;
 	while ( getGroundColor() != Color.green ) {
 
-		if ( c==0 ) {
+		if ( c=0 ) {					//rotazione all'avvio
 		right(); right();
 		c++;
 		}
 
-		while ( !isOverBaggle() )
+		while ( !isOverBaggle() )		//da ordine di proseguire fino a un baggle
 			forward();
 
-		if ( isOverBaggle() )	{
+		if ( isOverBaggle() )	{		//raccoglie il baggle
 			pickupBaggle();
 			right(); right();
 
-			while ( !isOverBaggle() )
+			while ( !isOverBaggle() )	//prosegue verso destra
 				forward();
 		}
 
-		if ( isOverBaggle() ) {
+		if ( isOverBaggle() ) {			//deposita il baggle
 			right(); right();
 			forward();
 			dropBaggle();
 			forward();
 		}
 		
-		
+		if ( isFacingWall() ) {			//uscita verso zona verde
+			right();
+			forward();
+			left();
+			forward();
+		}
 	}
 }
