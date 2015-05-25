@@ -1,26 +1,30 @@
 public void run() {
 
-	int c = 0;
+	boolean c = false;
 	boolean ctrl = false;
+	Color controllo;
 	
 	while ( ctrl==false ) {
 
-		if ( c==0 ) {					//rotazione all'avvio
+		if ( c==false ) {					//rotazione all'avvio
 		right(); right();
-		c++;
+		c = true;
 		}
 
 
 
 		while ( !isOverBaggle() ) {		//da ordine di proseguire fino a un baggle
 			forward();
+
+			
 			
 			if ( isFacingWall() && !isOverBaggle() ) {			//uscita verso zona verde
 				right();
 				forward();
 				left();
 				forward();
-				ctrl = true;
+
+				
 			}
 		}
 
