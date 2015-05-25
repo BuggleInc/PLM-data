@@ -8,8 +8,16 @@ public void run() {
 		c++;
 		}
 
-		while ( !isOverBaggle() )		//da ordine di proseguire fino a un baggle
+		while ( !isOverBaggle() ) {		//da ordine di proseguire fino a un baggle
 			forward();
+			
+			if ( isFacingWall() ) {			//uscita verso zona verde
+				right();
+				forward();
+				left();
+				forward();
+		}
+		
 
 		if ( isOverBaggle() )	{		//raccoglie il baggle
 			pickupBaggle();
@@ -19,17 +27,11 @@ public void run() {
 				forward();
 		}
 
+
 		if ( isOverBaggle() ) {			//deposita il baggle
 			right(); right();
 			forward();
 			dropBaggle();
-			forward();
-		}
-		
-		if ( isFacingWall() ) {			//uscita verso zona verde
-			right();
-			forward();
-			left();
 			forward();
 		}
 	}
