@@ -5,11 +5,12 @@ public void run() {
 			pickUpBaggle();
 			while(isCarryingBaggle()){
 				forward();
-				if(isOverBaggle()){
+				while(isOverBaggle()){
 					backward();
-					dropBaggle();
-				}else {
-					forward();
+					if(!isOverBaggle()){
+						dropBaggle();
+					}
+					
 				}
 			}
 			
