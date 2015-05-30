@@ -3,6 +3,13 @@ public void run() {
 		backward();
 		if(isOverBaggle()){
 			pickUpBaggle();
+			while(isCarryingBaggle()){
+				forward();
+				if(isOverBaggle()){
+					backward();
+					dropBaggle();
+				}
+			}
 			
 		}else {
 			backward();
