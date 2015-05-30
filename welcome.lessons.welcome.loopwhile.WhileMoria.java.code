@@ -2,7 +2,16 @@ public void run() {
 	while(!isOverBaggle()){
 		backward();
 		if(isOverBaggle()){
-			pic
+			pickUpBaggle();
+			if(!isOverBaggle()){
+				forward();
+			}else {
+				backward();
+				dropBaggle();
+			}
+		}else {
+			backward();
 		}
 	}
 }
+//isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle().
