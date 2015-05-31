@@ -1,22 +1,17 @@
 public void run() { 
-	while(!isOverBaggle()){
+	while(!isOverBaggle()){ // going backward for baggles
 		backward();
-		while(isOverBaggle()){
+		if(isOverBaggle()){ // pick up baggle 
 			pickUpBaggle();
-			while(isCarryingBaggle()){
-				while(!isOverBaggle()){
-					forward();
-					if(isOverBaggle()){
-						backward();
-						dropBaggle();
-					}else {
-						forward();
-					}
-					
-				}
-				
+			forward();
+			if(isOverBaggle()){
+				backward();
+				dropBaggle();
+			}else {
+				run();
 			}
-			
+		}else {
+			run();
 		}
 	}
 }
