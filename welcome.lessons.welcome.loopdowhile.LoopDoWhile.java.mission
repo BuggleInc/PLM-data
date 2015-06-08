@@ -16,47 +16,50 @@
   </style>
 </head><body>
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h2>Loops Do .. while (faça .. enquanto)</h2>
+<h2>Ciclo do .. while</h2>
 
-<p>Algumas células do mundo são amarelas, mas seu buggle não pode ficar sobre
-estas células. Escreva o código necessário para mover para a frente até que
-o chão fique branco. Para isto use o método fornecido
-<code>chãoBranco()</code>.</p>
+<p>Alcune celle del mondo sono gialle, ma i tuoi buggle non possono rimanere in
+queste celle. Scrivi il codice necessario per muoversi avanti finché il
+terreno non diventerà bianco. Per far questo usa il metodo
+<code>isGroundWhite()</code>.</p>
 
-<p>O truque é que a maioria dos buggles deste mundo ficam sobre o chão amarelo
-que eles não gostam. é por isto que eles estão em pânico, e cada buggle
-"rushes" uma célula para a frente, mesmo aqueles que não estavam numa célula
-amarela no começo. Em outras palavras, mesmo se o chão for branco na
-primeira célula, você ainda vai querer se mover para a próxima célula.</p>    
+<p>L'inghippo sta nel fatto che molti buggle di questo mondo sono già sopra del
+terreno giallo ed a loro dispiace molto. Questo è il motivo per cui essi
+sono nel panico totale e si precipitano in avanti, anche i buggle che
+all'inizio non si trovano già su una casella gialla. In altre parole, anche
+se il pavimento è bianco nella prima cella dovete comunque muovervi nella
+casella successiva.</p>    
 
-<p>A ideia geral é fazer algo como: </p>
-<pre>Mover para a frente até estar numa célula branca</pre>
+<p>L'idea generale è qualcosa di simile a questo: </p>
+<pre>vai avanti fintanto che non sei su una cella bianca</pre>
 
-<p>A coisa mais difícil é que nós queremos executar o corpo do loop uma vez,
-mesmo se já estivermos numa célula branca. Isto é fácil duplicando o código
-do loop'antes do loop em si, mas esta é uma má ideia: diplicação de código é
-um hábito <b>muito</b> ruim, e você deve evitar isto <b>sempre</b>.</p>
+<p>La difficoltà maggiore è che vogliamo che il contenuto del ciclo sia
+eseguito almeno una volta, anche se ci troviamo già su una cella
+bianca. Potrebbe essere facile farlo semplicemente copiando il contenuto del
+ciclo ed incollandolo prima di esso ma questo non sarebbe una bella idea: la
+duplicazione del codice è <b>veramente</b> una cattiva abitudine e voi
+dovreste <b>sempre</b> evitarla.</p>
 
-<p>Duplicação de código faz da manutenção de código um pesadelo rapidamente: é
-fdifícil ler o código e o leitor tem que garantir que nenhuma pequena
-diferença exista entre as versões. Depurar o código se torna difícil, pois
-os bugs devem ser consertados em todas as versões. Na verdade, cada
-modificação do código se torna difícil. Então, na verdade, você deve
-<b>sempre</b> se esforçar para não duplicar seu código sempre que
-possível. Mas a boa notícia é que você sempre pode...</p>
+<p>Code duplication easily turns code maintenance into a nightmare: reading the
+code becomes difficult as the reader must ensure that no slight difference
+exist between the versions. Debugging the code becomes difficult, as bugs
+have to be fixed in all versions. Actually, every modification of the code
+becomes difficult. So, really, you should <b>always</b> strive to not
+duplicate your code if you can avoid. And the good news is that you always
+can...</p>
 
-<h3>Executando o corpo do loop pelo menos uma vez</h3>
+<h3>Eseguendo il contenuto del ciclo almeno una volta</h3>
  
-<p>Num loop <tt>while</tt>, a condição é calculada antes de qualquer coisa, e
-se for falsa, o corpo do loop nunca é executado. Algumas vezes (mas não
-muito frequentemente), você pode preferir que o corpo do loop seja executado
-pelo menos uma vez, mesmo se a condição seja inicialmente falsa. Para isto,
-uma variação do loop <tt>while</tt> é usada, com a seguinte sintaxe em
-Java.  Não esqueça o ponto-e-vírgula (;) depois da condição,
-que é obrigatório.
+<p>In a <tt>while</tt> loop, the condition is evaluated before anything else,
+and if it's false, the loop body is never evaluated. Sometimes (although not
+that often), you would prefer the loop body to get evaluated at least once,
+even if the condition is initially false. For that, a variation of the
+<tt>while</tt> loop gets used, using the following syntax in Java.
+Do not forget the semi-column (;) after the condition, it is
+mandatory.
 
 <pre>do {
-    <b>ação()</b>;
-} while (<b>condição</b>);</pre></p>
+    <b>azione()</b>;
+} while (<b>condizione</b>);</pre></p>
 
 </body></html>
