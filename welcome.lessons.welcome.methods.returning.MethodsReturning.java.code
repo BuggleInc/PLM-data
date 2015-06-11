@@ -1,2 +1,24 @@
 boolean haveBaggle() {
+	boolean aux=false;
+	while(!aux){
+		int compteur=0;
+		for (int i=0; i<6;i++){
+			if(estSurBiscuit()){
+				aux=true;
+			}
+			else{
+				avance();
+				compteur=compteur+1;
+			}
+		}
+		if(!aux){
+			droite();
+			avance();
+			gauche();
+		}
+	}
+	for (int i=0; i<compteur;i++){
+		recule();
+	}
+	return aux;
 }
