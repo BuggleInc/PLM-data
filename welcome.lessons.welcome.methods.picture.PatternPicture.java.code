@@ -1,9 +1,28 @@
 public void run() {
+extreme(Color.red,Color.blue);
+extreme(Color.blue,Color.green);
+extreme(Color.green,Color.yellow);
+extreme(Color.yellow,Color.red);
 }
 
-void dessinerAimant(Color c){
+void faireAimant(Color c, Color d){
 	avance();
-	
-	
+	dessiner(c);
+	avance(); 
+	dessiner(d);
+	avance();	
+}
+
+void dessiner(Color c){
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+void extreme(Color c, Color d) {
+	faireAimant(c,d);
+	avance();
+	faireAimant(c,d);
+	gauche();
 }
 
