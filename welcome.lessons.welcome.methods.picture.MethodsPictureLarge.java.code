@@ -1,2 +1,80 @@
 public void run() {
+
+ligneExtr(Color.yellow);
+ligneExtr(Color.red);
+ligneExtr(Color.blue);
+ligneExtr(Color.green);
+deplacement();
+
+for (int i=0; i<8; i++){
+motifCentral(Color.red, Color.green);
+gauche();
+deplacement();	
 }
+
+deplacement();
+
+for (int i; i<8; i++){
+motifCentral(Color.blue, Color.yellow);
+gauche();
+deplacement();}
+
+}
+
+void dessiner(Color c){
+	setCouleurBrosse(c);
+	baisseBrosse();
+	leveBrosse();
+}
+
+void  faireV(Color c) {
+	avance();
+	dessiner(c);
+	gauche();
+	avance();
+	droite();
+	avance();
+	dessiner(c);
+	avance();
+	droite();
+	avance();
+	dessiner(c);
+	gauche();
+	avance();	
+}
+
+void ligneExtr(Color c){
+for (int i=0;i<8;i++){
+	faireV(c);
+	avance();
+}	
+faireV(c);
+gauche();
+}
+
+void motifCentral(Color c, Color d) {
+for (int k=0; k<2; k++){
+		faireV(c);
+		avance();
+	}
+faireV(c);
+droite();
+avance();
+droite();
+for (int k=0; k<2; k++){
+		faireV(d);
+		avance();
+	}
+faireV(d);
+}
+
+void deplacement() {
+	for (int i=0; i<4; i++){
+		avance();
+	}
+	gauche();
+}
+
+
+
+
