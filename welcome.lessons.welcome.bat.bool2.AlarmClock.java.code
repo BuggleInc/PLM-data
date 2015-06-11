@@ -1,2 +1,27 @@
 String alarmClock(int day, boolean vacation) {
+boolean weekday=weekDay(day);
+if (sleepIn(weekday,vacation)) {
+	return "10:00";
+}
+else {
+	return "7:00";
+}
+}
+
+boolean sleepIn(boolean weekday, boolean vacation) {
+if(vacation || !weekday){
+	return true;
+}
+else {
+	return false;
+}
+}
+
+boolean weekDay(int day){
+	if (day==0 || day==6){
+		return false;
+	}
+	else {
+		return true;
+	}
 }
