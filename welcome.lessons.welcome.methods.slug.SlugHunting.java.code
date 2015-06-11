@@ -1,8 +1,47 @@
 public void hunt() {
+while (!estSurBiscuit){
+	if(isFacingTrail()){
+		effacerPiste();
+		avance();
+	}
+	else{
+		gauche();
+		if(isFacingTrail()){
+			effacerPiste();
+			avance();
+		}
+		else{
+			retourne();
+			if(isFacingTrail()){
+				effacerPiste();
+				avance();
+			}
+		}
+	}
+}
+prendBiscuit();
     
 }
 
 void isFacingTrail() {
+	if(estFaceMur()){
+	return false;
+}
+else {
+	avance();
+	if (getCouleurSol().equals(Color.green)){
+		recule();
+		return true;
+	}
+	else {
+		recule();
+		return false;
+	}
+}
 	
+}
+void effacerPiste(){
+	baisseBrosse();
+	leveBrosse();
 }
 
