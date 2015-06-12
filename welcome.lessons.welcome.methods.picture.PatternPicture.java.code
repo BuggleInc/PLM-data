@@ -1,17 +1,17 @@
 public void run() {
 }
-public void run() {
-	makePatternIn(9, 9);
 
+void pattern(){
+	doSide();
+	left();
 }
-void makePatternIn(int x, int y){	
-	for(int i = 0; i < x; i++){
-		for(int j = 0; j < y; j++){
-			makeSubPattern();
-			goLeft();
-		}
-		goUp();
-	}
+void doSide(){
+	forward();
+	mark();
+	setBrushColor(nextColor);
+	forward();
+	mark();
+	forward();
 }
 Color nextColor(){
 	Color c = getBrushColor();
@@ -24,36 +24,6 @@ Color nextColor(){
 	else if (c.equals(Color.blue))
 		return Color.green;	
 	else return Color.yellow;
-}
-void makeSubPattern(){
-	for(int i = 0; i < 4; i++)
-		makeV(nextColor());
-}
-
-void goLeft(){
-	forward(5);
-}
-
-void goUp(){
-	left();
-	forward(5);
-	right();
-}
-
-void makeV(Color c){
-	setBrushColor(c);
-	forward();
-	mark();
-	forward();
-	left();
-	forward();
-	mark();
-	backward();
-	right();
-	forward();
-	mark();
-	forward();
-	left();
 }
 
 void mark(){
