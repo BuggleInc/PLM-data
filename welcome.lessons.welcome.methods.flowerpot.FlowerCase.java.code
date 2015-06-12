@@ -1,0 +1,45 @@
+void growFlowers(){
+	twoFlowers(Color.red, Color.cyan);
+	nextRow();
+	midFlower();
+	nextRow();
+	twoFlowers(Color.pink, Color.green);
+}
+
+void midFlower(){
+	forward(2);
+	flower(Color.orange);
+	toWall();
+}
+	
+void nextRow(){
+	right();
+	forward(2);
+	left();
+}
+
+void twoFlowers(Color c1, Color c2){
+	flower(c1);
+	forward(3);
+	flower(c2);
+	toWall();
+}
+void toWall(){
+	while(!isBackingWall()){
+		backward();
+	}
+}
+
+void flower(Color c){
+	setBrushColor(c);
+	brushDown();
+	forward(2);
+	backward(1);
+	left();
+	backward(1);
+	forward(2);
+	backward(1);
+	setBrushColor(Color.yellow);
+	brushUp();
+	right();
+}
