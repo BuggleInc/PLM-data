@@ -1,0 +1,39 @@
+void run(){
+deplacerEtDessiner(4);
+deplacerEtDessiner(4);
+deplacerEtDessiner(4);	
+deplacerEtDessiner(3);
+deplacerEtDessiner(1);
+
+reculer(1);
+reculer(3);
+reculer(4);
+reculer(4);
+reculer(4);
+}
+
+void dessiner(){
+	baisseBrosse();
+	leveBrosse();
+}
+
+void deplacer(int n){
+	for (int i=0; i<n; i++){
+		avance();
+	}
+}
+
+void deplacerEtDessiner(int n){
+	gauche();
+	for (int i=0; i<n;i++){
+		dessiner();
+		avance();
+	}
+}
+
+void reculer(int n){
+	for (int i=0; i<n;i++){
+		recule();
+	}
+	droite();
+}
