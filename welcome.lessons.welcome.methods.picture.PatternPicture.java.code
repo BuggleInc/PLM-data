@@ -21,7 +21,13 @@ void doSide(){
 	forward();
 }
 void next(){
-	forward(4);
+	forward(3);
+	if(isFacingWall()){
+		backward(3);
+		left();
+		forward(4);
+		right();
+	}
 }
 Color nextColor(){
 	Color c = getBrushColor();
