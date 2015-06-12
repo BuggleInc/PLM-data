@@ -1,10 +1,11 @@
-void firstTerrain(){
-	growFlowers();
-	//nextField();
-	growFlowers();
-}
 
 void growFlowers(){
+	flowerPot();
+	
+}
+void betweenpots();
+
+void flowerPot(){
 	twoFlowers(Color.red, Color.cyan);
 	nextRow();
 	midFlower();
@@ -12,16 +13,28 @@ void growFlowers(){
 	twoFlowers(Color.pink, Color.green);
 }
 
+void previousRow(){
+	right();
+	backward(2);
+	left();
+}
+
+void nextRow(){
+	right();
+	forward(2);
+	left();
+}
+
 void midFlower(){
 	forward(2);
 	flower(Color.orange);
 	toWall();
 }
-	
-void nextRow(){
-	right();
-	forward(2);
-	left();
+
+void threeFlowers(){
+	midflower();
+	forward(3);
+	flower(Color.blue)
 }
 
 void twoFlowers(Color c1, Color c2){
