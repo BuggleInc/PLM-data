@@ -23,7 +23,9 @@ void doSide(){
 void next(){
 	forward(3);
 	if(isFacingWall()){
-		backward(3);
+		while(!isBackingWall()){
+			backward();
+		}
 		left();
 		forward(4);
 		right();
