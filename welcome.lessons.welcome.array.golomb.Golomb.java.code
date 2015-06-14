@@ -1,18 +1,29 @@
 int golomb(int num) {
-	int[] seq = new int[num + 2];
+	int[] g = new int[num + 2];
 	int fillWith = 1;
 	int count = 1;
 		
 	for(int i = 1; i <= num; i++){
-		if(count <= 0){
-			fillWith++;
-			count = seq[fillWith];
+		if(count > 0)
+			g[i] = fillWith;
+		else {
+			fillWith + 1;
+			g[i] = fillWith;
+			count = g[fillWith];
 		}
-		
-		seq[i] = fillWith;
 		count--;
-		
 	}
 	
-	return seq[num];
+	return g[num];
 }
+
+// g(x) = number of times x appears
+// g(x) <= g(x+1) means 
+// 			g(x) == g(x+1) ||
+//		1 +  g(x) == g(x + 1)
+// g(1) = 1
+// g(2) = 2
+// g(3) = 2
+
+// g(4) ?
+// 
