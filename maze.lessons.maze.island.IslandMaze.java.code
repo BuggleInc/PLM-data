@@ -1,2 +1,57 @@
 public void run() {
+	keepHandOnSideWall();
+}
+
+void keepHandOnSideWall(){
+	mark();
+	do {
+		if(wallOnLeft()){
+			if(!isFacingWall())
+				forward();
+			else{
+				right();
+			}
+		} else {
+			left();
+			forward();
+		}
+	} while(!overMark() || !isOverBaggle());
+	if(isOverBaggle()){
+		pickupBaggle();
+	}
+	if(overMark()){
+		faceEmpty();
+		faceAWall();
+	}
+}
+
+boolean overMark(){
+	return getBrushColor() == getGroundColor();
+	
+}
+void mark(){
+	brushDown();		
+	brushUp();	
+}
+
+void faceAWall(){
+	while(!isFacingWall())
+		forward();
+}
+
+void faceEmpty(){
+	while(isFacingWall())
+		left();
+}
+
+void faceEmptyAndLeftWall(){
+	while(isFacingWall() && !wallOnLeft())
+		left();
+}
+
+boolean wallOnLeft(){
+	left();
+	boolean a = isFacingWall();
+	right();
+	return a;
 }
