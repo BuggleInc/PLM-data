@@ -21,16 +21,19 @@ int drawDiag(int diag, int ccounter){
 	return counter;
 }
 
-/* diag = x
- * x a n - x
+/* for
+ * x, n - x ... n - x, x
+ * 0, n - 0 ... n - 0, 0
  * 1, n - 1 ... n - 1, 1
+ * 2, n - 2 ... n - 2, 2
+ * ...
  * 
  */
 
 int drawDown(int diag, int height, int ccounter){
 	int counter = ccounter;
 
-	for(int x = diag; x <= height - diag; x++){
+	for(int x = diag; x <= height; x++){
 		setPos(x, diag + height - x);
 		counter = pressNumber(counter);
 	}
