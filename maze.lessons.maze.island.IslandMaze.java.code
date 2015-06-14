@@ -1,5 +1,8 @@
 public void run() {
-	keepHandOnSideWall();
+	while(!isOverBaggle()){
+		keepHandOnSideWall();
+	}
+	pickupBaggle();
 }
 
 void keepHandOnSideWall(){
@@ -16,9 +19,6 @@ void keepHandOnSideWall(){
 			forward();
 		}
 	} while(!overMark() && !isOverBaggle());
-	if(isOverBaggle()){
-		pickupBaggle();
-	}
 	if(overMark()){
 		faceEmpty();
 		faceAWall();
