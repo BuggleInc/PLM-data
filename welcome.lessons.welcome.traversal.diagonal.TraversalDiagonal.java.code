@@ -17,8 +17,7 @@ int drawDiag(int diag, int ccounter){
 	int counter = ccounter;
 	for(int x = 0; x <= diag; x++){
 		setPos(x, diag - x);
-		writeMessage(counter);
-		counter++;
+		counter = pressNumber(counter);
 	}
 	return counter;
 }
@@ -26,7 +25,10 @@ int drawDiag(int diag, int ccounter){
 int drawDown(int diag, int ccounter){
 	int counter = ccounter;
 	
-	writeMessage(counter);
-	ccounter++;
+	counter = pressNumber(counter);
 }
 
+int pressNumber(int counter){
+	writeMessage(counter);
+	return counter + 1;
+}
