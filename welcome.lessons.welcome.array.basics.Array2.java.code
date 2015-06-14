@@ -1,5 +1,4 @@
-
-Color [] colors = getOrder();
+Color[] colors = getOrder();
 while(!ended()){
 	nextColumn();
 	fillColumn(colors);
@@ -12,6 +11,7 @@ boolean ended(){
 	right();
 	return a;
 }
+
 void fillColumn(Color[] colors){
 	int offset = Integer.parseInt(readMessage());
 	int index = offset;
@@ -43,14 +43,14 @@ Color [] getOrder(){
 		forward();
 	}
 	toWall();
-	return Color[]
+	return colors;
 }
 
 void toWall(){
-	while(!isBackingWall()){
+	while(!isBackingWall())
 		backward();
-	}
 }
+
 int getSideSize(){
 	int i = 0;
 	while(!isFacingWall){
