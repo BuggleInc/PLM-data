@@ -5,21 +5,27 @@ public void run() {
 	for(int diag = 0; diag < getWorldHeight(); diag++){	
 		counter = drawDiag(diag, counter);
 	}
+	for(int diag = 0; diag < getWorldHeight(); diag++){
+		
+	}
 
 }
 
 
-int drawDiag(int diag, int counter){
-	int ccounter = counter;
+int drawDiag(int diag, int ccounter){
+	int counter = ccounter;
 	for(int x = 0; x <= diag; x++){
 		setPos(x, diag - x);
-		writeMessage(ccounter);
-		ccounter++;
+		writeMessage(counter);
+		counter++;
 	}
-	return ccounter;
+	return counter;
 }
 
-int drawDown(int diag){
+int drawDown(int diag, int ccounter){
+
+	writeMessage(counter);
+	ccounter++;
 	if(diag > getWorldHeight()){
 		start = diag - getWorldHeight();
 	}
