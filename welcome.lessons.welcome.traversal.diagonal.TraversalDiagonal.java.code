@@ -12,7 +12,6 @@ public void run() {
 
 }
 
-
 int drawDiag(int diag, int ccounter){
 	int counter = ccounter;
 	for(int x = 0; x <= diag; x++){
@@ -22,10 +21,20 @@ int drawDiag(int diag, int ccounter){
 	return counter;
 }
 
-int drawDown(int diag, int ccounter){
+/* diag = x
+ * x a n - x
+ * 1, n - 1 ... n - 1, 1
+ * 
+ */
+
+int drawDown(int diag, int height, int ccounter){
 	int counter = ccounter;
-	
-	counter = pressNumber(counter);
+
+	for(int x = diag; x <= height - diag; x++){
+		setPos(x, diag - x);
+		counter = pressNumber(counter);
+	}
+
 	return counter;
 }
 
