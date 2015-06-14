@@ -1,20 +1,19 @@
 
 public void run() {
-	int diag = 0;
 	int counter = 0;
 	
-	for(int i = 0; i < getWorldHeight(); i++)
-		for(int j = 0; j < getWorldWidth(); j++){
-			setPos(0,0);
-			setPos(0,1);
-			setPos(1,0);
-			setPos(0,2);
-			setPos(1,1);
-			setPos(2,0);
-			counter++;
-		}
+	for(int diag = 0; diag < getWorldHeight()/2; diag++){
+		counter = drawDiag(diag, counter);
+	}
 }
 
 
-void drawDiag(int diag, int counter){
+int drawDiag(int diag, int counter){
+	ccounter = counter;
+	for(int x = 0; x <= diag; x++){
+		setPos(x, diag - x);
+		writeMessage(ccounter);
+		ccounter++;
+	}
+	return ccounter;
 }
