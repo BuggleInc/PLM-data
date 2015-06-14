@@ -1,0 +1,14 @@
+boolean has271(int[] nums) {
+	int count = 0; 
+	// 2, 7, 1
+	for(int i = 0; i < nums.length - 2; i++){
+		if((nums[i] == nums[i+1] - 5) &&
+		withinError(nums[i], nums[i+2] -1)
+		    	count++;		
+	}
+	return count;
+}
+
+boolean withinError(int val, int expect){
+	return Math.abs(expect - val) <= 2;
+}
