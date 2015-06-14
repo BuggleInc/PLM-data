@@ -1,1 +1,66 @@
-forward();
+boolean ended(){
+	boolean remember;
+	left();
+	remember = isFacingWall();
+	right();
+	return remember;
+}
+
+void fillColumn(Color[] colors){
+	int offset = Integer.parseInt(readMessage());
+	int index = offset;
+	while(!isFacingWall()){
+		mark(colors[index % colors.length]);
+		forward();
+		index++;
+	}
+	toWall();
+}
+
+void mark(Color c){
+	brushDown();
+	setBrushColor(c);
+	brushUp();
+}
+
+void nextColumn(){
+	left();
+	forward();
+	right();	
+}
+
+int getSideSize(){
+	int i = 0;
+	while(!isFacingWall()){
+		forward();	
+		i++;
+	}
+	toWall();
+	return i;
+}
+
+void toWall(){
+	while(!isBackingWall())
+		backward();
+}
+
+
+Color[] getOrder(int size){
+	Color[] colors= new Color[size];
+	for(int i = 0; i < size; i++){
+		colors[i] = getGroundColor();
+		forward();
+	}
+	toWall();
+	return colors;
+}
+
+void exec(){
+	Color[] colors = getOrder(getWorldHeight());
+	while(!ended()){
+		nextColumn();
+		fillColumn(colors);
+	}
+}
+
+exec();
