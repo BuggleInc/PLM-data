@@ -1,0 +1,18 @@
+int array667(int[] nums) {
+	int lastWas6 = false;
+	int count = 0;
+
+	for(int i = 0; i < nums.length; i++){
+		if(lastWas6){
+			if(nums[i] == 6)
+				count++;
+			else {
+				lastWas6 = false;
+				if(nums[i] == 7)
+					count++;
+			}
+		}
+		else if(nums[i] == 6)
+			lastWas6 = true;
+	}
+}
