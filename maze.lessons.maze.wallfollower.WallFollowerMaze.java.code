@@ -5,22 +5,20 @@ public void run() {
 
 void keepHandOnSideWall(){
 	while(!overBaggle()){
-		faceEmptyAndLeftWall();
-		forward();	
 		if(!wallOnLeft()){
 			left();
 			forward();
+		} else {
+			stepForward();
 		}
 	}
-	
-	faceEmpty();
-	forward();
+	pickupBaggle();
 }
 
 
-void faceEmpty(){
-	while(isFacingWall())
-		left();
+void stepForward(){
+	if(!isFacingWall())
+		forward();
 }
 
 void faceEmptyAndLeftWall(){
