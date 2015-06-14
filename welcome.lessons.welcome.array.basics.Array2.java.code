@@ -1,0 +1,62 @@
+
+Color [] colors = getOrder();
+while(!ended()){
+	nextColumn();
+	fillColumn(colors);
+}
+
+boolean ended(){
+	boolean a;
+	left();
+	a = isFacingWall();
+	right();
+	return a;
+}
+void fillColumn(Color[] colors){
+	int offset = Integer.parseInt(readMessage());
+	int index = offset;
+	while(!facingWall()){
+		mark(colors[index % colors.size]);
+		forward();
+		index++;
+	}
+	toWall();
+}
+
+void mark(Color c){
+	brushDown();
+	setBrushColor(c);
+	brushUp();
+}
+
+void nextColumn{}{
+	left();
+	forward();
+	right();	
+}
+
+Color [] getOrder(){
+	int size = getSideSize()
+	Color[] colors= new Color[](size);
+	for(int i = 0; i < size; i++){
+		colors[i] = getGroundColor();
+		forward();
+	}
+	toWall();
+	return Color[]
+}
+
+void toWall(){
+	while(!isBackingWall()){
+		backward();
+	}
+}
+int getSideSize(){
+	int i = 0;
+	while(!isFacingWall){
+		forward();	
+		i++;
+	}
+	toWall();
+	return i;
+}
