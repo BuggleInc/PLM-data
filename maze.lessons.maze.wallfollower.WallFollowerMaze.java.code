@@ -6,7 +6,11 @@ public void run() {
 void keepHandOnSideWall(){
 	while(!isOverBaggle()){
 		if(wallOnLeft()){
-			stepForward();
+			if(!isFacingWall())
+				forward();
+			else{
+				right();
+			}
 		} else {
 			left();
 			forward();
@@ -17,8 +21,7 @@ void keepHandOnSideWall(){
 
 
 void stepForward(){
-	if(!isFacingWall())
-		forward();
+
 }
 
 void faceEmptyAndLeftWall(){
