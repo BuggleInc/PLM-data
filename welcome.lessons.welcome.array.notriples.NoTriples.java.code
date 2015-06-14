@@ -1,0 +1,18 @@
+boolean noTriples(int[] nums) {
+	if(nums.length < 3)
+		return true;
+	
+	int lastN = nums[0];
+	int count = 1;
+	
+	for(int i = 1; i < nums.length; i++){
+		if(lastN != nums[i]){
+			lastN = nums[i];
+			count = 1;
+		} else count++;
+		
+		if(count == 3)
+			return false;
+	}
+	return true;
+}
