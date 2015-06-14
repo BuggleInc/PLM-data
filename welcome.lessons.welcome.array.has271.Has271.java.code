@@ -1,13 +1,12 @@
 boolean has271(int[] nums) {
-	int count = 0; 
 	boolean sndHolds;
 	// 2, 7, 1
 	for(int i = 0; i < nums.length - 2; i++){
 		sndHolds = nums[i] == nums[i+1] - 5;
 		if(sndHolds && trdWithinError(nums[i], nums[i+2] - 1))
-		    	count++;		
+		    	return true;		
 	}
-	return count;
+	return false;
 }
 
 boolean trdWithinError(int val, int expect){
