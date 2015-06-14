@@ -1,25 +1,14 @@
 public void run() {
 	boolean a = isFacingWall();
-	hasNextColumn();
+
+	int index = 0;
+	for(int x = 0; x < getWorldHeight(); x++){
+		setY(y);
+		for(int y = 0; y < getWorldWidth(); y++){ 
+			setX(x);
+			writeMessage(index);
+			index++;		
+		}
+	}
 }
 
-void fillColumn(){
-	
-}
-
-
-boolean hasNextColumn(){
-	left();
-	boolean next = isFacingWall();
-	right();
-	return !next;
-}
-void nextColumn(){
-	left();
-	forward();
-	right();
-}
-
-void toWall(){
-	
-}
