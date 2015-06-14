@@ -48,10 +48,13 @@ void toWall(){
 
 Color[] getOrder(int size){
 	Color[] colors= new Color[size];
-	for(int i = 0; i < size; i++){
+	int i = 0;
+	while(!isFacingWall()){
 		colors[i] = getGroundColor();
+		i++;
 		forward();
 	}
+	colors[i] = getGroundColor();
 	toWall();
 	return colors;
 }
