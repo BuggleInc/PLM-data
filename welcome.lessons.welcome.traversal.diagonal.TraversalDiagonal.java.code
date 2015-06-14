@@ -6,12 +6,22 @@ public void run() {
 		counter = drawDiag(diag, counter);
 	}
 	
-	for(int diag = 1; diag < getWorldHeight(); diag++){
-		counter = drawDown(diag, getWorldHeight(), counter);
-	}
-
+	
 }
 
+
+/* for
+ * 0, 0	  ... 0, 0
+ * 0, d 	  ... d, 0 
+ * 		  ...
+ * 0, n - 0 ... n - 0, 0 ::
+ * a+x, n-y ... n-y, a+x 
+ * 1, n ... n, 1 --> x <- basis .. n, n - x + basis
+ * 2, n ... n, 2
+ * 3, n ... n, 3
+ * 4, n ... n, 4
+ * n - 1, n - 1 ... n - 1, n - 1
+ */
 int drawDiag(int diag, int ccounter){
 	int counter = ccounter;
 	for(int x = 0; x <= diag; x++){
@@ -21,26 +31,15 @@ int drawDiag(int diag, int ccounter){
 	return counter;
 }
 
-/* for
- * 0, 0	  ... 0, 0
- * 0, d 	  ... d, 0 
- * 		  ...
- * 0, n - 0 ... n - 0, 0 ::
- * a + x, n - x ... n - x, a + x 
- * 1, n - 1 ... n - 1, 1
- * 2, n - 1 ... n - 1, 2
- * ...
- * n - 1, n - 1 ... n - 1, n - 1
- */
-
 int drawDown(int diag, int height, int ccounter){
 	int counter = ccounter;
 
-	for(int x = diag; x <= height; x++){
-		setPos(x, diag - x);
-		counter = pressNumber(counter);
-	}
-
+ 	for(int start = 0; start < height(); start++){ 
+	 	for(int x = start; x < height; x++){
+	 		setPos(x, height - x + basis);
+	 		counter = pressNumbers(counter);
+	 	}
+ 	}
 	return counter;
 }
 
