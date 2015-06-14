@@ -6,13 +6,11 @@ public void run() {
 		counter = drawUpDiag(diag, counter);
 	}
 	
-	for(int diag = 0; diag < getWorldHeight(); diag++){
-		counter = drawDownDiag(diag, counter);
-	}
+	
 }
 
 
-int drawUpDiag(int diag, int counter){
+int drawDiag(int diag, int counter){
 	int ccounter = counter;
 	for(int x = 0; x <= diag; x++){
 		setPos(x, diag - x);
@@ -22,13 +20,5 @@ int drawUpDiag(int diag, int counter){
 	return ccounter;
 }
 
-int drawDownDiag(int diag, int counter){
-	int ccounter = counter;
-	for(int x = 0; x <= diag; x++){
-		setPos(diag - x, x);
-		writeMessage(ccounter);
-		ccounter++;
-	}
-	return ccounter;
-}
+
 
