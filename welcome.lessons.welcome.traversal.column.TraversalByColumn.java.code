@@ -1,5 +1,5 @@
 public void run() {
-	forward();
+	boolean a = isFacingWall();
 }
 
 void fillColumn(){
@@ -9,11 +9,14 @@ void fillColumn(){
 
 void hasNextColumn(){
 	left();
-	
+	boolean next = isFacingWall();
 	right();
+	return !next;
 }
 void nextColumn(){
-	
+	left();
+	forward();
+	right();
 }
 
 void toWall(){
