@@ -45,8 +45,7 @@ void toWall(){
 }
 
 
-Color[] getOrder(){
-	int size = getSideSize();
+Color[] getOrder(int size){
 	Color[] colors= new Color[size]();
 	for(int i = 0; i < size; i++){
 		colors[i] = getGroundColor();
@@ -56,7 +55,7 @@ Color[] getOrder(){
 	return colors;
 }
 
-Color[] colors = getOrder();
+Color[] colors = getOrder(getSideSize());
 
 while(!ended()){
 	nextColumn();
