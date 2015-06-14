@@ -2,19 +2,20 @@
 public void run() {
 	int counter = 0;
 	int start = 0;
-	for(int diag = 0; diag < getWorldHeight(); diag++){
-		counter = drawDiag(start,diag, counter);
-		//start++;
-	}
-	/*
-	for(int diag = 0; diag < getWorldHeight(); diag++){
-		
+	for(int diag = 0; diag < 2 * getWorldHeight() - 1; diag++){
+		if(diag > getWorldHeight()){
+			start = diag - getWorldHeight;
+		}
 		counter = drawDiag(start, diag, counter);
 	}
-	*/
-	
+
 }
 
+diag n+1 
+	x .. n - x
+	1,n-1 ... n-1,1
+diag n+2
+	2,n-2 ... n-2,2
 
 int drawDiag(int start, int diag, int counter){
 	int ccounter = counter;
