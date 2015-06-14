@@ -29,6 +29,16 @@ void nextColumn(){
 	right();	
 }
 
+int getSideSize(){
+	int i = 0;
+	while(!isFacingWall()){
+		forward();	
+		i++;
+	}
+	toWall();
+	return i;
+}
+
 Color[] getOrder(){
 	int size = getSideSize();
 	Color[] colors= new Color[size]();
@@ -45,15 +55,7 @@ void toWall(){
 		backward();
 }
 
-int getSideSize(){
-	int i = 0;
-	while(!isFacingWall){
-		forward();	
-		i++;
-	}
-	toWall();
-	return i;
-}
+
 
 Color[] colors = getOrder();
 
