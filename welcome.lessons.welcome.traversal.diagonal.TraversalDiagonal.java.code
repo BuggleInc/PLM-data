@@ -1,18 +1,21 @@
 
 public void run() {
 	int counter = 0;
-	
+	int start = 0;
 	for(int diag = 0; diag < getWorldHeight(); diag++){
-		counter = drawDiag(diag, counter);
+		counter = drawDiag(0,diag, counter);
 	}
-	
+	for(int diag = 0; diag < getWorldHeight(); diag++){
+		start++
+		counter = drawDiag(start, diag, counter);
+	}
 	
 }
 
 
-int drawDiag(int diag, int counter){
+int drawDiag(int start, int diag, int counter){
 	int ccounter = counter;
-	for(int x = 0; x <= diag; x++){
+	for(int x = start; x <= diag; x++){
 		setPos(x, diag - x);
 		writeMessage(ccounter);
 		ccounter++;
