@@ -4,8 +4,15 @@ public void run() {
 
 
 void keepHandOnSideWall(){
-	faceEmptyAndLeftWall();
-	forward();
+	while(!overBaggle()){
+		faceEmptyAndLeftWall();
+		forward();	
+		if(!wallOnLeft()){
+			left();
+			forward();
+		}
+	}
+	
 	faceEmpty();
 	forward();
 }
