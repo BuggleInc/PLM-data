@@ -5,11 +5,11 @@ public void run() {
 
 void keepHandOnSideWall(){
 	while(!isOverBaggle()){
-		if(!wallOnLeft()){
-			left();
-			forward();
-		} else {
+		if(wallOnLeft()){
 			stepForward();
+			left();
+		} else {
+			forward();
 		}
 	}
 	pickupBaggle();
