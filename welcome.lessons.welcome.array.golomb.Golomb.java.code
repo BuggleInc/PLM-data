@@ -4,12 +4,14 @@ int golomb(int num) {
 	int count = 1;
 		
 	for(int i = 1; i <= num; i++){
+		if(count <= 0){
+			fillWith++;
+			count = seq[fillWith];
+		}
+		
 		seq[i] = fillWith;
 		count--;
-		if(count <= 0){
-			count = seq[fillWith];
-			fillWith++;
-		}
+		
 	}
 	
 	return seq[num];
