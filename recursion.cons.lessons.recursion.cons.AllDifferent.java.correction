@@ -1,0 +1,15 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; import lessons.recursion.cons.universe.*;import java.util.Vector;public class allDifferent extends BatEntity { public RecList cons(int head, RecList tail){  return new RecList(head, tail);} @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( allDifferent( (RecList)t.getParameter(0) ) ); }
+	boolean allDifferent(RecList seq) {
+		if (seq == null)
+			return true;
+		/* inline compute isMember */
+		RecList ptr = seq.tail;
+		while (ptr != null && ptr.head != seq.head) 
+			ptr = ptr.tail;
+		if (ptr != null) 
+			return false;
+		/* end isMember */
+		return allDifferent(seq.tail);
+	}
+ }
