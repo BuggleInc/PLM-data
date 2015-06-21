@@ -3,7 +3,11 @@ public void solve(int src, int dst, int other) {
 }
 
 public void solve(int src, int dst, int other, int height) {
-	solve(src, other, dst, height - 1);
-	move(src, dst);
-	solve(other, dst, src, height - 1);
+	if(height == 1){
+		move(src, dst);
+	} else {
+		solve(src, other, dst, height - 1);
+		move(src, dst);
+		solve(other, dst, src, height - 1);
+	}
 }
