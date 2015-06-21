@@ -12,11 +12,13 @@ public void gnomeSort() {
 
 	 int gnome = 0;
 	 while(gnome < getValueCount() - 1){
-	 	if(gnome == 0 || isSmaller(gnome - 1, gnome + 1)){
+	 	if(gnome == 0){
 	 		gnome++;
-	 	} else {
+	 	} else if(!isSmaller(gnome - 1, gnome + 1)){
 	 		swap(gnome - 1, gnome + 1);
 	 		gnome--;
+	 	} else {
+	 		gnome++;
 	 	}
 	 }
 }
