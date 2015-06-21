@@ -1,0 +1,19 @@
+$package import plm.universe.bat.BatEntity; import plm.universe.bat.BatWorld; import plm.universe.bat.BatTest; import plm.universe.World; import lessons.recursion.cons.universe.*;import java.util.Vector;public class reverse extends BatEntity { public RecList cons(int head, RecList tail){  return new RecList(head, tail);} @SuppressWarnings("unchecked") public void run(BatTest t) {
+		t.setResult( concat((RecList)t.getParameter(0), (RecList)t.getParameter(1)) ); }
+	RecList concat(RecList seq1, RecList seq2) {
+		
+		RecList A = null;
+		RecList B = seq1;
+		while (B != null) {
+			A = cons (B.head, A);
+			B = B.tail;
+		}
+		
+		B = seq2;
+		while (A != null) {
+			B = cons (A.head, B);
+			A = A.tail;
+		}
+		return B;
+	}
+ }
