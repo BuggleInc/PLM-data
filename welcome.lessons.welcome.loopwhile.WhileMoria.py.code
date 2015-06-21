@@ -1,17 +1,17 @@
-retourne()
-Fin = False
-while not estFaceMur() and not estSurBiscuit() and Fin == False:
+retourne()    
+Fin = False   #La variable vaut Faux
+while not estFaceMur() and not estSurBiscuit() and Fin == False:   #Tant que tu n'es pas face au mur ou sur un biscuit ou que la variable vaut Faux
     avance()
-    if estSurBiscuit():
+    if estSurBiscuit():   #Bloc pour gérer le déplacement des biscuits
         prendBiscuit()
         while not estSurBiscuit():
             recule()
         avance()
         poseBiscuit()
         avance()
-    if estFaceMur():
+    if estFaceMur():   #Quand on arrive face au mur, on initialise la variable pour sortir de la boucle du début
         Fin = True
-    if Fin == True:
+    if Fin == True:   #Sortir de la grotte
         droite()
         avance()
         gauche()
