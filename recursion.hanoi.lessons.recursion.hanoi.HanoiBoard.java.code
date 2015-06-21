@@ -6,8 +6,9 @@ public void solve(int src, int dst, int other, int height) {
 	if(height % 2 == 0){
 		move(src,other);
 		move(src, dst);
-		move(other, dst);
+		solve(other, dst);
 	} else if(height % 2 == 1){
 		move(src, dst);
-	} 
+		solve(other, src);
+	}  
 }
