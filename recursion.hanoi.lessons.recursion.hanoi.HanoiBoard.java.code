@@ -3,12 +3,15 @@ public void solve(int src, int dst, int other) {
 }
 
 public void solve(int src, int dst, int other, int height) {
-	if(height == 1){
-		move(src, dst);
-	} else if(height % 2 == 1){
+	if(height == 0)
+		return;
+	if(height == 1)
+		move(src, dst. others);
+	else if(height % 2 == 1){
 		move(src, dst);
 		move(src, other);
-		move(other, src);
+		move(dst, other);
+		
 		solve(other, src, dst, height - 1);
 		
 	} else if(height % 2 == 0){
