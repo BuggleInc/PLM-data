@@ -1,20 +1,20 @@
-Compteur = 0
-Do = False
+Compteur = 0   #Pour compter les biscuits 
+Do = False   #Pour ignorer le premier croisement
 while not sortieTrouvee():
-    while Do == False or not croisement():
+    while Do == False or not croisement():   #Ignore le premier croisement et attend les croisements suivants
         forward()
         if estSurBiscuit():
-            Compteur = Compteur + 1
+            Compteur = Compteur + 1   #Le compteur de biscuit pour déterminer la direction
         Do = True
-    if Compteur >= 3:
+    if Compteur >= 3:   #Direction et réinitialisation du compteur
         gauche()
         forward()
         Compteur = 0
-        if estSurBiscuit():
+        if estSurBiscuit():   #Comptage de l'éventuel biscuit
             Compteur = Compteur + 1
-    elif Compteur <= 2:
+    elif Compteur <= 2:   #Direction et réinitialisation du compteur
         droite()
         forward()
         Compteur = 0
-        if estSurBiscuit():
-            Compteur = Compteur + 1
+        if estSurBiscuit():   #Comptage de l'éventuel biscuit
+            Compteur = Compteur + 1   
