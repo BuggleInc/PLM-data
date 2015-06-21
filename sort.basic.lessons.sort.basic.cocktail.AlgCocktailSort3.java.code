@@ -1,0 +1,25 @@
+public void cocktailSort3() {
+	public void cocktailSort2() {
+	int begin = 0;
+	int end = getValueCount() - 2;
+	boolean swapped;
+	do	{
+		swapped = false;
+		for(int i = begin; i <= end; i++)
+			if(isSmaller(i+1,i)){
+				swap(i+1,i);
+				swapped = true;
+			}
+		if(!swapped) break;
+		end--;
+		swapped = false;
+		for(int i = end; i >= begin; i--)
+			if(isSmaller(i+1,i)){
+				swap(i+1,i);
+				swapped = true;
+			}	
+		begin++;
+	} while(swapped);
+}
+
+}
