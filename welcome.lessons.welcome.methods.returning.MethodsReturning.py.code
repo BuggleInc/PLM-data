@@ -1,16 +1,20 @@
 def haveBaggle():
-    VuBiscuit = False
-    if estSurBiscuit():
-        return True
-
-def faireColonne():
+    Compteur = 0
     for i in range(7):
         forward()
-        haveBaggle()
-    droite()
-    forward()
-    gauche()
+        Compteur = Compteur + 1
+        if estSurBiscuit():
+            return True
+        else:
+            return False
 
-if VuBiscuit == False:
-    for i in range(7):
-        faireColonne()  
+for i in range(7):
+        haveBaggle()
+        if haveBaggle() == False:
+            droite()
+            forward()
+            gauche()
+        elif haveBaggle() == True:
+            backward(Compteur)
+                
+        
