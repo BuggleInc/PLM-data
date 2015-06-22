@@ -1,10 +1,15 @@
 def haveBaggle():
     VuBiscuit = False
-    while VuBiscuit == False:
-        for i in range(7):
-            forward()
-            if estSurBiscuit():
-                return True
+    if estSurBiscuit():
+        return True
+
+def faireColonne():
+    for i in range(7):
+        forward()
+        haveBaggle()
         droite()
         forward()
-        gauche()   
+        gauche()
+
+for i in range(7):
+    faireColonne()  
