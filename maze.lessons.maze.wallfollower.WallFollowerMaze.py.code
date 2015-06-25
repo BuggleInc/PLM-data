@@ -1,14 +1,10 @@
 while not estSurBiscuit():
-    var = random(0,2)
-    if var > 2:
+    gauche()
+    if estFaceMur():
         droite()
-    elif var > 1 and var < 2:
-        gauche()
-    elif var < 1 and not estFaceMur():
+    if estFaceMur():
+        retourne()
         avance()
     else:
-        if var > 1:
-            droite()
-        elif var < 1:
-            gauche()
+        avance()
 prendBiscuit()
