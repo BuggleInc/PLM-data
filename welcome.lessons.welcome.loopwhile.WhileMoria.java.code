@@ -1,8 +1,28 @@
 public void run() { 
+while( isCarryingBaggle() != true) //not carrying anything.. 
+{
+	left();
+	left();//turn to face the right
+	while( isOverBaggle() != true && isFacingWall() != true) //not over anything and not facing wall
+	{
+		forward();
+	}
+	if( isOverBaggle() == true)//pick up baggle
+	{
+		pickupBaggle();
+	}
+	right();
+	right();//turn to face the left
+	while( isOverBaggle() != true) //not over anything
+	{
+		forward();
+	}
+	if( isOverBaggle() == true)
+	{
+		backward();
+		dropBaggle();
+	}
+}
+}
 
-}
-right();
-forward();
-left();
-forward();
-}
+
