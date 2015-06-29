@@ -1,24 +1,23 @@
 char letter;
 letter = getIndication();
-if(letter == 'Z')
+while(isOverMessage() == true)
 {
-System.out.println(letter);
-}
-if(isOverMessage() == true)
-{	
+	if(letter == 'A')
+	forward(); //one step forward
+	if(letter == 'B')
+	forward(); forward(); //two steps forward
+	if(letter == 'C')
+	forward(); forward(); forward(); //three steps forward
+	if(letter == 'I')
+	right(); right(); forward(); //u-turn and step forward
+	if(letter == 'L')
+	left(); forward(); //turn left and step forward
+	if(letter == 'R')
+	right(); forward(); //turn right and step forward
+	if(letter == 'X')
+	backward(); backward(); backward(); //three steps backward
+	if(letter == 'Y')
+	backward(); backward(); //two steps backward
 	if(letter == 'Z')
-	{
-	
-backward();
-left();
-forward();
-forward();
-forward();
-right();
-forward();
-backward();
-backward();
-backward();
-backward();
-}
+	backward(); //one step backward
 }
