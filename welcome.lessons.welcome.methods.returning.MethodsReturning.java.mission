@@ -13,6 +13,12 @@
               font-family: "Times New Roman", serif;
               color:#00AA00;
               font-style: italic; }
+.Java   {visibility: visible; color:#FF0000}
+.java   {visibility: visible; color:#FF0000}
+.python {visibility: visible; color:#008000}
+.Python {visibility: visible; color:#008000}
+.scala  {visibility: visible; color:#0000FF}
+.Scala  {visibility: visible; color:#0000FF}
   </style>
 </head><body><!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Functions</h2>
@@ -20,15 +26,16 @@
 <p>Quite often, you want to write a method that compute some value and
 returns it. Methods returning results are called <b>functions</b>. 
 Writing a function is not really harder than writing a simple method.
-You simply have to specify the data type of expected results before the function name (where we previously had <code>void</code>).
-
+<font color="FFFF00">You simply have to specify the data type of expected results before the function name (where we previously had <code>void</code>).</font>
+[!scala]You simply have to add a colon (:) after the parenthesis and write the type of data that your function will return, and add an equal sign (=). This syntax is actually rather
+close to defining a variable, with its type, that is actually a function.[/!]
 You can use the <code>return</code> instruction anywhere in your function body to 
 specify that the computation is done (the function is not further executed), and that 
 the result is the value following the <code>return</code> keyword.</p>
 
-<pre>double pi() {
-    return 3.14159;
-}</pre>
+<pre><font color="FFFF00">double pi() {</font>[!scala]def pi(): Double = {[/!]<font color="008000">def pi():</font>
+    return 3.14159<font color="FFFF00">;</font>
+[!java|scala|c]}[/!]</pre>
 
 <p>Actually, you can also use that <code>return</code> keyword in methods that do not return any result, to interupt the computation. Of course, you should not provide any
 value to return in that case.</p>
@@ -44,16 +51,23 @@ Moreover, <code>return</code> interrupts immediately the function execution
 some code after a <code>return</code>, it must be an error and the compiler 
 warns you.</p>
 
-<pre>boolean isFrontFree() {
-    if (isFacingWall() == true) {
-        return false;
+<pre>[!java|scala|c]<font color="FF0000">boolean </font><font color="00FF00">int </font>[!scala]def [/!]isFrontFree()[!scala]:Boolean =[/!] {
+    if (isFacingWall() == [!java|scala]true[/!]<font color="00FF00">1</font>) {
+        return [!java|scala]false[/!]<font color="00FF00">0</font>;
         <span class="comment">/* no code allowed here */</span>
     } else {
-        return true;
+        return [!java|scala]true[/!]<font color="00FF00">1</font>;
         <span class="comment">/* here neither */</span>
     }
     <span class="comment">/* even here, forget it */</span>
-}</pre>
+}[/!]<font color="008000">def isFrontFree():
+    if isFacingWall() == True:
+        return False
+        <span class="comment"># no code allowed here</span>
+    else
+        return True
+        <span class="comment"># here neither</span>
+<span class="comment"># even here, forget it</span></font></pre>
 
 <h3>Exercise goal</h3>You will once again write a function that the buggle will use. Its name must
 be <code>haveBaggle</code>, and it returns a boolean value indicating
@@ -62,7 +76,7 @@ will use it to search the first row containing a baggle, and stop here.
 
 <p>The easier for this function is to use a boolean variable called
 <code>seenBaggle</code> indicating whether or not we saw a baggle so far. Its
-initial value is 'false'.</p>
+initial value is '<font color="008000">False</font>[!scala|java]false[/!]<font color="00FF00">0</font>'.</p>
 
 <p>Then, move 6 steps forward (the world contains 7 cells and we already are
 on one of them). For each cell, if it contains a baggle, we store true in
