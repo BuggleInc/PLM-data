@@ -1,6 +1,24 @@
 public void run() { 
-	do
+	int baggle = 0;
+	while(!exitReached())
+	{
+		do
 	{
 		forward();
+		if(isOverBaggle)
+		{
+			baggle++;
+		}
 	}while(!crossing());
+	if(baggle <2)
+	{
+		right();
+		baggle = 0;
+	}
+	else
+	{
+		left();
+		baggle = 0;
+	}
+}
 }
