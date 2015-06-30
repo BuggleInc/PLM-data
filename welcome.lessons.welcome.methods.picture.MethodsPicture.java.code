@@ -1,2 +1,59 @@
 public void run() {
+	forward();
+	makePattern();
+}
+/**
+ * marks a spot
+ */
+public void brush()
+{
+	brushDown();
+	brushUp();
+}
+/**
+ * makes a V-pattern
+ */
+public void makeV()
+{
+	//for(int i =0;i<2;i++)
+	//forward();
+	brush();
+	forward();
+	left();
+	forward();
+	brush();
+	backward();
+	right();
+	forward();
+	brush();
+	forward();
+	//for(int j=0;j<2;j++)
+	//forward();
+     left();
+}
+/**
+ * makes a pattern
+ */
+public void makePattern()
+{
+for(int v =0;v<4;v++)
+makeV();
+	
+}
+/**
+ * moves buggle to next pattern place
+ */
+public void horizontal()
+{
+	for(int h=0;h<7;h++)
+	forward();
+}
+/**
+ * moves buggle to above pattern
+ */
+public void vertical()
+{
+	left();
+	horizontal();
+	right();
 }
