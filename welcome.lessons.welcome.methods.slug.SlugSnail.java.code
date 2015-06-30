@@ -20,9 +20,9 @@ brushUp();
 /**
  * checks if buggle has a trail in front of it
  */
-boolean isFacingTrail(Color col) {
+boolean isFacingTrail(Color cl) {
 	
-shifter(col);
+shifter(cl);
 	
  if(trail ==1)
  {
@@ -36,11 +36,11 @@ shifter(col);
 /**
  * checks blocks in the vicinity to look for trail
  */
-public void shifter(Color col)
+public void shifter(Color l)
 {
 	for(int i=0;i<4;i++)
 	{
-		check(col);
+		check(l);
 		if(trail ==1)
 		{
 		backward();	
@@ -60,9 +60,9 @@ int trail = 0;
 /**
  * checks if buggle is on trail
  */
-public void trail(Color col) 
+public void trail(Color ccol) 
 {
-	if(getGroundColor().equals(col))
+	if(getGroundColor().equals(ccol))
 	{
 	trail = 1;
 	}
@@ -71,12 +71,12 @@ public void trail(Color col)
 /**
  * moves only if buggle is not facing wall
  */
-public void check(Color col)
+public void check(Color coll)
 {
 	if(!isFacingWall())
 	{
 		forward();
-		trail(col);
+		trail(coll);
 	}
 
 	
