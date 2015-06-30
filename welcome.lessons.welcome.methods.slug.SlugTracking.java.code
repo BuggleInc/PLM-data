@@ -1,9 +1,29 @@
 boolean isFacingTrail() {
- if(getGroundColor().equals(Color.lightGray))
+	
+	while(false)
+	{
+ if(trail ==1)
  {
- 	forward();
+ trail = 0;	
  return true;
  }
  else
- return false;   
-}        
+ return false; 
+	}  
+}
+public void shifter()
+{
+	for(int i=0;i<4;i++)
+	{
+		forward();
+		trail();
+		backward();
+		left();        
+	}
+}
+int trail = 0;
+public void trail()
+{
+	if(getGroundColor().equals(Color.green))
+	trail = 1;
+}
