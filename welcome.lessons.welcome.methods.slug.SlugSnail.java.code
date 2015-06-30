@@ -1,12 +1,12 @@
  public void hunt(Color c) {
-     
+     hunt(c);
  }
 
- public void hunt() {
+ public void hunt(Color col) {
 
 while(!isOverBaggle())
 {	
-if(isFacingTrail()==true)
+if(isFacingTrail(col)==true)
 {
 	brushDown();
 	brushUp();
@@ -20,9 +20,9 @@ brushUp();
 /**
  * checks if buggle has a trail in front of it
  */
-boolean isFacingTrail() {
+boolean isFacingTrail(Color col) {
 	
-shifter();
+shifter(col);
 	
  if(trail ==1)
  {
@@ -36,11 +36,11 @@ shifter();
 /**
  * checks blocks in the vicinity to look for trail
  */
-public void shifter()
+public void shifter(Color col)
 {
 	for(int i=0;i<4;i++)
 	{
-		check();
+		check(col);
 		if(trail ==1)
 		{
 		backward();	
@@ -60,9 +60,9 @@ int trail = 0;
 /**
  * checks if buggle is on trail
  */
-public void trail() 
+public void trail(Color col) 
 {
-	if(getGroundColor().equals(Color.green))
+	if(getGroundColor().equals(col))
 	{
 	trail = 1;
 	}
@@ -71,12 +71,12 @@ public void trail()
 /**
  * moves only if buggle is not facing wall
  */
-public void check()
+public void check(Color col)
 {
 	if(!isFacingWall())
 	{
 		forward();
-		trail();
+		trail(col);
 	}
 
 	
