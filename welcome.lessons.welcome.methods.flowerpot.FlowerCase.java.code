@@ -1,0 +1,98 @@
+public void run()
+{
+	flower(Color.red);
+}
+Color col;
+/**
+ * paints a flower
+ */
+public void flower(Color color)
+{
+	col = color;
+	setBrushColor(col);
+	paint();
+	left();
+	
+}
+
+/**
+ * paints a cross
+ * leaves buggle in centre
+ */
+public void paint()
+{
+	line();
+	backward();
+	left();
+	forward();
+	back();
+	line();
+	backward();
+	setBrushColor(Color.yellow);
+	brush();
+	
+}
+/**
+ * paints a block
+ */
+public void brush()
+{
+	
+	brushDown();
+	brushUp();
+}
+/**
+ * paints a line of three blocks
+ */
+public void line()
+{
+	brush();
+	for(int i =0;i<2;i++)
+	{
+	forward();
+	brush();
+	}
+}
+/**
+ * moves to the next horizontal flower
+ */
+public void step()
+{
+	for(int i =0;i<3;i++)
+	forward();
+}
+/**
+ * goes back to the left
+ */
+public void stepBack()
+{
+	back();
+	for(int p =0;p<5;p++)
+	forward();
+	back();
+}
+/**
+ * goes to the middle flower starting point
+ */
+public void middle()
+{
+	right();
+	forward();
+	forward();
+	left();
+	for(int o=0;o<2;o++)
+	forward();
+}
+/**
+ * goes from the middle flower to the bottom pair starting point
+ */
+public void stepB()
+{
+	back();
+	for(int u=0;u<3;u++)
+	forward();
+	left();
+	forward();
+	forward();
+	left();
+}
