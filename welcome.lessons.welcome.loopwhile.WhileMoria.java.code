@@ -1,22 +1,22 @@
 public void run(){
- while(getCouleurSol()!=Color.green){
- 	if(estDosMur()){
+ 	while(getCouleurSol()!=Color.green){
+ 		if(estDosMur()){
  			gauche();
  			avance();
  			gauche();
  			avance();
  		}
- 	while(estSurBiscuit()==false){
-		if(estDosMur()){
- 			gauche();
- 			avance();
- 			gauche();
- 			avance();
+ 		else{
+ 		while(estSurBiscuit()==false){
+			if(estDosMur()){
+ 				gauche();
+ 				avance();
+ 				gauche();
+ 				avance();
+ 			}
+			recule(); 
  		}
-		recule(); 
- 	}
- 	
-		prendBiscuit();
+ 		prendBiscuit();
  		while(estSurBiscuit()==false){
 	     avance();
             }
@@ -24,6 +24,7 @@ public void run(){
      poseBiscuit();
      recule();
      }
+ 	}
  	gauche();
 }
 
