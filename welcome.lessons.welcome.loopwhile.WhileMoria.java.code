@@ -1,16 +1,23 @@
 public void run(){
- while(getCouleurSol()=Color.orange){
- 	while(estSurBiscuit()==false){
+ while(getCouleurSol()!=Color.green){
+ 	if(estDosMur()){
+ 		gauche();
+ 		avance();
+ 		gauche();
+ 		avance();
+ 	}
+ 	else{
+ 		while(estSurBiscuit()==false){
 		recule(); 
- 	}	
-	prendBiscuit();
- 	while(estSurBiscuit()==false){
+ 		}	
+		prendBiscuit();
+ 		while(estSurBiscuit()==false){
 	     avance();
             }
      recule();
      poseBiscuit();
      recule();
-
+ 	}
  }
 	}
 
