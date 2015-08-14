@@ -1,0 +1,34 @@
+
+interface IAction {
+  void execute();
+}
+class Action implements IAction {
+  static IAction build(String str) {
+    switch(str) {
+      case "R" : return new RAction();
+      case "L" : return new LAction();
+      default : return new UnhandledAction();
+    }
+  }
+}
+class UnhandledAction extends Action {
+  void execute() {
+    stop = true;
+  }
+}
+class RAction extends Action {
+  void execute() {
+    right();
+    forward();
+  }
+}
+class RAction extends Action {
+  void execute() {
+    right();
+    forward();
+  }
+}
+boolean stop = false;
+while(!stop) {
+  Action.build().execute();
+}
