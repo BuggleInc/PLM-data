@@ -1,9 +1,9 @@
 
 interface IAction {
-  void execute();
+  public void execute();
 }
 class Action implements IAction {
-  static IAction build(String str) {
+  public static IAction build(String str) {
     switch(str) {
       case "R" : return new RAction();
       case "L" : return new LAction();
@@ -12,18 +12,18 @@ class Action implements IAction {
   }
 }
 class UnhandledAction extends Action {
-  void execute() {
+  public void execute() {
     stop = true;
   }
 }
 class RAction extends Action {
-  void execute() {
+  public void execute() {
     right();
     forward();
   }
 }
 class RAction extends Action {
-  void execute() {
+  public void execute() {
     right();
     forward();
   }
