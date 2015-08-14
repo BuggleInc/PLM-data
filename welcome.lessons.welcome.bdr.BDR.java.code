@@ -1,8 +1,8 @@
-
 interface IAction {
   public void execute();
 }
 class Action implements IAction {
+  public static stop = false;
   public static IAction build(String str) {
     switch(str) {
       case "R" : return new RAction();
@@ -13,7 +13,7 @@ class Action implements IAction {
 }
 class UnhandledAction extends Action {
   public void execute() {
-    stop = true;
+    Action.stop = true;
   }
 }
 class RAction extends Action {
@@ -24,11 +24,10 @@ class RAction extends Action {
 }
 class LAction extends Action {
   public void execute() {
-    right();
+    left();
     forward();
   }
 }
-boolean stop = false;
-while(!stop) {
+while(!Action.stop) {
   Action.build().execute();
 }
