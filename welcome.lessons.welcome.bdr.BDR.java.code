@@ -1,6 +1,7 @@
 interface IAction {
   public void execute();
 }
+
 abstract class Action implements IAction {
   public static boolean stop = false;
   public static IAction build(String str) {
@@ -11,23 +12,27 @@ abstract class Action implements IAction {
     }
   }
 }
+
 class UnhandledAction extends Action {
   public void execute() {
     Action.stop = true;
   }
 }
+
 class RAction extends Action {
   public void execute() {
     right();
     forward();
   }
 }
+
 class LAction extends Action {
   public void execute() {
     left();
     forward();
   }
 }
+
 while(!Action.stop) {
   Action.build(litMessage()).execute();
 }
