@@ -1,0 +1,52 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>La fourmi de Langton</h2>
+
+<p>Dans cet exercice, vous aller m?tamorphoser votre buggle en une <i>fourmi de
+Langton</i>. Ces petits animaux artificiels sont tr?s int?ressants parce
+qu'ils suivent des r?gles simples qui d?pendent seulement de leur
+environnement local, et qu'apr?s une p?riode d'un comportement d'apparence
+chaotique, un sch?ma g?n?ral <i>appara?t</i></p>
+
+<p>Les r?gles sont absolument triviales: pour calculer quel sera le prochain
+pas, vous devez regarder la couleur actuelle du sol ( en utilisant
+<code>getCouleurSol()</code>). Si c'est blanc, changez la en noir, tournez ?
+droite et avancez d'une case. Si la couleur du sol est le noir, changez la
+en blanc, tournez ? gauche et avancez d'une case.</p> 
+
+<p>Il est difficile de trouver des r?gles plus simples, n'est-ce pas ? Et bien,
+allons-y et codons-les maintenant. Vous avez ? compl?ter la m?thode
+<code>step()</code>, qui d?finit le comportement de la fourmi ? chaque
+pas. Vous utiliserez probablement la m?thode <code>getCouleurSol()</code>
+pour r?cup?rer la valeur de la case sur laquelle la fourmi se trouve. Les
+couleurs int?ressantes sont tout simplement <code>Color.black</code> pour le
+noir ou <code>Color.white</code> pour le blanc.</p>
+
+
+<p>Pour comparer les couleurs, il n'est pas possible d'utiliser le double signe
+?gal (==) parce ces choses ne sont pas des valeurs scalaires normales mais
+des objets. ? la place, vous devez ?crire quelque chose comme cela&nbsp;:</p> 
+<pre>
+Color c /* = une initialisation*/;
+if (c.equals(Color.black)) {
+  /* c'?tait ?gal */
+} else {
+  /* ce n'?tait pas ?gal */
+}
+</pre>
+
+
+<p>Changer la couleur du sol n'est pas difficile, seulement un peu long : vous
+avez ? changer la couleur de la brosse de votre buggle, l'abaisser (pour
+marquer la case courante -- avec <code>baisseBrosse()</code>), et relever la
+brosse (avec <code>leveBrosse()</code>) pour ?viter des probl?mes lorsque la
+buggle va se d?placer. Vous ?tre naturellement libre d'organiser votre code
+comme vous le souhaitez, mais vous pouvez vouloir ?crire une m?thode
+<code>setCouleurSol(couleur)</code> pour factoriser le tout.</p>
+
+<p>Comme vous pouvez le constater avec l'ex?cution de cet exercice, l'int?r?t
+dans cet algorithme est qu'apr?s environ 10 000 pas de comportement
+relativement chaotique, la fourmi commence ? suivre un sch?ma
+r?gulier. L'?mergence de ce sch?ma r?gulier ? partir du chaos est r?ellement
+fascinant, n'est-ce pas ? Passez ? l'exercice suivant pour en voir plus.</p>   
+
