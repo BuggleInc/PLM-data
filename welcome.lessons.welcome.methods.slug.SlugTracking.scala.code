@@ -3,29 +3,14 @@ override def run(){
 }
 
 def isFacingTrail():Boolean = {
-  if (!estFaceMur){
-  	avance()
- 	  if (getCouleurSol()==Color.green){
- 	    return true;
+  if (estFaceMur()){
+    return false;
+  }
+  else{
+    avance();
+    if (getCouleurSol()==Color.green){
       recule();
-  	}
-	  else{
-  	  recule();
-    	return false;
-  	}
-  	}
-  	else{
-    	return false
-  	}
-	}    
-
-def trouveChemin(){
-	while(!estSurBiscuit){
-    if (isFacingTrail==true){
-      avance()
-    }
-    else{
-      droite()
+      return true;
     }
   }
-}
+}    
