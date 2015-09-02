@@ -1,0 +1,36 @@
+def isFacingTrail(couleur:Color):Boolean = {
+  if (estFaceMur() == true) {return false}
+  else {
+  	avance()
+  	var vert: Boolean = false
+  	if (getCouleurSol() == Color.couleur) {
+  		vert = true
+  	}
+  	recule()
+  	return vert
+  }
+}
+
+def hunt(c:Color) {
+  var baggle: Boolean = false
+  while (baggle == false) {
+  while (isFacingTrail(c) == true) {
+  	baisseBrosse(); leveBrosse()
+  	avance()
+    if (estSurBiscuit() == true) {
+    prendBiscuit()
+    baisseBrosse(); leveBrosse()    
+    baggle = true
+      return
+    }
+  }
+  if (estSurBiscuit() == true) {
+    prendBiscuit()
+    baisseBrosse(); leveBrosse()    
+    baggle = true
+  } else {
+  droite()
+  if (isFacingTrail(c) == false) {retourne()}
+  }
+  }
+}
