@@ -1,0 +1,36 @@
+def forward(n:Int){
+  for(i <- 1 to n){
+    forward()
+  }
+}
+
+def brush(){
+  brushDown()
+  brushUp()
+}
+
+def makeLittlePattern(c:Color){
+  setBrushColor(c)
+  forward()
+  brush()
+  backward(); left(); forward()
+  brush()
+  backward(); right(); forward(3); left()
+}
+
+def makePattern(){
+  for(j <- 1 to 2){
+    for(i <- 1 to 2){
+      makeLittlePattern(Color.RED)
+      makeLittlePattern(Color.BLUE)
+      makeLittlePattern(Color.GREEEN)
+      makeLittlePattern(Color.YELLOW)
+      forward(4);
+    }
+    left(); forward(4); right();
+  }
+}
+
+override def run() {
+  makePattern()
+}
