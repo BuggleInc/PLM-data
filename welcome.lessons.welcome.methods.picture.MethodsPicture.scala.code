@@ -1,0 +1,45 @@
+override def run() {
+  motif()
+}
+
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  marque()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marque()
+  avance()
+  droite()
+  avance()
+  marque()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireCarre(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  
+}
+
+def motif(){
+  for (i <- 0 to 2){
+    for (j <- in 0 to 2){
+      setPos(i*5, j*5);
+      faireCarre();
+    }
+  }
+  setPos(0,0)
+}
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
