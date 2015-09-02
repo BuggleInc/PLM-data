@@ -1,0 +1,42 @@
+def move(nbPas: Int, avant: Boolean) = {
+  if(avant){
+    for(i <- 1 to nbPas){
+  		avance()
+  	}
+  }
+  else{
+    for(i <- 1 to nbPas){
+  		recule()
+  	}
+  }
+  
+}
+
+def marque() = {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def fleur(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  move(2,true);recule();gauche();avance();move(2,false)
+  leveBrosse()
+  setCouleurBrosse(Color.YELLOW)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
+
+def growFlowers() = {
+  fleur(Color.RED)
+  droite();move(3,true)
+  fleur(Color.CYAN)
+  move(2,false);droite();move(3,false)
+  fleur(Color.ORANGE)
+  move(2,false);droite();move(3,false)
+  fleur(Color.PINK)
+  droite();move(3,true)
+  fleur(Color.GREEN)
+
+}
