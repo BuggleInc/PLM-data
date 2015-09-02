@@ -1,0 +1,13 @@
+def coupstylo() {baisseBrosse();leveBrosse()}
+def coupp() {coupstylo();avance();droite();avance()}
+
+def faireV() {coupp();coupp();coupstylo();gauche();avance();avance();gauche()}
+
+def motif() {for(k <- 1 to 4) {avance();avance();gauche();faireV()}}
+def changeLigne() {gauche(); for (p <- 1 to 7) {avance()};droite()}
+def motifSuivant() {for (p<- 1 to 7) {avance()}}
+
+
+
+override def run() {for (i <-1 to 9) {for (j <- 1 to 9) {motif();motifSuivant()};changeLigne()}
+}
