@@ -1,16 +1,18 @@
 var n=0 // Nombre de biscuits dans le couloir
 while(!sortieTrouvee())
-do {
-  crossing()}
-while(!crossing()) {
-  avance()
-  if(estSurBiscuit()){
-    n=n+1}
-} if (n>=3){
-  gauche()
-  n=0
-} else if (n<=2){
-  droite()
-  n=0
+  do {
+    avance()
+    if(estSurBiscuit()) {
+      n=n+1
+    }
+  }
+  while(!crossing())
+	if (n>=3) {
+    gauche()
+    n=0
+  } else if (n<=2) {
+    droite()
+    n=0
+  }
 }
 avance()
