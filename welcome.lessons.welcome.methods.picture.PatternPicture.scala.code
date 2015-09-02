@@ -4,19 +4,21 @@ override def run() {
     changerLigne();
   }
 }
+
 def brosse() {
   baisseBrosse();
   leveBrosse();
 }
-def faireV(c:Color, i:Int)  {
-  setCouleurBrosse(c)
-  if (i == 1 || i == 3){
-    avance(); baisseBrosse(); leveBrosse(); recule(); left();
-    avance(); baisseBrosse(); leveBrosse(); recule(); right();    
+
+
+def faireLigne(){
+  faireMotif();
+  for (i<- 0 to 3){
+    avance();
   }
-  if (i == 2 || i == 4){
-    baisseBrosse(); leveBrosse();
-    avance(); left(); avance(); baisseBrosse(); leveBrosse(); recule(); right(); recule();
+  faireMotif();
+  for (i<- 0 to 3){
+    recule();
   }  
 }
 
@@ -33,16 +35,19 @@ def faireMotif() {
   }
 }
 
-def faireLigne(){
-  faireMotif();
-  for (i<- 0 to 3){
-    avance();
+
+def faireV(c:Color, i:Int)  {
+  setCouleurBrosse(c)
+  if (i == 1 || i == 3){
+    avance(); brosse(); recule(); left();
+    avance(); brosse(); recule(); right();    
   }
-  faireMotif();
-  for (i<- 0 to 3){
-    recule();
+  if (i == 2 || i == 4){
+    brosse();
+    avance(); left(); avance(); brosse(); recule(); right(); recule();
   }  
 }
+
 def changerLigne(){
   left();
   for (i<- 0 to 3){
