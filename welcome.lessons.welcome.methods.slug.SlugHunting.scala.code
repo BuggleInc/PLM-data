@@ -1,5 +1,53 @@
-def hunt() {
-    // Write your code here
+def avanceSurTraceVerte()
+{
+  // fait avancer le buggle sur la trace verte
+  
+  var directionCaseVerte = 1
+  
+  gauche()
+  leveBrosse()
+  
+  for (i <- 1 to 3)
+  {
+    avance()
+    if (isFacingTrail())
+    	directionCaseVerte = i
+    recule()
+    droite()
+  }
+  
+  
+  baisseBrosse()  
+  
+  for (i <- 1 to 4 - directionCaseVerte)
+  	gauche()
+  
+  avance()
 }
 
-// Copy your isFacingTrail() here
+def isFacingTrail():Boolean =
+{
+  // retourne si le buggle est face ? une case verte
+  
+  if (estFaceMur())
+  	return false
+  else
+  {
+    var surCaseVerte = false
+    
+    avance()
+    surCaseVerte = (getCouleurSol() == Color.green)
+    recule()
+    
+    return surCaseVerte
+  }
+}
+
+def hunt()
+{
+  while (!estSurBiscuit())
+  	avanceSurTraceVerte()
+  
+  prendBiscuit()
+  
+}
