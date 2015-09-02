@@ -1,7 +1,5 @@
-def avanceSurTraceVerte()
+def directionTraceVerte():Int
 {
-  // fait avancer le buggle sur la trace verte
-  
   var directionCaseVerte = 1
   
   gauche()
@@ -16,13 +14,12 @@ def avanceSurTraceVerte()
     droite()
   }
   
+  gauche()
+  gauche()
   
-  baisseBrosse()  
+  baisseBrosse()
   
-  for (i <- 1 to 4 - directionCaseVerte)
-  	gauche()
-  
-  avance()
+  return directionCaseVerte
 }
 
 def isFacingTrail():Boolean =
@@ -45,9 +42,9 @@ def isFacingTrail():Boolean =
 
 def hunt()
 {
-  while (!estSurBiscuit())
-  	avanceSurTraceVerte()
+  while (directionTraceVerte() == 2 && !estSurBiscuit())
+    avanceSurTraceVerte()
   
-  prendBiscuit()
-  
+  if (estSurBiscuit())
+  		prendBiscuit()
 }
