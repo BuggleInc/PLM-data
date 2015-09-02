@@ -1,18 +1,15 @@
 def faireV(){
   gauche();
-  setCouleurBrosse(Color.yellow);
   baisseBrosse();
   leveBrosse();
   avance();
   droite();
   avance();
-  setCouleurBrosse(Color.red);
   baisseBrosse();
   leveBrosse();
   avance();
   droite();
   avance();
-  setCouleurBrosse(Color.blue);
   baisseBrosse();
   leveBrosse();
   gauche();
@@ -29,6 +26,12 @@ def faireMotif()
     avance()
     avance();
     faireV();
+    i match {
+      case 1:   setCouleurBrosse(Color.yellow);
+      case 2:   setCouleurBrosse(Color.blue);
+      case 3:   setCouleurBrosse(Color.red);
+      case 4:   setCouleurBrosse(Color.green);
+    }
   }
 }
 override def run() {
