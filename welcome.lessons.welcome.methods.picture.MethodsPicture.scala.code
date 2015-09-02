@@ -1,0 +1,44 @@
+def marquerSol() {
+  baisseBrosse(); leveBrosse()
+}
+
+def faireV (c:Color) {
+  setCouleurBrosse(c)
+  
+  avance()
+  marquerSol()
+  
+  gauche()
+  avance()
+  droite()
+  avance()
+  marquerSol()
+  
+  avance()
+  droite()
+  avance()
+  marquerSol()
+  
+  gauche()
+}
+
+def faireMotif() {
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+}
+
+override def run() {
+  for (x <- 1 to 3) {
+    for (y <- 1 to 3) {
+      faireMotif()
+      avance(5)
+    }
+    
+    gauche()
+    avance(5)
+    droite()
+    avance()
+  }
+}
