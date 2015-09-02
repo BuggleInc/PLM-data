@@ -1,24 +1,24 @@
 def hunt(c:Color) {
    while(!estSurBiscuit()){
-    while (isFacingTrail() && !estSurBiscuit()){
-      baisseBrosse();
-      leveBrosse();
-      avance();
+     while (isFacingTrail() && !estSurBiscuit()){
+       baisseBrosse();
+       leveBrosse();
+       avance();
       
-    }
-    if(!estSurBiscuit()){
-    	left();
-    	if (!isFacingTrail()){
-      	left(); left();
-    	}
-    }
-  }
-  baisseBrosse();
-  prendBiscuit();
+     }
+     if(!estSurBiscuit()){
+    	 left();
+    	 if (!isFacingTrail()){
+      	 left(); left();
+    	 }
+     }
+   }
+   baisseBrosse();
+   prendBiscuit();
 }
 
 // Copy your isFacingTrail() here
-def isFacingTrail():Boolean = {
+def isFacingTrail(c:color):Boolean = {
    // Write your code here
   if (estFaceMur()){
     return false
