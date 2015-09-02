@@ -1,0 +1,56 @@
+def faireV(){
+  gauche();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireMotif()
+{
+  
+  for(compt <- 1 to 4)
+  {
+    
+    compt match {
+      case 1 =>  setCouleurBrosse(Color.yellow);
+      case 2 =>  setCouleurBrosse(Color.red);
+      case 3 =>  setCouleurBrosse(Color.blue);
+      case 4 =>  setCouleurBrosse(Color.green);
+    }
+    avance();
+    faireV();
+  }
+}
+override def run() {
+  for(i <- 1 to 9)
+  {
+    for(j <-1 to 9)
+    {
+      faireMotif();
+      avance();
+      avance();
+      avance();
+      avance();
+      avance();
+    }
+    gauche();
+    avance();
+    avance();
+    avance();
+    avance();
+    avance();
+    droite();
+  }
+}
