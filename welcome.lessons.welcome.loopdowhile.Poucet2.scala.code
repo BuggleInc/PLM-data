@@ -1,0 +1,16 @@
+var baggle : Int = 0
+do {
+  baggle = 0
+  do {
+    avance()
+    if (estSurBiscuit()){
+      baggle = baggle + 1
+    }
+  } while (! crossing())
+  baggle match {
+    case baggle if baggle >= 3 => gauche()
+    case baggle if baggle <= 2 => droite()
+  }
+  
+} while(! sortieTrouvee())
+avance()
