@@ -1,0 +1,22 @@
+var nbCases = 0
+
+def vaChercher() {
+  while(!estSurBiscuit){
+    avance()
+    nbCases = nbCases + 1
+  }
+  if(!estSurBiscuit){
+    prendBiscuit()
+    for (i <- 1 to nbCases){
+      recule()
+    }
+  poseBiscuit()
+  }
+}
+
+for (i <- 1 to 7) {
+    vaChercher();
+    droite();
+    avance();
+    gauche();
+}
