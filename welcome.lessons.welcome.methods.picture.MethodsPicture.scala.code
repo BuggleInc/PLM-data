@@ -1,0 +1,57 @@
+override def run() {
+  for (i<- 1 to 9) faireMotif()
+}
+
+def marque(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color) {
+  avance(2)
+  marque(c)
+  avance()
+  gauche()
+  avance()
+  marque(c)
+  recule()
+  droite()
+  avance()
+  marque(c)
+  avance(2)
+  gauche()
+  
+}
+
+def ligneSuivante() {
+  retourne()
+  avance(20)
+  droite()
+  avance(6)
+  
+}
+
+def motifSuivant() {
+  avance()
+  droite()
+}
+
+def retourIni() {
+  recule(20)
+  droite()
+}
+
+def faireMotif() {
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  avance(6)
+  if (getX == 20) {
+    ligneSuivante()
+    if (getY != 0) motifSuivant
+    else retourIni
+  }
+  else avance()
+}
