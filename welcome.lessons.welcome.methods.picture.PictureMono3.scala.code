@@ -1,0 +1,74 @@
+override def run() {
+	for (i <- 1 to 5){
+    for (j <- 1 to 5){
+      setPos(i*7,j*7)
+      motif()
+    }
+  }
+}
+
+def carre(){
+   for (i <- 1 to 4){
+    faireV();
+  } 
+}
+
+def ligne(){
+  carre()
+  for (i <- 1 to 7){
+    avance();
+  }
+  carre()
+  for (i <- 1 to 7){
+    avance();
+  }
+  carre()
+  for (i <- 1 to 14){
+    recule();
+  }
+}
+
+def motif(){
+  ligne()
+  gauche()
+  for (i <- 1 to 7){
+    avance();
+  }
+  droite()
+  ligne()
+  gauche()
+  for (i <- 1 to 7){
+    avance();
+  }
+  droite()
+  ligne()
+  droite()
+  for (i <- 1 to 14){
+    avance()
+  }
+  gauche()
+}
+
+def faireV(){
+  avance()
+  avance()
+  marque()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marque()
+  avance()
+  droite()
+  avance()
+  gauche()
+  marque()
+  avance()
+  avance()
+  gauche()
+}
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
