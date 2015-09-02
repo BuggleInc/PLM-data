@@ -1,0 +1,52 @@
+override def run() {
+	for(ligne <- 1 to 9){
+    faireLigne()
+  }
+}
+
+def marque(){
+	baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  marque()
+  avance()
+  gauche()
+  avance()
+  marque()
+  recule()
+  droite()
+  avance()
+  marque()
+}
+
+def faireMotif(){
+  for(cote <- 1 to 4){
+    avance();avance()
+    faireV()
+    avance();avance()
+    gauche()
+  }
+}
+
+def faireLigne(){
+  for(nbMotif <- 1 to 8){
+    faireMotif()
+  	//On se place au debut du motif suivant
+  	avance();avance();avance()
+  	avance();avance();avance();avance()
+  }
+  faireMotif()
+  //On se place en debut de ligne suivante
+  gauche()
+  avance();avance();avance()
+  avance();avance();avance();avance()
+  gauche()
+	for(nbMotif <- 1 to 8){
+    avance();avance();avance()
+ 		avance();avance();avance();avance()
+  }
+  //on se remet droit
+  gauche();gauche()
+}
