@@ -4,8 +4,9 @@ def trace()
   leveBrosse()
 }
 
-def faireQuart()
+def faireQuart1(c:Color)
 {
+  setCouleurBrosse(c)
   avance()
   gauche()
   trace()
@@ -18,12 +19,29 @@ def faireQuart()
   gauche()
 }
 
+def faireQuart2(c:Color)
+{
+  setCouleurBrosse(c)
+  trace()
+  avance()
+  gauche()
+  avance()
+  trace()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
+
 def faireO()
 {
-  faireQuart()
+  faireQuart1()
   avance()
   avance()
-  faireQuart()
+  faireQuart2()
+  recule()
+  recule()
 }
 
 override def run()
