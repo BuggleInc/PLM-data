@@ -2,12 +2,10 @@ var nbBiscuits:Int = 0
 while (!sortieTrouvee()) {
   do {
     avance()
-  } while (!crossing()) {
-      avance()
-      if (estSurBiscuit()) {
-        nbBiscuits = nbBiscuits + 1
-      }
+    if (estSurBiscuit()) {
+      nbBiscuits = nbBiscuits + 1
     }
+  } while (!crossing())  
   if (nbBiscuits >= 3) {
     gauche()
   } else {
