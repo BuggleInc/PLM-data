@@ -2,11 +2,15 @@ var nbBiscuits:Int = 0
 while (!sortieTrouvee()) {
   for (n <- 1 to 5) {
     avance()
+    if (estSurBiscuit()) {
+      nbBiscuit = nbBiscuit + 1
+    }
   }
   if (nbBiscuits >= 3) {
     gauche()
   } else {
     droite()
   }
+  nbBiscuits = 0
 }
 avance()
