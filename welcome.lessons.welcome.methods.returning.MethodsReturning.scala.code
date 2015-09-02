@@ -1,0 +1,22 @@
+
+def haveBaggle():Boolean = {
+  var vuBiscuit = false
+  for(pos <- 1 to 6){
+  	avance()
+  	if(estSurBiscuit()){
+    	vuBiscuit = true
+  	}
+	}
+ 	for(pos<-1 to 6){
+ 	 recule()
+ 	}
+  return vuBiscuit
+}
+
+def cherche(){
+  while(!haveBaggle()){
+    droite()
+    avance()
+    gauche()
+  }
+}
