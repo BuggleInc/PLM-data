@@ -1,8 +1,10 @@
-var b:Int=0
-avance()
-while (sortieTrouvee()==false) {
-
-  while (crossing()==false) { if (estSurBiscuit()) {b=b+1};avance()}
-  if (b<3) {droite();b=0;avance()}
-  else {gauche();b=0;avance()}}
+var FoundBaggles:Int=0
+do 
+{
+  for (i<-1 to 5) {avance();if (estSurBiscuit()) {FoundBaggles=FoundBaggles+1}}
+  if (FoundBaggles<3) {droite();FoundBaggles=0}
+	else {gauche();FoundBaggles=0}
+  
+}
+while (sortieTrouvee()==false)
 avance()
