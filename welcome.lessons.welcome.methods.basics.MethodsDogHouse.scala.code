@@ -1,0 +1,20 @@
+var nbCotes = 0
+var nbNiches = 0
+
+def Niche(){
+  baisseBrosse()
+  while(nbCotes < 4){
+    avance(); avance(); gauche(); nbCotes = nbCotes + 1
+  }
+  nbCotes = 0
+  nbNiches = nbNiches + 1
+  leveBrosse()
+  for (i <- 0 to 2){
+    avance()
+  }
+}
+
+while (nbNiches < 4){
+  Niche()
+  gauche(); avance(); avance(); avance(); avance()
+}
