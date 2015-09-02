@@ -1,0 +1,39 @@
+def faireV(c: Color){
+  setCouleurBrosse(c);
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  droite();
+  droite();
+ 	avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+}
+
+def unSymbole(){
+  faireV(Color.YELLOW);
+  faireV(Color.RED);
+  faireV(Color.BLUE);
+  faireV(Color.GREEN);
+  avance(5);
+}
+
+override def run() {
+	for(i<-1 to 10){
+  	for(j<-1 to 10){
+      unSymbole();
+    }
+    gauche();
+    avance(5);
+    droite();
+  }
+}
