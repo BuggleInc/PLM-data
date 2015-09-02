@@ -1,5 +1,17 @@
 do {
   do {
     var nbbaggles:Int =0
-  }
-}
+    for (compteur <- 1 to 5) {
+    avance()
+      if (estSurBiscuit==true) {
+        nbbaggles= nbbaggles + 1
+      }
+    }
+    if (nbbaggles <= 2) {
+      droite()
+    } else if (nbbaggles >= 3) {
+      gauche()
+    }
+  } while (crossing()=false)
+} while (getCouleurSol!=Color.orange)
+avance()
