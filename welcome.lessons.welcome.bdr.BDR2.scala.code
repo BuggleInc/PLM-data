@@ -1,4 +1,6 @@
-litMessage() match{
+var fini = false
+while (!fini) {
+  litMessage() match{
   case "R" => droite(); avance()
   case "L" => gauche(); avance()
   case "I" => retourne(); avance()
@@ -14,4 +16,6 @@ litMessage() match{
   case "W" => recule(4)
   case "V" => recule(5)
   case "U" => recule(6)
+  case _ => fini = true
+}
 }
