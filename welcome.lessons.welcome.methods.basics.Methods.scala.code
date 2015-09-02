@@ -1,9 +1,14 @@
 def goAndGet() {
-  dropBaggle()
+  var count: Int = 0
   while(!isOverBaggle()){
+    count = count + 1
     forward()
   }
   pickupBaggle()
+  
+  for (c <- 0 to count){
+    backward()
+  }
 }
 
 for (i <- 1 to 7) {
