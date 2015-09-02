@@ -1,15 +1,16 @@
 def hunt() {
   
-  	if (isOverBaggle()){
-      pickupBaggle()
-      return
-    }
   
   	if (!isFacingWall){
     	forward()
     }
   
     while (!isFacingTrail()){
+      if (isOverBaggle()){
+      	pickupBaggle()
+      return
+    	}
+      
       left()
     }
   
