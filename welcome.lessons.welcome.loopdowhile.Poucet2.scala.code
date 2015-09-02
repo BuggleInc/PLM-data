@@ -2,12 +2,12 @@ while (!sortieTrouvee()) {
   var baggels:Int = 0
   
   // On parcourt le corridor
-  while(!crossing()) {
+  do {
     avance()
     
     if (estSurBiscuit())
     	baggels = baggels + 1
-  }
+  } while(!crossing())
   
   if (baggels >= 3) {
     gauche()
