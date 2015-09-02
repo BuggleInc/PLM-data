@@ -1,5 +1,15 @@
 override def run() {
+  ligne()
+  gauche(),move(5),droite()
+  ligne()
 }
+
+def move(nbPas: Int) = {
+  for(i <- 1 to nbPas){
+  	avance()
+  }
+}
+
 def marque() = {
   baisseBrosse()
   leveBrosse()
@@ -16,5 +26,18 @@ def diag(c:Color) = {
 
 def motif() = {
   diag(Color.RED)
-  
+  move(3);gauche()
+  diag(Color.BLUE)
+  move(3);gauche()
+  diag(Color.GREEN)
+  move(3);gauche()
+  diag(Color.YELLOW)
+  move(3);gauche()
+}
+
+def ligne() = {
+  for(i <- 1 to 2){
+    motif()
+    move(4)
+  }
 }
