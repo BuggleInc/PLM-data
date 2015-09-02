@@ -1,5 +1,44 @@
- def hunt(c:Color) {
-     // Write your code here
- }
+def brush(){
+  brushDown()
+  brushUp()
+}
 
- // here comes your isFacingTrail method   
+def hunt(c:Color) {
+  forward()
+  brush()
+  if(isOverBaggle()){
+    pickupBaggle()
+    return
+  }
+  if(isFacingTrail(c)){
+    hunt()
+  }
+  else{
+    left()
+    if(isFacingTrail(c)){
+      hunt()
+    }
+    else{
+      back()
+      if(isFacingTrail(c)){
+        hunt()
+      }
+    }
+  }
+}
+
+def isFacingTrail(c:Color):Boolean = {
+  if(isFacingWall)
+  	return false
+  else{
+    forward()
+    if(getGroundColor() == c){
+      backward()
+      return true
+    }
+    else{
+      backward()
+      return false
+    }
+  }
+}
