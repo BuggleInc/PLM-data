@@ -1,0 +1,35 @@
+def Brosse() {
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV() {
+  avance() ; avance()
+  Brosse() ; avance() ; gauche() ; avance() ; Brosse()
+  recule() ; droite() ; avance() ; Brosse()
+  avance() ; avance() ; gauche()
+}
+
+  
+  
+def faireMotif() {
+  for (compteur <- 1 to 4) {
+  faireV()
+ }
+}
+
+def faireMotifligne() {
+  for (compteur <- 1 to 9) {
+    faireMotif()
+    avance() ; avance() ; avance() ; avance() ; avance() ; avance() ; avance()
+  }
+}
+
+
+
+override def run() {
+  for (compteur <- 1 to 9) {
+    faireMotifligne()
+    avance() ; avance() ; avance() ; avance() ; avance() ; avance() ; avance()
+  }
+  gauche() ; avance() ; avance() ; avance() ; avance() ; avance() ; avance() ; avance() ; droite()
+}
