@@ -1,15 +1,17 @@
 def hunt(c:Color) {
   while (!estSurBiscuit()) {
-    
-    // On baisse la brosse pour effacer les traces
-    baisseBrosse()
-    
-    if (isFacingTrail(c))
-    	avance()
-    else {
-      
+    if (isFacingTrail(c)) {
+      baisseBrosse()
+      avance()
+      leveBrosse()
+    } else {
+      while (!isFacingTrail(c)) {
+        gauche()
+      }
     }
   }
+  
+  prendBiscuit()
 }
 
 def isFacingTrail(c:Color):Boolean = {
