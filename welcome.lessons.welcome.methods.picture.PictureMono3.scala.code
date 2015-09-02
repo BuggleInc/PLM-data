@@ -1,0 +1,41 @@
+def marquer {
+  baisseBrosse;leveBrosse;
+}
+
+def modele {
+  avance;avance;
+  marquer
+  avance;gauche;avance;
+  marquer;
+  recule;droite;avance;
+  marquer;
+  avance;avance;gauche;
+}
+
+def faireModele {
+  for (i <- 1 to 4) modele;
+  
+}
+
+
+def ligneDeModeles {
+  for (i <- 1 to 8) {
+      faireModele;
+      for (i <- 1 to 7) avance;    
+  }
+  faireModele;
+}
+
+def ligneSuivante {
+  for (i <- 1 to 56) recule;
+  gauche;
+  for (i <- 1 to 7) avance;
+  droite;
+}
+
+
+override def run() {
+  for (i <- 1 to 9) {
+    ligneDeModeles;ligneSuivante;
+  }
+}
