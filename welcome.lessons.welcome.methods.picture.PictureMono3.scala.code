@@ -1,0 +1,78 @@
+override def run() {
+  for (i <-1 to 3)
+  {
+    for (i <- 1 to 3)
+    {
+      grandMotif()
+    }
+  replacementVertical()
+  }
+}
+
+def grandMotif() 
+{
+  for (i <- 1 to 3)
+  {
+    faireLigneMotif()
+    replacementVertical()
+  }
+}
+
+def faireLigneMotif()
+{
+  for (i <-1 to 3)
+  {
+    faireMotif()
+    replacementHorizontal()
+  }
+}
+
+def faireMotif()
+{
+  for (i <- 1 to 4)
+  {
+    faireV()
+  }
+}
+
+def faireV()
+{
+  deuxPas()
+  marquerLeSol()
+  avance()
+  gauche()
+  avance()
+  marquerLeSol()
+  recule()
+  droite()
+  avance()
+  marquerLeSol()
+  deuxPas()
+  gauche()
+}
+
+def marquerLeSol()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def deuxPas()
+{
+  avance()
+  avance()
+}
+
+def replacementVertical()
+{
+  gauche()
+  for (i <-1 to 7)
+  {avance()}
+  droite()
+}
+
+def replacementHorizontal()
+{
+  for (i <-1 to 7)
+  {avance()}
+}
