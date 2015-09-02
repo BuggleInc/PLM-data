@@ -1,0 +1,17 @@
+var nbBiscuit:Int = 0;
+
+do {
+  do {
+    avance();
+    if (estSurBiscuit()){
+      nbBiscuit = nbBiscuit + 1;
+    }
+  } while (!crossing())
+  if ( nbBiscuit >= 3 ){
+    gauche();
+  } else {
+    droite();
+  }
+  nbBiscuit = 0;
+} while (sortieTrouvee())
+avance();
