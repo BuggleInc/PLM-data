@@ -1,11 +1,9 @@
 def haveBaggle():Boolean = {
 	var vuBiscuit : Boolean = false
   var nbPas = 0
-  do
-  {
-   for (i <- 1 to 6)
-    {
-      if (estSurBiscuit())
+  for (i <- 1 to 6)
+   {
+     if (estSurBiscuit())
       {
         vuBiscuit = true
       }
@@ -14,16 +12,10 @@ def haveBaggle():Boolean = {
         avance()
       	nbPas = nbPas + 1
       }
-    }
+   }
 	for (i <- 1 to nbPas)
   {
     recule()
   }
-  } while (vuBiscuit != true)
-  nbPas=0
-  if (vuBiscuit==true)
-  	return true
-  else
-  	return false
-  
+  return vuBiscuit
 }
