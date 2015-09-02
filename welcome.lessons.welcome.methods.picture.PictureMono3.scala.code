@@ -1,2 +1,59 @@
-override def run() {
+def marquerCase(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def faireV(){
+  avance();avance()
+  marquerCase()
+  avance();gauche();avance()
+  marquerCase()
+  recule();droite();avance()
+  marquerCase()
+  avance();avance();gauche()
+  
+}
+
+def faireMotif1(){
+  for (i <- 1 to 4 ){
+    faireV()
+  }
+}
+
+def faireMotif2(){
+  for (j <- 1 to 3){
+  	faireMotif1()
+  	for (i <- 1 to 7){
+    	avance()
+    }
+  }	
+}
+
+def faireMotif3(){
+  for( i <- 1 to 3){
+    faireMotif2()
+    for (i <- 1 to 21){
+      avance()
+    }
+  }
+}
+def changePosition(){
+  gauche()
+  for (i <- 1 to 7){
+    avance()
+  }
+  droite()
+  
+}
+override def run () {
+  for (i <- 1 to 9){
+    faireMotif3()
+    changePosition()
+  }
+  droite()
+  for (k <- 1 to 14){
+    avance()
+  }
+  gauche()
 }
