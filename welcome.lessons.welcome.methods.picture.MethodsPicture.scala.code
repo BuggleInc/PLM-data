@@ -1,18 +1,15 @@
 override def run() {
-}
-def move(nbPas: Int,versLAvant: Boolean) = {
-  if(versLAvant){
-    for(i <- 1 to nbPas){
-      avance()
-    }
-  }
-  else{
-    for(i <- 1 to nbPas){
-      recule()
-    }
+  for(ligne <- 1 to 3){
+    faireLigne()
+    gauche();move(5);droite()
   }
 }
-def marque() {
+def move(nbPas: Int) = {
+  for(i <- 1 to nbPas){
+  	avance()
+  }
+}
+def marque() = {
   baisseBrosse()
   leveBrosse()
 }
@@ -24,7 +21,7 @@ def faireV(c:Color) = {
   recule();droite();avance()
   marque()
 }
-def faireMotif() {
+def faireMotif() = {
   avance()
   faireV(Color.YELLOW)
   avance();gauche()
@@ -38,9 +35,9 @@ def faireMotif() {
   faireV(Color.GREEN)
   avance();gauche()
 }
-def faireLigne() {
-  for(i <- 1 to 2){
+def faireLigne() = {
+  for(i <- 1 to 3){
     faireMotif()
-    
+    move(5)
   }
 }
