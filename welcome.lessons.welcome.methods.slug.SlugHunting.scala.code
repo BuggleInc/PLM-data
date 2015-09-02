@@ -1,19 +1,20 @@
 def hunt() {
   do{
+  var couleur = isFacingTrail()
   effacerPiste()
-  if (isFacingTrail == true)
+  if (couleur == true)
   {
     avance()
     effacerPiste()
   }
-  if(isFacingTrail == false)
+  if (estSurBiscuit() == true)
+  {
+    prendBiscuit()
+  }
+  if(couleur == false)
   {
     gauche()
     hunt()
-  }
-    if (estSurBiscuit() == true)
-  {
-    prendBiscuit()
   }
   }while(!porteBiscuit())
 }
@@ -26,6 +27,7 @@ def isFacingTrail():Boolean = {
   }
   avance()
   var couleur = getCouleurSol()
+  effacerPiste()
   recule()
     if (couleur == Color.green)
   {
