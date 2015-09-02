@@ -1,2 +1,14 @@
-override def run() {
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+def faireV() {marquerSol(); avance();gauche();avance();marquerSol();recule();droite;avance();marquerSol();avance();avance();gauche();avance();avance()}
+
+def motif() {avance();avance();for (compteur <- 1 to 4) {faireV()
+                                                       };avance();avance();avance();avance();avance()}
+
+def ligne() { for (compteur <- 1 to 9) {motif()}; up()}
+
+def up() {gauche();avance();avance();avance();avance();avance();avance();avance();droite}
+
+override def run() { for (compteur <- 1 to 9) {ligne()}
+                    
 }
