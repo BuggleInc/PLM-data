@@ -1,7 +1,7 @@
   gauche();gauche();
 
 while(getCouleurSol()!=Color.GREEN){
-  while(!estSurBiscuit()){
+  while(!estSurBiscuit() && !estFaceMur()){
     avance();
   }
   prendBiscuit();
@@ -12,7 +12,7 @@ while(getCouleurSol()!=Color.GREEN){
   recule();
   poseBiscuit();
   gauche();gauche();  
-  if(getX()==18){
+  if(estFaceMur()){
     droite();
     avance();
     gauche();
