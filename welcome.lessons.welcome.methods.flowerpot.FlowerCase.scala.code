@@ -1,0 +1,68 @@
+def marque(c: Color){
+  setCouleurBrosse(c);
+  baisseBrosse();
+  leveBrosse();
+}
+
+def petales(c: Color){
+  for(i<-1 to 4){
+    gauche();
+    avance();
+    marque(c);
+    recule();
+  }
+}
+
+def fleur(c: Color){
+  avance();
+  marque(Color.YELLOW);
+  petales(c);
+  avance();
+  gauche();
+  gauche();
+}
+
+def unparcdefleur(){
+  fleur(Color.RED);
+  avance(4);
+  fleur(Color.CYAN);
+  recule(2);
+  droite();
+  avance(2);
+  gauche();
+  fleur(Color.ORANGE);
+  recule(2);
+  droite();
+  avance(2);
+  gauche();
+  fleur(Color.PINK);
+  avance(4);
+  fleur(Color.GREEN);
+  recule(4);
+}
+
+def ungrandparcdefleurs(){
+  unparcdefleur();
+  gauche();
+  avance(2);
+  droite();
+  avance(6);
+  fleur(Color.BLUE);
+  avance(2);
+  gauche();
+  avance(2);
+  droite();
+  unparcdefleur();
+}
+
+def growFlowers(){
+  ungrandparcdefleurs();
+  droite();
+  avance();
+  droite();
+  avance(8);
+  gauche();
+  avance(3);
+  gauche();
+  ungrandparcdefleurs();
+}
