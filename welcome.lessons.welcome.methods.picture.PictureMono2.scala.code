@@ -1,0 +1,49 @@
+override def run() {
+  for (x <- 0 to 2) {
+    faireLigne()
+    nouvelleLigne()
+  }
+}
+
+def nouvelleLigne(){
+  droite()
+  for (j <- 0 to 6){
+    avance()
+  }
+  gauche()
+}
+
+def faireLigne() {
+  for (k <- 0 to 2) {
+  	faireMotif()
+ 		for (i <- 0 to 6) {
+    	avance()
+  	}
+	}
+}
+
+def faireMotif() {
+for (i <- 1 to 4) {
+  avance()
+	avance()
+  faireV()
+  avance()
+  avance()
+  gauche()
+}
+}
+
+def faireV () {
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
