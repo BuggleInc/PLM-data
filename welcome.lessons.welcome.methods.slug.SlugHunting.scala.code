@@ -1,5 +1,5 @@
 def hunt() {while (!porteBiscuit()) {
-  while (isFacingTrail()) {avance();baisseBrosse();leveBrosse(); if (estSurBiscuit) {prendBiscuit()}};gauche() };
+  while (isFacingTrail()) {if (estSurBiscuit) {prendBiscuit(); return};avance();baisseBrosse();leveBrosse(); };gauche() };
 }
 
 def isFacingTrail():Boolean = {if (!estFaceMur()){avance(); if (getCouleurSol() == Color.green) {recule();return true} else {recule();return false }} else {return false}
