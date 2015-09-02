@@ -8,46 +8,47 @@ def brosse() {
   baisseBrosse();
   leveBrosse();
 }
-def faireV(c:Color)  {
+def faireV(c:Color, i:Int)  {
   setCouleurBrosse(c)
-  brosse();
-  avance();
-  left();
-  avance();
-  brosse();
-  recule();
-  right();
-  avance();
-  brosse();
+  if (i == 1 || i == 3){
+    avance(); baisseBrosse(); leveBrosse(); recule(); left();
+    avance(); baisseBrosse(); leveBrosse(); recule(); right();    
+  }
+  if (i == 2 || i == 4){
+    baisseBrosse(); leveBrosse();
+    avance(); left(); avance(); baisseBrosse(); leveBrosse(); recule(); right(); recule();
+  }  
 }
 
 def faireMotif() {
   var c = Color.magenta: Color ;
   for (i<- 1 to 4){
     i match{
-      case 1 => c=Color.YELLOW ;
-      case 2 => c=Color.RED ;
-      case 3 => c=Color.BLUE ;
-      case 4 => c=Color.GREEN ;
+      case 1 => c=Color.RED ;
+      case 2 => c=Color.BLUE ; avance(); avance();
+      case 3 => c=Color.GREEN ; left(); avance(); avance(); right();
+      case 4 => c=Color.YELLOW ; recule(); recule();
     }
     avance();
-    faireV(c:Color);
+    faireV(c:Color,i:Int);
     avance();
     left();
   }
 }
 
 def faireLigne(){
-  for (j <- 0 to 1){
-    faireMotif();
-    for (i<- 0 to 3){
-      avance();
-    }
+  faireMotif();
+  for (i<- 0 to 3){
+    avance();
   }
+  faireMotif();
+  for (i<- 0 to 3){
+    recule();
+  }  
 }
 def changerLigne(){
   left();
-  for (i<- 0 to 4){
+  for (i<- 0 to 3){
     avance();
   }
   right()
