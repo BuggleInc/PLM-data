@@ -6,23 +6,23 @@ def hunt(c:Color) {
       baisseBrosse()
       leveBrosse()
     }
-    else if (isFacingTrail()){
+    else if (isFacingTrail(c)){
       avance()
     }
     else{
       gauche()
-      if (!isFacingTrail()){
+      if (!isFacingTrail(c)){
         gauche();gauche()
       }
     }
   }
  }
 
-def isFacingTrail():Boolean = {
+def isFacingTrail(c:Color):Boolean = {
   var bo:Boolean = !estFaceMur()
   if (bo){
   	avance()
-  	bo = (getCouleurSol()==Color.pink)
+  	bo = (getCouleurSol()==c)
   	recule()
   }
   return bo
