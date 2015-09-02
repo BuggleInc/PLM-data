@@ -1,26 +1,44 @@
 override def run() {
 
-def faireV(){
-  baisseBrosse()
-  leveBrosse()
-  avance()
-  gauche()
-  avance()
-  baisseBrosse()
-  leveBrosse()
-  recule()
-  droite()
-  avance()
-  baisseBrosse()
-  leveBrosse()
-}
+def faireMotif(){
+	def faireV(){
+  	baisseBrosse()
+  	leveBrosse()
+  	avance()
+  	gauche()
+  	avance()
+  	baisseBrosse()
+  	leveBrosse()
+  	recule()
+  	droite()
+  	avance()
+  	baisseBrosse()
+  	leveBrosse()
+	}
 
-var nbCotes = 0
-while(nbCotes < 4){
-  avance(); avance()
-  faireV()
-  avance(); avance(); gauche()
-  nbCotes = nbCotes + 1
+	var nbCotes = 0
+	while(nbCotes < 4){
+  	avance(); avance()
+  	faireV()
+  	avance(); avance(); gauche()
+  	nbCotes = nbCotes + 1
+	}
+  for (i <- 1 to 7){
+    avance()
+  }
+}
+  
+var nbMotifs = 0
+
+while (nbMotifs < 9){
+  for (i <- 0 to 2){
+  faireMotif()
+  }
+  gauche()
+  for (i <- 1 to 7){
+    avance()
+  }
+  nbMotifs = nbMotifs + 1
 }
   
 }
