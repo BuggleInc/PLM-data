@@ -1,19 +1,12 @@
-def dance(test:String):Unit= {
-  test match {
-    case "R" => droite(); avance(); dance(litMessage)
-    case "L" =>gauche();avance(); dance(litMessage)
-    case "I"=>retourne();dance(litMessage)
-    case "A"=>avance();dance(litMessage)
-    case "B"=>avance(2);dance(litMessage)
-    case "C"=>avance(3);dance(litMessage)
- 
-    case "Z"=>recule(1);dance(litMessage)
-    case "Y"=>recule(2);dance(litMessage)
-    case "X"=>recule(3);dance(litMessage)
-
-    case _ =>
-      
+var t:String=litMessage()
+while (estSurMessage()==true) {
+  if (t="R") {droite();avance(); t=litMessage()}
+	if (t="L") {gauche(); avance();t=litMessage()}
+	if (t="I") {retourne();avance();t=litMessage()}
+	if (t="A") {avance();t=litMessage()}
+	if (t="B") {avance(2);t=litMessage()}
+  if (t="C") {avance(3);t=litMessage()}
+	if (t="Z") {recule();t=litMessage()}
+	if (t="Y") {recule(2);t=litMessage()}
+ if (t="X") {recule(3);t=litMessage()}
 }
-}
-
-dance(litMessage)
