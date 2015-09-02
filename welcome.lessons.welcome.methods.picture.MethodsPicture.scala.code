@@ -29,14 +29,24 @@ def faireCarre(){
   
 }
 
-def motif(){
-  for (i <- 1 to 3){
-    for (j <- 1 to 3){
-      setPos(5*i-1,j*5-1);
-      faireCarre();
-    }
+def ligne(){
+  faireCarre()
+  for (i <- 1 to 5){
+    avance();
   }
-  setPos(0,14)
+  faireCarre()
+  for (i <- 1 to 5){
+    avance();
+  }
+  faireCarre()
+}
+
+def motif(){
+	ligne()
+  setPos(0,9)
+  ligne()
+  setPos(0,4)
+  ligne()
 }
 
 def marque(){
