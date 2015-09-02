@@ -1,18 +1,17 @@
-boolean haveBaggle() {
-  if (estSurBiscuit == true ){
-  	return true;
-	}
-	else{
- 	  return false;
-  }
-}
+
+var vuBiscuit = false;
 
 def parcours(){
   for(i<-1 to 6){
-    avance()
-    haveBaggle()
+    if (estSurBiscuit){
+    	 vuBiscuit = true
     }
+    avance()
 	}
+  for(j<- 1 to 6){
+    recule()
+  }
+  return vuBiscuit
 }
 
 parcours()
