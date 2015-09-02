@@ -1,8 +1,12 @@
 def isFacingTrail():Boolean = {
-    if (getCouleurSol()==Color.green){
-      return true;
+    while (!estSurBiscuit){
+      avance()
+      if (getCouleurSol()!=Color.green){
+        recule()
+        droite()
+      }
     }
-  else {
-    return false;
   }
-}        
+}    
+
+
