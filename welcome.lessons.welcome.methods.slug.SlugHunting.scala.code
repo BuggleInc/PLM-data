@@ -1,33 +1,14 @@
-def directionTraceVerte():Int =
-{
-  var directionCaseVerte = 1
-  
-  gauche()
-  leveBrosse()
-  
-  for (i <- 1 to 3)
-  {
-    avance()
-    if (isFacingTrail())
-    	directionCaseVerte = i
-    recule()
-    droite()
-  }
-  
-  gauche()
-  gauche()
-  
-  baisseBrosse()
-  
-  return directionCaseVerte
-}
-
 def isFacingTrail():Boolean =
 {
   // retourne si le buggle est face ? une case verte
   
+  leverBrosse()
+  
   if (estFaceMur())
+  {
+    baisseBrosse()
   	return false
+  }
   else
   {
     var surCaseVerte = false
@@ -35,6 +16,7 @@ def isFacingTrail():Boolean =
     avance()
     surCaseVerte = (getCouleurSol() == Color.green)
     recule()
+    baisseBrosse()    
     
     return surCaseVerte
   }
