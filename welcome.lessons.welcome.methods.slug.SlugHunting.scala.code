@@ -1,16 +1,6 @@
 def hunt() {
-  while (!estSurBiscuit()) {
-    
-    // On baisse la brosse pour effacer les traces
-    baisseBrosse()
-    
-    if (isFacingTrail()) {
-      
-    } else {
-      while (!isFacingTrail()) {
-        droite()
-      }
-    }
+  if (isFacingTrail()) {
+    avance()
   }
 }
 
@@ -22,6 +12,8 @@ def isFacingTrail():Boolean = {
   avance()
   
   var result:Boolean = (getCouleurSol() == Color.green)
+  
+  recule()
   
   return result
 }
