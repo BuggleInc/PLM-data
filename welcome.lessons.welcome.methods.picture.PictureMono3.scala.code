@@ -1,0 +1,40 @@
+def marquer(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV(){
+  avance(2);
+  marquer();
+  avance();
+  gauche();
+  avance();
+  marquer();
+  droite();
+  droite();
+  avance();
+  gauche();
+  avance();
+  marquer();
+  avance(2);
+  gauche();
+}
+
+def faireSymbole(){
+  for(i<-1 to 4){
+    faireV();
+  }
+  avance(7);
+}
+
+
+override def run() {
+  for(i<-1 to 7){
+    for(i<-1 to 7){
+      faireSymbole();
+    }
+    gauche();
+    avance(7);
+    droite();
+  }
+}
