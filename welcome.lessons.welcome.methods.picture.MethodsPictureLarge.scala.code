@@ -1,0 +1,41 @@
+def brush(){
+  brushDown()
+  brushUp()
+}
+
+def makeV(){
+  forward()
+  brush()
+  forward(); left(); forward()
+  brush()
+  backward(); right(); forward()
+  brush()
+  forward(); left()
+}
+
+def makePattern(){
+  for(j <- 1 to 9){
+    for(k <- 1 to 9){
+      setBrushColor(Color.YELLOW)
+      makeV()
+      setBrushColor(Color.RED)
+      makeV()
+      setBrushColor(Color.BLUE)
+      makeV()
+      setBrushColor(Color.GREEN)
+      makeV()
+      for(i <- 1 to 5){
+        forward()
+      }
+ 		}
+    left()
+    for(i <- 1 to 5){
+      forward()
+    }
+    right()
+  }
+}
+
+override def run() {
+  makePattern()
+}
