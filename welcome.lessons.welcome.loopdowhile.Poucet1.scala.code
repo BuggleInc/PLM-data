@@ -1,0 +1,31 @@
+var nbBiscuit:Int=0
+while (!sortieTrouvee)
+{
+	if (nbBiscuit==0)
+  {
+    nbBiscuit=0
+  }
+  else if (nbBiscuit>=3)
+  {
+    gauche()
+    nbBiscuit=0
+  }
+  else if (nbBiscuit<=2)
+  {
+    droite()
+    nbBiscuit=0
+  }
+  for (pas<-1 to 5)
+  {
+    if (estSurBiscuit())
+    {
+      nbBiscuit+=1
+    }
+    avance()
+  }
+}
+if (estFaceMur)
+{
+  droite()
+}
+avance()
