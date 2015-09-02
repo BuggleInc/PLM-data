@@ -1,4 +1,4 @@
-def forward(n:Int){
+def forwardN(n:Int){
   for(i <- 1 to n){
     forward()
   }
@@ -15,7 +15,7 @@ def makeLittlePattern(c:Color){
   brush()
   backward(); left(); forward()
   brush()
-  backward(); right(); forward(3); left()
+  backward(); right(); forwardN(3); left()
 }
 
 def makePattern(){
@@ -27,7 +27,7 @@ def makePattern(){
       makeLittlePattern(Color.YELLOW)
       forward(4);
     }
-    left(); forward(4); right();
+    left(); forwardN(4); right();
   }
 }
 
