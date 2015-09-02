@@ -1,0 +1,52 @@
+def forwardN(n:Int){
+  for(i <- 1 to n){
+    forward()
+  }
+}
+
+def backwardN(n:Int){
+  for(i <- 1 to n){
+    backward()
+  }
+}
+
+def brush(){
+  brushDown()
+  brushUp()
+}
+
+def makeFlower(c:Color){
+  setBrushColor(Color.YELLOW)
+  brush()
+  setBrushColor(c)
+  forward()
+  brush()
+  backwardN(2)
+  brush()
+  forward()
+  left()
+  forward()
+  brush()
+  backwardN(2)
+  brush()
+  forward()
+  right()
+}
+
+def growFlowers(){
+  forward()
+  makeFlower(Color.RED)
+  forwardN(4)
+  makeFlower(Color.CYAN)
+  right()
+  forwardN(4)
+  makeFlower(Color.GREEN)
+  right()
+  forwardN(4)
+  makeFlower(Color.PINK)
+  right()
+  forwardN(2)
+  right()
+  forwardN(2)
+  makeFlower(Color.ORANGE)
+}
