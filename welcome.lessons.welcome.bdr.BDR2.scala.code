@@ -1,12 +1,24 @@
-var message:String = ""
+bool arret:Boolean = false
 
-while (message != "Arret")
+while (!arret)
 {
   litMessage() match
   {
     case "R" => droite(); avancer()
     case "L" => gauche(); avancer()
     case "I" => retourne(); avancer()
-    case i if i <= "F"  => avancer(Int(i))
+    case "A" => avance(1)
+    case "B" => avance(2)
+    case "C" => avance(3)
+    case "D" => avance(4)
+    case "E" => avance(5)
+    case "F" => avance(6)
+    case "Z" => recule(1)
+    case "Y" => recule(2)
+    case "X" => recule(3)
+    case "W" => recule(4)
+    case "V" => recule(5)
+    case "U" => recule(6)
+    case _ => message = arret = true
   }
 }
