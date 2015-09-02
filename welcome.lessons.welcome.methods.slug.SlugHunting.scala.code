@@ -42,8 +42,13 @@ def isFacingTrail():Boolean =
 
 def hunt()
 {
-  while (directionTraceVerte() == 2 && !estSurBiscuit())
-    avanceSurTraceVerte()
+  while (!estSurBiscuit())
+  {
+    gauche()
+    for (i <- 1 to directionTraceVerte() == 2)
+    	droite()
+    avance()
+  }
   
   if (estSurBiscuit())
   		prendBiscuit()
