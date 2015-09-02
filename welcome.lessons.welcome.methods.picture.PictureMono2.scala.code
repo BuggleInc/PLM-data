@@ -1,0 +1,48 @@
+def marque() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  avance(); avance()
+  marque()
+  avance()
+  gauche()
+  avance()
+  marque()
+  recule()
+  droite()
+  avance()
+  marque()
+  avance()
+  avance()
+  gauche()
+}
+
+
+def debut(a: Int) {
+  if (a == 2 || a == 3 || a == 5 || a == 6 || a == 8 || a == 9) {
+    avance(); avance(); avance(); avance(); avance(); avance(); avance() 
+  } else {
+    gauche()
+    avance(); avance(); avance(); avance(); avance(); avance(); avance()
+    gauche()
+    avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance()
+    retourne
+  }
+}
+
+
+def faireMotif(a: Int) {
+  for (i <- 1 to 4) {
+    faireV()
+  }
+  debut(a)
+}
+
+
+override def run() {
+  for (j <- 1 to 9) {
+    faireMotif(j)
+  }
+}
