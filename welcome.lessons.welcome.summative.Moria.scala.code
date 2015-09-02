@@ -7,17 +7,17 @@ while(getCouleurSol()!=Color.GREEN){
     gauche();
     avance();
   }else{
-    while(!estSurBiscuit() && getX()!=17){
-      avance();
-    }
-    prendBiscuit();
-    gauche();gauche();
-    while(!estSurBiscuit()){
-      avance();
-    }
-    recule();
-    poseBiscuit();
-    gauche();gauche();  
     avance();
+    if(estSurBiscuit()){
+      prendBiscuit();
+      gauche();gauche();
+      while(!estSurBiscuit()){
+        avance();
+      }
+      recule();
+      poseBiscuit();
+      gauche();gauche();  
+      avance();
+    }
   }
 }
