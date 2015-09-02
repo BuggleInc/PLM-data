@@ -1,0 +1,54 @@
+def trace()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color)
+{
+  setCouleurBrosse(c)
+  avance()
+  //avance()
+  trace()
+  avance()
+  gauche()
+  avance()
+  trace()
+  recule()
+  droite()
+  avance()
+  trace()
+  //avance()
+  avance()
+  gauche()
+}
+
+def faireMotif()
+{
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+}
+
+def faireLigne(nbColonne:Int)
+{
+  for (i <- 1 to 3)
+  {
+    faireMotif()
+    avance(5)
+  }
+}
+
+
+override def run()
+{
+  for (i <- 1 to 3)
+  {
+  	faireLigne(5)
+    recule(5*9)
+    gauche()
+    avance(5)
+    droite()
+  }
+}
