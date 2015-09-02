@@ -33,7 +33,7 @@ def makeFlower(c:Color){
   right()
 }
 
-def grawSubFlowers(){
+def growSubSubFlowers(){
   forward()
   makeFlower(Color.RED)
   forwardN(4)
@@ -51,8 +51,17 @@ def grawSubFlowers(){
   makeFlower(Color.ORANGE)
 }
 
+def growSubFlowers(){
+  growSubSubFlowers()
+  backwardN(11)
+  right()
+  forwardN(6)
+  left()
+  growSubSubFlowers()
+}
+
 def growFlowers(){
-  grawSubFlowers()
+  growSubFlowers()
   forwardN(4)
   makeFlower(Color.BLUE)
   forward()
