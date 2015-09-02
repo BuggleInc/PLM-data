@@ -1,0 +1,14 @@
+def hunt(c:Color) {while (!estSurBiscuit) 
+           	{if (isFacingTrail(c)) 
+             {coupstylo();avance()} 
+            else {gauche();
+                if (isFacingTrail(c)){coupstylo();avance()} 
+                  else {gauche();gauche();coupstylo();avance()}}};coupstylo();prendBiscuit()
+    // Write your code here
+}
+
+// Copy your isFacingTrail() here
+def isFacingTrail(c:Color):Boolean = {if (estFaceMur()) {return false} else {avance();var p = getCouleurSol();recule();return (p == c)}
+    // Write your code here
+}
+def coupstylo() {baisseBrosse();leveBrosse()}
