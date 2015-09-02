@@ -1,0 +1,64 @@
+override def run() {
+	motif()
+}
+
+def carre(){
+   for (i <- 1 to 4){
+    faireV();
+  } 
+}
+
+def ligne(){
+  carre()
+  for (i <- 1 to 7){
+    avance();
+  }
+  carre()
+  for (i <- 1 to 7){
+    avance();
+  }
+  carre()
+  for (i <- 1 to 14){
+    recule();
+  }
+}
+
+def motif(){
+  ligne()
+  gauche()
+  for (i <- 1 to 7){
+    avance();
+  }
+  droite()
+  ligne()
+  gauche()
+  for (i <- 1 to 7){
+    avance();
+  }
+  droite()
+  ligne()
+}
+
+def faireV(){
+  avance()
+  avance()
+  marque()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marque()
+  avance()
+  droite()
+  avance()
+  gauche()
+  marque()
+  avance()
+  avance()
+  gauche()
+}
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
