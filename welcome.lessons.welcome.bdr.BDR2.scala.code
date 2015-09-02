@@ -1,3 +1,5 @@
+var fini: Boolean = false
+while (fini == false){
 litMessage match{
   case "R" => droite(); avance()
   case "L" => gauche(); avance()
@@ -14,4 +16,6 @@ litMessage match{
   case "W" => recule(); recule(); recule(); recule(); 
   case "V" => recule(); recule(); recule(); recule(); recule(); 
   case "U" => recule(); recule(); recule(); recule(); recule(); recule(); 
+  case _ => fini = true
+}
 }
