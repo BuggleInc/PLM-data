@@ -1,0 +1,53 @@
+var nbBiscuit:Int=0
+while (!sortieTrouvee)
+{
+  for (pas<-1 to 5)
+  {
+    avance()
+    if (estSurBiscuit())
+    {
+      nbBiscuit+=1
+    }
+  }
+	if (nbBiscuit==0)
+  {
+    nbBiscuit=0
+  }
+  else if (nbBiscuit>=3)
+  {
+    gauche()
+    nbBiscuit=0
+  }
+  else if (nbBiscuit<=2)
+  {
+    droite()
+    nbBiscuit=0
+  }
+}
+avance()
+
+
+var nbBiscuit:Int=0
+while (!sortieTrouvee)
+{
+  do
+  {
+    avance()
+    if (estSurBiscuit())
+    {
+      nbBiscuit+=1
+    }
+  }
+  while (!crossing())
+  if (nbBiscuit>=3)
+  {
+    gauche()
+    nbBiscuit=0
+  }
+  else if (nbBiscuit<=2)
+  {
+    droite()
+    nbBiscuit=0
+  }  
+}
+avance()
