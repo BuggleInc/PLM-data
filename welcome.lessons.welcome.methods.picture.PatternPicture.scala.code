@@ -18,19 +18,27 @@ def makeLittlePattern(c:Color){
   backward(); right(); forwardN(3); left()
 }
 
-def makePattern(){
-  for(j <- 1 to 2){
-    for(i <- 1 to 2){
-      makeLittlePattern(Color.RED)
-      makeLittlePattern(Color.BLUE)
-      makeLittlePattern(Color.GREEN)
-      makeLittlePattern(Color.YELLOW)
-      forwardN(4);
-    }
-    left(); forwardN(4); right();
-  }
+def makeBigPattern(){
+  makeLittlePattern(Color.RED)
+  makeLittlePattern(Color.BLUE)
+  makeLittlePattern(Color.GREEN)
+  makeLittlePattern(Color.YELLOW)
+}
+
+def makeEntirePattern(){
+  makeBigPattern()
+  forwardN(4)
+  makeBigPattern()
+  left()
+  forwardN(4)
+  left()
+  forwardN(4)
+  back()
+  makeBigPattern()
+  forwardN(4)
+  makeBigPattern()
 }
 
 override def run() {
-  makePattern()
+  makeEntirePattern()
 }
