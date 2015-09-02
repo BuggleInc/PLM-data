@@ -1,0 +1,47 @@
+def hunt(c:Color)
+{
+  while(!estSurBiscuit())
+  { 
+    if (isFacingTrail(c))
+    	avance()
+    else
+    {
+      gauche()
+      
+      if (isFacingTrail(c))
+      	avance()
+      else
+      {
+        droite()
+        droite()
+        
+        if (isFacingTrail(c))
+      		avance()
+        else
+        	gauche()
+      }
+    }
+  }
+  
+  prendBiscuit()
+}
+
+def isFacingTrail(c:Color):Boolean =
+{
+  // retourne si le buggle est face ? une case verte
+    
+  if (estFaceMur())
+  	return false
+  else
+  {
+    var surCaseVerte = false
+    
+    leveBrosse()
+    avance()
+    surCaseVerte = (getCouleurSol() == c)
+    recule()
+    baisseBrosse()    
+    
+    return surCaseVerte
+  }
+}
