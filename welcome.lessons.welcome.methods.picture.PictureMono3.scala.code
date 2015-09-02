@@ -1,0 +1,51 @@
+override def run() {
+}
+
+override def run() {
+  dplVert() 
+}
+
+def tampon(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  avance(2)
+  tampon()
+  avance()
+  gauche()
+  avance()
+  tampon()
+  recule()
+  droite()
+  avance()
+  tampon()
+  avance(2)
+  gauche()
+}
+
+def faireMotif(){
+	var i = 0
+	for (i <- 1 to 4){
+  	faireV()
+	}
+}
+
+def dplHoriz(){
+  var j = 0
+  for (j <- 1 to 9){
+    faireMotif()
+    avance(7)
+  }
+}
+
+def dplVert(){
+  var k = 0
+  for (k<-1 to 9){
+    dplHoriz()
+    gauche()
+    avance(7)
+    droite()
+  }
+}
