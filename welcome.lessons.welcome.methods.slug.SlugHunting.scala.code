@@ -6,6 +6,7 @@ def hunt() {
  
   	if (isOverBaggle()){
       	pickupBaggle()
+				draw()
         return
     }
   
@@ -13,12 +14,15 @@ def hunt() {
       left()
     }
   
-  	brushDown()
-  	brushUp()
+		draw()
   	hunt()
 }
 
 
+def draw() = {
+   brushDown()
+   brushUp()
+}
 
 def isFacingTrail():Boolean = {
   	if (isFacingWall()){
