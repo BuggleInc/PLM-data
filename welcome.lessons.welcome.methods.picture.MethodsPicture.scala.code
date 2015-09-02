@@ -1,11 +1,22 @@
 override def run() {
 }
-
+def move(nbPas: Int,versLAvant: Boolean) = {
+  if(versLAvant){
+    for(i <- 1 to nbPas){
+      avance()
+    }
+  }
+  else{
+    for(i <- 1 to nbPas){
+      recule()
+    }
+  }
+}
 def marque() {
   baisseBrosse()
   leveBrosse()
 }
-def faireV(c:Color) {
+def faireV(c:Color) = {
   setCouleurBrosse(c)
   marque()
   avance();gauche();avance()
