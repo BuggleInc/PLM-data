@@ -1,0 +1,56 @@
+override def run() {
+  def grandMotif() { // methode pour grand motif (21*21)
+  def faireMotif() { // methode pour petit motif (7*7)
+  def marquerSol() {
+    baisseBrosse()
+    leveBrosse()
+  }
+  def faireV() {
+    avance(2)
+    marquerSol()
+    avance()
+    gauche()
+    avance()
+    marquerSol()
+    recule()
+    droite()
+    avance()
+    marquerSol()
+    avance(2)
+    gauche()
+  }
+  for (compteur <- 1 to 4) {
+    faireV()
+  }
+  avance(7)
+  }
+  
+  def ligne() {
+    faireMotif()
+    faireMotif()
+    faireMotif()
+    recule(21)
+    gauche()
+    avance(7)
+    droite()
+  }
+  
+  for (compteur <- 1 to 3) {
+    ligne()
+  }
+  avance(21)
+  }
+  
+  def grandeLigne() {
+    for (compteur <- 1 to 3) {
+      grandMotif()
+    }
+    recule(63)
+    gauche()
+    avance(21)
+    droite()
+  }
+  for (compteur <- 1 to 3) {
+    grandeLigne()
+  }
+}
