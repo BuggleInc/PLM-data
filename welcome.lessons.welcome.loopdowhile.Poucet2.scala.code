@@ -1,10 +1,15 @@
 var x=0
 while (!sortieTrouvee) {
-  do{
+  while (!crossing()) {
     var y=0
     avance()
     if (estSurBiscuit()){
       y=y+1
     }
-  } while (!crossing())
+    if (y<=2) {
+      droite()
+    } else {
+      gauche()
+    }
+  } 
 }
