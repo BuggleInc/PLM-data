@@ -1,0 +1,52 @@
+override def run() {
+  for (i<- 1 to 3) faireMotif()
+}
+
+def marque() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  avance(2)
+  marque()
+  avance()
+  gauche()
+  avance()
+  marque()
+  recule()
+  droite()
+  avance()
+  marque()
+  avance(2)
+  gauche()
+  
+}
+
+def ligneSuivante() {
+  retourne()
+  avance(20)
+  droite()
+  avance(6)
+  
+}
+
+def motifSuivant() {
+  avance()
+  droite()
+}
+
+def retourIni() {
+  recule(20)
+  droite()
+}
+def faireMotif() {
+  for(i<- 1 to 4) faireV()
+  avance(6)
+  if (getX == 20) {
+    ligneSuivante()
+    if (getY != 0) motifSuivant
+    else retourIni
+  }
+  else avance()
+}
