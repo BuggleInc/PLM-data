@@ -4,5 +4,5 @@ def faireU(c:Color) {gauche();avance();coupstylo(c);recule();droite();avance();c
 def motif() {faireU(Color.RED);faireU(Color.BLUE);faireU(Color.GREEN);faireU(Color.YELLOW)}
 def motifSuivant() {for (i <- 1 to 4) {avance()}}
 def ligneSuivante() {gauche();for (i<- 1 to 3) {avance}}
-override def run() {for (i <- 1 to 2) {for (j <- 1 to 2) {motif();motifSuivant()};ligneSuivante()}
+override def run() {motif();motifSuivant();motif();while (!estFaceMur) {recule()};ligneSuivante();motif();motifSuivant();motif()
 }
