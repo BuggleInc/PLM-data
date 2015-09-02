@@ -1,6 +1,6 @@
 override def run() {
-  def ptitMotif(){
-    
+  def ptitMotif(c: Color){
+    setCouleurBrosse(c)
     avance()
     baisseBrosse();leveBrosse();
     recule()
@@ -12,32 +12,23 @@ override def run() {
   }
   
   def motif(){
-    var k =0
+    var l 
     for (i <- 1 to 2){
       
       for(j <- 1 to 2){
         
         for (k <- 1 to 4){
-          ptitMotif()
-          /*k match{
+          
+          k match{
             case 1 => ptitMotif(Color.RED);
             case 2 => ptitMotif(Color.BLUE);
             case 3 => ptitMotif(Color.GREEN);
             case 4 => ptitMotif(Color.YELLOW);
-          }*/
+          }
           avance();avance();avance();gauche();
 
-          }
-          
-        }
-        
-        
+          }          
+      	}         
       }
-      
-      
-    }
-    
-    
-    
-    
+   	}
  }
