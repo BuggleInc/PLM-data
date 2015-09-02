@@ -1,21 +1,29 @@
 def growFlowers()
 {
-  for(i <-1 to 2)
-  {
-    if(i==1)dessineFleur(Color.red);
+    dessineFleur(Color.red);
+    dessineFleur();
     avance();
   	avance();
   	avance();
-  }
+  	dessineFleur(Color.cyan);
+    dessineFleur();
+    recule();
+  	recule();
+  	recule();
 }
 def dessineFleur(c:Color)
 {
   setCouleurBrosse(c)
-  for(i <- 1 to 4)
-  {
-    dessineMotif();
-  }
+  baisseBrosse();
+  avance()
   avance();
+  recule();
+  gauche();
+  recule();
+  avance();
+  avance();
+  recule();
+  droite();
   setCouleurBrosse(Color.yellow)
   baisseBrosse();
   leveBrosse();
@@ -25,11 +33,5 @@ def dessineFleur(c:Color)
 
 def dessineMotif()
 {
-  baisseBrosse();
-  leveBrosse();
-  droite()
-  avance()
-  gauche();
-  avance();
-  gauche();
+ 
 }
