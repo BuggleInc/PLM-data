@@ -1,9 +1,9 @@
-def isFacingTrail(couleur:java.awt.Color):Boolean = {
+def isFacingTrail(couleur:Color):Boolean = {
   if (estFaceMur() == true) {return false}
   else {
   	avance()
   	var vert: Boolean = false
-  	if (getCouleurSol() == Color.couleur) {
+  	if (getCouleurSol() == couleur) {
   		vert = true
   	}
   	recule()
@@ -11,7 +11,7 @@ def isFacingTrail(couleur:java.awt.Color):Boolean = {
   }
 }
 
-def hunt(c:java.awt.Color) {
+def hunt(c:Color) {
   var baggle: Boolean = false
   while (baggle == false) {
   while (isFacingTrail(c) == true) {
