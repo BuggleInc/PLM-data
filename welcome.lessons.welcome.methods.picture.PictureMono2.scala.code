@@ -1,2 +1,56 @@
+def avancex2() {
+  avance(); avance();
+}
+
+def avancex7() {
+  for (c <- 1 to 7){
+    avance();
+  }
+}
+
+def brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV() {
+  avancex2();
+  brosse();
+  gauche();
+  avance();
+  droite();
+  avance();
+  brosse();
+  droite();
+  avance();
+  gauche();
+  avance();
+  brosse();
+  avancex2();
+  gauche();
+}
+
+def motif() {
+  for (compteur <- 1 to 4){
+    faireV();
+  }
+}
+
+def motifx3() {
+  motif();
+  avancex7();
+  motif();
+  avancex7();
+  motif();
+  retourne();
+  avancex7(); avancex7();
+  gauche();
+  avancex7();
+  droite();
+}
+
 override def run() {
+  for ( i <- 1 to 3 ){
+    motifx3();
+  }
 }
