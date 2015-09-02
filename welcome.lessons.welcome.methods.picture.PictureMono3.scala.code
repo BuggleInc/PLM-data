@@ -1,0 +1,44 @@
+def point() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  avance()
+	avance()
+  point()
+  avance()
+  gauche()
+  avance()
+  point()
+  recule()
+  droite()
+  avance()
+  point()
+  avance()
+  avance()
+  gauche()
+}
+
+def faireMotif() {
+  for (i <- 1 to 4) {faireV()}
+  for (i <- 1 to 7) {avance()}
+}
+
+
+def faireLigneM() {
+  for (i <- 1 to 8)  {faireMotif()}
+  
+}
+
+def monter() {
+  gauche()
+  for (i <- 1 to 7) {avance()}
+  droite()
+}
+
+
+
+
+override def run() { for (i <- 1 to 8) {faireLigneM(); monter()}
+}
