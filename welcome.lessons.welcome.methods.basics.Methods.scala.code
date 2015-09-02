@@ -1,0 +1,23 @@
+/**
+* Vas chercher a biscuit et le ram?ne a sa position initiale
+*/
+
+def goAndGet() {
+  var n:Int = 0
+  while (estSurBiscuit()==false) {
+    avance()
+    n=n+1
+  }
+  prendBricuit()
+  for (i <- 1 to n) {
+    recule()
+  }
+  poseBiscuit()
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
