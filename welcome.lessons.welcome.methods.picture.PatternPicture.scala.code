@@ -1,7 +1,7 @@
 override def run() {
 
   //parcourir un carr? 4*4
-  def faire_truc_bizzare(c:Color)
+  def faire_truc_bizzare1(c:Color)
   {avance();
    setCouleurBrosse(c);
    baisseBrosse();
@@ -17,4 +17,57 @@ override def run() {
    avance();
    gauche();
   }
+}
+
+  def faire_truc_bizzare2(c:Color)
+  {;
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   avance();
+   gauche();
+   avance();
+   gauche();
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   avance();
+   gauche();
+   avance();
+   gauche();
+  }
+}
+
+
+
+def patern()
+{
+  faire_truc_bizzare1(Color.RED);
+	avance();
+  faire_truc_bizzare2(Color.BLUE);
+	recule(2);
+  gauche();
+  avance(2);
+  droite();
+  faire_truc_bizzare2(Color.YELLOW);
+  avance(2);
+  faire_truc_bizzare1(Color.GREEN);
+  recule(2);
+	gauche();
+  recule(2);
+  droite();
+  
+}
+
+
+{patern();
+avance(4);
+patern();
+ recule(4);
+ gauche();
+ avance(4);
+ droite();
+patern();
+ avance(4);
+ patern();
 }
