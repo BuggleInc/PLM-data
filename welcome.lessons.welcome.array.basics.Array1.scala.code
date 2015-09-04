@@ -1,30 +1,18 @@
 override def run() {
-  var l = getMondeLargeur()
-  var h = getMondeHauteur()
-  var T = col()
-  for (j <- 1 to l-1) {
-    recule(h-1)
+  for (j <- 1 to getMondeHauteur()) {
+    recopiage()
+    avance()
+  }
+}
+def recopiage() {
+  var c:Color = getCouleurSol()
+  for (i <- 1 to getMondeLargeur()+1) {
+    setCouleurBrosse(c)
     gauche()
     avance()
     droite()
-    recop(h,j,l,T)
-  }
-}
-
-def recop(h:Int,j:Int,l:Int,T:Array[Color]) {
-  for (k <- 1 to l) {
-    setCouleurBrosse(T(Math.abs(k-j)))
+    avance()
     baisseBrosse()
     leveBrosse()
-    avance()
   }
-}
-
-def col() {
-  var h = getMondeHauteur()
-  var T=new Array[Color](h)
-  for (i <- 1 to h) {
-    T(i-1) = getCouleurSol()
-    avance()
-  }
-}
+} 
