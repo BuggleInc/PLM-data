@@ -1,0 +1,47 @@
+def fleur(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  for (i <- 1 to 2) {avance()}
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  droite()
+  setCouleurBrosse(Color.YELLOW)
+  leveBrosse()
+  avance()
+}
+
+
+def fleurLigne(c1:Color, c2:Color) = {
+  fleur(c1)
+  avance()
+  avance()
+  fleur(c2)
+  for (i <- 1 to 6) {recule()}
+}
+
+def fleurLigne(c1:Color, c2:Color, c3:Color) = {
+  fleur(c1)
+  avance()
+  avance()
+  fleur(c2)
+  avance()
+  avance()
+  fleur(c3)
+  for (i <- 1 to 10 ) {recule()}
+}
+
+def fleurCarr?() = {
+  fleurLigne(Color.RED, Color.CYAN)
+  droite()
+  for (i <- 1 to 4) {avance()}
+  gauche()
+  fleurLigne(Color.PINK, Color.GREEN)
+}
+
+def growFlowers() = { fleurCarr?()
+  
+}
