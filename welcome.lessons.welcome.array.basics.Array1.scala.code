@@ -22,11 +22,17 @@ def colorier(){
   for(i<-0 to 4){
     if(i==0){
       setCouleurBrosse(tableauCouleur(5));
+      var y = tableauCouleur(5);
+      tableauCouleur(5) = tableauCouleur(0);
+      tableauCouleur(0) = y;
       baisseBrosse();
       leveBrosse();
     }
     else{
       setCouleurBrosse(tableauCouleur(i-1));
+      var y = tableauCouleur(i);
+      tableauCouleur(i) = tableauCouleur(i-1);
+      tableauCouleur(i-1) = y;
       baisseBrosse();
       leveBrosse();
     }
