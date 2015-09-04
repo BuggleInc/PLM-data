@@ -8,7 +8,7 @@ def colonne(decalage:Int, motif:Array[Color]) {
     }
     setCouleurBrosse(motif(hauteur - decalage - 1))
     baisseBrosse(); leveBrosse()
-    for (i <- 1 to hauteur-1) {recule()}
+    for (i <- 1 to hauteur-decalage-1) {recule()}
     for (i <- 1 to decalage-1) {
       setCouleurBrosse(motif(i + 1 + decalage))
       baisseBrosse(); leveBrosse(); avance()
