@@ -1,7 +1,7 @@
 def fillColumn(colors:Array[Color]){
   forward();left(); forward();right()
   brushDown()
-  for(i <- 0 to getWorldHeight()){
+  for(i <- 0 to getWorldHeight() - 1){
     setBrushColor(colors(i))
     forward()
   }
@@ -9,7 +9,7 @@ def fillColumn(colors:Array[Color]){
 
 override def run() {
   var colors = new Array[Color] (getWorldHeight())
-  for(i <- 0 to getWorldHeight()){
+  for(i <- 0 to getWorldHeight() - 1){
     colors(i) = getGroundColor()
     forward()
   }
