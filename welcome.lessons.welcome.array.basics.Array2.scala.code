@@ -1,7 +1,6 @@
 override def run() {
   var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
   var comp:Int = 0
-  
   for (i<-1 to getMondeLargeur()-1)
   {
     decale()
@@ -26,11 +25,12 @@ def createTab(num : Int):Array[Color]={
 }
 
 def remplirTab(num:Int, T : Array[Color]):Array[Color]={
-  for (i<- 0 to num -1)
+  for (i<- 0 to num -2)
   {
     T(i)=getCouleurSol()
     avance()
   }
+  T(i-1 = getCouleurSol())
   return T
 }
 
