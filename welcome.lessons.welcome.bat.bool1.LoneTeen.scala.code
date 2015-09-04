@@ -1,0 +1,11 @@
+def loneTeen(a:Int, b:Int):Boolean = {
+ (a,b) match {
+   case (a,b) if estAdo(a)&&(!estAdo(b)) => true
+   case (a,b) if !estAdo(a)&&estAdo(b) => true
+   case (_,_) => false
+ } 
+}
+
+def estAdo (a:Int):Boolean={
+  a>=13 && a<=19
+}
