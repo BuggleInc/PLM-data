@@ -20,18 +20,12 @@ def keepHandOnSideWall(){
 
 
 override def run() {
-  
-  var trouve = false;
-  
+    
   while(!estSurBiscuit()){
     
-    if(northlibre() && !trouve){
+    if(northlibre()){
       setDirection(Direction.NORTH);
       avance();
-      
-      if(getY()==0){
-        trouve = true;
-      }
       
     }else{
     	keepHandOnSideWall();
