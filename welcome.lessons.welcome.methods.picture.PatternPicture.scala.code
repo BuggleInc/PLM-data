@@ -1,12 +1,50 @@
 override def run() {
   
-  def symbole(c:Color){
+  def symbole1(c:Color){
     avance();
+    peindre(c);
     gauche();
     avance();
     gauche();
     avance();
+    peindre(c);
     gauche();
     avance();
   }
+  
+  def symbole2(c:Color){
+    avance(2);
+    peindre(c);
+    gauche();
+    avance();
+    gauche();
+    avance();
+    peindre(c);
+    gauche();
+    avance();
+  }
+  
+  def peindre(c:Color){
+    setCouleurBrosse(c);
+    baisseBrosse();
+    leveBrosse();
+  }
+    
+  
+  def ligne(){
+    for (i <- 1 to 3){
+    	carre();
+    	avance(5)
+  	}
+  }
+  
+  def colone(){
+    for (i <- 1 to 3){
+      ligne();
+    	gauche();
+    	avance(5);
+      droite();
+    }
+  }
+  colone();
 }
