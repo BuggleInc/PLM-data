@@ -1,0 +1,23 @@
+override def run() {
+  var c:Int = 0
+  var endLine:Boolean = false
+  var direction:Int = 1
+  while(getX() != getWorldWidth() - 1 || getY() != getWorldHeight() - 1){
+    writeMessage(""+c)
+    if(endLine && getX() == getWorldWidth() - 1){
+    	setPos(getX(), getY() + 1)
+  		endLine = false
+  	}
+  	if(endLine && getX() == 0){
+    	setPos(getX(), getY() + 1)
+  		endLine = false
+    }
+    else{
+    	setPos(getX() + direction, getY())
+      if(getX() == 0 || getX() == getWorldWidth() - 1)
+      	endLine = true
+		}
+    c += 1
+  }
+  writeMessage(""+c)
+}
