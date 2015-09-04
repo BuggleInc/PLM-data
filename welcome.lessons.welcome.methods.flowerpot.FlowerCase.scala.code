@@ -1,0 +1,43 @@
+def dessinerFleur(c:Color)
+{
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  leveBrosse()
+  droite()
+  recule()
+}
+
+def dessinerLigneFleurs(couleur1:Color, couleur2:Color)
+{
+  dessinerFleur(couleur1)
+  avance(4)
+  dessinerFleur(couleur2)
+}
+
+def dessinerPot()
+{
+  dessinerLigneFleurs(Color.RED, Color.CYAN)
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+  dessinerFleur(Color.ORANGE)
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+  dessinerLigneFleurs(Color.PINK, Color.GREEN)
+  recule(4)
+}
+
+def growFlowers()
+{
+  dessinerPot()
+}
