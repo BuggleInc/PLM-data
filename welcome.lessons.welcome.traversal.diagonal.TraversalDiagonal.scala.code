@@ -1,0 +1,18 @@
+var diag = 0;
+override def run() {
+  var c:Int = 0
+  var endLine:Boolean = false
+  var direction:Int = 1
+  while(getX() != getWorldWidth() - 1 || getY() != getWorldHeight() - 1){
+    writeMessage(""+c)
+    if(getX() == getWorldWidth() - 1 || getY() == 0){
+      diag += 1
+      setPos(0, diag)
+  	}
+  	else{
+    	setPos(getX() + 1, getY() - 1)
+		}
+    c += 1
+  }
+  writeMessage(""+c)
+}
