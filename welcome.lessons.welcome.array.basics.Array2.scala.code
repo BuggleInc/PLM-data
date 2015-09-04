@@ -1,2 +1,36 @@
 override def run() {
+  var mot = motif()
+  for(i<-1 to getMondeHauteur()){
+    gauche();avance();droite()
+    trace(mot)
+  }
+}
+
+def motif(hauteur : Int):Array[Color] = {
+  var mot = new Array[Color](hauteur)
+  for(i<-0 to hauteur-2){
+    mot(i) = getCouleurSol()
+    avance()
+  }
+  mot(i) = getCouleurSol()
+  for(i<-1 to hauteur){
+    recule()
+  }
+  return mot
+}
+
+def trace(motif : Array[Color]) = {
+  var dec = litMessage().toInt
+  for(i<-0 to motif.lenght-2){
+    setCouleurBrosse(motif((i+dec)%motif.lenght))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+  setCouleurBrosse(motif((i+dec)%motif.lenght))
+  baisseBrosse()
+  leveBrosse()
+  for(i<-1 to motif.lenght){
+    recule()
+  }
 }
