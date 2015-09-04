@@ -16,11 +16,12 @@ override def run() {
     var m:String=litMessage()
     var me:Int=m.toInt
     baisseBrosse()
-    for (j<- 0 to getMondeHauteur()-1){
+    for (j<- 0 to getMondeHauteur()-2){
       setCouleurBrosse(T((j+me) % 6))
+      baisseBrosse()
+      leveBrosse()
       avance()
     }
-    leveBrosse()
     recule(p)
   }
 }
