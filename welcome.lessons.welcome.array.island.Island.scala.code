@@ -1,43 +1,15 @@
 def island(num:Array[Int]): Int = {
-  var separation = indexOfValue(num, 0)
-  if (separation != -1){
-    var soustruc = new Array[Int](separation - 1);
-    for (i <- 0 to separation - 2){
-      soustruc(i) = num(i);
-    }
-    var soustruc2 = new Array[Int](num.length - separation );
-    for (i <- 0 to num.length - separation - 1){
-      soustruc2(i) = num(separation + 1 + i);
-    }
-    return island(soustruc) + island(soustruc2);
+  var nb = 0
+	var diff = new Array[Int](num.length -1)
+  for (i <- 0 t0 num.length -2){
+    diff(i) = num(i+1) - num(i);
   }
-  else{
-    return maxValue(num);
+  for (i <- 0 to diff.length -1){
+    if (diff(i) > 0){
+      nb += 1;
+    }
   }
+  return nb
 }
 
 
-
-
-
-
-
-def indexOfValue(nums:Array[Int] ,lookingFor:Int): Int = {
-  for (i <- 0 to nums.length -1){
-    if (nums(i) == lookingFor){
-      return i
-    }
-
-  }
-     return -1
-}
-
-def maxValue(nums:Array[Int]): Int = {
-  var max:Int = nums(0)
-  for (i <- 1 to nums.length -1){
-    if (nums(i) > max){
-      max = nums(i)
-    }
-  }
-  return max
-}
