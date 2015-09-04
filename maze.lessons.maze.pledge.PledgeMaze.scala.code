@@ -5,24 +5,29 @@ def northlibre():Boolean = {
   return false
 }
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall() {
+
   gauche();
+  nbrot += 1;
+  
   while(estFaceMur()){
+    nbrot -= 1;
     droite();
   }
   avance();
 }
 
+var nbrot:Int = 0;
 
 override def run() {
-    
+      
   while(!estSurBiscuit()){
     
     keepHandOnSideWall();
-    while(northlibre()){
-      setDirection(Direction.NORTH);
+    if(getDirection==Direction.NORTH && nbrot==0){
       avance();
       if(estFaceMur()){
+        nbrot -= 1;
         droite();
       }
     }
