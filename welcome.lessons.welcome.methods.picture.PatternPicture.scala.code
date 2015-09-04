@@ -1,0 +1,39 @@
+override def run() {
+  for (j<-1 to 2){
+  	for (i<-1 to 2){
+    	faireMotif
+  	}
+    gauche()
+    avance(4)
+    droite()
+  }
+}
+
+def faireMotif(c:Color){
+  faireDiag(Color.RED)
+  faireDiag(Color.BLUE)
+  faireDiag(Color.GREEN)
+  faireDiag(Color.YELLOW)
+  droite()
+  avance(2)
+  gauche()
+  avance(3)
+}
+
+def faireDiag(c:Color){
+  avance()
+  marquer(c)
+  gauche()
+  avance()
+  marquer(c)
+  gauche()
+  avance()
+  droite()
+  avance()
+}
+
+def marquer(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
