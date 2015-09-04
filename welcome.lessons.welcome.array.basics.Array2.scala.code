@@ -19,11 +19,12 @@ def replique(T:Array[Color],l:Int){
     avance()
     droite()
     val decalage =litMessage().toInt
-    for (k<-0 to taille-1){
+    for (k<-0 to taille-2){
       setCouleurBrosse(T((k+decalage)%taille))
       baisseBrosse()
       leveBrosse()
       avance()
     }
+    setCouleurBrosse(T((taille-2+decalage)%taille))
   }
 }
