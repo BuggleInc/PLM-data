@@ -8,6 +8,11 @@ override def run() {
     decale()
     for (i<-1 to getMondeHauteur())
     {
+        if (estFaceMur())
+  {
+    recule(getMondeHauteur())
+    comp = comp + 1
+  }
       peindre(T((i+comp)%getMondeHauteur()))
       avance()
     }
