@@ -1,5 +1,4 @@
 override def run() {
-  
   var colors = new Array[Color](worldHeight);
   
   colors = read();
@@ -9,16 +8,17 @@ override def run() {
 def read():Array[Color] = {
   var colors = new Array[Color](getWorldHeight());
   
-  for (i <- 0 to getWorldHeight - 1) {
+  for (i <- 0 to getWorldHeight() - 2) {
     colors(i) = getGroundColor();
     forward()
   }
-  backward(getWorldHeight-1);
+  
+  colors(-1) = getGroundColor();
+  backward(getWorldHeight() - 1);
   
   println(colors )
   return colors;
 }
 
-//var worldHeight:Int = getWorldHeight();
-var worldHeight:Int = 1;
+
 
