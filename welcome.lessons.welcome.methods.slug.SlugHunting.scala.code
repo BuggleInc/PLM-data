@@ -1,15 +1,16 @@
 def hunt() {
-    while (isFacingTrail() && !porteBiscuit()) {
-      avance()
-      if (estSurBiscuit()) {
-        prendBiscuit()
+    while (!porteBiscuit()) {
+      if (isFacingTrail()) {
+      	avance()
+      	if (estSurBiscuit()) {
+        	prendBiscuit()
+      	}
+      	baisseBrosse()
+      	leveBrosse()
+      } else {
+        droite()
       }
-      baisseBrosse()
-      leveBrosse()
     }
-  if (!porteBiscuit()) {
-    droite()
-  }
 }
 
 def isFacingTrail():Boolean = {
