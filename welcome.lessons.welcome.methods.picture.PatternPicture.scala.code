@@ -1,5 +1,18 @@
-override def run() {MotifRV(Color.YELLOW)}
+override def run() {faitMotif()}
 
+
+def faitMotif(){
+  MotifRV(Color.RED)
+  avance(2)
+  MotifBJ(Color.BLUE)
+  recule(2)
+  gauche()
+  avance(2)
+  droite()
+  MotifBJ(Color.YELLOW)
+  avance(2)
+  MotifRV(Color.GREEN)
+}
 
 def MotifRV(c:Color){
   setCouleurBrosse(c)
@@ -12,11 +25,22 @@ def MotifRV(c:Color){
   brosse()
   gauche()
   avance()
-  gauche()
-  
-  
+  gauche()  
 }
 
+def MotifBJ(c:Color){
+  setCouleurBrosse(c)
+  brosse()
+  avance()
+  gauche()
+  avance()
+  brosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
 
 def brosse(){
   baisseBrosse()
