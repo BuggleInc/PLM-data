@@ -1,9 +1,12 @@
 def growFlowers() {
-  L2F(Color.red,Color.cyan)
-  init()
-  L1F(Color.orange)
-  init()
-  L2F(Color.pink,Color.green)
+  pot()
+  blue()
+  inita()
+  pot()
+  initL()
+  pot()
+  blue()
+  pot()
 }
 
 def flower(c:Color) {
@@ -44,9 +47,52 @@ def L1F(c:Color) {
   }
 }
 
-def init() {
+def initb() {
   droite()
   avance()
   avance()
   gauche()
+}
+
+def inita() {
+  droite()
+  recule()
+  recule()
+  gauche()
+}
+
+def initL() {
+  gauche()
+  avance()
+  gauche()
+  while (!(estFaceMur))
+  {
+    avance()
+  }
+  gauche()
+  for (i<-1 to 4)
+  {
+    avance()
+  }
+  gauche()
+}
+
+def pot() {
+  L2F(Color.red,Color.cyan)
+  initb()
+  L1F(Color.orange)
+  initb()
+  L2F(Color.pink,Color.green)
+}
+
+def blue() {
+  for (i<-1 to 6)
+  {
+    avance()
+  }
+  gauche()
+  avance()
+  avance()
+  droite()
+  flower(Color.blue)
 }
