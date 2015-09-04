@@ -1,0 +1,34 @@
+def colorie {
+  baisseBrosse;leveBrosse;
+}
+
+def triangle(c:Color){
+  setCouleurBrosse(c);
+  avance;colorie;
+  avance;gauche;avance;colorie;
+  recule;droite;avance;colorie;
+  avance;gauche;
+}
+
+def carre{
+  triangle(Color.YELLOW);
+  triangle(Color.RED);
+  triangle(Color.BLUE);
+  triangle(Color.GREEN);
+}
+
+def ligne {
+  carre;
+  for (i <- 1 to 5) avance;
+  carre;
+  for (i <- 1 to 5) avance;
+  carre;
+}
+
+override def run() {
+  ligne;
+  for (i <- 1 to 10) recule;
+  ligne;
+  for (i <- 1 to 10) recule;
+  ligne;
+}
