@@ -1,0 +1,49 @@
+override def run() {
+  for (i <- 1 to 9){
+    faireMotif2(9)
+    gauche()
+    for(k <- 1 to 5){
+      avance()
+    }
+    droite()
+  }
+  positionInitiale()
+}
+
+def faireV(c: Color){
+  setCouleurBrosse(c)
+  avance();baisseBrosse();leveBrosse()
+  avance()
+  gauche()
+  avance();baisseBrosse();leveBrosse()
+  recule()
+  droite()
+  avance();baisseBrosse();leveBrosse()
+  avance();gauche()
+}
+
+def faireMotif1(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  
+}
+
+def faireMotif2(n: Int){
+  for(i<- 1 to n){
+    faireMotif1()
+    for(j <- 1 to 5){
+      avance()
+    }
+  }
+  
+}
+
+def positionInitiale(){
+  droite()
+  for (i<- 1 to 45){
+    avance()
+  }
+  gauche()
+}
