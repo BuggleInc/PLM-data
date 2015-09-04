@@ -1,0 +1,66 @@
+def growFlowers()={
+  
+}
+
+def faitMotif(){
+  twoFlowers(Color.RED,Color.CYAN)
+  droite()
+  avance(4)
+  gauche()
+  twoFlowers(Color.PINK,Color.GREEN)
+  gauche()
+  avance(2)
+  droite()
+  threeFlowers(Color.ORANGE,Color.BLUE)
+  twoFlowers(Color.RED,Color.CYAN)
+  droite()
+  avance(4)
+  gauche()
+  twoFlowers(Color.PINK,Color.GREEN)
+ 
+}
+
+
+def boutonC(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def crossC(c:Color)={
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  droite()
+  leveBrosse()
+}
+
+def twoFlowers(c1:Color,c2:Color)={
+  crossC(c1)
+  boutonC(Color.YELLOW)
+  avance(3)
+  crossC(c2)
+  boutonC(Color.YELLOW)
+  recule(5)
+}
+
+def threeFlowers(c1:Color,c2:Color)={
+  avance(2)
+  crossC(c1)
+  boutonC(Color.YELLOW)
+  avance(3)
+  crossC(c2)
+  boutonC(Color.YELLOW)
+  avance(3)
+  crossC(c1)
+  boutonC(Color.YELLOW)
+  recule(3)
+  gauche()
+  avance(2)
+  droite()
+}
