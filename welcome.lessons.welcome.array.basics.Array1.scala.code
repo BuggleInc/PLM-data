@@ -1,5 +1,5 @@
 def fillColumn(colors:Array[Color]){
-  left(); forward();right()
+  left(); forward(); right(); forward()
   brushDown()
   for(i <- 0 to getWorldHeight() - 1){
     forward()
@@ -14,6 +14,7 @@ override def run() {
     colors(i) = getGroundColor()
     forward()
   }
+  backward()
   for(i <- 0 to 4)
   	fillColumn(colors)
 }
