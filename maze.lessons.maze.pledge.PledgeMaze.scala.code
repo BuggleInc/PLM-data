@@ -1,3 +1,5 @@
+var sommeAngle=0;
+var nordActif=true;
 override def run() {
   while(!estSurBiscuit())
   {
@@ -12,9 +14,15 @@ def keepHandOnSideWall()
   if(!estFaceMur())
   {
    
-    if(getDirection()!=Direction.NORD)
+    if(!nordActif && isDirectionDree(Direction.NORD) && sommeAngle!=0){
+      nordActif=true
+      setDirection(Direction.NORD);
+    }
+    if(getDirection()!=Direction.NORD || !nordActif)
    	{
       avance()
+      if(getDirection()==Direction.OUEST)sommeAngle+=1
+      if(getDirection()==Direction.EST)sommeAngle-=1
     	gauche()
     	if(estFaceMur())droite()
     }else
@@ -24,16 +32,28 @@ def keepHandOnSideWall()
     
   }
   else {
-    if(getDirection()==Direction.NORD)droite();
-    gauche();
+    if(getDirection()==Direction.NORD){
+      droite();
+      nordActif=false
+      sommeAngle=0
+    }else gauche();
+    
     if(estFaceMur()){
       droite()
       droite();
       if(estFaceMur())droite()
       avance()
+      if(getDirection()==Direction.OUEST)sommeAngle+=1
+      if(getDirection()==Direction.EST)sommeAngle-=1
     	gauche()
     	if(estFaceMur())droite()
     }
   }
   
+}
+
+def isDirectionFree(dir:Direction)
+{
+  setDirection(dir)
+  return !estFaceMur()
 }
