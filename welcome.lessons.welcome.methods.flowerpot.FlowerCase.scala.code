@@ -1,0 +1,71 @@
+def growFlowers()
+{
+  rectangle()
+  milieu()
+  recule(8)
+  droite()
+  avance(6)
+  gauche()
+  rectangle()
+  
+  
+}
+
+def fleur(c:Color)
+{
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  droite()
+  avance()
+  recule(2)
+  avance()
+  setCouleurBrosse(Color.yellow)
+  gauche()
+  leveBrosse()
+}
+
+def ligne2(c1:Color,c2:Color)
+{
+  fleur(c1)
+  avance(3)
+  fleur(c2)
+  recule(5)
+}
+
+def ligne3(c1:Color,c2:Color,c3:Color)
+{
+  avance(2)
+  fleur(c1)
+  avance(3)
+  fleur(c2)
+  avance(3)
+  fleur(c3)
+  recule(3)
+}
+
+def care()
+{
+  ligne2(Color.red,Color.cyan)
+  droite()
+  avance(4)
+  gauche()
+  ligne2(Color.pink,Color.green)
+}
+
+def milieu()
+{
+  gauche()
+  avance(2)
+  droite()
+}
+
+def rectangle()
+{
+  care()
+  milieu() 
+  ligne3(Color.orange,Color.blue,Color.orange)
+	milieu()
+  care()
+}
