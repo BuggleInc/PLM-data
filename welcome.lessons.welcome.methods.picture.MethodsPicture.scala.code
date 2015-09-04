@@ -1,2 +1,65 @@
 override def run() {
+  for (i <- 1 to 3) {
+    faireMotifLigne()
+    gauche()
+    avance(7)
+    droite()
+  }
+}
+
+def peindre() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  peindre()
+  avance()
+  gauche()
+  avance()
+  peindre()
+  recule()
+  droite()
+  avance()
+  peindre()
+}
+
+def faireMotif() {
+  for (i <- 1 to 4) {
+    if (i==1) {
+      setCouleurBrosse(Color.YELLOW)
+      avance(2)
+      faireV()
+      avance(2)
+      gauche()
+    }
+        if (i==2) {
+      setCouleurBrosse(Color.RED)
+      avance(2)
+      faireV()
+      avance(2)
+      gauche()
+    }
+        if (i==3) {
+      setCouleurBrosse(Color.BLUE)
+      avance(2)
+      faireV()
+      avance(2)
+      gauche()
+    }
+        if (i==4) {
+      setCouleurBrosse(Color.GREEN)
+      avance(2)
+      faireV()
+      avance(2)
+      gauche()
+    }
+  }
+}
+
+def faireMotifLigne() {
+  for (i <- 1 to 3) {
+    faireMotif()
+    avance(7)
+  }
 }
