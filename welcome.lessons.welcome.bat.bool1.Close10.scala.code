@@ -4,7 +4,7 @@ def close10(a:Int, b:Int): Int = {
   
   (deltaa, deltab) match {
     case (deltaa, deltab) if (deltaa == deltab) => return 0
-    case deltaa < deltab => return a
-    case deltab < deltaa => return b
+    case (deltaa, deltab) if (deltaa < deltab) => return a
+    case (deltaa, deltab) if (deltab < deltaa) => return b
   }
 }
