@@ -7,14 +7,15 @@ override def run() {
   	T(i)=getCouleurSol()
     avance()
   }
-  recule(h-1)
   for (j <- 0 to (l-2)) {
-    avance()
+    recule(h-1)
     gauche()
     avance()
     droite()
+    val decalage = litMessage().toInt
     for (k <- 0 to (h-1)) {
-    	setCouleurBrosse(T(k))
+      
+    	setCouleurBrosse(T((k+decalage)%T.length)
       baisseBrosse()
       leveBrosse()
       avance()
