@@ -1,0 +1,16 @@
+var worldHeight:Int = getWorldHeight()
+
+override def run() {
+  readColumn()
+}
+
+def readColumn():Array[Color](worldHeight) = {
+  var colors = new Array[Color](worldHeight);
+  
+  for (i <- 0 to worldHeight - 1) {
+    colors(i) = getGroundColor();
+    forward()
+  }
+  backward(worldHeight-1);
+  return colors
+}
