@@ -5,7 +5,7 @@ override def run() {
     avance();
     T(i) = getCouleurSol();
   }
-  recule();
+  retour();
   for ( j <- 1 to getMondeLargeur()-1 ){
     detour();
     val decalage = litMessage().toInt;
@@ -16,6 +16,7 @@ override def run() {
       setCouleurBrosse(T((k+decalage)%getMondeHauteur()));
       brosse();
     }
+    retour();
   }
 }
 
