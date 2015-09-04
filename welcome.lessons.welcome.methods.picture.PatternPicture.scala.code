@@ -1,25 +1,19 @@
-override def run() {
-  for (j<-1 to 2){
-  	for (i<-1 to 2){
-    	faireMotif()
-  	}
-    gauche()
-    avance(4)
-    droite()
+def override run(){
+  droite()
+  recule(2)
+  for (i<-1 to 2){
+    faireMotif
   }
 }
 
 def faireMotif(){
-  droite()
-  recule(2)
   faireDiag(Color.RED)
   faireDiag(Color.BLUE)
   faireDiag(Color.GREEN)
   faireDiag(Color.YELLOW)
   gauche()
-  avance(2)
-  gauche()
   avance(3)
+  droite()
 }
 
 def faireDiag(c:Color){
