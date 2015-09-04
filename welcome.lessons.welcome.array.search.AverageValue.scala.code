@@ -3,8 +3,9 @@ def averageValue(nums:Array[Int]): Int = {
   for (i<- 0 to nums.length-1){
     c=c+i
   }
-  if (c%nums.length >= nums.length/2){
-    return(c/nums.length - 1)
+  val b=c%nums.length
+  if (b%1>=0.5){
+    return c%nums.length-1
   }
-  return (c/nums.length)
-}
+  return c%nums.length
+  
