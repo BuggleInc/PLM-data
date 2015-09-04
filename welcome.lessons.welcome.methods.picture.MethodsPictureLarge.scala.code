@@ -1,0 +1,45 @@
+override def run() {
+  def dessin(taille:Int) {
+  for (compteur <- 1 to 9) {
+    for (compteur2 <- 1 to 9) {
+      faireMotif()
+      faireMotif()
+      faireMotif()
+    }
+    val longueur = 5*taille
+    recule(longueur)
+    gauche()
+    avance(5)
+    droite()
+  }
+  }
+  
+  def faireV(c:Color) {
+    setCouleurBrosse(c)
+    avance()
+    marquage()
+    avance()
+    gauche()
+    avance()
+    marquage()
+    recule()
+    droite()
+    avance()
+    marquage()
+    avance()
+    gauche()
+  }
+  
+  def marquage() {
+    baisseBrosse()
+    leveBrosse()
+  }
+  
+  def faireMotif() {
+    faireV(Color.YELLOW)
+    faireV(Color.RED)
+    faireV(Color.BLUE)
+    faireV(Color.GREEN)
+    avance(5)
+  }
+}
