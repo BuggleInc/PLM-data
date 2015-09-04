@@ -1,2 +1,44 @@
 override def run() {
+  
+  for (j <- 1 to 3){
+    faireLigne()
+  }
+  
+  
+  
+}
+
+
+def faireLigne(){
+  for (j <- 1 to  3){faire4V(); avance(7)  }
+  gauche(); avance(7); droite()
+  
+}
+
+def faire4V() {
+  for (i <- 1 to 4){faireV()}
+}
+
+def faireV(x:int) {
+  x match {
+    case 1 => getCouleurBrosse():Color.YELLOW
+    case 2 => getCouleurBrosse():Color.RED
+    case 3 => getCouleurBrosse():Color.BLUE
+    case 4 => getCouleurBrosse():Color.GREEN
+  }
+  avance(2)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance(2)
+  gauche()
 }
