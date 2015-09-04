@@ -3,7 +3,7 @@ override def run() {
   for (ligne <- 1 to 2) {
     faireLigne(2)
     gauche()
-    while ((pasLigne <= 4) && (!estFaceMur)) {
+    while ((pasLigne <= 3) && (!estFaceMur)) {
       avance()
       pasLigne = pasLigne + 1
     }
@@ -57,10 +57,11 @@ def faireLigne(nbMotifs: Int) {
   var pasFaits: Int = 0
   for (motif <- 1 to nbMotifs) {
     faireMotif()
-    while ((pasFaits <= 4) && (!estFaceMur)) {
+    while ((pasFaits <= 3) && (!estFaceMur)) {
       avance()
       pasFaits = pasFaits + 1
     }
+    pasFaits = 0
   }
   for (pas <- 1 to nbPas) {
     recule()
