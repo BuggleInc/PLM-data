@@ -4,7 +4,17 @@ def peindre(){
 }
 
 def fleur(c:Color){
+  setCouleurBrosse(c);
   for(i<-1 to 3){avance();peindre()}
+  recule();gauche();recule();
+  for(i<-1 to 3){avance();peindre()}
+  recule();
+  setCouleurBrosse(Color.YELLOW)
+  peindre();
+  droite();
 }
 
-fleur(Color.RED)
+
+
+def growFlowers(){fleur(Color.RED)}
+growFlowers()
