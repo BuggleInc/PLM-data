@@ -1,0 +1,85 @@
+def carre(){
+  twoFlowers(Color.red, Color.cyan)
+  //3
+  right()
+  backward(3)
+  left()
+  backward(2)
+  right()
+  flower(Color.orange)
+  //4 et 5
+  right()
+  backward(3)
+  right()
+  forward(2)
+  left()
+  twoFlowers(Color.pink, Color.green)
+  
+  //retour
+  right()
+  backward(5)
+}
+
+def growFlowers(){
+  //1ere ligne
+  carresBleu()
+  //changement de pot
+  right()
+  forward()
+  right()
+  forward(8)
+  left()
+  forward(3)
+  left()
+  carresBleu()
+   
+}
+
+def carresBleu(){
+  carre()
+  //Fleur bleue
+  left()
+  forward(2)
+  right()
+  forward(6)
+  flower(Color.blue)
+  //2e carre
+  right()
+  forward()
+  left()
+  forward(2)
+  right()
+  carre()
+}
+
+
+def flower(c : Color){
+  /** Peint une fleur en partant de la branche gauche et position finale au centre vers le haut*/
+  
+  //Croix
+  setBrushColor(c)
+  brushDown()
+  forward(2)
+  backward()
+  right();forward();backward()					//3e petale
+  right();right();forward();backward()	//4e petale
+  
+  //Centre
+  setBrushColor(Color.yellow)
+  paint()
+}
+
+def twoFlowers(cUn : Color, cDeux : Color){
+  //1
+  flower(cUn)
+  //2
+  right()
+  forward(3)
+  flower(cDeux)
+}
+
+
+def paint(){
+  brushDown()
+  brushUp()
+}
