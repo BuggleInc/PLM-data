@@ -1,5 +1,11 @@
 override def run() {
-  carre
+  for (compteur <-1 to 2){
+    ligne()
+    gauche()
+    avance(4)
+    droite()
+  }
+}
 }
 
 def cote(c: Color){
@@ -23,4 +29,11 @@ def carre(){
   cote(Color.blue)
   cote(Color.green)
   cote(Color.yellow)
+}
+
+def ligne(nbCarre : Int){
+  for (compteur <-1 to nbCarre){
+    carre()
+    avance(4)
+  }
 }
