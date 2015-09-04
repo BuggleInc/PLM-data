@@ -1,5 +1,6 @@
 override def run() {
-  while(true){
+  var finished:Boolean = false
+  while(finished){
     if(!isFacingWall())
       forward()
     else{
@@ -8,7 +9,7 @@ override def run() {
       if(getDirection() == Direction.WEST)
         right()
       if(isFacingWall)
-        break
+        finished = true
       else{
         forward(); left()
         if(isFacingWall)
