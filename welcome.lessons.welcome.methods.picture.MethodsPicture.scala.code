@@ -1,0 +1,15 @@
+override def run() {for (i <- 1 to 3) {
+  run2();gauche();avance(7);droite
+}
+}
+
+def run2() { for (i <- 1 to 3) {
+  run1();avance(7)
+}
+}
+
+def run1() {faireV(Color.YELLOW);faireV(Color.RED);faireV(Color.BLUE);faireV(Color.GREEN)}
+
+def marquerSol(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
+
+def faireV(c:Color)  {avance();marquerSol(c);avance();gauche();avance();marquerSol(c);recule();droite();avance();marquerSol(c);avance();gauche()}
