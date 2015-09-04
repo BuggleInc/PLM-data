@@ -1,5 +1,5 @@
 override def run() {
-  faireV(Color.YELLOW);
+  faireCote(Color.YELLOW);
 }
 
 def faireV(c:Color) {
@@ -11,4 +11,31 @@ def faireV(c:Color) {
   recule();droite();avance()
   baisseBrosse();leveBrosse()	
   recule();recule()
+}
+
+
+def faireCote(c:Color) {
+    avance();avance()
+    faireV(c)
+    avance();avance();avance();avance()
+    gauche()
+}
+
+
+
+def faireEtage() {
+  for (i<-1 to 3){
+    faireMotif
+    for(j<-1 to 7){
+      avance()     
+    }
+  }
+  for (k<- 1 to 21){
+    recule()
+  }
+  gauche()
+  for (l<-1 to 7){
+    avance()
+  }
+  droite()
 }
