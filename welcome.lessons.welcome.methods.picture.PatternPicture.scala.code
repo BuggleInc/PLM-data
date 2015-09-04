@@ -40,7 +40,15 @@ def faireLigne(nbColonne : Int) {
   for (i <- 1 to nbColonne) {
     faireMotif()
     for (k <- 1 to 4) {
-      avance()
+      if (estFaceMur() == true) {
+        for (s <- 1 to 7) {
+          recule()
+        }
+      }
+      else {
+        avance()
+      }
+      
     }
   }
 }
