@@ -25,16 +25,34 @@ override def run() {
   
   
   
-  def faireL(c1:Color,c2:Color) {
+  def faireLM(c1:Color,c2:Color) {
     faire1(c1)
     faire1(c2)
   }
   
   def faireM() {
-    faireL(Color.red,Color.blue)
-    faireL(Color.green,Color.yellow)
+    faireLM(Color.red,Color.blue)
+    faireLM(Color.green,Color.yellow)
   }
   
-  faireM()
+  def faireL(nbM) {
+    for (i<-1 to nbM)
+    {
+      faireM()
+    }
+    for(i<-1 to 4*(nbM-1))
+    {
+      recule()
+    }
+  }
+  
+  faireL()
+  gauche()
+  for (i<-1 to 4)
+  {
+    avance()
+  }
+  droite()
+  faireL()
   
 }
