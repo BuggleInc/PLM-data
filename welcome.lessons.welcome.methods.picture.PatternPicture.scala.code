@@ -1,4 +1,7 @@
 override def run() {
+  for (i <- 1 to 2) {
+    faireLigne(2)
+  }
 }
 
 def marqueSol(c : Color) {
@@ -33,3 +36,39 @@ def faireCoin2(c : Color) {
   gauche()
 }
 
+def faireMotif() {
+  faireCoin1(Color.red)
+  avance()
+  avance()
+  faireCoin2(Color.blue)
+  recule()
+  recule()
+  gauche()
+  avance()
+  avance()
+  droite()
+  faireCoin2(Color.yellow)
+  avance()
+  avance()
+  faireCoin1(Color.green)
+  recule()
+  recule()
+  droite()
+  avance()
+  avance()
+  gauche()
+  for (i <- 1 to 4) {
+    avance()
+  }
+}
+  
+def faireLigne(largeur : Int) {
+  for (i <- 1 to largeur) {
+    faireMotif()
+  }
+  gauche()
+  for (i <- 1 to 4) {
+    avance()
+  }
+  droite()
+}
