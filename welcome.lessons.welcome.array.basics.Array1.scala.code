@@ -1,6 +1,7 @@
 override def run() {
   remplirTableau();
   seReplacer();
+  colorier()
 }
 
 var tableauCouleur = new Array[Color](6)
@@ -18,9 +19,16 @@ def seReplacer(){
 }
 
 def colorier(){
-  for (i<-0 to 5){
+  for (i<-0 to 4){
     setCouleurBrosse(tableauCouleur[i]);
     baisseBrosse();
     leveBrosse();
+    avance()
   }
+  setCouleurBrosse(tableauCouleur[0]);
+    baisseBrosse();
+    leveBrosse();
 }
+
+
+
