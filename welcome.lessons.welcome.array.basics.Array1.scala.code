@@ -1,0 +1,18 @@
+override def run() {
+  var h = getMondeHauteur()
+  for (j <- 1 to h-1) {
+    col(h)
+    recule(h-1)
+    gauche()
+    avance()
+    droite()
+  }
+}
+
+def col(h:Int) {
+  var T=new Array[Color](h)
+  for (i <- 1 to h-1) {
+    T(i-1) = getCouleurSol()
+    avance()
+  }
+}
