@@ -1,0 +1,71 @@
+override def run() {
+  for (i <- 1 to 4)
+  {
+    faireMotif()
+    placementFinMotif()
+    placementProchainMotif()
+  }
+}
+
+def motifDiagonalDescendant(c:Color)
+{
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+}
+
+def motifDiagonalMontant(c:Color)
+{
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
+
+def placementFinMotif()
+{
+  recule(2)
+  gauche()
+  avance(2)
+  droite() 
+}
+
+def faireMotif()
+{
+  motifDiagonalDescendant(Color.RED)
+  avance()
+  motifDiagonalMontant(Color.BLUE)
+  placementFinMotif()
+  motifDiagonalMontant(Color.YELLOW)
+  avance()
+  avance()
+  motifDiagonalDescendant(Color.GREEN)
+}
+
+def placementProchainMotif()
+{
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+  avance(4)
+}
