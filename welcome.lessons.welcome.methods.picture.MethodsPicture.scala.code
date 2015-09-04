@@ -7,10 +7,8 @@ override def run() {
 
 def marquerSol(){baisseBrosse();leveBrosse()}
 
-def faireV(){setCouleurBrosse();avance();marquerSol();avance();gauche();avance();marquerSol();recule();droite();avance();marquerSol();avance();gauche()}
+def faireV(c:Color){setCouleurBrosse(c);avance();marquerSol();avance();gauche();avance();marquerSol();recule();droite();avance();marquerSol();avance();gauche()}
 
-def faireMotif(){
-  for(i<- 0 to 3){faireV()}
-}
+def faireMotif(){faireV(Color.YELLOW);faireV(Color.RED);faireV(Color.BLUE);faireV(Color.GREEN)}
 
 def reposition(){gauche();avance();avance();avance();avance();avance();droite()}
