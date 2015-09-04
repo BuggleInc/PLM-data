@@ -1,6 +1,10 @@
 def keepHandOnSideWall(){
+  if(getDirection()==Direction.NORTH){
+    avance();
+    return
+  }
   gauche();
-  while(estFaceMur() && getDirection()!=Direction.NORTH){
+  while(estFaceMur()){
     droite();
   }
   avance();
