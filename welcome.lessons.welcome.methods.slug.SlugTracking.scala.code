@@ -1,7 +1,7 @@
 def isFacingTrail():Boolean = {
-  if (estFaceMur() == true) {droite} else {testSol()};
-  }
-
-def testSol() = {avance();
-                 if (getCouleurSol() != Color.green) {recule(); droite();};
-                }
+  if (estFaceMur() == true) return false
+  else {avance();
+        def ok : Boolean = false;
+        if (getCouleurSol() == Color.green) {ok = true;};
+        return ok;
+       }
