@@ -1,0 +1,63 @@
+override def run() {
+  for (ligne <- 1 to 2) {
+    faireLigne(2)
+    gauche()
+    for (pas <- 1 to 4) {
+      avance()
+    }
+    droite()
+  }
+}
+def marque(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+def faireMoitieV1(c: Color) {
+  gauche()
+  avance()
+  marque(c)
+  recule()
+  droite()
+  avance()
+  marque(c)
+}
+def faireMoitieV2(c: Color) {
+  marque(c)
+  avance()
+  gauche()
+  avance()
+  marque(c)
+  recule()
+  droite()
+}
+def faireMotif() {
+  faireMoitieV1(Color.red)
+  avance()
+  faireMoitieV2(Color.blue)
+  gauche()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  gauche()
+  faireMoitieV1(Color.green)
+  avance()
+  faireMoitieV2(Color.yellow)
+  gauche()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  gauche()
+}
+def faireLigne(nbMotifs: Int) {
+  var nbPas: Int = nbMotifs*4
+  for (motif <- 1 to nbMotifs) {
+    faireMotif()
+    for (pas <- 1 to 4) {
+      avance()
+    }
+  }
+  for (pas <- 1 to nbPas) {
+    recule()
+  }
+}
