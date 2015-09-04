@@ -1,10 +1,29 @@
+def fini(){
+  var original = getDirection();
+  while(getDirection() != Direction.NORTH){
+    gauche();
+  }
+  var murhaut = estFaceMur();
+  while(getDirection() != Direction.EAST){
+    gauche();
+  }
+	if(murhaut && estFaceMur()){
+    return true
+  }else{
+  	while(getDirection() != original){
+   	 gauche();
+  	}
+  	return false
+  }
+}
+
 override def run() {
-  baisseBrosse();
-  while(true){
+  baisserBrosse();
+  while(!fini()){
     if(!estFaceMur()){
       avance();
     }else{
-      setY(getY()-1);
+      setY(get(Y)-1);
       gauche();
       gauche();
     }
