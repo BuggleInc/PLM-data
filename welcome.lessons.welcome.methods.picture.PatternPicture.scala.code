@@ -10,17 +10,20 @@ override def run() {
     peindre(c);
     gauche();
     avance();
+    gauche();
   }
   
   def symbole2(c:Color){
     peindre(c);
-    gauche();
     avance();
     gauche();
     avance();
     peindre(c);
     gauche();
     avance();
+    gauche();
+    avance();
+    gauche(); 
   }
   
   def peindre(c:Color){
@@ -31,42 +34,34 @@ override def run() {
   
   def carre(){
     symbole1(Color.red);
-    gauche();
-    avance(2);
-    gauche();
-    avance(2);
-    droite();
-    symbole1(Color.green);
     avance(2)
     symbole2(Color.blue);
+    recule(2);
+    gauche();
+    avance(2);
     droite();
-    avance();
-    gauche();
-    avance(2)
-    gauche();
     symbole2(Color.yellow)
-  }
-  
-  def colone(){
-    for (i <- 1 to 2){
-    	carre();
-      droite();
-      if (!estFaceMur()){
-      	avance();
-      	droite();
-      }
-  	}
+    avance(2);
+    symbole1(Color.green);
+    recule(2);
+    gauche();
+    recule(2);
+    droite();
   }
   
   def ligne(){
     for (i <- 1 to 2){
-      colone();
-    	recule(7);
-      droite();
-      avance(3);
-      if (!estFaceMur()){
-      	avance();
-      }
+    	carre();
+      avance(4);
+  	}
+  }
+  
+  def colone(){
+    for (i <- 1 to 2){
+      ligne();
+    	recule(4);
+      gauche();
+      avance(4);
     }
   }
   
