@@ -1,12 +1,14 @@
 override def run() {
+  var comp : Int = 0
   var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
   avance()
   for (i<-1 to getMondeLargeur()-1)
   {
     decale()
+    comp = comp +1
     for (i<-1 to getMondeHauteur())
     {
-      peindre(T(i-1))
+      peindre(T((i+comp)%getMondeHauteur())
       if(estFaceMur())
       {
         recule(getMondeHauteur()-1)
