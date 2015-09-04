@@ -1,5 +1,12 @@
 override def run() {
-  motif()
+  for (colonne<-1 to 2){
+    ligne()
+    gauche()
+    for (move<-1 to 4){
+      avance()
+    }
+  droite()
+  }
 }
 def bgmotif(c:Color){
   setCouleurBrosse(c)
@@ -20,7 +27,7 @@ def bdmotif(c:Color){
   gauche()  
 }
 
-def motif(){
+def motif(){//mettre plusieurs arguments est meilleur
   bgmotif(Color.red)
   bgmotif(Color.red)
   avance()
@@ -39,5 +46,14 @@ def motif(){
   bdmotif(Color.yellow)
   droite()
   avance()
+  avance()
   gauche()
+}
+def ligne(){
+  for (compteur <-1 to 2){
+    motif()
+    for (move <-1 to 4){
+      avance()
+    }
+  }
 }
