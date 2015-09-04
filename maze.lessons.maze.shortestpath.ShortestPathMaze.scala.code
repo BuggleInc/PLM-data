@@ -1,32 +1,90 @@
+var sommeAngle=0;
+var nordActif=true;
 override def run() {
   while(!estSurBiscuit())
   {
     keepHandOnSideWall()
   }
-  ecritMessage("0")
-  
+  ecrireMessage(0)
 }
 
+def ecrireMessage(n:Int)
+{
+  
+  ecritMessage(n)
+}
 def keepHandOnSideWall()
 {
   
   if(!estFaceMur())
   {
-    avance()
-    gauche()
-    if(estFaceMur())droite()
+   
     
-  }
-  else {
-    gauche();
-    if(estFaceMur()){
-      droite()
-      droite();
-      if(estFaceMur())droite()
+    //si le decalage par rapport ? l'origine de est reel et que on ne foncait pas vers le nord, on tent cette fois le coup en mettant nordActif si le nord est libre
+    
+    if(!nordActif && getDirection()==Direction.NORD && sommeAngle==0)  
+    {
+      nordActif=true
+    }
+    
+    
+    if(nordActif && getDirection()==Direction.NORD)  //on va au nord si on a
+    {																									//si on est bien oriente 
+      setDirection(Direction.NORD)
       avance()
+    }else{
+      
+      avance()
+      sommeAngle-=1
     	gauche()
-    	if(estFaceMur())droite()
+      if(estFaceMur()){
+        sommeAngle+=1
+        droite()
+      }
     }
     
   }
+  else {
+    if(getDirection()==Direction.NORD && nordActif){
+      droite();
+      nordActif=false
+      sommeAngle=1
+    }else 
+    {
+      gauche();
+      sommeAngle-=1
+      if(estFaceMur()){
+      	droite()
+        sommeAngle+=1
+      	droite();
+      	sommeAngle+=1;
+        if(estFaceMur()){
+         	sommeAngle+=1;
+          droite()
+        }
+        avance()
+        sommeAngle-=1
+    		gauche()
+        if(estFaceMur()){
+          droite()
+          
+         	sommeAngle+=1;
+        }
+      }
+    }
+  }
+  
+}
+
+def isDirectionFree(dir:Direction): Boolean =
+{
+  var d =getDirection()
+  setDirection(dir)
+  if(estFaceMur())
+  {
+    setDirection(d)
+    return false
+  }
+  setDirection(d)
+  return true;
 }
