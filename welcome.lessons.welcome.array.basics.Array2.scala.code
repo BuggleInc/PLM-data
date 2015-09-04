@@ -30,6 +30,11 @@ def remplirTab(num:Int, T : Array[Color]):Array[Color]={
   for (i<- 0 to num -1)
   {
     T(i)=getCouleurSol()
+      if (estFaceMur())
+  {
+    recule(getMondeHauteur())
+    comp = comp + 1
+  }
     avance()
   }
   return T
