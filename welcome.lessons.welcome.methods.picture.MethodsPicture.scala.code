@@ -1,0 +1,41 @@
+override def run() {
+  
+  def faireV(c:Color){
+    avance();
+    peindre(c);
+    avance();
+    gauche();
+    avance();
+    peindre(c);
+    recule();
+    droite();
+    avance();
+    peindre(c);
+    avance();
+    gauche();
+  }
+  
+  def peindre(c:color){
+    setCouleurBrosse(c);
+    baisseBrosse();
+    leveBrosse();
+  }
+  
+  def carre(){
+    faireV(color.red);
+    faireV(color.red);
+    faireV(color.blue);
+    faireV(color.green);
+  }
+  
+  def ligne(){
+    carre();
+    avance(5)
+  }
+  
+  def colone(){
+    ligne();
+    droite();
+    avance(5);
+  }
+}
