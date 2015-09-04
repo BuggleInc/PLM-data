@@ -25,7 +25,7 @@ def marque(){
 	leveBrosse()
 }
 
-def faireD(x : Int){
+def faireD(x : Int, sens : Boolean){
   x match {
     case 1 => setCouleurBrosse(Color.yellow)
     case 2 => setCouleurBrosse(Color.red)
@@ -33,25 +33,39 @@ def faireD(x : Int){
     case 4 => setCouleurBrosse(Color.green)
     
   }
-  
+  if(sens){
 	avance()
 	marque()
 	gauche()
 	avance()
 	gauche()
-	avance()
+	    
+  avance()
   marque()
 	gauche()
 	avance()
 	gauche()
-	avance()
-	avance()
+	
+  }else{
+  
+  marque()
+  avance()
+  gauche()
+  avance()
+  gauche()
+    
+  marque()
+  avance()
+  gauche()
+  avance()
+  gauche()
 
 }
 
 def faireV(){
   for (i <- 1 to 2){
-    faireD(i)
+    faireD(sens=true)
+    faireD(sens=false)
   }
   recule(2)
 }
