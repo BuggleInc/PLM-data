@@ -3,9 +3,8 @@ def hunt() {
       gauche();
     }
 		avance();
-  	if (estSurBiscuit()){
-      prendBiscuit()
-    }
+  	baisseBrosse();
+    leveBrosse();
 }
 
 def isFacingTrail():Boolean = {
@@ -14,11 +13,14 @@ def isFacingTrail():Boolean = {
   }
   avance();
   if (getCouleurSol() == Color.green) {
-    baisseBrosse();
-    leveBrosse();
     recule();
     return true;
   }
   recule();
   return false
 }
+
+while (!estSurBiscuit){
+  hunt();
+}
+prendBiscuit();
