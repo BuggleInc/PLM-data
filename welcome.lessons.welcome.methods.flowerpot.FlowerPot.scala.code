@@ -1,7 +1,27 @@
-def milieu(){setCouleurBrosse(Color.yellow);baisseBrosse();leveBrosse()}
 
-def fleur(c:Color){setCouleurBrosse(c);avance();avance();avance();recule();gauche();avance();recule();recule();avance();droite()}
+def fleur(c:Color){setCouleurBrosse(c);avance();avance();avance();recule();gauche();avance();recule();recule();avance();droite();setCouleurBrosse(Color.yellow);baisseBrosse();leveBrosse()}
 
 def transitionLigne(){avance();avance();avance()}
 def transitionColonne(){for(k<- 1 to 5){recule()};droite();avance();avance();gauche()}
 
+override def run(){
+  fleur(Color.red)  
+  transitionLigne()
+  fleur(Color.cyan)
+  transitionColonne()
+  avance()
+  avance()
+  fleur(Color.orange)
+  recule()
+  recule()
+  recule()
+  droite()
+  avance()
+  avance()
+  gauche()
+  fleur(Color.pink)
+  transitionLigne()
+  fleur(Color.green)
+  
+  
+}
