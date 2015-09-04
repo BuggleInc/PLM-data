@@ -9,42 +9,33 @@ override def run() {
 def keepHandOnSideWall()
 {
   
-  if(isDirectionFree(Direction.NORD))
+  if(!estFaceMur())
   {
-    setDirection(Direction.NORD)
-    avance()
-  }
-  else if(!estFaceMur())
-  {
-  	avance()
-    gauche()
-    if(estFaceMur())droite()
-        
-  }
-  else {
-     
-    gauche();
-    if(estFaceMur()){
-      droite()
-      droite();
-      if(estFaceMur())droite()
+   
+    if(getDirection()!=Direction.NORD)
+   	{
       avance()
     	gauche()
     	if(estFaceMur())droite()
+    }else
+    {
+      avance();
+    }
+    
+  }
+  else {
+    if(getDirection()==Direction.NORD)droite();
+    else{
+      gauche();
+    	if(estFaceMur()){
+      	droite()
+      	droite();
+      	if(estFaceMur())droite()
+      	avance()
+    		gauche()
+    		if(estFaceMur())droite()
+    	}
     }
   }
   
-}
-
-def isDirectionFree(dir:Direction): Boolean =
-{
-  var d=getDirection();
-  setDirection(dir)
-  if(estFaceMur())
-  {
-    setDirection(d);
-    return false;
-  }
-  setDirection(d)
-  return true;
 }
