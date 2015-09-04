@@ -1,0 +1,34 @@
+def tableauCouleurs():Array[Color] =
+{
+  var tableau = new Array[Color] (getMondeHauteur())
+  
+  for (i <- 0 to getMondeHauteur() - 1)
+  {
+    tableau(i) = getCouleurSol()
+    avance()
+  }
+  
+  return tableau
+}
+
+def dessine(couleurs:Array[Color])
+{
+  for (i <- 0 to couleurs.length - 1)
+  {
+    setCouleurBrosse(couleurs(i))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
+
+override def run()
+{
+  var couleurs = tableauCouleurs()
+  
+  for (i <- 1 to getMondeLargeur() - 1)
+  {
+  	reculer(getMondeHauteur() - 1)
+  	dessine(couleurs)
+  }
+}
