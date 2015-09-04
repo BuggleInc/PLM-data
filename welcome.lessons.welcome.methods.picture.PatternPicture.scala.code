@@ -1,0 +1,47 @@
+override def run() { faireMG()
+}
+
+def point(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireM1(c:Color) = {
+  avance()
+  point(c)
+  reucle()
+  gauche()
+  avance()
+  point(c)
+  recule()
+  droite()
+  avance()
+  avance()
+}
+
+def faireM2(c:Color) = {
+  point(c)
+  avance()
+  gauche()
+  avance()
+  point(c)
+  recule()
+  droite()
+  avance()
+}
+
+def faireGM() = {
+  faireM1(Color.RED)
+  faireM2(Color.BLUE)
+  for (i <- 1 to 4) {recule()}
+  gauche()
+  avance()
+  avance()
+  faireM2(Color.YELLOW)
+  faireM1(Color.GREEN)
+  droite()
+  avance()
+  avance()
+  gauche()
+}
