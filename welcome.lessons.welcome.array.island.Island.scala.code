@@ -2,7 +2,13 @@ def island(num:Array[Int]): Int = {
   var separation = indexOfValue(num, 0)
   if (separation != -1){
     var soustruc = new Array[Int](separation - 1);
+    for (i <- 0 to separation - 2){
+      soustruc(i) = num(i);
+    }
     var soustruc2 = new Array[Int](num.length - separation );
+    for (i <- 0 to num.length - separation - 1){
+      soustruc(i) = num(separation + 1 + i);
+    }
     return island(soustruc) + island(soustruc2);
   }
   else{
