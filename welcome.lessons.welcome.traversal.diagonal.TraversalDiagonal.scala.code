@@ -5,10 +5,14 @@ override def run() {
   var direction:Int = 1
   while(getX() != getWorldWidth() - 1 || getY() != getWorldHeight() - 1){
     writeMessage(""+c)
-    if(getX() == getWorldWidth() - 1 || getY() == 0){
+    if(getX() == getWorldWidth() - 1){
       diag += 1
       setPos(0, diag)
   	}
+    else if(getY() == 0){
+      diag += 1
+      setPos(diag - getWorldWidth(), getWorldHeight() - 1)
+    }
   	else{
     	setPos(getX() + 1, getY() - 1)
 		}
