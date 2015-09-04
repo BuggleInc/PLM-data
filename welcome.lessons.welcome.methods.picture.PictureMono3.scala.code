@@ -1,0 +1,43 @@
+override def run() {
+  couscous()
+  retour_ligne()
+  couscous;
+  retour_ligne
+  couscous;
+  retour_ligne
+}
+
+def faireV() {
+  avance;avance;baisseBrosse;leveBrosse;
+  avance;gauche;avance;
+  baisseBrosse;leveBrosse;
+  recule;droite;avance
+  baisseBrosse;leveBrosse;
+  avance;avance;gauche
+}
+def carre() {
+  for (i <- 1 to 4) {
+  faireV
+  }  
+}
+
+def coupe_decale(){
+  for (j<-1 to 7){
+    avance;
+  }  
+}
+
+def couscous(){
+  carre()
+  coupe_decale()
+  carre()
+  coupe_decale()
+  carre()
+}
+
+def retour_ligne(){
+  gauche;avance;avance;avance;avance;avance;avance;avance;droite;
+  for (i <- 1 to 14){
+    recule;
+  }
+}
