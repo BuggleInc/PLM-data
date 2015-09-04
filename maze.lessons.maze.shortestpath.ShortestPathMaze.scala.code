@@ -14,10 +14,10 @@ def ecrireMessage(n:Int)
   ecritMessage(n)
   for(i<-1 to 4)
   {
-    if(!estFaceMur() && litMessage().toInt>n)
+    if(!estFaceMur())
     {
       avance()
-      ecrireMessage(n+1)
+      if(litMessage().toInt!=n-1)ecrireMessage(n+1)
       recule()
     }
     gauche();
