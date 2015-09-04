@@ -1,0 +1,36 @@
+def colorie( c: Color) {
+  baisseBrosse;leveBrosse;
+}
+
+def courrir (x:Int) {
+  for (i <- 1 to x ) avance;
+}
+
+def deux(c:color) {
+  avance;
+  colorie(c);
+  recule;gauche;avance;
+  colorie(c);
+  recule;droite;
+}
+
+def carre {
+  deux(Color.RED);
+  courrir(3);gauche;
+  deux(Color.BLUE);
+  courrir(3);gauche;
+  deux(Color.GREEN);
+  courrir(3);gauche;
+  deux(Color.YELLOW);
+  courrir(3);gauche; 
+}
+
+override def run() {
+  carre;
+  courrir(4);
+  carre;
+  courrir(4);gauche;courrir(4);droite;
+  carre;
+  courrir(4);
+  carre
+}
