@@ -1,7 +1,7 @@
 def hunt(c:Color) {
   var pisteFinie = false
   while (pisteFinie == false) {
-	if (isFacingTrail(c:Color) == true) {
+	if (isFacingTrail(c) == true) {
     avance()
     baisseBrosse()
     leveBrosse()
@@ -12,7 +12,7 @@ def hunt(c:Color) {
   }
   else {
     gauche()
-    if (isFacingTrail(c:Color) == true) {
+    if (isFacingTrail(c) == true) {
      avance()
      baisseBrosse()
      leveBrosse()
@@ -24,7 +24,7 @@ def hunt(c:Color) {
     else {
       gauche()
       gauche()
-      if (isFacingTrail(c:Color) == true) {
+      if (isFacingTrail(c) == true) {
         avance()
     		baisseBrosse()
     		leveBrosse()
@@ -50,7 +50,7 @@ def isFacingTrail(c:Color):Boolean = {
   }
   else{
     avance()
-    if (getCouleurSol() == c:Color) {
+    if (getCouleurSol() == c) {
       faceBave = true
       recule()
     }
