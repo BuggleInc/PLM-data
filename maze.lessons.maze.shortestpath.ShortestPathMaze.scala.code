@@ -23,6 +23,8 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   if(y+1<getMondeHauteur()){
     if(!aMurNord(x,y+1) && getIndication(x,y+1)==9999)	{
       if(tracechemin(x,y+1,nb+1)){
+        setDirection(Direction.NORD);
+        avance();
         return true
       }
     }
@@ -30,6 +32,8 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   if(x-1>=0){
     if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
       if(tracechemin(x-1,y,nb+1)){
+        setDirection(Direction.EST);
+        avance();
         return true
       }
     }
@@ -37,6 +41,8 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   if(y-1>=0){
     if(!aMurNord(x,y) && getIndication(x,y-1)==9999)		{
       if(tracechemin(x,y-1,nb+1)){
+        setDirection(Direction.SUD);
+        avance();
         return true
       }
     }
@@ -44,6 +50,8 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   if(x+1<getMondeLargeur() && getIndication(x+1,y)==9999){
     if(!aMurOuest(x+1,y)){
       if(tracechemin(x+1,y,nb+1)){
+        setDirection(Direction.OUEST);
+        avance();
         return true
       }
     }
@@ -53,62 +61,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   
 }
 
-def yaller(){
-    
-  var x:Int = getX();
-  var y:Int = getY();
-  
-  var mini:Int = getIndication(x,y);
-  
-  println(mini);
-  
-  
-  if(y+1<=getMondeHauteur()-1){
-    if(getIndication(x,y+1)<mini)			{
-      setDirection(Direction.SUD);
-      if(!estFaceMur()){
-        mini = getIndication(x,y+1);
-      }
-    }
-  }
-  if(x-1>=0){
-    if(getIndication(x-1,y)<mini){
-      setDirection(Direction.OUEST);
-      if(!estFaceMur()){
-        mini = getIndication(x-1,y);
-      }
-    }
-  }
-  if(y-1>=0){
-    if(getIndication(x,y-1)<mini)		{
-      setDirection(Direction.NORD);
-      if(!estFaceMur()){
-        mini = getIndication(x,y-1);
-      }
-  }
-  }
-  if(x+1<=getMondeLargeur()-1){
-    if(getIndication(x+1,y)<=mini){
-      setDirection(Direction.EST);
-    }
-  }
-  
-  gauche();
-  while(estFaceMur()){
-    droite();
-  }
-  avance();
-  
-  effaceMessage();
-  ecritMessage(mini);
-  
-  
-}
-
 override def run() {
   goBiscuit();
-  while(!estSurBiscuit()){
-    yaller();
-  }
   prendBiscuit();
 }
