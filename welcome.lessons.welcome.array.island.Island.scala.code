@@ -1,24 +1,8 @@
-def level(num:Array[Int], index:Int) : Int = {
-  var level:Int = num(index)
-  var c:Int = 0
-  var levels:Int = 0
-  while(num(c) == level){
-    index = index + 1
-  }
- 	if(num(index - 1) - num(index) > 0)
-  	levels += level(num, index)
-  do{
-    while(num(c) != level){
-      index += 1
-    }
-    while(c < num.length && num(c) == level){
-      index += 1
-    }
-	}
- 	while(num(index - 1) - num(index) < 0)
-  return levels
-}
-
 def island(num:Array[Int]): Int = {
-  return level(num, 0)
+  var levelCounter:Int = 0
+  for(i <- 0 to num.length - 2){
+    if(num(i) - num(i + 1) == -1)
+    	levels += 1
+  }
+  return levels
 }
