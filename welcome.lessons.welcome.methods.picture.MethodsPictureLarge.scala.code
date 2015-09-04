@@ -1,0 +1,46 @@
+override def run() { dessin()
+}
+
+def point(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color) ={
+  avance()
+  point(c)
+  avance()
+  gauche()
+  avance()
+  point(c)
+  recule()
+  droite()
+  avance()
+  point(c)
+  avance()
+  gauche()
+}
+
+def faireM() = {
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  for (i <- 1 to 5) {avance()}
+}
+
+def faireL() = {
+  for (i <- 1 to 9) {
+    faireM()
+  }
+  gauche()
+  for (i <- 1 to 5) {avance()}
+  droite()
+}
+
+def dessin() = {
+  for (i <- 1 to 9) {
+    faireL()
+  }
+}
