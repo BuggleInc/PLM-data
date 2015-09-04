@@ -1,0 +1,48 @@
+override def run() {
+  for (col <- 1 to 9){
+    ligne()
+  }
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance()
+  gauche()
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  recule();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+}
+
+def motif() {
+  faireV(Color.YELLOW)
+  gauche()
+  faireV(Color.RED)
+  gauche()
+  faireV(Color.BLUE)
+  gauche()
+  faireV(Color.GREEN)
+  gauche()
+  for (pas <- 1 to 5){
+    avance()
+  }
+}
+
+def ligne(){
+  for (nb <- 1 to 9){
+    motif()
+  }
+  gauche()
+  for (pas <- 1 to 5){
+    avance()
+  }
+  droite()
+}
