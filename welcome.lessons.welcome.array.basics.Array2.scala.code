@@ -2,10 +2,11 @@ def tableauCouleurs():Array[Color] =
 {
   var tableau = new Array[Color] (getMondeHauteur())
   
-  for (i <- 0 to getMondeHauteur() - 1)
+  tableau(0) = getCouleurSol()
+  for (i <- 1 to getMondeHauteur() - 1)
   {
-    tableau(i) = getCouleurSol()
     avance()
+    tableau(i) = getCouleurSol()
   }
   
   return tableau
