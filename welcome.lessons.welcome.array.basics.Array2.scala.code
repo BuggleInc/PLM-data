@@ -9,5 +9,30 @@ override def run() {
   colors(getWorldHeight()-1) = getGroundColor();
   backward(getWorldHeight()-1);
   
+  for (i <- 1 to getWorldHeight() -1) {
+    left();forward();right();
+    paintLine(colors)
+  }
+  
 }
 
+def paintLine(colors:Array[Color](getWolrdHeight())) {
+  var offset:Int = readMessage().toInt;
+  
+  mark(colors(offset-1))
+  
+  for (j <- 0 to getWorldHeight()-2) {
+    forward();
+    mark(colors((j+offset)%getWolrdHeight()));
+
+  }
+  backward(getWorldHeight()-2)
+        
+}
+
+
+def mark(c:Color) {
+  setBrushColor(c);
+  brushDown();
+  brusUp();
+}
