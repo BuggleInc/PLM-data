@@ -1,11 +1,17 @@
 def max1020(a:Int, b:Int):Int = {
-  if(((a<10)&&(b<10))||((a>20)&&(b>20))){
-    return 0
+  var interA : Boolean = (a<=20)&&(a>=10)
+  var interB : Boolean = (b<=20)&&(b>=10)
+  
+  if(interA&&interB){
+    return Math.max(a,b)
   }
-  if(((a<10)||(a>20))&&(b<=20)){
+  else if(interA&&(!interB)){
+    return a
+  }
+  else if(interB&&(!interA)){
     return b
   }
-  if(((b<10)||(b>20))&&(a<=20)){
-    return a
+  else{
+    return 0
   }
 }
