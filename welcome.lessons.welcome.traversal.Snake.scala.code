@@ -1,4 +1,4 @@
-def finpos() {var b = false
+def finpos():Boolean = {var b = false
              	var b2 = false
              	var d = getDirection()
              	if (d == Direction.EST) {gauche();b2 = estFaceMur()} else {droite();b2 =estFaceMur()}
@@ -7,5 +7,5 @@ def finpos() {var b = false
 def avPS() {if (!estFaceMur()) {avance()} else {var d = getDirection();if (d == Direction.EST()) {gauche();avance();gauche()} else {droite();avance();droite()}}}
 
 
-override def run() {while (!finpos()) {avPS()}
+override def run() {baisseBrosse();while (!finpos()) {avPS()}
 }
