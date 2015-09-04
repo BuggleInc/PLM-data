@@ -1,2 +1,42 @@
+var nbMotif:Int = 0
+
+def sePlacer() {
+  if (nbMotif != 0) {
+    avance(5);
+    if (nbMotif % 3 == 0) {
+      recule(15);
+      gauche();
+      avance(5);
+      droite();
+    }
+  }
+}
+
+def marquerSol() {
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c);
+  marquerSol();
+  avance();
+  gauche();
+  marquerSol();
+  recule();
+  droite();
+  marquerSol();
+  avance();
+  gauche();
+}
+
 override def run() {
+  for (compteur <- 1 to 9) {
+    sePlacer();
+    faireV(Color.YELLOW);
+    faireV(Color.RED);
+    faireV(Color.BLUE);
+    faireV(Color.GREEN);
+  }
 }
