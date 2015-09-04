@@ -16,6 +16,9 @@ override def run() {
     setCouleurBrosse(T(decalage%T.length))
     baisseBrosse()
     leveBrosse()
-    avance()
+    for (k <- 1 to h-1) {
+      avance()
+      setCouleurBrosse(T((decalage+k)%T.length))
+    }
   }
 }
