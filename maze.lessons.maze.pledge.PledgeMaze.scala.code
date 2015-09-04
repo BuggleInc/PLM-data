@@ -14,20 +14,27 @@ def keepHandOnSideWall()
   if(!estFaceMur())
   {
    
-    if(!nordActif && isDirectionFree(Direction.NORD) && sommeAngle!=0){
+    
+    //si le decalage par rapport ? l'origine de est reel et que on ne foncait pas vers le nord, on tent cette fois le coup en mettant nordActif si le nord est libre
+    
+    if(!nordActif && isDirectionFree(Direction.NORD) && sommeAngle!=0)  
+    {
       nordActif=true
       setDirection(Direction.NORD);
     }
-    if(getDirection()!=Direction.NORD || !nordActif)
-   	{
+    
+    
+    if(nordActif && isDirectionFree(Direction.NORD))  //on va au nord si on a
+    {																									//si on a autorisation
+      setDirection(Direction.NORD)
+      avance()
+    }else{
+      
       avance()
       if(getDirection()==Direction.OUEST)sommeAngle+=1
       if(getDirection()==Direction.EST)sommeAngle-=1
     	gauche()
     	if(estFaceMur())droite()
-    }else
-    {
-      avance();
     }
     
   }
