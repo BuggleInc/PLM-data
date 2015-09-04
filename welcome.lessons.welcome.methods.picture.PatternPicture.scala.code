@@ -1,0 +1,43 @@
+override def run() {
+  for (compteur <- 1 to 2){
+    repMotif()
+  }
+}
+
+
+def repMotif(){
+  for (compteur <- 1 to 2){
+    Motif()
+  }
+  recule(3)
+  gauche()
+  avance(3)
+  droite()
+}
+
+def Motif(){
+  faireMotif(Color.RED)
+  faireMotif(Color.BLUE)
+  faireMotif(Color.GREEN)
+  faireMotif(Color.YELLOW)
+  avance(3)
+}
+
+def faireMotif(c:color){
+  setCouleurBrosse(c)
+  avance()
+  brosse()
+  gauche()
+  avance(2)
+  brosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  
+}
+
+def brosse(){
+  baisseBrosse()
+  leveBrosse()
+}
