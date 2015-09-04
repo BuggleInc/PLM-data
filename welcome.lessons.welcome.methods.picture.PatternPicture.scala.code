@@ -1,11 +1,10 @@
-override def run() {for (i <- 1 to 2) {
-  run2();gauche();avance(4);droite
-}
+override def run() {
+  run2();avance(4);droite();run2()
+
 }
 
-def run2() { for (i <- 1 to 2) {
-  run1();avance(4)
-}
+def run2() {
+  run1();avance(4);run1();recule(4)
 }
 
 def run1() {faire1(Color.RED);avance(2);faire2(Color.BLUE);recule(2);gauche();avance(2);droite();faire2(Color.YELLOW);avance(2);faire1(Color.GREEN);recule(2);droite();avance(2);gauche()}
