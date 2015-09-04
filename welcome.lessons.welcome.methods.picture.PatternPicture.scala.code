@@ -35,32 +35,26 @@ def dessineVInverse(c: Color) {
   }
 }
 
+def dessineMotif() {
+  dessineV(Color.RED)
+  avance(2)
+  dessineVInverse(Color.BLUE)
+
+  recule(2)
+  gauche()
+  avance(2)
+  droite()
+
+  dessineVInverse(Color.YELLOW)
+  avance(2)
+  dessineV(Color.GREEN)
+
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+}
+
 override def run() {
-	for (y <- 1 to 2) {
-    for (x <- 1 to 2) {
-      dessineV(Color.RED)
-      avance(2)
-      dessineVInverse(Color.BLUE)
-      
-      recule(2)
-      gauche()
-      avance(2)
-      droite()
-      
-      dessineVInverse(Color.YELLOW)
-      avance(2)
-      dessineV(Color.GREEN)
-      
-      recule(2)
-    	gauche()
-    	recule(2)
-      droite()
-      avance(4)
-    }
-    
-    recule(7)
-    gauche()
-    avance(4)
-    droite()
-  }
+	dessineMotif()
 }
