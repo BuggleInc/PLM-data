@@ -1,21 +1,3 @@
-def sePlacer() {
-  if (nbMotif != 0){
-    if (nbMotif == 2) {
-      recule(2);
-      gauche();
-      avance(2);
-      droite();
-    } else if (nbMotif == 3) {
-			avance(2);
-    } else if (nbMotif == 4) {
-      recule(2);
-      gauche();
-      recule(2);
-      droite();
-    }
-  }
-}
-
 def marquerSol() {
   baisseBrosse();
   avance();
@@ -47,6 +29,23 @@ def motif2(c:Color) {
 
 def carre() {
   var nbMotif : Int = 0
+  def sePlacer() {
+  if (nbMotif != 0){
+    if (nbMotif == 2) {
+      recule(2);
+      gauche();
+      avance(2);
+      droite();
+    } else if (nbMotif == 3) {
+			avance(2);
+    } else if (nbMotif == 4) {
+      recule(2);
+      gauche();
+      recule(2);
+      droite();
+    }
+  }
+}
   motif1(Color.RED);
   nbMotif = nbMotif + 1;
   sePlacer();
