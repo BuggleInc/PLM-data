@@ -1,12 +1,11 @@
 override def run() { 
   for (i <- 1 to 4) {
     faireMotif();
-    replacement();
   }
 }
 
 def faireRouge() {
-  setCouleurBrosse(Color.red)
+  setCouleurBrosse(Color.red);
 	for (i <- 1 to 2) {
   	avance();
   	baisseBrosse();
@@ -15,4 +14,66 @@ def faireRouge() {
   	avance();
   	gauche(); 
   } 
+}
+
+def faireBleu() {
+  setCouleurBrosse(Color.blue);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireJaune() {
+  setCouleurBrosse(Color.yellow); 
+ 	baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireVert() {
+  setCouleurBrosse(Color.green);
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+
+
+def faireMotif() {
+  faireRouge()
+  avance(2);
+  faireBleu();
+  recule(2);
+  gauche();
+  avance(2);
+  droite();
+  faireJaune();
+  avance(2);
+  faireVert()
 }
