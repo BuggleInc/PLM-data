@@ -1,0 +1,34 @@
+def northlibre():Boolean = {
+  if(getDirection()==Direction.NORTH && !estFaceMur()){
+    return true
+  }
+  return false
+}
+
+def keepHandOnSideWall(){
+  gauche();
+  while(estFaceMur()){
+    droite();
+  }
+  avance();
+}
+
+
+override def run() {
+    
+  while(!estSurBiscuit()){
+    
+    keepHandOnSideWall();
+    while(northlibre()){
+      setDirection(Direction.NORTH);
+      avance();
+      if(estFaceMur()){
+        droite();
+      }
+    }
+    
+  }
+  
+  prendBiscuit();
+  
+}
