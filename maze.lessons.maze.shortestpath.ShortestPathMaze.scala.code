@@ -12,22 +12,30 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   
   if(y+1<=getMondeHauteur()-1){
     if(!aMurNord(x,y+1))	{
-      tracechemin(x,y+1,nb+1);
+      if(tracechemin(x,y+1,nb+1)){
+        return true
+      }
     }
   }
   if(x-1>=0){
     if(!aMurOuest(x,y)){
-      tracechemin(x-1,y,nb+1);
+      if(tracechemin(x-1,y,nb+1)){
+        return true
+      }
     }
   }
   if(y-1>=0){
     if(!aMurNord(x,y))		{
-      tracechemin(x,y-1,nb+1);
+      if(tracechemin(x,y-1,nb+1)){
+        return true
+      }
     }
   }
   if(x+1<=getMondeLargeur()-1){
     if(!aMurOuest(x+1,y)){
-      tracechemin(x+1,y,nb+1);
+      if(tracechemin(x+1,y,nb+1)){
+        return true
+      }
     }
   }
   
