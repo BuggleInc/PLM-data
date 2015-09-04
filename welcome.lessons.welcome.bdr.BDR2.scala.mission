@@ -1,0 +1,133 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Buggle Dance Revolution 2 (BDR2)</h2>
+
+
+<p>Le BDR, c'est cool, mais c'est un peu le chaos. Tout d'abord, les buggles
+gigotent en tout sens, et en plus, le code que vous avez ?crit pour les
+faire bouger est tr?s difficile ? lire. Voici un nouveau monde de BDR, o?
+les buggles vont faire une gentille petite ronde plus reposante. Nous
+profiterons de cette accalmie pour nettoyer un peu le code gr?ce aux
+nouveaux ?l?ments que nous allons maintenant ?tudier.</p>
+
+<h3>Les filtrages</h3>
+
+<p>Le plus difficile ? lire du code pr?c?dent est certainement la cascade de
+conditionnelles. Quelque part dans votre programme, vous avez sans doute
+?crit quelque chose comme:</p>
+
+<pre><code class="code-container">if (litMessage() == "R") {
+  droite();
+  avance();
+} else if (litMessage() == "L") {
+  gauche();
+  avance();
+} else if (litMessage() == "I") {
+  retourne();
+  avance();
+<span class="comment">/* d'autre if */</span>
+} else {
+  fini = true;
+}
+</code></pre>
+
+<p>? la premi?re lecture du code, il n'est pas ?vident qu'il ne s'agit que d'un
+choix avec 4 branches en fonction du r?sultat de
+litMessage().
+Pour am?liorer ceci, nous allons utiliser 
+ un filtrage (pattern matching en anglais), qui est une construction
+tr?s agr?able g?n?ralisant le <code>if</code>. Il s'agit sans aucun doute de
+l'un des avantages majeurs du langage Scala par rapport ? d'autres tels que
+le Java ou le Python. Cette construction n'est cependant pas r?volutionnaire
+puisqu'elle existe depuis assez longtemps dans des langages comme OCaml ou
+Haskell, mais il n'emp?che. Elle est carr?ment cool!</p>
+  
+<pre><code class="code-container"><i>expression</i> <b>match</b> {
+  <b>case</b> <i>valeur possible</i>  <b>=></b> instructions
+  <b>case</b> <i>autre valeur</i>     <b>=></b> d'autres instructions
+  <b>case</b> <i>troisi?me valeur</i> <b>=></b> encore d'autres instructions
+  <b>case _                 =></b> instructions par d?faut
+}
+</code></pre>
+<p>L'expression fournie avant le mot-cl? <code>match</code> est ?valu?e, et
+ensuite, les branches sont ?valu?es les unes apr?s les autres jusqu'? en
+trouver une o? la valeur entre le <code>case</code> et le <code>=&gt;</code>
+correspond ? la valeur de l'expression. Le symbole <code>_</code> agit comme
+un joker qui correspond ? tout. Cela veut dire que la derni?re ligne telle
+qu'elle est ?crite correspond toujours ? la valeur fournie, quelle qu'elle
+soit. Voici un petit exemple o? une variable <code>nom</code> est mis en
+correspondance.</p>
+<pre><code class="code-container">nom match {
+  case "Martin" => println("Salut Martin, comment vas-tu?")
+  case "Gerald" => println("He Gerald! ?a va?")
+  case _            => println("Bonjour, ?tranger.")
+}</code></pre>
+
+<p>Il est aussi possible d'avoir plusieurs instructions par branches, et m?me
+d'avoir plusieurs valeurs sur une branche donn?e, s?par?es par le caract?re
+<code>|</code>.</p>
+<pre><code class="code-container">nom match {
+  case "Martin" | "Gerald" => println("Bonjour "+nom+", entre."); ouvreLaPorte()
+  case _                            => println("Bonjour ?tranger. Passe ton chemin sans entrer."); fermeLaPorte()
+}</code></pre>
+
+<p>Il est m?me possible d'ajouter des gardes ? vos branches. Il s'agit de
+conditions suppl?mentaires qui doivent ?tre respect?es pour que la branche
+soit appliqu?e. C'est par exemple pratique pour faire du filtrage sur un
+ensemble de valeurs.</p>
+<pre><code class="code-container">age match {
+  case i if i&lt;10 => println("Salut gamin!")
+  case i if i&lt;20 => println("Salut mec")
+  case i if i&lt;30 => println("Bonjour jeune homme")
+  case _           => println("Bonjour monsieur")
+}</code></pre>
+<p>Remarquez qu'il n'est pas n?cessaire de v?rifier ? la seconde ligne que la
+valeur est sup?rieure ? 10 puisque les lignes sont consid?r?es dans
+l'ordre. Si la seconde ligne est consid?r?e, c'est que la premi?re ne
+correspondait pas.</p>
+
+<p>Enfin, il est m?me possible de filtrer sur plusieurs variables ? la fois!</p>
+<pre><code class="code-container">(x,y) match {
+ case (0,0) => println("C'est le point origine")
+ case (_,0) => println("C'est un point de l'ordonn?e")
+ case (0,_) => println("C'est un point de l'abscisse")
+ case (_,_) => println("C'est un point quelconque")
+}</code></pre>
+
+<p>Je vous avais bien dit que le filtrage scala ?tait une construction
+surpuissante ! Je l'adore !</p>
+
+
+<h3>Objectif de cet exercice</h3>
+<p>Appliquez les am?liorations que nous venons de voir pour
+adapter le code de votre buggle au nouveau pas de danse explicit?
+ci-dessous.
+
+Remarquez qu'il est maintenant possible d'avancer jusqu'? 6 cases ? la fois.</p>
+
+<table border="1">
+ <tr><td>Indication</td>
+     <td>Quoi faire</td></tr>
+
+ <tr><td>"R"</td><td>Tourner ? droite et avancer d'une case</td></tr>
+ <tr><td>"L"</td><td>Tourner ? gauche et avancer d'une case</td></tr>
+ <tr><td>"I"</td><td>Se retourner (faire demi-tour) et avancer d'une case</td></tr>
+
+ <tr><td>"A"</td><td>Avancer d'une case</td></tr>
+ <tr><td>"B"</td><td>Avancer de deux cases</td></tr>
+ <tr><td>"C"</td><td>Avancer de trois cases</td></tr>
+ <tr><td>"D"</td><td>Avancer de quatre cases</td></tr>
+ <tr><td>"E"</td><td>Avancer de cinq cases</td></tr>
+ <tr><td>"F"</td><td>Avancer de six cases</td></tr>
+
+ <tr><td>"Z"</td><td>Reculer d'une case</td></tr>
+ <tr><td>"Y"</td><td>Reculer de deux cases</td></tr>
+ <tr><td>"X"</td><td>Reculer de trois cases</td></tr>
+ <tr><td>"W"</td><td>Reculer de quatre cases</td></tr>
+ <tr><td>"V"</td><td>Reculer de cinq cases</td></tr>
+ <tr><td>"U"</td><td>Reculer de six cases</td></tr>
+ <tr><td><i>(n'importe quoi d'autre)</i></td><td>Arr?ter de danser.</td></tr>
+
+</table>
+
+<p>Quand votre programme fonctionne de nouveau, passez ? l'exercice suivant.</p>
