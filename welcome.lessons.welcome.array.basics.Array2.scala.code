@@ -8,9 +8,10 @@ override def run() {
     T(i)= getCouleurSol()
     avance()  
   }
+  placement();gauche();avance();droite();
   for (i<- 0 to getMondeLargeur()-1){
     decalage = litMessage().toInt
-    for (j<- 0 to getMondeHauteur()-4){
+    for (j<- 0 to getMondeHauteur()-2){
       setCouleurBrosse(T( (i+decalage)%getMondeHauteur))
       baisseBrosse()
       leveBrosse()
