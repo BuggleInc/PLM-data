@@ -12,6 +12,14 @@ def tableauCouleurs():Array[Color] =
   return tableau
 }
 
+def seReplacer()
+{
+  recule(getMondeHauteur() - 1)
+   gauche()
+   avance()
+   droite()
+}
+
 def dessine(decalage:Int, couleurs:Array[Color])
 {
   setCouleurBrosse(couleurs(decalage % couleurs.length))
@@ -32,7 +40,7 @@ override def run()
   
   for (i <- 1 to getMondeLargeur() - 1)
   {
-  	recule(getMondeHauteur() - 1)
+  	seReplacer()
   	dessine(i, couleurs)
   }
 }
