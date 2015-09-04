@@ -1,7 +1,7 @@
-def hunt() {
+def hunt(c:Color) {
   setCouleurBrosse(Color.lightGray)
   while (estSurBiscuit()==false){
-    if (isFacingTrail()==true){
+    if (isFacingTrail(c)==true){
       avance()
       baisseBrosse()
       leveBrosse()
@@ -13,7 +13,7 @@ def hunt() {
   prendBiscuit()
 }
 
-def isFacingTrail(snail:Color):Boolean = {
+def isFacingTrail(c:Color):Boolean = {
   
   var color=Color.white
   if (estFaceMur()==false){
@@ -21,7 +21,7 @@ def isFacingTrail(snail:Color):Boolean = {
     color=getCouleurSol()
     recule()
     
-    if (color==snail){
+    if (color==c){
       return true
     }
     else {
