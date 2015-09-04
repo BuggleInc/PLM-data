@@ -19,14 +19,14 @@ override def run() {
 def paintLine(colors:Array[Color]) {
   var offset = readMessage().toInt;
   
-  mark(colors(offset-1))
+  mark(colors(offset))
   
   for (j <- 0 to getWorldHeight()-2) {
     forward();
     mark(colors((j+offset)%getWorldHeight()));
 
   }
-  backward(getWorldHeight()-2)
+  backward(getWorldHeight()-1)
         
 }
 
