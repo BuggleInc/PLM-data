@@ -22,23 +22,21 @@ def descends() = {
   gauche()
 }
 
-def growFlowers() = {
-  fleur(Color.RED)
+def fleurLigne(c1:Color, c2:Color) = {
+  fleur(Color.c1)
   avance()
   avance()
-  fleur(Color.CYAN)
+  fleur(Color.c2)
   for (i <- 1 to 6) {recule()}
+}
+
+def growFlowers() = {
+  fleurLigne(Color.RED, Color.CYAN)
   descends()
   avance()
   avance()
   fleur(Color.ORANGE)
   for (i <- 1 to 4) {recule()}
   descends()
-  fleur(Color.PINK)
-  avance()
-  avance()
-  fleur(Color.GREEN)
-  for (i <- 1 to 6) {recule()}
-  
-  
+  fleurLigne(Color.PINK, Color.GREEN) 
 }
