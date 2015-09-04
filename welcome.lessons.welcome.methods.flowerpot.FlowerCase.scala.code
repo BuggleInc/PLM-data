@@ -1,0 +1,44 @@
+def avancer(x:int){
+  for (i <- 1 to x){
+    avance()
+  }
+}
+
+def reculer(x:int){
+  for (i <- 1 to x){
+    recule()
+  }
+}
+
+def motif(c:Color){
+  setCouleurBrosse(c); baisseBrosse()
+  avance(); avance(); recule(); gauche(); recule(); avance(); avance(); recule
+  leveBrosse()
+  setCouleurBrosse(Color.yellow); baisseBrosse(); leveBrosse()
+  droite()
+}
+
+
+def growFlowers(){
+  motif(Color.red); avance(); avance(); avance(); motif(Color.cyan)
+  reculer(5); droite(); avancer(4); gauche(); motif(Color.pink)
+  avancer(3); motif(Color.green)
+  reculer(3); gauche(); avancer(2); droite(); motif(Color.orange); avancer(3)
+  }
+}
+
+def solution(){
+  growFlowers()
+  motif(Color.blue)
+  avance(); gauche(); avancer(2); droite()
+  growFlowers()
+  
+  reculer(14); droite(); avancer(8); gauche()
+  
+  growFlowers()
+  motif(Color.blue)
+  avance(); gauche(); avancer(2); droite()
+  growFlowers()
+  
+  reculer(6); droite(); avancer(2); gauche()
+}
