@@ -1,0 +1,52 @@
+def growFlowers() {
+  
+}
+
+def dessinFleur(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  droite()
+  leveBrosse()
+}
+
+def dessin2Fleurs(c1:Color, c2:Color) {
+  dessinFleur(c1)
+  avance(3)
+  dessinFleur(c2)
+  recule(5)
+}
+ 
+def quartJardin() {
+  dessin2Fleurs(Color.RED, Color.CYAN)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  dessinFleur(Color.ORANGE)
+  recule(3)
+  droite()
+  avance(2)
+  gauche()
+  dessin2Fleurs(Color.PINK, Color.GREEN)
+  gauche()
+  avance(2)
+  droite()
+}
+
+def moitieJardin() {
+  quartJardin()
+  avance(6)
+  dessinFleur(Color.BLUE)
+  avance()
+  gauche()
+  avance(2)
+  droite()
+  quartJardin()
+}
