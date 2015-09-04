@@ -1,17 +1,15 @@
 override def run() {
-  for (i<- 1 to 2){
-    for (i<- 1 to 2){
-      faireMotif()
-      for (i <- 1 to 4){
-        avance()
-      }
-    }
-    gauche()
-    for (i<- 1 to 4){
-      avance()
-    droite()
-    }
+  
+  faireDoubleMotif()
+  
+  gauche()
+  for(i<- 1 to 4){
+    avance()
   }
+  droite()
+  
+  faireDoubleMotif()
+
 }
 
 
@@ -78,4 +76,19 @@ def faireMotif() {
   
   gauche;recule();recule();droite()
   
+}
+
+def faireDoubleMotif(){
+  
+  faireMotif()
+  
+  for(i<- 1 to 4){
+    avance()
+  }
+  
+  faireMotif()
+  
+  for(i<- 1 to 4){
+    recule()
+    
 }
