@@ -36,17 +36,19 @@ def keepHandOnSideWall()
       droite();
       nordActif=false
       sommeAngle=0
-    }else gauche();
-    
-    if(estFaceMur()){
-      droite()
-      droite();
-      if(estFaceMur())droite()
-      avance()
-      if(getDirection()==Direction.OUEST)sommeAngle+=1
-      if(getDirection()==Direction.EST)sommeAngle-=1
-    	gauche()
-    	if(estFaceMur())droite()
+    }else 
+    {
+      gauche();
+      if(estFaceMur()){
+      	droite()
+      	droite();
+      	if(estFaceMur())droite()
+      	avance()
+      	if(getDirection()==Direction.OUEST)sommeAngle+=1
+      	if(getDirection()==Direction.EST)sommeAngle-=1
+    		gauche()
+    		if(estFaceMur())droite()
+      }
     }
   }
   
