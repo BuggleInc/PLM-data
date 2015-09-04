@@ -1,4 +1,4 @@
-override def run() { faireM1(Color.RED)
+override def run() { faireGM()
 }
 
 def point(c:Color) = {
@@ -31,15 +31,20 @@ def faireM2(c:Color) = {
 
 def faireGM() = {
   faireM1(Color.RED)
+  avance()
   faireM2(Color.BLUE)
-  for (i <- 1 to 4) {recule()}
+  for (i <- 1 to 3) {recule()}
   gauche()
   avance()
   avance()
-  faireM2(Color.YELLOW)
-  faireM1(Color.GREEN)
   droite()
+  faireM2(Color.YELLOW)
   avance()
-  avance()
+  faireM1(Color.GREEN)
+  for (i <- 1 to 3) {recule()}
   gauche()
+  recule()
+  recule()
+  droite()
 }
+
