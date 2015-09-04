@@ -1,0 +1,54 @@
+override def run() {
+  for (i<- 1 to 4) {
+    faireMotifmul(2)
+    monte()    
+  }
+}
+def peinture() {
+  baisseBrosse()
+  leveBrosse()
+	}
+
+def faire2(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  peinture()
+ 	gauche()
+  avance()
+  gauche()
+  avance()
+  peinture()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  avance()
+  gauche()
+}
+
+def avancemul(nb:Int) {
+  for (i<- 1 to nb) {
+    avance()
+  }
+}
+
+
+def monte() {
+gauche()
+avancemul(4)
+droite()
+}
+
+def faireMotif2() {
+  faire2(Color.red) 
+  faire2(Color.blue) 
+  faire2(Color.yellow)
+  faire2(Color.green) 
+} 
+
+def faireMotifmul (nb: Int) {
+  for (i <- 1 to nb) {
+    faireMotif2()
+    avancemul(4)
+  }
+}
