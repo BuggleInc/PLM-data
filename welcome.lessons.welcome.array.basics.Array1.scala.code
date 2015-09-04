@@ -1,0 +1,44 @@
+override def run() {
+  var T = remplirTableau(creationTableau())
+  for (i<- getMondeLargeur())
+  {
+    decale()
+    for (i<-creationTableau().Length)
+    {
+      peindre(remplirTableau(i))
+      avance()
+    }
+  }
+  
+}
+
+def creationTableau():Array[Color] =
+{
+  hauteur = getMondeHauteur()
+  var T = new Array[Color] (hauteur)
+  return T
+}
+
+def remplirTableau(Tab : Array[Color]):Array[Color] =
+{
+  for (i<- getMondeHauteur())
+  {
+    Tab(i) = getCouleurSol()
+    avance()
+  }
+  return Tab
+}
+
+def peindre(couleur : Color)
+{
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def decale()
+{
+  droite()
+  avance()
+  gauche()
+}
