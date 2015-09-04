@@ -1,54 +1,23 @@
-def marquerSol() {
-  baisseBrosse(); leveBrosse()
+def peindreSol(Color c) {
+  changeCouleurBrosse(c)
+  
+  // On marque le sol.
+  baisseBrosse()
+  leveBrosse()
 }
 
-def peindreMotifRB() {
-  setCouleurBrosse(Color.RED)
+def dessineCarre() {
+  // Zone rouge.
+  avance()
+  peindreSol(Color.YELLOW)
   
   gauche()
   avance()
-  droite()
-  
-  for (compteur <- 1 to 2) {
-    marquerSol()
-    
-    avance()
-    droite()
-    avance()
-    
-    marquerSol()
-    
-    gauche()
-    avance(2)
-    gauche()
-    avance()
-    droite()
-  }
-  
-  setCouleurBrosse(Color.BLUE)
-  retourne()
-  
-  for (compteur <- 1 to 2) {
-    marquerSol()
-    
-    avance()
-    gauche()
-    avance()
-    
-    marquerSol()
-    
-    droite()
-    avance(2)
-    droite()
-    avance()
-    gauche()
-  }
-}
-
-def peindreMotifJV() {
-  
+  gauche()
+  avance()
+  peindreSol(Color.YELLOW)
 }
 
 override def run() {
-  peindreMotifRB()
+  dessineCarre()
 }
