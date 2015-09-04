@@ -21,16 +21,16 @@ def motif(hauteur : Int):Array[Color] = {
 
 def trace(motif : Array[Color]) = {
   var dec = litMessage().toInt
-  for(j<-0 to (motif.lenght-2)){
-    setCouleurBrosse(motif((j+dec)%motif.lenght))
+  for(j<-0 to getWorldHeight()-2){
+    setCouleurBrosse(motif((j+dec)%getWorldHeight()))
     baisseBrosse()
     leveBrosse()
     avance()
   }
-  setCouleurBrosse(motif((motif.lenght-1+dec)%motif.lenght))
+  setCouleurBrosse(motif((getWorldHeight()-1+dec)%motif.lenght))
   baisseBrosse()
   leveBrosse()
-  for(i<-1 to (motif.lenght)){
+  for(i<-1 to getWorldHeight()){
     recule()
   }
 }
