@@ -5,24 +5,24 @@ def hunt() {
   
   while(chasseContinue){
   
-  // Tantqu'on a une piste on continue la chasse (4 cases ? regarder)
-  var trace = false
-  while(trace == false){
-    // on regarde o? est la trace 
-    // /!\ boucle infinie rajouter un compteur
-    if (isFacingTrail())
-    	trace = true
-    else 
-    	left()
-  }
+  	// Tantqu'on a une piste on continue la chasse (4 cases ? regarder)
+  	var trace = false
+  	while(trace == false){
+    	// on regarde o? est la trace 
+    	// /!\ boucle infinie rajouter un compteur
+    	if (isFacingTrail())
+    		trace = true
+    	else 
+    		left()
+  	}
   
-  // Une fois qu'on l'a on avance
-  paint()
-  forward()
-  if (isOverBaggle()){
-  	pickUpBaggle()
-    chasseContinue = false
-  }
+  	// Une fois qu'on l'a on avance
+  	paint()
+  	forward()
+  	if (isOverBaggle()){
+  		pickUpBaggle()
+    	chasseContinue = false
+  	}
   
   }
   
