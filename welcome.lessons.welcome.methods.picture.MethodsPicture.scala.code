@@ -1,2 +1,16 @@
 override def run() {
+  for(j<- 0 to 2){
+    for(k<- 0 to 2){faireMotif();avance();avance();avance();avance();avance()}
+    reposition()
+  }
 }
+
+def marquerSol(){baisseBrosse();leveBrosse()}
+
+def faireV(){setCouleurBrosse();avance();marquerSol();avance();gauche();avance();marquerSol();recule();droite();avance();marquerSol();avance();gauche()}
+
+def faireMotif(){
+  for(i<- 0 to 3){faireV()}
+}
+
+def reposition(){gauche();avance();avance();avance();avance();avance();droite()}
