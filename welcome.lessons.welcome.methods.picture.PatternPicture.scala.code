@@ -1,4 +1,4 @@
-override def run() { faireL()
+override def run() { dessin()
 }
 
 def point(c:Color) = {
@@ -48,10 +48,20 @@ def faireGM() = {
   droite()
 }
 
-def faireL() {
+def faireL() = {
   faireGM()
   for (i <- 1 to 4) {avance()}
   faireGM()
   for (i <- 1 to 4) {recule()}
 }
 
+def dessin() = {
+  faireL()
+  gauche()
+  for (i <- 1 to 4) {avance()}
+  droite()
+  faireL()
+  gauche()
+  for (i <- 1 to 4) {recule()}
+  droite()
+}
