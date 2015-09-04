@@ -1,0 +1,62 @@
+override def run() {
+  faireMotif()
+  avance(4)
+  faireMotif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  faireMotif()
+  avance(4)
+  faireMotif()
+  
+}
+
+def marqueC(c:Color)={
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def diag1Carre(c:Color){
+  avance()
+  marqueC(c)
+  gauche()
+  avance()
+  gauche()
+  avance()
+  marqueC(c)
+  gauche()
+  avance()
+  gauche()
+}
+
+def diag2Carre(c:Color){
+  marqueC(c)
+  avance()
+  gauche()
+  avance()
+  marqueC(c)
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireMotif(){
+  diag1Carre(Color.RED)
+  avance(2)
+  diag2Carre(Color.BLUE)
+  recule(2)
+  gauche()
+  avance(2)
+  gauche()
+  diag2Carre(Color.YELLOW)
+  avance(2)
+  diag1Carre(Color.GREEN)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+}
