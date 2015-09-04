@@ -1,6 +1,6 @@
 override def run() {
   
-  for(i<-0 to 2*(getMondeLargeur()-1))
+  for(i<-0 to getMondeLargeur()-1)
   {
     for(j<- 0 to i)
     {
@@ -9,5 +9,13 @@ override def run() {
     }
   }
   
+  for(i<-getMondeLargeur()-1 to 1)
+  {
+    for(j<-0 to i)
+    {
+      setPos(j,Math.abs(j-i))
+      ecritMessage(i*(i+1)/2+j)
+    }
+  }
   
 }
