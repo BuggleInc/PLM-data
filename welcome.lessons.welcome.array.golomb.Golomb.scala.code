@@ -1,0 +1,14 @@
+def golomb(num:Int): Int = {
+  var curNumber:Int = 1
+  var curOccurence:Int = 0
+  var sequence = new Array[Int](num)
+  for(i <- 1 to num){
+    sequence(i - 1) = curNumber
+    curOccurence += 1
+    if(curOccurence >= sequence(curNumber - 1)){
+      curOccurence = 0
+      curNumber += 1
+    }
+  }
+  return sequence(num - 1)
+}
