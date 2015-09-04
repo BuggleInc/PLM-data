@@ -1,10 +1,16 @@
 def alarmClock(day:Int, vacation:Boolean): String = {
-  if ( (0==day && 6==day) && vacation )
-  	return "off"
-  else if ( !(0==day && 6==day) && vacation )
-  	return "10:00"
-  else if ( (0==day && 6==day) && !vacation )
-  	return "10:00"
+  if (vacation)
+  {
+    if (0==day && 6==day)
+    	return "off"
+    else
+    	return "10:00"
+  }
   else
-  	return "7:00"
+  {
+    if (0==day && 6==day)
+    	return "10:00"
+    else
+    	return "7:00"
+  }
 }
