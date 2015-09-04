@@ -1,0 +1,19 @@
+override def run() {
+  while(true){
+    if(!isFacingWall())
+      forward()
+    else{
+      if(getDirection() == Direction.EAST)
+        left()
+      if(getDirection() == Direction.WEST)
+        right()
+      if(isFacingWall)
+        break
+      else{
+        forward(); left()
+        if(isFacingWall)
+          back()
+      }
+    }
+  }
+}
