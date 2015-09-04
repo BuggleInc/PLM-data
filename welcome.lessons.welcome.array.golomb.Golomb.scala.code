@@ -1,9 +1,9 @@
-def golomb(num:Int): Int = {
-  var gol = new array[Int] (num+1)
-  var occ = new array[Int] (num+1)
+def golomb(lum:Int): Int = {
+  var gol = new array[Int] (lum+1)
+  var occ = new array[Int] (lum+1)
  	gol(1)= 1
-  for (i <- 0 to nums) {occ(i) = 0}
+  for (i <- 0 to lum) {occ(i) = 0}
  	occ(1) = 1
   var c = 1
-  for (i <- 2 to num-1) {if (occ(c) == gol(c)) {c=c+1};gol(i)=c;occ(c+1)=occ(c+1)+1}
-  return gol(num)}
+  for (i <- 2 to lum-1) {if (occ(c) == gol(c)) {c=c+1};gol(i)=c;occ(c+1)=occ(c+1)+1}
+  return gol(lum)}
