@@ -1,0 +1,52 @@
+
+override def run() {
+  for (compt1 <-1 to 9){
+    for (compteu1 <-1 to 9){
+      faireMotif(Color.YELLOW, Color.RED, Color.BLUE, Color.GREEN)
+      for (compteu2 <-1 to 5){
+        avance()
+      }
+    }
+    gauche()
+    for (compt2 <-1 to 5){
+      avance()
+    }
+    droite()
+  }
+}
+
+
+def faireMotif(a:Color, b:Color, c:Color, d:Color){
+    avance()
+  faireV(a)
+  avance()
+  gauche()
+  avance()
+  faireV(b)
+  avance()
+  gauche()
+    avance()
+  faireV(c)
+  avance()
+  gauche()
+   avance()
+  faireV(d)
+  avance()
+  gauche()
+}
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
