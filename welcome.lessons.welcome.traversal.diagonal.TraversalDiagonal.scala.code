@@ -1,0 +1,39 @@
+def fini():Boolean = {
+  if(getX()==6 && getY()==6){
+    return true
+  }
+  return false
+}
+
+override def run() {
+  
+  var diag = 0;
+  var nb:Int = 0;
+  var x:Int = 0;
+  var y:Int = 0;
+    
+  while(!fini()){
+    
+    if(y==0 && diag<7){
+      x=0;
+      y=diag;
+    }
+    
+    if(x==6 && diag>7){
+      x=diag-7;
+      y=6;
+    }
+    
+    if(x==0){
+      diag+=1;
+    }
+    
+    setPos(x,y);
+    
+    ecritMessage(nb);
+    
+    nb += 1;
+    
+  }
+  
+}
