@@ -5,22 +5,23 @@ def finpos():Boolean = {var b = false
              b = estFaceMur() && b2
              return b}
 
-def avPS() {if (estFaceMur()) {
-  var d = getDirection();
-  	if (d == Direction.EST) {
-    	gauche();
-    	avance();
-    	gauche()
+def avPS() {
+  if (estFaceMur()) {
+  	var d = getDirection();
+  		if (d == Direction.EST) {
+    		gauche();
+    		avance();
+    		gauche()
   		} 
-  else {
-    droite();
-    avance();
-    droite()
+  	else {
+    	droite();
+    	avance();
+    	droite()
   	}
-}
-else avance()
+	}
+	else avance()
            }
 
 
-override def run() {if (!estFaceMur()) avance();setCouleurBrosse(Color.RED);baisseBrosse();while (!finpos()) {avPS()}
+override def run() {setCouleurBrosse(Color.RED);baisseBrosse();while (!finpos()) {avPS()}
 }
