@@ -1,33 +1,37 @@
 override def run() {
-  var T = remplirTableau(creationTableau())
-  var L = getMondeLargeur()
-  for (i<- 0 to L-1)
+  var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
+  for (i<-1 to getMondeLargeur())
   {
     decale()
-    for (i<-0 to (creationTableau()).Length -1)
+    for (i<-1 to getMondeHauteur())
     {
-      peindre(remplirTableau(i))
+      peindre(T(i-1))
       avance()
     }
   }
-  
 }
 
-def creationTableau():Array[Color] =
+def createTab(num : Int):Array[Color](num)=
 {
-  hauteur = getMondeHauteur()
-  var T = new Array[Color] (hauteur)
+  var T = new Array[Color](num)
   return T
 }
 
-def remplirTableau(Tab : Array[Color]):Array[Color] =
+def remplirTab(num:Int, T : Array[Color]):Array[Color](num)=
 {
-  for (i<- getMondeHauteur())
+  for (i<- 0 to num -1)
   {
-    Tab(i) = getCouleurSol()
+    T(i)=getCouleurSol()
     avance()
   }
-  return Tab
+  return T
+}
+
+def decale()
+{
+  gauche()
+  avance()
+  droite()
 }
 
 def peindre(couleur : Color)
@@ -35,11 +39,4 @@ def peindre(couleur : Color)
   setCouleurBrosse(couleur)
   baisseBrosse()
   leveBrosse()
-}
-
-def decale()
-{
-  droite()
-  avance()
-  gauche()
 }
