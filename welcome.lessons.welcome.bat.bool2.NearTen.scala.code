@@ -2,11 +2,14 @@ def nearTen(num:Int):Boolean = {
   
   var reste=num
   var ordre=0
+  var taille=1
   while (reste>9) {
     reste=reste%10
     ordre=ordre+1
   }
-  if (((num%10**ordre)<=2) || ((num%10**ordre)>=8)) return true
+  for (i<- 1 to ordre) taille = 10*taille
+  if (((num%taille)<=2) || ((num%taille)>=8)) return true
   else return false
   
 }
+
