@@ -1,5 +1,15 @@
 def fleur (c : Color){
-  
+  setCouleurCorps(c)
+  baisseBrosse()
+  move(2, true)
+  recule()
+  gauche()
+  avance()
+  move(2,false)
+  avance()
+  leveBrosse()
+  setCouleurCorps(Color.YELLOW)
+  marquer()
 }
 
 
@@ -8,4 +18,13 @@ def marquer(c : Color) {
   baisseBrosse()
   leveBrosse()
   gauche()
+}
+
+
+def move(nbPas: Int,versLAvant: Boolean) {
+  if (versLAvant){
+    for (i <- 1 to nbPas){avance()}
+  }
+  else {for (i <- 1 to nbPas){recule()}}
+    
 }
