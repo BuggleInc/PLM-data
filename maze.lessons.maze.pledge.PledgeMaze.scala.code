@@ -24,7 +24,7 @@ def keepHandOnSideWall()
     
     
     if(nordActif && getDirection()==Direction.NORD)  //on va au nord si on a
-    {																									//si on a autorisation
+    {																									//si on est bien oriente 
       setDirection(Direction.NORD)
       avance()
     }else{
@@ -53,11 +53,18 @@ def keepHandOnSideWall()
         sommeAngle+=1
       	droite();
       	sommeAngle+=1;
-        if(estFaceMur())droite()
-      	avance()
+        if(estFaceMur()){
+         	sommeAngle+=1;
+          droite()
+        }
+        avance()
         sommeAngle-=1
     		gauche()
-    		if(estFaceMur())droite()
+        if(estFaceMur()){
+          droite()
+          
+         	sommeAngle+=1;
+        }
       }
     }
   }
