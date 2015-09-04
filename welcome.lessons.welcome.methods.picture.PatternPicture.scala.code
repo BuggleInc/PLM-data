@@ -50,18 +50,24 @@ override def run() {
   }
   
   def ligne(){
-    carre();
-    avance(3);
-    carre();
+    for (i <- 1 to 2){
+    	carre();
+      avance(3)
+      if (estFaceMur()){
+        recule(4);
+      }
+      avance(4);
+  	}
   }
   
   def colone(){
-    ligne();
-    recule(4);
-    gauche();
-    avance(4);
-    ligne();
+    for (i <- 1 to 2){
+      ligne();
+    	recule(4);
+      gauche();
+      avance(4);
+    }
   }
   
-  ligne();
+  colone();
 }
