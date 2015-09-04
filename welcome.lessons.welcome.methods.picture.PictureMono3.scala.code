@@ -1,2 +1,75 @@
 override def run() {
 }
+
+def marquePage{
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def faireV{
+  marquePage
+  avance()
+  gauche()
+  avance()
+  marquePage
+  recule()
+  droite()
+  avance()
+  marquePage
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  
+}
+
+
+def faireMotif {
+  for (compteur<-1 to 3){
+    avance()
+    avance()
+    for (compteur<-1 to 4){
+      faireV
+    }
+    recule()
+    recule()
+    for (compteur<-1 to 7){
+      avance()
+    }
+  }
+}
+
+
+def remettrePosition{
+  for (compteur<-1 to 21){
+  	recule()
+  }
+  gauche()
+  for (compteur<-1 to 7){
+  	avance()
+  }
+  droite()
+}
+
+
+
+
+
+
+
+def faireCode1{
+  for (compteur<-1 to 3){
+  	faireMotif
+  	remettrePosition 
+  }
+}
+
+
+override def run() {
+   for (compteur<-1 to 3){
+  	faireMotif
+  	remettrePosition 
+  }
+}
