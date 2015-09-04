@@ -1,7 +1,9 @@
-countTeen:2: error: illegal start of simple pattern
-def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {for (x in [a,b,c,d]) {if ((12<x)&&(x<20)) {c=c+1} }; return c}  
-                                                                   ^countTeen:2: error: type application is not allowed in pattern
-def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {for (x in [a,b,c,d]) {if ((12<x)&&(x<20)) {c=c+1} }; return c}  
-                                                       ^countTeen:2: error: illegal start of simple expression
-def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {for (x in [a,b,c,d]) {if ((12<x)&&(x<20)) {c=c+1} }; return c}  
-                                                                                                             ^
+countTeen:2: error: reassignment to val
+def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {if ((12<a)&&(a<20)) {c=c+1} 
+                                                                      ^countTeen:3: error: reassignment to val
+                                                if ((12<b)&&(b<20)) {c=c+1} 
+                                                                      ^countTeen:4: error: reassignment to val
+                                                if ((12<c)&&(c<20)) {c=c+1} 
+                                                                      ^countTeen:5: error: reassignment to val
+                                                if ((12<d)&&(d<20)) {c=c+1} 
+                                                                      ^
