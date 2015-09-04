@@ -31,7 +31,6 @@ def fleurLigne(c1:Color, c2:Color, c3:Color) = {
   avance()
   avance()
   fleur(c3)
-  for (i <- 1 to 10 ) {recule()}
 }
 
 def fleurCarr?() = {
@@ -42,6 +41,23 @@ def fleurCarr?() = {
   fleurLigne(Color.PINK, Color.GREEN)
 }
 
-def growFlowers() = { fleurCarr?()
+def fleurHaut() = {
+  fleurCarr?()
+  gauche()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  fleurLigne(Color.ORANGE, Color.BLUE, Color.ORANGE)
+  for (i <- 1 to 4) {recule()}
+  gauche()
+  avance()
+  avance()
+  droite()
+  fleurCarr?()
+}
+
+def growFlowers() = { fleurHaut()
   
 }
