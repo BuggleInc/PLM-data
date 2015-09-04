@@ -11,11 +11,14 @@ override def run() {
     avance()
     droite()
     val decalage = litMessage().toInt
-  	for (k <- 0 to (getMondeHauteur()-1)) {
-      setCouleurBrosse(T((k+decalage)%(getMondeHauteur()-1)))
+    setCouleurBrosse(T((0+decalage)%T.length))
+    baisseBrosse()
+    leveBrosse()
+  	for (k <- 1 to (getMondeHauteur()-1)) {
+      avance()
+      setCouleurBrosse(T((k+decalage)%T.length)
       baisseBrosse()
       leveBrosse()
-      avance()
     }
   }
 }
