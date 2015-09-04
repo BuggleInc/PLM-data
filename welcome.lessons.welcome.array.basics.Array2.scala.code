@@ -1,10 +1,6 @@
-def fillColumn(colors:Array[Color]){
-  left(); forward(); right(); forward()
-  brushDown()
-  for(i <- 0 to getWorldHeight() - 1){
-    forward()
-    setBrushColor(colors(i))
-  }
+def backwardN(n:Int){
+  for(i <- 0 to n)
+  	backward(n)
 }
 
 override def run() {
@@ -14,4 +10,5 @@ override def run() {
     forward()
     colors(i) = getGroundColor()
   }
+  backwardN(5)
 }
