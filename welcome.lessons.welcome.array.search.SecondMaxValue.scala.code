@@ -1,0 +1,17 @@
+def max2Value(nums:Array[Int]): Int = {
+  var max:Int = nums(0)
+  var subMax:Int = nums(1)
+  if(subMax > max){
+    max = nums(1)
+  	subMax = nums(0)
+  }
+  for(i <- 2 to nums.length - 1){
+    if(nums(i) > max){
+      subMax = max
+      max = nums(i)
+    }
+    else if(nums(i) > subMax)
+    	subMax = nums(i)
+  }
+  return subMax
+}
