@@ -2,31 +2,33 @@ def haveBaggle():Boolean = {
   var oklm : Boolean =false
   var i : Int = 0
   var j : Int =0
-
-  while (oklm==false){
-    for (i<-1 to 6){
-      avance()
-      if (estSurBiscuit()==true){
-        
-        for (l<-1 to i){
-          recule()
-          
-				
-        }
-        oklm = true
-        return true
-      }	else {
-        j=j+1
-
-      }
-      if (j==6){
-        return false
-      }
-
-
-
-    }
+  if (estSurBiscuit()==true){
+    return true
   }
+
+  for (i<-1 to 6){
+    avance()
+    if (estSurBiscuit()==true){
+
+      for (l<-1 to i){
+        recule()
+
+
+      }
+
+      return true
+    }	
+
+
+
+
+
+
+
+
+
+  }
+
   return false
 }
 
