@@ -21,9 +21,9 @@ def paintLine(colors:Array[Color]) {
   
   mark(colors(offset))
   
-  for (j <- 0 to getWorldHeight()-2) {
+  for (j <- 1 to getWorldHeight()-2) {
     forward();
-    mark(colors((j+offset)%getWorldHeight()));
+    mark(colors((j-offset)%getWorldHeight()));
 
   }
   backward(getWorldHeight()-1)
