@@ -1,0 +1,20 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class averageValue extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = averageValue( t.getParameter(0).asInstanceOf[Array[Int]]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def averageValue(nums:Array[Int]): Int = {
+  var total = 0
+  for (i <- 0 to nums.length -1) 
+    total += nums(i)
+  return total / nums.length
+} }
