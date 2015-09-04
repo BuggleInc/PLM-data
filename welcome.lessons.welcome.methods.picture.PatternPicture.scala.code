@@ -1,6 +1,35 @@
 override def run() {
+  motif()
+}
+
+def motif(){
+  for (cote <- 1 to 4){
+    cote match {
+      case 1 => c =color.RED
+      case 2 => c = color.BLUE
+      case 3 => c = color.GREEN
+      case 4 => c = color.YELLOW
+    }
+    coin(c)
+    
+  }
+  
 }
 
 def coin (c : Color) {
   avance()
+  marquer(c)
+  avance()
+  gauche()
+  avance()
+  marquer(c)
+  avance()
+  gauche()
+}
+
+def marquer(c : Color) {
+  setCouleurBrosse(c : Color)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
 }
