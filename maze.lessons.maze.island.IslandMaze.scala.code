@@ -1,4 +1,33 @@
 override def run() {
+  while(!isFacingWall())
+    right()
+  while(getY() > 0){
+    while(isNorthWall)
+      wallHand2()
+    setDirection(Direction.NORTH)
+    while(!isFacingWall())
+      forward()
+  }
+  wallHand()
+}
+
+def wallHand2(){
+  while(isFacingWall())
+    right()
+  forward()
+  left()
+}
+
+def isNorthWall() : Boolean{
+  var direction:Direction = getDirection()
+  setDirection(Direction.NORTH)
+  if(isFacingWall())
+  	return true
+  else
+  	return false
+}
+
+def wallHand(){
   while(!isFacingWall()){
     right()
   }
