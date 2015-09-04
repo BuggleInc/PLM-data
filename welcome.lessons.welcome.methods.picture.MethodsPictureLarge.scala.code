@@ -1,0 +1,52 @@
+override def run() {
+  for (i<- 1 to 9){
+    for (j<- 1 to 9){
+      faireMotif()
+    }
+  monter()
+  }
+  
+}
+
+def faireV(c:Color){
+  avance()
+  marquerSol(c)
+  avance()
+  gauche()
+  avance()
+  marquerSol(c)
+  recule()
+  droite()
+  avance()
+  marquerSol(c)
+  avance()
+  gauche()
+}
+
+
+def marquerSol(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  for (i <-1 to 5){
+    avance()
+  }
+}
+
+def monter(){
+  for (m<- 1 to 5*9){
+    recule()  
+  }
+  gauche()
+  for (n <- 1 to 5){
+    avance()
+  }
+  droite()
+}
