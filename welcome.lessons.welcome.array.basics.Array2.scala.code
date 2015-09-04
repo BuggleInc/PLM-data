@@ -2,7 +2,7 @@ def colonne(decalage:Int, motif:Array[Color]) {
   var hauteur: Int = motif.length
   for (i <- 1 to decalage) {
     avance()
-    for (i <- 1 to hauteur-decalage) {
+    for (i <- 1 to hauteur-decalage-1) {
       setCouleurBrosse(motif(i-1))
       baisseBrosse(); leveBrosse(); avance()
     }
@@ -29,7 +29,7 @@ override def run() {
   for (j <- 2 to getMondeLargeur()){
     var decalage = litMessage().toInt
     colonne(decalage, motif)
-    for (i <- 1 to decalage) {recule()}
+    for (i <- 1 to decalage-1) {recule()}
     gauche(); avance(); droite()
   }
 }
