@@ -1,0 +1,77 @@
+def sePlacer() {
+  if (nbMotif != 0){
+    if (nbMotif == 2) {
+      recule(2);
+      gauche();
+      avance(2);
+      droite();
+    } else if (nbMotif == 3) {
+			avance(2);
+    } else if (nbMotif == 4) {
+      recule(2);
+      gauche();
+      recule(2);
+      droite();
+    }
+  }
+}
+
+def marquerSol() {
+  baisseBrosse();
+  avance();
+  leveBrosse();
+}
+
+def motif1(c:Color) {
+  setCouleurBrosse(c);
+  for (compteur <- 1 to 2) {
+    avance();
+    marquerSol() && gauche();
+    avance();
+    gauche();
+  }
+}
+
+def motif2(c:Color) {
+  setCouleurBrosse(c);
+  marquerSol();
+  avance();
+  gauche();
+  avance();
+  marquerSol() && gauche();
+  for (compteur <- 1 to 2) {
+    avance();
+  	gauche();
+  }
+}
+
+def carre() {
+  var nbMotif : Int = 0
+  motif1(Color.RED);
+  nbMotif = nbMotif + 1;
+  sePlacer();
+  motif2(Color.BLUE);
+  nbMotif = nbMotif + 1;
+  sePlacer();
+  motif2(Color.YELLOW);
+  nbMotif = nbMotif + 1;
+  sePlacer();
+  motif1(Color.GREEN);
+  nbMotif = nbMotif + 1;
+  sePlacer();
+}
+
+override def run() {
+  var nbCarre : Int = 0
+  for (compteur <- 1 to 4) {
+    carre();
+    nbCarre = nbCarre + 1
+    
+  }
+  if (nbCarre % 2 == 0){
+    recule(4);
+    gauche();
+    avance(4);
+    droite();
+  }
+}
