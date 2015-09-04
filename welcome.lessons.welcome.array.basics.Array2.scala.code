@@ -14,9 +14,10 @@ override def run() {
   
     droite()
     avance()
+    val decalage = litMessage().toInt
     droite()
     for (i <- 0 to tab.length -2){
-      setCouleurBrosse(tab(i));
+      setCouleurBrosse(tab(i+decalage %tab.length));
       marque();
       avance();
     }
