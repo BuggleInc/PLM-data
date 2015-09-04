@@ -4,11 +4,13 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
 
   
   if(getX()==x && getY()==y){
+            println("ok");
+
     return true
   }
 
   
-  if(y+1<=getMondeHauteur()-1){
+  if(y+1<getMondeHauteur()){
     if(!aMurNord(x,y+1))	{
       if(tracechemin(x,y+1,nb+1)){
         return true
@@ -29,7 +31,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
       }
     }
   }
-  if(x+1<=getMondeLargeur()-1){
+  if(x+1<getMondeLargeur()){
     if(!aMurOuest(x+1,y)){
       if(tracechemin(x+1,y,nb+1)){
         return true
@@ -45,8 +47,7 @@ def goBiscuit() {
   for(i<- 0 to (getMondeLargeur()-1)){
     for(j<- 0 to (getMondeHauteur()-1)){
     	if(aBiscuit(i,j)){
-        var bool = tracechemin(i,j,0);
-        println("ok");
+        tracechemin(i,j,0);
         return
       }
   	}
