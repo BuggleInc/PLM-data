@@ -13,7 +13,7 @@ def drawLine(colors:Array[Color]){
   	setBrushColor(colors((i + offset) % colors.length))
   }
   brushUp()
-  backwardN(getWorldHeight())
+  backwardN(getWorldHeight() - 1)
 }
 
 override def run() {
@@ -23,7 +23,7 @@ override def run() {
     forward()
     colors(i) = getGroundColor()
   }
-  backwardN(getWorldHeight())
+  backwardN(getWorldHeight() - 1)
   for(i <- 0 to getWorldHeight() - 2)
   	drawLine(colors)
 }
