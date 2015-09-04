@@ -1,0 +1,47 @@
+var nbMotif : Int = 0
+
+def marquerSol() {
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV() {
+  avance();
+  marquerSol();
+  avance();
+  gauche();
+  marquerSol();
+  recule();
+  droite();
+  marquerSol();
+  avance(2);
+  gauche();
+}
+
+def faireMotif() {
+  	for (compteur <- 1 to 4) {
+    	faireV();
+    }
+}
+
+def sePlacer() {
+  if (nbMotif != 0) {
+    avance(7);
+  	if (nbMotif % 9 == 0) {
+    	recule(63);
+    	gauche();
+    	avance(7);
+      droite();
+    }
+  }
+}
+
+override def run() {
+  for (compteur <- 1 to 81) {
+    sePlacer();
+    faireMotif();
+    nbMotif = nbMotif + 1
+  }
+  sePlacer();
+}
