@@ -1,8 +1,5 @@
 override def run() {
-  faireLigneRedBlue()
-  faireLigneYellowGreen()
-  faireLigneRedBlue()
-  faireLigneYellowGreen()
+   faireCarreCouleur(Color.PINK)
 }
 
 def marqueSol(){
@@ -10,7 +7,7 @@ def marqueSol(){
   leveBrosse()
 }
 
-def faireCarreCouleur1(c:Color){
+def faireCarreCouleur(c:Color){
   setCouleurBrosse(c)
   avance()
   marqueSol()
@@ -24,50 +21,8 @@ def faireCarreCouleur1(c:Color){
   gauche()
   avance()
   avance()
-}
-
-def faireCarreCouleur2(c:Color){
-  setCouleurBrosse(c)
-  marqueSol()
   avance()
   gauche()
-  avance()
-  marqueSol()
-  gauche()
-  avance()
-  gauche()
-  avance()
-  gauche()
-  avance()
-  avance()
 }
 
-
-def faireLigneRedBlue(){
-  faireCarreCouleur1(Color.RED)
-  faireCarreCouleur2(Color.BLUE)
-  faireCarreCouleur1(Color.RED)
- 	faireCarreCouleur2(Color.BLUE)
-  for (cpt <- 1 to 6){
-    recule()
-  }
-  gauche() //La Baggle se positionne pour la prochaine ligne
-  avance()
-  avance()
-  droite()
-}
-
-def faireLigneYellowGreen(){
-  faireCarreCouleur2(Color.YELLOW)
-  faireCarreCouleur1(Color.GREEN)
-  faireCarreCouleur2(Color.YELLOW)
-  faireCarreCouleur1(Color.GREEN)
-  for (cpt <- 1 to 6){
-    recule()
-  }
-  gauche() //La Baggle se positionne pour la prochaine ligne
-  avance()
-  avance()
-  droite()
-}
 
