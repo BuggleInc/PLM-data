@@ -1,24 +1,28 @@
 def hunt() {
     // Write your code here
+  while (!estSurBiscuit()){
+    if(isFacingTrail()){baisseBrosse() ; avance() ; leveBrosse()}
+  }
 }
 
 // Copy your isFacingTrail() here
 
-def testCroix(){
-  var color = false
-  
-  
-  while (!color ){
-    if (!estFaceMur() {avance()
-                       if (getCouleurSol() == Color.green){color = true}}
-    if (!color) {recule(); gauche()}
 
-        
-    else(){recule()}
-  
-      
+
+
+
+def isFacingTrail():Boolean = {
+  var color = false
+  while (color==false){
+  if (!estFaceMur()){
+    avance()
+    if (getCouleurSol()==Color.green){
+      recule()
+      color = true
+    }
+    else {recule() ; gauche()}}
+    else {gauche()}
   }
-  if (color){baisseBrosse; avance()}
-}
-        
-        
+    return color
+  }
+
