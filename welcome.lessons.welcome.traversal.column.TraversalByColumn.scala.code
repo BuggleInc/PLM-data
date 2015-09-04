@@ -1,0 +1,14 @@
+override def run() {
+  var compteur = 0
+  ecritMessage(compteur)
+  while (getX() != getMondeLargeur() && getY() != getMondeHauteur()){
+    if (getY() != getMondeHauteur()){
+      setPos(getX(), getY() + 1);
+      compteur += 1;
+      ecritMessage(compteur);
+    }
+    else{
+      setPos(getX() + 1, 0);
+    }
+  }
+}
