@@ -24,10 +24,17 @@ def max2Value(nums:Array[Int]): Int =
 {
   var max = maxValue(nums)
   var max2 = Integer.MIN_VALUE
+  var maxPasse = false
   
   for (i <- 0 to nums.length - 1)
-  	if (max2 <= nums(i) && nums(i) != max)
+  {
+    if (nums(i) == max)
+    	maxPasse = true
+  	else if (max2 < nums(i) && maxPasse)
+  	{
   		max2 = nums(i)
+    }
+  }
   
   return max2
 }
