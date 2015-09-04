@@ -1,0 +1,17 @@
+override def run() {
+  var T =Array[Int](getCouleurSol)
+  do {
+    avance()
+    T=T+[getCouleurSol]
+  } while (T[0]!=getCouleurSol)
+  for (i<-0 to T.lenght-1){
+    gauche()
+    avance()
+    droite()
+    for (j<- 0 to T.lenght-1){
+      baisseBrosse()
+      setCouleurBrosse(T[j])
+      avance()
+    }
+  }
+}
