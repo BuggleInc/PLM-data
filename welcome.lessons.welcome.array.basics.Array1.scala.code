@@ -19,8 +19,20 @@ def seReplace()
   avance()
 }
 
+def dessine(couleurs:Array[Color])
+{
+  for (i <- 0 to couleurs.lenght - 1)
+  {
+    setCouleurBrosse(couleurs[i])
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
+
 override def run()
 {
-  var tableauCouleur = tableauCouleurs()
+  var couleurs = tableauCouleurs()
   seReplace()
+  dessine()
 }
