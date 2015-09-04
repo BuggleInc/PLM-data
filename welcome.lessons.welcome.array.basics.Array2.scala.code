@@ -1,10 +1,6 @@
 override def run() {
   var comp:Int = 0
-  if (estFaceMur())
-  {
-    recule(getMondeHauteur())
-    comp = comp + 1
-  }
+
   var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
   avance()
   for (i<-1 to getMondeLargeur()-1)
@@ -15,6 +11,11 @@ override def run() {
       peindre(T((i+comp)%getMondeHauteur()))
       avance()
     }
+      if (estFaceMur())
+  {
+    recule(getMondeHauteur())
+    comp = comp + 1
+  }
    avance()
   }
   recule()
