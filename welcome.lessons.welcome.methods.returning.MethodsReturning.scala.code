@@ -1,0 +1,23 @@
+var vuBiscuit:Boolean = false
+def parcourirColonne(){
+  for (k<-1 to 6){
+    avance()
+    if (estSurBiscuit()) {
+      vuBiscuit = true
+    }
+  }
+  for (k<-1 to 6){
+    recule()
+  }
+def changerColonne(){
+  droite()
+  avance()
+}
+
+
+def haveBaggle():Boolean = {
+	parcourirColonne()
+  return vuBiscuit
+	
+}  
+  
