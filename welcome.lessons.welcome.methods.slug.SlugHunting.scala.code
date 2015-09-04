@@ -1,0 +1,37 @@
+def point() = {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def hunt() {
+    while (estSurBiscuit()==false) {
+      if (isFacingTrail()) {
+        point
+        avance()
+      } else {
+        gauche()
+        if (isFacingTrail()) {
+        	point()
+          avance() }
+        	else {
+            droite()
+            droite()
+            if (isFacingTrail()) {
+       				point()
+              avance() }
+          }
+      }
+      
+    }
+  prendBiscuit()
+}
+
+// Copy your isFacingTrail() here
+
+def isFacingTrail():Boolean = {
+    // Write your code here
+  if (estFaceMur()) {return false}
+  avance()
+  if (getCouleurSol()==Color.green) {recule(); return true}
+  else {recule(); return false}
+}        
