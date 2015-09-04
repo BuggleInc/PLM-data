@@ -1,0 +1,43 @@
+override def run() {
+  def marquerSol(){
+    baisseBrosse()
+    leveBrosse()
+  }
+  def faireV(){
+    avance(2)
+    marquerSol()
+    avance()
+    gauche()
+    avance()
+    marquerSol()
+    recule()
+    droite()
+    avance()
+    marquerSol()
+    avance(2)
+    gauche()
+  }
+  
+  def faireMotif(){
+    var compt:Int=0
+    for (compt<-1 to 4){
+      faireV()
+    }
+  }
+  def faireLigne(){
+    var nbMotif:Int=0
+    for (nbMotif<-1 to 3){
+      faireMotif()
+      avance(7)
+    }
+  }
+	
+ 
+  var nbLigne:Int=0
+  for (nbLigne<-1 to 12){
+    faireLigne()
+    gauche()
+    avance(7)
+    droite() 
+  }
+}
