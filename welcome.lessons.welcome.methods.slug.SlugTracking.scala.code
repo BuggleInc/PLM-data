@@ -5,10 +5,15 @@ def marquerSol(){
 
 def isFacingTrail():Boolean = {
   var couleurSol:Boolean=false // Indique si le sol est vert ou non.
+  avance()
+  if (estFaceMur()){
+    droite()
     avance()
-    if (getCouleurSol()==Color.green){
-      couleurSol=true
-    }
-    recule()
-  return couleurSol
+  }
+  if (getCouleurSol()==Color.green){
+    couleurSol=true
+  }
+    
+  recule()
+	return couleurSol
 }
