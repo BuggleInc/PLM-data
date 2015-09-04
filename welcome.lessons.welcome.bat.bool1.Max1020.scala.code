@@ -1,15 +1,8 @@
 def max1020(a:Int, b:Int):Int = {
-  if ((a>20 ||a<10) && (b>20 ||b<10)){
+  if ((Math.max (a,b)<10)|| (a>20 && b>20)){
     return 0
   }
-  if (a<b && b<=20){
-    return b
+  if (Math.max(a,b)>20) {
+    return Math.min(a,b)
   }
-  if (a<b && b>20){
-    return a}
-  if (b<a && a<=20){
-    return a}
-  if (b<a && a>20){
-    return b
-  }
-}
+  return Math.max (a,b)
