@@ -1,4 +1,6 @@
-override def run() {remplirTableau()
+override def run() {
+  remplirTableau();
+  seReplace();
 }
 
 var tableauCouleur = new Array[Color](6)
@@ -9,4 +11,8 @@ def remplirTableau(){
     avance();
   }
   tableauCouleur(5)=getCouleurSol();
+}
+
+def seReplacer(){
+  gauche();avance();droite();recule(5)
 }
