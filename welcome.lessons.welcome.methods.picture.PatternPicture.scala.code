@@ -29,22 +29,34 @@ override def run() {
     baisseBrosse();
     leveBrosse();
   }
-    
   
-  def ligne(){
-    for (i <- 1 to 3){
-    	carre();
-    	avance(5)
-  	}
+  def carre(){
+    symbole1(Color.red);
+    gauche();
+    avance(2);
+    gauche();
+    avance(2);
+    droite();
+    symbole1(Color.green);
+    symbole2(Color.blue)
+    droite();
+    avance();
+    droite();
   }
   
   def colone(){
-    for (i <- 1 to 3){
-      ligne();
-    	gauche();
-    	avance(5);
+    for (i <- 1 to 2){
+    	carre();
+    	droite();
+      avance();
       droite();
+  	}
+  }
+  
+  def ligne(){
+    for (i <- 1 to 2){
+      colone();
+    	avance(4);
     }
   }
-  colone();
 }
