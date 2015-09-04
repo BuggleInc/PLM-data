@@ -1,5 +1,5 @@
 override def run() {
-  for (ligne <- 1 to 2) {for (colone <- 1 to 2) {faireMotif();} ; reposition()};
+  for (ligne <- 1 to 2) {faireMotifGauche(); faireMotifDroite(); repositionLigne()};
 }
 
 //
@@ -21,11 +21,16 @@ def faireForme2(c:Color)
 
 def repositionHaut() {gauche(); recule(2); droite();}
 
-def repositionBas() {gauche(); avance(2); droite(); avance(4)}
+def repositionBas() {gauche(); avance(2); droite();}
 // pour faireMotif
 //
 
-def faireMotif() {faireForme1(Color.RED); faireForme2 (Color.BLUE); repositionHaut();
-                  faireForme2(Color.YELLOW); faireForme1(Color.GREEN); repositionBas();}
+def faireMotifGauche() {faireForme1(Color.RED); faireForme2 (Color.BLUE); repositionHaut();
+                  faireForme2(Color.YELLOW); faireForme1(Color.GREEN); repositionBas();
+                  avance(4);}
 
-def reposition() {gauche(); avance(4); droite();}
+def faireMotifDroite() {faireForme1(Color.RED); faireForme2 (Color.BLUE); repositionHaut();
+                  faireForme2(Color.YELLOW); faireForme1(Color.GREEN); repositionBas();
+                  recule(4);}
+
+def repositionLigne() {gauche(); avance(4); droite();}
