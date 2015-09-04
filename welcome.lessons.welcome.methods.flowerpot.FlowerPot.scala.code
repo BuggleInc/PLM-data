@@ -14,14 +14,24 @@ def dessinerFleur(c:Color)
   recule()
 }
 
+def dessinerLigneFleurs(couleur1:Color, couleur2:Color)
+{
+  dessinerFleur(couleur1)
+  avance(4)
+  dessinerFleur(couleur2)
+}
+
 def growFlowers()
 {
-  dessinerFleur(Color.RED)
-  avance(4)
-  dessinerFleur(Color.CYAN)
+  dessinerLigneFleurs(Color.RED, Color.CYAN)
   recule(2)
   gauche()
   recule(2)
   droite()
   dessinerFleur(Color.ORANGE)
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+  dessinerLigneFleurs(Color.PINK, Color.GREEN)
 }
