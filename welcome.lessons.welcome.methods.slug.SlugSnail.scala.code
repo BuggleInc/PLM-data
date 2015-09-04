@@ -1,0 +1,23 @@
+def hunt(c:Color) {
+     // Write your code here
+	do{if (isFacingTrail(color)){avance();}
+    else{gauche;if(isFacingTrail(color));avance()}
+     else{gauche();gauche();avance()}
+ }
+
+ // here comes your isFacingTrail method
+
+def isFacingTrail(color):Boolean = {
+    // Write your code here
+ 	if (estFaceMur()){
+    return false;
+  } 
+  avance();
+  if (getCouleurSol() == color){
+    recule();
+    return true;
+  }
+  else {
+    recule();
+    return false;}
+}
