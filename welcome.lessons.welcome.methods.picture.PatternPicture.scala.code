@@ -1,0 +1,53 @@
+override def run() {
+  for (compteur <- 1 to 2) {
+    faireMotif3(Color.RED, Color.BLUE)
+    gauche()
+    avance(2)
+    droite()
+    faireMotif3(Color.YELLOW, Color.GREEN)
+    gauche()
+    avance(2)
+    droite()
+  }
+  
+  def faireMotif3(c1:Color, c2:Color) {  //motif 8*4
+    for (compteur <- 1 to 2) {
+    	faireMotif1(c1)
+    	avance(2)
+    	faireMotif2(c2)
+    	avance(2)
+    }
+  
+  def faireMotif1(c:Color) { //premier motif 2*2
+    setCouleurBrosse(c)
+    avance()
+    marquage()
+    gauche()
+    avance()
+    gauche()
+    avance()
+    marquage()
+    gauche()
+    avance()
+    gauche()
+  }
+  
+  def faireMotif2(c:Color) {  //deuxieme motif 2*2
+    setCouleurBrosse(c)
+    marquage()
+    avance()
+    gauche()
+    avance()
+    marquage()
+    gauche()
+    avance()
+    gauche()
+    avance()
+    gauche()
+  }
+  
+  def marquage() {
+    baisseBrosse()
+    leveBrosse()
+  }
+}
