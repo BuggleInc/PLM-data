@@ -1,7 +1,15 @@
 def haveBaggle():Boolean = {
   /* Renvoie true si la colonne contient un baggle */
-  if (sawBaggle)
-  	return true;
- 	else
-  	return false;
+  var sawBaggle = false
+  
+  for (i <- 1 to 6){
+    if (isOverBaggle())
+    	sawBaggle = true
+    forward()
+  }
+  if (isOverBaggle())
+    	sawBaggle = true
+  backward(6)
+  
+  return sawBaggle
 }
