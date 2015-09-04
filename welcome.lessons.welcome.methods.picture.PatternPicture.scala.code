@@ -1,6 +1,9 @@
 override def run() {
   
-  faireMotif()
+  for (i1 to 4) {
+    faireMotif()
+    positionSuivante()
+  }
   
 }
 
@@ -58,11 +61,11 @@ def marque(c:Color) {
   def positionSuivante() {
     if (getX()==4) {
       if (getY()!=3) {
-        avance(4)
+        recule(4)
         droite()
         avance(4)
-        gauche()
+        droite()
       }
     }
-    else recule(4)
+    else avance(4)
   }
