@@ -1,7 +1,6 @@
 override def run() {
-  scanMotif(getMondeHauteur())
   for (i <- 1 to getMondeHauteur()) {
-    prodMotif(motif)
+    prodMotif(scanMotif(getMondeHauteur()))
   }
 }
 
@@ -11,6 +10,7 @@ def scanMotif(long:Int) {
     motif(i) = getCouleurSol()
     avance()
   }
+  return motif
 }
 
 def prodMotif(motif:Array[Color]) { 
