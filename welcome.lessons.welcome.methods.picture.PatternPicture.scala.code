@@ -11,8 +11,7 @@ def dessineV(c: Color) {
   peindreSol(c)
   
   for (compteur <- 1 to 2) {
-    gauche()
-    avance()
+    gauche(); avance()
   }
   
   peindreSol(c)
@@ -22,6 +21,20 @@ def dessineV(c: Color) {
   gauche()
 }
 
+dessineVInverse(c: Color) {
+  peindreSol(c)
+  
+  for (compteur <- 1 to 2) {
+    avance(); gauche()
+  }
+  
+  
+}
+
 override def run() {
   dessineV(Color.RED)
+  
+  avance(2)
+  
+  dessineVInverse(Color.BLUE)
 }
