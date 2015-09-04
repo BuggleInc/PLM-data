@@ -65,7 +65,7 @@ def yaller(){
   
   
   if(y+1<=getMondeHauteur()-1){
-    if(getIndication(x,y+1)<=mini)			{
+    if(getIndication(x,y+1)<mini)			{
       setDirection(Direction.SUD);
       if(!estFaceMur()){
         mini = getIndication(x,y+1);
@@ -73,7 +73,7 @@ def yaller(){
     }
   }
   if(x-1>=0){
-    if(getIndication(x-1,y)<=mini){
+    if(getIndication(x-1,y)<mini){
       setDirection(Direction.OUEST);
       if(!estFaceMur()){
         mini = getIndication(x-1,y);
@@ -81,7 +81,7 @@ def yaller(){
     }
   }
   if(y-1>=0){
-    if(getIndication(x,y-1)<=mini)		{
+    if(getIndication(x,y-1)<mini)		{
       setDirection(Direction.NORD);
       if(!estFaceMur()){
         mini = getIndication(x,y-1);
@@ -93,6 +93,8 @@ def yaller(){
       setDirection(Direction.EST);
     }
   }
+  
+  ecritMessage(mini);
   
   avance();
   
