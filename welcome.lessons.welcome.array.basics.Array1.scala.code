@@ -1,10 +1,11 @@
 override def run() {
+  var tableauCouleur = new Array[Color](6)
   remplirTableau();
   seReplacer();
   colorier();
 }
 
-var tableauCouleur = new Array[Color](6)
+
 
 def remplirTableau(){
   for (i<- 1 to 5){
@@ -18,9 +19,9 @@ def seReplacer(){
   gauche();avance();droite();recule(5)
 }
 
-def colorier(){
+def colorier(t:Array[Color]){
   for (i<-0 to 4){
-    setCouleurBrosse(tableauCouleur(i));
+    setCouleurBrosse(t(i));
     baisseBrosse();
     leveBrosse(); 
   }
