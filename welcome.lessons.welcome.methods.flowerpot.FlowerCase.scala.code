@@ -1,0 +1,47 @@
+def courrir(x:Int) {
+  for (i<- 1 to x) avance;
+}
+
+def courrirB(x:Int) {
+  for (i <- 1 to x) recule;
+}
+
+def colorie (c:Color) {
+  setCouleurBrosse(c);
+  baisseBrosse;
+}
+
+def cross(c:Color) {
+  colorie(c);
+  courrir(2);recule;gauche;recule;courrir(2);recule;
+  colorie(Color.YELLOW);
+  leveBrosse;
+  droite;recule;
+}
+
+def growSomeFlowers() {
+  cross(Color.RED);
+  courrir(4);
+  cross(Color.CYAN);
+  courrirB(2);droite;courrir(2);gauche;
+  cross(Color.ORANGE);
+  courrirB(2);droite;courrir(2);gauche;
+  cross(Color.PINK);
+  courrir(4);
+  cross(Color.GREEN);
+  courrirB(4);
+}
+
+def growFlowers() {
+  growSomeFLowers();
+  courrir(6);gauche;courrir(2);droite;
+  cross(Color.BLUE);
+  courrir(2);droite;courrir(2);gauche;
+  growSomeFlowers();
+  droite;avance;droite;courrir(9);gauche;courrir(8);gauche;
+  growSomeFlowers();
+  courrir(6);gauche;courrir(2);droite;
+  cross(Color.BLUE);
+  courrir(2);droite;courrir(2);gauche;
+  growSomeFlowers();    
+}
