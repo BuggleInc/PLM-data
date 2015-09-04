@@ -1,7 +1,7 @@
 override def run(c:Color) {
   for (i<- 1 to 3){
     for (j<- 1 to 3){
-      faireMotif()
+      faireMotif(c)
     }
   monter()
   }
@@ -10,15 +10,15 @@ override def run(c:Color) {
 
 def faireV(c:Color){
   avance()
-  marquerSol()
+  marquerSol(c)
   avance()
   gauche()
   avance()
-  marquerSol()
+  marquerSol(c)
   recule()
   droite()
   avance()
-  marquerSol()
+  marquerSol(c)
   avance()
   gauche()
 }
@@ -30,9 +30,9 @@ def marquerSol(c:Color){
   leveBrosse()
 }
 
-def faireMotif(){
+def faireMotif(c){
   for (i <- 1 to 4){
-    faireV()
+    faireV(c)
   }
   for (i <-1 to 5){
     avance()
