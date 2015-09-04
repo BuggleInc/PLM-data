@@ -1,13 +1,15 @@
 def goAndGet() {
-	for (i <- 1 to 6){
-    if (estSurBiscuit){
-      prendBiscuit()
-    }
-    else {
-      avance
-    }
-  poseBiscuit
-  }                                                
+  var i=0
+  while (!estSurBiscuit){
+    avance
+    i=i+1
+  }
+  if (estSurBiscuit) {
+   prendBiscuit;recule;i=i-1 
+  }
+  if (i=0){
+    poseBiscuit
+  }
 }    
 for (i <- 1 to 7) {
     goAndGet();
