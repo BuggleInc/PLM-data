@@ -1,7 +1,19 @@
-greenTicket:2: error: 'case' expected but '(' found.
-  																							(a,a,a) => 20
-                                                                                                                                                                                        ^greenTicket:3: error: '}' expected but ';' found.
-  																							(a,_,a) => 10
-^greenTicket:8: error: eof expected but '}' found.
- }
- ^
+greenTicket:2: error: a is already defined as value a
+  																							case (a,a,a) => 20
+                                                                                                                                                                                                ^greenTicket:2: error: a is already defined as value a
+  																							case (a,a,a) => 20
+                                                                                                                                                                                                  ^greenTicket:3: error: a is already defined as value a
+  																							case (a,_,a) => 10
+                                                                                                                                                                                                  ^greenTicket:4: error: a is already defined as value a
+                                                case (a,a,_) => 10
+                                                        ^greenTicket:5: error: b is already defined as value b
+  																							case (_,b,b) => 10
+                                                                                                                                                                                                  ^greenTicket:5: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
+  																							case (_,b,b) => 10
+                                                                                                                                                                                                        ^greenTicket:6: error: missing parameter type
+  (_,_,_) => 0}
+   ^greenTicket:6: error: missing parameter type
+  (_,_,_) => 0}
+     ^greenTicket:6: error: missing parameter type
+  (_,_,_) => 0}
+       ^
