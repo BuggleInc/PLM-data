@@ -1,9 +1,33 @@
+def tracechemin(x,y,nb){
+  
+  if(!aMurNord(x,y) && getIndication(x,y+1)==9999){
+    setIndication(x,y+1,nb+1);
+    tracechemin(x,y+1,nb+1);
+  }
+  if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
+    setIndication(x-1,y,nb+1);
+    tracechemin(x-1,y,nb+1);
+  }
+  if(!aMurNord(x,y-1) && getIndication(x,y-1)==9999){
+    setIndication(x,y-1,nb+1);
+    tracechemin(x,y-1,nb+1);
+  }
+  if(!aMurOuest(x+1,y) && getIndication(x+1,y)==9999){
+    setIndication(x+1,y,nb+1);
+    tracechemin(x+1,y,nb+1);
+  }
+  
+  return
+  
+}
+
 def getBisctuit() {
   for(i<- 0 to (getMondeLargeur()-1)){
     for(j<- 0 to (getMondeHauteur()-1)){
     	if(aBiscuit(i,j)){
         setIndication(i,j,0);
-        println (i,j);
+        tracechemin(i,j,0);
+        return
       }
   	}
   }
