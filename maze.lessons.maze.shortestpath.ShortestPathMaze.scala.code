@@ -21,7 +21,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
 
   
   if(y+1<getMondeHauteur()){
-    if(!aMurNord(x,y+1) && getIndication(x,y+1)>nb+1)	{
+    if(!aMurNord(x,y+1) && getIndication(x,y+1)>nb)	{
       if(tracechemin(x,y+1,nb+1)){
         setDirection(Direction.NORD);
         avance();
@@ -32,7 +32,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
     }
   }
   if(x-1>=0){
-    if(!aMurOuest(x,y) && getIndication(x-1,y)>nb+1){
+    if(!aMurOuest(x,y) && getIndication(x-1,y)>nb){
       if(tracechemin(x-1,y,nb+1)){
         setDirection(Direction.EST);
         avance();
@@ -43,7 +43,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
     }
   }
   if(y-1>=0){
-    if(!aMurNord(x,y) && getIndication(x,y-1)>nb+1)		{
+    if(!aMurNord(x,y) && getIndication(x,y-1)>nb)		{
       if(tracechemin(x,y-1,nb+1)){
         setDirection(Direction.SUD);
         avance();
@@ -53,7 +53,7 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
       }
     }
   }
-  if(x+1<getMondeLargeur() && getIndication(x+1,y)>nb+1){
+  if(x+1<getMondeLargeur() && getIndication(x+1,y)>nb){
     if(!aMurOuest(x+1,y)){
       if(tracechemin(x+1,y,nb+1)){
         setDirection(Direction.OUEST);
