@@ -1,4 +1,4 @@
-def hunt(y:Color) {if (estSurBiscuit()){prendBiscuit();return{}};if (isFacingTrail(y)) {baisseBrosse();leveBrosse();avance();hunt(y)}; else {left();hunt(y)}
+def hunt(y:Color) {if (estSurBiscuit()){prendBiscuit();marque();return{}};if (isFacingTrail(y)) {baisseBrosse();marque();hunt(y)}; else {left();hunt(y)}
     // Write your code here
 }
 
@@ -6,3 +6,5 @@ def hunt(y:Color) {if (estSurBiscuit()){prendBiscuit();return{}};if (isFacingTra
 var result=false
 def isFacingTrail(c:Color):Boolean = {if (!estFaceMur()) {avance(); result=(getCouleurSol()==c); recule(); return result }
   else {return false}}
+
+def marque() {baisseBrosse();leveBrosse()}
