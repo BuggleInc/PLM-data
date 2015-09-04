@@ -21,8 +21,7 @@ def fairebg(c:Color) {
   gauche()
   avance()
   gauche()
-  avance()
-  avance()
+  avancemul(2)
 }
 
 def fairebd(c:Color) {
@@ -37,8 +36,7 @@ def fairebd(c:Color) {
   gauche()
   avance()
   gauche()
-  recule()
-  recule()
+  reculemul(2)
   gauche()
   avancemul(2)
 }
@@ -70,11 +68,9 @@ def fairehd(c:Color) {
   gauche()
   avance()
   gauche()
-  recule()
-  recule()
+  reculemul(2)
   gauche()
-  recule()
-  recule()
+  reculemul(2)
   droite()
   avancemul(3)
 }
@@ -85,11 +81,16 @@ def avancemul(nb:Int) {
   }
 }
 
+def reculemul(nb:Int) {
+  for (i<- 1 to nb) {
+    recule()
+  }
+}
 
 def monte() {
 gauche()
 avancemul(4)
-droite()
+reculemul(8)
 }
 
 def faireMotif2() {
