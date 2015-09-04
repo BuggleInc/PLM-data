@@ -27,12 +27,18 @@ override def run() {
     faireAntiDiag(Color.yellow)
     avance(); avance()
     faireDiag(Color.green)
-    recule(); recule(); droite(); avance(); avance(); gauche(); avance(); avance(); avance(); avance()
+    recule(); recule(); droite(); avance(); avance(); gauche(); avance(); avance(); avance()
+    if (!estFaceMur){
+      avance()
+    }
   }
   
   while (motif < 4){
     for (i <- 1 to 2){
       faireMotif()
+    }
+    for (i <- 1 to 7){
+      recule()
     }
     gauche()
     for (i <- 1 to 4){
