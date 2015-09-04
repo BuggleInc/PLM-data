@@ -1,6 +1,4 @@
 override def run() {
-  var comp:Int = 0
-
   var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
   avance()
   for (i<-1 to getMondeLargeur()-1)
@@ -8,21 +6,9 @@ override def run() {
     decale()
     for (i<-1 to getMondeHauteur())
     {
-        if (estFaceMur())
-  {
-    peindre(T((Math.abs(((i+comp)%getMondeHauteur())-getMondeHauteur()))))
-    recule(getMondeHauteur()-1)
-    comp = comp + 1
-
-  }
-      peindre((T((Math.abs((i+comp)%getMondeHauteur()-getMondeHauteur())))))
+      peindre(T(i-1))
       avance()
     }
-      if (estFaceMur())
-  {
-    recule(getMondeHauteur()-1)
-    comp = comp + 1
-  }
    avance()
   }
   recule()
@@ -34,15 +20,13 @@ def createTab(num : Int):Array[Color]={
 }
 
 def remplirTab(num:Int, T : Array[Color]):Array[Color]={
-  for (i<- 0 to num -1)
+  for (i<- 0 to num -2)
   {
     T(i)=getCouleurSol()
-      if (estFaceMur())
-  {
-    recule(getMondeHauteur()-1)
-  }
     avance()
   }
+  T(getHauteurMonde()-1)= getCouleurSol()
+  recule(getHauteurMonde())
   return T
 }
 
