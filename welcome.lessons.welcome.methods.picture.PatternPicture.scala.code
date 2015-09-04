@@ -1,0 +1,38 @@
+override def run() {
+  makePattern(2, 2);
+}
+
+def  mark() {
+  brushDown();
+  brushUp();
+}
+
+def makeTile(c:Color) {
+  setBrushColor(c);
+  forward();
+  mark();
+  
+  left(); forward(); left(); forward();
+  mark();
+  
+  left(); forward(); left();
+  
+  forward(3); left();
+}
+
+def makeSquare() {
+  makeV(Color.yellow);
+  makeV(Color.red);
+  makeV(Color.blue);
+  makeV(Color.green);
+}
+
+def makePattern(x:Int, y:Int) {
+  for (stepper1 <- 1 to y) {
+    for (stepper2 <- 1 to x) {
+      makeSquare();
+      forward(5);
+    }
+    left(); forward(5); right();
+  }
+}
