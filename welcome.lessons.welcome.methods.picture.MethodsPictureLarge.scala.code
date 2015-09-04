@@ -1,0 +1,44 @@
+var nbMotif:Int = 0
+
+def sePlacer() {
+  if (nbMotif != 0) {
+    avance(5);
+    if (nbMotif % 9 == 0) {
+      recule(45);
+      gauche();
+      avance(5);
+      droite();
+    }
+  }
+}
+
+def marquerSol() {
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c);
+  marquerSol();
+  avance();
+  gauche();
+  marquerSol();
+  recule();
+  droite();
+  marquerSol();
+  avance();
+  gauche();
+}
+
+override def run() {
+  for (compteur <- 1 to 81) {
+    sePlacer();
+    faireV(Color.YELLOW);
+    faireV(Color.RED);
+    faireV(Color.BLUE);
+    faireV(Color.GREEN);
+    nbMotif = nbMotif + 1;
+  }
+  sePlacer();
+}
