@@ -34,12 +34,12 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   
 }
 
-def getBisctuit():Boolean = {
+def getBisctuit() {
   for(i<- 0 to (getMondeLargeur()-1)){
     for(j<- 0 to (getMondeHauteur()-1)){
     	if(aBiscuit(i,j)){
         setIndication(i,j,0);
-        return tracechemin(i,j,0);
+        tracechemin(i,j,0);
       }
   	}
   }
@@ -82,10 +82,9 @@ def yaller(){
 }
 
 override def run() {
-  if(getBisctuit()){
-    while(!estSurBiscuit()){
-    	yaller();
-    }
+  getBisctuit();
+  while(!estSurBiscuit()){
+    yaller();
   }
   prendBiscuit();
 }
