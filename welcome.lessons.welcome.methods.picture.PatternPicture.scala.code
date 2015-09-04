@@ -1,4 +1,6 @@
-override def run() {faireMotif()}
+override def run() {
+  for(i<- 0 to 1){faireMotif();avance();avance();avance();avance();faireMotif();reposition()}
+}
 
 def marquerSol(){baisseBrosse();leveBrosse()}
 
@@ -6,6 +8,6 @@ def faireDiago(c:Color){setCouleurBrosse(c);marquerSol();avance();gauche();avanc
 
 def faireMotif(){avance();gauche();faireDiago(Color.RED);gauche();avance();avance();faireDiago(Color.BLUE);gauche();avance();gauche();recule();recule();gauche();avance();avance();droite();faireDiago(Color.YELLOW);gauche();avance();gauche();avance();avance();avance();gauche();faireDiago(Color.GREEN);gauche();recule();recule();gauche();recule();recule();droite()}
 
-def reposition(){avance();gauche();avance();avance();avance();droite()}
+def reposition(){recule();recule();recule();recule();gauche();avance();avance();avance();avance();droite()}
 
 
