@@ -1,0 +1,12 @@
+def finpos():Boolean = {return ((getMondeHauteur()-1 == getX() && (getMondeLargeur() -1== getY())))}
+def nexcase() {var x= getX()
+              var y = getY()
+              if (x==getMondeLargeur()-1) {y=y+1;x=0} else x=x+1
+              setPos(x,y)}
+
+
+
+override def run() {var c=0
+                    while (!finpos()) {ecritMessage(c.toString);nexcase();c+=1}
+                    ecritMessage(c.toString)
+}
