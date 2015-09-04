@@ -1,0 +1,42 @@
+def brosse(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  avance(2)
+  brosse()
+  avance()
+  gauche()
+  avance()
+  brosse()
+  recule()
+  droite()
+  avance()
+  brosse()
+  avance(2)
+  gauche()  
+}
+
+def motif() {
+  for (i<-1 to 4){
+    faireV()
+  
+  }
+  
+}
+
+override def run() {
+  for (i <- 1 to 9){
+    for (j<- 1 to 9){
+      motif()
+      avance(7)
+    }
+    recule(21)
+    gauche()
+    avance(7)
+    droite()  
+  }
+  
+}
+
