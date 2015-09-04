@@ -6,24 +6,22 @@ def peindreSol(c: Color) {
   leveBrosse()
 }
 
-def dessineCarre() {
-  // Zone rouge.
+def dessineV(c: Color) {
   avance()
-  peindreSol(Color.RED)
+  peindreSol(c)
+  
+  for (compteur <- 1 to 2) {
+    gauche()
+    avance()
+  }
+  
+  peindrreSol(c)
   
   gauche()
   avance()
   gauche()
-  avance()
-  peindreSol(Color.RED)
-  
-  // Zone bleu.
-  gauche()
-  avance()
-  gauche()
-  avance(2)
 }
 
 override def run() {
-  dessineCarre()
+  dessineV(Color.RED)
 }
