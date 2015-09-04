@@ -1,5 +1,10 @@
-def fillColumn(){
-  
+def fillColumn(colors:Array[Color]){
+  forward();left(); forward();right()
+  brushDown()
+  for(i <- 0 to getWorldHeight()){
+    setBrushColor(colors(i))
+    forward()
+  }
 }
 
 override def run() {
