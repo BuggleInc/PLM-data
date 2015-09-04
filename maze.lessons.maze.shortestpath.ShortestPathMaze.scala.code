@@ -1,11 +1,22 @@
+
+def goBiscuit() {
+  for(i<- 0 to (getMondeLargeur()-1)){
+    for(j<- 0 to (getMondeHauteur()-1)){
+    	if(aBiscuit(i,j)){
+        tracechemin(i,j,0);
+        return
+      }
+  	}
+  }
+}
+
 def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   
   setIndication(x,y,nb);
 
   
   if(getX()==x && getY()==y){
-            println("ok");
-
+    println("ok");
     return true
   }
 
@@ -41,17 +52,6 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
   
   return false
   
-}
-
-def goBiscuit() {
-  for(i<- 0 to (getMondeLargeur()-1)){
-    for(j<- 0 to (getMondeHauteur()-1)){
-    	if(aBiscuit(i,j)){
-        tracechemin(i,j,0);
-        return
-      }
-  	}
-  }
 }
 
 def yaller(){
@@ -92,6 +92,10 @@ def yaller(){
     if(getIndication(x+1,y)<=mini){
       setDirection(Direction.EST);
     }
+  }
+  
+  while(estFaceMur()){
+    gauche();
   }
   
   ecritMessage(mini);
