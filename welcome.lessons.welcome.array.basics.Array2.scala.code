@@ -1,5 +1,5 @@
 override def run() {
-  var colors = new Array[Color](getWorldHeight);
+  var colors = new Array[Color](getWorldHeight());
   
   colors = read();
 }
@@ -13,7 +13,7 @@ def read():Array[Color] = {
     forward()
   }
   
-  colors(-1) = getGroundColor();
+  colors(getWorldHeight()) = getGroundColor();
   backward(getWorldHeight() - 1);
   
   println(colors )
