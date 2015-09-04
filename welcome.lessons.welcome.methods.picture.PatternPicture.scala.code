@@ -2,8 +2,14 @@ override def run() {
   for (i <- 1 to 2) {
     faireMotifLigne()
     gauche()
-    avance(4)
-    droite()
+    avance(3)
+    if (estFaceMur()) {
+      recule(3)
+      droite()
+      avance(4)
+    }else {
+      avance()
+    }
   }
 }
 
