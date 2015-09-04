@@ -1,2 +1,45 @@
-override def run() {
+override def run(nbLignes: Int) {
+  for (j<-1 to nbLignes){
+    avance()
+  	faireLigne(nbColonnes)  
+  	gauche()
+  	for (i<-1 to 5){
+    	avance()
+  	}
+  	droite()
+  	recule()
+  }
+}
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+}
+def faireMotif(){
+  faireV(Color.yellow)
+  faireV(Color.red)
+  faireV(Color.blue)
+  faireV(Color.green)
+}
+def faireLigne(nbColonnes: Int){
+  for (i<-1 to nbColonnes){
+    faireMotif()
+    for (j<-1 to 5)
+    avance()
+  }
+}
 }
