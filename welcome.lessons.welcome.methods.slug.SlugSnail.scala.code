@@ -1,6 +1,6 @@
 def hunt(c:Color) {
   
-    if (!isFacingWall){
+    if (!isFacingWall()){
     	forward()
     }
  
@@ -10,7 +10,7 @@ def hunt(c:Color) {
         return
     }
   
-    while (!isFacingTrail()){
+    while (!isFacingTrail(c)){
       left()
     }
   
@@ -18,4 +18,16 @@ def hunt(c:Color) {
   	hunt
 }
 
- // here comes your isFacingTrail method
+def isFacingTrail(c:Color):Boolean = {
+  
+  	if (isFacingWall()){
+      return false
+    }
+    forward()
+  	if (getGroundColor() == c){
+      backward()
+      return true
+    }
+  	backward()
+  	return false
+}
