@@ -1,19 +1,19 @@
 override def run(){
-  for (j <- 1 to 9){
+  for (j <- 1 to 3){
   	faireligne()
   }
 }
 
 
 def faireligne(){
-	for (k<- 1 to 9){
+	for (k<- 1 to 3){
   	faire4V()
-    avance(7) 
+    avance(5) 
     
   }
   
   gauche()
-  avance(7)
+  avance(5)
   droite()
   
 }
@@ -25,11 +25,18 @@ def marque(){
 	leveBrosse()
 }
 
-def faireV(){
+def faireV(x : Int){
+  x match {
+    case 1 => setCouleurBrosse(Color.yellow)
+    case 2 => setCouleurBrosse(Color.red)
+    case 3 => setCouleurBrosse(Color.blue)
+    case 4 => setCouleurBrosse(Color.green)
+    
+  }
+  
 	avance()
-  avance()
 	marque()
-	avance()
+  avance()
 	gauche()
 	avance()
 	marque()
@@ -38,7 +45,6 @@ def faireV(){
 	avance()
 	marque()
 	avance()
-	avance()
 	gauche()
 
 }
@@ -46,6 +52,6 @@ def faireV(){
 def faire4V(){
   
 	for(i <- 1 to 4){
-	   faireV()
+	   faireV(i)
 	}
 }
