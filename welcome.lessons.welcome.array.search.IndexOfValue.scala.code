@@ -1,11 +1,15 @@
 def indexOfValue(nums:Array[Int] ,lookingFor:Int): Int =
 {
   var index = -1
+  var dejaTrouve = false
   
   for (i <- 0 to nums.length - 1)
   {
-    if (nums(i) == lookingFor)
+    if (nums(i) == lookingFor && !dejaTrouve)
+    {
     	index = i
+      dejaTrouve = true
+    }
   }
   
   return index
