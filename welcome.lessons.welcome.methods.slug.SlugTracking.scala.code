@@ -1,12 +1,12 @@
 def isFacingTrail():Boolean = {
+  var caseVerte:Boolean = false
   if(!estFaceMur()){
     avance()
     if(getCouleurSol()==Color.green){
-      baisseBrosse()
-      leveBrosse()
-      avance()
+      caseVerte = true
+      recule()
     }
-    else {gauche()}
+    else(return(caseVerte))
   }
-  else{gauche()}
+  else{return(caseVerte())}
 }
