@@ -23,13 +23,9 @@ def faireMotif() {
 }
 def sePlacer() {
   if (nbMotif != 0) {
-    do {
-      avance(7);
-    } while (nbMotif % 3 == 0)
-    if (nbMotif % 3 == 0) {
-      while (!estDosMur) {
-        recule();
-      }
+    avance(7);
+    if (estDosMur) {
+      recule(21);
       gauche();
       avance(7);
     }
