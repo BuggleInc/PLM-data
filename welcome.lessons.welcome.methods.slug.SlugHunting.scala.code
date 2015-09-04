@@ -1,15 +1,13 @@
 def hunt() {
   var capture:Boolean = false
   while (!capture) {
-  	while (isFacingTrail()) {
+    if (estSurBiscuit) {
+      capture = true
+    } else if (isFacingTrail()) {
     	avance()
       baisseBrosse()
       leveBrosse()
- 	 	}
-    gauche()
-    if (estSurBiscuit()) {
-      capture = true
-    }
+    } else {gauche()}
 	}
   prendBiscuit()
 }
