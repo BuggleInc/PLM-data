@@ -1,4 +1,4 @@
-def colonne(decalage:Int, motif:Array[Any]) {
+def colonne(decalage:Int, hauteur:Int, motif:Array[hauteur]) {
   var hauteur: Int = motif.length
   for (i <- 1 to decalage) {
     avance()
@@ -28,7 +28,7 @@ override def run() {
   gauche(); avance(); droite()  
   for (j <- 2 to getMondeLargeur()){
     var decalage = litMessage().toInt
-    colonne(decalage, motif)
+    colonne(decalage, hauteur, motif)
     for (i <- 1 to decalage) {recule()}
     gauche(); avance(); droite()
   }
