@@ -1,29 +1,13 @@
 def haveBaggle():Boolean = {
-  checkColonneComplet()
-  return true
-}
-
-
-def checkColonneComplet():Boolean={
-  
-checkColonne()
-recule(6)
-droite()
-avance()
-gauche()
-return (checkColonne())
-}
-
-
-
-def checkColonne():Boolean = {
-
-for (i <- 1 to 6){
-  avance()
-  if (estSurBiscuit()){
-    return true
+  var vuBiscuit=false 
+  for (i <- 1 to  6){
+    vuBiscuit = estSurBiscuit
+    avance()
   }
+  recule(6)
+  droite()
+  avance()
+  gauche()
   
 }
-  else {return false}
-}
+
