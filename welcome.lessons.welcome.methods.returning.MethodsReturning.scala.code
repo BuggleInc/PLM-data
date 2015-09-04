@@ -1,11 +1,15 @@
 def haveBaggle():Boolean = {
+  var vuBaggle = false
   for(i<-1 to 6) {
     if(estSurBiscuit()) {
-      return true
+      vuBaggle = true
     }
     else {
       avance()
     }
   }
-  return false
+  for(i<-1 to 6) {
+    recule()
+  }
+  return vuBaggle
 }
