@@ -1,9 +1,5 @@
 override def run() {
-}
-
-
-override def run() {
-  for (i <- 1 to 3){
+	for (i <- 1 to 3){
     ligneMotif()
   }
 }
@@ -23,14 +19,37 @@ def ligneMotif() {
   
 }
 
-def faireMotif() {
+def faireMotif(c:Color) {
   for( cote <- 1 to 4){
+  cote match {
+    case 1 => c = Color.YELLOW
+    case 2 => c = Color.RED
+    case 3 => c = Color.BLUE
+    case 4 => c = Color.GREEN
+  }
   avance()
   avance()
-  faireV()
+  faireV(c)
   avance()
   avance()
   gauche()
   
 	}
+}
+
+def marquer(c : Color) {
+  setCouleurBrosse(c : Color)
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV(c:Color) {
+  marquer(c)
+  avance()
+  gauche()
+  avance()
+  marquer(c)
+  recule()
+  droite()
+  avance()
+  marquer(c)
 }
