@@ -1,25 +1,22 @@
 def brosse(c:Color){
   setCouleurBrosse(c)
   baisseBrosse()
+  for (i <- 0 to 1){
+    avance()
+  }
   leveBrosse()
 }
 
 def flower(c:Color){
-  for (i <- 0 to 1){
-    brosse(c)
-    avance()
-  }
   brosse(c)
   recule()
-  droite()
-  avance()
-  for (i <- 0 to 1){
-    brosse(c)
-    recule()
-  }
+  gauche()
+  recule()
   brosse(c)
-  avance()
-  brosse(Color.yellow)
+  recule()
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse()
+  leveBrosse()
 }
 
 
