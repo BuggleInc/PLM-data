@@ -1,22 +1,15 @@
+var vubiscuit = false
+
 def haveBaggle():Boolean = {
   for (i <- 1 to 6) {
-    vubiscuit()
+    estSurBiscuit()
+    if (estSurBiscuit()==true) {
+      vubiscuit=true
+    }
     avance()
   }
   for (j <- 1 to 6) {
     recule()
   }
-  if (vubiscuit()==true) {
-    return true
-  } else {
-    return false
-  }
-}
-
-def vubiscuit() :Boolean = {
-  if (estSurBiscuit()==true) {
-    return true;
-  } else {
-    return false
-  } 
+  return vubiscuit()
 }
