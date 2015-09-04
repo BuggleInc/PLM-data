@@ -1,39 +1,8 @@
-override def run() {
-  repMotif()
-  recule(7)
-  gauche()
-  avance(4)
-  droite() 
-  repMotif()
-}
+override def run() {Motif(Color.ROUGE)}
+ 
 
-def repMotif(){
-  for (compteur <- 1 to 2){
-    faitMotif()
-  }
-}
-
-def faitMotif(){
-  MotifRV(Color.RED)
-  avance(2)
-  MotifBJ(Color.BLUE)
-  recule(2)
-  gauche()
-  avance(2)
-  droite()
-  MotifBJ(Color.YELLOW)
-  avance(2)
-  MotifRV(Color.GREEN)
-  avance()
-  droite()
-  avance(2)
-  gauche()
-  if (estFaceMur()==false){
-    avance()
-  }
-}
-
-def MotifRV(c:Color){
+  
+def Motif(c:Color){
   setCouleurBrosse(c)
   avance()
   brosse()
@@ -44,23 +13,11 @@ def MotifRV(c:Color){
   brosse()
   gauche()
   avance()
-  gauche()  
-}
-
-def MotifBJ(c:Color){
-  setCouleurBrosse(c)
-  brosse()
-  avance()
   gauche()
-  avance()
-  brosse()
+  avance(3)
   gauche()
-  avance()
-  gauche()
-  avance()
-  gauche()
-}
-
+}  
+  
 def brosse(){
   baisseBrosse()
   leveBrosse()
