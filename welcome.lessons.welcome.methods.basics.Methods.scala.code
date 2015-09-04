@@ -4,16 +4,19 @@
  *  Ne v?rifie pas la pr?sence de mur; ? ne pas l'utiliser en cas de risques de mur.
  */
 
+
 def goAndGet() {
+  var nbPas=0
   do {
     avance
+    nbPas=nbPas+1
   } while (!estSurBiscuit)
   prendBiscuit
   droite
   droite
-  do {
+  for (i<-1 to nbPas) {
     avance
-  } while (!estFaceMur)
+  }
   poseBiscuit
 }
 
