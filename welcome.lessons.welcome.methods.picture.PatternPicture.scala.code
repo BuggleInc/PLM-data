@@ -1,9 +1,12 @@
 override def run() {
-  for (i <- 1 to 4)
-  {
-    faireMotif()
-    placementProchainMotif()
-  }
+  faireMotif()
+  placementMotif2()
+  faireMotif()
+  placementProchaineLigne()
+  faireMotif()
+  placementMotif2()
+  faireMotif()
+  
 }
 
 def motifDiagonalDescendant(c:Color)
@@ -61,11 +64,23 @@ def faireMotif()
   motifDiagonalDescendant(Color.GREEN)
 }
 
-def placementProchainMotif()
+def placementMotif2()
 {
   recule(2)
   gauche()
   recule(2)
   droite()
   avance(4)
+}
+
+def placementProchaineLigne()
+{
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
 }
