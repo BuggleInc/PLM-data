@@ -5,4 +5,22 @@ override def run() {
     T(i)=getCouleurSol()
     avance()
   }
+  var largeur = getMondeLargeur();
+  left(); avance();right(); 
+  for(y<-1 to largeur){
+    avance()
+    Col()
+  }
+}
+def Brosse() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def Col() {
+  for (i<- 0 to taille-1){
+   setCouleurBrosse(T(i));
+   Brosse();
+   avance();
+  }
 }
