@@ -1,0 +1,32 @@
+override def run() {
+}
+
+override def run() {
+  var h=getMondeHauteur()
+  var l=getMondeLargeur()
+  var T=new Array[Color](h)
+  T(0)=getCouleurSol()
+  for (i<-1 to (h-1)){
+    avance()
+    T(i)=getCouleurSol()
+  }
+  replique(T,l)   
+  recule(5)
+}
+
+def replique(T:Array[Color],l:Int){
+  var taill=T.length
+  for (j<-1 to l){
+    recule(5)
+    gauche()
+    avance()
+    droite()
+    val decalage =litMessage().toInt
+    for (k<-0 to taille-1){
+      setCouleurBrosse(T((k+decalage)%taille))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  }
+}
