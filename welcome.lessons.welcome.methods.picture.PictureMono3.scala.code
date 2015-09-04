@@ -1,0 +1,28 @@
+override def run() {
+  superMotif()}
+
+
+def marquerSol() {
+  avance();baisseBrosse();leveBrosse()}
+def faireV() {
+  for (c <- 1 to 4){
+    avance(); marquerSol(); avance(); gauche(); marquerSol(); recule(); droite(); marquerSol(); avance(); //Fin du V 
+    avance();gauche()} // Se replace pour le prochain V
+}
+def faireMotif() {
+  for (x <-1 to 3){
+    for (k <- 1 to 3){
+      faireV()
+      avance(7)} //Se replace pour le prochain carr? de V 
+    gauche();avance(7);droite()
+}}
+
+def superMotif() {
+  for (k <- 1 to 3){
+    for (z <- 1 to 3){
+      faireMotif()
+      avance(21)}
+    gauche();avance(21);droite()
+    }
+  }
+}
