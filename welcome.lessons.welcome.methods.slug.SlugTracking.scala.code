@@ -1,15 +1,25 @@
 def isFacingTrail():Boolean = {
-  while (estSurBiscuit!=true){
+  var limace=false
+  while (limace!=true){
     avance()
+    if (estSurBiscuit()){
+      limace=true
+    }
     if (getCouleurSol()!=Color.green){
       recule()
       gauche()
       avance()
+      if (estSurBiscuit){
+        limace=true
+      }
       if (getCouleurSol()!=Color.green){
         recule()
         droite()
         droite()
         avance()
+        if (estSurBiscuit){
+          limace=true
+        }
       }
     }
   }
