@@ -1,8 +1,23 @@
 override def run() {
-  faireL(1,true)
+  carre
 }
 
 
+
+def carre (){
+  var sens = true
+  for (k <- 1 to 4){
+    k match {
+    case 2 => sens = false
+    case 2 => sens = false}
+    
+    faireL(k,sens)
+  }
+  
+  
+  
+  
+}
 
 
 
@@ -15,27 +30,26 @@ def faireL (x: Int, sens: Boolean){
    }
   
 	if (sens){
+    for(i  <- 1 to 2){
     avance()
-    baisseBrosse()
+    marque()
     gauche()
-    leveBrosse()
     avance()
-    gauche()
-    baisseBrosse()
-    avance()
-    gauche()    
+    gauche() 
+    } 
   }
   else {
-    baisseBrosse()
-    avance()
-    leveBrosse()
-    gauche()
-    avance()
-    gauche()
-    baisseBrosse()
+   
+    for(j  <- 1 to 2){
+    marque()
     avance()
     gauche()
-    leveBrosse()
     avance()
-    gauche()
+    gauche()} 
   }
+  
+  
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
