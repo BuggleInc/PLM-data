@@ -1,6 +1,19 @@
 def backwardN(n:Int){
-  for(i <- 0 to n)
+  for(i <- 0 to n - 1)
   	backward(n)
+}
+
+def drawLine(colors:Array[Color]){
+  left(); forward(); right()
+  var offset:Int = readMessage().toInt
+  brushDown()
+  setBurshColor(colors(offset))
+  for(i <- 1 to getWorldHeight() - 1){
+    forward()
+  	setBurshColor(colors(i + offset))
+  }
+  brushUp()
+  backwardN(5)
 }
 
 override def run() {
@@ -11,4 +24,6 @@ override def run() {
     colors(i) = getGroundColor()
   }
   backwardN(5)
+  for(i <- 0 to getWorldHeight() - 1)
+  	drawLine()
 }
