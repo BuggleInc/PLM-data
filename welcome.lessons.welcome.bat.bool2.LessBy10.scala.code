@@ -1,19 +1,8 @@
 def lessBy10(a:Int, b:Int, c:Int):Boolean = {
-  var res:Int=0
-  if ((Math.abs(a))>10){
-    res=a-10
-    return ((res<=b)||(res<=c))
-  }
-  else if ((Math.abs(b))>10){
-    res=b-10
-    return ((res<=a)||(res<=c))
-  }
-  else if ((Math.abs(c))>10){
-    res=a-10
-    return ((res<=b)||(res<=a))
-  }
-  else {
-    return false
-  }
+  var s1:Int=a-10
+  var s2:Int=b-10
+  var s3:Int=c-10
+  
+  return (((s1<=b)||(s1<=c))||((s2<=a)||(s2<=c))||((s3<=a)||(s3<=b)))
 }
 
