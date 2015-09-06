@@ -21,7 +21,6 @@ def markCell(x:Int, y:Int, dis:Int){
     markCell(x - 1, y, dis + 1)
   if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) > dis + 1)
     markCell(x + 1, y, dis + 1)
-  left()
 }
      
 def hasBottomWall(x:Int, y:Int) : Boolean = {
@@ -39,6 +38,31 @@ def hasRightWall(x:Int, y:Int) : Boolean = {
   	return false
 }
 
+var followPath(cur:Int){
+  if(y != 0 && !hasTopWall(x, y) && getIndication(x, y - 1) < cur){
+    setDirection(Direction.NORTH)
+    forward()
+  }
+  if(y != getWorldHeight() - 1 && !hasBottomWall(x, y) && getIndication(x, y + 1) < cur){
+    setDirection(Direction.SOUTH)
+    forward()
+  }
+  if(x != 0 && !hasLeftWall(x, y) && getIndication(x - 1, y) < cur){
+    setDirection(Direction.WEST)
+    forward()
+  }
+  if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) < cur){
+    setDirection(Direction.EAST)
+    forward()
+  }
+  
+  if(!isOverBaggle(getX(), getY()))
+  	followPath(cur - 1)
+  else
+  	pickupBaggle()
+}
+
 override def run() {
   markGround()
+  followPath(getIndication(getX(), getY()))
 }
