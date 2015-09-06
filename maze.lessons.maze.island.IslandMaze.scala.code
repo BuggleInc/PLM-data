@@ -22,6 +22,16 @@ def keepHandOnSideWall(){
 }
 
 override def run() {
+  while(getY() != 0){
+    keepHandOnSideWall()
+    var dir:Direction = getDirection()
+    setDirection(Direction.NORTH)
+    if(!isFacingWall()){
+    	while(!isFacingWall)
+    		forward()
+    	right()
+    }
+  }
   while(!isOverBaggle()){
     keepHandOnSideWall()
   }
