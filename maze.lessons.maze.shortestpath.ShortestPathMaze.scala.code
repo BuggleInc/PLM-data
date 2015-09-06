@@ -7,10 +7,10 @@ def markGround(){
   			baggleX = i
   			baggleY = j
 			}
-  markGround(baggleX, baggleY, 0)
+  markCell(baggleX, baggleY, 0)
 }
 
-def markGround(x:Int, y:Int, dis:Int){
+def markCell(x:Int, y:Int, dis:Int){
   if(getIndication(x, y) > dis)
     setIndication(x, y, dis)
   if(y != 0 && !hasTopWall(x, y) && getIndication(x, y - 1) > dis + 1)
@@ -21,6 +21,7 @@ def markGround(x:Int, y:Int, dis:Int){
     markGround(x - 1, y, dis + 1)
   if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) > dis + 1)
     markGround(x + 1, y, dis + 1)
+  left()
 }
      
 def hasBottomWall(x:Int, y:Int) : Boolean = {
@@ -39,5 +40,5 @@ def hasRightWall(x:Int, y:Int) : Boolean = {
 }
 
 override def run() {
-    // Your code here
+  markGround()
 }
