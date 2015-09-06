@@ -1,30 +1,31 @@
-chercheBiscuit()
-
 def haveBaggle():Boolean = {
-  if (vuBiscuit() ==true)
-  	return (true);
-  else
-  	return (false);
+  if (vuBiscuit() ==false)
+  	return(false)
+  if (vuBiscuit()==true)
+  	return (true)
 }
-var vuBiscuit=false
-def chercheBiscuit(){
 
-	for (compteur <- 1 to 6){
-    	if (estSurBiscuit){
-        vuBiscuit=true
-        avance() ; }
-    
-			else if (!estSurBiscuit()) {
-        avance()
-      }
-    recule(6)}
-
-	while (vuBiscuit== false){
+var Biscuit = 0
+def vuBiscuit(){
+  for (compteur <- 1 to 6){
+  for (compteur <- 1 to 6){
+    if (estSurBiscuit()){
+      Biscuit=Biscuit+1
+      avance()}
+    if (Biscuit != 0){
+      avance()
+    }
+  }
+  recule(6)
+  
+  if (Biscuit ==0){
     droite()
     avance()
     gauche()
+    return (false);
+    if (Biscuit >=1){
+      return (true)
+    }
+  }
   }
 }
-
-while (haveBaggle()==false)
-	chercheBiscuit()
