@@ -43,15 +43,15 @@ def followPath(cur:Int){
     setDirection(Direction.NORTH)
     forward()
   }
-  if(getY() != getWorldHeight() - 1 && !hasBottomWall(getX(), getY()) && getIndication(getX(), getY() + 1) < cur){
+  else if(getY() != getWorldHeight() - 1 && !hasBottomWall(getX(), getY()) && getIndication(getX(), getY() + 1) < cur){
     setDirection(Direction.SOUTH)
     forward()
   }
-  if(getX() != 0 && !hasLeftWall(getX(), getY()) && getIndication(getX() - 1, getY()) < cur){
+  else if(getX() != 0 && !hasLeftWall(getX(), getY()) && getIndication(getX() - 1, getY()) < cur){
     setDirection(Direction.WEST)
     forward()
   }
-  if(getX() != getWorldWidth() - 1 && !hasRightWall(getX(), getY()) && getIndication(getX() + 1, getY()) < cur){
+  else if(getX() != getWorldWidth() - 1 && !hasRightWall(getX(), getY()) && getIndication(getX() + 1, getY()) < cur){
     setDirection(Direction.EAST)
     forward()
   }
