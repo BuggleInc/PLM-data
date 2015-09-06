@@ -1,19 +1,21 @@
 def isFacingTrail():Boolean = {
-  var detrompeur:Int=0
+ 	if (estFaceMur()==true){
+    return false
+  }
+  var detrompeur=0
   avance()
   if (getCouleurSol()==Color.green){
+    detrompeur=2
+  }else {
     detrompeur=1
   }
   recule()
-  if (detrompeur==1){
-    avance()
-    return true
-  }else{
-    gauche()
+  if detrompeur==1){
     return false
+  }else if(detrompeur==2){
+  	return true
   }
 }
   
-	
-  
+
   
