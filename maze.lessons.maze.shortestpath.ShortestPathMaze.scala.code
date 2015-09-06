@@ -39,19 +39,19 @@ def hasRightWall(x:Int, y:Int) : Boolean = {
 }
 
 def followPath(cur:Int){
-  if(y != 0 && !hasTopWall(x, y) && getIndication(x, y - 1) < cur){
+  if(getY() != 0 && !hasTopWall(getX(), getY()) && getIndication(getX(), getY() - 1) < cur){
     setDirection(Direction.NORTH)
     forward()
   }
-  if(y != getWorldHeight() - 1 && !hasBottomWall(x, y) && getIndication(x, y + 1) < cur){
+  if(getY() != getWorldHeight() - 1 && !hasBottomWall(getX(), getY()) && getIndication(getX(), getY() + 1) < cur){
     setDirection(Direction.SOUTH)
     forward()
   }
-  if(x != 0 && !hasLeftWall(x, y) && getIndication(x - 1, y) < cur){
+  if(getX() != 0 && !hasLeftWall(getX(), getY()) && getIndication(getX() - 1, getY()) < cur){
     setDirection(Direction.WEST)
     forward()
   }
-  if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) < cur){
+  if(getX() != getWorldWidth() - 1 && !hasRightWall(getX(), getY()) && getIndication(getX() + 1, getY()) < cur){
     setDirection(Direction.EAST)
     forward()
   }
