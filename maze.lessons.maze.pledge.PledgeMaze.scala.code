@@ -1,24 +1,31 @@
-def keepHandOnSideWall(){
+def keepHandOnSideWall() : Int = {
+  var addAngleSum:Int = 0
   if(isFacingWall()){
     right()
+    addAngleSum += 1
   }
   else{
     forward()
     left()
+    addAngleSum -= 1
     if(isFacingWall()){
       right()
+    	addAngleSum += 1
     }
     else{
       forward()
       left()
+    	addAngleSum -= 1
       if(isFacingWall()){
         right()
+   			addAngleSum += 1
       }
       else{
         forward()
       }
     }
   }
+  return addAngleSum
 }
 
 override def run() {
@@ -30,8 +37,9 @@ override def run() {
     dir = getDirection()
     angleSum = 0
     right()
+    angleSum += 1
     while(angleSum != 0 && getDirection != dir){
-      keepHandOnSideWall()
+      angleSum += keepHandOnSideWall()
     }
   }
 }
