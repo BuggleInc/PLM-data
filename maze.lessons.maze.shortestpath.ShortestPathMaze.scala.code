@@ -45,29 +45,32 @@ def tracechemin(x:Int,y:Int,nb:Int):Boolean = {
 }
 
 def yaller(){
-  ecritMessage(" ");
+  var nbon:Int = litMessage();
+  var x:Int = getX();
+  var y:Int = getY();
+  
+  if(getIndication(x+1,y)==nbon-1)	{
+    setDirection(Direction.Est);
+  }
+  if(getIndication(x,y+1)==nbon-1)	{
+    setDirection(Direction.Sud);
+  }
+  if(getIndication(x-1,y)==nbon-1)	{
+    setDirection(Direction.Ouest);
+  }
+  if(getIndication(x,y-1)==nbon-1)	{
+    setDirection(Direction.Nord);
+  }
+  
   avance();
-  ecritMessage(" ");
-  droite();
-  avance();
-  ecritMessage(" ");
-  droite();
-  avance();
-  ecritMessage(" ");
-  avance();
-  ecritMessage(" ");
-  droite();
-  avance();
-  ecritMessage(" ");
-  avance();
-  ecritMessage(" ");
-  droite();
-  avance();
-  ecritMessage(" ");
+  
 }
 
 override def run() {
   goBiscuit();
   yaller();
+   yaller();
+   yaller();
+   yaller();
   prendBiscuit();
 }
