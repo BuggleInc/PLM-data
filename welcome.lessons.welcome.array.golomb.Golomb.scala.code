@@ -1,1 +1,16 @@
 def golomb(num:Int): Int = {
+  var T=new Array[Int](num)
+  var x=2   //valeur
+  var y=1   //position
+  var r=2   //repetition
+  T(0)=1
+  while (T(num-1)!=0){
+    for (i<-y to y+r-1){
+      T(i)=x
+    }
+    x=x+1
+    y=y+r
+    r=T(x)
+  }
+  return T(num-1)
+}
