@@ -1,0 +1,37 @@
+def keepHandOnSideWall(){
+  if(isFacingWall()){
+    right()
+  }
+  else{
+    forward()
+    left()
+    if(isFacingWall()){
+      right()
+    }
+    else{
+      forward()
+      left()
+      if(isFacingWall()){
+        right()
+      }
+      else{
+        forward()
+      }
+    }
+  }
+}
+
+override def run() {
+  var dir:Direction = getDirection()
+  var angleSum:Int = 0
+	while(!isOverBaggle()){
+    while(!isFacingWall)
+      forward()
+    dir = getDirection()
+    angleSum = 0
+    right()
+    while(angleSum != 0 && getDirection != dir){
+      keepHandOnSideWall()
+    }
+  }
+}
