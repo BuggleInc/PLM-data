@@ -1,0 +1,26 @@
+override def run() {
+  //rel?ve le pattern
+  var T:Array[Color](getMondeHauteur())
+  for (i <- 0 to T.length-1)
+  {
+    T(i) = getCouleurSol()
+    avance()
+  }
+  //r?plique le pattern
+  for (i <- 1 to getMondeLargeur()-1)
+  {
+    droite()
+    avance()
+    gauche()
+    for (j <- T)
+    {
+      setCouleurBrosse(j)
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  }
+}
+  
+}
+
