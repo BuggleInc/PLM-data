@@ -1,0 +1,43 @@
+def markGround(){
+  var baggleX:Int = 0
+  var baggleY:Int = 0
+  for(i <- 0 to getWorldWidth() - 1)
+  	for(j <- 0 to getWorldHeight() - 1)
+  		if(hasBaggle(i, j)){
+  			baggleX = i
+  			baggleY = j
+			}
+  markGround(baggleX, baggleY, 0)
+}
+
+def markGround(x:Int, y:Int, dis:Int){
+  if(getIndication(x, y) > dis)
+    setIndication(x, y, dis)
+  if(y != 0 && !hasTopWall(x, y) && getIndication(x, y - 1) > dis + 1)
+    markGround(x, y - 1, dis + 1)
+  if(y != getWorldHeight() - 1 && !hasBottomWall(x, y) && getIndication(x, y + 1) > dis + 1)
+    markGround(x, y + 1, dis + 1)
+  if(x != 0 && !hasLeftWall(x, y) && getIndication(x - 1, y) > dis + 1)
+    markGround(x - 1, y, dis + 1)
+  if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) > dis + 1)
+    markGround(x + 1, y, dis + 1)
+}
+     
+def hasBottomWall(x, y){
+  if(hasTopWall(x, y + 1))
+  	return true
+  else
+  	return false
+}
+
+     
+def hasRightWall(x, y){
+  if(hasLeftWall(x + 1, y))
+  	return true
+  else
+  	return false
+}
+
+override def run() {
+    // Your code here
+}
