@@ -14,13 +14,13 @@ def markCell(x:Int, y:Int, dis:Int){
   if(getIndication(x, y) > dis)
     setIndication(x, y, dis)
   if(y != 0 && !hasTopWall(x, y) && getIndication(x, y - 1) > dis + 1)
-    markGround(x, y - 1, dis + 1)
+    markCell(x, y - 1, dis + 1)
   if(y != getWorldHeight() - 1 && !hasBottomWall(x, y) && getIndication(x, y + 1) > dis + 1)
-    markGround(x, y + 1, dis + 1)
+    markCell(x, y + 1, dis + 1)
   if(x != 0 && !hasLeftWall(x, y) && getIndication(x - 1, y) > dis + 1)
-    markGround(x - 1, y, dis + 1)
+    markCell(x - 1, y, dis + 1)
   if(x != getWorldWidth() - 1 && !hasRightWall(x, y) && getIndication(x + 1, y) > dis + 1)
-    markGround(x + 1, y, dis + 1)
+    markCell(x + 1, y, dis + 1)
   left()
 }
      
