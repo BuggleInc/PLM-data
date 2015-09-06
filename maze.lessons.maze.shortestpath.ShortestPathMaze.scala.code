@@ -51,16 +51,16 @@ def yaller(){
   var nbon:Int = getIndication(x,y);
 
   
-  if(getIndication(Math.min(x+1,getMondeHauteur()-1),y)==nbon-1)	{
+  if(getIndication(Math.min(x+1,getMondeHauteur()-1),y)==nbon-1 && !aMurOuest(Math.min(x+1,getMondeHauteur()-1),y))	{
     setDirection(Direction.EAST);
   }
-  if(getIndication(x,Math.min(y+1,getMondeLargeur()-1))==nbon-1)	{
+  if(getIndication(x,Math.min(y+1,getMondeLargeur()-1))==nbon-1 && !aMurNord(x,Math.min(y+1,getMondeLargeur()-1)))	{
     setDirection(Direction.SOUTH);
   }
-  if(getIndication(Math.max(x-1,0),y)==nbon-1)	{
+  if(getIndication(Math.max(x-1,0),y)==nbon-1 && !aMurOuest(x,y))	{
     setDirection(Direction.WEST);
   }
-  if(getIndication(x,Math.max(y-1,0))==nbon-1)	{
+  if(getIndication(x,Math.max(y-1,0))==nbon-1 && !aMurNord(x,y))	{
     setDirection(Direction.NORTH);
   }
   
