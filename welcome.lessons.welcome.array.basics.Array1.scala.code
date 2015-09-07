@@ -1,7 +1,7 @@
 def marque() {baisseBrosse();leveBrosse()}
 
-override def run() {recule(); var n:Int=getY()+1;avance()
+override def run() {var n:Int=getMondeHauteur()
                    var T= new Array[Color](n)
-                   
+                   for (i<-1 to n) {T(i)=getCouleurSol()}
                     for (i<-1 to n) {gauche();avance();droite();avance();for (i<-T) {setCouleurBrosse(i);marque();avance()} }
                    }
