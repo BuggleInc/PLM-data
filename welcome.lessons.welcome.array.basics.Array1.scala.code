@@ -4,7 +4,7 @@ override def run() {
   var tab = new Array[Color] (hauteur)
   for (i <- 0 to hauteur-1) {
     tab(i) = getCouleurSol()
-    if (!estFaceMur) {
+    if (!estFaceMur()) {
       avance()
     }
   }
@@ -22,7 +22,7 @@ override def run() {
     for (i <- 0 to hauteur-1) {
       setCouleurBrosse(tab((5+i-colonne)%hauteur))
       marque()
-      if (!estFaceMur) {
+      if (!estFaceMur()) {
         avance()
       }
     }
@@ -31,11 +31,12 @@ override def run() {
       recule()
     }
     gauche()
-    if (!estFaceMur) {
+    if (!estFaceMur()) {
       avance()
     }
     droite() //D?but ligne
   }
+  //On se place enfin l? o? il faut
   for (i <- 0 to hauteur-1) {
     avance()
   }
