@@ -1,5 +1,5 @@
 override def run() {
-  var T =new Array[Color] (getMondeHauteur()-1)
+  var T =new Array[Color] (getMondeHauteur())
   T(0)=getCouleurSol
   var p:Int =0
   while ( !estFaceMur ){
@@ -7,6 +7,7 @@ override def run() {
     T(p)=getCouleurSol
     p=p+1
   }
+  print T
   recule(p)
   for (i<-0 to getMondeHauteur()-2){
     gauche()
