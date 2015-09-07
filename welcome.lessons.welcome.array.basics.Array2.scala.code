@@ -1,0 +1,43 @@
+override def run() {
+  for (longeur <- 1 to getMondeLargeur()){
+    colonne()
+  } 
+  avance(getMondeHauteur()-1)
+  gauche()
+  avance(getMondeLargeur()-1)
+  droite()
+}
+
+
+def getMotif():Array[Color]={
+	var T = new Array[Color](getMondeHauteur())
+	for (pas <- 0 to (getMondeHauteur()-1)){
+    T(pas)=getCouleurSol()
+    avance()
+  }
+  recule(getMondeHauteur() - 1)
+  return T
+}
+
+def decalage(n):Array[Color]={
+  var T = getMotif()
+  var D = new Array[Color](getMondeHauteur())
+  for (pas <- 0 to (getMondeHauteur() - 1)){
+    D(pas)=T((pas + n)%(getMondeHauteur()))
+  }
+  return D
+}
+
+def colonne(){
+  var D = decalage()
+  gauche()
+  avance()
+  droite()
+  avance()
+  for (pas <- 0 to (getMondeHauteur()-1)){
+    setCouleurBrosse(D(pas))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
