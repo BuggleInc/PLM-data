@@ -4,12 +4,10 @@ def max2Value(nums:Array[Int]): Int = {
   var l : Int=nums.length
   for (j<- 1 to l-1){
     if (nums(j)>=max1){
-      max2=max1
       max1=nums(j)
     }
-  }
-  if (nums(0)==max1){
-    return nums(1)
+    if (nums(j)<max1 && nums(j)>max2)
+    max2=nums(j)
   }
   return max2
 }
