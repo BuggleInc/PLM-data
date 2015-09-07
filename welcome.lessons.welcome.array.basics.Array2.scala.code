@@ -1,6 +1,7 @@
 override def run() {
   var world_size:Int = getWorldHeight()
   var array = new Array[Color](world_size)
+  var offset:Int 
   
   
   for (i <- 1 to world_size){
@@ -9,10 +10,6 @@ override def run() {
       if (i == 1){
         array(j - 1) = getGroundColor()
       }
-     	val offset = readMessage().toInt
-    	setBrushColor(array(offset))
-    	brushDown()
-    	brushUp()
       forward() 
     }
     
@@ -23,5 +20,10 @@ override def run() {
     left()
     forward()
     right()
+     
+    offset = readMessage().toInt
+    setBrushColor(array(offset))
+    brushDown()
+    brushUp()
   } 
 }
