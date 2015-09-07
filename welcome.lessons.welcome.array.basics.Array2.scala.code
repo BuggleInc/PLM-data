@@ -3,16 +3,14 @@ override def run() {
   var tab = new Array[Color] (taille)
   tab(0)=getCouleurSol()
   for (i <- 1 to taille-1) {
-    tab(i) = getCouleurSol();
     avance();
+    tab(i) = getCouleurSol();
   }
   for (k <- 0 to taille-2) {
   	gauche();
   	avance();
   	droite();
     recule(taille-1);
-    setCouleurBrosse(tab(taille-1));
-    	baisseBrosse();
     var decal = litMessage().toInt;
   	for (j <- 1 to taille-1) {
       setCouleurBrosse(tab((j+decal)%taille));
