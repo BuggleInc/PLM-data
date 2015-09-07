@@ -1,9 +1,21 @@
-
+def peindre(){baisseBrosse();leveBrosse()}
+def peindreColonne(T){
+  for (j<-0 to getMondeHauteur()-1){setCouleurBrosse(T(j))
+                                    peindre()
+                                    avance()
+              
+    
+  }
+}
 override def run() {
   var T = new Array[Color] (getMondeHauteur())
   for (i<-0 to getMondeHauteur()-1){
   T(i)=getCouleurSol()
   avance()
+   
 	}
+  for (k<- 1 to getMondeLargeur()){
+    peindreColonne(T)
+  }
 }
 
