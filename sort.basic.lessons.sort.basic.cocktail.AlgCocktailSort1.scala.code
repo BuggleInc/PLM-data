@@ -1,0 +1,18 @@
+def cocktailSort()  {
+  var sorted:Boolean = false
+  var c:Int = 0
+  while(!sorted){
+    sorted = true
+  	for(j <- 0 to getValueCount() - 2 - c)
+      if(getValue(j) > getValue(j + 1)){
+        swap(j, j + 1)
+        sorted = false
+      }
+  	for(j <- getValueCount() - 2 - c - 1 to 0)
+      if(getValue(j) > getValue(j + 1)){
+        swap(j, j + 1)
+        sorted = false
+      }
+    c += 2
+  }
+}
