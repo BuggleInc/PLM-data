@@ -1,20 +1,25 @@
 override def run() {
-  var compteur = 0
+  var sommeAngle = 0
   while (!estSurBiscuit()){
-    if (compteur <= 40){ 
     var ancien = getDirection()
-    setDirection(Direction.NORTH)
-    if (!estFaceMur()){
-      avance();
+    if (sommeAngle == 0){
+      setDirection(Direction.NORTH);
+      if (estFaceMur()){
+        setDirection(Direction.EAST);
+        sommeAngle = 1;
+      }
+      else{
+        avance()
+      }
     }
-    else{
-      setDirection(ancien);
-    
       gauche();
+    	sommeAngle -= 1
       if (estFaceMur()){
         droite();
+        sommeAngle += 1; 
         if (estFaceMur()){
           droite();
+          sommeAngle += 1; 
         }
         else{
         avance();
@@ -23,24 +28,6 @@ override def run() {
       else{
         avance();
       }
-    }
-      compteur += 1
-    }
-    else{
-            gauche();
-      if (estFaceMur()){
-        droite();
-        if (estFaceMur()){
-          droite();
-        }
-        else{
-        avance();
-        }
-      }
-      else{
-        avance();
-      }
-    }
   }
   prendBiscuit()
 }
