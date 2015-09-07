@@ -1,14 +1,18 @@
 override def run() {
   
   def finale(){
+    var resultat:Boolean = false
     if(getDirection()==Direction.EST){
       gauche();
-      return estFaceMur();
+      resultat = estFaceMur();
+      droite()
      }
     else if (getDirection()==Direction.OUEST){
       droite();
-      return estFaceMur();
-    }   
+      resultat = estFaceMur();
+      gauche()
+    }
+    return resultat
   }
   
   
