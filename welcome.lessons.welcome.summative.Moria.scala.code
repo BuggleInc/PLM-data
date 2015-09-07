@@ -4,9 +4,9 @@ def demiTour() {droite();droite()}
 def checkSortie():Boolean = {var b = true;gauche();if (estFaceMur()) {b= false} else b= true;droite();return b}
 def sortirMoria () {
   demiTour()
-  allerJB()
+  allerJB();avance()
   while (!estFaceMur()) {
-    avance();prendBiscuit();demiTour();allerJB();poseBiscuit();demiTour();allerJB()
+    prendBiscuit();demiTour();allerJB();poseBiscuit();demiTour();allerJB();avance()
   }
   droite();avance();gauche();avance()
 }
