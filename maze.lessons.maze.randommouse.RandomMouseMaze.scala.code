@@ -1,11 +1,15 @@
 override def run() {
-    var r = random3()
-  var t = Math.random2()
+    var r = random3();
   while (!estSurBiscuit) {
-    if (!estFaceMur) {
-      avance
-    }else if (t==0) droite;
-    else gauche;
-    r=random3();t=Math.random2()
+    if (r==0) {
+      if (!estFaceMur) {
+        avance
+      }else{
+        droite
+      }
+    }else if (r==1) {
+      droite
+    }else gauche;
+    }
   }
 }
