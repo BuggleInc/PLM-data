@@ -11,13 +11,13 @@ override def run() {
   
   var couleurs = new Array[Color](hauteurMonde)
   
+  avance(hauteurMonde - 1)
+  
   for (i <- 1 to hauteurMonde - 1) {
     couleurs(i - 1) = getCouleurSol()
     
-    avance()
+    recule()
   }
-  
-  recule(hauteurMonde - 1)
   
   for (i <- 1 to largeurMonde - 1) {
     gauche()
