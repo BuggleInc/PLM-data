@@ -1,16 +1,32 @@
 def fleur(c : Color){
   setCouleurBrosse(c)
   baisseBrosse()
-  avance(3)
+  avance(2)
   recule()
   gauche()
   avance()
   recule(2)
   avance()
+  leveBrosse()
+  droite()
 }
 
-fleur(Color.RED)
-setCouleurBrosse(c:YELLOW)
-leveBrosse()
-avance(3)
-fleur(Color.CYAN)
+def centre(c : Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+def gorwFlowers(){
+  fleur(Color.RED)
+  centre(Color.YELLOW)
+  avance(3)
+  fleur(Color.CYAN)
+  centre(Color.YELLOW)
+  recule(5)
+  droite()
+  avance(2)
+  gauche()
+  avance()
+  fleur(Color.ORANGE)
+  centre(Color.YELLOW)
+}
