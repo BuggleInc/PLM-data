@@ -4,7 +4,7 @@ override def run() {
   
   
   for (i <- 1 to world_size){
-    
+    brushUp()
     if (i == 1){
     	for (j <- 0 to world_size - 1){
     		array(j) = getGroundColor()
@@ -17,9 +17,8 @@ override def run() {
     		forward()
         if (j != world_size){
       		setBrushColor(array(j))
-        }else{
-          brushUp()
         }
+        
       	brushDown()
   		}    
     }
