@@ -5,7 +5,7 @@ override def run() {
   {
     compteur += 1
     decale()
-    peindre(T((i+compteur)%getMondeHauteur)
+    peindre(T((i+compteur)%getMondeHauteur))
   }
 }
 
@@ -13,11 +13,11 @@ override def run() {
 def getSequence() : Array[Color] =
 {
   var T = new Array[Color](getMondeHauteur())
-  T[0] = getCouleurSol()
+  T(0) = getCouleurSol()
   for (i<- 1 to getMondeHauteur())
   {
     avance()
-    T[i] = getCouleurSol()
+    T(i) = getCouleurSol()
   }
   recule(getMondeHauteur() -1)
   return T
