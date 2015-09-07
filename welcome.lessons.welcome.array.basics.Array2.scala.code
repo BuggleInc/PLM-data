@@ -1,15 +1,4 @@
 override def run() {
-  relevePattern()
-  positionDepart()
-  for (i <- 1 to getMondeHauteur()-1)
-  {
-    faireMotif()
-    positionDepart()
-  }
-}
-
-def relevePattern()
-{
   var T = new Array[Color] (getMondeHauteur())
   var i=0
   do
@@ -18,6 +7,12 @@ def relevePattern()
     avance()
     i = i + 1
   } while (!estFaceMur)
+  positionDepart()
+  for (i <- 1 to getMondeHauteur()-1)
+  {
+    faireMotif()
+    positionDepart()
+  }
 }
 
 def positionDepart()
