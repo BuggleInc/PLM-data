@@ -1,0 +1,19 @@
+override def run() {
+  tailleTableau = getMondeHAuteur()
+  tableau = new Array[Color](tailleTableau)
+  for (pas <-0 to tailleTableau-1){
+    tableau(pas)=getCouleurSol()
+    avance()
+  }
+  gaauche()
+}
+
+def colonneSuivante(i:int){
+  avance(i)
+  for(pas <-0 to tailleTableau -1){
+    setCouleurBrosse(tableau(pas))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
