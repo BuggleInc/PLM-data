@@ -10,16 +10,19 @@ def getMotif(){
     T(pas)=getCouleurSol()
     avance()
   }
+  return T
 }
 
 def colonne(){
-  getMotif()
+  var T = getMotif()
   gauche()
   avance()
   droite()
   avance()
   for (pas <- 0 to (getMondeHauteur()-1)){
     setCouleurBrosse(T(pas))
+    baisseBrosse()
+    leveBrosse()
     avance()
   }
 }
