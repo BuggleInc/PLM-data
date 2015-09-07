@@ -1,2 +1,93 @@
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+def faire2casesA(c:Color) {
+setCouleurBrosse(c:Color)
+avance()
+marquerSol()
+gauche()
+avance()
+gauche()
+avance()
+marquerSol()
+gauche()
+avance()
+gauche()
+}
+
+def transition1() {
+avance()
+avance()
+}
+
+def faire2casesB(c:Color) {
+setCouleurBrosse(c:Color)
+marquerSol()
+avance()
+gauche()
+avance()
+gauche()
+marquerSol()
+avance()
+gauche()
+avance()
+gauche()
+
+def transition2() {
+recule()
+recule()
+}
+  
+def transition3() {
+gauche()
+avance()
+avance()
+droite()
+}
+  
+def transition4() {
+gauche()
+recule()
+recule()
+droite()
+var compteur1:Int = 0
+for (compteur1 <- 1 to 4) {avance()}
+}
+
+def motif1() {
+faire2casesA(color.red)
+transition1()
+faire2casesB(color.blue)
+transition2()
+transition3()
+faire2casesB(color.yellow)
+transition1()
+faire2casesA(color.green)
+transition2()
+transition4()
+}
+  
+def motif2() {
+var compteur2:Int = 0
+for (compteur2 <- 1 to 2) {motif1()}
+}
+
+def transition5() {
+transition2()
+transition2()
+gauche()
+transition1()
+transition1()
+droite()
+}
+
 override def run() {
+motif2()
+transition1()
+motif2()
+gauche()
+recule()
+recule()
+gauche()
+recule()
+recule()
 }
