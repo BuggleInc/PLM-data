@@ -1,0 +1,42 @@
+override def run() {
+  val T = motif()
+  for (i<-1 to getMondeLargeur()-1) {
+    placementSuivant()
+    tricot(T)
+    retour()
+  }
+}
+
+def motif() : Array[Color]= {
+  var T = new Array[Color] (getMondeHauteur())
+  
+  for (i<-0 to T.length -2) {
+    T(i) = getCouleurSol()
+    avance()
+  }
+  T(T.length -1) = getCouleurSol()
+  recule(T.length-1)
+  return (T)
+}
+
+def placementSuivant() {
+  gauche()
+  avance()
+  droite()
+}
+
+def tricot(T:Array[Color]) {
+  val decalage = litMessage().toInt
+  
+  for (i<-0 to T.length -1) {
+    setCouleurBrosse(T((i+decalage)%T.length))
+    baisseBrosse()
+    leveBrosse()
+    if (!estFaceMur()) avance()    
+  }
+  
+}
+
+def retour(T:Array[Color]) {
+  recule(T.length -1)
+}
