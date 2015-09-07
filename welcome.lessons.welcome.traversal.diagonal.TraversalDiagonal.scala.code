@@ -1,0 +1,26 @@
+override def run() {
+  var cpt = 0
+  var num = 0
+  ecritMessage(cpt)
+  for(i<-1 to 13){
+    num = diago(num,cpt)
+  }
+  
+}
+
+def diago(num:Int,cpt:Int):Int = {
+  for(i<- 0 to num%getMondeHauteur()){
+    ecritMessage(cpt)
+    cpt+=1
+    setPos(getX()+1,getY()-1)
+  }
+  if(num<getMondeHauteur()-1){
+    num+=1
+    setPos(0,num)
+  }
+  else{
+    num+=1
+    setPos(getX()+1,getMondeHeuteur()-1)
+  }
+  return num
+}
