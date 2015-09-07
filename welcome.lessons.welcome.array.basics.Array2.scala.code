@@ -1,36 +1,27 @@
 override def run() {
-  var mot = motif(getMondeHauteur())
-  for(i<-1 to getMondeHauteur()-1){
-    gauche();avance();droite()
-    trace(mot)
-  }
-}
-
-def motif(hauteur : Int):Array[Color] = {
-  var mot = new Array[Color](hauteur)
-  for(i<-0 to hauteur-2){
-    mot(i) = getCouleurSol()
+  var taille = getMondeHauteur()
+  var tab = new Array[Color](taille)
+  tab(0) = getCouleurSOl()
+  for (i <- 1 to tab.length-1) {
     avance()
+    tab(i) = getCouleurSol()
   }
-  mot(getWorldHeight()-1) = getCouleurSol()
-  for(i<-1 to hauteur-1){
-    recule()
+  var largeur = getMondeLargeur()
+  for (i <- 0 to largeur - 2) {
+    recule(taille-1)
+    gauche()
+    avance()
+    droite()
+    for (k <- 0 to taille - 1) {
+      	 var indice = k
+         marquageSol(tab(indice))
+      	 avance()
+         }
   }
-  return mot
-}
-
-def trace(motif : Array[Color]) = {
-  var dec = litMessage().toInt
-  for(j<-0 to getWorldHeight()-2){
-    setCouleurBrosse(motif((j+dec)%getWorldHeight()))
+  
+  def marquageSol(couleur:Color) {
+    setCouleurBrosse(couleur)
     baisseBrosse()
     leveBrosse()
-    avance()
-  }
-  setCouleurBrosse(motif((getWorldHeight()-1+dec)%getWorldHeight()))
-  baisseBrosse()
-  leveBrosse()
-  for(i<-1 to getWorldHeight()-1){
-    recule()
   }
 }
