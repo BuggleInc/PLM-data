@@ -1,13 +1,13 @@
 override def run() {
-	tableaucouleur()
+	T=tableaucouleur()
   for (k <- 1 to 5){
     gauche()
     avance()
     droite()
-    peindre()
+    peindre(T)
   }
 }
-def tableaucouleur(){
+def tableaucouleur():Array[int] = {
   var T=new Array[Color](6)
   for (i <- 0 to 4){
     T(i)= getCouleurSol()
@@ -19,7 +19,7 @@ def tableaucouleur(){
   }
 }
 
-def peindre(){
+def peindre(T){
   for (i <- 0 to 4){
     baisseBrosse()
     setCouleurBrosse(T(i))
