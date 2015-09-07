@@ -1,34 +1,36 @@
-def haveBaggle():Boolean = {
+override def run(){
+  def haveBaggle():Boolean = {
 
-  var i : Int = 0
+    var i : Int = 0
 
-  if (estSurBiscuit()==true){
+    if (estSurBiscuit()==true){
+
+      return true
+    }
+
+    for (i<-1 to 6){
+      avance()
+      if (estSurBiscuit()==true){
+
+        for (l<-1 to i){
+          recule()
+          return true
+        }
+      }
+
+
+      else{
+        for (l<-1 to 6){
+          recule()
+
+
+        }
+      }
+    }
 
     return true
   }
-
-  for (i<-1 to 6){
-    avance()
-    if (estSurBiscuit()==true){
-
-      for (l<-1 to i){
-        recule()
-        return true
-      }
-    }
-
-
-    else{
-      for (l<-1 to 6){
-        recule()
-
-
-      }
-    }
-  }
-
-  return true
-}	
+}
 
 
 
@@ -38,7 +40,7 @@ def haveBaggle():Boolean = {
 
 
 
-  }
+}
 
-  return false
+return false
 }
