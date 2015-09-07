@@ -1,0 +1,35 @@
+override def run() {
+  var largeur:Int = getMondeLargeur()
+  creationTableau()
+  for (pas <- 0 to hauteur-1) {
+    recule()
+  }
+  gauche()
+  avance()
+  droite()
+  baisseBrosse()
+  for (colonne <- 0 to largeur-1) {
+    for (i <- 0 to hauteur) {
+      setCouleurBrosse(T((i+1)%hauteur))
+      avance()
+    }
+    leveBrosse()
+    for (i <- 0 to hauteur) {
+      recule()
+    }
+    gauche()
+    avance()
+    droite()
+  }
+}
+
+def creationTableau() {
+  var hauteur:Int = getMondeHauteur()
+  var tab = new Array[Color] (hauteur)
+  for (i <- 0 to hauteur-1) {
+    tab(i) = getCouleurSol()
+    if (!estFaceMur) {
+      avance()
+    }
+  }
+}
