@@ -22,7 +22,9 @@ override def run() {
     for (i <- 0 to hauteur-1) {
       setCouleurBrosse(tab((colonne+i+1)%hauteur))
       marque()
-      avance()
+      if (!estFaceMur) {
+        avance()
+      }
     }
     leveBrosse()
     for (i <- 0 to hauteur) {
