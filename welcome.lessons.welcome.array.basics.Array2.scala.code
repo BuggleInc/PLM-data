@@ -15,11 +15,14 @@ override def run() {
     droite()
     decalage = litMessage().toInt
     avance(decalage)
-    for (j<- 0 to l-2){
+    for (j<- 0 to l-3){
       setCouleurBrosse((tab((j+decalage)%l)))
       baisseBrosse()
       leveBrosse()
       avance()
+    setCouleurBrosse((tab((l-2+decalage)%l)))
+    baisseBrosse()
+    leveBrosse()
     }
     setCouleurBrosse(tab((l-1+decalage)%l))
     baisseBrosse()
