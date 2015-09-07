@@ -1,16 +1,13 @@
 override def run() {
   var cpt:Int = 0
-  var x:Int = 0
-  var y:Int = 0
   ecritMessage(cpt)
+  cpt+=1
 	while (cpt<getMondeHauteur()*getMondeLargeur()) {
     if (getY()==6) {
-      setPos(x+1, 0)
-      x+=1
-      y=0
+      setPos(getX()+1, 0)
     }
     if (getY()<6) {
-      setPos(x, y+1)
+      setPos(getX(), getY()+1)
     }
     ecritMessage(cpt)
     cpt=cpt+1
