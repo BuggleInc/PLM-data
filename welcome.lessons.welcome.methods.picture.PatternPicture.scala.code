@@ -1,23 +1,6 @@
 override def run(){
-  for (j <- 1 to 3){
-  	faireligne()
-  }
+ 
 }
-
-
-def faireligne(){
-	for (k<- 1 to 3){
-  	faire4V()
-    avance(5) 
-    
-  }
-  
-  gauche()
-  avance(5)
-  droite()
-  
-}
-
 
 
 def marque(){
@@ -25,63 +8,45 @@ def marque(){
 	leveBrosse()
 }
 
-def faireD(x : Int, sens : Boolean){
+def carr?(x : Int, sens : Boolean){
   x match {
     case 1 => setCouleurBrosse(Color.yellow)
     case 2 => setCouleurBrosse(Color.red)
     case 3 => setCouleurBrosse(Color.blue)
     case 4 => setCouleurBrosse(Color.green)
     
+  } 
+  for(i<- 1 to 2){
+    faireL()
+    avance()
+    faireL/()
+    
   }
-  if(sens){
-	avance()
-	marque()
-	gauche()
-	avance()
-	gauche()
-	    
-  avance()
-  marque()
-	gauche()
-	avance()
-	gauche()
+  
 	
-  }else{
-  
+ 
+def faireL(){
+  avance()
+  gauche()
   marque()
   avance()
   gauche()
   avance()
+  marque()
   gauche()
-    
+  avance()
+  gauche()
+}
+
+def faireL/(){
   marque()
   avance()
   gauche()
   avance()
-  gauche()
-
-}
-
-def faireV(){
-  for (i <- 1 to 2){
-    faireD(sens=true)
-    
-  }
-  recule(2)
-}
-
-
-def fairecarre(){
+  marque()
   gauche()
   avance()
+  gauche()
   avance()
-  droite()
-	for(i <- 1 to 4){
-	   faireV(i)
-     gauche()
-     avance()
-     avance()
-     droite()
-  
-	}
+  gauche()
 }
