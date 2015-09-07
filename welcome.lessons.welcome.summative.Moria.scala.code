@@ -1,5 +1,5 @@
-def estFaceBiscuit():Boolean = {var b =true;avance();b = estSurBiscuit();recule();return b}
-def allerJB() {while ((!estFaceBiscuit()) && (!estFaceMur())) {avance()}}
+def estFaceBiscuit():Boolean = {var b =true;if (estFaceMur()) {b=false} else {avance();b = estSurBiscuit();recule();return b}}
+def allerJB() {while (!estFaceBiscuit()) {avance()}}
 def demiTour() {droite();droite()}
 def checkSortie():Boolean = {var b = true;gauche();if (estFaceMur()) {b= false} else b= true;droite();return b}
 def sortirMoria () {
