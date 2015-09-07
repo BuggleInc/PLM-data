@@ -1,5 +1,14 @@
 override def run() {
-  faireCarre()
+  faireLigne()
+  for (i <- 1 to 4) {
+    recule()
+  }
+  gauche()
+  for (i <- 1 to 4) {
+    avance()
+  }
+  droite()
+  faireLigne()
 }
 
   
@@ -22,4 +31,12 @@ def faireCarre() {
   faireL(Color.BLUE, Color.GREEN)
   faireL(Color.GREEN, Color.YELLOW)
   faireL(Color.YELLOW, Color.RED)
+}
+
+def faireLigne() {
+  faireCarre()
+  for (i <- 1 to 4) {
+    avance()
+  }
+  faireCarre()
 }
