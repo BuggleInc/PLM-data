@@ -1,16 +1,18 @@
 def positionFinale():Boolean =
 {
-  if (!estFaceMur())
-  	return false
+  if (getDirection == Direction.EST && estFaceMur())
+  {
+    gauche()
+
+    var ok = false
+    if (estFaceMur())
+      ok = true
+
+    droite()
+    return ok
+  }
   
-  gauche()
-  
-  var ok = false
-  if (estFaceMur())
-  	ok = true
-  
-  droite()
-  return ok
+  return false
 }
 
 def avanceSerpent()
