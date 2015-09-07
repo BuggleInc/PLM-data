@@ -23,11 +23,11 @@ override def run() {
 }
   
   
-  while(getX() != getMondeLargeur && getY()!=getMondeHauteur){
+  do{
     serpent(nb,droite)
     if((nb+1)%getMondeLargeur() == 0){ligne+=1}
     if(ligne%2 == 0){droite = true}
     else{droite=false}
   	nb+=1
-  }
+  }while(getX() != getMondeLargeur && getY()!=getMondeHauteur)
 }
