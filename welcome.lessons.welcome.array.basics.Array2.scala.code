@@ -1,2 +1,41 @@
 override def run() {
+  // On definit le tableau qu'on utilise et sa taille
+  var longueurT:Int = getWorldHeight()
+  var T = new Array[Color](longueurT)
+  
+  //On parcoure le monde
+  for (i <- 1 to longueurT){
+  	for (j <- 1 to longueurT){
+      
+  	//Au d?but on remplit le tableau
+  		if (i==1){
+        T(j-1) = getGroundColor()
+        forward()
+      }
+  
+  	//Puis on colorie
+      else {
+        //On lit le message dans la premi?re cellule
+        if (j==1){
+          var offset = readMessage().toInt
+        }
+        var indice = (j+offset)%longueurT
+        setBrushColor(T(indice))
+        paint()
+        forward()
+        
+      }
+      
+    }
+    //On remonte et on change de colonne
+    backward(longueurT-1)
+    left();forward();right()
+  }
+  right();forward();left();forward(longueurT-1)
+}
+
+
+def paint(){
+  brushDown()
+  brushUp()
 }
