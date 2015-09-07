@@ -1,39 +1,28 @@
 override def run() {
-  var T = remplirTab(getMondeHauteur(), createTab(getMondeHauteur()))
-  var comp:Int = 0
-  for (i<-1 to getMondeLargeur()-1)
+  var compteur = 0
+  var T = getSequence()
+  for (i<- 1 to getMondeLargeur()-1)
   {
+    compteur += 1
     decale()
-    comp += 1
-    for (i<-1 to getMondeHauteur())
-    {
-      if (estDosMur())
-      {
-        avance(getMondeHauteur()-1)
-      }
-      peindre(T(i))
-      recule()
-    }
-   recule()
+    peindre(T((i+compteur)%getMondeHauteur)
   }
-  avance()
 }
 
-def createTab(num : Int):Array[Color]={
-  var T = new Array[Color](num)
-  return T
-}
 
-def remplirTab(num:Int, T : Array[Color]):Array[Color]={
-  for (i<- 0 to num -2)
+def getSequence() : Array[Color] =
+{
+  var T = new Array[Color](getMondeHauteur())
+  T[0] = getCouleurSol()
+  for (i<- 1 to getMondeHauteur())
   {
-    T(i)=getCouleurSol()
     avance()
+    T[i] = getCouleurSol()
   }
-  T(getMondeHauteur()-1) = getCouleurSol()
+  recule(getMondeHauteur() -1)
   return T
 }
-
+  
 def decale()
 {
   gauche()
