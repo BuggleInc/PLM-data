@@ -1,2 +1,30 @@
 override def run() {
+  for (k <- 1 to 3) {
+    faireLigne(); gauche();
+    for (l <- 1 to 5) {avance()}
+    droite()
+    
+    
+  }
+}
+
+
+def faireCarre() {
+  avance(); baisseBrosse; leveBrosse()
+}
+
+def faireV(c: Color) {
+  setCouleurBrosse(c:Color); faireCarre(); avance(); gauche(); faireCarre(); recule(); droite(); faireCarre(); avance(); gauche()
+}
+
+def faireGrandCarre() {
+  faireV(c:Color.YELLOW); faireV(c:Color.RED); faireV(c:Color.BLUE); faireV(c:Color.GREEN)
+}
+
+def faireLigne() {
+  for (x <- 1 to 3) {
+    faireGrandCarre()
+    for (y <- 1 to 5) 
+    avance()
+  }
 }
