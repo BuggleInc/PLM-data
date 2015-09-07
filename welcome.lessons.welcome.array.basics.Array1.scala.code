@@ -1,11 +1,10 @@
 override def run() {
   var taille = getMondeHauteur()
   var tab = new Array[Color](taille)
-  for (i <- 0 to tab.length-2) {
+  for (i <- 0 to tab.length-1) {
     tab(i) = getCouleurSol()
     avance()
   }
-  tab(tab.length-1) = getCouleurSol()
   var largeur = getMondeLargeur()
   for (i <- 0 to largeur -2) {
     recule(taille-1)
@@ -14,7 +13,7 @@ override def run() {
     droite()
     for (k <- 0 to taille-1) {
       	 var indice = (k-1)%largeur
-         
+         marquageSol(tab(indice))
          }
   }
   
