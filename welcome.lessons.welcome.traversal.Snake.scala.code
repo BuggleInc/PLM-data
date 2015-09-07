@@ -2,12 +2,12 @@ override def run() {
   baisseBrosse()
   def finale():Boolean = {
     var resultat:Boolean = false
-    if(getDirection()==Direction.EST){
+    if(estFaceMur() && getDirection()==Direction.EST){
       gauche();
       resultat = estFaceMur();
       droite()
      }
-    else if (getDirection()==Direction.OUEST){
+    else if (estFaceMur() && getDirection()==Direction.OUEST){
       droite();
       resultat = estFaceMur();
       gauche()
@@ -21,9 +21,7 @@ override def run() {
       if(getDirection() == Direction.EST){gauche();avance();gauche();}
       else{droite();avance();droite();}
     }
-    else{
-      for(i <- 0 to 5){avance();}
-    }
+    else{avance();}
   }
   
   
