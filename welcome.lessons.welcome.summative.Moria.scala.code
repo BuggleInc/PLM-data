@@ -1,0 +1,11 @@
+def estFaceBiscuit():Boolean = {var b =true;avance();b = estSurBiscuit();recule();return b}
+def allerJB() {while (!estFaceBiscuit() || !estFaceMur()) {avance()}}
+def demiTour() {droite();droite()}
+def sortirMoria () {
+  allerJB()
+  while (!((getDirection() = Direction.EST)&&estFaceMur())) {
+    avance();prendBiscuit();demiTour();allerJB():poseBiscuit();demiTour();allerJB()
+  }
+  droite();avance();gauche();avance()
+}
+sortirMoria()
