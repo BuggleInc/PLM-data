@@ -29,11 +29,8 @@ def inCorner():Boolean = {
 }
 
 def changeLine() {
-  if (getDirection() == Direction.EAST) {
-    left(); forward(); left();
+  getDirection() match {
+    case Direction.EAST => left(); forward(); left();
+ 		case Direction.WEST => right(); forward(); right();
   }
-  
-  //if (getDirection() ==  Direction.WEST) {
-  //  right(); forward(); right();
-  //}
 }
