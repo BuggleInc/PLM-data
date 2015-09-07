@@ -1,5 +1,28 @@
-def fleur(c1:Color, c2:Color) {    // c1 : couleur p?tales, c2 : couleur coeur
-  setCouleurBrosse(c1);
+var nbFleur : Int = 0
+
+def sePlacer() {
+  if (nbFleur != 0) {
+    if (nbFleur % 3 == 1) {
+      avance(3);
+    } else if (nbFleur == 2) {
+      recule(5);
+      droite();
+      avance(2);
+      gauche();
+      avance(2);
+    } else if (nbFleur == 3) {
+      recule(3);
+      droite();
+      avance(2);
+      gauche();
+    } else {
+      recule(5);
+    }
+  }
+}
+
+def fleur(c:Color) {    // c : couleur petales
+  setCouleurBrosse(c);
   baisseBrosse();
   avance(2);
   recule();
@@ -7,6 +30,12 @@ def fleur(c1:Color, c2:Color) {    // c1 : couleur p?tales, c2 : couleur coeur
   avance();
   recule(2);
   avance();
-  setCouleurBrosse(c2);
+  setCouleurBrosse(Color.YELLOW);
   gauche();
+  nbFleur = nbFleur + 1
+}
+
+def growFlowers() {
+  fleur(Color.RED);
+  
 }
