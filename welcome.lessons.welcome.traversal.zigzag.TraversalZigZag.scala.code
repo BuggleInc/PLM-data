@@ -1,6 +1,7 @@
 override def run() {
   var nb:Int = 0
-  
+  var droite:Boolean = true
+  var ligne:Int = 0
   def serpent(nb:Int,droite:Boolean){
     
     if(getX()==getMondeLargeur() && droite ){
@@ -23,7 +24,10 @@ override def run() {
   
   
   while(getX() != getMondeLargeur && getY()!=getMondeHauteur){
-    serpent(nb)
+    serpent(nb,droite)
+    if((nb+1)%getLargeurMonde() == 0){ligne+=1}
+    if(ligne%2 == 0){droite = true}
+    else{droite=false}
   	nb+=1
   }
 }
