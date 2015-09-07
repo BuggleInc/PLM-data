@@ -1,10 +1,14 @@
 override def run() {
   var T = new Array[Color] (getMondeHauteur())
   //on remplit le tableau
-  for (i <- 1 to getMondeHauteur())
+  var i=1
+  T(0)=getCouleurSol()
+  avance()
+  while (!estFaceMur)
   {
-    T(i-1)= getCouleurSol()
+    T(i)=getCouleurSol()
     avance()
+    i = i + 1
   }
   positionDepart()
   //on fait les motifs
