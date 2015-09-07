@@ -1,0 +1,73 @@
+override def run() {
+
+  //parcourir un carr? 2*2
+  def coloriage1(c:Color)
+  {avance();
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   gauche();
+   avance();
+   gauche();
+   avance();
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   gauche();
+   avance();
+   gauche();
+  }
+
+
+  def coloriage2(c:Color)
+  {;
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   avance();
+   gauche();
+   avance();
+   gauche();
+   setCouleurBrosse(c);
+   baisseBrosse();
+   leveBrosse();
+   avance();
+   gauche();
+   avance();
+   gauche();
+  }
+
+
+
+
+def patern()
+{
+  coloriage1(Color.RED);
+	avance(2);
+  coloriage2(Color.BLUE);
+	recule(2);
+  gauche();
+  avance(2);
+  droite();
+  coloriage2(Color.YELLOW);
+  avance(2);
+  coloriage1(Color.GREEN);
+  recule(2);
+	gauche();
+  recule(2);
+  droite();
+  
+}
+
+
+patern();
+avance(4);
+patern();
+ recule(4);
+ gauche();
+ avance(4);
+ droite();
+patern();
+ avance(4);
+ patern();
+}

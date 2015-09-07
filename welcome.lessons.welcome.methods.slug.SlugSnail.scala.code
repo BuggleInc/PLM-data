@@ -1,0 +1,26 @@
+def hunt(c:Color) { while (!estSurBiscuit)
+  if (isFacingTrail(c))
+            {baisseBrosse();
+             avance();
+             leveBrosse();}
+            else {gauche();}
+prendBiscuit();
+            
+    // Write your code here
+}
+ 
+
+ // here comes your isFacingTrail method
+def isFacingTrail(couleur_monde:Color):Boolean = {
+    // Write your code here
+ 	var supercase : Color = Color.pink;
+  if (estFaceMur())
+  {return false}
+  avance();
+  supercase = getCouleurSol() 
+  recule();
+  if(supercase==couleur_monde)
+  {return true}
+  else 
+  {return false}
+}
