@@ -1,0 +1,16 @@
+def marque() {baisseBrosse();leveBrosse()}
+
+override def run() {var n:Int=getMondeHauteur()
+                   var T= new Array[Color](n)
+                   T(0)=getCouleurSol()
+                    for (i<-1 to n-1) {avance();T(i)=getCouleurSol()}
+                    
+                    
+                    for (i<-1 to n-1) {gauche()
+                                       avance()
+                                       droite()
+                                       var dec:String=litMessage().toInt
+                                       for (i<-1 to n-1) {setCouleurBrosse(T(i+dec-1));marque();avance()}
+                                       setCouleurBrosse(T(n-1+dec))
+                                       marque()
+                                       recule(n)
