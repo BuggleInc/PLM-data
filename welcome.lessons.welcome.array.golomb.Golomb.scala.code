@@ -38,7 +38,7 @@
   return T(num-1)
 }*/
 
-def golomb(num:Int): Int = {
+/*def golomb(num:Int): Int = {
   var T=new Array[Int](num)
   var x=2   //valeur
   var y=1   //position
@@ -58,5 +58,17 @@ def golomb(num:Int): Int = {
     }
   }
   return T(num-1)
-}
+}*/
 
+def golomb(num:Int):Int={
+  if (num==1){
+    return 1
+  }
+  else if (num==2){
+    return 2
+  }
+  else {
+    return (1+golomb(num-golomb(golomb(num-1))))
+  }
+  
+}
