@@ -1,0 +1,18 @@
+override def run() {
+  while(!fin()){
+    if(getY()<getMondeHauteur()){
+      setPos(getX(),getY()+1)
+    }
+    else if(getX()<getMondeLargeur()){
+      setPos(getX()+1,0)
+    }
+  }
+}
+
+def fin():Boolean={
+  var posf = false
+  if((getX(),getY())==(getMondeLargeur(),getMondeHauteur())){
+    posf=true
+  }
+  return posf
+}
