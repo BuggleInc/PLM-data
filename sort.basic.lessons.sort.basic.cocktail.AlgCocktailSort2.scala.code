@@ -1,18 +1,20 @@
 def cocktailSort2()  {
   var sorted:Boolean = false
-  var c:Int = 0
+  var beg:Int = 0
+  var end:Int = getValueCount() - 2
   while(!sorted){
     sorted = true
-  	for(j <- 0 to getValueCount() - 2 - c)
+  	for(j <- beg to end)
       if(getValue(j) > getValue(j + 1)){
         swap(j, j + 1)
         sorted = false
       }
-  	for(j <- getValueCount() - 2 to c by -1)
+    end -= 1
+  	for(j <- end to beg by -1)
       if(getValue(j) > getValue(j + 1)){
         swap(j, j + 1)
         sorted = false
       }
-    c += 1
+    beg += 1
   }
 }
