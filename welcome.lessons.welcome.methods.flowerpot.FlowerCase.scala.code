@@ -1,0 +1,85 @@
+
+def jardiniere(){
+  growFlowers()
+  replaceFBleue()
+  fleur(6)
+  replacePot()
+  growFlowers()
+  replaceJardiniere()
+  growFlowers()
+  replaceFBleue()
+  fleur(6)
+  replacePot()
+  growFlowers()
+  recule(5)
+}
+
+def replaceFBleue(){
+  gauche()
+  avance(2)
+  droite()
+  avance()
+}
+
+def replacePot(){
+  avance()
+  gauche()
+  avance(2)
+  droite()
+}
+
+def replaceJardiniere(){
+  gauche()
+  recule()
+  droite()
+  recule(13)
+  gauche()
+  recule(3)
+  droite()
+}
+
+def growFlowers(){
+	for (i <- 1 to 5){
+  	fleur(i)
+    i match {
+    case 1 => avance(3)
+    case 2 => (recule(5), gauche(), recule(2), droite(), avance(2))
+    case 3 => (recule(3), gauche(), recule(2), droite())
+    case 4 => avance(3)
+    case 5 => recule(5)
+  }
+	}
+}
+
+
+def fleur(x:Int){
+  x match {
+    case 1 => setCouleurBrosse(Color.red)
+    case 2 => setCouleurBrosse(Color.cyan)
+    case 3 => setCouleurBrosse(Color.orange)
+    case 4 => setCouleurBrosse(Color.pink)
+    case 5 => setCouleurBrosse(Color.green)
+    case 6 => setCouleurBrosse(Color.blue)
+  }
+  
+  petale()
+  setCouleurBrosse(Color.yellow)
+  marque()
+  
+}
+
+def petale(){
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  droite()
+}
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
