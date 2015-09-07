@@ -7,7 +7,7 @@ override def run() {
   for (i <- 1 to longueurT){
   	for (j <- 1 to longueurT){
       
-  	//Au d?but on remplit le tableau
+  	//Au debut on remplit le tableau
   		if (i==1){
         T(j-1) = getGroundColor()
         if(!isFacingWall)
@@ -30,9 +30,10 @@ override def run() {
       }
       
     }
-    //On remonte et on change de colonne
+    //On remonte et on change de colonne si on peut
     backward(longueurT-1)
-    left();forward();right()
+    if(i <= longueurT-1)
+    	left();forward();right()
   }
   right();forward();left();forward(longueurT-1)
 }
