@@ -1,9 +1,21 @@
 override def run() {
   val l=getMondeHauteur()
   var tab= new Array[Color] (l)
-  for (i<- 0 to l-2) {
+  val lar=getMondeLargeur()
+  for (i<- 0 to l-1) {
     tab(i)=getCouleurSol()
     avance()
   }
-  tab(l-1)=getCouleurSol()
+  for (i<- 0 to lar-1){
+    gauche()
+    avance()
+    droite()
+    avance()
+    for (j<- 0 to l-1){
+      setCouleurBrosse(tab(j))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  }
 }
