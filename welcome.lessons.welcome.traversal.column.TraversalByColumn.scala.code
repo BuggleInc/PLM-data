@@ -1,7 +1,22 @@
+def fin():Boolean = 
+{
+  if (!estFaceMur())
+  	return false
+  
+  var ok = false
+  droite()
+  
+  if (estFaceMur())
+  	ok = true
+  
+  gauche()
+  return true
+}
+
 override def run() {
   var idCase = 0
   
-  while (!estFaceMur())
+  while (!fin())
   {
   	ecritMessage("" + idCase)
   	avance()
