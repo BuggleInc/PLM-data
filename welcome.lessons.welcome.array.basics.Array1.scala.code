@@ -7,12 +7,14 @@ override def run() {
     
     if (i == 1){
     for (j <- 0 to world_size - 1){
-    	//array(j) = getGroundColor()
+    	array(j) = getGroundColor()
     	forward()
   	}  
     }else {
     for (j <- 0 to world_size){
-    	//array(j) = getGroundColor()
+      setBrushColor(array(j))
+      brushUp()
+      brushDown()
     	forward()
   	}    
     }
@@ -23,5 +25,4 @@ override def run() {
   	right()
     }
   	} 
-  
 }
