@@ -32,14 +32,11 @@ def faireMotif(T:Array[Color])
   avance()
   droite()
   var decalage = litMessage().toInt
-  while (!estFaceMur)
+  for (i <- 0 to getMondeHauteur()-1)
   {
-    for (i <- 0 to getMondeHauteur()-1)
-    {
-      setCouleurBrosse(T((i+decalage)%getMondeHauteur()))
-      baisseBrosse()
-      leveBrosse()
-      avance()
-    }
+    setCouleurBrosse(T((i+decalage)%getMondeHauteur()))
+  	baisseBrosse()
+    leveBrosse()
+    avance()
   }
 }
