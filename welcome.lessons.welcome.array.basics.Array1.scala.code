@@ -19,13 +19,13 @@ override def run() {
     recule()
   }
   
-  for (i <- 1 to largeurMonde - 1) {
+  for (i <- 0 to largeurMonde - 2) {
     gauche()
     avance()
     droite()
     
     for (j <- 1 to hauteurMonde) {
-      peindreSol(couleurs((j + i)))
+      peindreSol(couleurs((i + j) % hauteurMonde))
       
       avance()
     }
