@@ -1,2 +1,27 @@
 override def run() {
+  
+  def final(){
+    if(getDirection()==Direction.EST){
+      gauche();
+      return estFaceMur()
+     }
+    else if (getDirection()==Direction.OUEST){
+      droite();
+      return estFaceMur();
+    }   
+  }
+  
+  
+  def serpent(){
+    if(estFaceMur()){
+      if(getDirection() == Direction.EST){gauche();avance();gauche();}
+      else(droite();avance();droite();)
+    }
+    else{avance();}
+  }
+  
+  
+  while(final()){serpent()}
+  
+  
 }
