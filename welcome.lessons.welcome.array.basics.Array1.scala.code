@@ -1,0 +1,40 @@
+override def run() {
+  // On d?finit le tableau qu'on utilise et sa taille
+  var longueurT:Int = getWorldHeight()
+  var T = new Array[Color](longueurT)
+  
+  //On parcoure le monde
+  for (i <- 1 to longueurT){
+  	for (j <- 1 to longueurT){
+      
+  	//Au d?but on remplit le tableau
+  		if (i==1){
+        T(j) = getGroundColor()
+        forward()
+      }
+  
+  	//Puis on colorie
+      else {
+        var indice = modulo(j+1,longueurT)
+        setBrushColor(T(indice))
+        paint()
+        forward()
+        
+      }
+      
+    }
+    backward(longueurT)
+    left();forward();right()
+  }
+}
+
+def modulo :Int =(n:Int,k:Int){
+  if (n>=k)
+  	return n-k
+  return n
+}
+
+def paint(){
+  brushDown()
+  brushUp()
+}
