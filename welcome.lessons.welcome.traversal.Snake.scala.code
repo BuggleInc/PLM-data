@@ -1,5 +1,9 @@
 override def run() {
-  serpent()
+  baisseBrosse()
+  while(end())
+  {
+    serpent()
+  }
 }
 
 def serpent() {
@@ -18,5 +22,26 @@ def serpent() {
     gauche()
     avance()
     gauche()
+  }
+}
+
+def end():Boolean = {
+  var mur = false
+  if(estFaceMur())
+  {
+    if(getDirection()==Direction.OUEST)
+    {
+      droite()
+      mur = estFaceMur()
+      gauche()
+      return mur
+    }
+    if(getDirection()==Direction.EST)
+    {
+      gauche()
+      mur = estFaceMur()
+      droite()
+      return mur
+    }
   }
 }
