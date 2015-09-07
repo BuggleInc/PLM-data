@@ -9,6 +9,10 @@ override def run() {
       if (i == 1){
         array(j - 1) = getGroundColor()
       }
+     	val offset = readMessage().toInt
+    	setBrushColor(array(offset))
+    	brushDown()
+    	brushUp()
       forward() 
     }
     
@@ -19,9 +23,5 @@ override def run() {
     left()
     forward()
     right()
-    val offset = readMessage().toInt
-    setBrushColor(array(offset))
-    brushDown()
-    brushUp()
   } 
 }
