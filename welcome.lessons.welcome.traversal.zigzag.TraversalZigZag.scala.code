@@ -1,0 +1,28 @@
+override def run() {
+  var nb:Int = 0
+  
+  def serpent(nb:Int,droite:Boolean){
+    
+    if(getX()==getMondeLargeur() && droite ){
+      setPos(getMondeLargeur(),getY()+1)
+      ecritMessage(nb)
+    }
+    else if(getX() == 0 && !droite){
+      setPos(0,getY()+1)
+      ecritMessage(nb)
+    }
+    else if (droite){
+      setPos(getX()+1,getY())
+    	ecritMessage(nb)
+    }
+  	else{
+      setPos(getX()-1,getY())
+      ecritMessage(nb)
+    }
+}
+  
+  
+  while(getX() != getMondeLargeur && getY()!=getMondeHauteur){
+    serpent(nb)
+  	nb+=1
+  }
