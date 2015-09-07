@@ -3,18 +3,18 @@ def hunt(c:Color) {
   do{
     baisseBrosse()
     
-    if (isFacingTrail()==true){
+    if (isFacingTrail(c:Color)==true){
       avance()
     } 
     else {
       droite()
       
-      if (isFacingTrail()==true){
+      if (isFacingTrail(c:Color)==true){
         avance()
       }else{
         gauche()
         gauche()
-        if (isFacingTrail==true){
+        if (isFacingTrail(c:Color)==true){
           avance()
         }
       }
@@ -28,7 +28,7 @@ def isFacingTrail(c:Color):Boolean = {
   
   if (estFaceMur()==false){
     avance()
-    if (getCouleurSol()==c:Color){
+    if (getCouleurSol()==c){
       
       green= true
     }
