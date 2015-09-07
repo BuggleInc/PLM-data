@@ -1,2 +1,47 @@
 override def run() {
+  relevePattern()
+  positionDepart()
+  for (i <- 1 to getMondeHauteur()-1)
+  {
+    faireMotif()
+    positionDepart()
+  }
+}
+
+def relevePattern()
+{
+  var T = new Array[Color] (getMondeHauteur())
+  var i=0
+  do
+  {
+    T(i)=getCouleurSol()
+    avance()
+    i = i + 1
+  } while (!estfaceMur)
+}
+
+def positionDepart()
+{
+  for (i <- 1 to getMondeHauteur())
+  {
+    recule()
+  }
+}
+
+def faireMotif()
+{
+  gauche()
+  avance()
+  droite()
+  val decalage = litMessage().toInt
+  do
+  {
+    for (i <- 1 to getMondeHauteur())
+    {
+      setCouleurBrosse((i+decalage)%getMondeHauteur())
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  } while (!isFaceMur)
 }
