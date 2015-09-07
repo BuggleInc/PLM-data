@@ -1,0 +1,15 @@
+override def run() {
+  var c=0
+  while ((getX(), getY())!=(getMondeLargeur()-1, getMondeHauteur-1)){
+    ecritMessage("" + c)
+    c+=1
+    right();
+    if(!estFaceMur){
+      setPos(c%7, getY());
+    } else if(getY()!=getMondeLargeur()-1) {
+      setPos(0, getY()+1);
+    }
+    left();
+  }
+  ecritMessage("" + c)
+}
