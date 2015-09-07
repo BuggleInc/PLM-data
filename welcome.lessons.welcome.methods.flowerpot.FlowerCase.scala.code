@@ -1,0 +1,70 @@
+def growFlowers(){
+  bigLigne()
+  droite()
+  avance()
+  gauche()
+  recule(14)
+  droite()
+  avance(3)
+  gauche()
+  bigLigne()
+  recule(6)
+}
+
+def bigLigne(){
+  carre()
+  gauche()
+  avance()
+  avance()
+  droite()
+  motif(Color.BLUE)
+  gauche()
+  avance()
+  avance()
+  droite()
+  carre()
+}
+
+def carre(){
+  ligne(Color.RED,Color.CYAN)
+  recule(4)
+  droite()
+  avance()
+  avance()
+  gauche()
+  motif(Color.ORANGE)
+  recule(4)
+  droite()
+  avance()
+  avance()
+  gauche()
+  ligne(Color.PINK,Color.GREEN)
+}
+
+def motif(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  leveBrosse()
+  recule()
+  gauche()
+  avance()
+  baisseBrosse()
+  recule()
+  recule()
+  leveBrosse()
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+  droite()
+  avance()
+}
+
+def ligne(c1:Color,c2:Color){
+  motif(c1)
+  avance()
+  avance()
+  motif(c2)
+}

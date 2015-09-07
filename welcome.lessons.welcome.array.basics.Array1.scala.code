@@ -1,0 +1,29 @@
+override def run() {
+  for (longeur <- 1 to getMondeLargeur()){
+    colonne()
+  } 
+}
+
+def getMotif():Array[Color]={
+	var T = new Array[Color](getMondeHauteur())
+	for (pas <- 0 to (getMondeHauteur()-1)){
+    T(pas)=getCouleurSol()
+    avance()
+  }
+  return T
+}
+
+def colonne(){
+  var T = getMotif()
+  gauche()
+  avance()
+  droite()
+  avance()
+  for (pas <- 0 to (getMondeHauteur()-1)){
+    setCouleurBrosse(T(pas))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
+  
