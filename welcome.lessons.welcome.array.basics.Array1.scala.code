@@ -1,36 +1,25 @@
 override def run() {
-	T=tableaucouleur()
-  for (k <- 1 to 5){
+  tableau()
+  for (l <- 1 to getMondeLargeur()){
     gauche()
     avance()
     droite()
-    peindre(T)
+    peindre()
   }
-}
-def tableaucouleur():Array[Color] = {
-  var T=new Array[Color](6)
-  for (i <- 0 to 4){
-    T(i)= getCouleurSol()
-    avance()
-  }
-  T(5)=getCouleurSol()
-  for (i <- 0 to 5){
-    recule()
-  }
-  return T
 }
 
-def peindre(T:Array[Color]){
-  for (i <- 0 to 4){
-    baisseBrosse()
-    setCouleurBrosse(T(i))
-    leveBrosse()
+def tableau(){
+  var motif=Array[Color](getMondeHauteur())
+  for (compteur <- 0 to getMondeHauteur()-1 ){
+    motif(compteur)=getCouleurSol()
     avance()
   }
-  baisseBrosse()
-  setCouleurBrosse(T(5))
-  leveBrosse()
-  for (i <- 0 to 5){
-    recule()
+}
+def peindre(){
+  for (long<- 1 to getMondeHauteur()){
+    baissebrosse()
+    setCouleurBrosse(T(long-1))
+    levebrosse()
+    avance()
   }
 }
