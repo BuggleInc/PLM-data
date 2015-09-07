@@ -1,0 +1,57 @@
+override def run() {
+  
+}
+
+
+def pot{
+	for (i <- 1 to 5){
+  	fleur(i)
+    i match {
+    case 1 => avance(3)
+    case 2 => (recule(5), gauche(), recule(2), droite(), avance(2))
+    case 3 => (recule(3), gauche(), recule(2), droite())
+    case 4 => avance(3)
+    case 5 =>
+  }
+	}
+}
+
+
+
+
+
+
+def fleur(x:Int){
+  x match {
+    case 1 => setCouleurBrosse(Color.red)
+    case 2 => setCouleurBrosse(Color.cyan)
+    case 3 => setCouleurBrosse(Color.orange)
+    case 4 => setCouleurBrosse(Color.pink)
+    case 5 => setCouleurBrosse(Color.green)
+  }
+  
+  petale()
+  setCouleurBrosse(Color.yellow)
+  marque()
+  
+}
+
+
+
+
+def petale(){
+  baisseBrosse()
+  avance(3)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  droite(2)
+}
+
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
