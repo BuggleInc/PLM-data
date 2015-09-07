@@ -1,6 +1,17 @@
 override def run() {
+  // On cr?e le tableau
+  var hauteur:Int = getMondeHauteur()
+  var tab = new Array[Color] (hauteur)
+  for (i <- 0 to hauteur-1) {
+    tab(i) = getCouleurSol()
+    if (!estFaceMur) {
+      avance()
+    }
+  }
+  
+  // On dessine ensuite les autres colonnes
+  
   var largeur:Int = getMondeLargeur()
-  creationTableau()
   for (pas <- 0 to hauteur-1) {
     recule()
   }
@@ -23,13 +34,3 @@ override def run() {
   }
 }
 
-def creationTableau() {
-  var hauteur:Int = getMondeHauteur()
-  var tab = new Array[Color] (hauteur)
-  for (i <- 0 to hauteur-1) {
-    tab(i) = getCouleurSol()
-    if (!estFaceMur) {
-      avance()
-    }
-  }
-}
