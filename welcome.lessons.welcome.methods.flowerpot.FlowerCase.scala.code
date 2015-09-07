@@ -1,0 +1,117 @@
+def growFlowers()
+{
+  ligne1()
+  allerProchaineLigne()
+  ligne3()
+  allerFaireFleurCentrale()
+  ligne2()
+  replacementLigne1()
+  ligne1()
+  allerProchaineLigne()
+  ligne3()
+  allerBacSuivant()
+  ligne1()
+  allerProchaineLigne()
+  ligne3()
+  allerFaireFleurCentrale()
+  ligne2()
+  replacementLigne1()
+  ligne1()
+  allerProchaineLigne()
+  ligne3()
+  recule(5)
+}
+
+//Cr?er fleur
+def croix(couleur:Color)
+{
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  leveBrosse()
+}
+
+def centre(couleur:Color)
+{
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+  droite()
+}
+
+//D?placements
+def allerFleurSuivante()
+{
+  avance(3)
+}
+
+def allerFaireFleurCentrale()
+{
+  recule(3)
+  gauche()
+  avance(2)
+  droite()
+}
+
+def allerProchaineLigne()
+{
+  recule(5)
+  droite()
+  avance(4)
+  gauche()  
+}
+
+def replacementLigne1()
+{
+  recule(3)
+  gauche()
+  avance(2)
+  droite()
+}
+
+def allerBacSuivant()
+{
+  gauche()
+  recule()
+  droite()
+  recule(13)
+  droite()
+  avance(3)
+  gauche()
+}
+
+//Lignes
+def ligne1()
+{
+  croix(Color.RED)
+  centre(Color.YELLOW)
+  allerFleurSuivante()
+  croix(Color.CYAN)
+  centre(Color.YELLOW)
+}
+
+def ligne2()
+{
+  croix(Color.ORANGE)
+  centre(Color.YELLOW)
+  avance(3)
+  croix(Color.BLUE)
+  centre(Color.YELLOW)
+  avance(3)
+  croix(Color.ORANGE)
+  centre(Color.YELLOW)
+}
+
+def ligne3()
+{
+  croix(Color.PINK)
+  centre(Color.YELLOW)
+  allerFleurSuivante()
+  croix(Color.GREEN)
+  centre(Color.YELLOW)
+}

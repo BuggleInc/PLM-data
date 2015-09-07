@@ -1,0 +1,19 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class diff21 extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = diff21( t.getParameter(0).asInstanceOf[Integer]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def diff21(n:Int): Int = {
+  if (n>21)
+    return 2*(n-21)
+  return 21-n
+} }
