@@ -1,10 +1,10 @@
 def colonne(decalage:Int, motif:Array[Color]) {
   var hauteur: Int = motif.length
-  for (i <- 0 to hauteur-1) {
+  for (i <- 0 to hauteur-2) {
     setCouleurBrosse(motif((i+decalage)%hauteur))
     baisseBrosse(); leveBrosse(); avance()
   }
-  setCouleurBrosse(motif(decalage))
+  setCouleurBrosse(motif(((hauteur-1)%decalage))
   baisseBrosse(); leveBrosse()
 }
 
