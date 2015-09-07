@@ -1,2 +1,33 @@
 override def run() {
+  var taille:Int=getMondeHauteur()
+  var T=new Array[Color](taille)
+  
+  T(0)=getCouleurSol()
+  avance()
+  for (i<-1 to (taille-2)){
+    T(i)=getCouleurSol()
+    avance()
+  }
+  T(taille-1)=getCouleurSol()
+  recule(taille-1)
+  
+  for (i<-0 to ((getMondeLargeur())-2)){
+    gauche()
+    avance()
+    droite()
+    val decalage=litMessag().toInt
+    
+    for (j<-0 to (taille-1)){
+      val coul=T(((j+decalage)%taille))
+			dessine(coul)
+    	avance()
+    }
+    recule(taille-1)
+  }
+}
+
+def dessine(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
 }
