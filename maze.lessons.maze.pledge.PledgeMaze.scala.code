@@ -1,0 +1,46 @@
+override def run() {
+  var compteur = 0
+  while (!estSurBiscuit()){
+    if (compteur <= 40){ 
+    var ancien = getDirection()
+    setDirection(Direction.NORTH)
+    if (!estFaceMur()){
+      avance();
+    }
+    else{
+      setDirection(ancien);
+    
+      gauche();
+      if (estFaceMur()){
+        droite();
+        if (estFaceMur()){
+          droite();
+        }
+        else{
+        avance();
+        }
+      }
+      else{
+        avance();
+      }
+    }
+      compteur += 1
+    }
+    else{
+            gauche();
+      if (estFaceMur()){
+        droite();
+        if (estFaceMur()){
+          droite();
+        }
+        else{
+        avance();
+        }
+      }
+      else{
+        avance();
+      }
+    }
+  }
+  prendBiscuit()
+}
