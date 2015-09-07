@@ -1,2 +1,23 @@
 override def run() {
+  while (!isOverBaggle()) {
+    keepWallOnLeft()
+  }
+  pickupBaggle()
+}
+
+
+def keepWallOnLeft() {
+  var a:Boolean = false
+  left()
+  a = isFacingWall()
+  
+  if (a) {
+    right()
+    if (!isFacingWall())
+    	forward()
+    else
+    	right()
+  } else {
+    forward()
+  }
 }
