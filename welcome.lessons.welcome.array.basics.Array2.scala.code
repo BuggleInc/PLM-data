@@ -16,10 +16,11 @@ override def run() {
 
 def getMotif():Array[Color]={
   var T = new Array[Color](getMondeHauteur())
-  for (pas <- 0 to (getMondeHauteur()-1)){
+  for (pas <- 0 to (getMondeHauteur()-2)){
     T(pas)=getCouleurSol()
     avance()
   }
+  T(getMondeHauteur()-1)
   recule(getMondeHauteur() - 1)
   return T
 }
