@@ -1,25 +1,15 @@
 override def run() {
-  var world_size:Int = getWorldHeight()
-  var array = new Array[Color](world_size)
   var offset:Int = 0
-  
-  
+  val array:Array[Color] = initialize()
+
   for (i <- 1 to world_size){
     
-    for (j <- 1 to world_size){
-      if (i == 1){
-        array(j - 1) = getGroundColor()
-      }
-      else{
-     		setBrushColor(array( (offset + j - 1) %world_size))
+    for (j <- 0 to world_size - 2){
+     		
+        setBrushColor(array((offset + j)) %world_size)
     		brushDown()
     		brushUp() 
-      }
-      forward()
-    }
-    
-    for (j <- 1 to world_size - 1){
-      backward()
+        forward()
     }
     
     left()
@@ -28,3 +18,19 @@ override def run() {
     offset = readMessage().toInt
   } 
 }
+
+
+def initialize():Array[Color] = {
+  var world_size:Int = getWorldHeight()
+  var array = new Array[Color](world_size)
+ 
+  for (i <- 0 to world_size - 2){
+    array(i) = getGroundColor()
+    forward()
+  }
+	backward(world_size - 1)
+  
+  return array
+}
+
+
