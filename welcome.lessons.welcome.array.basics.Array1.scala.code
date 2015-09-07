@@ -1,8 +1,8 @@
 override def run() {
-  motif()
+  val T = motif()
 }
 
-def motif() {
+def motif() : Array[Color] {
   var T = new Array[Color] (getMondeHauteur())
   
   for (i<-0 to T.length -2) {
@@ -11,4 +11,5 @@ def motif() {
   }
   T(T.length -1) = getCouleurSol()
   recule(T.length)
+  return (T)
 }
