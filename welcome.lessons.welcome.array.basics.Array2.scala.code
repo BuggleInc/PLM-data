@@ -1,6 +1,7 @@
 override def run() {
   var offset:Int = 0
-  val array:Array[Color] = initialize()
+  val world_size:Int = getWorldHeight()
+  val array:Array[Color] = initialize(world_size)
 
   for (i <- 1 to world_size){
     
@@ -20,8 +21,8 @@ override def run() {
 }
 
 
-def initialize():Array[Color] = {
-  var world_size:Int = getWorldHeight()
+def initialize(world_size:Int):Array[Color] = {
+ 
   var array = new Array[Color](world_size)
  
   for (i <- 0 to world_size - 2){
