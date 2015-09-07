@@ -10,7 +10,7 @@ override def run() {
   positionDepart()
   for (i <- 1 to getMondeHauteur()-1)
   {
-    faireMotif(T)
+    faireMotif()
     positionDepart()
   }
 }
@@ -23,12 +23,12 @@ def positionDepart()
   }
 }
 
-def faireMotif(T)
+def faireMotif()
 {
   gauche()
   avance()
   droite()
-  val decalage = litMessage().toInt
+  var decalage = litMessage().toInt
   do
   {
     for (i <- 1 to getMondeHauteur())
