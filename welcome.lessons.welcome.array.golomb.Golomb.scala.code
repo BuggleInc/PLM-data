@@ -10,7 +10,7 @@ def golomb(num:Int): Int = {
   T(3) = 2;
   var c=2  ; //compteur
   var i=2  ; // position dans le tableau
-  while (i<num+1){  
+  while (i<num){  
     for (j<- 1 to T(c)){
       T(i)=c;
       if (i<num){
@@ -19,6 +19,9 @@ def golomb(num:Int): Int = {
     }
     c=c+1;
     
+  }
+  if (T(num)==0){
+    return c
   }
   return T(num)
 }
