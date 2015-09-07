@@ -1,0 +1,34 @@
+def fin():Boolean = 
+{
+  var ok = false
+  
+  droite()
+  if (estFaceMur())
+  {
+    droite()
+    if (estFaceMur())
+    	ok = true
+    gauche()
+  }
+  gauche()
+  
+  return ok
+}
+
+override def run() {
+  var idCase = 0
+  ecritMessage("" + idCase)
+  
+  while (!fin())
+  {
+    gauche()
+    if (estDosMur())
+    	setPos(0, getY() + 1)
+    else
+    	setPos(getX() + 1, getY())
+    droite()
+    
+    idCase += 1
+    ecritMessage("" + idCase)
+  }
+}
