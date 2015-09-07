@@ -1,0 +1,65 @@
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+def faireFleur(c:Color) {
+  
+  setCouleurBrosse(c:Color)
+  marquerSol()
+  avance()
+  marquerSol()
+  avance()
+  recule()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  recule()
+  marquerSol()
+  avance()
+  setCouleur(Color.yellow)
+  marquerSol()
+  droite()
+  avance()
+  
+}
+
+def transition1() {avance();avance()}
+  
+def transition2() {
+  
+  var compteur:Int = 0
+  for (compteur <- 1 to 6) {recule()}
+  droite()
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  
+}
+  
+def transition3() {
+  
+  var compteur2:Int = 0
+  for (compteur2 <- 1 to 4) {recule()}
+	droite()
+  avance()
+  avance()
+  gauche()
+  
+}
+
+override def growFlowers() {
+  
+  faireFleur(Color.red)
+  transition1()
+  faireFleur(Color.blue)
+  transition2()
+  faireFleur(Color.orange)
+  transition3()
+  faireFleur(Color.pink)
+  transition1()
+  faireFleur(Color.green)
+  var compteur3:Int = 0
+  for (compteur3 <- 1 to 6) {recule()}
+  
+}
