@@ -4,23 +4,6 @@ def stringX(str:String):String = {
   
   var debut:String = "";
   var fin:String = "";
-  
-  var pointer:Int = 0;
-  
-
-  while(str.charAt(pointer)=='x'){
-    pointer+=1;
-    debut+="x";
-  }
-  
-  
-  pointer = 0;
-  
-  while(str.charAt(str.length-1-pointer)=='x'){
-    pointer+=1;
-    fin+="x";
-  }
-    
   var entre:String = "";
   
   for(i<-0 to str.length-1){
@@ -28,6 +11,27 @@ def stringX(str:String):String = {
       entre+=str.charAt(i);
     }
   }
+  
+  if(entre!="" && entre!=str){
+  
+    var pointer:Int = 0;
+
+
+    while(str.charAt(pointer)=='x'){
+      pointer+=1;
+      debut+="x";
+    }
+
+
+    pointer = 0;
+
+    while(str.charAt(str.length-1-pointer)=='x'){
+      pointer+=1;
+      fin+="x";
+    }
+    
+  }
+  
   
   println(debut+entre+fin);
   
