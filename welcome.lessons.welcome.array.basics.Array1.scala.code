@@ -3,27 +3,34 @@ def met_tableau_couleur():Array[Color] =
 {
   var T = new Array[Color](6)
 	for (i <- 0 to 5 )
-			{T(i)= getCouleurSol() }
-  avance()
+	{
+    T(i)= getCouleurSol()
+  	avance()
+  }
+  
   return T
 }
 
 def coloriage(T : Array[Color]) 
-
 {
  
   for (i <-0 to 5)
-		{setCouleurBrosse(T(i));
+	{
+    setCouleurBrosse(T(i));
     baisseBrosse;
     leveBrosse;
-    avance();}}
+    avance();
+  }
+}
 
   
-  override def run() {
+override def run() {
     var T:Array[Color] = met_tableau_couleur()
     for (i <-0 to 4)
-    {droite();
-    avance();
-    droite();
-    coloriage(T);
-    }}
+    {
+      droite();
+    	avance();
+    	droite();
+    	coloriage(T);
+    }
+}
