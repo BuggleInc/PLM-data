@@ -1,14 +1,8 @@
 def indexOfValue(nums:Array[Int] ,lookingFor:Int): Int = {
 	var n = nums.length
 	var p=0
-	for (pas <- 0 to (n-1)){
-    if (nums(pas)==lookingFor){
-      p=pas
-    }
+	while (nums(p)!=lookingFor && p<nums.length){
+    p=p+1
   }
-  if (p==0){
-    return -1
-  }else {
-    return p
-  }
+  return p
 }
