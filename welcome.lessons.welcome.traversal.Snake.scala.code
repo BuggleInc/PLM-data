@@ -1,0 +1,39 @@
+override def run() {
+  baisseBrosse()
+  while(test==false) {
+    if (estFaceMur()) {
+      if (getDirection()==Direction.EST) {
+        gauche()
+        avance()
+        gauche()
+      }
+      else {
+        droite()
+        avance()
+        droite()
+      }
+    }
+  }
+}
+
+def test() {
+  if (getDirection()==Direction.EST) {
+    if (estFaceMur()) {
+      gauche()
+      if (estFaceMur()) {
+        droite()
+        return true
+      }
+    }
+  }
+  else {
+    if (estFaceMur()) {
+      droite()
+      if (estFaceMur()) {
+        gauche()
+        return true
+      }
+    }
+  }
+  return false
+}
