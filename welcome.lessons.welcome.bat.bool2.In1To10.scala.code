@@ -1,5 +1,9 @@
 def in1To10(n:Int, outsideMode:Boolean):Boolean = {
-  var inside  = n>= 1 && n<= 10
-  return ! (inside == outsideMode)
+  (n, outsideMode) match {
+    case (n, true) if n>= 10 || n<= 1 => return true
+    case (_, true) => return false
+    case (n,_ ) if n >= 1 && n<= 10 => return true
+    case(_,_) => return false
+  }
 
- }
+}
