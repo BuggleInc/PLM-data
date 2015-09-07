@@ -28,10 +28,15 @@ override def run() {
       setPos(getX(), getY() + 1)
       versGauche = !versGauche
     }
-    else if (versGauche)
-    	setPos(getX() - 1, getY())
-    else if (!versGauche)
-    	setPos(getX() + 1, getY())
+    else
+    {
+      droite()
+     	if (versGauche)
+    		setPos(getX() - 1, getY())
+     	else if (!versGauche)
+    		setPos(getX() + 1, getY())
+      gauche()
+    }
     droite()
     
     idCase += 1
