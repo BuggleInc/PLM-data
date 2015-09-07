@@ -1,0 +1,30 @@
+override def run() {
+  var worldHeight:Int = getWorldHeight()
+  var colors = new Array[Color](worldHeight)
+  
+  // read colors in first column
+  for (i <- 0 to worldHeight - 1) {
+    colors(i) = getGroundColor()
+    forward()
+  }
+  
+  for (i <- 1 to worldHeight - 1) {
+    forward(); left(); forward(); right();
+    paintLine(colors);
+  }
+  
+  
+}
+
+def paintLine(colors: Array[Color]) {
+  for (c <- colors) {
+    mark(c);
+    forward();
+  }
+}
+
+def mark(c:Color) {
+  setBrushColor(c);
+  brushDown();
+  brushUp();
+}

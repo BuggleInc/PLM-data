@@ -1,0 +1,55 @@
+def makeFlower(c:Color) {
+  setBrushColor(c);
+	brushDown();
+  forward(2);
+  backward(); left(); forward();
+  backward(2);forward();right()
+  
+  setBrushColor(Color.yellow);
+  brushUp();
+  
+}
+
+
+def growFlowersSquare() {
+  makeFlower(Color.red);
+  
+  forward(3);
+  makeFlower(Color.cyan);
+  
+  backward(3); right(); forward(2); left();
+	makeFlower(Color.orange);
+  
+  backward(3); right(); forward(2); left();
+  makeFlower(Color.pink);
+  
+  forward(3);
+  makeFlower(Color.green);
+
+  backward(5);
+  
+}
+
+def growFlowersSide() {
+  growFlowersSquare();
+  
+  // move to place of blue flower
+  forward(6); left(); forward(2); right();
+  makeFlower(Color.blue);
+  
+  //move to start of next square
+  forward(); left(); forward(2); right();
+  
+  growFlowersSquare();
+}
+
+
+def growFlowers() {
+  growFlowersSide();
+  
+  // move to start of next side
+  right(); forward(); right(); forward(8);
+  left(); forward(3); left();
+  
+  growFlowersSide();
+}

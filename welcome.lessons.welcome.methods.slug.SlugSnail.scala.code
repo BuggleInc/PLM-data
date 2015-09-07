@@ -1,0 +1,33 @@
+def hunt(c:Color) {
+  while (! isOverBaggle() ) {
+    if (isFacingTrail(c) ) {
+      forward();
+      mark();
+    } else {
+      left();
+    }
+  }
+  pickupBaggle();
+ }
+
+
+def isFacingTrail(c:Color):Boolean = {
+  var colorOfTile:Color = Color.white;
+  
+  if (! isFacingWall()) {
+    forward();
+    colorOfTile = getGroundColor();
+    backward();
+  }
+  
+  if (colorOfTile == c)
+  	return true;
+  
+  return false;
+  
+}
+
+def mark() {
+  brushDown();
+  brushUp();
+}
