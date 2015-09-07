@@ -1,0 +1,26 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class stringYak extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = stringYak( t.getParameter(0).asInstanceOf[String]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def stringYak(str:String):String = { 
+  var res = ""
+  var i=0
+  while (i<str.length) {
+    if (i+2<str.length  && str(i) == 'y' && str(i+2)=='k')
+      i += 2
+    else
+      res += str(i)
+    i+=1
+  }
+  return res
+} }
