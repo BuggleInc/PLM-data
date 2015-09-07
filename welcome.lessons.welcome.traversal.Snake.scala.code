@@ -1,0 +1,37 @@
+override def run() {
+  brushDown();
+  while(! inCorner()) {
+    if (isFacingWall()) {
+      changeLine()
+    }
+    forward()
+  }
+}
+
+
+def inCorner():Boolean = {
+  var result:Boolean = false
+  if (getDirection() == Direction.EAST) {
+    left();
+    result = isFacingWall();
+    right();
+  }
+  
+  if (getDirection() ==  Direction.WEST) {
+    right();
+    result = isFacingWall();
+    left();
+  }
+  
+  return result;
+}
+
+def changeLine() {
+  if (getDirection() == Direction.EAST) {
+    left(); forward(); left();
+  }
+  
+  if (getDirection() ==  Direction.WEST) {
+    right(); forward; right();
+  }
+}
