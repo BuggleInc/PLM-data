@@ -1,2 +1,10 @@
-override def run() {
+def aMurN():Boolean = {var b =false;var d = getDirection();setDirection(Direction.NORTH);b = estFaceMur();setDirection(d);return b}
+                                                                      
+def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
+
+
+def garM() { if (aMurD()) {if (estFaceMur()) {gauche()} else avance()} else {droite();avance()}
 }
+
+
+override def run() {setDirection(Direction.NORTH);while (y!=0) {while (!estFaceMur()) {avance()};while (aMurN()) {garM()}};while (!estSurBiscuit()) {garM()};prendBiscuit()}
