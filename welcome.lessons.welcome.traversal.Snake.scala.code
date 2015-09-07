@@ -2,7 +2,7 @@ override def run() {
   
   def endCase():Boolean = {
     var mur:Boolean = false
-    if (estFaceMur())
+    if( estFaceMur() )
     {
       if( getDirection() == Direction.EST )
       {
@@ -11,7 +11,7 @@ override def run() {
         droite()
         return mur
       }
-      else if( getDirection() == Direction.OUEST )
+      if( getDirection() == Direction.OUEST )
       {
         droite()
         mur = estFaceMur()
@@ -27,7 +27,7 @@ override def run() {
   
   def pasSerpent()
   {
-    if (estFaceMur())
+    if(estFaceMur())
     {
       if( getDirection() == Direction.EST )
       {
@@ -35,7 +35,7 @@ override def run() {
         avance
         gauche()
       }
-      else if( getDirection() == Direction.OUEST )
+      if( getDirection() == Direction.OUEST )
       {
         droite()
         avance()
