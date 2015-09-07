@@ -17,11 +17,13 @@ override def run() {
     droite()
     val decalage=litMessage().toInt
     
-    for (j<-0 to (taille-1)){
+    for (j<-0 to (taille-2)){
       val coul=T(((j+decalage)%taille))
 			dessine(coul)
     	avance()
     }
+    val dcoul=T(((taille-1+decalage)%taille))
+    dessine(dcoul) 
     recule(taille-1)
   }
 }
