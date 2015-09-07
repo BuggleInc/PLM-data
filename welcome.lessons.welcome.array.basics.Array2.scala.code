@@ -35,10 +35,12 @@ def decalage(d:Int,T:Array[Color]):Array[Color]={
 }
 
 def colonne(D:Array[Color]){
-  for (pas <- 0 to (getMondeHauteur()-1)){
+  for (pas <- 0 to (getMondeHauteur()-2)){
     setCouleurBrosse(D(pas))
     baisseBrosse()
     leveBrosse()
     avance()
   }
+  D(getMondeHauteur()-1)
+  recule(getMondeHauteur())
 }
