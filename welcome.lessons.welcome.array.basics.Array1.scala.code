@@ -1,12 +1,12 @@
 override def run() {
-  taille = getMondeHauteur()
+  var taille = getMondeHauteur()
   var tab = new Array[Color](taille)
   for (i <- 0 to tab.length-2) {
     tab(i) = getCouleurSol()
     avance()
   }
   tab(tab.length-1) = getCouleurSol()
-  largeur = getMondeLargeur()
+  var largeur = getMondeLargeur()
   for (i <- 0 to largeur -2) {
     recule(taille-1)
     gauche()
@@ -15,7 +15,7 @@ override def run() {
     marquageSol(tab((i+1)%largeur))
   }
   
-  def marquageSol(couleur:Color) {
+  def marquageSol(couleur) {
     setCouleurBrosse(couleur)
     baisseBrosse()
     leveBrosse()
