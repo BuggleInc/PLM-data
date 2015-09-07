@@ -1,0 +1,17 @@
+back()
+while (! isFacingWall) {
+  if (isOnBaggle())
+  	moveBaggle();
+  
+  forward();
+}
+
+def moveBaggle() {
+  pickupBaggle();
+  back();
+  while (!isFacingWall() && !isOverBaggle()) {
+    forward();
+  }
+  dropBaggle();
+  back()
+}
