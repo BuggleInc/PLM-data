@@ -6,10 +6,13 @@ override def run() {
 
 def scanMotif(long:Int): Array[Color] = {
   var motif = new Array[Color] (long)
-  for (i <- 0 to long-1) {
-    motif(i) = getCouleurSol()
+  motif(0) = getCouleurSol()
+  for (i <- 1 to long-1) {
     avance()
+    motif(i) = getCouleurSol()
   }
+  for (i <- 1 to long-1)
+  	recule()
   return motif
 }
 
