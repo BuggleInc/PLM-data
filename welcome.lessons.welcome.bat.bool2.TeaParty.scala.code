@@ -1,13 +1,17 @@
 def teaParty(tea:Int, candy:Int): Int = {
   
-  if ((tea>=5)&&(candy>=5)){
-    return 1
+  var moins5t=tea<5
+  var moins5c=candy<5
+  
+  if (moins5c||moins5t){
+    return 0
   }
-  else if (((tea>=(2*candy))||(candy>=(2*tea)))&&((!(tea<=5))||(!(candy<=5)))){
+  
+  else if ((tea>=(2*candy))||(candy>=(2*tea))){
     return 2
   }
-  else {
-    return 0
+  else{
+    return 1
   }
            
   
