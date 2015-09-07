@@ -1,0 +1,37 @@
+override def run() {
+  var c=false
+  while(!c){
+    avance();
+    if(estFaceMur()){
+      c=Test();
+      ChangeDir();
+    }
+  }
+}
+
+
+
+def ChangeDir(){
+  if(getDirection()==Direction.EST){
+    left()
+  }
+  right()
+}
+def Test(){
+  var dir = getDirection();
+  if(dir==Direction.EST){
+    left();
+    if (estFaceMur()){
+      right()
+      return true
+    }
+    right()
+  }
+  right()
+  if(estFaceMur()){
+    left();
+    return true
+  }
+  left();
+  return false
+}
