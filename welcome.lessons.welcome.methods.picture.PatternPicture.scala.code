@@ -69,19 +69,22 @@ def faireMotif() {
   recule();
   recule();
   droite();
-  for (o <- 1 to 4) {
+  for (o <- 1 to 3) {
     avance();
   }
-  
-   
-  
-  
-  
+    
 }
+
+def dM() {
+  faireMotif()
+  avance();
+  faireMotif();
+}
+
 
 override def run() {
   for (i <- 1 to 2) {
-    faireMotif();
+    dM();
   }
   for (m <- 1 to 7) {
     recule()
@@ -92,6 +95,6 @@ override def run() {
   }
   droite();
   for (l <- 1 to 2) {
-    faireMotif();
+    dM();
   }
 }
