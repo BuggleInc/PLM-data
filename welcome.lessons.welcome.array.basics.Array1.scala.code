@@ -5,15 +5,15 @@ def Brosse(c:Color) {
 
 def exo() {
   var x=getMondeHauteur()
-  var T = new Array[""](x)
+  var T = new Array[Any](x)
   for (compt<- T) {
-    T(compt)="getCouleurSol()"
+    T(compt)=getCouleurSol()
     avance()
   }
   for (i<-1 to 5) {
     gauche() ; avance() ; droite() ; avance()
     for (k<-0 to x-1) {
-      Brosse("T(k)") ; avance()
+      Brosse(T(k)) ; avance()
     }
     
   }
