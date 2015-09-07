@@ -1,20 +1,22 @@
 override def run() {
   // On cr?e le tableau
+  
   var hauteur:Int = getMondeHauteur()
   var tab = new Array[Color] (hauteur)
+  var largeur:Int = getMondeLargeur()
   for (i <- 0 to hauteur-1) {
     tab(i) = getCouleurSol()
     if (!estFaceMur()) {
       avance()
     }
   }
-  
-  // On dessine ensuite les autres colonnes
-  
-  var largeur:Int = getMondeLargeur()
   for (pas <- 0 to hauteur-1) {
     recule()
   }
+  
+  
+  // On dessine ensuite les autres colonnes
+  
   gauche()
   avance()
   droite() //D?but ligne
@@ -26,7 +28,6 @@ override def run() {
         avance()
       }
     }
-    leveBrosse()
     for (i <- 0 to hauteur-1) {
       recule()
     }
@@ -36,14 +37,10 @@ override def run() {
     }
     droite() //D?but ligne
   }
-  gauche()
-  recule()
-  droite()
   //On se place enfin l? o? il faut
   for (i <- 0 to hauteur-1) {
     avance()
   }
-  recule()
 }
 
 def marque() {
