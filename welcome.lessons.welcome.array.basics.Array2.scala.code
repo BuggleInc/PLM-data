@@ -1,0 +1,44 @@
+override def run() {
+  var compteur = 0
+  var T = getSequence()
+  for (i<- 1 to getMondeLargeur()-1)
+  {
+    decale()
+    compteur = litMessage().toInt
+    peindre(T(compteur))
+    for (i<-1 to getMondeHauteur()-1)
+    {
+      avance()
+      peindre(T((i+compteur)%getMondeHauteur))
+    }
+    recule(getMondeHauteur()-1)
+  }
+}
+
+
+def getSequence() : Array[Color] =
+{
+  var T = new Array[Color](getMondeHauteur())
+  T(0) = getCouleurSol()
+  for (i<- 1 to getMondeHauteur()-1)
+  {
+    avance()
+    T(i) = getCouleurSol()
+  }
+  recule(getMondeHauteur() -1)
+  return T
+}
+  
+def decale()
+{
+  gauche()
+  avance()
+  droite()
+}
+
+def peindre(couleur : Color)
+{
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}

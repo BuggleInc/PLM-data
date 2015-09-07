@@ -1,0 +1,60 @@
+override def run() {
+  dessinMotif()
+  placementHorizontal()
+  dessinMotif()
+  placementVertical()
+  dessinMotif()
+  placementHorizontal()
+  dessinMotif()
+}
+
+def dessinDiag(c:Color)
+{
+  avance()
+  peindre(c)
+  recule()
+  gauche()
+  avance()
+  peindre(c)
+  recule()
+  droite()
+  avance(3)
+  gauche()
+}
+
+def placementQuartMotif()
+{
+  avance(3)
+  gauche()
+}
+
+def peindre(c:Color)
+{
+  if (getCouleurBrosse != c)
+  {
+    setCouleurBrosse(c)
+  }
+  baisseBrosse()
+  leveBrosse()
+}
+
+def placementHorizontal()
+{
+  avance(4)
+}
+
+def placementVertical()
+{
+  recule(4)
+  gauche()
+  placementHorizontal()
+  droite()
+}
+
+def dessinMotif()
+{
+  dessinDiag(Color.red)
+  dessinDiag(Color.blue)
+  dessinDiag(Color.green)
+  dessinDiag(Color.yellow)
+}

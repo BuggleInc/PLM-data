@@ -1,0 +1,22 @@
+def haveBaggle():Boolean = 
+{
+  var vuBiscuit = false
+  var nbPas = 0
+  do
+  {
+    if (estSurBiscuit())
+    {
+      vuBiscuit = true
+    }
+    else
+    {
+      avance()
+      nbPas = nbPas + 1
+    }
+  } while (vuBiscuit == false && nbPas < 6)
+  for (i<- 1 to nbPas)
+  {
+    recule()
+  }
+  return vuBiscuit
+}
