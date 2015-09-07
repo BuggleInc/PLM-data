@@ -1,0 +1,9 @@
+def dateFashion(you:Int, date:Int):Int = {
+  (you, date) match {
+    case (0|1|2, _) => return 0
+    case (_, 0|1|2) => return 0
+    case (you, _) if you >= 8 => return 2
+    case (_, date) if date >= 8  => return 2
+    case(_,_) => return 1
+  }
+}
