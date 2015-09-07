@@ -29,3 +29,35 @@ def faireMotif() {
     faireV(Color.GREEN);
   
   }
+
+def repetition(){
+  for (k <- 1 to 9){
+    faireMotif();
+    for (j <- 1 to 7){
+      avance();
+    }
+  }
+  
+}
+
+def changeLigne() {
+  for (h <- 1 to 21) {
+      recule();
+  }
+    gauche();
+  for (g <- 1 to 7) {
+      avance();
+  }
+    droite();
+    
+}
+
+override def run() {
+  for (p <- 1 to 9) {
+    repetition();
+    changeLigne();
+    
+  }
+  
+  
+}
