@@ -1,8 +1,2 @@
-def teaParty(tea:Int, candy:Int): Int = {(tea,candy) match {
-  case (<5,_) => return 0
-  case (_,<5) => return 0 
-  case (>= candy*2,_) => return 2
-  case (_,>= tea*2) => return 2
-  case (>= 5, >= 5) => return 1
-	case (_,_,_) => return 0  
-}}
+def teaParty(tea:Int, candy:Int): Int = 
+{if (tea < 5 || candy < 5) {return 0} else {if (candy>= tea*2 || tea >=candy*2) {return 2} else {if (candy >4 && tea >4) {return 1} else {return 0}}}}
