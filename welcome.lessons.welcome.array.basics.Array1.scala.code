@@ -1,9 +1,7 @@
-avance()
-var n:Int=getY()+1
-recule()
-
 def marque() {baisseBrosse();leveBrosse()}
 
-def copiercase() {getCouleurSol();for (1<-1 to n) {gauche();avance();droite();avance();marque()}}
-
-def run() {for (i<-1 to n) {copiercase();avance()}} 
+override def run() {recule(); var n:Int=getY()+1;avance()
+                   var T= new Array[Color](n)
+                   
+                    for (i<-1 to n) {gauche();avance();droite();avance();for (i<-T) {setCouleurBrosse(i);marque();avance()} }
+                   }
