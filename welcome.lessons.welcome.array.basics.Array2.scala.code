@@ -11,12 +11,14 @@ override def run() {
   	avance();
   	droite();
     recule(taille-1);
+    setCouleurBrosse(tab(taille-1));
+    	baisseBrosse();
     var decal = litMessage().toInt;
   	for (j <- 1 to taille-1) {
       setCouleurBrosse(tab((j+decal)%taille));
     	baisseBrosse();
-      avance();
       leveBrosse();
+      avance();
     }
   }
 }
