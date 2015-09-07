@@ -10,13 +10,13 @@ override def run() {
     gauche()
     avance()
     droite()
-    colonneSuivante(couleurs)
+    colonneSuivante(couleurs,tailleTableau)
   }
 }
 
-def colonneSuivante(t:Array){
+def colonneSuivante(t:Array,n:int){
   avance()
-  for(pas <-0 to tailleTableau -1){
+  for(pas <-0 to n -1){
     setCouleurBrosse(t(pas))
     baisseBrosse()
     leveBrosse()
