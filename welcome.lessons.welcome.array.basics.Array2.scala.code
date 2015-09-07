@@ -1,7 +1,7 @@
 override def run() {
 
 var T = new Array[Color](getMondeHauteur())
-for (i <- 1 to T.length-1){
+for (i <- 0 to T.length-2){
    T(i)=getCouleurSol();
    avance();
 }
@@ -14,8 +14,8 @@ for (i <- 1 to getMondeLargeur-1){
   var j =0
   do {avance();
      setCouleurBrosse(T((j+i)%getMondeHauteur));
-                        baisseBrosse();
-                        leveBrosse();
+     baisseBrosse();
+     leveBrosse();
      j=j+1}
   while (estFaceMur==false);
   do {recule()} while(!estDosMur())
