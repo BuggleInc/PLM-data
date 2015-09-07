@@ -7,9 +7,16 @@ override def run() {
     avance()
   }
   recule(h)
-  gauche()
   for (i<-1 to l-1){
+    gauche()
     avance()
+    val decalage = litMessage.toInt
+    for (i<-0 to T.length-1){
+      a = (i + decalage)%T.length
+      tampon(T,a)
+      avance()
+    }
+    recule(h)
   }
 }
 
