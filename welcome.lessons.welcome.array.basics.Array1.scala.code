@@ -20,9 +20,9 @@ override def run() {
   gauche()
   avance()
   droite() //D?but ligne
-  for (colonne <- 0 to largeur-2) {
+  for (colonne <- 0 to largeur-1) {
     for (i <- 0 to hauteur-1) {
-      setCouleurBrosse(tab((5+i-colonne)%hauteur))
+      setCouleurBrosse(tab(((hauteur-1)+i-colonne)%hauteur))
       marque()
       if (!estFaceMur()) {
         avance()
