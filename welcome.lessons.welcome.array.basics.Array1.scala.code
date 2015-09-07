@@ -1,0 +1,18 @@
+override def run() {
+  var Couleurs = new Array[Int](6)
+  for (i <- 0 to 5){
+    Couleurs(i) = getCouleurSol()
+    avance()
+  }
+  
+  Motif(){
+    for (i <- 0 to 5){
+      setCouleurBrosse(Color.Couleurs(i))
+      poseBrosse(); leveBrosse()
+      avance()
+  }
+  
+  for (i <- 0 to 5){
+    gauche(); avance(); droite(); avance(); Motif()
+  }
+}
