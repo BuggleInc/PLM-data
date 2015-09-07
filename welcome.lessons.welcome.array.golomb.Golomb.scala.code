@@ -4,10 +4,11 @@ def golomb(num:Int): Int = {
   gol(1)=1
   gol(2)=2
   var ind=2
-  for (ind<- 2 to num-1) {
+  for (i<- 2 to num-1) {
     for (k <- 1 to gol(i)) {
       gol(i+k-1)=i
       ind+=1
+      if (ind==num) {return gol(num)}
     }
   }
   return gol(num)
