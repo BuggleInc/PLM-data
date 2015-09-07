@@ -1,7 +1,11 @@
 def caughtSpeeding(speed:Int, isBirthday:Boolean):Int = {
-  if (speed<=60){
-    return 0
-  }else(61<=speed<=80){
-    return 1
+  var limite:Int=0
+  if (isBirthday){
+    limite = limite + 5
+  }
+  speed match{
+    case a if a<=60+limite => 0
+    case a if 61+limite<=a && a<=80+limite => 1
+    case _ => 2
   }
 }
