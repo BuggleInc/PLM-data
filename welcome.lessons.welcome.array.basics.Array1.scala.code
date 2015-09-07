@@ -18,10 +18,10 @@ override def run() {
   gauche()
   avance()
   droite()
-  baisseBrosse()
   for (colonne <- 0 to largeur-3) {
     for (i <- 0 to hauteur-2) {
       setCouleurBrosse(tab((i+1)%hauteur))
+      marque()
       avance()
     }
     leveBrosse()
@@ -34,3 +34,7 @@ override def run() {
   }
 }
 
+def marque() {
+  baisseBrosse()
+  leveBrosse()
+}
