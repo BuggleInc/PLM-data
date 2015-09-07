@@ -1,23 +1,23 @@
 override def run() {
   var tailleTableau=0
   tailleTableau = getMondeHauteur()
-  var tableau = new Array[Color] (tailleTableau)
+  var couleurs = new Array[Color] (tailleTableau)
   for(pas <- 0 to tailleTableau -1){
-    tableau(pas)=getCouleurSol()
+    couleurs(pas)=getCouleurSol()
     avance()
   }
   for(colonne<-1 to getMondeLargeur()-1){
     gauche()
     avance()
     droite()
-    colonneSuivante()
+    colonneSuivante(couleurs)
   }
 }
 
-def colonneSuivante(){
+def colonneSuivante(t:Array){
   avance()
   for(pas <-0 to tailleTableau -1){
-    setCouleurBrosse(tableau(pas))
+    setCouleurBrosse(t(pas))
     baisseBrosse()
     leveBrosse()
     avance()
