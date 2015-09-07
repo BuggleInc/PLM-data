@@ -1,0 +1,38 @@
+var diag = 0;
+
+def fin():Boolean = 
+{
+  var ok = false
+  
+  droite()
+  if (estFaceMur())
+  {
+    droite()
+    if (estFaceMur())
+    	ok = true
+    gauche()
+  }
+  gauche()
+  
+  return ok
+}
+
+override def run() {
+  var idCase = 0
+  ecritMessage("" + idCase)
+  var A:Array[Int] = (1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1)
+  
+  while (!fin())
+  {
+    if (getX() + 1 > 6 || getY() - 1 > 6)
+    {
+      setPos(getX() + 1 - A, getY() + A)
+    }
+    	
+    
+    // deplacement
+    
+    idCase += 1
+    ecritMessage("" + idCase)
+  }
+}
