@@ -1,3 +1,10 @@
+def peindreSol(c: Color) {
+	setCouleurBrosse(c)
+  
+  baisseBrosse()
+  leveBrosse()
+}
+
 override def run() {
   var hauteurMonde:Int = getMondeHauteur()
   var largeurMonde:Int = getMondeLargeur()
@@ -11,4 +18,14 @@ override def run() {
   }
   
   recule(hauteurMonde - 1)
+  
+  for (i <- 1 to largeurMonde - 1) {
+    gauche()
+    avance()
+    droite()
+    
+    for (j <- 1 to hauteurMonde) {
+      peindreSol(couelurs((j + i) % 6))
+    }
+  }
 }
