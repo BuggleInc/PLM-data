@@ -5,14 +5,14 @@ override def run() {
     avance()
   }
   posInit()
-  for(i<-1 to (getMondeLargeur()-2)){
+  for(i<-0 to (getMondeLargeur()-1)){
     val decal = lire()
-    setCouleurBrosse(T(1))
+    setCouleurBrosse(T(i+ decal))
     baisseBrosse()
     leveBrosse()
     for(j <- 1 to (getMondeHauteur()-1)){
       avance()
-      setCouleurBrosse(T((j+decal)%6))
+      setCouleurBrosse(T((j+decal)%5))
       baisseBrosse()
       leveBrosse()
       
