@@ -1,21 +1,21 @@
 def golomb(num:Int): Int = {
   if (num == 1){
-    return 1
+    return 1;
   } else if (num == 2){
-    return 2
+    return 2;
   }
   var T = new Array[Int](num+1)
-  T[1]=1
-  T[2]=2
-  T[3]=2
+  T[1]=1;
+  T[2]=2;
+  T[3]=2;
   var c=2   //compteur
   var i=2   // position dans le tableau
   while (i<num+1){  
     for (j<- 1 to T[c]{
-      T[i]=c
-      i = i+1
+      T[i]=c;
+      i = i+1;
     }
-    c=c+1
+    c=c+1;
   }
   return T[num]
 }
