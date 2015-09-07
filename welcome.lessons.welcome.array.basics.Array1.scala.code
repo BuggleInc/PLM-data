@@ -8,8 +8,9 @@ override def run() {
   avance(5);
 }
 
-def remplirTableau(t:Array[Color];x:int){
-  for (i<- 0 to 4){
+def remplirTableau(t:Array[Color]){
+  var x = getMondeHauteur() - 2 ;
+  for (i<- 0 to x){
     t(i+1)=getCouleurSol();
     avance();
   }
@@ -17,20 +18,22 @@ def remplirTableau(t:Array[Color];x:int){
 }
 
 def seReplacer(){
-  recule(5)
+  var x = getMondeHauteur() - 1 ;
+  recule(x)
   gauche();avance();droite();
 }
 
 def colorier(t:Array[Color]){
-  for (i<-0 to 4){
+  var x = getMondeHauteur() - 2 ;
+  for (i<-0 to x){
   	setCouleurBrosse(t(i));
     baisseBrosse();
     leveBrosse();
     avance();
   }
-  setCouleurBrosse(t(5));
+  setCouleurBrosse(t(x+1));
   baisseBrosse();
   leveBrosse();
-  recule(5)
+  recule(x+1)
 }
 
