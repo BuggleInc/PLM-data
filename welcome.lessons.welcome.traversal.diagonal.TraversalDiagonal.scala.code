@@ -1,0 +1,30 @@
+var diag = 0;
+var compteur = 0;
+ecritMessage(""+compteur);
+override def run() {
+  compteur += 1
+  while (compteur != 48){
+    if (estFaceMur()){
+      diag += 1;
+      setPos(0, diag);
+    }
+    else{
+      droite();
+      if (estFaceMur()){
+        diag += 1;
+        setPos(0, diag);
+        gauche();
+      }
+      else{
+        avance();
+        droite();
+        avance();
+        gauche();
+      }
+      
+    }
+    ecritMessage(""+compteur)
+    compteur += 1
+  }
+  ecritMessage(""+compteur)
+}
