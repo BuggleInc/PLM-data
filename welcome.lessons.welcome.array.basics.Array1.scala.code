@@ -5,14 +5,15 @@ override def run() {
     tab(i) = getCouleurSol
     avance()
   }
-  gauche();
-  avance();
-  droite();
   for (k <- 0 to taille-1) {
+  	gauche();
+  	avance();
+  	droite();
   	for (j <- 0 to taille-1) {
     	setCouleurBrosse(tab(j));
     	avance();
     	baisseBrosse();
   	}
+    leveBrosse();
   }
 }
