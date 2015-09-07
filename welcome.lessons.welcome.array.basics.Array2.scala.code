@@ -2,11 +2,11 @@ override def run() {
   var h = getMondeHauteur()-1
   var l = getMondeLargeur()
   var T = new Array[Color](h+1)
-  for (i<-0 to T.length-1){
+  for (i<-0 to T.length-2){
     T(i) = getCouleurSol()
     avance()
   }
-  T(T.length) = getCouleurSol()
+  T(T.length-1) = getCouleurSol()
   recule(h)
   for (i<-1 to l-1){
     gauche()
