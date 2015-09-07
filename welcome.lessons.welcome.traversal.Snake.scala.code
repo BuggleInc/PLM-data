@@ -27,16 +27,18 @@ def serpent() {
 
 def end():Boolean = {
   var mur = false
+  var dir:Direction = Direction.EST
+  dir = getDirection()
   if(estFaceMur())
   {
-    if(getDirection()==Direction.OUEST)
+    if(dir==Direction.OUEST)
     {
       droite()
       mur = estFaceMur()
       gauche()
       return mur
     }
-    if(getDirection()==Direction.EST)
+    if(dir==Direction.EST)
     {
       gauche()
       mur = estFaceMur()
