@@ -1,6 +1,7 @@
 override def run() {
   for (longeur <- 1 to getMondeLargeur()){
-    colonne()
+    val d = litMessage().toInt
+    colonne(d)
   } 
   avance(getMondeHauteur()-1)
   gauche()
@@ -10,8 +11,8 @@ override def run() {
 
 
 def getMotif():Array[Color]={
-	var T = new Array[Color](getMondeHauteur())
-	for (pas <- 0 to (getMondeHauteur()-1)){
+  var T = new Array[Color](getMondeHauteur())
+  for (pas <- 0 to (getMondeHauteur()-1)){
     T(pas)=getCouleurSol()
     avance()
   }
@@ -28,8 +29,8 @@ def decalage(n:Int):Array[Color]={
   return D
 }
 
-def colonne(){
-  var D = decalage()
+def colonne(n:Int){
+  var D = decalage(n)
   gauche()
   avance()
   droite()
