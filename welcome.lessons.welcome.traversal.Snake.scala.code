@@ -1,0 +1,35 @@
+def positionFinale():Boolean =
+{
+  if (!estFaceMur())
+  	return false
+  
+  gauche()
+  
+  var ok = false
+  if (estFaceMur())
+  	ok = true
+  
+  droite()
+  return ok
+}
+
+def avanceSerpent()
+{
+  avance()
+  
+  if (estFaceMur() && !positionFinale())
+  {
+    gauche()
+    avance()
+    gauche()
+  }
+}
+
+override def run() {
+  baisseBrosse()
+  
+  while(!positionFinale())
+  {
+		avanceSerpent()
+  }
+}
