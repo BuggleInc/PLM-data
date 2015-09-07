@@ -1,8 +1,9 @@
 override def run() {
   var Ctab=new Array[Color](getMondeHauteur())
+  Ctab(0)=getCouleurSol()
   for (i<- 1 to getMondeHauteur()-1) {
-    Ctab(i-1)=getCouleurSol()
     avance()
+    Ctab(i-1)=getCouleurSol()
   }
   recule(getMondeHauteur()-1)
   for (i<- 1 to getMondeLargeur()-1) { 
@@ -14,11 +15,14 @@ override def run() {
 }
 
 def peinture(Ctab:Array[Color],mess:Int) {
+  setCouleurBrosse(Ctab((mess)%getMondeHauteur()))
+  baisseBrosse()
+  leveBrosse()
   for (i <- 0 to Ctab.length-2) {
+    avance()
     setCouleurBrosse(Ctab((i+mess)%getMondeHauteur()))
   	baisseBrosse()
   	leveBrosse()
-  	avance()
   }
   recule(getMondeHauteur()-1)
 }
