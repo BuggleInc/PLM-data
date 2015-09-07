@@ -1,11 +1,20 @@
-blueTicket:2: error: not found: value ab
-  if(ab=10){
-     ^blueTicket:5: error: not found: value bc
-  if(bc=10){
-     ^blueTicket:8: error: not found: value ac
-  if (ac=10){
-      ^blueTicket:8: error: type mismatch;
+blueTicket:3: error: ambiguous reference to overloaded definition,
+both method + in class Int of type (x: Char)Int
+and  method + in class Int of type (x: Byte)Int
+match expected type ?
+  if(a+b=10){
+      ^blueTicket:6: error: ambiguous reference to overloaded definition,
+both method + in class Int of type (x: Char)Int
+and  method + in class Int of type (x: Byte)Int
+match expected type ?
+  if(b+c=10){
+      ^blueTicket:9: error: ambiguous reference to overloaded definition,
+both method + in class Int of type (x: Char)Int
+and  method + in class Int of type (x: Byte)Int
+match expected type ?
+  if (a+c=10){
+       ^blueTicket:9: error: type mismatch;
  found   : Unit
  required: Int
-  if (ac=10){
+  if (a+c=10){
   ^
