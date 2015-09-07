@@ -1,5 +1,9 @@
 override def run() {
   val T = motif()
+  for (i<-1 to getMondeLargeur()) {
+    placementSuivant()
+    tricot(T)
+  }
 }
 
 def motif() : Array[Color]= {
@@ -12,4 +16,20 @@ def motif() : Array[Color]= {
   T(T.length -1) = getCouleurSol()
   recule(T.length-1)
   return (T)
+}
+
+def placementSuivant() {
+  gauche()
+  avance()
+  droite()
+  avance()
+}
+
+def tricot(T:Array[Color]) {
+  baisseBrosse()
+  for (i<-0 to T.length -1) {
+    setCouleurBrosse(T(i))
+    avance()    
+  }
+  leveBrosse()
 }
