@@ -1,0 +1,33 @@
+override def run() {
+  var taille:Int=getMondeHauteur()
+  var T=new Array[Color](taille)
+  
+  T=rempliTableau(T)
+  avance()
+  
+  for (i<-0 to ((getMondeLargeur())-1)){
+    gauche()
+    avance()
+    droite()
+    avance()
+    for (i<-0 to (taille-1)){
+      dessine(T(i))
+    	avance()
+    }
+  } 
+  
+}
+
+def rempliTableau(T):Array={
+  for (i<-0 to (taille-1)){
+    T(i)<-getCouleurSol()
+  }
+  
+  return T
+}
+
+def dessine(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
