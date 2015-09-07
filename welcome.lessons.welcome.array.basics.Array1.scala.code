@@ -1,0 +1,35 @@
+override def run() {
+	tableaucouleur()
+  for (k <- 1 to 5){
+    gauche()
+    avance()
+    droite()
+    peindre()
+  }
+}
+def tableaucouleur(){
+  var T=array[Color](6)
+  for (i <- 0 to 4){
+    T(i)= getCouleurSol()
+    avance()
+  }
+  T(5)=getColeurBrosse()
+  for (i <- 0 to 5){
+    recule()
+  }
+}
+
+def peindre(){
+  for (i <- 0 to 4){
+    baisseBrosse()
+    setCouleurBrosse(T(i))
+    leveBrosse()
+    avance()
+  }
+  baisseBrosse()
+  setColeurBrosse(T(5))
+  leveBrosse()
+  for (i <- 0 to 5){
+    recule()
+  }
+}
