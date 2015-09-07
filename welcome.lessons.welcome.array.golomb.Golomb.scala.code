@@ -1,9 +1,29 @@
+def occurrences(nums:Array[Int],lookingFor:Int):Int =
+{
+  var occ = 0
+  
+  for (i <- 0 to nums.length - 1)
+  {
+    if (nums(i) == lookingFor)
+    	occ = occ + 1
+  }
+  
+  return occ
+}
+
 def golomb(num:Int): Int = {
   if (num == 1)
   	return 1
   else
   {
-    var termePrecedant = golomb(num - 1)
+    var a = new Array[Int](num - 1)
+    for (i <- 0 to num - 1)
+    	a(i) = golomb(i + 1)
+    
+    var nombreOccurences = occurences(a, num)
+    
+    if (nombreOccurences < a(num - 1))
+    	return 0
   }
   
 	return 0
