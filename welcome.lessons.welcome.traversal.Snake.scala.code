@@ -1,0 +1,56 @@
+override def run() {
+  
+  def endCase():Boolean = {
+    var mur:Boolean = false
+    if (estFaceMur)())
+    {
+      if (getDirection()==Direction.EST)
+      {
+        gauche()
+        mur = estFaceMur()
+        droite()
+        return mur
+      }
+      else if (getDirection()==Direction.OUEST)
+      {
+        droite()
+        mur = estFaceMur()
+        gauche()
+        return mur
+      }
+    }
+    else
+    {
+      return estFaceMur
+    }
+  }
+  
+  def pasSerpent()
+  {
+    if (estFaceMur())
+    {
+      if (getDirection()==Direction.EST)
+      {
+        gauche()
+        avance
+        gauche()
+      }
+      else if (getDirection()==Direction.OUEST)
+      {
+        droite()
+        avance()
+        droite()
+      }
+    }
+    else
+    {
+      avance()
+    }
+  }
+  
+  while (!endCase())
+  {
+    pasSerpent()
+  }
+  
+}
