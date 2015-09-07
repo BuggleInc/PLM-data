@@ -6,13 +6,23 @@ override def run() {
   while (getX() != getMondeLargeur() -1 || getY() != getMondeHauteur() -1){
     if (estFaceMur()){
       diag += 1;
-      setPos(0, diag);
+      if (diag >= getMondeHauteur() -1){
+       setPos(diag - getMondeHauteur() + 1, getMondeHauteur() -1); 
+      }
+      else{
+      	setPos(0, diag);
+      }
     }
     else{
       droite();
       if (estFaceMur()){
         diag += 1;
-        setPos(0, diag);
+      if (diag >= getMondeHauteur() -1){
+       setPos(diag - getMondeHauteur() + 1, getMondeHauteur() -1); 
+      }
+      else{
+      	setPos(0, diag);
+      }
         gauche();
       }
       else{
