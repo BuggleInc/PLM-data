@@ -1,0 +1,25 @@
+public void run() {
+  var taille = getMondeHauteur()
+  var tab = new Array[Color](taille)
+  for (i <- 0 to tab.length-2) {
+    tab(i) = getCouleurSol()
+    avance()
+  }
+  tab(tab.length-1) = getCouleurSol()
+  var largeur = getMondeLargeur()
+  for (i <- 0 to largeur -2) {
+    recule(taille-1)
+    gauche()
+    avance()
+    droite()
+    for (k <- 0 to taille-1) { 
+         marquageSol(tab((k-1)%largeur))
+         }
+  }
+  
+  def marquageSol(couleur:Color) {
+    setCouleurBrosse(couleur)
+    baisseBrosse()
+    leveBrosse()
+  }
+}
