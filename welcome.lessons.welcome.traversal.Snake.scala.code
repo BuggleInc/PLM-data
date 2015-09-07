@@ -1,5 +1,4 @@
 override def run() {
-  setBrushColor(Color.blue)
   brushDown();
   while(! inCorner()) {
     if (isFacingWall()) {
@@ -12,16 +11,18 @@ override def run() {
 
 def inCorner():Boolean = {
   var result:Boolean = false
-  if (getDirection() == Direction.EAST) {
-    left();
-    result = isFacingWall();
-    right();
-  }
+  if (isFacingWall) {
+  	if (getDirection() == Direction.EAST) {
+    	left();
+    	result = isFacingWall();
+    	right();
+  	}
   
-  if (getDirection() ==  Direction.WEST) {
-    right();
-    result = isFacingWall();
-    left();
+  	if (getDirection() ==  Direction.WEST) {
+    	right();
+    	result = isFacingWall();
+    	left();
+  	}
   }
   
   return result;
