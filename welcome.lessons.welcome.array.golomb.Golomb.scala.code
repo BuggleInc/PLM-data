@@ -22,10 +22,12 @@ def golomb(num:Int): Int = {
     for (i <- 0 to num - 1)
     	a(i) = golomb(i + 1)
     
-    var nombreOccurences = occurrences(a, num)
+    var nombreOccurences = occurrences(a, a(num - 1))
     
-    if (nombreOccurences < a(num - 1))
-    	return 0
+    if (nombreOccurences < a(a(num - 1) - 1))
+    	return a(num - 1)
+    else
+    	return a(num - 1) + 1
   }
   
 	return 0
