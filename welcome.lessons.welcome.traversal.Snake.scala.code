@@ -1,2 +1,34 @@
 override def run() {
+  serpent()
+}
+
+
+def fin(): Boolean = {
+  var posf = false
+  getDirection() match{
+    case Direction.NORD => posf = estFaceMur()
+    case Direction.SUD => posf = estDosMur()
+    case Direction.EST => gauche();posf= estFaceMur();droite()
+    case Direction.OUEST => droite();posf= estFaceMur();gauche()
+  }
+  return posf && estFaceMur()
+}
+
+def serpent() = {
+  baisseBrosse()
+  while(!fin()){
+    if(!estFaceMur()){
+      avance()
+    }
+    else if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }
+    else if(getDirection()==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+  }
 }
