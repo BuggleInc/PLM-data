@@ -15,3 +15,21 @@ def hunt(c:Color) {
  }
 
  // here comes your isFacingTrail method
+
+def isFacingTrail():Boolean = {
+  if (estFaceMur()) {
+    return false
+  }
+  else{
+    avance()
+    if (getCouleurSol()==couleur){
+      recule()
+      return true
+      
+    }else{
+      recule()
+      return false
+    }
+    
+  }
+}
