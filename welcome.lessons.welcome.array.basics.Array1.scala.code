@@ -25,15 +25,16 @@ def seReplacer(){
 }
 
 def colorier(t:Array[Color]){
-  for (i<-0 to 4){
+  var x = getMondeHauteur();
+  for (i<-0 to x-2){
   	setCouleurBrosse(t(i));
     baisseBrosse();
     leveBrosse();
     avance();
   }
-  setCouleurBrosse(t(5));
+  setCouleurBrosse(t(x-1));
   baisseBrosse();
   leveBrosse();
-  recule(5)
+  recule(x-1)
 }
 
