@@ -1,57 +1,22 @@
-def endCase():Boolean = {
-  var mur:Boolean = false
-  if( estFaceMur() )
-  {
-    if( getDirection() == Direction.EST )
-    {
-      gauche()
-      mur = estFaceMur()
-      droite()
-      return mur      
-    }
-    if( getDirection() == Direction.OUEST )
-    {
-      droite()
-      mur = estFaceMur()
-      gauche()
-      return mur
-    }
-  }
-  else
-  {
-    return estFaceMur()
-  }
+override def run() {
+  serpent()
 }
 
-def pasSerpent() = {
-  if(estFaceMur())
-  {
-    if( getDirection() == Direction.EST )
-    {
-      gauche()
-      avance()
-      gauche()
-    }
-    if( getDirection() == Direction.OUEST )
-    {
-      droite()
-      avance()
-      droite()
-    }
-  }
-  else
+def serpent() {
+  if (!estFaceMur())
   {
     avance()
   }
-}
-
-
-override def run() {  
-  
-  baisseBrosse()
-  while (!endCase())
+  else if(getDirection()==Direction.OUEST)
   {
-    pasSerpent()
+    droite()
+    avance()
+    droite()
   }
-  
+  else if(getDirection()==Direction.EST)
+  {
+    gauche()
+    avance()
+    gauche()
+  }
 }
