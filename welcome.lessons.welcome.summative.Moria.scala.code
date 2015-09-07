@@ -11,7 +11,7 @@ while (! isFacingWall) {
 def moveBaggle() {
   pickupBaggle();
   back();
-  while (!isFacingWall() && !isOverBaggle() && (getDirection() == Direction.WEST)) {
+  while (!isFacingWall() && !isOverBaggle() && isFacingWest) {
     forward();
   }
   
@@ -19,4 +19,11 @@ def moveBaggle() {
   backward();
   dropBaggle();
   back()
+}
+
+def isFacingWest():Boolean = {
+  if (getDirection() == Direction.WEST)
+  	return true
+  
+  return else
 }
