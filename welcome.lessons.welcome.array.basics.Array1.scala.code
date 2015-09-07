@@ -5,11 +5,16 @@ override def run() {
     tableau(pas)=getCouleurSol()
     avance()
   }
-  gaauche()
+  for(colonne<-1 to getMondeLargeur()-1){
+    gauche()
+    avance()
+    droite()
+    colonneSuivante()
+  }
 }
 
-def colonneSuivante(i:int){
-  avance(i)
+def colonneSuivante(){
+  avance()
   for(pas <-0 to tailleTableau -1){
     setCouleurBrosse(tableau(pas))
     baisseBrosse()
