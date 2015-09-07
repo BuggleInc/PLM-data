@@ -14,16 +14,16 @@ for (i <- 1 to getMondeLargeur-1){
   var j =0
   for (m <- 1 to i-1){avance()}
   do {avance();
-     setCouleurBrosse(T((getMondeHauteur-j)%getMondeHauteur));
+     setCouleurBrosse(T((j)%getMondeHauteur));
      baisseBrosse();
      leveBrosse();
      j=j+1}
   while (estFaceMur==false);
   do {recule()} while(!estDosMur())
-  setCouleurBrosse(T((getMondeHauteur-j)%getMondeHauteur));
+  setCouleurBrosse(T((j)%getMondeHauteur));
   baisseBrosse();
   leveBrosse();
-  for (k <- 1 to i){avance();setCouleurBrosse(T((getMondeHauteur-j-k)%getMondeHauteur));baisseBrosse();leveBrosse()};
+  for (k <- 1 to i){avance();setCouleurBrosse(T((j+k)%getMondeHauteur));baisseBrosse();leveBrosse()};
   for (l <- 1 to i){recule()};
 }
 }
