@@ -1,27 +1,28 @@
-var caseVerte = false
+
 
 def hunt() {
+  var caseVerte=false
 	if (estSurBiscuit==true) {
       prendBiscuit();
     }
-  else 
-  	
-	def isFacingTrail():Boolean = { 
-		if (estFaceMur==false) {
-			avance();
-  		if (getCouleurSol()==Color.green) {
-  			recule();
-    		caseVerte = true;
-  	
-    		}
-    		else { 
-      		recule();
-  				caseVerte = false
-      	}   
- 		}
-  	else gauche()
-  	return caseVerte  
-	}
+  else isFacingTrail();
 }
 
 
+
+def isFacingTrail():Boolean = { 
+	if (estFaceMur==false) {
+		avance();
+  	if (getCouleurSol()==Color.green) {
+  		recule();
+    	caseVerte = true;
+  	
+    	}
+    	else { 
+      	recule();
+  			caseVerte = false
+      }   
+ 	}
+  else gauche()
+  return caseVerte  
+}
