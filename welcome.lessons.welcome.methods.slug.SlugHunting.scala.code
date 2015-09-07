@@ -4,24 +4,24 @@ def hunt() {
 	if (estSurBiscuit==true) {
       prendBiscuit();
     }
-  else isFacingTrail();
-}
-
-
-
-def isFacingTrail():Boolean = { 
-	if (estFaceMur==false) {
-		avance();
-  	if (getCouleurSol()==Color.green) {
-  		recule();
-    	caseVerte = true;
+  else 
   	
-    	}
-    	else { 
-      	recule();
-  			caseVerte = false
-      }   
- 	}
-  else gauche()
-  return caseVerte  
+	def isFacingTrail():Boolean = { 
+		if (estFaceMur==false) {
+			avance();
+  		if (getCouleurSol()==Color.green) {
+  			recule();
+    		caseVerte = true;
+  	
+    		}
+    		else { 
+      		recule();
+  				caseVerte = false
+      	}   
+ 		}
+  	else gauche()
+  	return caseVerte  
+	}
 }
+
+
