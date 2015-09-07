@@ -1,15 +1,15 @@
 override def run() {
   var tab = new Array[Color](6);
-  var x = getMondeHauteur()
+  var x = getMondeHauteur();
   for (i<-1 to (x-1)){
- 	  remplirTableau(tab);
+ 	  remplirTableau(tab,x);
   	seReplacer();
-  	colorier(tab)
+  	colorier(tab,x)
   }
   avance(x-1);
 }
 
-def remplirTableau(t:Array[Color]){
+def remplirTableau(t:Array[Color],x:int){
   for (i<- 0 to (x-2)){
     t(i+1)=getCouleurSol();
     avance();
@@ -22,7 +22,7 @@ def seReplacer(){
   gauche();avance();droite();
 }
 
-def colorier(t:Array[Color]){
+def colorier(t:Array[Color],x:int){
   for (i<-0 to (x-2)){
   	setCouleurBrosse(t(i));
     baisseBrosse();
