@@ -1,0 +1,74 @@
+var nbCarre : Int = 0
+
+def sePlacer() {
+  recule(5);
+  gauche();
+  if (nbCarre % 2 == 1) {
+    avance(2);
+    droite();
+    avance(2); 
+  } else {
+    avance();
+    droite();
+    recule(8);
+    droite();
+    avance(5);
+    gauche(); 
+  }
+}
+
+def fleur(c:Color) {    // c : couleur petales
+  setCouleurBrosse(c);
+  baisseBrosse();
+  avance(2);
+  recule();
+  gauche();
+  avance();
+  recule(2);
+  avance();
+  setCouleurBrosse(Color.YELLOW);
+  droite();
+  leveBrosse();
+}
+
+def carreFleur() {
+  fleur(Color.RED);
+  avance(3);
+  fleur(Color.CYAN);
+  recule(5);
+  droite();
+  avance(4);
+  gauche();
+  fleur(Color.PINK);
+  avance(3);
+  fleur(Color.GREEN);
+  nbCarre = nbCarre + 1;
+}
+
+def ligneFleur() {
+  fleur(Color.ORANGE);
+  avance(3);
+  fleur(Color.BLUE);
+  avance(3);
+  fleur(Color.ORANGE);
+}
+
+def growFlowers() {
+  carre();
+  sePlacer();
+  recule();
+  gauche();
+  avance(2);
+  droite();
+  recule(2);
+  carre();
+  sePlacer();
+  carre();
+  recule();
+  gauche();
+  avance(2);
+  droite();
+  recule(2);
+  carre();
+  recule(5);
+}
