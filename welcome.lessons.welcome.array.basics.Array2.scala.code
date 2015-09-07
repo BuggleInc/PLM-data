@@ -10,15 +10,7 @@ override def run() {
       if (i == 1){
         array(j - 1) = getGroundColor()
       }
-      else{
-        
-      	offset = readMessage().toInt
-      	setBrushColor(array(offset))
-    		brushDown()
-    		brushUp()
-      	forward() 
-        
-      }  
+      forward() 
     }
     
     for (j <- 1 to world_size - 1){
@@ -28,5 +20,10 @@ override def run() {
     left()
     forward()
     right()
+     
+    offset = readMessage().toInt
+    setBrushColor(array(offset))
+    brushDown()
+    brushUp()
   } 
 }
