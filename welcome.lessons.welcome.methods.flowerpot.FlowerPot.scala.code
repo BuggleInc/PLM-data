@@ -1,0 +1,52 @@
+def growFlowers() {
+  L2F(Color.red,Color.cyan)
+  init()
+  L1F(Color.orange)
+  init()
+  L2F(Color.pink,Color.green)
+}
+
+def flower(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  setCouleurBrosse(Color.yellow)
+  droite()
+  leveBrosse()
+  avance() 
+}
+
+def L2F(c1:Color,c2:Color) {
+  flower(c1)
+  avance()
+  avance()
+  flower(c2)
+  for (i<-1 to 6)
+  {
+    recule()
+  }
+}
+
+def L1F(c:Color) {
+  avance()
+  avance()
+  flower(c)
+  for (i<-1 to 4)
+  {
+    recule()
+  }
+}
+
+def init() {
+  droite()
+  avance()
+  avance()
+  gauche()
+}

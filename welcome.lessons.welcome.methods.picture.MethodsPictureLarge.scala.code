@@ -1,0 +1,53 @@
+override def run() {
+  
+  def paint() {
+    baisseBrosse()
+    leveBrosse()
+  }
+  
+  def faireV(col:Color) {
+    setCouleurBrosse(col)
+    avance()
+    paint()
+    avance()
+    gauche()
+    avance()
+    paint()
+    recule()
+    droite()
+    avance()
+    paint()
+    avance()
+    gauche()    
+  }
+  
+  def faireM() {
+    faireV(Color.yellow)
+    faireV(Color.red)
+    faireV(Color.blue)
+    faireV(Color.green)
+    for( i<-1 to 5)
+    {
+      avance()
+    }
+  }
+  
+  def faireL(nbM:Int) {
+    for (i<- 1 to nbM)
+        {
+          faireM()
+        }
+    gauche()
+    for( i<-1 to 5)
+    {
+      avance()
+    }
+    droite()
+  }
+  
+  for( i<-1 to 9)
+    {
+      faireL(9)
+    }
+  
+}
