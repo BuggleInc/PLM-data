@@ -6,13 +6,14 @@ override def run() {
     T(i) = getCouleurSol()
     avance()
   }
+  T(T.length) = getCouleurSol()
   recule(h)
   for (i<-1 to l-1){
     gauche()
     avance()
     droite()
     val decalage = litMessage.toInt
-    for (i<-0 to T.length){
+    for (i<-0 to T.length-1){
       var a = (i + decalage)%T.length
       tampon(T,a)
       avance()
