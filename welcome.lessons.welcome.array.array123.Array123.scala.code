@@ -3,10 +3,9 @@ def array123(nums:Array[Int]): Boolean = {
   var deux = false
   var trois = false
   for (i <- 0 to nums.length -1){
-    if(!un && nums(i)==1){un=true}
-    if(un && nums(i) == 2){deux=true}
-    else {un == false}
-    if(un && deux && nums(i)==3){trois=true}
+    if(un==false && nums(i)==1){un=true}
+    else if(un==true && nums(i) == 2){deux=true}
+    else if(un && deux && nums(i)==3){trois=true}
     else {un = false; deux=false}  
     
   }
