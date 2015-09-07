@@ -1,22 +1,16 @@
-def golomb(num:Int): Int={
-  var T=new Array[Int](num)
-  for (i:Int<-3 to 3){
-    T(i)=0
-    return T(num-1)
-  } 
-  return 0
-}
-
-
-
-/*def golomb(num:Int): Int = {
+def golomb(num:Int): Int = {
   var T=new Array[Int](num)
   var x=2   //valeur
   var y=1   //position
   var r=2   //repetition
   T(0)=1
   while (T(num-1)==0){
-    for (i<-y to Math.min(y+r-1,num-1)){
+    var g=Math.min(y+r-1,num-1)
+    if (y==g){
+      T(y=x)
+    }
+    else {
+      for (i<-y to g){
       T(i)=x
     }
     x=x+1
@@ -24,4 +18,4 @@ def golomb(num:Int): Int={
     r=T(x)
   }
   return T(num-1)
-}*/
+}
