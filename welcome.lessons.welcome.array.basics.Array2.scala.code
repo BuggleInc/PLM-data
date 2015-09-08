@@ -1,13 +1,13 @@
 override def run() {
   var T = new Array[Color](getMondeHauteur()+1)
+  var nbr:Int=0
   col1(T)
   left()
   avance()
   right()
-  recule()
-  
   for (m<-1 to getMondeLargeur()-1){
     col(T)
+    nbr= nbr+1
   }
   for(a<-1 to getMondeHauteur()-1){
     avance()
@@ -20,17 +20,20 @@ override def run() {
 }
 
 def col1(T:Array[Color]){
-  for (i<-1 to getMondeHauteur()){
+  for (i<-1 to getMondeHauteur()-1){
     T(i)=getCouleurSol()
     avance()
   }  
+  for(a<-1 to getMondeHauteur()-1){
+    recule()
+  }
 }
 
 
 
-def col(T:Array[Color]){
-  for (l<-1 to getMondeHauteur()){
-    setCouleurBrosse(T(l))
+def col(T:Array[Color],nbr:Int){
+  for (l<-1 to getMondeHauteur()-1){
+    setCouleurBrosse(T((l+nbr)%getMondeHauteur())
     baisseBrosse()
     leveBrosse()
     avance()
