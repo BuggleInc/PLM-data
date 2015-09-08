@@ -4,13 +4,14 @@ for (i <- 0 to Tab.length-2) {
   Tab(i)=getCouleurSol()
   avance()
 }
+  Tab(getMondeHauteur())=getCouleurSol()
   for (i<- 1 to getMondeLargeur()) {
     reculemul(getMondeHauteur()-1)
     gauche()
     avance()
     droite()
     for (i <- 0 to Tab.length-1) {
-      peinture(Tab(i))
+      peinture(Tab((i+litMessage().toInt)%getMondeHauteur()))
       avance()
     }
   }
