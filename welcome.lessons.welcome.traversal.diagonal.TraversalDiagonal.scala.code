@@ -12,7 +12,7 @@ override def run() {
 
 def diagonale(cpt : Int) : Int = {
   var compteur = cpt +1
-  
+  var h = 0
   if(diag < getMondeHauteur()-1){
     for(i<-1 to diag){
     	ecritMessage(compteur)
@@ -24,9 +24,10 @@ def diagonale(cpt : Int) : Int = {
     setPos(0,diag)
   }
   else{
+    h = getX()
     ecritMessage(diag)
     ecritMessage("POULET")
-    for(i<-1 to diag){
+    for(i<-1 to (diag-h){
   	  ecritMessage(compteur)
   	  setPos(getX()+1,getY()-1)
  	  	compteur = compteur + 1
