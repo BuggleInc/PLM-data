@@ -11,18 +11,26 @@ override def run() {
 
 def diagonale(cpt : Int) : Int = {
   var compteur = cpt +1
-  for(i<-1 to diag){
-    ecritMessage(compteur)
-    setPos(getX()+1,getY()-1)
-    compteur = compteur + 1
-  }
-  ecritMessage(compteur)
-  diag = diag + 1
-  if(diag < getMondeHauteur()){
+  
+  if(diag + 1 < getMondeHauteur()){
+    for(i<-1 to diag){
+    	ecritMessage(compteur)
+   	 setPos(getX()+1,getY()-1)
+   	 compteur = compteur + 1
+  	}
+  	ecritMessage(compteur)
+  	diag = diag + 1
     setPos(0,diag)
   }
   else{
     ecritMessage("POULET")
+    for(i<-1 to (1-diag)%getMondeHauteur()){
+  	  ecritMessage(compteur)
+  	  setPos(getX()+1,getY()-1)
+ 	  	compteur = compteur + 1
+  	}
+  	ecritMessage(compteur)
+  	diag = diag + 1
     setPos(diag%(getMondeHauteur()-1),getMondeHauteur()-1)
   }
   return compteur
