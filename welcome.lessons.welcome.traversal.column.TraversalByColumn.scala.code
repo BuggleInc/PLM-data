@@ -1,15 +1,19 @@
 override def run() {
+  var cpt:Int = 0
   var posX:Int = 0
   var posY:Int = 0
   while (!estPosFinale()) {
     setPos(posX, posY)
+    ecritMessage()
     if (getY() == getMondeHauteur()-1) {
       posX += 1
       posY = 0
     } else {
       posY += 1
+      cpt += 1
     }
   }
+  ecritMessage()
 }
 
 def estPosFinale():Boolean = {
