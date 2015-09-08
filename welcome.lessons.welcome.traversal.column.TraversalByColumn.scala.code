@@ -3,11 +3,11 @@ override def run() {
   var x=1
   var y=2
   ecritMessage(i)
-  avance()
+  setPos(x,y)
   while (!posFinale()) {
     if (!estFaceMur()) {
     	ecritMessage(i)
-    	if (y<=getMondeHauteur()) {setPos(x,y);y+=1}      
+    	if (y<getMondeHauteur()) {y+=1;setPos(x,y)}      
     }
 		else if (!posFinale() && estFaceMur()) {x+=1;setPos(x,y)}
   }
