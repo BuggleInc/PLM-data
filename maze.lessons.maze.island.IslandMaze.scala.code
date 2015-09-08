@@ -1,8 +1,12 @@
 override def run() {
   while (!isOverBaggle()) {
-		headNorth()
+    while (getDirection() != Direction.NORTH) {
+	    keepWallOnLeft()
+    }
+  	while (! isFacingWall()) {
+    	forward()
+  	}
     
-    keepWallOnLeft()
   }
   pickupBaggle()
 }
