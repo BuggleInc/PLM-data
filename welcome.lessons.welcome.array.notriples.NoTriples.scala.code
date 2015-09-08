@@ -3,22 +3,19 @@ def noTriples(nums:Array[Int]): Boolean = {
   	return true
   var compteur = 1
   var valeur = nums(0)
-  else
+  for (i <- 1 to nums.length -1)
   {
-    for (i <- 1 to nums.length -1)
+    if (nums(i)==valeur)
     {
-      if (nums(i)==valeur)
-      {
-        compteur += 1
-        if (compteur ==3)
-        	return false
-      }
-      else
-      {
-				compteur = 1
-        valeur = nums(i)
-      }
+      compteur += 1
+      if (compteur ==3)
+      return false
     }
-    return true
+    else
+    {
+      compteur = 1
+      valeur = nums(i)
+    }
   }
+  return true
 }
