@@ -1,17 +1,18 @@
 var nbPas=0
-do {
-  var nbBiscuit=0
-  for (nbPas <- 1 to 6) {
+while (sortietrouvee()=false){
+  do {
+    
+    var nbBiscuit=0
+    for (nbPas <- 1 to 6) {
     avance()
-    if (estSurBiscuit()==true){
+      if (estSurBiscuit()==true){
       nbBiscuit=nbBiscuit+1
     }}
-  if (nbBiscuit<3){
-  droite()
+    if (nbBiscuit<3){
+    droite()
+    }
+    if (nbBiscuit>=3){
+    gauche()
   }
-  if (nbBiscuit>=3){
-  gauche()
-  }
-} while (crossing()==true)  
-  
-  
+} while (crossing()==true)
+}  
