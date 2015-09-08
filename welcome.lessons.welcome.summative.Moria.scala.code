@@ -1,0 +1,40 @@
+def bougerUnCooky()
+{
+  // A utiliser sur un biscuit !
+  prendBiscuit()
+  droite(2)
+  while(!estSurBiscuit())
+  {
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  droite()
+  droite()
+}
+
+def sortieLaby()
+{
+  //A utiliser face à un mur !
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+override def run()
+{
+  droite(2)
+  while (getCouleurSol()!=color.green)
+  {
+    while(!estFaceMur())
+    {
+      while(!estSurBiscuit())
+      {
+        avance()
+      }
+      bougerUnCooky()
+    }
+    sortieLaby()
+  }
+}
