@@ -1,2 +1,20 @@
 override def run() {
+  baisseBrosse()
+  while (!posfin()) {
+  }
 }
+
+
+
+def posfin():Boolean {
+  if ((getDirection()==Direction.est) && estFaceMur()) {
+    gauche()
+    if (estFaceMur()) {
+      return true
+    }
+  } else {
+    return false
+  }
+}
+
+def snakeWalk()
