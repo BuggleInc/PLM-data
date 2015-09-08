@@ -8,14 +8,17 @@ override def run() {
 }
 
 def estArrive() :Boolean = {
+  var test = false
   if (estFaceMur()) {
     if (getDirection()==Direction.EST) {
       gauche()
-      return estFaceMur()
+      if (estFaceMur()) test = true
+      droite()
     }
     else if (getDirection()==Direction.OUEST) {
       droite()
-      return estFaceMur()
+      if (estFaceMur()) test = true
+      gauche()
     }
     else return false
   }
