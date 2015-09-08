@@ -3,7 +3,7 @@ override def run() {
   for(i<-0 to getMondeHauteur()-1) {
     T(i)=getCouleurSol()
     if(estFaceMur()) {
-      for(i<-1 to getMondeHauteur()-1) {
+      for(j<-1 to getMondeHauteur()-1) {
         recule()
       }
     }
@@ -14,15 +14,15 @@ override def run() {
   for(i<-0 to getMondeHauteur()-1) {
     gauche(); avance(); droite()
     var decalage = litMessage().toInt
-    for(i<-1 to decalage) {
+    for(j<-1 to decalage) {
       avance()
     }
-    for(i<-0 to getMondeHauteur()-1) {
-      setCouleurBrosse(T(i))
+    for(j<-0 to getMondeHauteur()-1) {
+      setCouleurBrosse(T(j))
       baisseBrosse()
       leveBrosse()
       if(estFaceMur()) {
-        for(i<-1 to getMondeHauteur()-1) {
+        for(k<-1 to getMondeHauteur()-1) {
           recule()
         }
       }
