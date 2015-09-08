@@ -15,8 +15,13 @@ override def run() {
   }
   
   def cestLeNord(){
-      while(estFaceMur()){droite();cestLeNord()}
-    avance();
+      if(estFaceMur()){
+        while(estFaceMur()){droite();}
+        while(getDirection() != Direction.NORTH){
+          placement()          
+        }
+      }
+			else{avance();}
       
 
   }
