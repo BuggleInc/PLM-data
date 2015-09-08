@@ -1,2 +1,30 @@
 override def run() {
+  var ord=getY()
+  var abs=getX()
+  var h=getMondeHauteur()
+  var m=0
+  while (arrive()==false){
+    println("yo")
+    ecritMessage(m)
+    m=m+1
+    if (abs==l-1){
+      ord=ord+1
+      abs=0
+      setPos(abs,ord)
+    }
+    else {
+      abs=abs+1
+    setPos(abs,ord)
+  }
+ }
+  ecritMessage(m)
+}
+
+def arrive():Boolean={
+  var h=getMondeHauteur()
+  var l=getMondeLargeur()
+  if (getX()==l-1 && getY()==h-1){
+    return true
+  }
+  else return false
 }
