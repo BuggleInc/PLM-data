@@ -1,14 +1,16 @@
 override def run() {
+  
+  var T = memo()
   for (cpt2 <-1 to getMondeLargeur) {
     
-  	var T = memo()
+  	
   	gauche()
   	avance()
   	droite()
   	var decalage = litMessage().toInt
   	
     
-    for (cpt3 <-0 to T.length -2) {
+    for (cpt3 <-0 to T.length -1) {
       setCouleurBrosse(T((cpt3 + decalage) % T.length))
       baisseBrosse()
       leveBrosse()
