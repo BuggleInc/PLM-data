@@ -2,15 +2,16 @@ def golomb(num:Int): Int = {
   var c:Int = 0;
   var T1 = new Array[Int](num);
   var T2 = new Array[Int](num);
-  T2(0)=1;
+  T1(0)=1;
   for ( i <- 1 to num ){
-    while( T2(i-1) >= 1 ){
+    while( T1(i-1) >= 1 ){
       if ( c >= num ){
         return T2(num-1);
       }
       T2(c) = i;
+      T1(c) = i;
       c += 1
-      T2(i-1) = T2(i-1)-1;
+      T1(i-1) = T1(i-1)-1;
     }
   }
   return T2(num-1);
