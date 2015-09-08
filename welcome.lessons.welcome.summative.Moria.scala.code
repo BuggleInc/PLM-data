@@ -1,0 +1,9 @@
+retourne()
+while (getCouleurSol()==Color.green){
+	while (!estSurBiscuit() && !estFaceMur()) {avance()}
+	if (estSurBiscuit()) {prendBiscuit()}
+  retourne()
+  while(!estSurBiscuit()) {avance()}
+  if (estSurBiscuit()) {recule();poseBiscuit();retourne()}
+  if (estFaceMur()) {droite();avance();gauche();avance()}
+}
