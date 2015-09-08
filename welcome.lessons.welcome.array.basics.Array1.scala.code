@@ -1,0 +1,43 @@
+override def run() {
+  lecture()
+  for(i<-1 to getMondeLargeur())
+  {
+    write()
+    init()
+  }
+  recule()
+  droite()
+  avance()
+  gauche()
+}
+
+def lecture():Array = {
+  var c = new Array[Color](getMondeHauteur())
+  for(i<-1 to getMondeHauteur())
+  {
+    c[i] = getColorSol()
+  }  
+}
+
+def init() {
+  avance()
+  gauche()
+  avance()
+  droite()
+}
+
+def paint() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def write(start:Int) {
+  start = cpt
+  for(i<- 1 to getMondeHauteur())
+  {
+    setBrosseCouleur(cpt%getMondeHauteur())
+    cpt=cpt+1
+    paint()
+    avance()
+  }
+}
