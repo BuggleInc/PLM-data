@@ -1,5 +1,6 @@
 override def run() {
   var fonctionTest:Boolean=false
+  
   while (!fonctionTest) {
     if (estFaceMur()){
       if (getDirection() == Direction.EST){
@@ -10,16 +11,15 @@ override def run() {
           avance()
           gauche()
         }
-      }
-      if (getDirection() == Direction.OUEST){
-        droite()
-        if (estFaceMur()){
-          fonctionTest=true
-        } else {
-          avance()
+      } else if (getDirection() == Direction.OUEST){
           droite()
+          if (estFaceMur()){
+            fonctionTest=true
+          } else {
+            avance()
+            droite()
+          }
         }
-      }
     }
     avance()
   }
