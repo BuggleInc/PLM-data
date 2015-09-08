@@ -7,18 +7,17 @@ override def run() {
     
     offset = readMessage().toInt
     
-    for (j <- 1 to world_size - 1){
-     		
-
+    for (j <- 0 to world_size - 2){
+      
         setBrushColor(array((offset + j)%world_size))
     		brushDown()
     		brushUp() 
         forward()
     }
+    backward(world_size - 1)
     left()
     forward()
     right()
-    backward(world_size - 1)
   } 
 }
 
