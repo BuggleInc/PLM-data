@@ -1,0 +1,25 @@
+override def run() {
+  def colore(c:Color){
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+  var tab = new Array[Color](getMondeHauteur())
+  tab(0)=getCouleurSol()
+  for(i<-1 to tab.length-1){
+    avance()
+    tab(i)=getCouleurSol()
+  }
+  recule(getMondeHauteur()-1)
+  for(i<- 1 to getMondeLargeur()-1){
+    gauche()
+  	avance()
+  	droite()
+  	avance()
+    for(j<-0 to getMondeHauteur()-1){
+      colore(tab((j*i+1)%(tab.length)))
+             avance()    
+    }
+    recule(getMondeHauteur()-1)
+  }
+}
