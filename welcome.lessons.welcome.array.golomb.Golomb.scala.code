@@ -3,6 +3,7 @@ def golomb(num:Int): Int = {
   var y=3
   var x=0
   var c=2
+  var b=3
   T(1)=1
   T(2)=2
   T(3)=2
@@ -10,9 +11,9 @@ def golomb(num:Int): Int = {
     x=T(y)
     for (c <- y to y+x){
       T(c)=y
-      y=y+1
+      b=b+1
     }
-    
+    y=b  
   } 
   return T(num)
 }
