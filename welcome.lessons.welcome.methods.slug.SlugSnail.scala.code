@@ -1,5 +1,34 @@
- def hunt(c:Color) {
-     // Write your code here
- }
+var couleur = false
 
- // here comes your isFacingTrail method   
+def hunt(c:Color) {
+  avance();
+	Case.Couleur=getCouleurSol();
+  recule();
+  while (estSurBisucit==false) {
+  	isFacingTrail();
+    if (couleur==true){
+      avance();
+    }
+  	
+  }
+     
+}
+
+
+
+def isFacingTrail():Boolean = { 
+	if (estFaceMur==false) {
+		avance();
+  	if (getCouleurSol()==Case.Couleur) {
+  		recule();
+    	couleur = true;
+  	
+    	}
+    	else { 
+      	recule();
+  			couleur = false
+      }   
+ 	}
+  else gauche()
+  return couleur  
+}
