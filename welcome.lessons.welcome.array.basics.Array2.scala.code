@@ -13,11 +13,10 @@ override def run() {
     avance()
     droite()
     var n = litMessage().toInt
-    avance(n)
     baisseBrosse()
     leveBrosse()
-    for ( i<-0 to T.length-2 ){
-      setCouleurBrosse(T(i))
+    for ( i<-n to T.length-2+n ){
+      setCouleurBrosse(T(i)%hauteur)
       baisseBrosse()
       leveBrosse()
       avance()
