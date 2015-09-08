@@ -1,0 +1,25 @@
+override def run() {
+  var hauteurMonde = getMondeHauteur()
+  var largeurMonde = getMondeLargeur()
+  Color = remplirTableau1(hauteurMonde)
+  for (i<- 1 to largeurMonde-1) {
+    gauche()
+    avance()
+    droite()
+    avance()
+    for ( l<- 0 to hauteurMonde-1) {
+      setCouleurBrosse(Color(l))
+      baisseBrosse()
+      avance()
+    }
+  }  
+}
+
+def remplirTableau1(hauteurMonde :int):Array[Color] = {
+  var Color = new Array[Color] (hauteurMonde)
+  	for (d <- 1 to hauteurMonde) {
+      Color(d-1) = getCouleurSol()
+      avance()
+    }
+  return Color
+}
