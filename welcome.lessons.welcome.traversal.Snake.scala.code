@@ -1,2 +1,36 @@
 override def run() {
+  var toggle:Boolean = false
+  
+  while(!finalPositionReached()){
+    
+    for (i <- 1 to getWorldHeight()){
+      forward()
+    }
+   	
+    if (toggle){
+      left()
+      forward()
+      left()
+    } else {
+      right()
+      forward()
+      right()
+    }
+    
+    toggle = !toggle
+  }
+  
+}
+
+
+
+
+def finalPositionReached():Boolean = {
+   
+  getDirection() match {
+    case Direction.EAST => left()
+    case Direction.WEST => right()
+  }
+  
+  return isFacingWall()
 }
