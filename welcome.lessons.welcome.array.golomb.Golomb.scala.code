@@ -1,14 +1,34 @@
 def golomb(num:Int): Int = {
-  var compteur = 2
-  var tableau = new Array[Int](3)
+  var compteur1 = 3
+  var compteur2 = 3
+  var tableau = new Array[Int](num*num)
   tableau(0) = 1
   tableau(1) = 2
   tableau(2) = 2
-  while(compteur<num)
+  while (compteur2<num)
   {
-    var T = new Array[Int](tableau(compteur))
-    tableau = tableau + T
-    compteur +=1
+    for (i<-1 to tableau(compteur1-1))
+         {
+           tableau(compteur2+i-1) = compteur1
+         }
+  compteur2 = compteur2 + compteur1 -1
+  compteur1 +=1
   }
-  return tableau(num-1)
+  return tableau(num)
 }
+
+/* Le compteur 1 est l? pour d?signer les cases du tableau en tant qu'indice.
+Le compteur 2 est l? pour d?signer la position lors du remplissage du tableau.
+Il faut donc pour remplir une partie du tableau :
+  -Prendre la valeur de tableau(compteur1) = val
+  -Ajouter val fois cette valeur ? la suite du tableau
+  -Incr?menter et continuer jusqu'? ce qu'on ait une valeur affich?e dans le tableau pour num
+
+Attention ? bien enlever 1 aux compteurs ? chaque fois !!!
+
+
+         
+         1 2 3 4 5 6 7 8 9 10 11   compteur1
+         1 2 2 3 3 4 4 4 5 5  5    compteur2
+         
+*/
