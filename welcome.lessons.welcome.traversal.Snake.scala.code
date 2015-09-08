@@ -14,20 +14,27 @@ def testFinal() : Boolean = {
  if ( estFaceMur() ){
    if ( getDirection() == Direction.EST ){
      gauche();
-     return estFaceMur();
+     if ( !estFaceMur() ){
+       droite();
+     } else {
+       return true;
+     }
    } else {
      droite();
-     return estFaceMur();
+     if ( !estFaceMur() ){
+       gauche();
+     } else {
+       return true;
+     }
    }
- } else {
-   return false;
- }
+ } 
+ return false;
 }
 
 def snake() {
   if ( getDirection() == Direction.OUEST ){
-    avance(); droite();
+    droite(); avance(); droite();
   } else {
-    avance(); gauche();
+    gauche(); avance(); gauche();
   }
 }
