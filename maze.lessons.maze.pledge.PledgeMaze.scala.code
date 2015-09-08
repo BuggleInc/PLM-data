@@ -3,8 +3,8 @@ override def run() {
     if (getDirection()!=Direction.SUD){
       goNorth();
     }
-    while (!VerifNorth()){
-      keepHandOnWall()
+    while (!VerifNorth() || getDirection()==Direction.SUD){
+      keepHandOnWall();
     }
   }
 }
