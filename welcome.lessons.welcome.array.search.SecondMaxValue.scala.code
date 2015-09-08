@@ -4,11 +4,12 @@ def max2Value(nums:Array[Int]): Int = {
        var L=nums.length
        var pos=nums(0)
   for (i<-0 to L-1) {
-     if ((nums(i)>=pos)&&(nums(i)!=max1)) {
+     if ((nums(i)>=pos)) {
        pos=nums(i)
-       compteur = compteur + 1
-       if (compteur == 2) {
-         return pos
+       
+       if (nums(i)==max1) {
+         compteur = compteur + 1
+         if (compteur == 2) {return pos }
        }
       
      }
