@@ -2,7 +2,7 @@ override def run() {
   var compteur = 1
   ecritMessage(0)
   while(!fin()) {
-    parcoursGauche(getX(),getY())
+    parcoursDouble(getX(),getY())
     ecritMessage(compteur)
     compteur =compteur+1
   }
@@ -14,7 +14,7 @@ def fin() :Boolean={
 }
 
 
-def parcoursGauche(x:Int,y:Int) {
+/*def parcoursGauche(x:Int,y:Int) {
   if (x==getMondeLargeur()-1) {
     setPos(x,y+1)
    	parcoursDroite(x,y)
@@ -28,4 +28,21 @@ def parcoursDroite(x:Int,y:Int) {
    	parcoursGauche(x,y)
   }
   else setPos(x-1,y)
+}*/
+
+def parcoursDouble(x:Int,y:Int,d:Boolean) {
+  if (d) {
+    if (x==getMondeLargeur()-1) {
+    setPos(x,y+1)
+   	d=false
+  }
+  else setPos(x+1,y)
+  }
+  if (!d) {
+    if (x==0) {
+    setPos(x,y+1)
+   	d= true
+  }
+  else setPos(x-1,y)
+  }
 }
