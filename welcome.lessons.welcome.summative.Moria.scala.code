@@ -1,6 +1,6 @@
 def fuyezPauvresFous() {
   gauche();gauche()
-  do{
+  while(!estFaceMur()){
     if(!estSurBiscuit()){
       avance()
     }
@@ -14,8 +14,19 @@ def fuyezPauvresFous() {
       avance()
     }
     
-  }while(!estFaceMur())
-  
+  }
+  if(estSurBiscuit()){
+    prendBiscuit()
+    while(!estSurBiscuit()){
+      recule()
+    }
+    avance()
+    poseBiscuit()
+    avance()
+    while(!estFaceMur()){
+      avance()
+    }
+  }
   droite();avance();gauche();avance()
 }
 
