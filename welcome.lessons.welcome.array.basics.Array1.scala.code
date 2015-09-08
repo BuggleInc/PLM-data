@@ -1,5 +1,13 @@
 override def run() {
-  var T = memo()
+  var L = memo()
+  
+  
+  var T = new Array[Color] (getMondeHauteur()) 
+  for (cpt1 <-0 to getMondeHauteur() -1) {
+    T(cpt1) = getCouleurSol();
+    avance()
+  }
+  
   for (cpt2 <-1 to getMondeLargeur()) {
     gauche()
     avance()
