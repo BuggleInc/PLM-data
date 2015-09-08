@@ -1,0 +1,49 @@
+override def run() {
+  faireMotif()
+  
+}
+
+def faireBarre(c:Color){
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireBarre1(c:Color){
+  for (compteur<- 1 to 2){
+    avance()
+  }
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireMotif(){
+  faireBarre(Color.RED)
+  faireBarre1(Color.BLUE)
+  for (compteur< 1 to 2){
+    recule()
+  }
+  gauche()
+  faireBarre1(Color.YELLOW)
+}
