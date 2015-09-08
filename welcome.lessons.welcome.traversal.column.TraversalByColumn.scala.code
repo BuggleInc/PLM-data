@@ -1,15 +1,15 @@
 override def run() {
   var i=0
   var x=1
-  var y=1
+  var y=2
   ecritMessage(i)
   avance()
   while (!posFinale()) {
     if (!estFaceMur()) {
     	ecritMessage(i)
-    	avance()
+    	if (y<=getMondeHauteur()) {setPos(x,y);y+=1}      
     }
-		else if (!posFinale() && estFaceMur()) {setPos(x,y);x+=1}
+		else if (!posFinale() && estFaceMur()) {x+=1;setPos(x,y)}
   }
   
   def posFinale() : Boolean = {
