@@ -2,17 +2,22 @@ override def run() {
   var x = getMondeLargeur();
   var y = getMondeHauteur()
   var T = new Array[Color](y);
-  for (i<- 1 to (getMondeHauteur())) {
+  
+  
+  for (i<- 1 to (y)) {
     T(i-1)=getCouleurSol();
     avance()
   }
+  
+  
+  
   for (i<-1 to y) {
     gauche()
     avance()
     droite()
     avance()
     
-    for (j <- 1 to (T.length)) {
+    for (j <- 1 to y) {
       setCouleurCorps(T(j))
       baisseBrosse()
       leveBrosse()
