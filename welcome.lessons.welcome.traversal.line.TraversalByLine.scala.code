@@ -1,2 +1,25 @@
 override def run() {
+  var compteur = 0
+  ecritMessage(compteur)
+  while (!positionFinale())
+  {
+    positionSuivante()
+    compteur += 1
+    ecritMessage(compteur)
+  }
+}
+
+def positionFinale() : Boolean = {
+  if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1)
+  	return true
+  else
+  	return false
+}
+
+def positionSuivante()
+{
+  if (getY()<getMondeLargeur()-1)
+    setPos(getX()+1,getY())
+  else
+  	setPos(0,getY()+1)
 }
