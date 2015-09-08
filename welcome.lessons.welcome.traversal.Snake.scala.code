@@ -1,0 +1,28 @@
+override def run() {
+  while (!testingFunction()){
+    brushDown()
+    var arrive = false
+    
+    while (!arrive){
+      if (testArrive())
+      	arrive = true
+      while(!isFacingWall){
+        forward()
+      }
+      getDirection() match {
+    		case Direction.EAST => left();forward();left();
+        case Direction WEST => right();forward();right();
+      
+    }
+  }
+}
+
+def testArrive (): Boolean = {
+  if (!isFacingWall)
+  	return false
+  getDirection() match {
+    case Direction.EAST => left(); if (isFacingWall()) {return True}; left;
+    case Direction.WEST => right(); if (isFacingWall()) {return True}; right;
+  }
+  return false
+}
