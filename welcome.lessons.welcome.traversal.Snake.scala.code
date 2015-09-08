@@ -9,7 +9,8 @@ override def run() {
       while(!isFacingWall){
         forward()
       }
-      getDirection() match {
+      var d = getDirection()
+      d match {
     		case Direction.EAST => left();forward();left();
         case Direction WEST => right();forward();right();
       }
@@ -20,7 +21,8 @@ override def run() {
 def testArrive (): Boolean = {
   if (!isFacingWall)
   	return false
-  getDirection() match {
+  var d = getDirection()
+  d match {
     case Direction.EAST => left(); if (isFacingWall()) {return True}; left;
     case Direction.WEST => right(); if (isFacingWall()) {return True}; right;
   }
