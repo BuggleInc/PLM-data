@@ -1,24 +1,22 @@
 def golomb(num:Int): Int = {
-  var cpt:Int = 3
-  var nb:Int = 0
-  var T = new Array[Int](num)
-  var ind:Int = 2
+  var nb:Int = 2
+  var cpt:Int = 2
+  var last:Int = 3
+	var T = new Array[Int](num+1)
   T(0)=0
   T(1)=1
   T(2)=2
-  T(3)=2
-  if (num>=3) {
-  for (i <- 3 to T.length) {
-    if (nb==T(cpt)) {
-      nb=0
-      cpt+=1
-      T(i)=cpt
+  T(T.length-1)=0
+  while (T(T.length-1)==0) {
+    if (cpt>0) {
+    	T(last)=nb
+      last+=1
+      cpt=cpt-1
     }
-    else {
-      nb+=1
-      T(i)=cpt
+    if (cpt==0) {
+      nb=nb+1
+      cpt=T(nb)
     }
-  }
   }
   return T(num)
 }
