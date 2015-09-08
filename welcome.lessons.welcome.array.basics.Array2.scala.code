@@ -1,2 +1,40 @@
-override def run() {
+override def run() 
+{
+  var T = creeTableau()
+  for (j <- 1 to getMondeLargeur()) 
+  {
+    for (i <- 1 to getMondeHauteur()) 
+      {
+        setCouleurBrosse(T(i-1))
+        peindre()
+        avance()
+      }
+    gauche()
+    avance()
+    droite()
+    avance()
+  }
+  recule()
+  droite()
+  avance()
+  gauche()
+}
+
+def creeTableau():Array[Color] =
+{
+  var T = new Array[Color](getMondeHauteur())
+  T(0)=getCouleurSol()
+  for (i <- 1 to getMondeHauteur()-1) 
+  {
+    avance()
+    T(i)=getCouleurSol()
+  }
+  recule(getMondeHauteur()-1)
+  return T
+}
+
+def peindre()
+{
+  baisseBrosse()
+  leveBrosse()
 }
