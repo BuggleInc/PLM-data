@@ -1,17 +1,21 @@
-def fuyezPauvresFous() = {
+def fuyezPauvresFous() {
   gauche();gauche()
-  while(!estSurBiscuit() && !estFaceMur()){
-    avance()
+  while(!estFaceMur()){
+    if(!estSurBiscuit()){
+      avance()
+    }
+    else{
+      prendBiscuit()
+      while(!estSurBiscuit()){
+        recule()
+      }
+      avance()
+      poseBiscuit()
+    }
+    
   }
-  prendBiscuit()
-  gauche();gauche()
-  while(!estSurBiscuit()){
-    avance()
-  }
-  recule()
-  poseBiscuit()
-  gauche();gauche()
+  
+  droite();avance();gauche();avance()
 }
-
 
 fuyezPauvresFous()
