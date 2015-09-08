@@ -1,0 +1,50 @@
+def keepHandOnSideWall()
+{
+  if (!estFaceMur())
+  {
+    avance()
+    
+    gauche()
+    if (estFaceMur())
+    	droite()
+  }
+  else
+  {
+    droite()
+  }
+}
+
+override def run()
+{
+  var place = false
+  while (!place)
+  {
+    gauche()
+    if (!estFaceMur())
+      avance()
+    else
+    	place = true
+    droite()
+  }
+  
+  var murTouche = false
+  
+  while(!estSurBiscuit())
+  {
+    var direction = getDirection()
+    
+    if (direction != Direction.SUD)
+    {
+      setDirection(Direction.NORD)
+      if (estFaceMur())
+      {
+        setDirection(direction)
+        keepHandOnSideWall()
+      }
+      else
+        avance()
+    }
+  }
+  
+  prendBiscuit()
+}
