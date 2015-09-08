@@ -5,8 +5,8 @@ override def run() {
   for (i <- 1 to T.length-1) {
     T(i) = getCouleurSol() ; avance()}
   var largeur : Int = getMondeLargeur()
-  for (k  <- 1 to largeur) {
-    recule(hauteur-1) ; droite() ; avance() ; gauche() ;
+  for (k  <- 1 to largeur-1) {
+    recule(hauteur) ; droite() ; avance() ; gauche() ;
     baisseBrosse()
     for (color <- T) 
     	{setCouleurBrosse(color) ; avance()}
