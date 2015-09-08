@@ -1,0 +1,68 @@
+// Faire des morceaux de "O" : C1 = \  et C2 = / et O repr?sente 1 motif
+
+def faireC1(c:Color) {
+  avance();
+  setCouleurBrosse(c);
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireC2(c:Color) {
+  setCouleurBrosse(c);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+//Faire un O
+def faireO() {
+  faireC1(Color.RED);
+  avance(2);
+  faireC2(Color.BLUE);
+  recule(2);
+  gauche();
+  avance(2);
+  droite();
+  faireC2(Color.YELLOW);
+  avance(2);
+  faireC1(Color.GREEN);
+  recule(2);
+  droite();
+  avance(2);
+  gauche();
+}
+
+//Faire une ligne de deux O
+def faire2O() {
+  faireO();
+  avance(4);
+  faireO();
+}
+
+//Code Final :
+override def run() {
+  faire2O();
+  recule(4);
+  gauche();
+  avance(4);
+  droite();
+  faire2O();
+}
