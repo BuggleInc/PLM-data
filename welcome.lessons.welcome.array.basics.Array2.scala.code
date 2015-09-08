@@ -10,10 +10,13 @@ override def run() {
     var decalage = litMessage().toInt
     point(tab(decalage))
     decalage = (decalage + 1) % n
-    for (j <- 1 to n)  {
+    for (j <- 1 to n-1)  {
       avance()
       point(tab(decalage))
       decalage = (decalage + 1) % n
+    }
+    for (i <- 1 to n-1) {
+    	recule()
     }
   }
 }
