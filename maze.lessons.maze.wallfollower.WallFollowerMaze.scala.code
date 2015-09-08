@@ -6,19 +6,23 @@ override def run() {
 }
 
 def keepHandsOnSideWall() {
+  var g : Boolean = false
+  var d : Boolean = false
   if(estFaceMur()){
-    droite()
-    if(!estFaceMur()){
-      avance()
+    droite();d=estFaceMur();gauche()
+    gauche();g=estFaceMur();droite()
+    if(!d){
+      droite();avance()
+    }
+    else if(!g){
+      gauche();avance()
     }
     else{
-      gauche();avance()
+      gauche();gauche();avance()
     }
   }
   else{
-    while(estFaceMur()){
-      droite()
-    }
     avance()
   }
+  
 }
