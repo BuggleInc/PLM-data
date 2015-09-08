@@ -1,21 +1,23 @@
 override def run() {
-  tableau()
+  var T=Array[Color](getMondeHauteur())
+  T=tableau()
   for (l <- 1 to getMondeLargeur()){
     gauche()
     avance()
     droite()
-    peindre()
+    peindre(motif)
   }
 }
 
-def tableau(){
+def tableau():Array[Color] = {
   var motif=Array[Color](getMondeHauteur())
   for (compteur <- 0 to getMondeHauteur()-1 ){
     motif(compteur)=getCouleurSol()
     avance()
   }
+  return motif
 }
-def peindre(){
+def peindre(motif){
   for (long<- 1 to getMondeHauteur()){
     baisseBrosse()
     setCouleurBrosse(motif(long-1))
