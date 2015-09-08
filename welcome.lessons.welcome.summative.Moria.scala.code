@@ -5,6 +5,6 @@ while (!sortie){
 	if (estSurBiscuit() && !porteBiscuit()) {prendBiscuit()}
   retourne()
   while(!estSurBiscuit()) {avance()}
-  if (estSurBiscuit() && porteBiscuit()) {recule();poseBiscuit();retourne();avance()}
+  if (estSurBiscuit() && porteBiscuit()) {recule();poseBiscuit();retourne();if (!estFaceMur()) {avance()}}
   if (estFaceMur()) {droite();avance();gauche();avance();sortie=true}
 }
