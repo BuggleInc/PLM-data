@@ -1,6 +1,16 @@
 def noTriples(nums:Array[Int]): Boolean = {
   val n = nums.length
+  if (n<3) {reutrn true}
   var vu1 = nums(0)
   var vu2 = nums(1)
+  for (i <- 2 to n-1) {
+    if ((nums(i)==vu1)&&(nums(i)==vu2)) {
+      return false
+    } else {
+      vu1 = vu2
+      vu2 = nums(i)
+    }
+  }
   return true
 }
+  
