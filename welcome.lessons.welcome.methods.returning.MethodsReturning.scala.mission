@@ -1,0 +1,80 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Fonctions</h2>
+
+<p>Souvent, on souhaite ?crire une m?thode calculant une valeur donn?e, et qui
+la retourne. On appelle <b>fonctions</b> ces m?thodes qui renvoient un
+r?sultat.?crire une fonction n'est pas tellement plus dur que pour les
+m?thodes sans r?sultat.
+
+Il suffit d'ajouter deux points (:), le type de donn?es renvoy?es
+par votre fonction et le signe ?gal (=) entre  les parenth?ses de la
+d?claration et l'accolade du bloc. Cette syntaxe est assez proche de la
+d?finition d'une variable (avec son type) dont la valeur serait une
+fonction.
+Vous pouvez utiliser l'instruction <code>return</code> n'importe ou dans le
+corps de votre fonction pour sp?cifier que le calcul est fini (la suite de
+la fonction n'est pas ex?cut?e) et donner la valeur ? donner ? l'appelant
+apr?s le mot-cl? <code>return</code>.</p>
+
+<pre>def pi(): Double = {
+    return 3.14159
+}</pre>
+
+<p>En fait, vous pouvez ?galement utiliser le mot-cl? <code>return</code> dans
+les m?thodes ne renvoyant pas de r?sultat, pour interrompre leur
+ex?cution. Dans ce cas, il ne faut bien entendu pas donner de valeur ?
+droite du <code>return</code>.</p>
+
+<p>Il est possible d'avoir plusieurs instructions <code>return</code> dans
+diff?rentes branches de <code>if</code>. Ce qui est interdit, c'est d'avoir
+une branche du code qui n'est pas termin?e par un <code>return</code>, ou
+d'?crire du code apr?s le <code>return</code>.
+En effet, si la machine arrive ? la fin de la fonction sans avoir rencontr?
+de <tt>return</tt>, elle ne peut pas savoir quelle valeur communiquer ?
+celui qui a appel? la fonction. De plus, le <tt>return</tt> interrompt
+imm?diatement l'ex?cution de la fonction (pourquoi continuer ? chercher
+quand on a d?j? trouv? le r?sultat de la fonction?). Donc, s'il y a du code
+apr?s un <tt>return</tt>, c'est sans doute une erreur, et le compilateur
+vous l'indique.</p>
+
+<pre> def estDevantLibre():Boolean = {
+    if (estFaceMur() == true) {
+        return false;
+        <span class="comment">/* interdit d'?crire du code ici */</span>
+    } else {
+        return true;
+        <span class="comment">/* pareil ici */</span>
+    }
+    <span class="comment">/* m?me ici, oubliez */</span>
+}[/!]</pre>
+
+<h3>Objectif de cet exercice</h3>Vous allez encore une fois ?crire une fonction qui sera utilis?e par la
+buggle. Son nom doit ?tre <code>haveBaggle</code>, et elle doit renvoyer un
+bool?en indiquant si la colonne face ? la buggle contient un biscuit ou
+non. Votre buggle va s'en servir pour chercher la premi?re colonne contenant
+un biscuit et s'y arr?ter.
+
+<p>Le plus simple pour ?crire cette fonction est peut ?tre d'utiliser une
+variable bool?enne <code>vuBiscuit</code> indiquant si on a vu un biscuit
+jusque l?. Initialement, elle contient faux
+(?false?).</p>
+
+<p>Ensuite, on avance de 6 cases (le monde contient 7 cases, et on est d?j? sur
+l'une d'entre elles). Pour chaque case, si elle contient un biscuit, on
+range la valeur vrai dans <tt>vuBiscuit</tt> (et on ne fait rien d'autre
+qu'avancer si non).</p>
+
+<p>Quand on est arriv? ? la fin, on recule de 6 cases, et on retourne le
+contenu de <tt>vuBiscuit</tt> ? l'appelant.</p>
+
+
+<p>Cet exercice est un peu particulier, puisqu'il a deux mondes initiaux,
+chacun ayant un objectif particulier. Votre code doit fonctionner pour
+chacun d'entre eux. Remarquez que le menu d?roulant de s?lection du monde
+(juste sous la barre de r?glage de la vitesse) permet de sp?cifier le monde
+que vous souhaitez observer. </p>
+
+<p>Quand votre fonction <tt>haveBaggle</tt> fonctionne, passez ? l'exercice
+suivant.</p>
+
