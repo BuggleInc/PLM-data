@@ -1,0 +1,47 @@
+override def run() {
+  def marqueSol() {
+    baisseBrosse()
+    gauche(); droite()
+    leveBrosse() 
+  }
+  
+  def faireV() {
+    avance(2)
+    marqueSol()
+    avance()
+    gauche()
+    avance()
+    marqueSol()
+    recule()
+    droite()
+    avance()
+    marqueSol()
+    avance(2)
+    gauche()
+  }
+  
+
+  def faireMotif() {
+    for (c <- 1 to 4) {
+      faireV()    
+    }
+    
+    avance(7)
+  }
+  
+  def faireCote() {
+    for (t <- 1 to 3) {
+      faireMotif()
+    }
+    recule(21)
+    gauche()
+    
+  }
+  
+  
+  for (x <- 1 to 3) {
+    faireCote()
+    avance(7); droite()
+  }
+  
+}

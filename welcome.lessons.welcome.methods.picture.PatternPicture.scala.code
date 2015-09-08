@@ -1,0 +1,62 @@
+override def run() {
+  def marqueSol() {
+    baisseBrosse()
+    gauche(); droite()
+    leveBrosse()
+  }
+  
+  def faireDiagAv(c:Color) {
+    setCouleurBrosse(c)
+    marqueSol()
+    avance()
+    gauche()
+    avance()
+    marqueSol()
+    recule()
+    droite()
+    recule()
+  }
+  
+  def faireDiagAr(c:Color) {
+    setCouleurBrosse(c)
+    marqueSol()
+    recule()
+    gauche()
+    avance()
+    marqueSol()
+    recule()
+    droite()
+    avance()
+  }
+  
+  def faireMotif() {
+    avance()
+    faireDiagAr(Color.RED)
+    recule()
+    avance(2)
+    faireDiagAv(Color.BLUE)
+    recule(2)
+    gauche()
+    avance(2)
+    droite()
+    faireDiagAv(Color.YELLOW)
+    avance(3)
+    faireDiagAr(Color.GREEN)
+    recule(3)
+    gauche()
+    recule(2)
+    droite()
+    
+  }
+  
+  faireMotif()
+  avance(4)
+  faireMotif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  faireMotif()
+  avance(4)
+  faireMotif()
+}
