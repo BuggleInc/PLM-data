@@ -1,21 +1,15 @@
 override def run() {
   var c=0;
-  var NextPos= (getX(), getY());
-  var dir = 0   // 0 = droite ; 1 = gauche
-  while ((getX(), getY())!=(getMondeLargeur()-1, getMondeHauteur-1)){
-    ecritMessage(""+c)
-    if (c!=0 && c%7==6){
-      setPos(getX(), getY()+1);
-      dir= (dir+1)%2
-      c+=1;
-      ecritMessage(""+c)
-    }
-    if (dir==0){
-      setPos(getX()+1, getY());
+  while ((getX(), getY())!= (6, 6)){
+    ecritMessage(""+c);
+    if (getX()==7){
+      setPos(getY()+1,6);
+    } else if (getY()=0){
+      setPos(0, getX()+1);
     } else {
-      setPos(getX()-1, getY());
+      setPos(getX()+1, getY()+1);
     }
-    c+=1
+    c+=1;
   }
-  ecritMessage(""+c)
+  ecritMessage();
 }
