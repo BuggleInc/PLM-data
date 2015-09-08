@@ -1,0 +1,37 @@
+def faireV(c:Color) {
+  setCouleurBrosse(c);
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  recule();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+}
+
+def faireMotif() {
+  faireV(Color.YELLOW);
+  faireV(Color.RED);
+  faireV(Color.BLUE);
+  faireV(Color.GREEN);
+  avance(5);
+}
+
+override def run() {
+  for (i<-1 to 9) {
+    for (k<-1 to 9) {
+      faireMotif();
+    }
+    gauche();
+    avance(5);
+    droite();
+  }
+}
