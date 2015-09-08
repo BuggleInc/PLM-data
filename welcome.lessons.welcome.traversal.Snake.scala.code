@@ -11,15 +11,19 @@ def estPositionFinale(): Boolean = {
     if (getDirection()==Direction.EST){
       gauche()
       if (estFaceMur()){
+        droite()
         return true
+      } else{
+        droite()
       }
-      droite()
     } else{
       droite()
       if(estFaceMur()){
+        gauche()
         return true
+      } else{
+        gauche()
       }
-      gauche()
     }
   }
  return false
