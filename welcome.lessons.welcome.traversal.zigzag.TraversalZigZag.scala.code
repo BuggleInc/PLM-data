@@ -1,25 +1,25 @@
 override def run() {
-  var cpt = 0
-  var droite = true
+  var cpt = 1
+  ecritMessage(0)
   while ((getX(),getY()) != (getMondeLargeur()-1,getMondeHauteur()-1))
   {
-    while (getX()!= getMondeLargeur()-1)
+    while (getX()!= 0)
     {
-      setPos(getX()+1,getY())
+      setPos(getX()-1,getY())
       ecritMessage(cpt)
       cpt+=1
     }
     
-    if (getY()!=getMondeHauteur()-1)
+    if (getY()!=getMondeHauteur()-1 && cpt >10)
     {
       setPos(getX(),getY()+1)
       ecritMessage(cpt)
     cpt +=1
     }
     
-    while (getX()!= 0)
+    while (getX()!= getMondeLargeur()-1)
     {
-      setPos(getX()-1,getY())
+      setPos(getX()+1,getY())
       ecritMessage(cpt)
       cpt+=1
     }
