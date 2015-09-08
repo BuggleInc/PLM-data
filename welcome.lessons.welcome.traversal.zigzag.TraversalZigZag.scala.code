@@ -1,0 +1,31 @@
+override def run() {
+  var compteur = 1
+  ecritMessage(0)
+  while(!fin()) {
+    parcoursGauche(getX(),getY())
+    ecritMessage(compteur)
+    compteur =compteur+1
+  }
+}
+
+def fin() :Boolean={
+  if (getX()==getMondeLargeur()-1 && getY==getMondeHauteur()-1) return true
+  else return false
+}
+
+
+def parcoursGauche(x:Int,y:Int) {
+  if (x==getMondeLargeur()-1) {
+    setPos(x,y+1)
+   	parcoursDroite()
+  }
+  else setPos(x+1,y)
+}
+
+def parcoursDroite(x:Int,y:Int) {
+  if (x==0) {
+    setPos(x,y+1)
+   	parcoursGauche()
+  }
+  else setPos(x-1,y)
+}
