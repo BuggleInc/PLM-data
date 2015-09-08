@@ -7,17 +7,18 @@ override def run() {
   }
   for (i <- 0 to getWorldHeight()-2 ) {recule()}
   
-  /*
   for (L <- 0 to getMondeLargeur()-2) {
     //Positionnement
     gauche()
     avance()
     droite()
+		val decalage = litMessage().toInt
     for (h <- 0 to getMondeHauteur-1) {
-      marquer( T(h) )
+      
+      marquer( T((h + decalage) % taille) )
       avance()
     }
-  }*/
+  }
 
 }
 
