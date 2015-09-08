@@ -2,9 +2,27 @@ def golomb(num:Int): Int = {
 	var tab = new Array[Int](num)
   tab(0) = 1
   for (k <- 1 to num-1) {
+    occ = compteur(k,tab)
+    if (occ == tab()) {
+      
+    }
+    
+    
+    
+    
+    
     if (tab(k-1) == 1) {
       tab(k) = k
     } else { tab(k) = tab(k-1) -1 }
   }
   return tab(num-1)
+}
+
+def compteur(nombre, tableau) {
+  var resultat = 0
+  for (k <- 0 to tableau.length-1) {
+    if (tableau(k)==nombre) {
+      resultat = resultat + 1
+    }
+  }
 }
