@@ -1,17 +1,13 @@
 override def run() {
-  
-  def mur():Boolean = {
-    gauche();
-    if(estFaceMur()){droite();return true}
-    else{droite();return false} 
-  }
-  
+
   def placement(){
-  	if(!estFaceMur()){
-      avance();
+		if(!estFaceMur();){avance();}
+    else if(estFaceMur()){
+      while(estFaceMur()){droite()}
+      avance();gauche();
     }
-    else if( !mur()){ gauche();avance();droite()}
-    else if( estFaceMur()){gauche();avance();gauche()}
+      
+    }
   }
   
 
