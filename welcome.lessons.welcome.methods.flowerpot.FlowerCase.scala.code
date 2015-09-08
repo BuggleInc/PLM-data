@@ -38,7 +38,7 @@ def fleurLigne1(){
 }
 
 
-def growFlowers(){
+def motif1(){
   fleurLigne()
   droite()
   for (compteur<- 1 to 5){
@@ -62,12 +62,27 @@ def growFlowers(){
   droite()
   for (compteur <- 1 to 5){
     recule()}
-    gauche()
-    for (compteur<- 1 to 2){
-      avance()}
-    droite()
-    for (compteur <- 1 to 6)
-    	avance()
-    dessinFleur(Color.BLUE)
 
-  }
+
+}
+def Ligne(){
+  motif1()
+  gauche()
+  for (compteur<- 1 to 2){
+    avance()}
+  droite()
+  for (compteur <- 1 to 6){
+    avance()}
+  dessinFleur(Color.BLUE)
+  dessinCentre(Color.YELLOW)
+  droite()
+  avance()
+  gauche()
+  for (compteur<- 1 to 2){
+    avance()}
+  motif1()
+
+}
+def growFlower(){
+  Ligne()
+}
