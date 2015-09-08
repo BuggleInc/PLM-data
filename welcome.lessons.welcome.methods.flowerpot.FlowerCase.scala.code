@@ -22,9 +22,9 @@ def faire2Fleurs(c1:Color,c2:Color) {
   recule(5);
 }
 
-//Code Final
+//Faire 1 motif (1/4 du jardin, sans la fleur bleue)
 
-def growFlowers() {
+def faireMotif() {
   faire2Fleurs(Color.RED,Color.CYAN);
   droite();
   avance(2);
@@ -36,4 +36,42 @@ def growFlowers() {
   avance(2);
   gauche();
   faire2Fleurs(Color.PINK,Color.GREEN);
+}
+
+//Faire la fleur bleue apr?s 1e motif de chaque moiti? de jardin, et revenir en position de tracer un autre motif. (a droite)
+
+def faireFleurB() {
+  gauche();
+  avance(2);
+  droite();
+  avance(6);
+  faireFleur(Color.BLUE);
+  avance();
+  gauche();
+  avance(2);
+  droite();
+}
+
+//Faire une moiti? de jardin
+
+def faireDemiJardin() {
+  faireMotif();
+  faireFleurB();
+  faireMotif();
+}
+
+//Faire le jardin (Code Final)
+
+def growFlowers() {
+  faireDemiJardin();
+  //Bloc de mise en position pour la 2e moiti?
+  droite();
+  avance();
+  droite();
+  avance(8);
+  gauche();
+  avance(3);
+  gauche();
+  //Autre moiti? ...
+  faireDemiJardin();
 }
