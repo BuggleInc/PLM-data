@@ -1,0 +1,52 @@
+override def run() {
+  var T = new Array[Color](getMondeHauteur())
+  CreationTableau(T)
+  
+}
+
+def CreationTableau(T:Array[Color]){
+  for (i <- 0 to getMondeHauteur()-1){
+  	T(i) = getCouleurSol()
+    if (estFaceMur()){
+      recule(getMondeHauteur())
+      gauche()
+    	avance()
+    	droite()
+    }else{
+    avance()
+    }
+  }
+}
+
+
+
+
+
+
+
+  for (j <- 0 to getMondeLargeur()-2){
+    gauche()
+    avance()
+    droite()
+    avance()
+    FaireUneColonne(T)
+  } 
+}
+
+
+
+def FaireUneColonne(T:Array[Color]){
+  for (i <- T){
+    setCouleurBrosse(i)
+    baisseBrosse()
+    leveBrosse()
+    if (estFaceMur()){
+      recule(getMondeHauteur())
+      gauche()
+    	avance()
+    	droite()
+    }else{
+    avance()
+    }
+  }
+}
