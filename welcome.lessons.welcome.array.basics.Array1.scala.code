@@ -1,2 +1,36 @@
-override def run() {
+def regarde(l:Int):Array[Color] =
+{
+  var tab = new Array[Color](l)
+  
+  for(i <- 0 to l-1)
+  {
+    tab(i)=getCouleurSol()
+    avance()
+  }
+}
+
+def coloriage(T:Array[Color])
+{
+  for(i <- 0 to T.lenght-1)
+  {
+    setCouleurBrosse(T(i))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
+
+override def run()
+{
+  var tableau = regarde(getMondeHauteur())
+  
+  for(i <- 1 to getMondeLargeur()-1)
+  {
+    gauche()
+    avance()
+    droite()
+    avance()
+    coloriage(tableau)
+  }
+  
 }
