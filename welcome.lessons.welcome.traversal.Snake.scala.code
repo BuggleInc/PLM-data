@@ -1,10 +1,13 @@
 override def run() {
   baisseBrosse();
+  while ( !estFaceMur() ){
+    avance();
+  }
   while ( !testFinal() ){
+    snake();
     while ( !estFaceMur() ){
       avance();
     }
-    snake();
   }
 }
 
@@ -23,11 +26,9 @@ def testFinal() : Boolean = {
 }
 
 def snake() {
-  if ( !testFinal() ){
   if ( getDirection() == Direction.OUEST ){
-    droite(); avance(); droite();
+    avance(); droite();
   } else {
-    gauche(); avance(); gauche();
-  }
+    avance(); gauche();
   }
 }
