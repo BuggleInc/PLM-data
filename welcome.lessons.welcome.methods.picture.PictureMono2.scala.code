@@ -1,0 +1,40 @@
+def faireV(){
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+	leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  for(compteur <- 1 to 4){
+  	avance(2);
+		faireV();
+		avance(2);	
+    gauche()};
+}
+
+def faireLigne(){
+  faireMotif()
+  avance(7)
+  faireMotif()
+  avance(7)
+  faireMotif()
+  recule(14)
+  gauche()
+}
+
+
+override def run() {
+	for (compteur <- 1 to 3){
+    faireLigne()
+  avance(7)
+  droite()}
+}
