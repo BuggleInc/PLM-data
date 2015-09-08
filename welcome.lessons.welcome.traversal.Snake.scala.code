@@ -9,9 +9,11 @@ override def run() {
         forward()
       }
       var d = getDirection()
+      if (!arrive){
       d match {
     		case Direction.EAST => left();forward();left();
         case Direction.WEST => right();forward();right();
+      }
       }
     }
 }
