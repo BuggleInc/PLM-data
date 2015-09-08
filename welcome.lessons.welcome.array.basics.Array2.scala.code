@@ -8,6 +8,8 @@ override def run() {
   T(5) = getCouleurSol()
   posInit()
   for(i<-0 to (getMondeLargeur()-1)){
+    avance()
+    droite()
     val decal = lire()
     setCouleurBrosse(T(decal))
     baisseBrosse()
@@ -19,13 +21,9 @@ override def run() {
       leveBrosse()
       
     }
-    if (i == (getMondeLargeur()-1)){
-      posFin()
-    }else{
       
     
     posInit()
-    }
   }
 }
 
@@ -43,8 +41,6 @@ def posInit(){
   for(i<- 1 to (getMondeHauteur()-1)){
     avance()
   }
-  droite()
-  avance()
   droite()
 }
 
