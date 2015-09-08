@@ -5,6 +5,10 @@ override def run() {
   var g:Boolean = false;
   ecritMessage(c);
   c += 1;
+  x += 1;
+  setPos(x,y);
+  ecritMessage(c);
+  c += 1;
   while ( !testFinal() ){
     if ( getX() == 0 ){
       g = false;
@@ -20,9 +24,9 @@ override def run() {
       c+=1;
     }
     if ( g ){
-      x += 1;
+      x -= 1;
     } else { 
-      x -= 1;    
+      x += 1;    
     }
     setPos(x,y);
     ecritMessage(c);
