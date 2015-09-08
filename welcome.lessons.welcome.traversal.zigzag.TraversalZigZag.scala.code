@@ -7,41 +7,32 @@ override def run() {
   
   do
   {
-    write(cpt)
-    move(x,y,dirEst)
+    ecritMessage(cpt)
+ 	  cpt = cpt+1
+    
+    if (dirEst)
+      x = x+1
+    else
+      x = x-1
+
+    if (x==-1)
+    {
+      y=y+1
+      dirEst = !dirEst
+      x=0
+    }
+    
+    if (x==getMondeLargeur()+1)
+    {
+      y=y+1
+      dirEst = !dirEst
+      x= getMondeLargeur()-1
+    }
+    
   } while (!end)
   
 }
 
-def write(cpt:Int) {
-	ecritMessage(cpt)
-  cpt = cpt+1
-}
-
 def end():Boolean = {
   return getX == getMondeLargeur && getY == getMondeHauteur 
-}
-
-def move(x:Int,y:Int,dirEst:Boolean) {
-  
-  if (dirEst)
-  	x = x+1
-  else
-  	x = x-1
-  
-  if (x==-1)
-  {
-    y=y+1
-    dirEst = !dirEst
-    x=0
-  }
-  if (x==getMondeLargeur()+1)
-  {
-    y=y+1
-    dirEst = !dirEst
-    x= getMondeLargeur()-1
-  }
-  
-  setPos(x,y)
-  
 }
