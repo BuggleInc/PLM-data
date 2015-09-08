@@ -5,19 +5,19 @@ var a = getMondeHauteur
     t(i)=getCouleurSol()
     avance()
   }
-  recule(a)
+  recule(a-1)
   var b = getMondeLargeur()
   for (x<-0 to b-1) {
     gauche()
     avance()
     droite()
     val decalage = litMessage().toInt
-    for (i<-0 to a-1) {
+    for (i<-0 to a-2) {
       setCouleurBrosse(t((i+decalage)%a))
       baisseBrosse()
       leveBrosse()
       avance()
     }
-    recule(a)
+    recule(a-1)
   }
 }
