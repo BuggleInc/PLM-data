@@ -1,0 +1,18 @@
+override def run() {
+  var T:Array[String](6)
+  for(i<-1 to 6) {
+    T(1)=getCouleurSol()
+    avance()
+  }
+  avance()
+  for(i<-1 to 5) {
+    gauche(); avance(); droite(); avance()
+    for(i<-0 to 5) {
+      setCouleurBrosse(T(i))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  }
+  
+}
