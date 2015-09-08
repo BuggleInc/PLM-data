@@ -1,2 +1,47 @@
 override def run() {
+  while(getY!=0){
+    while (!VerifNorth()){
+      goNorth();
+      keepHandOnWall()
+    }
+  }
+}
+}
+
+
+def keepHandOnWall(){
+  var patte=0
+  left();
+  patte+=1
+  while (estFaceMur()){
+    patte-=1
+    right();
+  }
+  avance();
+  if (patte==0){
+    left();
+    if(estDevantMur){
+      right();
+    } else {
+      avance();
+    }
+  }
+}
+
+def goNorth(){
+  setDirection(Direction.NORD);
+  while (!estDevantMur()){
+    avance();
+  }
+}
+
+def VerifNorth():Boolean={
+  var dir = getDirection();
+  setDirection(Direction.NORD)
+  if(estDevantMur()){
+    setDirection(dir);
+    return false
+  }
+  setDirection(dir);
+  return true
 }
