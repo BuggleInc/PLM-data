@@ -1,37 +1,38 @@
 override def run() {
   
-  var cpt : Int = 0
-  var x = -1
-  x = 0
+  var x = 0
   var y = 0
-  var dirEst = true 
+  var cpt = 0
   
-  do
+  ecritMessage(cpt)
+  
+  while(!end)
   {
-    ecritMessage(cpt)
- 	  cpt = cpt+1
     
-    if (dirEst)
-      x = x+1
+    
+    
+    if (y%2==0)
+    	x = x+1
     else
-      x = x-1
-
+    	x = x-1
+    
     if (x<0)
     {
-      y=y+1
-      dirEst = !dirEst
       x=0
+      y=x+1
     }
-    
-    if (x==getMondeLargeur()+1)
+    if (x==getWorldLargeur)
     {
+      x=getWorldLargeur-1
       y=y+1
-      dirEst = !dirEst
-      x= getMondeLargeur()-1
     }
     
-  } while (!end)
-  
+    setPos(x,y)
+    
+    ecritMessage(cpt)
+    cpt=cpt+1
+    
+  }
 }
 
 def end():Boolean = {
