@@ -1,14 +1,15 @@
 override def run() {
   
   var T = memo()
+  gauche()
+  avance()
+  droite()
   for (cpt2 <-1 to getMondeLargeur) {
     
   	
       
-    if (!estFaceMur) {
-  	gauche()
-  	avance()
-  	droite()
+    
+  	
   	var decalage = litMessage().toInt
   	var b =0
     
@@ -23,7 +24,11 @@ override def run() {
       else {
         recule(b-1)
       }
-    }
+      if(!estFaceMur) {
+      gauche()
+  		avance()
+  		droite()
+      }
     }
     
   }
