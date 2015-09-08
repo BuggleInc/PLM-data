@@ -1,2 +1,42 @@
 override def run() {
+while (fonctionTest() == false) {
+  passerpent()
+}
+}
+
+def (fonctiontest)(){
+  var x:Direction
+  x=getDirection()
+  if (x==Direction.EST && estFaceMur){
+    gauche()
+    if (estFaceMur){
+      return true
+    } else {
+      return false
+    }
+  } else if (x==Direction.OUEST && estFaceMur){
+    droite()
+    if (estFaceMur){
+      return true
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+}
+
+def (passerpent)(){
+  if (!estFaceMur){
+    avance()
+  } else if (estFaceMur && getDirection == Direction.EST){
+    gauche()
+    avance()
+    gauche()
+  } else {
+    droite()
+    avance()
+    droite()
+  }
+  
 }
