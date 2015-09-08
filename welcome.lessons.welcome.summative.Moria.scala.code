@@ -10,12 +10,15 @@ while (!estFaceMur())
   gauche()
   gauche()
 
-  while(!estSurBiscuit())
-  avance()
+  while(!estSurBiscuit() && !estFaceMur())
+    avance()
 
-  recule()
-  poseBiscuit()
-  recule()
+  if (estSurBiscuit())
+  {
+    recule()
+    poseBiscuit()
+    recule()
+  }
 }
 
 droite()
