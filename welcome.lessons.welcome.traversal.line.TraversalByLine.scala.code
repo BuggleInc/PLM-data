@@ -1,0 +1,34 @@
+override def run() {
+  var c:Int = 0;
+  var x:Int = 0;
+  var y:Int = 0;
+  ecritMessage(c);
+  c += 1;
+  while ( !testFinal() ){
+    if ( testBasColonne() ){
+      x = 0;
+      y += 1;
+    } else { 
+      x += 1;    
+    }
+    setPos(x,y);
+    ecritMessage(c);
+    c+=1;
+  }
+}
+
+def testFinal() : Boolean = {
+  if ( getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1 ){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+def testBasColonne() : Boolean = {
+  if ( getX() == getMondeLargeur()-1 ){
+    return true;
+  } else {
+    return false;
+  }
+}
