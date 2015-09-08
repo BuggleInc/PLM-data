@@ -1,0 +1,59 @@
+override def run() {
+  faireLigne();
+  changerLigne();
+  faireLigne();
+  right(); avance(); avance(); avance(); avance(); setCouleurBrosse(Color.GREEN) //cette ligne de code sert uniquement a avoir le buggle dans des conditions voulues par l'exercice
+}
+
+def brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+
+
+def faireLigne(){
+  faireMotif();
+  for (i<- 0 to 3){
+    avance();
+  }
+  right()
+  avance(); avance(); left();
+  faireMotif();
+  for (i<- 0 to 3){
+    recule();
+  }  
+  left(); recule(); recule();
+}
+
+def faireMotif() {
+  var c = Color.magenta: Color ;
+  for (i<- 1 to 4){
+    i match{
+      case 1 => c=Color.RED ;
+      case 2 => c=Color.BLUE ; avance(); avance();
+      case 3 => c=Color.GREEN ; left(); avance(); avance(); right();
+      case 4 => c=Color.YELLOW ; recule(); recule();
+    }
+    faireV(c:Color,i:Int);
+  }
+}
+
+
+def faireV(c:Color, i:Int)  {
+  setCouleurBrosse(c)
+  if (i == 1 || i == 3){
+    avance(); brosse(); recule(); left();
+    avance(); brosse(); recule(); right();    
+  }
+  if (i == 2 || i == 4){
+    brosse();
+    avance(); left(); avance(); brosse(); recule(); right(); recule();
+  }  
+}
+
+def changerLigne(){
+  for (i<- 0 to 3){
+    avance();
+  }
+  right()
+}

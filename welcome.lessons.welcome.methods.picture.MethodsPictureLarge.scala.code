@@ -1,0 +1,54 @@
+override def run() {
+  for(i<- 0 to 8){
+    faireLigne();
+    changerLigne();
+  }
+}
+def brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+def faireV(c:Color)  {
+  setCouleurBrosse(c)
+  brosse();
+  avance();
+  left();
+  avance();
+  brosse();
+  recule();
+  right();
+  avance();
+  brosse();
+}
+
+def faireMotif() {
+  var c = Color.magenta: Color ;
+  for (i<- 1 to 4){
+    i match{
+      case 1 => c=Color.YELLOW ;
+      case 2 => c=Color.RED ;
+      case 3 => c=Color.BLUE ;
+      case 4 => c=Color.GREEN ;
+    }
+    avance();
+    faireV(c:Color);
+    avance();
+    left();
+  }
+}
+
+def faireLigne(){
+  for (j <- 0 to 8){
+    faireMotif();
+    for (i<- 0 to 4){
+      avance();
+    }
+  }
+}
+def changerLigne(){
+  left();
+  for (i<- 0 to 4){
+    avance();
+  }
+  right()
+}

@@ -1,0 +1,51 @@
+//jardin complet
+def growFlowers() {
+  jardin();
+  right(); avance(); right();
+  for (i<- 0 to 12) {
+    avance();
+  }
+  left(); avance(); avance(); avance(); left();
+  jardin()
+  recule(); recule(); recule(); recule(); recule();
+}
+//partie haute et basse
+def jardin() {
+  growFlower();
+  left(); avance(); avance(); right(); avance(); 
+  Flower(Color.BLUE); 
+  avance();left(); avance(); avance(); right();
+  growFlower();
+  
+}
+//quart de jardin
+def growFlower() {
+  var n = 1;
+  Flower(choixCouleur(n));
+  avance(); avance(); avance(); n=n+1 ;
+  Flower(choixCouleur(n));
+  recule(); recule(); recule();right(); avance(); avance(); left(); n=n+1
+  Flower(choixCouleur(n));
+  recule(); recule(); recule();right(); avance(); avance(); left(); n=n+1
+  Flower(choixCouleur(n));
+  avance(); avance(); avance(); n=n+1 ;
+  Flower(choixCouleur(n));
+}
+
+def Flower(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse();
+  avance(); avance(); recule(); left(); avance(); recule(); recule(); avance(); right(); //dessine le motif
+  setCouleurBrosse(Color.yellow);
+  leveBrosse();
+}
+
+def choixCouleur(n:Int):Color={
+ n match{
+  case 1 => return Color.red
+  case 2 => return Color.cyan
+  case 3 => return Color.orange
+  case 4 => return Color.pink
+  case 5 => return Color.green
+ }
+}

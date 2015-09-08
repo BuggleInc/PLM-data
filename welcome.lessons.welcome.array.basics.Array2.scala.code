@@ -1,0 +1,40 @@
+override def run() {
+  var taille = getMondeHauteur()
+  var T = new Array[Color](taille)
+  var largeur = getMondeLargeur();
+  var numCase = 0
+  T(0)=getCouleurSol()
+  for (i<- 1 to taille-1){
+    avance()
+    T(i)=getCouleurSol()
+  }
+  retour(taille-1)
+  for(y<-1 to largeur-1){
+    left(); avance(); right();
+    numCase = litMessage().toInt
+    Col(taille,T,numCase);
+    retour(taille-1)
+  }
+}
+def Brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+
+def Col(taille:Int,T:Array[Color],numCase:Int) {
+  var j = 0
+  for (i<- 0 to taille-1){
+    j = (i + numCase)%taille;
+    setCouleurBrosse(T(j));
+    Brosse();
+    if (!estFaceMur){
+      avance();
+    }
+  }
+}
+
+def retour(n:Int){
+  for (i<- 1 to n){
+    recule()
+  }
+}

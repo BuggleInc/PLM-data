@@ -1,0 +1,25 @@
+override def run() {
+  var taille = getMondeHauteur()
+  var T = new Array[Color](taille)
+  for (i<- 0 to taille-1){
+    T(i)=getCouleurSol()
+    avance()
+  }
+  var largeur = getMondeLargeur();
+  for(y<-1 to largeur-1){
+    left();avance();right();avance();
+    Col(taille,T);
+  }
+}
+def Brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+
+def Col(taille:Int,T:Array[Color]) {
+  for (i<- 0 to taille-1){
+   setCouleurBrosse(T(i));
+   Brosse();
+   avance();
+  }
+}

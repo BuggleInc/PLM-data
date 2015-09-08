@@ -1,0 +1,48 @@
+override def run() {
+  for(i<- 0 to 2){
+    faireLigne();
+    changerLigne();
+  }
+}
+def brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+def faireV()  {
+  brosse();
+  avance();
+  left();
+  avance();
+  brosse();
+  recule();
+  right();
+  avance();
+  brosse();
+}
+
+def faireMotif() {
+  for (i<- 1 to 4){
+    avance();
+    avance();
+    faireV();
+    avance();
+    avance();
+    left();
+  }
+}
+
+def faireLigne(){
+  for (j <- 0 to 2){
+    faireMotif();
+    for (i<- 0 to 6){
+      avance();
+    }
+  }
+}
+def changerLigne(){
+  left();
+  for (i<- 0 to 6){
+    avance();
+  }
+  right()
+}

@@ -1,0 +1,36 @@
+override def run() {
+  var c=0
+  var y=0
+  while ((getX(), getY())!=(getMondeLargeur()-1, getMondeHauteur-1)){
+    ecritMessage("" + c)
+    c+=1
+    if(!estDosMur){
+      setPos(getX(), c%7);
+    } else if(getX()!=getMondeLargeur()-1) {
+      setPos(getX()+1, 0);
+    }
+  }
+  ecritMessage("" + c)
+}
+
+/*override def run() {
+  var c=0;
+  var NextPos= (getX(), getY());
+  var dir = 0   // 0 = droite ; 1 = gauche
+  while ((getX(), getY())!=(getMondeLargeur()-1, getMondeHauteur-1)){
+    ecritMessage(""+c)
+    if (c!=0 && c%7==6){
+      setPos(getX(), getY()+1);
+      dir= (dir+1)%2
+      c+=1;
+      ecritMessage(""+c)
+    }
+    if (dir==0){
+      setPos(getX()+1, getY());
+    } else {
+      setPos(getX()-1, getY());
+    }
+    c+=1
+  }
+  ecritMessage(""+c)
+} */

@@ -1,0 +1,42 @@
+override def run() {
+  baisseBrosse()
+  var c=false
+  while(!c){
+    avance();
+    if(estFaceMur()){
+      c=Test();
+      if(!c){
+        ChangeDir();
+      }
+    }
+  }
+}
+
+
+
+def ChangeDir(){
+  if(getDirection()==Direction.EST){
+    left(); avance(); left();
+  } else {
+    right(); avance(); right();
+  }
+}
+def Test():Boolean={
+  var dir = getDirection();
+  if(dir==Direction.EST){
+    left();
+    if (estFaceMur()){
+      right();
+      return true
+    }
+    right();
+  } else {
+    right();
+    if(estFaceMur()){
+      left();
+      return true
+    }
+    left();
+  }
+  return false
+}
