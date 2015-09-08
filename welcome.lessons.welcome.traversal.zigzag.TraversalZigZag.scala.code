@@ -3,21 +3,21 @@ override def run() {
   ecritMessage(cpt)
   cpt+=1
   var d:Boolean = true
-	while (getX()<6 && getY()<=6) {
+	for (i <- 0 to 47) {
     if (d) {
       if (getX()<6) {
         setPos(getX()+1,getY())
       }
-      if (getX()==6) {
+      else {
         setPos(getX(),getY()+1)
         d=false
       }
     }
-    if (!d) {
+    else {
       if (getX()>0) {
         setPos(getX()-1,getY())
       }
-      if (getX()==0) {
+      else {
         setPos(getX(),getY()+1)
         d=true
       }
