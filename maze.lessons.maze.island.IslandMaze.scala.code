@@ -1,8 +1,9 @@
 override def run() {
   while (!isOverBaggle()) {
-    while (getDirection() != Direction.NORTH) {
+    do {
 	    keepWallOnLeft()
-    }
+    } while (getDirection() != Direction.NORTH)
+    
   	while (! isFacingWall()) {
     	forward()
   	}
