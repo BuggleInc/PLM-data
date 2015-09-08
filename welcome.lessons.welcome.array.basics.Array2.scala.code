@@ -13,11 +13,12 @@ override def run() {
     avance()
     droite()
 		val decalage = litMessage().toInt
-    for (h <- 0 to getMondeHauteur-1) {
+    for (h <- 0 to getMondeHauteur-2) {
       
       marquer( T((h + decalage) % T.length) )
       avance()
     }
+    for (i <- 0 to getWorldHeight()-2 ) {recule()}
   }
 
 }
