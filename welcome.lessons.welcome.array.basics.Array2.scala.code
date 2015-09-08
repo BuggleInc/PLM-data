@@ -23,7 +23,7 @@ def CreationTableau(T:Array[Color]){
 
 def FaireUneColonne(T:Array[Color],decalage:Int){
   for (i <- 0 to getMondeHauteur()-1){
-    setCouleurBrosse(i+decalage)
+    setCouleurBrosse((i+decalage)%getMondeHauteur())
     baisseBrosse()
     leveBrosse()
     if (estFaceMur()){
