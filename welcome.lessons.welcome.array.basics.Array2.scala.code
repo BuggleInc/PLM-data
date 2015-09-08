@@ -6,8 +6,7 @@ override def run() {
   avance()
   right()
   for (m<-1 to getMondeLargeur()-1){
-    col(T,nbr)
-    nbr= nbr+1
+    col(T)
   }
 }
 
@@ -24,17 +23,18 @@ def col1(T:Array[Color]){
 
 
 
-def col(T:Array[Color],nbr:Int){
-  for (l<-1 to getMondeHauteur()-1){
-    setCouleurBrosse(T((l+nbr)%getMondeHauteur()))
-    baisseBrosse()
-    leveBrosse()
-    avance()
-  }
-  setCouleurBrosse(T((getMondeHauteur()+nbr)%getMondeHauteur()))
-    baisseBrosse()
-    leveBrosse()
+def col(T:Array[Color]){
+  deca = litMessage().toInt
+  setCouleurBrosse(T(deca))
+  baisseBrosse()
+  leveBrosse()
   for(a<-1 to getMondeHauteur()-1){
+    avance()
+    setCouleurBrosse(T((a+1+deca)%getWorldHeight()))
+    baisseBrosse()
+  	leveBrosse()
+	}
+  for (a<-1 to getWorldHeight()){
     recule()
   }
   left()
