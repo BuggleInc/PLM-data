@@ -1,7 +1,7 @@
 override def run() {
   var x:Int = getMondeHauteur()
   var T = new Array[Color](x+1)
-  for(k<- 0 to 4){
+  for(k<- 1 to x){
   	T(0)=getCouleurSol()
     for(i<- 1 to T.length-1){
     	avance()
@@ -12,7 +12,7 @@ override def run() {
   	avance()
   	droite()
   	for(j<- 0 to T.length-1){
-    	setCouleurBrosse(T(j+1))
+    	setCouleurBrosse(T(j-1))
     	baisseBrosse()
     	leveBrosse()
     	avance()
