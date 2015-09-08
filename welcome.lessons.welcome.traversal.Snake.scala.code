@@ -1,6 +1,7 @@
 override def run() {
-  if(arriver()==false){
-    avance()
+  for (i<-0 to 2){
+  avance(6);gauche();avance();gauche();avance(6);
+  droite()avance();droite()
   }
 }
 
@@ -16,4 +17,16 @@ def arriver(){
     }
   }
 }
-
+def serpent(){
+  while(!arriver){
+    baisseBrosse()
+    if (getDirection() == Direction.EST && 		             estFaceMur()){
+      droite();avance();droite();
+    }
+    if (getDirection() == Direction.OUEST && 		             estFaceMur()){
+      gauche();avance();gauche();
+    }
+    avance();
+  }
+  leveBrosse()
+}
