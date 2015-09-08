@@ -1,7 +1,9 @@
 var diag = 0;
 override def run() {
-  for (i <- 0 to 48) {
-    ecritMessage(i)
+  var cpt:Int = 0
+  ecritMessage(cpt)
+  cpt+=1
+  for (i <- 0 to 47) {
     if(estFaceMur()) {
       if (diag<6){
         setPos(0,diag+1)
@@ -14,5 +16,7 @@ override def run() {
       setPos(getX()+1,getY()-1)
     }
     diag+=1
+    ecritMessage(cpt)
+    cpt+=1
   }
 }
