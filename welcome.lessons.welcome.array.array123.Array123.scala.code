@@ -1,0 +1,23 @@
+def array123(nums:Array[Int]): Boolean = {
+  var rei:Int=0
+  var i:Int=0
+  var estDans=false
+  val taille=nums.length
+  
+  while ((!estDans)&&(i<taille-2)){
+    if (nums(i)==1){
+      rei+=1
+      if (nums(i+1)==2){
+        rei+=1
+        if (nums(i+2)==3){
+          estDans=true
+        }
+      }
+      i+=rei
+    }
+    i+=1
+  }
+  
+  return estDans
+  
+}
