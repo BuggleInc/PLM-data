@@ -1,0 +1,10 @@
+int golomb(int num) {
+  var tab = new Array[Int](num)
+  tab(0) = 1
+  for (k <- 1 to num) {
+    if (tab(k-1) == 1) {
+      tab(k) = k+1
+    }
+    tab(k) = tab(k-1) -1
+  }
+}
