@@ -1,6 +1,11 @@
-def growFlowers(x: Int, y: Int) {
-  faireLigne(Color.red,Color.cyan); faireLigne2(); setPos(x: Int, y: Int); faireLigne(Color.pink, Color.green)}
-  
+def growFlowers() {
+  faireLigne(Color.red,Color.cyan);  
+  while (!estDosMur()) {recule()}; 
+  droite(); avance(4); gauche(); 
+  faireLigne(Color.pink, Color.green); 
+  while (!estDosMur()) {recule()}; 
+  faireLigne2()}
+
 
 def faireCarre(){baisseBrosse(); leveBrosse()}
 
@@ -13,8 +18,13 @@ def faireLigne(c3: Color, c2: Color) {
 }
 
 def faireLigne2() {
-  setPos(3,4); Fleur(Color.orange)
+  while (!estDosMur()) {recule()}; gauche(); avance(2); droite(); Fleur(Color.orange)
 }
 
 
 growFlowers(1,6); Fleur(Color.blue); growFlowers(9,6); growFlowers(1,14);  Fleur(Color.blue); growFlowers(9,14)
+
+def grosPot() {
+  growFlowers(); avance(3); Fleur(Color.blue()); avance(); gauche(); avance(2); droite(); growFlowers(); while (!estDosMur) {recule()}}
+
+grosPot(); gauche(); recule(); droite(); while (!estDosMur) {recule()}; droite(); doite(); avance(4); gauche(); grosPot()
