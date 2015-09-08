@@ -6,7 +6,12 @@ override def run() {
     avance()
     droite()
     avance()
-    creePattern()
+  for (j <- 1 to getMondeHauteur()) 
+    {
+      setCouleurBrosse(T(i-1))
+      peindre()
+      avance()
+    }
   }
 }
 
@@ -34,3 +39,41 @@ def creePattern()
     avance()
   }
 }
+
+
+/*override def run() {
+  creeTableau()
+  for (i <- 1 to getMondeLargeur()) 
+  {
+    gauche()
+    avance()
+    droite()
+    avance()
+    creePattern()
+  }
+}
+
+def creeTableau()
+{
+  var T = new Array[Color](getMondeHauteur())
+  for (i <- 1 to getMondeHauteur()) 
+  {
+    T(i-1)=getCouleurSol()
+  }
+}
+
+def peindre()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def creePattern()
+{
+  for (i <- 1 to getMondeHauteur()) 
+  {
+    setCouleurBrosse(T(i-1))
+    peindre()
+    avance()
+  }
+}*/ 
