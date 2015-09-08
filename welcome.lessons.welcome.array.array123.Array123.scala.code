@@ -5,19 +5,14 @@ def array123(nums:Array[Int]): Boolean = {
   val taille=nums.length
   
   while ((!estDans)&&(i<taille-2)){
-    if (nums(i)==1){
-      rei+=1
-      if (nums(i+1)==2){
-        rei+=1
-        if (nums(i+2)==3){
-          estDans=true
-        }
-      }
-      i+=rei
+    
+    if ((nums(i)==1)&&(nums(i+1)==2)&&(nums(i+2)==3)){
+      estDans=true
     }
-    i+=1
-  }
+    else{
+      i+=1
+    }
+	}
   
   return estDans
-  
 }
