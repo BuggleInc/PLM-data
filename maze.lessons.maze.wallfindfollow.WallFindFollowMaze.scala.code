@@ -7,17 +7,14 @@ override def run() {
   }
   
   def placement(){
-  	if(mur() && !estFaceMur()){
+  	if(!estFaceMur()){
       avance();
     }
-    else if( !mur()){ gauche();avance();}
-    else if( estFaceMur()){droite();}
-    
-    
-    
+    else if( !mur()){ gauche();avance();droite()}
+    else if( estFaceMur()){gauche();avance();gauche()}
   }
-  while(!estFaceMur() ){avance();}
-  droite()
+  
+
   while(!estSurBiscuit()){       
     placement()
   }
