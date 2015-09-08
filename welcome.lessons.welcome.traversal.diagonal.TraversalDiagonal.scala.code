@@ -34,7 +34,12 @@ def diagonale(cpt : Int) : Int = {
   	}
   	ecritMessage(compteur)
   	diag = diag + 1
-    setPos(diag%(getMondeHauteur()-1),getMondeHauteur()-1)
+    if (diag<12){
+    	setPos(diag%(getMondeHauteur()-1),getMondeHauteur()-1)  
+    }
+    else{
+      setPos(getMondeHauteur()-1,getMondeHauteur())
+    }
   }
   return compteur
 }
