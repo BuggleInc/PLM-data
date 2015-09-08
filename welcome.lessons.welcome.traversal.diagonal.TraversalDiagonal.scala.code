@@ -23,22 +23,26 @@ override def run() {
   
   while (!fin())
   {
-    if (getX() + 1 > 6 || getY() - 1 > 6)
-    {      
-      if (diag < 6)
-      {
-        setPos(0, diag + 1)
-        setPos(getX(), getY() + 1)
-      }
-      else
-      {
-        setPos(diag + 1 - 8, 6)
-        setPos(getX(), getY() + 1)
-      }
-      
-      diag += 1
+    var xPos = 0
+    var yPos = 0
+    
+    if (diag < 6)
+    {
+      xPos = 0
+      yPos = diag + 1
+    }
+    else
+    {
+      xPos = diag + 1 - 8
+      yPos = 6
+      setPos(diag + 1 - 8, 6)
     }
     
+    if (xPos > 6 || xPos < 0 || yPos > 6 || yPos < 0)
+    {
+      diag += 1
+      setPos(xPos, yPos)
+    }
     
     idCase += 1
     ecritMessage("" + idCase)
