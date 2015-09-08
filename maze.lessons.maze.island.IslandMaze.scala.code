@@ -15,24 +15,15 @@ override def run() {
   }
   
   def cestLeNord(){
-      if(estFaceMur()){
-        while(estFaceMur()){droite();}
-        while(getDirection() != Direction.NORTH){
-          placement()          
-        }
-      }
+      if(estFaceMur()){placement()}
 			else{avance();}
       
 
   }
   
-  
-  while(getY()!=0 || getY()!=1 ){
-    cestLeNord()
-  }
-  droite()
+
   while(!estSurBiscuit()){       
-    placement()
+    cestLeNord()
   }
   prendBiscuit()
 }
