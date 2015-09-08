@@ -4,22 +4,13 @@ override def run() {
   val array:Array[Color] = initialize(world_size)
 
   for (i <- 1 to world_size - 2){
-    
     offset = readMessage().toInt
     
+    System.out.println(offset)
+    
     for (j <- 0 to world_size - 2){
-      
-        setBrushColor(array((offset + j)%world_size))
-    		brushDown()
-    		brushUp() 
-        forward()
-        brushDown()
-    		brushUp() 
+        setBrushColor(array((offset + j)%world_size))) 
     }
-    backward(world_size - 1)
-    left()
-    forward()
-    right()
   } 
 }
 
