@@ -1,4 +1,4 @@
-override def run() {getMotif()}
+override def run() {reproMotif()}
 
 def getMotif(){
    var i = getMondeHauteur()
@@ -8,12 +8,25 @@ def getMotif(){
     avance()
   }}
   
-//def reproMotif(){
- // var i = getMondeLargeur()
-  //for (j <- 0 to i-1)
+def reproMotif(){
+  var i = getMondeLargeur()
+  for (j <- 0 to i-1){
+    gauche()
+    avance()
+    droite()
+    Motif()
+    
+  }
   
-//}
-  
+}
+def Motif(){
+  var i = getMondeHauteur()
+  for (j <- 0 to i-1){
+    setCouleurBrosse(T(j))
+    brosse()
+    avance()
+  }
+}
   
 
 def brosse(){
