@@ -1,0 +1,20 @@
+override def run() {
+  var compteur = 1
+  ecritMessage(0)
+  while(!fin()) {
+    parcours(getX(),getY())
+    ecritMessage(compteur)
+    compteur =compteur+1
+  }
+}
+
+def fin() :Boolean={
+  if (getX()==getMondeLargeur()-1 && getY==getMondeHauteur()-1) return true
+  else return false
+}
+
+def parcours(x:Int,y:Int) {
+  if (x==getMondeLargeur()-1) setPos(0,y+1)
+  else setPos(x+1,y)
+}
+
