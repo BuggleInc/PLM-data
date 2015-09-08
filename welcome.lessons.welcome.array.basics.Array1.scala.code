@@ -1,0 +1,36 @@
+var H: Int = getMondeHauteur()
+var Tab = new Array [Color](H)
+for (i<-0 to Tab.lenght-1) {
+  T(i)<-getCouleurSol()
+  avance()
+}
+override def run() {
+  for (i<- 1 to getMondeLargeur()) {
+    reculemul(H-2)
+    droite()
+    avance()
+    droite()
+    for (i<-0 to Tab.lenght-1) {
+      peinture(Tab(i))
+    }
+  }
+
+  
+  
+}
+def avancemul(nb:Int) {
+  for (i<- 1 to nb) {
+    avance()
+  }
+}
+
+def reculemul(nb:Int) {
+  for (i<- 1 to nb) {
+    recule()
+  }
+}
+def peinture(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+	}
