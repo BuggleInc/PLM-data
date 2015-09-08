@@ -8,14 +8,21 @@ override def run() {
   	avance()
   	droite()
   	var decalage = litMessage().toInt
-  	
+  	var b =0
     
     for (cpt3 <-0 to T.length -1) {
       setCouleurBrosse(T((cpt3 + decalage) % T.length))
       baisseBrosse()
       leveBrosse()
-      avance()
+      b+=1
+      if (!estFaceMur()) {
+        avance()
+      }
+      else {
+        recule(b)
+      }
     }
+   
   }
 }
 
