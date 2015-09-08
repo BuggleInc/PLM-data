@@ -2,8 +2,12 @@ override def run() {
 }
 
 def arriver() : Boolean {
-	if ( getX()==6 && getY()==0 ){
-    return true
+	if (estFaceMur() && getDirection() == Direction.EST){
+    gauche();
+    if (estFaceMur()){
+      droite()
+      return true
+    }
   }
   return false
 }
