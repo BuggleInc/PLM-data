@@ -1,16 +1,18 @@
 override def run() 
 {
+  String decalage
   var T = creeTableau()
   for (j <- 1 to getMondeLargeur()-1) 
   {
     gauche()
     avance()
     droite()
+    decalage=litMessage()
     for (i <- 1 to getMondeHauteur()-1) 
       {
-        setCouleurBrosse(T(((i+litMessage().toInt) % getMondeHauteur())-1))
-        peindre()
         avance()
+        setCouleurBrosse(T(((i+decalage)%getMondeHauteur()-1))
+        peindre()
       }
   }
   recule()
