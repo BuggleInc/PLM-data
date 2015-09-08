@@ -15,17 +15,21 @@ def getMotif():Array[Color]={
   return tab
 }
 
-def deca(){
-	//(tab:Array[Color],nb:Int)
-  var T=Array("1","2","3","4")
-  print(T)
+def deca(tab:Array[Color], nb:Int):Array[Color]={
+  var T =new Array[Color](getMondeHauteur())
+  for(i<-0 to T.lenght-nb-1){
+    T(i)=tab(nb+i)
+  }
+  for(i<-(T.lenght-1-nb) to T.lenght-1-(T.lenght-1-nb)){
+    T(i)=tab(i-T.lenght-1-nb)
+  }
+  return T
 }
 
 def repet(tab:Array[Color]){
   gauche()
   avance()
   droite()
-  var nb=litMessage().toInt 
   for (i<- 0 to tab.length-1){
     brosse(tab(i))
     avance()
@@ -35,11 +39,14 @@ def repet(tab:Array[Color]){
 
 
 override def run() {
-  deca()
-  //var tab=getMotif()
-  //var tic=1
-  //while(tic<=getMondeLargeur()-1){
-  	//repet(tab)
-	//tic=tic+1
-  //}
+  var tab=getMotif()
+  var T =new Array[Color](getMondeHauteur())
+  var nb=0 
+  var tic=1
+  while(tic<=getMondeLargeur()-1){
+    nb=litMessage().toInt
+    T = deca(tab,nb)
+  	repet(tab)
+	tic=tic+1
+  }
 }
