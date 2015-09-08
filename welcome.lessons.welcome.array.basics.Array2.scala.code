@@ -20,11 +20,14 @@ override def run() {
     
     var decalage = litMessage().toInt
     
+    setCouleurBrosse(decalage%(Couleurs.length))
+    baisseBrosse(); leveBrosse()
+    
     for (i <- 0 to (nbCases - 1)){
+      avance()
       var clr : Color = Couleurs((i+decalage)%(Couleurs.length))
       setCouleurBrosse(clr)
       baisseBrosse(); leveBrosse()
-      avance()
   	}
     
     for (i <- 1 to nbCases){
