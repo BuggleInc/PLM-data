@@ -7,7 +7,7 @@ override def run() {
   var ord=getY()
   var p=1  //place sur la diag
   ecritMessage(m)
-  for (i<-1 to h){
+  for (i<-1 to h-1){
     while (p<ldiag){
     	m=m+1
       ecritMessage(m)
@@ -24,7 +24,22 @@ override def run() {
     ldiag=ldiag+1
     p=1
   }
-  
+  for (j<-1 to h){
+    while (p<ldiag){
+    	m=m+1
+      ecritMessage(m)
+      abs=abs+1
+      ord=ord-1
+      p=p+1
+      setPos(abs,ord)
+    }
+    m=m+1
+    ecritMessage(m)
+    abs=abs-ldiag+1
+    ord=ord+ldiag
+    setPos(abs,ord)
+    ldiag=ldiag-1
+    p=1
  /* for (j<-1 to h-2){
     do{
       ecritMessage
