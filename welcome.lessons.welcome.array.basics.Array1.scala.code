@@ -4,4 +4,13 @@ override def run() {
   T(0) = getCouleurSol()
   for (i <- 1 to T.length-1) {
     T(i) = getCouleurSol() ; avance()}
-}
+  var largeur : Int = gerMondeLargeur()
+  for (k  <- 1 to largeur) {
+    recule(hauteur-1) ; droite() ; avance() ; gauche() ;
+    baisseBrosse()
+    for (color <- T) 
+    	{setCouleurBrosse(color) ; avance()}
+    leveBrosse()
+
+    }
+  }
