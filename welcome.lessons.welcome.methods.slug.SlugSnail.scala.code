@@ -1,5 +1,26 @@
-
-
+def hunt(c:Color) {
+  isFacingTrail()
+  while (estSurBiscuit()==false){
+  	if (isFacingTrail()==true){
+        baisseBrosse()
+        leveBrosse()
+        avance()
+    }
+  	if (isFacingTrail()==false){
+        gauche()
+    }
+  }
+	if (estSurBiscuit()==true){
+      prendBiscuit()
+    	baisseBrosse()
+      leveBrosse()
+    	avance()
+    	recule()
+  		if (isFacingTrail()==false){
+        droite()
+      }
+  }// Write your code here
+ }
 
 
 def isFacingTrail():Boolean = {
@@ -8,7 +29,7 @@ def isFacingTrail():Boolean = {
   }
   var detrompeur=0
   avance()
-  if (getCouleurSol()==Color.green){
+  if (getCouleurSol()==c:Color){
     detrompeur=2
   }else {
     detrompeur=1
@@ -24,7 +45,7 @@ def isFacingTrail():Boolean = {
 
 
 
-def hunt(){
+/*def hunt(){
   while (estSurBiscuit()==false){
   	if (isFacingTrail()==true){
         baisseBrosse()
