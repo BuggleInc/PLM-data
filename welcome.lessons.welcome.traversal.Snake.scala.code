@@ -24,29 +24,31 @@ override def run() {
 }
 
 def test() {
+  var b:Boolean = false
   if (estFaceMur()) {
     if (getDirection()==Direction.EST) {
       gauche()
       if (estFaceMur) {
         droite()
-        return true
+        b=true
       }
       else {
-        return false
+        b=false
       }
     }
     else {
       droite()
       if (estFaceMur()) {
         gauche()
-        return true
+        b=true
       }
       else {
-        return false
+        b=false
       }
     }
   }
   else {
-  	return false
+  	b=false
   }
+  return b
 }
