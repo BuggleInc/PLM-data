@@ -1,0 +1,32 @@
+override def run() {
+  for (cpt2 <-1 to getMondeLargeur) {
+    
+  
+  	gauche()
+  	avance()
+  	droite()
+  	var decalage = litMessage().toInt
+  	avance(decalage)
+    var T = memo()
+    for (cpt3 <-0 to T.length -1) {
+      setCouleurBrosse(T(cpt3))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+}
+
+
+  
+  
+def memo() : Array[Color] (getMondeHauteur) {
+  var T new Array [Color] (getMondeHauteur)
+  var a = 0
+  for (cpt1 <- 0 to getMondeHauteur - 1) {
+    T(cpt1) = getCouleurSol()
+    avance()
+    a+=1
+  }
+  recule(a)
+}
+
