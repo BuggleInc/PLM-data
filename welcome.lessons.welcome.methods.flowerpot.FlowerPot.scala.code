@@ -1,0 +1,52 @@
+def peinture() {
+  baisseBrosse()
+  leveBrosse()
+	}
+
+def fleur(c1:Color) {
+	setCouleurBrosse(c1)
+  baisseBrosse()
+  avancemul(2)
+  recule()
+  gauche()
+  avance()
+  reculemul(2)
+  avance()
+  setCouleurBrosse(Color.yellow)
+  peinture()
+  droite()
+}
+
+
+
+def growFlowers() {
+  fleur(Color.red)
+  avancemul(3)
+  fleur(Color.cyan)
+  reculemul(5)
+  droite()
+  avancemul(2)
+  gauche()
+  avancemul(2)
+  fleur(Color.orange)
+  reculemul(3)
+  droite()
+  avancemul(2)
+  gauche()
+  fleur(Color.pink)
+  avancemul(3)
+  fleur(Color.green)
+  reculemul(5)
+}
+
+def avancemul(nb:Int) {
+  for (i<- 1 to nb) {
+    avance()
+  }
+}
+
+def reculemul(nb:Int) {
+  for (i<- 1 to nb) {
+    recule()
+  }
+}
