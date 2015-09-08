@@ -6,10 +6,19 @@ def peindreSol(c: Color) {
 }
 
 override def run() {
-  var hauteurMonde:Int = getHauteurMonde()
-  var largeurMonde:Int = getLargeurMonde()
+  var hauteurMonde:Int = getMondeHauteur()
+  var largeurMonde:Int = getMondeLargeur()
   
   var couleurs = new Array[Color](hauteurMonde)
   
   // On commence par lire les couleurs des cases.
+  couleurs(0) = getCouleurSol()
+  
+  for (i <- 2 to hauteurMonde) {
+    avance()
+    
+    getCouleurSol()
+  }
+  
+  recule(hauteurMonde - 1)
 }
