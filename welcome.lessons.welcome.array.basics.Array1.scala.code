@@ -2,19 +2,13 @@ override def run() {
   var Couleurs = new Array[Color](8)
   
   var nbCases = 0
-  var compt = 0
   
-  while (nbCases == 0){
-    for (k <- 0 to compt){
-      if (getCouleurSol() != Couleurs(k)){
-    		Couleurs(compt) = getCouleurSol()
-    		avance()
-      } else if (getCouleurSol() == Couleurs(k)){
-           nbCases = compt
-      }
-    }
-    compt = compt + 1
+  while (getCouleurSol() != Couleurs(0)){
+    	Couleurs(compt) = getCouleurSol()
+    	avance()
+    	nbCases = nbCases + 1
   }
+  
   
   def Motif(){
     for (i <- 0 to nbCases){
