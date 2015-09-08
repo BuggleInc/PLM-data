@@ -1,0 +1,20 @@
+def island(num:Array[Int]): Int = {
+  var compteur = 0
+  var altitude = 0
+  for (i <- num)
+  {
+    if (i!=altitude)
+    {
+      if (i>altitude)
+      {
+        compteur +=1
+        altitude = i
+      }
+      if (i==0 && altitude !=0)
+      {
+        altitude = 0
+      }
+    }
+  }
+  return compteur
+}
