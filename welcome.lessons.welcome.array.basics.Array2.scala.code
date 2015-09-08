@@ -16,15 +16,15 @@ def getMotif():Array[Color]={
 }
 
 
-def deca(tab:Array[Color], nb:Int):Array[Color]={
-  var T =new Array[Color](getMondeHauteur())
-  for(i<-0 to T.length-nb-1){
-    T(i)=tab(nb+i)
+def deca(t1:Array[Color], nb:Int):Array[Color]={
+  var t2 =new Array[Color](getMondeHauteur())
+  for(i<-0 to t2.length-nb-1){
+    t2(i)=t1(nb+i)
   }
-  for(i<-(T.length-1-nb) to T.length-1-(T.length-1-nb)){
-    T(i)=tab(i-T.length-1-nb)
+  for(i<-(t2.length-1-nb) to t2.length-1-(t2.length-1-nb)){
+    t2(i)=t1(i-t2.length-1-nb)
   }
-  return T
+  return t2
 }
 
 
