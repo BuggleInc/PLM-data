@@ -1,2 +1,28 @@
 override def run() {
+  var cpt:Int = 0
+  ecritMessage(cpt)
+  cpt+=1
+  var d:Boolean = true
+	while (getX()<6 && getY()<=6) {
+    if (d) {
+      if (getX()<6) {
+        setPos(getX()+1,getY())
+      }
+      if (getX()==6) {
+        setPos(getX(),getY()+1)
+        d=false
+      }
+    }
+    if (!d) {
+      if (getX()>0) {
+        setPos(getX()-1,getY())
+      }
+      if (getX()==0) {
+        setPos(getX(),getY()+1)
+        d=true
+      }
+    }
+    ecritMessage(cpt)
+    cpt=cpt+1
+  }
 }
