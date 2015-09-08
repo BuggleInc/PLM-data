@@ -1,0 +1,26 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+	var groundColor = getGroundColor()
+  var rank:Int = 0
+  for (i <- 0 to colors.lenght -1) {
+    if (colors == groundColor) {
+    	rank = i
+    }
+  }
+  
+  mark(colors((rank+1)%colors.lenght))
+  
+  if (rule(rank) == 'R')     
+  	right()
+       
+  if (rule(rank) == 'L')     
+  	left()
+  
+  forward()
+}
+
+
+def mark(c:Color) {
+  setBrushColor(c);
+  brushDown();
+  brushUp();
+}
