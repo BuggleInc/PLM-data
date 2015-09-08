@@ -1,0 +1,31 @@
+def chercher() {
+  setDirection(Direction.EST)
+  while(!estSurBiscuit())
+  {
+    avance()
+  }
+  prendre()
+}
+
+def poser() {
+  setDirection(Direction.OUEST)
+  while(!estSurBiscuit())
+  {
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  recule()
+}
+
+def sortir() {
+  while(!estFaceMur())
+  {
+    chercher()
+    poser()
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
