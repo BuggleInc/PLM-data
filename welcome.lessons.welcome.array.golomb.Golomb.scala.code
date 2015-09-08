@@ -3,22 +3,21 @@ def golomb(num:Int): Int = {
     return 1
   }
   var T = new Array[Int](num)
-  var i = 1
-  var avancement = 1
-  T(0)=1
-  T(1)=2
-  
-  return null
-  /*
-  
-  while (T(num-1)==null){
-    for (go <- 1 to T(i)){
+  var i = 2
+  var avancement = 2
+  //T(0)=1
+  T(1)=1
+  T(2)=2  
+  while (avancement < num) {
+  //while (T(num-1)==null){
+    for (go <- 1 to T(i)-1){
       avancement = avancement + 1
-      T(avancement)=T(i)
+      T(avancement)=i
     }
+    i=i+1
   }
-  return T(num-1)
-  */
+  return T(num)
+  
 }
   
   
