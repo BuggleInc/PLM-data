@@ -1,0 +1,83 @@
+def fleur(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  for (i <- 1 to 2) {avance()}
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  droite()
+  setCouleurBrosse(Color.YELLOW)
+  leveBrosse()
+  avance()
+}
+
+
+def fleurLigne(c1:Color, c2:Color) = {
+  fleur(c1)
+  avance()
+  avance()
+  fleur(c2)
+  for (i <- 1 to 6) {recule()}
+}
+
+def fleurLigne(c1:Color, c2:Color, c3:Color) = {
+  fleur(c1)
+  avance()
+  avance()
+  fleur(c2)
+  avance()
+  avance()
+  fleur(c3)
+}
+
+def fleurCarr?() = {
+  fleurLigne(Color.RED, Color.CYAN)
+  droite()
+  for (i <- 1 to 4) {avance()}
+  gauche()
+  fleurLigne(Color.PINK, Color.GREEN)
+}
+
+def fleurHaut() = {
+  fleurCarr?()
+  gauche()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  fleurLigne(Color.ORANGE, Color.BLUE, Color.ORANGE)
+  for (i <- 1 to 4) {recule()}
+  gauche()
+  avance()
+  avance()
+  droite()
+  fleurCarr?()
+  droite()
+  avance()
+  gauche()
+  for (i <- 1 to 8) {recule()}
+  gauche()
+  avance()
+  droite()
+}
+
+def growFlowers() = {
+  fleurHaut()
+  droite()
+  for (i <- 1 to 4) {avance()}
+  gauche()
+  fleurHaut()
+  // replace la buggle a l'endroit attendu
+  droite()
+  avance()
+  gauche()
+  for (i <- 1 to 8) {avance()}
+  gauche()
+  avance()
+  droite()
+  
+}
