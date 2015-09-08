@@ -1,12 +1,23 @@
 override def run() {
-  var Couleurs = new Array[Color](6)
-  for (i <- 0 to 5){
-    Couleurs(i) = getCouleurSol()
-    avance()
+  var Couleurs = new Array[Color](8)
+  
+  var nbCases = 0
+  var i = 0
+  
+  while (nbCases == 0){
+    for (k <- 0 to i){
+      if (getCouleurSol() != Couleurs(i)){
+    		Couleurs(i) = getCouleurSol()
+    		avance()
+        i = i + 1
+      } else {
+        	nbCases = i
+      }
+    }
   }
   
   def Motif(){
-    for (i <- 0 to 5){
+    for (i <- 0 to nbCases){
       var clr : Color = Couleurs(i)
       setCouleurBrosse(clr)
       baisseBrosse(); leveBrosse()
@@ -14,7 +25,7 @@ override def run() {
   	}
   }
   
-  for (i <- 0 to 5){
+  for (i <- 0 to nbCases){
     gauche(); avance(); droite(); avance(); Motif()
   }
 }
