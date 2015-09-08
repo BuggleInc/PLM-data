@@ -8,6 +8,7 @@ def golomb(num:Int): Int = {
   T2(0) = 1;
   T2(1) = 2;
   T2(2) = 2;
+  if ( i >= 3 ){
   for ( i <- 3 to num ){
     while( T1(i-1) > 1 ){
       if ( c >= num ){
@@ -17,6 +18,7 @@ def golomb(num:Int): Int = {
       c += 1
       T1(i-1) = T1(i-1)-1;
     }
+  }
   }
   return T2(num-1);
 }
