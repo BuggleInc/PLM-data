@@ -1,0 +1,42 @@
+def regarde(l:Int):Array[Color] =
+{
+  var tab = new Array[Color](l)
+  
+  tab(0) = getCouleurSol()
+  
+  for(j <- 1 to tab.length-1)
+  {
+    avance()
+    tab(j) = getCouleurSol()
+  }
+  recule(l-1)
+  return tab
+}
+
+def coloriage(T:Array[Color],decal:Int)
+{
+  setCouleurBrosse(T(decal))
+  for(i <- 1 to T.length-1)
+  {
+    avance()
+    setCouleurBrosse(T(i+decal))
+    baisseBrosse()
+    leveBrosse()
+  }
+  recule(l-1)
+}
+
+override def run()
+{
+  var tableau = regarde(getMondeHauteur())
+  
+  for(i <- 1 to getMondeLargeur()-1)
+  {
+    gauche()
+    avance()
+    droite()
+    val decalage = litMessage().toInt
+    coloriage(tableau)
+  }
+  
+}
