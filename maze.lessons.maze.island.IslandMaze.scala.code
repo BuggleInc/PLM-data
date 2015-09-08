@@ -1,0 +1,55 @@
+override def run() {
+  while (getY()!=0){
+    if (!estFaceMur()){
+      avance();
+    }
+    while (!verifNord()){
+      MainAuMur();
+    }
+  }
+  Sors();
+}
+
+def verifNord():Boolean={
+  var dir = getDirection();
+  setDirection(Direction.NORD);
+  if (estFaceMur()){
+    setDirection(dir);
+    return false
+  }
+  setDirection(dir);
+  return true
+}
+
+def Sors() {
+  while(!estSurBiscuit){
+    while(!estFaceMur() && !estSurBiscuit()){
+      MainAuMur();
+    }
+    if(estFaceMur() && !estSurBiscuit()){
+      left();
+    }
+    if(estFaceMur() && !estSurBiscuit()){
+      retourne();
+    }
+    if(estFaceMur() && !estSurBiscuit()){
+      right();
+    }
+    if (!estSurBiscuit()){
+      avance();
+    }
+  }
+  
+  prendBiscuit();
+}
+
+def MainAuMur(){
+  left();
+  if (estFaceMur()){
+    right();
+    avance();
+  } else {
+    avance();
+  }
+  
+}
