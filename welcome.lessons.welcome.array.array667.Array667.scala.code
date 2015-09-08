@@ -1,0 +1,20 @@
+def array667(nums:Array[Int]): Int = {
+  var l = nums.length
+  l match {
+    case 0 => 0
+    case 1 => 0
+    case 2 if (((nums(0)==6)&&(nums(1)==6))||((nums(0)==6)&&(nums(1)==7))) => 1
+    case 2 => 0
+    case _ if (((nums(0)==6)&&(nums(1)==6))||((nums(0)==6)&&(nums(1)==7)))=> 1+array667(copieTableauSaufUn(nums))
+    case _ => array667(copieTableauSaufUn(nums))
+  }
+}
+
+def copieTableauSaufUn (tab:Array[Int]):Array[Int] = {
+  var l = tab.length
+  var res= new Array[Int] (l-1)
+  for (i<- 0 to l-2){
+    res(i)=tab(i)
+  }
+  return res
+}
