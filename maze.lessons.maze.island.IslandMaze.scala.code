@@ -1,8 +1,29 @@
 override def run() {
+  while(getY()!=1){
+    while((!mG())&&estFaceMur()){
+      droite()
+    }
+    avance();gauche()
+  }
+  
+  
+  
   while(!estSurBiscuit()){
 		keepHandsOnSideWall()    
   }
   prendBiscuit()
+}
+
+def mG() : Boolean = {
+  var g = false
+  gauche();g= estFaceMur();droite()
+  return g
+}
+
+def mD() : Boolean = {
+  var d = false
+  droite();d= estFaceMur();gauche()
+  return d
 }
 
 def keepHandsOnSideWall() {
