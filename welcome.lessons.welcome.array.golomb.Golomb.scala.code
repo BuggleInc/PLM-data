@@ -1,4 +1,6 @@
 def golomb(num:Int): Int = {
+  var cpt:Int = 3
+  var nb:Int = 0
   var T = new Array[Int](num)
   var ind:Int = 2
   T(0)=0
@@ -6,9 +8,16 @@ def golomb(num:Int): Int = {
   T(2)=2
   T(3)=2
   for (i <- 3 to T.length) {
-    for (j <- ind to ind+T(i)) {
-      T(j)=i
+    if (nb==T(cpt)) {
+      nb=0
+      cpt+=1
+      T(i)=cpt
+    }
+    else {
+      nb+=1
+      T(i)=cpt
     }
   }
- 	return T(num)
+  return T(num)
 }
+    
