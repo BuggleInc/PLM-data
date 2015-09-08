@@ -5,6 +5,16 @@ def peindreSol(c: Color) {
   leveBrosse()
 }
 
+def peindreMotif(couleurs: Array[Color]) {
+  var decalage:Int = litMessage().toInt
+  
+  for (i <- 0 to couleurs.length - 1) {
+    peindreSol(couelurs((i + decalage) % couleurs.length))
+    
+    avance()
+  }
+}
+
 override def run() {
   var hauteurMonde:Int = getMondeHauteur()
   var largeurMonde:Int = getMondeLargeur()
