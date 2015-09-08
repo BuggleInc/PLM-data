@@ -1,2 +1,21 @@
 override def run() {
+  
+  def mur():Boolean = {
+    gauche();
+    if(estFaceMur()){droite();return true}
+    else{droite();return false} 
+  }
+  
+  def placement(){
+  	if(mur() && !estFaceMur()){
+      avance();
+    } 
+    else if( esFaceMur()){droite();}
+    else if( !mur()){ gauche();avance();}
+    
+    
+  }
 }
+
+while(!estSurBiscuit()){placement()}
+  
