@@ -1,0 +1,25 @@
+override def run() {
+  var T = memo()
+  for (cpt2 <-1 to getMondeLargeur()) {
+    gauche()
+    avance()
+    droite()
+    avance()
+    for (cpt3<-0 to T.length - 1) {
+      setCouleurBrosse(T[cpt3])
+      baisseBrosse
+      leveBrosse
+      avance()
+    }
+  }
+}
+
+
+
+def memo() : Array[Color] = {
+  var tab = new Array[Color] (getMondeHauteur()) 
+  for (cpt1 <-0 to getMondeHauteur - 1) {
+    tab[cpt1] = getCouleurSol()
+    avance()
+  }
+}
