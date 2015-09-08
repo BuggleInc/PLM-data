@@ -1,0 +1,23 @@
+override def run() {
+  var i=0
+  var x=1
+  var y=1
+  ecritMessage(i)
+  avance()
+  while (!posFinale()) {
+    if (!estFaceMur()) {
+    	ecritMessage(i)
+    	avance()
+    }
+		else if (!posFinale() && estFaceMur()) {setPos(x,y);x+=1}
+  }
+  
+  def posFinale() : Boolean = {
+    if (estFaceMur()) {
+      gauche()
+      if (estFaceMur()) {droite; return true}
+      else {return false}
+  	}
+    else {return false}
+  }
+}
