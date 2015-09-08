@@ -1,18 +1,33 @@
 override def run() {
-
-  def placement(){
-    var compt = 0
-		if(!estFaceMur()){avance();}
-    else if(estFaceMur()){
-      compt= 0
-      while(estFaceMur()){droite();compt+=1}
-      avance();for(i <- 1 to compt){gauche();}
-    }
+  
+  def mur():Boolean = {
+    gauche();
+    if(estFaceMur()){droite();return true}
+    else{droite();return false} 
   }
-
   
+  def placement(){
+  	if(!estFaceMur()){
+      avance();
+    }
+    else if( !mur()){ gauche();avance();droite()}
+    else if( estFaceMur()){gauche();avance();gauche()}
+  }
   
-
+  def cestLeNord(){
+  	if(!estFaceMur()){avance()}
+    else{ 
+      droite()
+      if(!estFaceMur()){avance();gauche()}
+      else{droite();avance();gauche();gauche()}
+      
+    }
+    
+  }
+  
+	while(getY()!=0 ||getY!=1){
+    cestLeNord()
+  }
   while(!estSurBiscuit()){       
     placement()
   }
