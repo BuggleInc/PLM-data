@@ -1,2 +1,48 @@
 override def run() {
+  
+  var cpt : Int = 0
+  var x = 0
+  var y = 0
+  var dirEst = true 
+  
+  do
+  {
+    write()
+    move(x,y,dirEst)
+    write(cpt)
+  } while (!end)
+  
+}
+
+def write() {
+	ecritMessage(cpt)
+  cpt = cpt+1
+}
+
+def end():Boolean = {
+  return getX == getMondeLargeur && getY == getMondeHauteur 
+}
+
+def move(x,y,dirEst) {
+  
+  if (dirEst)
+  	x = x+1
+  else
+  	x = x-1
+  
+  if (x==-1)
+  {
+    y=y+1
+    dirEst = !dirEst
+    x=0
+  }
+  if (x==getMondeLargeur()+1)
+  {
+    y=y+1
+    dirEst = !dirEst
+    x= getMondeLargeur()
+  }
+  
+  setPos(x,y)
+  
 }
