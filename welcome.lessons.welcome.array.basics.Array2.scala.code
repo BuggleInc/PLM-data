@@ -12,8 +12,9 @@ override def run() {var n:Int=getMondeHauteur()
                                        droite()
                                        var dec:Int=litMessage().toInt
                                        for (i<-dec to n-1) {setCouleurBrosse(T(i));marque();avance()}
-                                      
-                                        for (i<-0 to dec-1){setCouleurBrosse(T(i));marque();avance()}
+                                       if (dec=1) {setCouleurBrosse(T(i));marque()}
+                                       if (dec=2) {setCouleurBrosse(T(i));marque();avance();setCouleurBrosse(T(i));marque()}
+                                       else for (i<-0 to dec-2){setCouleurBrosse(T(i));marque();avance()}
                                        setCouleurBrosse(T(n-1+dec))
                                        marque()
                                        recule(n)}}
