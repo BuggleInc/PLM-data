@@ -1,13 +1,19 @@
 override def run() {
   var hauteur = getMondeHauteur()
-  
-}
-
-def crerTableau(hauteur:Int){
   var T=new Array[Color]
   for (i<=1 to hauteur){
     T(i)=getCouleurSol()
     avance()
+  }// code cr?er le tableau avec les couleurs
+  for (i<=1 to hauteur){
+    leveBrosse()
+    gauche()
+    avance()
+    droite()
+    for (i<1 to T.lenght()){
+      baisseBrosse()
+      setCouleurBrosse(T.(i))
+      avance()
+    }
   }
-  return T
 }
