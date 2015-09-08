@@ -1,4 +1,19 @@
-override def run() {lireColonne()
+override def run() {
+  var tab = lireColonne()
+  var p:Int = 0
+  val n = getMondeHauteur()
+  val m = getMondeLargeur()
+  for (i <- 1 to m-1) {
+    gauche()
+    avance()
+    droite()
+    var decalage = litMessage().toInt
+    for (j <- 1 to n)  {
+      point(tab(decalage))
+      avance()
+      decalage = (decalage + 1) % n
+    }
+  }
 }
 
 
