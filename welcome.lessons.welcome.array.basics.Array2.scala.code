@@ -7,8 +7,8 @@ override def run() {
   for (i <- 1 to T.length-1) {avance() ; T(i) = getCouleurSol()}
   for (k  <- 1 to largeur-1) {
     gauche() ; avance() ; droite() ;
-    baisseBrosse() ; setCouleurBrosse(T(decalage)) ; leveBrosse()
     val decalage = litMessage().toInt
+    baisseBrosse() ; setCouleurBrosse(T(decalage)) ; leveBrosse()
     for (i <- decalage+1 to T.length-1) 
     	{avance() ; baisseBrosse() ; setCouleurBrosse(T(i)) ; leveBrosse()}
     for (i <- 0 to decalage-1)
