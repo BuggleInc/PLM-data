@@ -8,7 +8,7 @@ override def run() {
         avance()
         gauche()
       }
-      else {
+      if (getDirection()==Direction.OUEST) {
         droite()
         avance()
         droite()
@@ -21,17 +21,15 @@ override def run() {
 }
 
 def test() {
-  if (getDirection()==Direction.EST) {
-    if (estFaceMur()) {
+  if (estFaceMur()) {
+    if (getDirection()==Direction.EST) {
       gauche()
-      if (estFaceMur()) {
+      if (estFaceMur) {
         droite()
         return true
       }
     }
-  }
-  else {
-    if (estFaceMur()) {
+    if (getDirection()==Direction.OUEST) {
       droite()
       if (estFaceMur()) {
         gauche()
