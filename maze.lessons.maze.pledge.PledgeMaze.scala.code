@@ -13,19 +13,22 @@ override def run() {
 
 def keepHandOnWall(){
   var patte=0
-  left();
-  patte+=1
-  while (estFaceMur()){
-    patte-=1
-    right();
-  }
-  avance();
-  if (patte==0){
+  patte-=1
+  while (getDirection()!=Direction.NORD || !VerifNorth()){
     left();
-    if(estFaceMur()){
+    patte+=1
+    while (estFaceMur()){
+      patte-=1
       right();
-    } else {
-      avance();
+    }
+    avance();
+    if (patte==0){
+      left();
+      if(estFaceMur()){
+        right();
+      } else {
+        avance();
+      }
     }
   }
 }
