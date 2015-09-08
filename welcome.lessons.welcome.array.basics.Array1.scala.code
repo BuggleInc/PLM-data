@@ -1,6 +1,6 @@
 override def run() 
 {
-  creeTableau()
+  var T= creeTableau()
   for (i <- 1 to getMondeLargeur()) 
   {
     gauche()
@@ -16,13 +16,14 @@ override def run()
   }
 }
 
-def creeTableau()
+def creeTableau():Array[Color] =
 {
   var T = new Array[Color](getMondeHauteur())
   for (i <- 1 to getMondeHauteur()) 
   {
     T(i-1)=getCouleurSol()
   }
+  return T
 }
 
 def peindre()
