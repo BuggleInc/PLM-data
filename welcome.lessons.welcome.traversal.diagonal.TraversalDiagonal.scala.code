@@ -25,6 +25,24 @@ override def run() {
     cpt+=1
     ecritMessage(cpt)
   }
+  //diagonale principale parcourue
   
+  while((getX(),getY())!=(getMondeLargeur()-1,getMondeHauteur()-1))
+  {
+    if (getX()==getMondeLargeur()-1)
+    {
+      diag+=1
+      setPos(diag-getMondeHauteur()+1)
+      cpt+=1
+      ecritMessage(cpt)
+    }
+    else
+    {
+      setPos(getX()+1,getY()-1)
+      cpt+=1
+      ecritMessage(cpt)
+    }
+  }
+  ecritMessage(cpt)
 }
 
