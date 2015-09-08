@@ -1,0 +1,25 @@
+override def run() {lireColonne()
+}
+
+
+
+
+def lireColonne():Array[Color] = {
+  val n:Int = getMondeHauteur()
+  var t = new Array[Color] (n)
+  t(0) = getCouleurSol()
+  for (i <- 1 to n-1) {
+    avance()
+    t(i) = getCouleurSol()
+  }
+  for (i <- 1 to n) {
+    recule()
+  }
+  return t
+}
+
+def point(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
