@@ -1,0 +1,35 @@
+def keepHandOnSideWall()
+{
+  if (!estFaceMur())
+  {
+    avance()
+    
+    gauche()
+    if (estFaceMur())
+    	droite()
+  }
+  else
+  {
+    droite()
+  }
+}
+
+override def run()
+{
+  var place = false
+  while (!place)
+  {
+    gauche()
+    if (!estFaceMur())
+    {
+      avance()
+    	place = true
+    }
+    droite()
+  }
+  
+  while(!estSurBiscuit())
+    keepHandOnSideWall()
+  
+  prendBiscuit()
+}
