@@ -1,13 +1,11 @@
 override def run() {
-  while (getY() != 0) {
-    headNorth()
-    do {
-    keepWallOnLeft()
-    } while (getDirection() != Direction.NORTH && getY != 0)
+  while (getY != 0) {
+	  headNorth()
+		do {
+    	keepWallOnleft()
+  	} while (getDirection() != Direction.NORTH)
   }
-  while (! isOverBaggle()) {
-    keepWallOnLeft()
-  }
+  
   pickupBaggle()
 }
 
@@ -23,6 +21,7 @@ def keepWallOnLeft() {
     	forward()
     else {
     	right()
+      keepWallOnLeft()
     }
     
   } else {
