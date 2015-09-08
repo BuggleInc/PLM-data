@@ -1,13 +1,13 @@
 override def run() 
 {
-  String decalage
+  var decalage
   var T = creeTableau()
   for (j <- 1 to getMondeLargeur()-1) 
   {
     gauche()
     avance()
     droite()
-    decalage=litMessage()
+    decalage=litMessage().toInt
     for (i <- 1 to getMondeHauteur()-1) 
       {
         avance()
@@ -15,10 +15,6 @@ override def run()
         peindre()
       }
   }
-  recule()
-  droite()
-  avance()
-  gauche()
 }
 
 def creeTableau():Array[Color] =
