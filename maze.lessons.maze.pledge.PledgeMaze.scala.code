@@ -1,0 +1,41 @@
+override def run() {
+  while (getY != 0) {
+	  headNorth()
+    keepWallOnRight()
+  }
+  while(! isOverBaggle())
+  	keepWallOnRight()
+  
+  pickupBaggle()
+}
+
+
+def keepWallOnRight() {
+  var a:Boolean = false
+  right()
+  a = isFacingWall()
+  
+  if (a) {
+    left()
+    if (!isFacingWall())
+    	forward()
+    else {
+    	left()
+      if (!isFacingWall())
+	      forward()
+    }
+    
+  } else {
+    forward()
+  }
+}
+
+def headNorth() {
+  while (getDirection() != Direction.NORTH) {
+    right()
+  }
+    
+  while (! isFacingWall()) {
+    forward()
+  }
+}
