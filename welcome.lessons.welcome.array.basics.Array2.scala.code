@@ -1,7 +1,10 @@
 override def run() {
   var T = new Array[Color](getMondeHauteur())
   CreationTableau(T)
-  
+  for (j <- 0 to getMondeLargeur()-2){
+    var decalage:Int=litMessage().toInt
+    FaireUneColonne(T,decalage)
+  } 
 }
 
 def CreationTableau(T:Array[Color]){
@@ -18,33 +21,21 @@ def CreationTableau(T:Array[Color]){
   }
 }
 
-
-
-
-
-
-
-  for (j <- 0 to getMondeLargeur()-2){
-    gauche()
-    avance()
-    droite()
-    avance()
-    FaireUneColonne(T)
-  } 
-}
-
-
-
-def FaireUneColonne(T:Array[Color]){
-  for (i <- T){
-    setCouleurBrosse(i)
+def FaireUneColonne(T:Array[Color],decalage:Int){
+  for (i <- 0 to getMondeHauteur()-1){
+    setCouleurBrosse(i+decalage)
     baisseBrosse()
     leveBrosse()
     if (estFaceMur()){
       recule(getMondeHauteur())
       gauche()
-    	avance()
-    	droite()
+      if (estFaceMur()){
+        droite()
+        avance(getMondeHauteur())
+      }else{
+        avance()
+    		droite()
+      }
     }else{
     avance()
     }
