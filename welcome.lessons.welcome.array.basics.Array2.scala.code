@@ -1,0 +1,38 @@
+override def run() {
+  
+  var Couleurs = new Array[Color](8)
+  
+  var nbCases = 0
+  
+  while (!estFaceMur){
+    	Couleurs(nbCases) = getCouleurSol()
+    	avance()
+    	nbCases = nbCases + 1
+  }
+  
+  for (i <- 1 to nbCases){
+    recule()
+  }
+  
+  def Motif(){
+    
+    var decalage = litMessage().toInt
+    
+    for (i <- 0 to (nbCases - 1)){
+      var clr : Color = Couleurs((i+decalage)%Couleurs.length)
+      setCouleurBrosse(clr)
+      baisseBrosse(); leveBrosse()
+      avance()
+  	}
+    
+    for (i <- 1 to nbCases){
+      recule()
+    }
+  }
+  
+  for (i <- 0 to (nbCases - 1)){
+    gauche(); avance(); droite(); Motif()
+  }
+  droite(); avance(); gauche(); recule()
+  
+}
