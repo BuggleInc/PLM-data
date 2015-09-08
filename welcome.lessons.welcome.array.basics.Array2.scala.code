@@ -20,10 +20,11 @@ override def run() {
 }
 
 def col1(T:Array[Color]){
-  for (i<-1 to getMondeHauteur()){
+  for (i<-1 to getMondeHauteur()-1){
     T(i)=getCouleurSol()
     avance()
-  }  
+  }
+  T(getMondeHauteur()-1)=getCouleurSol()
   for(a<-1 to getMondeHauteur()){
     recule()
   }
