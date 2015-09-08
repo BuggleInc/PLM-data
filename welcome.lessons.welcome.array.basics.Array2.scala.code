@@ -16,10 +16,12 @@ def getMotif():Array[Color]={
 }
 
 def repet(tab:Array[Color]){
-  avance()
   gauche()
   avance()
   droite()
+  var dec=litMessage().toInt 
+  avance()
+  ecritMessage(dec)
   for (i<- 0 to tab.length-1){
     brosse(tab(i))
     avance()
@@ -30,9 +32,9 @@ def repet(tab:Array[Color]){
 
 override def run() {
   var tab=getMotif()
- // var tic=1
- // while(tic<=getMondeLargeur()-1){
-  //	repet(tab)
-//tic=tic+1
- // }
+  var tic=1
+  while(tic<=getMondeLargeur()-1){
+  	repet(tab)
+	tic=tic+1
+  }
 }
