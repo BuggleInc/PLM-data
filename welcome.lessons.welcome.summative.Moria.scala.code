@@ -2,9 +2,13 @@ sortir()
 
 def chercher():Boolean = {
   retourne()
-  while(!estSurBiscuit() || !estFaceMur())
+  while(!estSurBiscuit())
   {
     avance()
+    if(estFaceMur())
+    {
+      return true
+    }
   }
   prendBiscuit()
   return porteBiscuit
