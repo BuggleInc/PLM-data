@@ -4,14 +4,19 @@ override def run() {
   var Couleur = remplirTableau1(hauteurMonde)
 	gauche()
   avance()
-  droite
+  droite()
   for (k <- 1 to largeurMonde-1) {
     val decalage = litMessage().toInt
-    for (h<- 1 to hauteurMonde-1) {
+    for (h<- 1 to hauteurMonde) {
       setCouleurBrosse(Couleur((h+decalage)%hauteurMonde))
       baisseBrosse()
       leveBrosse()
-      avance()
+      if (estFaceMur == false) {
+        avance()
+      }
+      else {
+        for (r <- 1 to hauteurMonde-1) {
+          recule()
     }
   } 
 }
