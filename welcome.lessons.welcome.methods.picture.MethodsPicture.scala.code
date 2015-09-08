@@ -1,0 +1,42 @@
+override def run() {for (compteur <- 1 to 3){
+  Motif()
+}}
+
+def Motif(){
+  for (compteur <- 1 to 3){
+    faireMotif()
+  }
+  recule(15)
+  gauche()
+  avance(5)
+  droite()
+}
+
+def faireMotif(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)   
+  avance(5)
+  }
+
+def brosse(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  brosse()
+  avance()
+  gauche()
+  avance()
+  brosse()
+  recule()
+  droite()
+  avance()
+  brosse()
+  avance()
+  gauche()
+}
