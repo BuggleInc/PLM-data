@@ -1,20 +1,16 @@
 def keepHandOnSideWall()
 {
-  var ok = false
-  
-  for(i <- 0 to 1)
+  if (!estFaceMur())
   {
-    if (!ok)
-    {
-      gauche()
-      
-      if (!estFaceMur())
-      {
-        avance()
-        droite()
-        ok = true
-      }
-    }
+    avance()
+    
+    gauche()
+    if (estFaceMur())
+    	droite()
+  }
+  else
+  {
+    droite()
   }
 }
 
