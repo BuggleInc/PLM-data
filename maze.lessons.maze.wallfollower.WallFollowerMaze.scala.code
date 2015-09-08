@@ -4,12 +4,16 @@ def keepHandOnSideWall()
   
   for(i <- 0 to 1)
   {
-    gauche()
-    if (!estFaceMur() && !ok)
+    if (!ok)
     {
-      avance()
-      droite()
-      ok = true
+      gauche()
+      
+      if (!estFaceMur())
+      {
+        avance()
+        droite()
+        ok = true
+      }
     }
   }
 }
