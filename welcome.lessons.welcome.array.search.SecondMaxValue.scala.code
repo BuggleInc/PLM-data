@@ -1,11 +1,12 @@
 def max2Value(nums:Array[Int]): Int = {
-  var maxi1:Int = nums(0)
-  var maxi2:Int = nums(0)
+  var tab = Array(nums(0), nums(0))
   for (i <- nums) {
-    if (i > maxi1) {
-      maxi2 = maxi1
-      maxi1 = i
+    if (i > tab(0)) {
+      tab(1) = tab(0)
+      tab(0) = i
+    } else if (i < tab(0) && i > tab(1)) {
+      tab(1) = i
     }
   }
-  return maxi2
+  return tab(1)
 }
