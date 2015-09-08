@@ -1,0 +1,59 @@
+override def run() {
+  while (!finale)
+  {
+    serpent()
+  }
+}
+
+def finale():Boolean={
+  if (estFaceMur())
+  {
+    if (getDirection()==Direction.EST)
+    {
+      gauche()
+      if (estFaceMur)
+      {
+        return true
+      }
+      else 
+      {
+        return false
+      }
+    }
+    else
+    {
+      droite()
+      if (estFaceMur)
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+    }
+  }
+}
+
+def serpent() {
+  if (!estFaceMur)
+  {
+    avance()
+  }
+  else
+  {
+    if (getDirection()==Direction.EST)
+    {
+      gauche()
+      avance()
+      droite()
+    }
+    else
+    {
+      droite()
+      avance()
+      gauche()
+    }
+  }
+}
+
