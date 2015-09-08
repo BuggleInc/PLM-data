@@ -1,2 +1,24 @@
 override def run() {
+  var ord=getY()
+  var abs=getX()
+  var h=getMondeHauteur()
+  var m=0
+  while (!arrive){
+    ecritMessage(m)
+    m=m+1
+    if (ord==h-1){
+      setPos(abs+1,0)
+    }
+    else setPos(abs,ord+1)
+  }
+  ecritMessage(m)
+}
+
+def arrive(){
+  var h=getMondeHauteur()
+  var l=getMondeLargeur()
+  if (getX()==l-1 && getX()==h-1){
+    return true
+  }
+  else return false
 }
