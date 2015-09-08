@@ -3,23 +3,25 @@ override def run() {
     var arrive = false
     
     while (!arrive){
-      if (testArrive())
-      	arrive = true
-      while(!isFacingWall){
+      
+      while(!isFacingWall()){
         forward()
       }
+      
       var d = getDirection()
       if (!arrive){
-      d match {
-    		case Direction.EAST => left();forward();left();
-        case Direction.WEST => right();forward();right();
-      }
+      	d match {
+          case Direction.EAST => left();if (!isFacingWall){forward()};left();
+          case Direction.WEST => right();if (!isFacingWall){forward()};right();
+     		}
+       if (testArrive())
+      	arrive = true
       }
     }
 }
 
 def testArrive (): Boolean = {
-  if (!isFacingWall)
+  if (!isFacingWall())
   	return false
   var d = getDirection()
   d match {
