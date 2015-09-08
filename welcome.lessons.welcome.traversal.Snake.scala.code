@@ -1,0 +1,22 @@
+override def run() { 
+  doTheThing()
+}
+
+def doTheThing() {
+  pasDeSerpent()
+  while (!estFaceMur()) {
+    avance()
+    gauche()
+    if (estFaceMur())
+    	gauche(); gauche()
+    pasDeSerpent()   
+  }
+  
+}
+def pasDeSerpent() {
+  baisseBrosse
+  while (!estFaceMur()) {
+    avance()
+  }
+  setDirection(Direction.NORTH)
+}
