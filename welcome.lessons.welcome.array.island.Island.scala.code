@@ -1,12 +1,12 @@
 def island(num:Array[Int]): Int = {
-  var n = num.length
-  var max = 0
-  for (pas <- 0 to (n-1))
+	var n = num.length
+  var niveau = 0
+  for (pas <- 0 to (n-2))
   {
-    if (nus(pas)>max)
+    if (num(pas+1)==num(pas))
     {
-      max=num(pas)
+      niveau=niveau+1
     }
   }
-  var niveaux = 0
-  
+  return niveau
+}
