@@ -1,0 +1,51 @@
+def flower(c:Color){
+  setCouleurBrosse(c)
+  
+  baisseBrosse()
+  avance(2);recule();gauche();avance();recule(2)
+  leveBrosse()
+  avance()
+  
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse()
+  leveBrosse()
+  droite()
+}
+
+def motif(){
+  flower(Color.red)
+  
+  avance(3)
+  
+  flower(Color.cyan)
+  
+  recule(3);gauche();recule(2);droite()
+  
+  flower(Color.orange)
+  
+	recule(3);gauche();recule(2);droite()  
+  
+  flower(Color.pink)
+  
+  avance(3)
+  
+  flower(Color.green)
+  
+  recule(5)
+}
+
+def platDeBandes(){
+  
+  motif()
+  avance(6);gauche();avance(2);droite()
+  flower(Color.blue)
+  avance();gauche();avance(2);droite()
+  motif()
+  
+}
+
+def growFlowers(){
+  platDeBandes()
+  gauche();recule();droite();recule(8);droite();avance(3);gauche()
+  platDeBandes()
+}

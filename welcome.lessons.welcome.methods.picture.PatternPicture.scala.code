@@ -1,0 +1,98 @@
+override def run() {
+  
+  faireDoubleMotif()
+  
+  gauche()
+  for(i<- 1 to 4){
+    avance()
+  }
+  droite()
+  
+  faireDoubleMotif()
+	for (i<- 1 to 4){
+  avance()
+	}
+}
+
+
+def faireRed() {
+  setCouleurBrosse(Color.red)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();gauche();avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();droite()
+}
+
+
+def faireGreen() {
+  setCouleurBrosse(Color.green)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();gauche();avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();droite()  
+}
+
+def faireBlue() {
+  setCouleurBrosse(Color.blue)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche();avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();droite();recule()
+}
+
+def faireYellow() {
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche();avance()
+  baisseBrosse()
+  leveBrosse()
+  recule();droite();recule()
+}
+
+def faireMotif() {
+  
+  faireRed()
+  
+  avance();avance()
+  
+  faireBlue()
+  
+  gauche();avance();avance();droite()
+  
+  faireGreen()
+  
+  recule();recule()
+  
+  faireYellow()
+  
+  gauche();recule();recule();droite()
+  
+}
+
+def faireDoubleMotif(){
+  
+  faireMotif()
+  
+  for(i<- 1 to 4){
+    avance()
+  }
+  
+  faireMotif()
+  
+  for(i<- 1 to 4){
+    recule()
+  }
+    
+}
+
