@@ -3,7 +3,12 @@ override def run() {
     while(!estFaceMur() && !estSurBiscuit()){
       MainAuMur();
     }
-    left();
+    while(estFaceMur() && !estSurBiscuit()){
+      left();
+    }
+    if (!estSurBiscuit()){
+      avance();
+    }
   }
   
   prendBiscuit();
