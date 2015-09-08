@@ -1,0 +1,39 @@
+override def run() {
+  baisseBrosse()
+  while(!estPositionFinale()){
+    avanceSerpent()
+  }
+}
+
+
+def estPositonFinale(): Boolean = {
+  if (estFaceMur()){
+    if (getDirection()==Direction.Est()){
+      gauche()
+      if (estFaceMur()){
+        return true
+      }
+    } else{
+      droite()
+      if(estFaceMur()){
+        return true
+      }
+    }
+  }
+ return false
+}
+
+def avanceSerpent(){
+  if (estFaceMur()){
+    if (getDirection()==Direction.Est()){
+      gauche()
+      avance
+    } else{
+      droite()
+      avance()
+    }
+  }
+  else{
+    avance()
+  }
+}
