@@ -1,0 +1,39 @@
+//Faire une fleur de couleur c
+def faireFleur(c:Color) {
+	setCouleurBrosse(c);
+  baisseBrosse();
+  avance(2);
+  recule();
+  gauche();
+  avance();
+  recule(2);
+  avance();
+  setCouleurBrosse(Color.YELLOW);
+  leveBrosse();
+  droite();
+}
+
+//Faire une ligne de 2 Fleurs de DEUX couleurs diff?rentes
+
+def faire2Fleurs(c1:Color,c2:Color) {
+  faireFleur(c1);
+  avance(3);
+  faireFleur(c2);
+  recule(5);
+}
+
+//Code Final
+
+def growFlowers() {
+  faire2Fleurs(Color.RED,Color.CYAN);
+  droite();
+  avance(2);
+  gauche();
+  avance(2);
+  faireFleur(Color.ORANGE);
+  recule(3);
+  droite();
+  avance(2);
+  gauche();
+  faire2Fleurs(Color.PINK,Color.GREEN);
+}
