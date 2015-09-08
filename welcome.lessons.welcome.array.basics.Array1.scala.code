@@ -7,10 +7,7 @@ override def run() {
   var largeur : Int = getMondeLargeur()
   for (k  <- 1 to largeur-1) {
     recule(hauteur-1) ; droite() ; avance() ; gauche() ;
-    baisseBrosse()
     for (color <- T) 
-    	{setCouleurBrosse(color) ; avance()}
-    leveBrosse()
-
-    }
+    	{baisseBrosse() ; setCouleurBrosse(color) ; leveBrosse() ; avance()}
+        }
   }
