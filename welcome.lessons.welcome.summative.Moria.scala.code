@@ -1,7 +1,8 @@
 def prog() {
+  var b:Boolean = true
   droite()
   droite()
-  while (!(estFaceMur() && !estSurBiscuit())) {
+  while (b) {
     if (estSurBiscuit()) {
       prendBiscuit()
       while(!estSurBiscuit()) {
@@ -11,7 +12,12 @@ def prog() {
       poseBiscuit()
       avance()
     }
-    avance()
+    if (estFaceMur() && !estSurBiscuit()) {
+      b=false
+    }
+    if (!estFaceMur()) {
+      avance()
+    }
   }
   droite()
   avance()
