@@ -7,4 +7,4 @@ def garM(c:Int):Int = { if (aMurD()) {if (estFaceMur()) {gauche();return c+1} el
 }
 
 
-override def run() {var c = 0;while (getY()!=0) {c=0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (c!=4 && getY() !=0) {var i = 0;while (!aMurD() && i!=4) {droite();i+=1};if (!aMurD()) {droite();avance()};c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}
+override def run() {var c = 0;while (getY()!=0) {c=0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (c!=4 && getY() !=0) {var i = 0;if (!aMurD()) {droite();avance()};c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}
