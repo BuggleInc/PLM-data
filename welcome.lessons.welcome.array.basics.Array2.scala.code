@@ -8,20 +8,30 @@ override def run() {
     T(i)=getCouleurSol();
     avance();
   }
+  recule()
   
   
   
   for (i<-1 to (y-1)) {
+    
     gauche();
     avance();
     droite();
     avance();
     
     for (j <- 0 to (y-1)) {
-      setCouleurBrosse(T(j));
+      setCouleurBrosse(T((j + o) % taille));
       baisseBrosse();
       leveBrosse();
       avance();
     }     
+  }
+}
+
+
+def rec() {
+  var y = getMondeHauteur()
+  for (i<-1 to y) {
+    recule()
   }
 }
