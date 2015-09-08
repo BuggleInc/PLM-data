@@ -1,22 +1,23 @@
 override def run() { 
   var x = getMondeLargeur();
-  motif();
-  
-  
-  
-  
-}
-
-
-
-
-
-
-def motif() {
   var y = getMondeHauteur()
-var T = new Array[Color](y);
+  var T = new Array[Color](y);
   for (i<- 1 to (getMondeHauteur())) {
     getCouleurSol();
     avance()
   }
+  for (i<-1 to y) {
+    gauche()
+    avance()
+    droite()
+    avance()
+    
+    for (j <- 1 to (T.length)) {
+      setCouleurCorps(T(j))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }     
+  }
 }
+  
