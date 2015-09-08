@@ -3,7 +3,7 @@ def golomb(num:Int): Int = {
   var nombre = 2;
   var a_prendre = 3
   var occurences=0;
-  var nombres_occurences = 0;
+  var nombres_occurences = 2;
   T(0)=1;
   for (i<- 1 to num-1){T(i)=nombre;occurences=occurences+1; if (occurences==nombres_occurences){occurences=0;nombre = a_prendre;a_prendre = a_prendre+1; nombres_occurences= T(a_prendre+1)}}
   return T(num-1)}
