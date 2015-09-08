@@ -1,10 +1,12 @@
 override def run() {
 
   def placement(){
+    var compt = 0
 		if(!estFaceMur()){avance();}
     else if(estFaceMur()){
-      while(estFaceMur()){droite()}
-      avance();gauche();
+      compt= 0
+      while(estFaceMur()){droite();compt+=1}
+      avance();for(i <- 1 to compt){gauche();}
     }
   }
 
