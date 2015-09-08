@@ -1,0 +1,37 @@
+override def run() {
+}
+
+def FaireV(c:Color){
+  setCouleurBrosse(c:Color);avance;baisseBrosse;leveBrosse;
+  avance;gauche;avance;baisseBrosse;leveBrosse;recule;droite;
+  avance;baisseBrosse;leveBrosse;
+  avance;gauche;
+}
+
+def decale{
+  for (i<-1 to 5){
+    avance;
+  }
+}
+
+def FaireV_petitcarre{
+  FaireV(Color.YELLOW)
+  FaireV(Color.RED)
+  FaireV(Color.BLUE)
+  FaireV(Color.GREEN)
+  decale
+}
+
+def FaireV_ligne{
+  FaireV_petitcarre
+  FaireV_petitcarre
+  FaireV_petitcarre
+}
+
+def retour_ligne{
+  gauche;
+  for (i<- 1 to 5){
+    avance;
+  }
+  droite
+}
