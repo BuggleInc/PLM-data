@@ -3,12 +3,12 @@ override def run() {
     // Your code here 
   while (!estSurBiscuit()){
     r=random3();
-    r match{
-      case 0 => if(!estFaceMur()){
+    if (r==0 && !estFaceMur()){
         avance();
-      }
-      case 1 => left();
-      case 2 => right();
+    } else if (r==1){
+      left();
+    } else if (r==2){
+      right();
     }
   }
 }
