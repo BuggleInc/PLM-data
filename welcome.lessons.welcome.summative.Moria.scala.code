@@ -2,9 +2,8 @@ retourne()
 var sortie:Boolean=false
 while (!sortie){
 	while (!estSurBiscuit() && !estFaceMur()) {avance()}
-	if (estSurBiscuit() && !porteBiscuit()) {prendBiscuit()}
-  retourne()
-  while(!estSurBiscuit()) {avance()}
+	if (estSurBiscuit() && !porteBiscuit()) {prendBiscuit();retourne()}
+  while(!estSurBiscuit() && porteBiscuit()) {avance()}
   if (estSurBiscuit() && porteBiscuit()) {recule();poseBiscuit();retourne();if (!estFaceMur()) {avance()}}
   if (estFaceMur()) {droite();avance();gauche();avance();sortie=true}
 }
