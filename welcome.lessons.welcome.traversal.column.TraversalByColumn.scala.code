@@ -6,14 +6,14 @@ override def run() {
   ecritMessage(i)
   i+=1
   setPos(x,y)
-  while (!posFinale()) {
-    if (!estFaceMur()) {
-    	ecritMessage(i)
-    	if (y<getMondeHauteur()) {y+=1;setPos(x,y)}
-      else {y=0}
+  while (i!=getMondeHauteur()*getMondeLargeur()) {
+    if (i%6==0) {
+      x+=1
+      y=0
+      setPos(x,y)
+      i+=1
     }
-		if (!posFinale() && estFaceMur()) {x+=1;setPos(x,y)}
-    i+=1
+    else {y+=1;setPos(x,y);i+=1}
   }
   
   def posFinale() : Boolean = {
