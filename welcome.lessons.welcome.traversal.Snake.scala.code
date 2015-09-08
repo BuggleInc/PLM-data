@@ -1,0 +1,35 @@
+override def run() {
+  baisseBrosse()
+  while(!estArrive()) {
+    pasSerpent()
+  }
+  
+  
+}
+
+def estArrive() :Boolean = {
+  if (estFaceMur()) {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      return estFaceMur()
+    }
+    else if (getDirection()==Direction.OUEST) {
+      droite()
+      return estFaceMur()
+    }
+  }
+}
+
+def pasSerpent() {
+  if (!estFaceMur()) avance()
+  else if(getDirection()==Direction.EST) {
+      gauche()
+      avance()
+    	gauche()
+    }
+  else if (getDirection()==Direction.OUEST) {
+      droite()
+      avance()
+    	droite()
+    }
+}
