@@ -18,8 +18,11 @@ override def run() {
     }
     gauche(); gauche()
     var decalage = litMessage().toInt
-    for(j<-1 to decalage) {
+    while(!estFaceMur()) {
       avance()
+    }
+    for(j<-1 to decalage) {
+      recule()
     }
     for(j<-0 to getMondeHauteur()-1) {
       setCouleurBrosse(T(j))
