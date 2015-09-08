@@ -1,0 +1,23 @@
+def has271(nums:Array[Int]): Boolean = {
+  val n = nums.length
+  if (n<3) {return true}
+  var vu1 = nums(0)
+  var vu2 = nums(1)
+  for (i <- 2 to n-1) {
+    if (check271(vu1, vu2, num(i))) {
+      return true
+    } else {
+      vu1 = vu2
+      vu2 = nums(i)
+    }
+  }
+  return false
+}
+
+
+
+
+
+def check271(a:Int, b:Int, c:Int):Boolean = {
+  return ((a+5==b) && (a-1==c))
+}
