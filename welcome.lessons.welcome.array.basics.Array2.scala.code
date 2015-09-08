@@ -12,8 +12,11 @@ override def run() {
     }
   }
   for(i<-0 to getMondeHauteur()-1) {
-    gauche(); avance(); droite()
-    var message = litMessage()
+    gauche(); avance(); gauche()
+    while(!estFaceMur()) {
+      avance()
+    }
+    gauche(); gauche()
     println(message)
     var decalage = message.toInt
     for(j<-1 to decalage) {
