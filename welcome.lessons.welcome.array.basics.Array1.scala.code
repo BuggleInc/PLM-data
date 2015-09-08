@@ -10,9 +10,15 @@ override def run() {
     avance()
     droite()
     avance()
-    
+    for (h <- 0 to getMondeHauteur) {
+      marquer( T(h) )
+      avance()
   }
 
 }
 
-
+def marquer(c : Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
