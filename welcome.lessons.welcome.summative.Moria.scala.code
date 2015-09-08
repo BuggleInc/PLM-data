@@ -3,17 +3,27 @@ while (!estFaceMur())
   gauche()
   gauche()
   
-  while (!estSurBiscuit())
+  while (!estSurBiscuit() && !estFaceMur())
   	avance()
   
-  prendBiscuit()
-  gauche()
-  gauche()
-  
-  while(!estSurBiscuit())
-  	avance()
-  
-  recule()
-  poseBiscuit()
-  recule()
+  if (!estFaceMur())
+  {
+    prendBiscuit()
+    gauche()
+    gauche()
+
+    while(!estSurBiscuit())
+      avance()
+
+    recule()
+    poseBiscuit()
+    recule()
+  }
+  else
+  {
+    droite()
+    avance()
+    gauche()
+    avance()
+  }
 }
