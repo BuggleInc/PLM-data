@@ -2,6 +2,7 @@ var diag = 0;
 override def run() {
   var cpt : Int = 0
   ecritMessage(cpt)
+  cpt += 1
   for(i<-1 to 13){
   	cpt = diagonale(cpt)  
   }
@@ -16,5 +17,8 @@ def diagonale(cpt : Int) : Int = {
     compteur = compteur + 1
   }
   diag = diag + 1
+  if(diag < getMondeHauteur()){
+    setPos(0,diag)
+  }
   return compteur
 }
