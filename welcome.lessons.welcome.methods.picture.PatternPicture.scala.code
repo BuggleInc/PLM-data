@@ -1,0 +1,63 @@
+def couleurBrosse(c:Color):
+	setCouleurBrosse(c:Color)
+	baisseBrosse()
+	leveBrosse()
+
+def carre1(c:Color):
+	avance()
+	couleurBrosse(c)
+	gauche()
+	avance()
+	gauche()
+	avance()
+	couleurBrosse(c)
+	gauche()
+	avance()
+	gauche()
+	avance()
+
+def carre2(c:Color):
+	couleurBrosse(c)
+	avance()
+	gauche()
+	avance()
+	couleurBrosse(c)
+	gauche()
+	avance()
+	gauche()
+	avance()
+	gauche()
+	avance()
+	gauche()
+	avance()
+	
+def ligne1():
+	for (i <- 1 to 2){
+    carre1(Color.RED)
+    carre2(Color.BLUE)
+  }
+def ligne2():
+	for (i <- 1 to 2){
+    carre2(Color.YELLOW)
+    carre1(Color.GREEN)
+	
+def motif():
+	ligne1()
+	recule(4)
+	gauche()
+	avance(2)
+	droite()
+  ligne2()
+
+
+override def run() {
+  for (i <- 1 to 2){
+    for (j<-1 to 2){
+  	  motif()
+  	  droite()
+  	  avance(2)
+  	  gauche()
+   	 avance()
+    }
+  }
+}
