@@ -13,7 +13,7 @@ override def run() {
 
 	while (!posFinale()){
     
-
+		var lignes = 0
 		ecritMessage(compteur)
 
     if ((compteur+1)%(getMondeHauteur()) != 0){
@@ -23,8 +23,13 @@ override def run() {
       compteur += 1
       ecritMessage(compteur)
       compteur += 1
+      lignes += 1
   	}
-    setPos(getX()+1,getY())
+    if (lignes%2 == 0){
+    	setPos(getX()+1,getY())
+    } else if (lignes%2 == 1){
+      setPos(getX()-1,getY())
+    }
   
 	}
   ecritMessage(compteur)
