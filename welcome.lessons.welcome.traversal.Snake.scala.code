@@ -28,9 +28,16 @@ override def run() {
 def finalPositionReached():Boolean = {
    
   getDirection() match {
-    case Direction.EAST => left()
-    case Direction.WEST => right()
+    case Direction.EAST => 
+    	left() 
+    	var result:Boolean = isFacingWall()
+    	right()
+   
+    case Direction.WEST => 
+    	right()
+    	var result:Boolean = isFacingWall()
+    	left()
   }
   
-  return isFacingWall()
+  return result
 }
