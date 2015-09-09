@@ -1,0 +1,18 @@
+var biscuit:Int = 0
+
+while(!sortieTrouvee()){
+  do {
+    avance();
+    if (estSurBiscuit()){
+      biscuit = biscuit + 1;
+    }
+  } while(!crossing())
+  
+  biscuit match{
+    case b if b<=2 => droite()
+    case b if b>=3 => gauche()
+  }
+  
+  biscuit = 0
+}
+avance()

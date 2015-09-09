@@ -1,0 +1,100 @@
+override def run() {
+		for(j <- 1 to 2){
+  		motif()
+     	placer1()
+     	for (i<-1 to 4){
+      	avance()
+        }
+      motif()
+    }
+    placer2()
+		for(j <- 1 to 2){
+  		motif()
+     	placer1()
+     	for (i<-1 to 4){
+      	avance()
+        }
+      motif()
+    }
+}
+
+def bas(c1:Color, c2:Color){
+	diagd(c1)
+  avance()
+  diagg(c2)
+}
+
+def haut(c1:Color, c2:Color){
+  droite()
+  diagg(c1)
+  avance()
+  avance()
+  diagd(c2)
+}
+
+def diagd(c:Color){
+  avance()
+  marquerSol(c)
+  gauche()
+  avance()
+  gauche()
+  avance()
+  marquerSol(c)
+  gauche()
+  avance()
+  gauche()
+  avance()
+}
+
+def marquerSol(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def diagg(c:Color){
+  marquerSol(c)
+  avance()
+  gauche()
+  avance()
+  marquerSol(c)
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
+
+def motif(){
+  bas(Color.RED, Color.BLUE)
+  recule()
+  recule()
+  gauche()
+  avance()
+  avance()
+  haut(Color.YELLOW, Color.GREEN) 
+}
+
+def placer1(){
+  recule()
+  recule()
+  recule()
+  gauche()
+  recule()
+  recule()
+  droite()  
+}
+
+def placer2(){
+  placer1()
+  for (k<-1 to 4){
+    recule()
+  }
+  gauche()
+  avance()
+  avance()
+  avance()
+  avance()
+  droite()
+}

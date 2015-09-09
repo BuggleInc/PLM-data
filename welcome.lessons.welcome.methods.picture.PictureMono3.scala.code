@@ -1,0 +1,54 @@
+var a:Int = 9
+
+override def run() {
+  for (k <- 1 to a){
+    for (j<-1 to a){
+      faireMotif()
+    }
+  monter()
+  }
+}
+
+
+def faireV(){
+  avance()
+  avance()
+  marquerSol()
+  avance()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  droite()
+  avance()
+  marquerSol()
+  avance()
+  avance()
+  gauche()
+}
+
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  for (i <- 1 to 4){
+    faireV()
+  }
+  for (i <-1 to 7){
+    avance()
+  }
+}
+
+def monter(){
+  for (m<- 1 to 7*a){
+    recule()  
+  }
+  gauche()
+  for (n <- 1 to 7){
+    avance()
+  }
+  droite()
+}
