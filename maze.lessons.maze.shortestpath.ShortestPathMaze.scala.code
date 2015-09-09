@@ -4,16 +4,6 @@ override def run() {
   	var dir: Direction = Direction.NORTH
   	var ind = 9999
   
-
-  
-
-	for(i<- 0 to getMondeLargeur()-1){
-    for(j<- 0 to getMondeHauteur() -1 ){
-      if(aBiscuit(i,j)){x=i;y=j}
-    }
-  }
-  setIndication(x,y,0)
-
 def indic(x:Int, y:Int, i:Int){
 		/*if(!aMurNord(x,y) && getIndication(x,y-1) == 9999){
       setIndication(x,y-1,i+1);
@@ -33,6 +23,16 @@ def indic(x:Int, y:Int, i:Int){
       indic(x+1,y,i+1)
     }*/
   }
+  
+
+	for(i<- 0 to getMondeLargeur()-1){
+    for(j<- 0 to getMondeHauteur() -1 ){
+      if(aBiscuit(i,j)){x=i;y=j}
+    }
+  }
+  setIndication(x,y,0)
+
+
   
 indic(x,y,0)
   
