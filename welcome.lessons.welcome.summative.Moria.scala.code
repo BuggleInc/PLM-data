@@ -26,15 +26,18 @@ def sortieLaby()
 
 droite()
 droite()
-while(!estSurBiscuit() && !estFaceMur() && getCouleurSol()!=Color.green)
+while(getCouleurSol()!=Color.green)
 {
-  avance()
-}
-if (estSurBiscuit())
-{
-  bougerUnCooky()
-}
-if (estFaceMur())
-{
-  sortieLaby()
+  while(!estSurBiscuit() && !estFaceMur() && getCouleurSol()!= Color.green)
+  {
+    avance()
+  }
+  if (estSurBiscuit())
+  {
+    bougerUnCooky()
+  }
+  if (estFaceMur())
+  {
+    sortieLaby()
+  }
 }
