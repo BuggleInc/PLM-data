@@ -1,24 +1,15 @@
 def keepHandOnSideWall() {
-  var efm:Boolean = false
   gauche()
   if (estFaceMur()) {
-    efm = true
+    droite()
+    if (estFaceMur()) {
+      droite()
+    } else {
+      avance()
+    }
   } else {
     avance()
   }
-  droite()
-  if (estFaceMur()) {
-    if (efm) {
-      droite()
-    } else {
-      gauche()
-      avance()
-    }
-  }
-  if (!estFaceMur()) {
-    avance()
-  }
-  
 }
 
 override def run {
