@@ -1,0 +1,21 @@
+def golomb(num:Int): Int =
+{
+  var tab = new Array[Int]
+  var compteur:Int = 0
+  
+  tab(0)=1
+  
+  for(i <- 1 to num-1)
+  {    
+    for(j <- 0 to tab(i)-1)
+    {
+      tab(i+1+j)=i+1
+    }
+  }
+}
+
+1	1
+2	2
+3	2
+4 3
+5	3
