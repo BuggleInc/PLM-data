@@ -1,0 +1,30 @@
+override def run() {
+  baisseBrosse()
+  while fini()==false{
+    serpute()
+  }
+}
+
+def fini(){
+  gauche()
+  if (estFaceMur()==true){
+    return true
+  }
+  return false
+}
+
+def serpute(){
+  while (estFaceMur()==false){
+    avance()
+  }
+  if (getDirection()==Direction.EST){
+    gauche()
+    avance()
+    gauche()
+  }
+  if (getDirection()==Direction.OUEST){
+    droite()
+    avance()
+    droite()
+  }
+}
