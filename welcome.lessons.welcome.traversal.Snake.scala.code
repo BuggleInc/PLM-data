@@ -1,0 +1,20 @@
+override def run() {
+}
+
+def serpent(){
+  if (!estFaceMur()){avance()}
+  else if (getDirection()==Direction.est){gauche();avance();gauche()}
+  else {droite();avance();droite()}
+}
+
+def fin(){
+  if (estFaceMur()){
+    if (getDirection()==Direction.est){
+      gauche()
+      if (estFaceMur()){return true}
+    } else {
+      droite()
+      if (estFaceMur()){return true}
+    }
+  } else return false
+}
