@@ -1,0 +1,93 @@
+def fleur( c : Color) {
+  setCouleurBrosse( c )
+  baisseBrosse();
+  for (i <- 1 to 2) {
+    avance();
+  }
+  recule();
+  gauche();
+  avance();
+  for (j <- 1 to 2) {
+      recule();
+    }
+  avance();
+  setCouleurBrosse(Color.YELLOW);
+  baisseBrosse();
+  leveBrosse();
+  droite();
+}
+
+
+
+def growFlowers() {
+  fleur(Color.RED)
+  for (k <- 1 to 3) {
+    avance();
+  }
+  fleur(Color.CYAN)
+  for ( o<- 1 to 5) {
+    recule();
+  }
+  droite();
+  avance();
+  avance();
+  gauche();
+  avance();
+  avance();
+  fleur(Color.ORANGE)
+  for (p <- 1 to 3){
+    recule();
+  }
+  droite();
+  avance();
+  avance();
+  gauche();
+  fleur(Color.PINK)
+  for (k <- 1 to 3) {
+    avance();
+  }
+  fleur(Color.GREEN)
+  for ( o<- 1 to 5) {
+    recule();
+  } 
+}
+
+def jardiniere() {
+  growFlowers();
+  for ( o<- 1 to 6) {
+    avance();
+  }
+  gauche();
+  avance();
+  avance();
+  droite();
+  
+  fleur(Color.BLUE)
+  avance();
+  gauche();
+  avance();
+  avance();
+  droite();
+  growFlowers();
+}
+
+def changeLigne() {
+  gauche();
+  recule();
+  droite()
+  for (k <- 1 to 8) {
+    recule();
+  }
+  droite();
+  for (p <- 1 to 4) {
+    avance()
+  }
+  gauche(); 
+}
+
+
+def overrun() {
+  jardiniere();
+  changeLigne();
+  jardiniere();
+}
