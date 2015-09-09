@@ -1,0 +1,52 @@
+def growFlowers(){
+  faireFleur(Color.RED);accelere(3);faireFleur(Color.CYAN);
+  retourLigne(5,4);faireFleur(Color.PINK);accelere(3);
+  faireFleur(Color.GREEN);remonteLigne(5,2);
+  faireFleur(Color.ORANGE);
+}
+
+
+def faireFleur(c:Color){
+  setCouleurBrosse(c:Color);colorie;avance;colorie;avance;
+  colorie;recule;gauche;avance;colorie;recule;recule;
+  colorie;avance;setCouleurBrosse(Color.YELLOW);colorie;
+  droite;
+}
+
+def colorie{
+  baisseBrosse;leveBrosse;
+}
+
+def accelere(k:Int){
+  for (i<- 1 to k){
+    avance
+  }
+}
+
+def recule_bcp(k:Int){
+  for (i<- 1 to k){
+    recule;
+  }
+}
+
+def retourLigne(k:Int,j:Int){
+  for (i<-1 to k){
+    recule
+  }
+  droite;
+  for (j<- 1 to j){
+    avance;
+  }
+  gauche;
+}
+
+def remonteLigne(k:Int,j:Int){
+	for (i<-1 to k){
+    recule
+  }
+  gauche;
+  for (j<- 1 to j){
+    avance;
+  }
+  droite;
+}
