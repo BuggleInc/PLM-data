@@ -18,7 +18,7 @@ def diag(){
   n = n+1
   while(!test){
     ecritMessage(m)
-    if(n <= getMondeHauteur()){
+    if(n <= getMondeHauteur()-1){
       if(getY()== 0){
       	setPos(0,n)
       	n=n+1
@@ -29,6 +29,17 @@ def diag(){
       	m=m+1
       	setPos(getX()+1,getY()+1)
     	}
+    }
+    else{
+      var k = 1
+      if(getX()==getMondeLargeur()-1){
+        setPos(k,n)
+        k = k+1
+        m = m+1
+        ecritMessage(m)
+      }
+      if(getX()==1)
+    }
   }
   ecritMessage(m)
 }
