@@ -1,4 +1,5 @@
 def max2Value(nums:Array[Int]): Int = {
+  var Nb =0
   var L = nums.length
   var max1 = Integer .MIN_VALUE
   var max2 = Integer .MIN_VALUE
@@ -10,6 +11,12 @@ def max2Value(nums:Array[Int]): Int = {
       max2 = med}
     if (max2<nums(i) && max1>nums(i)){
       max2 = nums(i)
+    }
+    if (max1==nums(i)){
+      Nb=Nb+1
+    }
+    if(Nb>0){
+      max2=max1
     }
    }
  return max2
