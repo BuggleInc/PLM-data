@@ -2,7 +2,7 @@ override def run() {
   var i=0
 	while(posFinale()==false){
     ecritMessage(i+"")
-    nextPos1()
+    nextPos()
     i=i+1
   }
   ecritMessage(i+"")
@@ -14,19 +14,19 @@ def posFinale(): Boolean={
   return false
 }
 
-def nextPos1(){
-  if (getX()==getMondeLargeur()-1){
+def nextPos(){
+  if (getY()%2==0){
+    if (getX()==getMondeLargeur()-1){
     setPos(getX(),getY()+1)
+  	}
+  	else{
+    	setX(getX()+1)
+  	}
   }
   else{
-    setX(getX()+1)
+    if (getX()==0)
+    	setPos(0,getY()+1)
+    else
+    	setPos(getX()-1,getY())
   }
-}
-
-def nextPos2(){
-  if (getX()==0){
-    setPos(0,getY()+1)
-  }
-  else
-  	setPos(getX()-1,getY())
 }
