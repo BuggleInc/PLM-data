@@ -43,10 +43,11 @@ def headNorth() {
   }
 }
 
-def isDirectionFree(dir:Direction) {
+def isDirectionFree(dir:Direction):Boolean = {
   var originalDirection = getDirection();
   setDirection(dir);
   var free = isFacingWall();
   setDirection(originalDirection);
   
+  return free
 }
