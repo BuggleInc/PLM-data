@@ -1,18 +1,22 @@
-while (estSurBiscuit() || !estFaceMur()) {
+while (!estFaceMur()) {
   droite()
   droite()
   avance()
-  while(!estSurBiscuit()) {
+  while(!estSurBiscuit() && !estFaceMur()) {
     avance()
   }
-  prendBiscuit()
+  if (estSurBiscuit()) {
+    prendBiscuit()
+  }
   gauche()
   gauche()
   while(!estSurBiscuit()) {
     avance()
   }
   recule()
-  poseBiscuit()
+  if (porteBiscuit()) {
+    poseBiscuit()
+  }
 }
 droite()
 avance()
