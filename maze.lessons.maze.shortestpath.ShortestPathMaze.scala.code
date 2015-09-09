@@ -1,11 +1,11 @@
 override def run() {
-  var X = trouverBiscuit()[0]
-  var Y = trouverBiscuit()[1]
+  var X = trouverXBiscuit()
+  var Y = trouverYBiscuit()
   setIndication(X,Y,0)
     // Your code here
 }
 
-def trouverBiscuit():(Int,Int)=
+def trouverXBiscuit():Int=
 {
   var X = 0
   var Y = 0
@@ -21,5 +21,24 @@ def trouverBiscuit():(Int,Int)=
              Y+=1
            }
          }
-  return (X,Y)
+  return X
+}
+
+def trouverYBiscuit():Int=
+{
+  var X = 0
+  var Y = 0
+  while ((X,Y)!=(getMondeLargeur()-1,getMondeHauteur()-1) && !aBiscuit(X,Y))
+         {
+           if (X<getMondeLargeur()-1)
+           {
+             X+=1
+           }
+           else
+           {
+             X=0
+             Y+=1
+           }
+         }
+  return Y
 }
