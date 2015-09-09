@@ -7,4 +7,5 @@ def garM() { if (aMurD()) {if (estFaceMur()) {gauche()} else avance()} else {dro
 }
 
 
-override def run() {while (getY()!=0) {setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (getY() !=0) {garM()}};while (!estSurBiscuit()) {garM()};prendBiscuit()}
+override def run() {while (!aMurD()) {droite();avance();gauche()}
+  while (getY()!=0) {setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (getY() !=0) {garM()}};while (!estSurBiscuit()) {garM()};prendBiscuit()}
