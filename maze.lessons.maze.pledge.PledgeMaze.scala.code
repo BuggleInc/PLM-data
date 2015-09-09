@@ -8,6 +8,7 @@ override def run() {
     }
     else
     {
+      droite()
       keepHandOnSideWall()
     }
   }
@@ -16,7 +17,7 @@ override def run() {
 
 def keepHandOnSideWall()
 { 
-  var SommedesVirages = 2
+  var SommedesVirages = -1
   var murGauche = testMurGauche()
   if (!murGauche)
   {
@@ -36,7 +37,7 @@ def keepHandOnSideWall()
   while (SommedesVirages != 0)
   {
     var murGauche = testMurGauche()
-    SommedesVirages -=2
+    SommedesVirages +=1
     if (!murGauche)
     {
       gauche()
