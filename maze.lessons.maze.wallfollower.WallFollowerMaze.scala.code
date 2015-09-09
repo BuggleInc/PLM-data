@@ -3,7 +3,8 @@ override def run() {
     while (keepHandOnSideWall() && !estFaceMur()) {
       avance()
     }
-    if (estFaceMur()) {droite()}
+    if (estFaceMur() && keepHandOnSideWall()) {droite()}
+    else if (estFaceMur() && !keepHandOnSideWall()) {gauche()}
     else if(!keepHandOnSideWall()) {gauche();avance()}
     
   }
