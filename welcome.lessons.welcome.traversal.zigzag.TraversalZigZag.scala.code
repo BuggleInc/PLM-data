@@ -1,25 +1,4 @@
 override def run() {
-  	var compteur = 0
-    brushDown()
-  	
-    while(!testArrive()){
-      //Snake est dans le test
-     	writeMessage(compteur)
-     	compteur = compteur +1  
-      
-    }
+	if (getDirection() == Direction.EAST)
   	right()
-}
-
-def testArrive (): Boolean = {
-  if (!isFacingWall()){
-  	forward()
-  	return false
-  }
-  var d = getDirection()
-  d match {
-    case Direction.WEST => left(); if (isFacingWall()) {return true}else{forward()}; left();
-    case Direction.EAST => right(); if (isFacingWall()) {return true}else{forward()}; right();
-  }
-  return false
 }
