@@ -24,11 +24,12 @@ def sortieLaby()
   avance()
 }
 
+var laby = true
 droite()
 droite()
-while(getCouleurSol()!=Color.green)
+while(laby)
 {
-  while(!estSurBiscuit() && !estFaceMur() && getCouleurSol()!= Color.green)
+  while(!estSurBiscuit() && !estFaceMur() && laby)
   {
     avance()
   }
@@ -39,5 +40,6 @@ while(getCouleurSol()!=Color.green)
   if (estFaceMur())
   {
     sortieLaby()
+    laby = false
   }
 }
