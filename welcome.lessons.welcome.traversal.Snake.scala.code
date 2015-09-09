@@ -1,0 +1,60 @@
+override def run() 
+{
+  positionFinale = false
+  while (positionFinale == false) 
+  {
+    avanceCommeSerpent()
+    positionFinale=piositionFinale()
+  }
+}
+
+def avanceCommeSerpent() 
+{
+  if (!estFaceMur()) {
+    avance()
+  } else 
+  {
+    if (getDirection()==EAST) 
+    {
+      gauche()
+      avance()
+      gauche()
+    } else 
+    {
+      droite()
+      avance()
+      droite()
+    }
+  }
+}
+
+def positionFinale() : Boolean = 
+{
+  if (estFaceMur()) 
+  {
+    if (getDirection()==EAST) 
+    {
+      gauche()
+      if (estFaceMur()) 
+      {
+        return true
+      } else 
+      {
+        return false
+      }
+    } else 
+    {
+      droite()
+      if (estFaceMur()) 
+      {
+        return true
+      } else 
+      {
+        return false
+      }
+    }
+  } else 
+  {
+    return false
+  }
+}
