@@ -16,12 +16,12 @@ override def run() {
   	avance();
   	droite();
     val decalage = litMessage().toInt;
-    setCouleurBrosse(T((decalage) % taille));
+    setCouleurBrosse(T((decalage) % T.length));
     baisseBrosse();
     leveBrosse();
     for (k <- 1 to T.length - 1) {
       avance();
-      setCouleurBrosse(T((k + decalage) % taille));
+      setCouleurBrosse(T((k + decalage) % T.length));
       baisseBrosse();
       leveBrosse();
     }
