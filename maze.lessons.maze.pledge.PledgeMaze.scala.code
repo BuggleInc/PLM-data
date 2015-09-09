@@ -36,6 +36,18 @@ def isDirectionFree(dir:Direction) : Boolean =
   return !mur
 }
 
+def gaucheLibre() : Boolean =
+{
+  var mur = false
+  
+  gauche()
+  if (estFaceMu())
+  	mur = true
+  droite()
+  
+  return mur
+}
+
 override def run()
 {
   var peutAllerAuNord = true
@@ -45,7 +57,7 @@ override def run()
   
   while(!estSurBiscuit())
   {
-    if (isDirectionFree(Direction.NORD) && peutAllerAuNord && !suivreMurNord)
+    if (isDirectionFree(Direction.NORD) && peutAllerAuNord && !suivreMurNord && gaucheLibre())
     {
       i = 0
       setDirection(Direction.NORD)
@@ -71,7 +83,7 @@ override def run()
       i += 1
     }
     
-    if (i >= 20 && !suivreMurNord)
+    if (i >= 2 && !suivreMurNord)
     {
       peutAllerAuNord = true
       droite()
