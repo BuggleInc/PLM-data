@@ -1,0 +1,19 @@
+override def run() {
+  var t:Int=getMondeHauteur()
+  var l:Int=getMondeLargeur()
+  var T = new Array[Color](t)
+  T(0)=getCouleurSol()
+  for (i<1 to t-1) {
+    avance();
+    T(i)=getCouleurSol();
+  }
+  recule(t-1);
+  gauche();
+  avance();
+  droite();
+  val dec = litMessage().toInt
+  setCouleurBrosse(T((0+dec)%t));
+  baisseBrosse();
+  leveBrosse();
+  for
+}
