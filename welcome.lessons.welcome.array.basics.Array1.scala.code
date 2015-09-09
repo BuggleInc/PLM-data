@@ -1,4 +1,5 @@
 override def run() {
+  lireCol1()
   for(i<- 1 to getMondeLargeur()-1){
     gauche()
     avance()
@@ -9,10 +10,10 @@ override def run() {
 
 def lireCol1(){
   var n:Int=getMondeHauteur()
-	var couleurs=new Array[Color](n)
-  for (i<- 1 to n-1){
+	var couleurs=new Array[Color](getMondeHauteur())
+  for (i<- 1 to getMondeHauteur()-1){
     couleurs(i)=getCouleurSol()
     avance()
   }
-  couleurs(n)=getCouleurSol()
+  couleurs(getMondeHauteur())=getCouleurSol()
 }
