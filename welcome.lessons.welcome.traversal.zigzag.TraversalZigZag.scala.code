@@ -1,10 +1,27 @@
 override def run() {
+  doTheSnakyThing()
 }
 
 def doTheSnakyThing() {
   var compt:Int = 0
   while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
+    pasDeSerpent
+  }
+}
 
-def pasDeSerpent(Bool:Boolean) {
-  
+def pasDeSerpent(Bool:Boolean) {  
+  if (getX() == getMondLargeur() - 1) {
+    setPos(getMondeLargeur() - 1, compt / getMondeHauteur())
+    for (i <- 1 getMondeLargeur() - 1) {
+      setPos(GetMondeLargeur() - 1 - i, compt / getMondeHauteur())
+      ecritMessage(""+compt) 
+    }
+  }
+  if (getX() == 0) {
+    ecritMessage(""+compt)
+    for (i <- 1 to getMondeLargeur() - 1) {
+      setPos(i, compt / getMondeHauteur())
+      ecritMessage(""+compt)
+    }
+  }
 }
