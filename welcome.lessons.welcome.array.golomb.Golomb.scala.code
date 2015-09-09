@@ -4,8 +4,8 @@ def golomb(num:Int): Int = {
   if (num==1){
     return 1
   }
-  for (i<- 1 to num-1){
+  for (i<- 1 to num){
     t(i) = 1+ t(i-t(t(i-1)))
   }
-  return t(num)
+  return t(num-1)
 }
