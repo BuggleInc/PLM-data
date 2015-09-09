@@ -2,6 +2,7 @@ def keepHandOnSideWall() {
   gauche()
   if (estFaceMur() == false) {
     avance()
+    sommeAngle = sommeAngle + 1
   } else {
     droite()
     if (estFaceMur() == false) {
@@ -10,6 +11,7 @@ def keepHandOnSideWall() {
       droite()
       if (estFaceMur() == false) {
         avance()
+        sommeAngle = sommeAngle - 1
       } else {
         droite(); avance()
       }
@@ -17,7 +19,16 @@ def keepHandOnSideWall() {
   }
 }
 override def run() {
+  var sommeAngle:Int = 0
   while (porteBiscuit() == false) {
-    if (estSurBiscuit == true) {prendBiscuit()} else {keepHandOnSideWall()}
+    if (estSurBiscuit == true) {
+      prendBiscuit()
+    } else {
+      if (sommeAngle != 3) {
+        keepHandOnSideWall()
+      } else {
+        avance()
+      }
+    }
   }
 }
