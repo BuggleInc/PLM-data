@@ -13,6 +13,7 @@ def doTheSnakyThing() {
 def pasDeSerpent(compt:Int) {  
   var comptLocal:Int = 0
   if (getX() == getMondeLargeur() - 1) {
+    comptLocal = -1
     setPos(getMondeLargeur() - 1, getY() + 1)
     comptLocal += 1
     ecritMessage(""+(compt+comptLocal))
@@ -23,6 +24,7 @@ def pasDeSerpent(compt:Int) {
     }
     setPos(0, getY() + 1)
   } else {
+    comptLocal = 1
     ecritMessage(""+compt)
     for (i <- 1 to getMondeLargeur() - 1) {
       comptLocal += 1
