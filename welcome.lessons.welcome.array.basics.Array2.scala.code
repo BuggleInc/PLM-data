@@ -12,16 +12,15 @@ override def run() {
   for (j <- 0 to T.length-2){ 
     gauche()
     avance()
-    droite()
+    droite()    
+      for(k <- 0 to T.length-1){
+    	setCouleurBrosse(T(k))
+    	baisseBrosse()
+      leveBrosse()
+    	avance()      
+    }
     for(l<- 0 to T.length-2){
     recule()
-    }
-  
-    	for(k <- 0 to T.length-1){
-    		setCouleurBrosse(T(k))
-    		baisseBrosse()
-      	leveBrosse()
-    		avance()      
-    	}    
+    }  
   }
 }
