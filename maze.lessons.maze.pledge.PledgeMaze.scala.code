@@ -1,2 +1,84 @@
 override def run() {
+  var nbVir:Int = 0
+  goNorth()
+  droite()
+  while (!estSurBiscuit()) {
+    do {
+    	nbVir = keepHandOnSideWall()
+  } while (nbVir!=0)
+    vaToutDroit()
+  prendBiscuit()
+}
+
+def keepHandOnSideWall():Int = {
+  var nbVir:Int = 0
+  if (estFaceMur()) {
+    gauche()
+    nbVir+=1
+  }
+  else {
+    avance()
+    if (!murADroite()) {
+      droite()
+      nbVir-=1
+      avance()
+      if (!murADroite()) {
+        droite()
+        nbVir-=1
+        avance()
+      }
+    }
+  }
+  return nbVir
+}
+
+def murADroite():Boolean = {
+  droite()
+  if (estFaceMur()) {
+    gauche()
+    return true
+  }
+  else {
+    gauche()
+    return false
+  }
+}
+
+def goNorth() {
+  while (getY()!=0) {
+    if (estFaceMur()) {
+      if (murADroite()) {
+        gauche()
+        avance()
+        droite()
+      }
+      else {
+        droite()
+        avance()
+        gauche()
+      }
+    }
+    else {
+      avance()
+    }
+  }
+}
+
+def vaToutDroit() {
+  while (!estFaceMur()) {
+    avance()
+  }
+}
+  
+def isDirectionFree(dir):Boolean = {
+  var g = getDirection()
+  setDirection(dir)
+  if (estFaceMur()) {
+    setDirection(g)
+    return false
+  }
+  else {
+    setDirection(g)
+    return true
+  }
 }
