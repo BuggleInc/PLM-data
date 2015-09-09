@@ -1,14 +1,14 @@
 override def run() {var T = new Array[Color](getMondeHauteur())
                                           for (i <- 0 to T.length-2) { T(i) = getCouleurSol()
-                                                                 		avance()}
+                                                                 		avance() ;T(i+1) = getCouleurSol}
                     											
                                           for (i <- 0 to T.length-2) {recule()}
                     
                     def reproduire() = {gauche();avance();droite();
                                         var decal = litMessage().toInt;
                                         for (i <- 0 to T.length-2) {setCouleurBrosse(T((i+decal)%getMondeHauteur));
-                                                                   baisseBrosse(); leveBrosse();avance()}
-                                       for (i <-0 to T.length-1) {recule()}}
+                                                                   baisseBrosse(); leveBrosse();avance();setCouleurBrosse(T((i+1+decal)%getMondeHauteur)); baisseBrosse();leveBrosse()}
+                                       for (i <-0 to T.length-2) {recule()}}
 
 for (j <- 0 to getMondeLargeur-2) {reproduire()} 
                     
