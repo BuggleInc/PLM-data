@@ -1,12 +1,12 @@
 def golomb(num:Int): Int = {
 	var tab = new Array[Int](num)
   tab(0) = 1
-  for (k <- 1 to num-1) {
-    var occ = compteur(k-1,tab)
-    if (occ == tab(k-1)) {
-      tab(k) = k
+  for (i <- 1 to num-1) {
+    var occ = compteur(i-1,tab)
+    if (occ == tab(i-1)) {
+      tab(i) = i
     } else {
-      tab(k) = k-1
+      tab(i) = i-1
     }
     return tab(num-1)
   }
