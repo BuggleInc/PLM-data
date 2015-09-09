@@ -14,7 +14,13 @@ override def run()
       nouvelleCase=(i+decalage-1)%getMondeHauteur()
       setCouleurBrosse(T(nouvelleCase))
       peindre()
-      avance()
+      if (estFaceMur()) 
+      {
+        recule(5)
+      } else 
+      {
+        avance()
+      }
     }
   }
 }
