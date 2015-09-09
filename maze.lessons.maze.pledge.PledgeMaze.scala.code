@@ -61,17 +61,12 @@ override def run()
   
   while(!estSurBiscuit())
   {
-    if (gaucheLibre() && tombe)
+    if (gaucheLibre())
     {
-      if (isDirectionFree(Direction.NORD))
-      {
-        setDirection(Direction.NORD)
-      	avance()
-      }
-      else
-      	tombe = false
+      setDirection(Direction.NORD)
+      avance()
     }
-    else if (!tombe)
+    else
     {
       sommeAngle += keepHandOnSideWall()
       
