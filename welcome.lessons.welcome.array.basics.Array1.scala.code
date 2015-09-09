@@ -1,5 +1,10 @@
 override def run() {
   Tableau=chopperCouleur()
+  decale()
+  for (i <- 1 to 4){
+    reprodCouleur(Tableau)
+    decale()
+  }
 }
 
 
@@ -15,7 +20,13 @@ override def run() {
 
 
 
-def reprodCouleur(T:Array[Color])
+def reprodCouleur(T:Array[Color]){
+  for (i<- 0 to getMondeHauteur()-1){
+    setCouleurBrosse(T(i))
+    marque()
+    avance()
+  }  
+}
 
 def chopperCouleur(){
   var y=getMondeHauteur()
@@ -28,9 +39,10 @@ def chopperCouleur(){
 }
 
 def decale(){
+  gauche()
+  avance()
   droite()
   avance()
-  gauche()
 }
 
 def marque(){
