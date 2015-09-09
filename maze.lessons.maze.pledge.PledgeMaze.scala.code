@@ -10,7 +10,10 @@ override def run() {
     {
       avance()
     }
-		keepGoing(virage)
+		do
+    {
+      virage = keepGoing(virage)
+    }while(virage !=0)
   }
   prendBiscuit()
   
@@ -73,6 +76,10 @@ def keepGoing(vir : Int) : Int = {
     else if(!mG())
     {
       gauche();avance(); virage = virage - 1
+    }
+    else if(!estFaceMur())
+    {
+      avance()
     }
     else
     {
