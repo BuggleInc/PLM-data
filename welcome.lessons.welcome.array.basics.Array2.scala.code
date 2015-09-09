@@ -1,5 +1,6 @@
 override def run() {
-  chopperCouleur
+  chopperCouleur()
+  decale()
 }
 
 
@@ -25,8 +26,18 @@ def chopperCouleur(): Array[Color]= {
   for (i<- 0 to getMondeHauteur()-1){
     T(i)=getCouleurSol()
     if (i<=getMondeHauteur-2){avance()}
-  }  
+  }
+  
  return T
+}
+
+
+// decale d'une rangee
+def decale(){
+  recule(getMondeHauteur()-1)
+  gauche()
+  avance()
+  droite()
 }
 
 
