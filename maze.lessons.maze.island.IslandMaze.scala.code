@@ -17,17 +17,19 @@ def keepHandOnSideWall() {
   }
 }
 override def run() {
+  var a:Boolean = false
   while (porteBiscuit() == false) {
     if (estSurBiscuit == true) {
       prendBiscuit()
     } else {
-      while (getY() != 0) {
+      while (getY() != 0 && a == false) {
         if (estFaceMur() == false) {
           avance()
         } else {
           keepHandOnSideWall(); setDirection(Direction.NORD)
         }
       }
+      a == true
       setDirection(Direction.EAST)
       keepHandOnSideWall()
     }
