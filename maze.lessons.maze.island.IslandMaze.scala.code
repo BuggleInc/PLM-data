@@ -1,25 +1,25 @@
 override def run() {
-  	while(getY>0 && estSurBiscuit)
-    Nord()
-  	keepHandOnSideWall
-  }
+  while(getY>0 && estSurBiscuit)
+  Nord()
+  keepHandOnSideWall
+}
 
-  
 
-  prendBiscuit
 
-  def keepHandOnSideWall(){
+prendBiscuit
+
+def keepHandOnSideWall(){
+  if(estFaceMur){
+    droite()
+  } else {
+    avance()
+    gauche()
+
     if(estFaceMur){
       droite()
-    } else {
-      avance()
-      gauche()
-
-      if(estFaceMur){
-        droite()
-      }
     }
   }
+}
 
 
 def Nord(){
@@ -28,15 +28,15 @@ def Nord(){
 
   }
 
-else if (estFaceMur){
-  droite()
-
-} else {
-  avance()
-  gauche()
-
-  if(estFaceMur){
+  else if (estFaceMur){
     droite()
+
+  } else {
+    avance()
+    gauche()
+
+    if(estFaceMur){
+      droite()
+    }
   }
-}
 }
