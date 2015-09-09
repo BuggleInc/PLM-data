@@ -1,0 +1,37 @@
+var Baggle:Int = 0 ; 
+avance();
+while (!sortieTrouvee()) {
+  var CaseCouloirUn:Int = 0;
+  for (CaseCouloirUn <- 0 to 4) {
+    if (estSurBiscuit()) {
+      Baggle = Baggle + 1;
+      avance();
+    } else {
+      avance();
+    }
+  }
+  if (Baggle >= 3) {
+    gauche();
+    var CaseCouloirDeux:Int = 0;
+    for (CaseCouloirDeux <- 0 to 4) {
+      if (estSurBiscuit()) {
+        Baggle = Baggle + 1;
+        avance();
+      } else {
+        avance();
+      }
+    }
+  }
+  if (Baggle <= 2) {
+    doite();
+    var CaseCouloirTrois:Int = 0;
+    for (CaseCouloirTrois <- 0 to 4) {
+      if (estSurBiscuit()) {
+        Baggle = Baggle + 1;
+        avance();
+      } else {
+        avance();
+      }
+    }
+  }
+}
