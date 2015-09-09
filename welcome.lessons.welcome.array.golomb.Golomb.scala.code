@@ -1,15 +1,16 @@
 def golomb(num:Int): Int = {
   
+  var apparition = 0
+  
   if (num > 1){
     var occurence = golomb(num - 1)
-    var apparition = 0
     
     if (occurence != 0){
       occurence = occurence - 1
       apparition = golomb(num - 1)
     }
   } else if (num == 1){
-    var apparition = 1
+    apparition = 1
   }
   return apparition
 }
