@@ -1,0 +1,43 @@
+var h:Int=0
+h=getMondeHauteur()
+var T=new Array[String](h)
+var c:Color=Color.white
+
+override def run() {
+for (i <-0 to h-1){
+  T(i)=getCouleurSol()
+  avance()
+}
+	leveBrosse()
+  recule(h-1)
+  gauche()
+  avance()
+  droite()
+  peindre()
+  gauche()
+  avance()
+  droite()
+  peindre()
+  gauche()
+  avance()
+  droite()
+  peindre()
+  gauche()
+  avance()
+  droite()
+  peindre()
+  gauche()
+  avance()
+  droite()
+
+}
+
+def peindre(){
+  for (i <- 0 to h){
+    avance()
+    c=T(i)
+    setCouleurBrosse(c)
+    baisseBrosse()
+  }
+  leveBrosse()
+}
