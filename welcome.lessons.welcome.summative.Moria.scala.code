@@ -1,14 +1,21 @@
 sortir()
 
-def chercher() {
-  while(!estSurBiscuit())
+def chercher():Boolean = {
+  retourne()
+  while(!estFaceMur())
   {
     avance()
+    if (estSurBiscuit())
+    {
+      prendBiscuit()
+      return porteBiscuit()
+    }
   }
-  prendBiscuit()
+  return porteBiscuit()
 }
 
 def poser() {
+  retourne()
   while(!estSurBiscuit())
   {
     avance()
@@ -19,11 +26,12 @@ def poser() {
 }
 
 def sortir() {
-  retourne()
   while(!estFaceMur())
   {
-    chercher()
-    poser()
+    if (chercher())
+      {
+        poser()
+      }
   }
   droite()
   avance()
