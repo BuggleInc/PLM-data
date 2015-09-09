@@ -1,9 +1,18 @@
-override def run() {
-  arrive()
+override def run() {avance()
+  
 }
 
 def arrive():Boolean = {
   var x = getMondeHauteur()
   var y = getMondeLargeur()
   return ((getX()==x) && (getY()==y))
+}
+
+def avance() = {
+  var y = getMondeHauteur()
+  if (getY() == y) {
+    setPos(getX()+1, 0)
+  } else {
+    setPos(getX(), getY()+1)
+  }
 }
