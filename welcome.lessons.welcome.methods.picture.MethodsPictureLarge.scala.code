@@ -1,0 +1,76 @@
+override def run() {
+  
+  for (a <- 1 to 3){
+    faireLigne();
+    gauche();
+    for (b <-1  to 5){
+      avance();
+    }
+    gauche
+    for (c <-1 to 45){
+      avance();
+    }
+    droite();
+    droite();
+  }
+}
+
+
+ 
+
+
+def marqueSol(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  marqueSol();
+  avance();
+  gauche();
+  avance();
+  marqueSol();
+  droite();
+  avance();
+  droite();
+  avance();
+  gauche();
+  marqueSol();
+
+}
+
+def seDeplacerAvantDeFaireLeV(){
+  avance();
+  gauche();
+  avance();
+}
+
+def faireMotif(){
+
+
+  avance();  
+  faireV(Color.GREEN);
+  seDeplacerAvantDeFaireLeV();
+  faireV(Color.RED);
+  seDeplacerAvantDeFaireLeV();
+  faireV(Color.BLUE);
+  seDeplacerAvantDeFaireLeV();
+  faireV(Color.YELLOW);
+  avance();
+  gauche();
+
+}
+
+
+def faireLigne(){
+
+  for (h <-1 to 9){
+    faireMotif();
+    for (k <- 1 to 5){
+      avance();
+
+    }
+  }  
+
+}
