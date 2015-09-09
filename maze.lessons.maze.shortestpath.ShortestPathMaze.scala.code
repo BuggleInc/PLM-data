@@ -1,7 +1,14 @@
 override def run() {
   var BiscuitCoord= new Array[Int](2);
-  BiscuitCoord = DetectBiscuit()
+  BiscuitCoord = DetectBiscuit();
+  Numerotation(BiscuitCoord)
 }
+
+
+/* étapes:
+1, détecter le Baggle
+2, numéroter les cases jusqu'au buggle
+3, suivre la numérotation */
 
 
 def DetectBiscuit():Array[Int]={
@@ -17,4 +24,10 @@ def DetectBiscuit():Array[Int]={
   }
   var Coord = new Array[Int](2)
   return Coord
+}
+
+def Numerotation(T:Array){
+  var BiscuitX = T(0);
+  var BiscuitY = T(1);
+  setIndication(BiscuitX, BiscuitY, '0')
 }
