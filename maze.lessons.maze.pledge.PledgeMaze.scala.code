@@ -1,10 +1,4 @@
 override def run() {
-  /*while(!isDirectionFree(getDirection()))
-  {
-    gauche()// Choix de la direction de base. 
-    				//A priori ?a sert ? rien vu que le nord est libre dans les deux cas
-  }*/
-  
   var virage : Int = 0
   while(!estSurBiscuit()){
     while(!estFaceMur())
@@ -14,7 +8,7 @@ override def run() {
 		
     do{
       virage = keepHandsOnSideWall()
-    }while((virage!=0)&&(!isDirectionFree(Direction.NORD)))
+    }while(virage!=0)
 
   }
   prendBiscuit()
@@ -67,3 +61,22 @@ def isDirectionFree(dir : Direction) : Boolean = {
   }
 }
 
+def keepGoing(vir : Int) : Int = {
+  var virage = vir
+  while(!isDirectionFree(Direction.NORD))
+  {
+    if(!mD())
+    {
+      droite();avance(); virage = virage + 1
+    }
+    else if(!mG())
+    {
+      gauche();avance(); virage = virage - 1
+    }
+    else
+    {
+      gauche();gauche(); virage = virage +2
+    }
+  }
+  return virage
+}
