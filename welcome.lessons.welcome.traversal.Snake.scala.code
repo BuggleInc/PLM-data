@@ -5,13 +5,20 @@ override def run() {
       avance()
     }else{
       if(getDirection() == Direction.EST){
-       gauche()
-       avance()
-       gauche()
+        gauche()
+        if (estFaceMur()){
+          fin=true
+        }else{
+          avance()
+          gauche()
+        }
       }else{
         droite()
-        avance()
-        droite()
+        if (estFaceMur()){
+          fin=true
+        }else{
+          avance()
+          droite()
       }
     }
   }
