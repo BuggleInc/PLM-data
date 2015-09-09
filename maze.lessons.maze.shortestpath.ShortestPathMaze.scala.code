@@ -80,6 +80,7 @@ def numeroterLesCases(X:Int, Y:Int, cpt : Int)
 
 def PokeBallGO()
 {
+  var sortieBoucle = false
   var X = getX()
   var Y = getY()
   var cpt = getIndication(X,Y)
@@ -122,23 +123,27 @@ def PokeBallGO()
     choix = est
   }
   
-  if (choix == nord && !aMurNord(X,Y))
+  if (choix == nord && !aMurNord(X,Y) && !sortieBoucle)
   {
     setDirection(Direction.NORD)
     avance()
+    sortieBoucle = true
   }
-  if (choix == sud)
+  if (choix == sud && !sortieBoucle)
   {
+    sortieBoucle = true
     setDirection(Direction.SUD)
     avance()
   }
-  if (choix == ouest)
+  if (choix == ouest && !sortieBoucle)
   {
+    sortieBoucle = true
     setDirection(Direction.OUEST)
     avance()
   }
-  if (choix == est)
+  if (choix == est && !sortieBoucle)
   {
+    sortieBoucle = true
     setDirection(Direction.EST)
     avance()
   }
