@@ -1,0 +1,36 @@
+override def run() {
+  diag()
+}
+
+def test:Boolean={
+  if (getX() == getMondeLargeur() -1 && getY() == getMondeHauteur() -1){
+   return true
+  }
+  return false
+}
+
+def diag(){
+  var n = 0
+  var m = 0
+  ecritMessage(m)
+  setPos(1,0)
+  m = m+1
+  while(!test){
+    ecritMessage(m)
+    if(getX()== getMondeLargeur() -1 || getX()==0){
+      setPos(getX(), getY()+1)
+      n=n+1
+      m=m+1
+      ecritMessage(m)
+    }
+    if(n%2 == 0){
+      m=m+1
+      setPos(getX()+1,getY())
+    }
+    else{
+      m=m+1
+      setPos(getX()-1,getY())
+    }
+  }
+  ecritMessage(m)
+}
