@@ -5,11 +5,12 @@ def postion_finale():Boolean = {
   if(estFaceMur()==true){
   		if (regard==Direction.OUEST){
   			droite();
-       	if(estFaceMur() == true){return true;}
-      }
+       	if(estFaceMur() == true){droite();return true;}
+      droite()}
   else {
   gauche();
-    if(estFaceMur()==true){return true;}}}
+    if(estFaceMur()==true){gauche();return true;}}
+  gauche()}
   return false;
 }
 def serpent(){
@@ -20,7 +21,7 @@ def serpent(){
     else {gauche();avance();gauche();}}
   else {avance()}
 }
-setCouleurCorps(Color.GREEN);
+
 baisseBrosse();
 do {serpent()} while(postion_finale()==false)
 }
