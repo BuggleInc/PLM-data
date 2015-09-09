@@ -1,5 +1,4 @@
 override def run() {
-	save()
 }
 
 def save(){
@@ -7,7 +6,15 @@ def save(){
 	for(i<- 0 to T.length-1){
   	avance()
   	T(i)=getCouleurSol()
-	}
+  }
+  
+  
+  
+
+
+
+
+def loop(){
   for (j <- 0 to getMondeLargeur()){
     save()
     gauche()
@@ -16,14 +23,15 @@ def save(){
     avance()
     write()
   }
-   
-  for(i <- 0 to T.length-1){
-   marque()
-   setCouleurBrosse()=T(i)
-  }
 }
 
 
+def write(){
+  for(i <- 0 to T.length-1){
+    marque()
+    setCouleurBrosse()=T(i)
+  }
+}
 
 def marque(){
   baisseBrosse()
