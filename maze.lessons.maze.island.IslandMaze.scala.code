@@ -12,7 +12,12 @@ override def run() {
         gauche()
       }while(getDirection()!=Direction.NORD)
     }
-  } 
+  }
+  while(!estSurBiscuit())
+  {
+    keepHandsOnSideWall()
+  }
+  prendBiscuit()
 }
 
 def mG() : Boolean = {
