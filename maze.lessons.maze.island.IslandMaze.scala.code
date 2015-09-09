@@ -4,16 +4,24 @@ override def run() {
     if (!estFaceMur())
     	avance()
     else
-    	keepHandOnSideWall()
+    {
+      droite()
+    }
   }
   prendBiscuit()
 }
 
-def keepHandOnSideWall()
+/*def keepHandOnSideWall()
 {
-  droite()
-  if (estFaceMur())
-  	droite()
-  else
+  gauche()
+  if (estFaceMur()) //on a trouvé un mur à notre gauche
+  {
+    droite()
+    if (estFaceMur())  //et on a trouvé un mur en face de nous donc on part à droite
+    	droite()
+    else               //c'est libre en face donc on avance()
+    	avance()
+  }
+  else //on a pas de mur à notre gauche, on avance
   	avance()
 }
