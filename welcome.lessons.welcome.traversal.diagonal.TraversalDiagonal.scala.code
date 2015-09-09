@@ -4,23 +4,34 @@ override def run() {
   var ligne = 0;
   var colonne = 0;
   ecritMessage(compteur)
-  do{
-  	diag = diag + 1;
-  	if (!(getY==getMondeHauteur()-1)){
+  compteur=compteur+1
+ 	for (i <- 1 to getMondeHauteur()-1){
+      diag = diag + 1;
   		ligne = diag;
   		colonne = 0;
-  		compteur = compteur + 1;
-  		setPos(colonne,ligne);
-  		ecritMessage(compteur);
-  			do{
-    			compteur=compteur+1;
-    			ligne=ligne-1;
-    			colonne=colonne+1;
-    			setPos(colonne,ligne);
-    			ecritMessage(compteur);
-  			}while(!(colonne==diag))
+      	for (j <- 0 to diag){
+  				setPos(colonne,ligne);
+  				ecritMessage(compteur);
+      		compteur=compteur+1;
+      		ligne=ligne-1;
+      		colonne=colonne+1}
   		}
-   	else {
+  var compteColonne = 1
+  for (i <- 1 to getMondeLargeur-1){
+			 ligne=diag;
+    	 colonne=compteColonne;
+    	 compteColonne=compteColonne + 1;
+    	 for (j <- 0 to getMondeLargeur()){
+         	if (colonne<getMondeLargeur){
+         		setPos(colonne,ligne);
+  					ecritMessage(compteur);
+      			compteur=compteur+1;
+      			ligne=ligne-1;
+          	colonne=colonne+1;}
+       }
+  }
+  
+   	/*else {
       ligne=getMondehauteur-1;
       colonne=diag%gatMondeHauteur;
       setPos(colonne,ligne);
@@ -31,6 +42,6 @@ override def run() {
         ligne=ligne-1
         colonne = colonne +1;
         setPos(colonne,ligne);
-        ecritMessage(compteur);      
-	}while (!(getX==getMondeLargeur()-1 && getY==getMondeHauteur()-1))
+        ecritMessage(compteur);    
+	}while (!(getX==getMondeLargeur()-1 && getY==getMondeHauteur()-1))*/
 }
