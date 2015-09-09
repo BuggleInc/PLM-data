@@ -9,17 +9,18 @@ override def run() {
 
 
 
+// Reproduit les couleurs en fonction du tableau.
+def reprodCouleur(T:Array[Color]){
+  val decalage=litMessage().toInt
+  for (i<- 0 to getMondeHauteur()-1){
+    setCouleurBrosse(T((i+decalage)%getMondeHauteur()))
+    marque()
+    avance()
+  }  
+}
 
 
-
-
-
-
-
-
-
-
-// parcours la premiere ligne, r?cup?re les couleurs et renvoie le tableau
+// parcours la premiere ligne, recupere les couleurs et renvoie le tableau
 def chopperCouleur(): Array[Color]= {
   var y=getMondeHauteur()
   var T = new Array[Color](y)
