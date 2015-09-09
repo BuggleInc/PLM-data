@@ -2,10 +2,17 @@ override def run() {
   baisseBrosse()
   avance()
   while(getX!=6 && getY!=0){
-    if(estFaceMur()){ 
-      gauche()
-      avance()
-      droite()
+    if(estFaceMur()){
+      if(getDirection() == Direction.EST){
+        gauche()
+        avance()
+        droite()
+      }
+      else{
+        droite()
+        avance()
+        gauche()
+      }
     }
     else{ avance()}
   }
