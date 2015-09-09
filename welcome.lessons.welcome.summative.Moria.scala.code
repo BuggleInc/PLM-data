@@ -1,15 +1,15 @@
 def trouverBiscuit(){
-  setDirection(Direction.East)
+  droite()
   while (!estSurBiscuit()){
     avance()
   }
   prendBiscuit()
-  setDirection(Direction.West)
+  retourne()
   while (!estSurBiscuit()){
     avance()
   }
   poseBiscuit()
-  setDirection(Direction.East)
+  retourne()
   avance()
 }
 
@@ -23,7 +23,7 @@ def sortie(): Boolean={
 while (sortie()==false) {
   trouverBiscuit()
 }
-setDirection(Direction.South)
+droite()
 avance()
-setDirection(Direction.West)
+gauche()
 avance()
