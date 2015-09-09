@@ -1,0 +1,22 @@
+override def run() {
+  baisseBrosse()
+  var dir = Direction.EST
+  while (!((estFaceMur)&&(MurNord))) {
+    avance()
+    dir=getDirection()
+    if ((estFaceMur)&&(dir==Direction.EST)) {
+      (gauche();avance();gauche())
+    }
+    if ((estFaceMur)&&(dir==Direction.OUEST)) {
+      (droite();avance();droite())
+    }
+  }
+}
+
+
+def MurNord(): Boolean= {
+  gauche()
+  if (estFaceMur()) {
+    return true
+  } else {return false}
+}
