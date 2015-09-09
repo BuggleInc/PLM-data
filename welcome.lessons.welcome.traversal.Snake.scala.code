@@ -1,0 +1,27 @@
+override def run() {
+  baisseBrosse()
+  while(!posf()){
+    snake()
+  }
+  right()
+}
+
+def snake(){
+  if (estFaceMur()){
+    right()
+    right()
+  }
+  for (i<-1 to 7){
+    avance()
+  }
+}
+
+def posf():Boolean ={
+  if ((estFaceMur())&&(getDirection()==Direction.EST)){
+    left()
+    if (estFaceMur()){
+      return true
+    }
+    right()
+  }
+}
