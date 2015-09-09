@@ -12,16 +12,19 @@ override def run() {
 def snake(){
   while(!estFaceMur()){
     avance()
-  }
+  
   if (getDirection()== Direction.EST){
     left()
+    if(!estFaceMur())
+    avance()
+    left()
+  }
+  if (getDirection()== Direction.EST){
+    right()
+    if (!estFaceMur())
     avance()
     right()
   }
-  if (getDirection()== Direction.EST){
-    right()
-    avance()
-    left()
   }
 }
 
