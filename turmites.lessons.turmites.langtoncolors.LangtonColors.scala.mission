@@ -1,0 +1,44 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>La fourmi de Langton multicolore</h2>
+
+<p>Il y a plusieurs fa?ons de changer le concept de la fourmi de Langton. Dans
+cet exercice, nous allons tout d'abord ?tudier le fait d'utiliser plus de
+deux couleurs. Cela reste tr?s similaire au cas de base : le comportement ?
+chaque pas d?pendra toujours de la couleur du sol, mais vous aurez plus de
+deux possibilit?s. Cela permet d'avoir plus qu'une seule sorte de fourmi,
+selon ce que l'on d?cide de faire pour chaque couleur. Par exemple, la
+fourmi LRL reconna?t trois couleurs. Elle tourne ? gauche sur la premi?re, ?
+droite sur la seconde et ? gauche sur la troisi?me. Selon cette d?finition,
+la fourmi de base est de type RL ( puisqu'elle tourne ? droite sur les cases
+blanches et ? gauche sur les noires).</p>
+
+<p>Certaines de ces fourmis dessinent des sch?mas fascinants ( changez de monde
+pour les voir ):LLRR construit une figure sym?trique ressemblant vaguement ?
+une balle. LRRRRRLLR dessine un carr?, LLRRRLRLRLLR dessine un sch?ma
+r?gulier tordu apr?s une p?riode ressemblant ? un comportement chaotique, et
+RRLLLRLLLRRR semble remplir un sablier...</p>  
+
+<p>M?tamorphoser votre buggle en une fourmi de Langton g?n?rique n'est pas tr?s
+compliqu?, m?me si ce n'est pas compl?tement trivial. Comme pr?c?demment,
+vous avez ? ?crire une fonction <code>step</code>. Mais cette fois, elle
+re?oit deux tableaux comme param?tres. Le premier d?finit les r?gles ?
+suivre selon la couleur du sol tandis que le deuxi?me donne la s?quence de
+couleurs ? utiliser. Par exemple, la fourmi de base aurait
+
+
+<code>Array('R', 'L')</code> et <code>Array(Color.white,
+Color.black)</code>
+comme arguments.</p>
+
+<p>A chaque pas, vous avez toujours ? appliquer le pseudo-code suivant :</p>
+<ul>
+ <li>Trouver la position de la couleur du sol dans la s?quence de couleur;</li>
+ <li>Tourner ? gauche ou ? droite selon le contenu du tableau de r?gle ? cette
+position;</li>
+ <li>Marquer le sol de la case courante avec la prochaine couleur dans la
+s?quence ( la derni?re couleur est suivie par la premi?re);</li>
+ <li>Avancer d'un pas</li>
+</ul> 
+
+<p>Vous devriez maintenant avoir assez d'informations pour r?ussir.</p>
