@@ -1,6 +1,8 @@
 var diag = 1;
 var nb=0;
 var x=0;
+var y=0;
+
 
 def tag(){
   ecritMessage(nb)
@@ -8,11 +10,12 @@ def tag(){
 }
 
 def eldiago(){
-  for(y<-0 to getMondeHauteur()-1){
-  	setPos(0,y)
+  for(j<-0 to getMondeHauteur()-1){
+  	setPos(0,j)
     tag()
+    y=j
     for(i<-0 to diag){
-      setPos(x+i,y)
+      setPos(x+i,y-i)
       tag()
       
     }
