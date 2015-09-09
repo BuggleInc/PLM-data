@@ -1,0 +1,17 @@
+def golomb(num:Int): Int = {
+  var suite = new Array[Int](num)
+  var l:Int= num
+  var c:Int = 3
+  var n:Int = 3
+  suite(0)=1
+  suite(1)=2
+  suite(2)=2
+  while (c+suite(c)<l){
+    for (j<-1 to suite(c)-1){
+      suite(c+j)=n
+    }
+    n=n+1
+    c=c+suite(c)
+  }
+  return suite(num)
+}

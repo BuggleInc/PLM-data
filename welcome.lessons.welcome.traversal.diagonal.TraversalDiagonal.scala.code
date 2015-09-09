@@ -1,0 +1,21 @@
+var diag = 0;
+override def run() {
+  var c:Int=0
+  for (j<-0 to getMondeHauteur-1){
+    for (i<-0 to diag){
+        setPos(diag/getMondeHauteur()+i,diag % getMondeHauteur()-i)
+        ecritMessage(c)
+        c=c+1
+     }
+    diag=diag+1
+  }
+  diag=diag-1
+  for (j<- 0 to getMondeLargeur-2){
+    for (i<- 0 to diag-1){
+      setPos(j+1+i,getMondeHauteur-1-i)
+      ecritMessage(c)
+      c=c+1
+    }
+    diag=diag-1
+  }
+}

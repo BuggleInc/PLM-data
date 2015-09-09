@@ -1,0 +1,21 @@
+override def run() {
+  var c:Int=0
+  var n:Int=0
+  for (i<- 0 to getMondeHauteur()-1){
+    if (n%2==0){
+      for (j<- 0 to getMondeLargeur()-1){
+        setPos(j,i)
+        ecritMessage(c)
+        c=c+1
+      }
+      n=n+1
+    } else {
+      for (j<- 1 to getMondeLargeur()){
+        setPos(getMondeLargeur()-j,i)
+        ecritMessage(c)
+        c=c+1
+      }
+      n=n+1
+    }
+  }
+}
