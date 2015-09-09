@@ -1,2 +1,14 @@
 override def run() {
+  var xf:Int = getWorldWidth() - 1
+  var yf:Int = getWorldHeight() - 1
+  
+  while (! (xf == getX() && yf == getY()) ){
+    if (getX() + 1 > xf && getY() < yf){
+      setPos(getX() + 1, getY())
+  	}else if (getX() < xf && getY() + 1 > yf){
+      setPos(getX(), getY() + 1)
+    }else if (getX() + 1 < xf && getY() + 1 < yf){
+      setPos(getX())
+    }
+  
 }
