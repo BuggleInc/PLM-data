@@ -3,12 +3,8 @@ def stringYak(str:String):String =
   var s=""
   for(i<- 0 to str.length-3 by 3)
   {
-    println(str.drop(i).take(3));
-    
-    if(i>=str.length()-3)
-    {
-      s+=str.drop(i)
-    }else if(str.drop(i).take(3)!="yak")
+    if(i>str.length()-4)s+=str.drop(i)
+    if(str.drop(i).take(3)!="yak")
     {
       s+=str.drop(i).take(3)
     }
