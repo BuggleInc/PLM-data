@@ -1,0 +1,29 @@
+override def run() {
+  
+    brushDown()
+    while(!testArrive()){
+    
+      //Snake
+      if (!isFacingWall()){
+        forward()
+      }else{
+        var dir = getDirection()
+  			dir match {
+    			case Direction.EAST => left();forward(); left;
+    			case Direction.WEST => right();forward(); right;
+  			}
+      }
+      
+    }
+}
+
+def testArrive (): Boolean = {
+  if (!isFacingWall())
+  	return false
+  var d = getDirection()
+  d match {
+    case Direction.EAST => left(); if (isFacingWall()) {return true}; left;
+    case Direction.WEST => right(); if (isFacingWall()) {return true}; right;
+  }
+  return false
+}
