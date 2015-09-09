@@ -2,7 +2,11 @@ var sommeAngle:Int = 0;
 
 override def run() {
   while ( !estSurBiscuit() ){
-    
+    if ( isDirectionFree(NORTH) && sommeAngle == 0 ){
+      avance();
+    } else {
+      keepHandOnSideWall();
+    }
   }
   prendBiscuit();
 }
@@ -14,6 +18,7 @@ def keepHandOnSideWall() {
   }
   if ( !estFaceMur() ){
     avance();
+    sommeAngle -= 1;
   } else {
     gauche();
     keepHandOnSideWall();
