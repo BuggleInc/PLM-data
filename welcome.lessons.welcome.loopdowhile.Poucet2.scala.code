@@ -1,0 +1,23 @@
+var nbBiscuits = 0
+avance()
+if (estSurBiscuit()) {
+  nbBiscuits = nbBiscuits + 1
+}
+do {
+  do{
+    avance()
+    if (estSurBiscuit()) {
+      nbBiscuits = nbBiscuits + 1
+    }
+  } while (!crossing)
+  if (nbBiscuits < 3) {
+    droite()
+  } else {
+    gauche()
+  }
+  avance()
+  nbBiscuits = 0
+  if (estSurBiscuit()) {
+    nbBiscuits = nbBiscuits + 1
+  }
+} while (!sortieTrouvee())

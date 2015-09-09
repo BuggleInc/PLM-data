@@ -1,0 +1,13 @@
+def golomb(num:Int): Int = {
+  var listeA = 1
+  var liste = new Array[Int](num)
+  var indice = 1
+  while(liste(num-1)==0){
+    listeA=indice
+    for (i<-0 to indice-1){
+      liste(i+indice-1)=listeA
+    }
+    indice = indice +1
+  }
+  return liste(num-1)
+}

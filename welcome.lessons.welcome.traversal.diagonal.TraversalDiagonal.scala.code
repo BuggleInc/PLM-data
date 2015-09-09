@@ -1,0 +1,22 @@
+var diag = 0;
+override def run() {
+  var abscisseFinale = getMondeLargeur()-1
+  var ordonneeFinale = getMondeHauteur()-1
+  var compteur=0
+  ecritMessage(compteur)
+  while (getX()!=abscisseFinale || getY()!=ordonneeFinale) {
+    compteur = compteur +1
+    if(getY()==0&&getX()!=abscisseFinale){
+      diag = diag+1
+      setPos(0,diag)
+    } else if (getX()==abscisseFinale&&getY()<ordonneeFinale-1){
+      diag=diag+1
+      setPos(diag%abscisseFinale,ordonneeFinale)
+    } else if (getX()==abscisseFinale&&getY()==ordonneeFinale-1){
+      setPos(abscisseFinale,ordonneeFinale)
+    } else{
+      setPos(getX()+1,getY()-1)
+    }
+  ecritMessage(compteur)
+  }
+}

@@ -1,0 +1,27 @@
+override def run() {
+  var tailleTableau=0
+  tailleTableau = getMondeHauteur()
+  var couleurs = new Array[Color] (tailleTableau)
+  couleurs(0)=getCouleurSol()
+  for(pas <- 1 to tailleTableau -1){
+    avance()
+    couleurs(pas)=getCouleurSol()
+  }
+  recule(getMondeHauteur-1)
+  for(colonne<-1 to getMondeLargeur()-1){
+    gauche()
+    avance()
+    droite()
+    val decalage=litMessage().toInt
+    setCouleurBrosse(couleurs((decalage)%tailleTableau))
+    baisseBrosse()
+    leveBrosse()
+    for(pas <-1 to tailleTableau -1){
+      avance()
+      setCouleurBrosse(couleurs((decalage+pas)%tailleTableau))
+      baisseBrosse()
+      leveBrosse()
+    }
+    recule(getMondeHauteur-1)
+  }
+}
