@@ -14,38 +14,44 @@ def keepHandOnSideWall()
   }
 }
 
+def murAuNord() : Boolean =
+{
+  var direction = getDirection()
+  var mur = false
+  
+  setDirection(Direction.NORD)
+  if (estFaceMur())
+  	mur = true
+ 	setDirection(direction)
+  
+  return mur
+}
+
 override def run()
 {
-  var place = false
-  while (!place)
-  {
-    gauche()
-    if (!estFaceMur())
-      avance()
-    else
-    	place = true
-    droite()
-  }
-  
-  var murTouche = false
+  var peutAllerAuNord = true
+  var i = 2
   
   while(!estSurBiscuit())
   {
-    var direction = getDirection()
-    
-    if (direction != Direction.SUD && direction != Direction.NORD)
+    if (!murAuNord() && peutAllerAuNord)
     {
+      i = 0
       setDirection(Direction.NORD)
-      if (estFaceMur())
-      {
-        setDirection(direction)
-        keepHandOnSideWall()
-      }
-      else
-        avance()
+      avance()
     }
-    else
+    else if (murAuNord())
+    {
+     	i += 1
     	keepHandOnSideWall()
+      peutAllerAuNord = false
+    }
+    
+    if (i >= 2)
+    {
+      peutAllerAuNord = true
+      i = 0
+    }
   }
   
   prendBiscuit()
