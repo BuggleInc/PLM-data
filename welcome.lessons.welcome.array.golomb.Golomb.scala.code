@@ -33,7 +33,7 @@ def newTableau(tableau : Array[Int]): Array[Int] = {
   return T
 }
 */
-	var compteur : Int = 1
+/*	var compteur : Int = 1
   var nbValeur : Int = 1
   while (compteur < num) {
     for (k <- 1 to nbValeur+1) {
@@ -43,3 +43,25 @@ def newTableau(tableau : Array[Int]): Array[Int] = {
   }
   return nbValeur
 }
+*/
+  var N = new Array[Int](num)
+  var V = new Array[Int](num)
+  V(0) = 1
+  var compteur = 1
+  var valeur = 1
+  var nbValeur = 0
+  for (k <- 1 to num) {
+    N(k-1) = k
+  }
+  while (compteur < num) {
+    nbValeur = V(valeur-1)
+    for (l <- 1 to nbValeur) {
+      V(compteur-1) = valeur
+      compteur = compteur +1
+    }
+    valeur = valeur+1    
+  }
+  return V(num-1)
+}
+  
+  
