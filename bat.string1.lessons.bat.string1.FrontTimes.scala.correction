@@ -1,0 +1,23 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class frontTimes extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = frontTimes( t.getParameter(0).asInstanceOf[String], t.getParameter(1).asInstanceOf[Int]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def frontTimes(str:String, n:Int):String = {
+  var frontLen = 3
+  if (frontLen > str.length)
+    frontLen = str.length
+  var front = ""
+  if (str.length >0)
+    front = str.substring(0,frontLen)
+  return front * n
+} }
