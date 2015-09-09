@@ -2,7 +2,16 @@ override def run() {
   var compteur = 1
   ecritMessage(0)
   while(!fin()) {
-    parcoursDouble(getX(),getY())
+    
+    if (x==getMondeLargeur()-1) {
+    setPos(x,y+1)
+   	parcoursDroite(x,y)
+  }
+    else if (x==0) {
+    setPos(x,y+1)
+   	parcoursGauche(x,y)
+    }
+    
     ecritMessage(compteur)
     compteur =compteur+1
   }
@@ -12,6 +21,17 @@ def fin() :Boolean={
   if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) return true
   else return false
 }
+
+def parcoursGauche(x:Int,y:Int) {
+  setPos(x+1,y)
+}
+
+def parcoursDroite(x:Int,y:Int) {
+  
+  else setPos(x-1,y)
+}
+
+
 
 
 /*def parcoursGauche(x:Int,y:Int) {
@@ -30,7 +50,7 @@ def parcoursDroite(x:Int,y:Int) {
   else setPos(x-1,y)
 }*/
 
-def parcoursDouble(x:Int,y:Int) {
+/*def parcoursDouble(x:Int,y:Int) {
   var d =true
   if (d) {
     if (x==getMondeLargeur()-1) {
@@ -46,4 +66,4 @@ def parcoursDouble(x:Int,y:Int) {
   }
   else setPos(x-1,y)
   }
-}
+}*/
