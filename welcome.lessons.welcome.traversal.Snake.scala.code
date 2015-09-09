@@ -3,7 +3,7 @@ override def run() {
   while (!positionFinale()) {
     if (estFaceMur==true && getDirection==Direction.EST) {
       gauche();
-      gauche();
+      avance();
       gauche();
     } else if (estFaceMur==true && getDirection==Direction.OUEST) {
       droite();
@@ -16,7 +16,6 @@ override def run() {
 def positionFinale():Boolean = {
   var res = false;
   if (getDirection() == Direction.EST && estFaceMur()==true) {
-    gauche();
     if (estFaceMur()==true) {
       res = true;
     }
