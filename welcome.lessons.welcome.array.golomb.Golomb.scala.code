@@ -3,7 +3,9 @@ def golomb(num:Int): Int = {
   T(0)=1
   var count =0
   for( i<- 1 to num-1){
-    for(j<- 0 to T(i-1)){T(j+count)=i; count = count+T(i-1)}
+    for(j<- 0 to T(i-1)){
+      if(T(j+count)<num){T(j+count)=i; count = count+T(i-1)}
+    }
   }
   return T(num-1)
 }
