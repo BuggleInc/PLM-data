@@ -1,0 +1,51 @@
+override def run() {
+  motif()
+  avance(4)
+  motif()
+  gauche()
+  avance(4)
+  droite()
+  motif()
+  recule(4)
+  motif()
+  avance(4)
+}
+
+def faireBidule(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  tampon()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  tampon()
+  gauche()
+  avance()
+  gauche()
+}
+
+def miseEnPlace(){
+  avance(3)
+  gauche()
+}
+
+def motif(){
+  var i = 0
+  var c = Color.blue
+  for (i<- 1 to 4){
+    i match{
+      case 1 => c=Color.red
+      case 2 => c=Color.blue
+      case 3 => c=Color.green
+      case 4 => c=Color.yellow
+    }
+    faireBidule(c)
+    miseEnPlace()
+  }
+}
+
+def tampon(){
+  baisseBrosse()
+  leveBrosse()
+}

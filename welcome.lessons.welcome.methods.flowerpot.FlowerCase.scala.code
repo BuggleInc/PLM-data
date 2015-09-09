@@ -1,0 +1,73 @@
+def growFlowers(){
+  grpFlur()
+  avance(6)
+  gauche()
+  avance(2)
+  droite()
+  avance()
+  flower(Color.blue)
+  avance()
+  gauche()
+  avance(2)
+  droite()
+  grpFlur()
+  gauche()
+  recule()
+  droite()
+  recule(8)
+  droite()
+  avance(3)
+  gauche()
+  grpFlur()
+  avance(6)
+  gauche()
+  avance(2)
+  droite()
+  avance()
+  flower(Color.blue)
+  avance()
+  gauche()
+  avance(2)
+  droite()
+  grpFlur()
+}
+
+def grpFlur(){
+  avance()
+  flower(Color.red)
+  avance(4)
+  flower(Color.cyan)
+  droite()
+  avance(2)
+  droite()
+  avance(2)
+  flower(Color.orange)
+  recule(2)
+  gauche()
+  avance(2)
+  flower(Color.green)
+  droite()
+  avance(4)
+  flower(Color.pink)
+  avance()
+  setCouleurBrosse(Color.yellow)
+  retourne()
+}
+
+def flower(c:Color){
+  setCouleurBrosse(Color.yellow)
+  tampon()
+  setCouleurBrosse(c)
+  var i = 0
+  for (i<-1 to 4){
+    avance()
+    tampon()
+    recule()
+    droite()
+  }
+}
+
+def tampon(){
+  baisseBrosse()
+  leveBrosse()
+}

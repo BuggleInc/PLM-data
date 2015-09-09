@@ -1,0 +1,56 @@
+override def run() {
+  dplVert() 
+}
+
+def tampon(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  avance(1)
+  tampon()
+  avance()
+  gauche()
+  avance()
+  tampon()
+  recule()
+  droite()
+  avance()
+  tampon()
+  avance(1)
+  gauche()
+}
+
+def faireMotif(){
+	var i = 0
+  var c = Color.BLUE
+	for (i <- 1 to 4){
+    i match {
+      case 1 => c=Color.YELLOW
+      case 2 => c=Color.RED
+      case 3 => c=Color.BLUE
+      case 4 => c=Color.GREEN
+    }
+  	faireV(c)
+	}
+}
+
+def dplHoriz(){
+  var j = 0
+  for (j <- 1 to 9){
+    faireMotif()
+    avance(5)
+  }
+}
+
+def dplVert(){
+  var k = 0
+  for (k<-1 to 9){
+    dplHoriz()
+    gauche()
+    avance(5)
+    droite()
+  }
+}

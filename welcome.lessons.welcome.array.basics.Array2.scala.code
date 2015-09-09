@@ -1,0 +1,31 @@
+override def run() {
+  var h = getMondeHauteur()-1
+  var l = getMondeLargeur()
+  var T = new Array[Color](h+1)
+  for (i<-0 to T.length-2){
+    T(i) = getCouleurSol()
+    avance()
+  }
+  T(T.length-1) = getCouleurSol()
+  recule(h)
+  for (i<-1 to l-1){
+    gauche()
+    avance()
+    droite()
+    val decalage = litMessage.toInt
+    for (i<-0 to T.length-2){
+      var a = (i + decalage)%T.length
+      tampon(T,a)
+      avance()
+    }
+    var a = (T.length-1 + decalage)%T.length
+    tampon(T,a)
+    recule(h)
+  }
+}
+
+def tampon(t:Array[Color],H:Int){
+  setCouleurBrosse(t(H))
+  baisseBrosse()
+  leveBrosse()
+}
