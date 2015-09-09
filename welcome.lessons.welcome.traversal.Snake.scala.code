@@ -2,11 +2,7 @@ override def run() {
   baisseBrosse()
   snake()
   while(!posf()){
-    var pos:Any=getDirection()
-    setDirection(Direction.NORD)
-    avance()
-    setDirection(pos)
-    snake()
+    
     
     
   }
@@ -21,6 +17,15 @@ def snake(){
   for (i<-1 to 6){
     avance()
   }
+  if (getDirection()== Direction.EST){
+    left()
+    avance()
+    right()
+  }
+  if (getDirection()== Direction.EST){
+    right()
+    avance()
+    left()
 }
 
 def posf():Boolean ={
