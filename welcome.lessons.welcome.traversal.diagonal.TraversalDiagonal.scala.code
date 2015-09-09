@@ -7,14 +7,18 @@ override def run() {
   
   for (d <- 0 to nbDiag-1){
     
-  	if (d <= h){
+    //Si d le numéro de la diagonale est inférieur ou égal à h la hauteur, on rentre dans une boucle executee d+1 fois, d partant de 0
+  	if (d <= h-1){
+      // cases varie donc de 0 à d soit de 0 à 6 pour la dernière diag (7 valeurs)
       for (cases <- 0 to d){
+        
         setPos(cases,d-cases)
         writeMessage(compteur)
         compteur=compteur+1
       }
+      
     }else{
-      for (cases <- 0 to d-i-1){
+      for (cases <- 0 to d-i){
         setPos(i,h-1-i)
         writeMessage(compteur)
         compteur = compteur +1
