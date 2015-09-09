@@ -1,10 +1,13 @@
 override def run() {
   while ( !estFaceMur || ( getY() != 0 && getY() != 1 ) ){
-    if ( estFaceMur() ){
-      keepHandOnSideWall();
-      gauche();
-    } else {
+    while ( getDirection() == Direction.NORTH && !estFaceMur() ){
       avance();
+    }
+    if ( estFaceMur() ){
+      droite();
+      while ( getDirection() != Direction.NORTH ){
+        keppHandOnSideWall();
+      }
     }
   }
   var gau:Boolean = false;
