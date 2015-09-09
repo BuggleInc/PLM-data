@@ -1,6 +1,4 @@
-var c:Int=getMondeHauteur()
-var d:Int=getMondeLargeur()
-var Tab=new Array[Color](c);
+
 
 ////Avancer et stocker les couleurs de la premi?re colonne dans T
 //def analyse() {
@@ -12,6 +10,9 @@ var Tab=new Array[Color](c);
 
 //Code Final
 override def run() {
+  var c:Int=getMondeHauteur()
+	var d:Int=getMondeLargeur()
+	var Tab=new Array[Color](c);
   for (i<-0 to c-1) {
     Tab(i)=getCouleurSol();
     avance();
@@ -22,10 +23,10 @@ override def run() {
   	avance();
   	droite();
   	avance();
-    setCouleurBrosse(Tab(0));
-    baisseBrosse();
     for (i<-0 to c-1) {
       setCouleurBrosse(Tab(i));
+      baisseBrosse();
+      leveBrosse();
       avance();
     }
   }
