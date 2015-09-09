@@ -7,9 +7,8 @@ override def run() {
   }
   
   def placement(vir : Int):Int = {
-  	if(mur() && !estFaceMur()){
-      avance();return vir
-    }
+    if(estSurBiscuit()){return 0 }
+  	else if(mur() && !estFaceMur()){avance();return vir}
     else if( !mur()){ gauche();avance();return vir +1}
     else if( estFaceMur()){droite(); return vir -1}
     else {return vir}
