@@ -1,0 +1,49 @@
+override def run() {
+  for (i <- 1 to 3) {
+    for (j <- 1 to 3) {
+    	faireMotif()  
+    }
+		replacement();
+  }
+}
+
+def faireMotif() {
+ 	faireV(Color.yellow);
+ 	gauche();
+ 	faireV(Color.red);
+ 	gauche();
+ 	faireV(Color.blue);
+ 	gauche();
+ 	faireV(Color.green);;
+ 	gauche();
+  for (compteur <- 1 to 5) {
+    avance();
+  }
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+}
+
+def replacement() {
+  gauche();
+  for (k <- 1 to 4) {
+    avance();
+  }
+  avance();
+  droite();
+}

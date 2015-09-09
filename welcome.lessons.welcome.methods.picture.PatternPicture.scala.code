@@ -1,0 +1,105 @@
+override def run() { 
+  faireMotif();
+  replacement();
+  faireMotif();
+	recule(6);
+  gauche();
+ 	avance(2);
+ 	droite();
+	faireMotif();
+  replacement();
+  faireMotif();
+  recule(2);
+  gauche();
+  recule(2);
+  droite();
+}
+
+def faireRouge() {
+  setCouleurBrosse(Color.red);
+	for (i <- 1 to 2) {
+  	avance();
+  	baisseBrosse();
+  	leveBrosse();
+  	gauche();
+  	avance();
+  	gauche(); 
+  } 
+}
+
+def faireBleu() {
+  setCouleurBrosse(Color.blue);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireJaune() {
+  setCouleurBrosse(Color.yellow); 
+ 	baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+def faireVert() {
+  setCouleurBrosse(Color.green);
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+
+
+def faireMotif() {
+  faireRouge()
+  avance(2);
+  faireBleu();
+  recule(2);
+  gauche();
+  avance(2);
+  droite();
+  faireJaune();
+  avance(2);
+  faireVert()
+}
+
+def replacement() {
+  recule(2);
+  gauche();
+  recule(2);
+  droite();
+  avance(4);
+}
+  
+def replacement2() {
+  recule(6);
+  gauche();
+  avance(4);
+  droite();
+}

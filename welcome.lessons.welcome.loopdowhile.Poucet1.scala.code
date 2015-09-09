@@ -1,0 +1,15 @@
+var nbBaggel = 0
+while (!sortieTrouvee()) {
+  for (couloir <- 1 to 5) {
+    if (estSurBiscuit()) {
+      nbBaggel = nbBaggel + 1;
+    }
+    avance();
+  }
+  if (nbBaggel<=2) {
+  	droite();
+	} else if (nbBaggel>=3) {
+  	gauche();
+	}
+  nbBaggel = 0
+}
