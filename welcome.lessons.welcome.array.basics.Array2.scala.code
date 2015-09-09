@@ -1,0 +1,42 @@
+override def run() {
+  
+  var tab=new Array[Color](getMondeHauteur());
+  var decalage=0;
+  
+  leveBrosse();
+  
+  for(i <- 0 to getMondeLargeur()-1)
+  {
+    for(j <- 0 to getMondeHauteur()-1)
+    {
+      if(i==0)
+      {
+        tab(j)=getCouleurSol();
+      }else{
+        setCouleurBrosse(tab((j+decalage)%tab.length));
+      	baisseBrosse();
+        leveBrosse();
+      }
+      
+      if(j!=getMondeHauteur()-1){
+       
+        avance();
+      }
+    }
+    for(k <- 1 to getMondeHauteur()-1)
+    {
+        recule()
+    }
+    
+    if(i!= getMondeLargeur()-1)
+    {
+      gauche();
+      avance();
+      droite();
+    }
+    
+      decalage=litMessage().toInt;
+    
+  }
+  
+}
