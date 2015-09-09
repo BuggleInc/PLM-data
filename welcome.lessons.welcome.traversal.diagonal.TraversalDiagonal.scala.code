@@ -1,0 +1,25 @@
+var diag = 0
+var cpt = 0
+override def run() {
+  mark(cpt)
+  cpt=cpt+1
+  for (i<-1 to 6){
+    setPos(0,i)
+    for (j<-0 to i){
+      mark(cpt)
+      cpt=cpt+1
+      diag()
+    }
+    mark(cpt)
+    cpt=cpt+1
+  }
+}
+
+def diag(){
+  setPos(getX()+1,getY+1)
+}
+def mark(cpt:String){
+  if (estSurMessage()==false){
+    ecritMessage(cpt)
+  }
+}
