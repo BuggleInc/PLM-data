@@ -1,2 +1,40 @@
+def estPositionFinale() : Boolean {
+  if (estFaceMur() && getDirection() == Direction.EST) {
+    gauche();
+    if (estFaceMur) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (estFaceMur() && getDirection() == Direction.OUEST) {
+    droite();
+    if (estFaceMur) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+    
+def pasDeSerpent() {
+  if (!estFaceMur) {
+    avance();
+  } else {
+    if (getDirection() == Direction.OUEST) {
+      droite();
+      avance();
+      droite();
+    } else if (getDirection() == Direction.EST) {
+      gauche();
+      avance();
+      gauche();
+    }
+  }
+}
+
 override def run() {
+  baisseBrosse();
+  while (!estPositionFinale()) {
+    pasDeSerpent();
+  }
 }
