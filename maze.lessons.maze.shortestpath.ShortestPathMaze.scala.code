@@ -16,6 +16,22 @@ def marquer(xb:Int,yb:Int) {
   var i:Int = 0
   var (x,y):(Int,Int) = (xb,yb)
   setIndication(x,y,i)
+  i = i + 1
+  for (j <- 0 to getMondeLargeur() * getMondeHauteur() - 1) {
+    if (aMurNord() == false && getIndication(x,y-1)) {
+      setIndication(x,y-1,i)
+    }
+    if (aMurSud() == false && getIndication(x,y+1)) {
+      setIndication(x,y+1,i)
+    }
+    if (aMurEst() == false && getIndication(x+1,y)) {
+      setIndication(x+1,y,i)
+    }
+    if (aMurOuest() == false && getIndication(x-1,y)) {
+      setIndication(x-1,y,i)
+    }
+    i = i + 1
+  }
 }
 
 override def run() {
