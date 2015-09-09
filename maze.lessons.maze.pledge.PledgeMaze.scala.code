@@ -1,22 +1,11 @@
-def avS() {if (!estFaceMur()) avance()}
+def aMurN(e:Direction):Boolean = {var b =false;var d = getDirection();setDirection(e);b = estFaceMur();setDirection(d);return b}
+                                                                      
+def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
 
-def cern():Boolean = {var b = false
-                     b = b && estFaceMur()
-                     droite();b = b && estFaceMur()
-                     droite();b = b && estFaceMur()
-                     droite();droite();return b}
 
-def demiTour() {droite();droite()}
+def garM(c:Int):Int = { if (aMurD()) {if (estFaceMur()) {gauche();return c+1} else {avance();return c}} else {if (estFaceMur()) {droite();avance();return c-1} else {droite();avance();return c-1}
+                                                                                                             }}
 
-override def run() {
-  var d = 0
-  while (!estSurBiscuit()) {
-					d = random3()
-          d match {
-            case 0 => avS()
-            case 1 => droite()
-            case 2 => gauche()
-          }}
-  prendBiscuit()
-    // Your code here 
-}
+
+override def run() {var c = 0;while (getY()!=0) {c=0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};c=garM(c);while ((getDirection()!=Direction.NORTH||c!=0) && getY() !=0) {c = garM(c)}};while (!estSurBiscuit()) {c = garM(c)};prendBiscuit()}
+
