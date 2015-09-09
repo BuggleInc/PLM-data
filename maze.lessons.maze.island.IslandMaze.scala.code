@@ -7,21 +7,20 @@ override def run() {
       avance()
     }
     else {
-      if (estFaceMur() && keepHandOnSideWall()) {
-        droite()
+      if (estFaceMur()) {
+        if (keepHandOnSideWall()) {droite();if (!estFaceMur()) {avance()}}
+        else {gauche();avance()}
       }
-      if (!estFaceMur() && keepHandOnSideWall()) {
-        avance()
-      }
-      else if (!keepHandOnSideWall() && !estFaceMur()) {
-      	droite()
-      	if (!estFaceMur()) {gauche();avance()}
-      	else {retourne();avance()}
-    	}
-      else if (estFaceMur() && !keepHandOnSideWall()) {
-        droite()
-        if (estFaceMur()) {retourne();avance()}
-        else {avance()}
+      else {
+        if (keepHandOnSideWall()) {avance()}
+        else {
+          droite(); 
+          if (estFaceMur()) {
+            gauche()
+            avance()
+          }
+          else {retourne();avance()}
+        }
       }
     }
   }
