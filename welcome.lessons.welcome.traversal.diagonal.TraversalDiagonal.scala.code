@@ -15,7 +15,7 @@ def doTheThing() {
 
 def doTheDiag(compt:Int, diag:Int):Int = {
   var comptLocal:Int = 0
-  for (i <- Math.max(0, diag - 6) to Math.min(diag, getMondeLargeur() - 1)) {
+  for (i <- Math.max(0, diag - (getMondeHauteur() - 1)) to Math.min(diag, getMondeLargeur() - 1)) {
     setPos(i, diag - i)
     comptLocal += 1
     ecritMessage(""+(compt+comptLocal))
