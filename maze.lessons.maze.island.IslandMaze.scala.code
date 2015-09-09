@@ -2,26 +2,24 @@ override def run() {
   var northfound=false
   while (!estSurBiscuit()) {
     if (getY()==0) {northfound==true}
-    if (!northfound) {findNorth()}
-    if (getDirection()==Direction.NORD && !estFaceMur() && !northfound) {
-      avance()
-    }
-    else {
-      if (estFaceMur()) {
-        if (keepHandOnSideWall()) {droite();if (!estFaceMur()) {avance()}}
-        else {gauche();avance()}
+    if (!nortfound) {findNorth(); while (!estFaceMur()) {avance()}}
+    if (estFaceMur()) {
+      if (keepHandOnSideWall()) {
+        droite()
+        if (estFaceMur()) {droite()}
+        else {avance()}
       }
       else {
-        if (keepHandOnSideWall()) {avance()}
-        else {
-          droite(); 
-          if (estFaceMur()) {
-            gauche()
-            avance()
-          }
-          else {retourne();avance()}
-        }
+        droite()
+        if (estFaceMur()) {retourne();avance()}
+        else {avance()}
       }
+    }
+    else {
+      if (keepHandOnSideWall()) {
+        avance()
+      }
+      else {gauche();avance()}
     }
   }
   def keepHandOnSideWall(): Boolean = {
