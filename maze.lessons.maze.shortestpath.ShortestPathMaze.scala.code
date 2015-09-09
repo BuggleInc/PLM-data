@@ -8,7 +8,7 @@ override def run() {
     if(!aMurNord(x,y)){setIndication(x,y-1,i+1):indication(x,y-1,i+1)}
     if(y>0&&!aMurNord(x,y-1)){setIndication(x,y+1,i+1):indication(x,y+1,i+1)}
     if(!aMurOuest(x,y)){setIndication(x-1,y,i+1):indication(x-1,y,i+1)}
-    if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y)){setIndication(x+1,y,i+1):indication(x+1,y,i+1)}
+    if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999){setIndication(x+1,y,i+1):indication(x+1,y,i+1)}
 
     //while(!aBiscuit)
     //for(i <- 0 to getMondeLargeur()-1){
