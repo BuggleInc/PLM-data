@@ -1,19 +1,16 @@
-def hunt() {
-  if (estSurBiscuit()==false){
-    def isFacingTrail():Boolean = {
-      if (estFaceMur()==false){
-        avance()
-        if (getCouleurSol()==Color.green){
-          recule()
-          baisseBrosse()
-          leveBrosse()
-          return true
-        }
-        else {
+
+def isFacingTrail():Boolean = {
+  if (estFaceMur()==false){
+    avance()
+    if (getCouleurSol()==Color.green){
          recule()
-         return false
-      }}
-      else {return false}}}
-    if (estSurBiscuit()==true){
-      prendBiscuit()}}
-    
+         baisseBrosse()
+         leveBrosse()
+         return true
+       }
+       else {
+        recule()
+        return false
+     }}
+     else {return false}}
+   
