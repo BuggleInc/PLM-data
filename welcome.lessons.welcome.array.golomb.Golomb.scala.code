@@ -17,9 +17,16 @@ def golomb(num:Int): Int = {
 
 def compteur(nombre:Int, tableau:Array[Int]) {
   var resultat = 0
+  if (tableau.length == 1) {
+    if (tableau(0) == nombre) {
+      resultat = 1
+      return resultat
+    }
+  }
   for (k <- 0 to tableau.length-1) {
     if (tableau(k)==nombre) {
       resultat = resultat + 1
     }
   }
+  return resultat
 }
