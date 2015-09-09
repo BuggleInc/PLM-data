@@ -6,7 +6,29 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var DEMITOUR = 4
   var STOP=0
   var AVANCE = 1
-  var couleurActuelle=0
-  var MVT_SUIVANT=0
-  
+  var MVT_SUIVANT=1;
+  var NEXTCOLOR=0;
+  var NEXTSTATE=0
+  var state = 0;
+  for (i<-0 to rule(state).length-1){
+    if (getCouleurSol()==rule(state)(i)){
+      MVT_SUIVANT=rule(state)(i)(1)
+      NEXTCOLOR=rule(state)(i)(0)
+      NEXTSTATE=rule(state)(i)(2)
+    }
+  }
+  setCouleurSol(colors(NEXTCOLOR))
+  state=NEXTSTATE
+  MVT_SUIVANT match{
+    case RIGHT => right(); avance();
+    case LEFT => left(); avance();
+    case DEMITOUR => retourne(); avance();
+    case AVANCE => avance();
+    case STOP=> 
+  }
+}
+
+
+def setCouleurSol(couleur:Color){
+  setCouleurBrosse(couleur); baisseBrosse; leveBrosse;
 }
