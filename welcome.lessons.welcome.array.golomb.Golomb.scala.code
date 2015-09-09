@@ -1,7 +1,7 @@
 def golomb(num:Int): Int = {
  	var aMettre = 0
   var i = 2
-  var limite :Int  = 2
+  var indiceGauche :Int  = 2
   
   var T = new Array[Int](num);
 for (i <- 0 to T.length-1) {
@@ -12,9 +12,9 @@ for (i <- 0 to T.length-1) {
   while (T(num) == 0)
   		{
         aMettre = T(i)
-        for (i <- limite to limite + aMettre )
+        for (i <- indiceGauche + 1 to indiceGauche + aMettre )
         {T(i) = i + 1}
-        limite = limite + aMettre
+        indiceGauche = indiceGauche + aMettre
         i = i + 1 
 				        
       }
