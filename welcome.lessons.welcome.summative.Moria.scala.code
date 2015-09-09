@@ -1,37 +1,25 @@
-
 retourne()
 while (!estFaceMur())
 {
-  //deplaceBiscuit()
-  while (!estSurBiscuit())
+  while (!estSurBiscuit() && (!estFaceMur()))
   {
     avance()
   }
-  prendBiscuit()
-  retourne()
-  while (!estSurBiscuit())
+  if (estSurBiscuit())
   {
+    prendBiscuit()
+    retourne()
+    while (!estSurBiscuit())
+    {
+      avance()
+    }
+    retourne()
+    avance()
+    poseBiscuit()
     avance()
   }
-  retourne()
-  avance()
-  poseBiscuit()
-  avance()
 }
-
-/*def deplaceBiscuit(){
-  while (!estSurBiscuit())
-  {
-    avance()
-  }
-  prendBiscuit()
-  retourne()
-  while (!estSurBiscuit())
-  {
-    avance()
-  }
-  retourne()
-  avance()
-  poseBiscuit()
-  avance()
-}*/
+droite()
+avance()
+gauche()
+avance()
