@@ -1,0 +1,16 @@
+def max2Value(nums:Array[Int]): Int = {
+  var max : Int = nums(1);
+  var max2 : Int = nums(0);
+  var inter : Int = 0 // variable interm?diaire permettant d'?changer des variables 
+  for (i <- 0 to nums.length - 1) {
+    if (nums(i) > max2) {
+      max2 = nums(i);
+    }
+    if (max < max2) {
+      inter = max
+      max = max2; 
+      max2 = inter;
+    }
+  }
+  return max2;
+}
