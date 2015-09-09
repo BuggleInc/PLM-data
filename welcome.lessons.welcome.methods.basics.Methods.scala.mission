@@ -1,0 +1,122 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>M?thodes</h2>
+
+<p>
+Nous allons maintenant voir comment ?crire nos propres m?thodes. Il s'agit
+en quelque sorte d'?tendre le vocabulaire de la buggle en lui apprenant ?
+faire de nouvelles choses. 
+</p>
+<p>Par exemple, nous avons vu dans un exercice pr?c?dent comment demander ? la
+buggle d'aller chercher le biscuit qui se trouve devant elle, et la ramener
+? sa position initiale. S'il y a maintenant plusieurs biscuits sur le
+plateau, et que nous voulons tous les ramener sur la ligne du bas, il faut
+soit r?p?ter ce code plusieurs fois, soit l'inclure dans une boucle. Dans
+les deux cas, il faut que vous ?vitiez de dupliquer votre code pour qu'il
+reste simple et lisible. Il serait mieux que la buggle comprenne un ordre de
+type <code>vaChercher()</code> tout comme elle comprend un
+<code>avance()</code>.</p>
+
+<h3>D?finir des m?thodes</h3>
+
+<p>La syntaxe Scala pour ?crire une m?thode simple nomm?e
+<code>vaChercher</code> est la suivante:</p>
+<pre>def vaChercher() {
+  actions()
+  encoreDesActions()
+  dautresTrucs()
+}</pre>
+
+<p>Le corps de la m?thode
+(c'est-?-dire le bloc entre accolades)
+
+sera ex?cut? ? chaque appel de cette m?thode (c'est-?-dire ? chaque fois que
+nous ?crirons <code>vaChercher()</code> quelque part dans notre code).
+Ce corps de boucle peut contenir autant d'instructions que l'on veut, et
+toutes les constructions que nous avions vu jusque l? (comme les boucles et
+les conditionnelles).
+
+</p>
+
+<h3>Documenter les m?thodes</h3>
+
+<p>Vous devez toujours vous efforcer de documenter votre code pour qu'il reste
+lisible. ? l'instant o? vous l'?crivez, son objectif et ses limitations vous
+semblent clairs, mais la plupart du temps, ?a ne dure pas. On oublie vite
+les d?tails d'une m?thode particuli?re, et quand cela arrive, on est content
+de pouvoir lire sa documentation.
+Dans l'exemple ci-dessous, nous utilisons le formalisme sp?cifique de
+scaladoc, un programme qui
+extrait la documentation du code source pour en faire de belles pages
+web. Le principal avantage de cette approche est que la documentation se
+trouve ? cot? du code. Donc, quand on change le code, il y a un peu plus de
+chance pour qu'on pense ? mettre la documentation ? jour.</p>
+
+<p>Les commentaires scaladoc
+commencent avec le marqueur <code>/**</code> (avec deux ?toiles). Ces
+commentaires doivent ?tre plac?s juste avant la m?thode qu'ils documentent
+pour que l'outil les trouve
+
+La premi?re ligne devrait d?crire bri?vement la m?thode tandis que le reste
+de la documentation devrait donner tous les points importants de la m?thode.</p>
+
+<pre>/**
+ *  Avance, r?cup?re le biscuit, et le ram?ne ? la position d'origine
+ *
+ *  Ne v?rifie pas la pr?sence de mur; ? ne pas l'utiliser en cas de risques de mur.
+ */
+
+def goAndGet() {
+
+  actions()
+  a()
+  faire()
+}</pre>
+
+<h3>Conventions de nommage</h3>
+<p>La plupart des langages de programmation interdisent d'utiliser des espaces
+dans les noms de variables et de m?thodes. Certains langages (comme le
+Scala) autorisent l'usage des caract?res accentu?s dans ces
+identificateurs, mais cela pose parfois des probl?mes de portabilit? entre
+les syst?mes d'exploitation. C'est pourquoi PLM n'utilise pas d'accents dans
+les identificateurs, m?me si c'est parfois d?sagr?able en fran?ais.</p>
+
+<p>Parmi tous les langages de programmation, il y a deux conventions de nomage
+majeures. La premi?re consiste ? concat?ner tous les mots en ne laissant que
+la premi?re lettre de chaque mot en majuscule. ?va chercher le biscuit?
+devient VaChercherLeBiscuit(). Cette convention est nomm?e CamelCase en
+anglais, c'est-?-dire casse du chameau, car les identificateurs ?crits de
+cette fa?on font un peu penser au dos d'un chameau. L'autre convention,
+nomm?e snake_case (casse du serpent), consiste ? concat?ner tous les mots en
+minuscule en les s?parant du caract?re soulign? (_). ?va chercher le
+biscuit? devient va_chercher_le_biscuit().</p>
+
+<p>Le choix de la convention de nommage est le sujet de ?discussions? tr?s
+anim?es entre programmeurs, mais certaines habitudes pr?dominent pour chaque
+langage. En Python, Ruby, Perl ou en langage C, la casse_du_serpent
+pr?domine pour les noms de variables et de m?thodes. En Java et en Scala, on
+pr?f?re habituellement la casseDuChameau, en laissant la toute premi?re
+lettre en minuscule.</p> 
+<p>La casseDuChameau est utilis? partout dans PLM car c'est un programme ?crit
+en Java ? la base, et que nous avons gard? nos habitudes en ?crivant le
+support pour d'autres langages. Mais nous consid?rons le fait Python ne soit
+pas en casse_du_serpent comme un bug, que nous corrigerons dans une version
+future.</p>
+
+<h3>Objectif de cet exercice</h3>
+<p>L'objectif de cet exercice est donc d'?crire une m?thode nomm?e
+<code>goAndGet()</code> (va chercher) et qui fait la m?me chose que dans un
+exercice pr?c?dent (avance tant qu'on ne trouve pas de baggle, ramasser le
+baggle, reculer ? la case d?part, poser le baggle).</p>
+
+<p>Cet exercice est un peu diff?rent : vous n'allez pas ?crire tout le code
+ex?cut? par la buggle, mais juste une m?thode qui sera invoqu?e
+automagiquement quand vous ex?cutez l'exercice. Votre buggle va alors
+appeler votre m?thode <code>goAndGet()</code> sur chaque colonne du monde,
+jusqu'? trouver le biscuit. Le code pour cela est d?j? donn?
+(en anglais) sous la m?thode <code>goAndGet()</code> qui reste ? ?crire,
+mais vous ne devriez pas le modifier. </p> 
+
+<p>Mais pour que cela fonctionne, il faut que vous ?criviez maintenant cette
+fonction <code>goAndGet()</code>...</p>
+

@@ -1,0 +1,23 @@
+override def run() {
+  var T =new Array[Color] (getMondeHauteur())
+  T(0)=getCouleurSol
+  avance()
+  var p:Int =1
+  while ( T(0)!=getCouleurSol ){
+    T(p)=getCouleurSol
+    avance()
+    p=p+1
+  }
+  for (i<-0 to getMondeHauteur()-2){
+    gauche()
+    avance()
+    droite()
+    baisseBrosse()
+    for (j<- 0 to getMondeHauteur()-1){
+      avance()
+      setCouleurBrosse(T(j))
+    }
+    leveBrosse()
+    avance()
+  }
+}

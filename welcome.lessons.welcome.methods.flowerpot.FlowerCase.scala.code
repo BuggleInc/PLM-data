@@ -1,0 +1,59 @@
+def growFlowers(){
+  rectangle()
+  recule(10)
+  gauche()
+  recule(6)
+  droite()
+  rectangle()
+  recule(2) //mise position finale
+  gauche()
+  recule(2)
+  droite()
+}
+
+
+
+
+def fleur(c1 : Color, c2 : Color){ //fonction dessinant une fleur avec c1 la couleur centrale et c2 la 
+  setCouleurBrosse(c2)              //couleur aux bords
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  setCouleurBrosse(c1)
+  leveBrosse()
+  droite()
+  recule() //position depart=position finale
+}
+
+def carre(){ //depart cot? droit roge et fin cot? droit orange(centre)
+  fleur(Color.yellow, Color.red)
+  avance(4)
+  fleur(Color.yellow, Color.cyan)
+  recule(4)
+  gauche()
+  recule(4)
+  droite()
+  fleur(Color.yellow, Color.pink)
+  avance(4)
+  fleur(Color.yellow, Color.green)
+  recule(2)
+  gauche()
+  avance(2)
+  droite()
+  fleur(Color.yellow, Color.orange)
+}
+
+def rectangle(){
+  carre()
+  avance(4)
+  fleur(Color.yellow, Color.blue)
+  avance(2)
+  gauche()
+  avance(2)
+  droite()
+  carre()
+}
