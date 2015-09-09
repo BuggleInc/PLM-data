@@ -1,8 +1,8 @@
 override def run() {
-  doTheThing()
+  doTheSpin()
 }
 
-def doTheThing() {
+def doTheSpin() {
   var diag:Int = 1
   var compt:Int = 0
   ecritMessage(""+compt)
@@ -13,10 +13,14 @@ def doTheThing() {
   }
 }
 
-def doTheDiag(compt:Int, diag:Int):Int = {
+def doTheSpinningDiag(compt:Int, diag:Int):Int = {
   var comptLocal:Int = 0
   for (i <- Math.max(0, diag - (getMondeHauteur() - 1)) to Math.min(diag, getMondeLargeur() - 1)) {
     setPos(i, diag - i)
+    gauche()
+    gauche()
+    gauche()
+    gauche()
     comptLocal += 1
     ecritMessage(""+(compt+comptLocal))
   }
