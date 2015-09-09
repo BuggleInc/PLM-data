@@ -1,7 +1,10 @@
 override def run() {
   while (!estSurBiscuit()) {
-    if (getY()!=0) {findNorth()}
-    if (getDirection()==Direction.NORD && !estFaceMur() && getY()!=0) {
+    var northfound=false
+    if (gety()==0) {northfound==true}
+    if (getY()!=0 && !northfound) {findNorth()}
+    if (get())
+    if (getDirection()==Direction.NORD && !estFaceMur() && !northfound) {
       avance()
     }
     else {
