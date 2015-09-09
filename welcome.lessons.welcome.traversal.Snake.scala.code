@@ -13,6 +13,18 @@ override def run() {
         avance()
         droite()
       }
+      positionFinal=positionFinale()
     }
+  }
+}
+
+def positionFinale():Boolean{
+  while (getDirection()!=Direction.north){
+    gauche()
+  }
+  if (estFaceMur){
+    return true
+  }else{
+    return false
   }
 }
