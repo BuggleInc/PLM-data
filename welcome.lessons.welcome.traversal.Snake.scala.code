@@ -1,2 +1,26 @@
 override def run() {
+  setCouleurBrosse = Color.red;
+  baisseBrosse();
+  while (!positionFinale()) {
+    if (estFaceMur==true && getDirection==Direction.EST) {
+      gauche();
+      avance();
+      gauche();
+    } else if (estFaceMur==true && getDirection==Direction.OUEST) {
+      droite();
+      avance();
+      droite();
+    } else avance()
+  }
+}
+
+def positionFinale():Boolean = {
+  var res = false;
+  if (getDirection() == Direction.EST && estFaceMur()==true) {
+    gauche();
+    if (estFaceMur()==true) {
+      res = true;
+    }
+  }
+  return res
 }
