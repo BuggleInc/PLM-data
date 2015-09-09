@@ -9,6 +9,9 @@ override def run() {
     if ( estFaceMur() && ( getY() != 0 || getY() != 1 ) ){
       droite();
       while ( getDirection() != Direction.NORTH ){
+        if ( estSurBiscuit() ){
+          prendBiscuit();
+        }
         keepHandOnSideWall();
       }
     }
