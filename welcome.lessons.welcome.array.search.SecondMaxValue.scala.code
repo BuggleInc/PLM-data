@@ -1,13 +1,13 @@
 def max2Value(nums:Array[Int]): Int = {
-  var max : Int = nums(1);
+  var max : Int = nums(nums.lenght - 1);
   var max2 : Int = nums(0);
-  var inter : Int = 0 // variable interm?diaire permettant d'echanger des variables
+  var inter : Int = 0 // variable intermediaire permettant d'echanger des variables
   if (max < max2) {
       inter = max;
       max = max2; 
       max2 = inter;
   }
-  for (i <- 0 to nums.length - 1) {
+  for (i <- 1 to nums.length - 2) {
     if (nums(i) > max2) {
       if (nums(i) <= max) {
         max2 = nums(i);
