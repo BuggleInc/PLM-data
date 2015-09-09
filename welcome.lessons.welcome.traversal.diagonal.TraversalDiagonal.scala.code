@@ -1,0 +1,23 @@
+var diag = 0;
+override def run() {
+  
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  
+  //---
+  var cpt = 0
+  def numeroterSol()
+  		{ecritMessage(cpt) ; cpt+=1
+      } 
+  
+  //---
+  for (i<- 0 to hauteur-1)
+       {for (j<- 0 to i) 
+           {numeroterSol() ; setPos(j,i-j)} }   
+
+  for (i<- hauteur-1 to 0)
+       	{for (j<- 0 to i) 
+           	{numeroterSol() ; setPos(j,i-j)} }
+  numeroterSol()
+
+}
