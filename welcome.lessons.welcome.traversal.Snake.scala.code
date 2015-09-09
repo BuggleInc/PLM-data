@@ -1,27 +1,29 @@
 override def run() {
   baisseBrosse()
-  snake()
-  
+  while(!estFaceMur()){
+  	snake()
+  }
   right()
 }
 
 def snake(){
-  while(!estFaceMur()){
-    avance()
+  	
+  	while(!estFaceMur()){
+    	avance()
+  	}
+  	if (getDirection()== Direction.EST){
+    	left()
+    	if(!estFaceMur())
+    	avance()
+    	left()
+  	}
+  	if (getDirection()== Direction.EST){
+    	right()
+    	if (!estFaceMur())
+    	avance()
+    	right()
+  	}
   
-  if (getDirection()== Direction.EST){
-    left()
-    if(!estFaceMur())
-    avance()
-    left()
-  }
-  if (getDirection()== Direction.EST){
-    right()
-    if (!estFaceMur())
-    avance()
-    right()
-  }
-  }
 }
 
 def posf():Boolean ={
