@@ -1,41 +1,5 @@
-override def run() {
-  var T = new Array[Color](getMondeHauteur()+1)
-  col1(T)
-  left()
-  avance()
-  right()
-  avance()
-  
-  for (m<-1 to getMondeLargeur()-1){
-    col(T)
+def golomb(num:Int): Int = {
+  if (num == 1){
+    return 1
   }
-  for(a<-1 to getMondeHauteur()-1){
-    avance()
-  }
-  left()
-  for(a<-1 to getMondeLargeur()-1){
-    avance()
-  }
-  right()
-}
-
-def col1(T:Array[Color]){
-  for (i<-1 to getMondeHauteur()){
-    T(i)=getCouleurSol()
-    avance()
-  }  
-  
-}
-
-def col(T:Array[Color]){
-  for (l<-1 to getMondeHauteur()){
-    setCouleurBrosse(T(l))
-    baisseBrosse()
-    leveBrosse()
-    avance()
-  }
-  left()
-  avance()
-  right()
-  avance()
-}
+  var T:Array[num](Int)}
