@@ -1,18 +1,16 @@
-override def run() {
-while (!estSurBiscuit()) {
-  var x=random3() 
-  if (x==0) {
+def keepHandOnSideWall() {
+  while(!estFaceMur()) {
     gauche()
   }
-  else if (x==1) {
-    droite()
-    
-  }
-  else {
-    if (!estFaceMur()) {
-      avance()
-    }
-  }
+  droite() ; avance()
 }
-prendBiscuit()
+
+
+
+
+override def run() {
+  while (!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
 }
