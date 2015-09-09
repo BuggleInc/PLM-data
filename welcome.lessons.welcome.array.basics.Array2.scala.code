@@ -1,12 +1,11 @@
 override def run() {
   var x:Int = getMondeHauteur()
-  var T = new Array[Color](x+1)
+  var T = new Array[Color](x)
   T(0)=getCouleurSol()
   for(i<- 1 to x-1){
   	avance()
     T(i)=getCouleurSol()
   }
-  T(x)=T(0)
   for(i<- 1 to x-1){recule()}
   for(k<- 1 to x-2){
     val decalage = litMessage().toInt
@@ -14,7 +13,7 @@ override def run() {
     avance()
     droite()
     for(j<- 1 to x-1){
-      setCouleurBrosse(T((j+decalage)%x-1))
+      setCouleurBrosse(T((j+decalage)%x))
       baisseBrosse()
       leveBrosse()
       avance()
