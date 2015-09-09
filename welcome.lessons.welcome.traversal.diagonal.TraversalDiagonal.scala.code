@@ -5,9 +5,9 @@ override def run() {
   c = c + 1
   while (!arrive()) {
     if (diag <= 6) {
-    	diag = tp+(diag)
+    	diag = tpp(diag)
   	} else {
-   	 	diag = tp-(diag)
+   	 	diag = tpm(diag)
   	}
   }
 }
@@ -18,7 +18,7 @@ def arrive():Boolean = {
   return ((getX()==x-1) && (getY()==y-1))
 }
 
-def tp+(d) = {
+def tpp(d) = {
   var xm = getMondeLargeur()-1
   var ym = getMondeHauteur()-1
   var x = getX()
@@ -31,7 +31,7 @@ def tp+(d) = {
   return d+1
 }
 
-def tp-(d) = {
+def tpm(d) = {
   var xm = getMondeLargeur()-1
   var ym = getMondeHauteur()-1
   var x = getX()
