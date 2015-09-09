@@ -1,0 +1,18 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  for(i<-0 to rule.length-1){
+    if(getCouleurSol==colors(i)){
+      if(rule(i)=='R'){
+        right();
+      } else {
+        left();
+      } 
+    }
+  }
+  setCouleurSol(colors((i+1)%colors.length))
+  avance();
+}
+
+//pour avancer dans le tableau, je peux faire +1%length
+def setCouleurSol(couleur:Color){
+  setCouleurBrosse(couleur); baisseBrosse; leveBrosse;
+}
