@@ -1,8 +1,15 @@
 override def run() {
+  val h=getMondeHauteur()
+  
   while (!posFinale()){
-    parcours()
+    if (getY()==h)){
+    setPos((getX()+1),0)
   }
-}
+  else{
+    setPos(getX(),getY()+1)
+  }
+  }
+
 
 def posFinale():Boolean={
   val l=getMondeLargeur()
@@ -11,13 +18,3 @@ def posFinale():Boolean={
   return ((getX()==l)&&(getY()==h))
 }
 
-def parcours()={
-  val h=getMondeHauteur()
-  if (getY()==h)){
-    setPos((getX()+1),0)
-  }
-  else{
-    setPos(getX(),getY()+1)
-  }
-  
-}
