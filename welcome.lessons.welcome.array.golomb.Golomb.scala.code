@@ -5,7 +5,9 @@ def golomb(num:Int): Int = {
   for (k <- 0 to num-1) {
     var nb = tab(k)
     for (j <- flag to (flag+nb)) {
-      tab(j) = k
+      while (j <= num-1) {
+      	tab(j) = k
+      }
     }
     flag = tab(k)
   }
