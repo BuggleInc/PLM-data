@@ -1,0 +1,36 @@
+override def run() {
+  faireMotif2()
+  for (l <- 1 to 2){
+  	gauche()
+  	for (l<- 1 to 4){
+    	avance()
+  	}
+  }
+  gauche()
+  gauche()
+  faireMotif2()
+}
+
+def faireCote(c1:Color,c2:Color){
+  setCouleurBrosse(c1)
+  avance();baisseBrosse();leveBrosse()
+  setCouleurBrosse(c2)
+  avance();baisseBrosse();leveBrosse()
+  avance()
+  gauche() 
+}
+
+def faireMotif1(){
+  faireCote(Color.RED,Color.BLUE)
+  faireCote(Color.BLUE,Color.GREEN)
+  faireCote(Color.GREEN,Color.YELLOW)
+  faireCote(Color.YELLOW,Color.RED)
+}
+
+def faireMotif2(){
+  faireMotif1()
+  for(i <- 1 to 4){
+    avance()	
+  }
+  faireMotif1()
+}

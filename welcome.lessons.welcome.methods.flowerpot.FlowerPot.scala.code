@@ -1,0 +1,34 @@
+def growFlowers(){
+  avance()
+  gauche()
+  faireFleur(Color.RED)
+  droite()
+  avance();avance();avance();avance()
+  gauche()
+  faireFleur(Color.CYAN)
+  gauche()
+  avance();avance();droite()
+  recule();recule()
+  faireFleur(Color.ORANGE)
+  recule();recule()
+  gauche();avance();avance();droite()
+  faireFleur(Color.PINK)
+  droite()
+  avance();avance();avance();avance();gauche()
+  faireFleur(Color.GREEN)
+  droite()
+  for (i <- 1 to 5){
+    recule()
+  }
+}
+
+def faireFleur(c:Color){
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse();leveBrosse()
+  setCouleurBrosse(c)
+  for( i <- 1 to 4){
+    avance();baisseBrosse();leveBrosse()
+    recule()
+    gauche()
+  }
+}

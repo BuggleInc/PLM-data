@@ -1,0 +1,75 @@
+def growFlowers1(){
+  avance()
+  gauche()
+  faireFleur(Color.RED)
+  droite()
+  avance();avance();avance();avance()
+  gauche()
+  faireFleur(Color.CYAN)
+  gauche()
+  avance();avance();droite()
+  recule();recule()
+  faireFleur(Color.ORANGE)
+  recule();recule()
+  gauche();avance();avance();droite()
+  faireFleur(Color.PINK)
+  droite()
+  avance();avance();avance();avance();gauche()
+  faireFleur(Color.GREEN)
+  droite()
+  for (i <- 1 to 5){
+    recule()
+  }
+}
+
+def faireFleur(c:Color){
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse();leveBrosse()
+  setCouleurBrosse(c)
+  for( i <- 1 to 4){
+    avance();baisseBrosse();leveBrosse()
+    recule()
+    gauche()
+  }
+}
+
+def growFlowers2(){
+  growFlowers1()
+  gauche()
+  avance();avance();droite()
+  for (i <- 1 to 7){
+    avance()
+  }
+  gauche()
+  faireFleurBleu()
+  droite();avance();gauche();avance();avance();droite()
+  growFlowers1()
+}
+
+def faireFleurBleu(){
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse();leveBrosse()
+  setCouleurBrosse(Color.BLUE)
+  for( i <- 1 to 4){
+    avance();baisseBrosse();leveBrosse()
+    recule()
+    gauche()
+  }
+}
+
+
+def changePos(){
+  droite();avance();gauche()
+  for (i <- 1 to 8){
+    recule()
+  }
+  droite()
+  avance();avance();avance();gauche()
+}
+
+def growFlowers(){
+  growFlowers2()
+  changePos()
+  growFlowers2()
+  
+}
