@@ -1,0 +1,23 @@
+override def run() {
+
+def postion_finale(){
+  regard = getDirection();
+  if{(estFaceMur==true){
+  		if (regard==Direction.OUEST){
+  			droite();if(estFaceMur==true){return true}
+  gauche();
+  if(estFaceMur==true){return true};
+  return false 
+}
+def serpent(){
+  regard = getDirection();
+  if (estFaceMur==true){
+    if (regard==Direction.EST){
+      gauche();avance();gauche()}
+    else {droite();avance();droite()}}
+  else{avance()}
+}
+
+baisseBrosse();
+do {serpent()}while(position_finale==false)
+}
