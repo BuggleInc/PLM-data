@@ -1,9 +1,9 @@
 override def run() {
   var i=0
-  do{
+	while(posFinale()==false){
     ecritMessage(i+"")
     nextPos()
-  }while(posFinale()==false)
+  }
 }
 
 def posFinale(): Boolean={
@@ -15,5 +15,8 @@ def posFinale(): Boolean={
 def nextPos(){
   if (getY()==getMondeHauteur()){
     setPos(getX()+1,0)
+  }
+  else{
+    setY(getY()+1)
   }
 }
