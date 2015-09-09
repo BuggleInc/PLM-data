@@ -1,27 +1,31 @@
 override def run() {
-  var l = getMondeLargeur()
+  var k = getMondeLargeur()
   var i =getMondeHauteur()
   var T = new Array [Color](i)
-  for (k <- 0 to T.length-1){
+  for (j <- 0 to T.length-1){
     var m = getCouleurSol()
-    T(k)=m
+    T(j)=m
     avance()
   }
-  for (w<- 0 to l){
+  for (cnt <- 0 to k){
     gauche()
     avance()
     droite()
     avance()
   
-    for (j<- 0 to length-1){
-      avance()
+   for (cnt1 <- 0 to T.length-1){
+      
     
       setCouleurBrosse(T(j))
       baisseBrosse()
       leveBrosse()
       avance()
-    }
   }
+  }
+  gauche()
+  avance(k-2)
+  droite()
+  avance(i-2)
   
   
   
