@@ -1,27 +1,61 @@
 def aMurN():Boolean = {var b =false;var d = getDirection();setDirection(Direction.NORTH);b = estFaceMur();setDirection(d);return b}
                                                                       
 def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
+def aMurG():Boolean = {var b =false;gauche();b = estFaceMur();droite();return b}
+def demiTour() {gauche();gauche()}
 
-
-def garM(k:(Int,Boolean)):(Int,Boolean) = { if (aMurD()) {if (estFaceMur()) {gauche();return (c+1,true)} else {avance();return (c,false)}} else {droite();avance();return (c-1,true)}
-}
-
+def garM(c:Int):(Int) = {if (aMurD()) {if (aMurG()) {if (estFaceMur()) {demiTour();return c+2} else {avance();return c }} else {gauche(),avance();return c+1}} else {if (aMurG()) {if (estFaceMur()) {droite();avance();return c-1} else {avance();returnc }} else {gauche();return c+1}}}
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
 var c = 0
 var b = false
-var k = (c,b)
 override def run() {
   while (getY()!=0) {
-    k=(0,false)
+    c = 0
+    b=false
     setDirection(Direction.NORTH)
     while (!estFaceMur()) {
       avance()
     	}
-    while (getY() !=0 && k!=(0,true)) {
-      k=garM(k)
+    c=garM(c)
+    while (getY() !=0 && c!=0) {
+      c=garM(c)
     	}
   }
   while (!estSurBiscuit()) {
-    k=garM(k)
+    (c)=garM(c)
   	}
   prendBiscuit()
 }
