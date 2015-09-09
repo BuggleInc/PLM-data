@@ -1,15 +1,11 @@
 override def run() {
-  definirCouleurs()
+  val T : Array = definirCouleurs()
   gauche()
   avance()
   droite()
   avance()
   for (cpt <- 1 to getMondeLargeur()-1){
-     for (i <- 0 to getMondeLargeur()-1){
-    setCouleurBrosse(T(i))
-    marquerSol()
-    avance()
-  }
+    faireLigneCouleurs(T)
     gauche()
     avance()
     droite()
@@ -28,15 +24,16 @@ def definirCouleurs(){
     T(i)=(getCouleurSol())
     avance()
   }
+  return T
 }
 
-/*def faireLigneCouleurs(){
+def faireLigneCouleurs(T:Array){
   for (i <- 0 to getMondeLargeur()-1){
     setCouleurBrosse(T(i))
     marquerSol()
     avance()
   }
-}*/
+}
 
 
 /*var T = new Array[Color](getMondeLargeur())
