@@ -1,6 +1,7 @@
 override def run() {
 	//baisseBrosse()
   while (!pos()){
+    println(pos())
     serpent()
   }
   //leveBrosse()
@@ -38,13 +39,13 @@ def pos(): Boolean = {
     	}
     }
     if (getDirection() == Direction.OUEST){
-      gauche()
+      droite()
       if (estFaceMur()){
-       	droite()
+       	gauche()
         return true
       }
       else {
-      	droite()
+      	gauche()
       	return false
     	}
     }
