@@ -1,0 +1,27 @@
+override def run() {
+  exo()
+}
+
+def positionFinale():Boolean={
+  if((getX()== getMondeLargeur() -1) && (getY()== getMondeHauteur -1)){
+    return true
+  }
+  return false
+}
+
+def exo(){
+  var n = 0
+  while(!positionFinale){
+    if(getX() == getMondeLongueur -1){
+      ecritMessage(n)
+      setPos(0,getY() + 1)
+      n=n+1
+    }
+    else{
+      ecritMessage(n)
+      setPos(getX()+1,getY())
+      n=n+1
+    }
+  }
+  ecritMessage(n)
+}
