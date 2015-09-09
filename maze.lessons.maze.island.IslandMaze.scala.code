@@ -8,9 +8,9 @@ override def run() {
 
 def keepHandOnSideWall()
 {
-  if(getDirection()==Direction.NORTH && !estFaceMur())
+  if(freeDirection(Direction.NORD) )
   {
-    droite()
+    
     avance()
   }else{
     
@@ -28,4 +28,16 @@ def keepHandOnSideWall()
     	droite();
   	}
   }  
+}
+
+def freeDirection(dir:Direction):Boolean=
+{
+  Direction d=getDirection()
+  setDirection(dir)
+  if(!estFaceMur())return true
+  else
+  {
+    setDirection(d)
+    return false
+  }
 }
