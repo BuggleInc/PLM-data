@@ -1,5 +1,4 @@
 override def run() {
-  var sommeDesVirages = 0
   while (!estSurBiscuit())
   {
     if (isDirectionFree(Direction.NORD))
@@ -17,24 +16,42 @@ override def run() {
   prendBiscuit()
 }
 
-def keepHandOnSideWall():Int=
-{  
+def keepHandOnSideWall()
+{ 
+  var SommedesVirages = 0
   var murGauche = testMurGauche()
   if (!murGauche)
   {
     gauche()
     avance()
-    return +1
+    SommedesVirages += 1
   }
   if (murGauche && estFaceMur())
   {
     droite()
-    return -1
+    SommedesVirages += -1
   }
   if (murGauche && !estFaceMur())
   {
     avance()
-    return 0
+  }
+  while (SommedesVirages != 0)
+  {
+    if (!murGauche)
+    {
+      gauche()
+      avance()
+      SommedesVirages += 1
+    }
+    if (murGauche && estFaceMur())
+    {
+      droite()
+      SommedesVirages += -1
+    }
+    if (murGauche && !estFaceMur())
+    {
+      avance()
+    }
   }
 }
 
