@@ -4,14 +4,24 @@ override def run() {
     if(!estFaceMur()){
       avance()
     }else{
-      if(getDirection() == Direction.EST){
-       gauche()
-       avance()
-       gauche()
+      if (getDirection==Direction.EST){
+        gauche()
+        if(estFaceMur()){
+          gauche()
+          if (estFaceMur()){
+            fin=true
+          }
+        }
       }else{
-        droite()
-        avance()
-        droite()
+        if(getDirection() == Direction.EST){
+          gauche()
+          avance()
+       		gauche()
+      	}else{
+        	droite()
+        	avance()
+        	droite()
+        }
       }
     }
   }
