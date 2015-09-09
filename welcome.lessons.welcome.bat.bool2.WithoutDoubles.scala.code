@@ -1,8 +1,7 @@
 def withoutDoubles(die1:Int, die2:Int, noDoubles:Boolean):Int = {
   
-  (die1, die2, noDoubles) match {
-    case (i, j, true) if ((i == j) & (i != 6)) => i = i + 1 ; return (i + j)
-    case (i, j, true) if ((i == j) & (i == 6)) => i = 1 ; return (i + j)
-    case (_, _, _) => return die1 + die2
-  }
+  if ((noDoubles) & ((die1 == die2) & (die1 != 6))) {die1 = die1 + 1; return (die + die2)}
+  else if ((noDoubles) & (die1 == die2) & (die1 == 6)) {die1 = 1 ; return die1 + die2}
+  else {return die1 + die2}
+
 }
