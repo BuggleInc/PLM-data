@@ -1,0 +1,46 @@
+var diag = 0;
+override def run() {
+  var c = 0
+  ecritMessage(c+"")
+  c = c + 1
+  while (!arrive()) {
+    if (diag <= 6) {
+    	diag = tp+(diag)
+  	} else {
+   	 	diag = tp-(diag)
+  	}
+  }
+}
+
+def arrive():Boolean = {
+  var x = getMondeHauteur()
+  var y = getMondeLargeur()
+  return ((getX()==x-1) && (getY()==y-1))
+}
+
+def tp+(d) = {
+  var xm = getMondeLargeur()-1
+  var ym = getMondeHauteur()-1
+  var x = getX()
+  var y = getY()
+  if (y!=0)) {
+    setPos(x+1, y+1)
+  }
+  if (y == 0) {
+    setPos(0, x+1)
+  return d+1
+}
+
+def tp-(d) = {
+  var xm = getMondeLargeur()-1
+  var ym = getMondeHauteur()-1
+  var x = getX()
+  var y = getY()
+  if (x!=xm) {
+    setPos(x+1, y+1)
+  }
+  if (x == xm) {
+    setPos(y+1, ym)
+  }
+  return d+1
+}
