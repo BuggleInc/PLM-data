@@ -3,23 +3,34 @@ override def run() {
   var h = getWorldHeight()
   var nbDiag = h*2 -1
   var compteur = 0
-  var i=0
+  var i=2
+  var j = 0
   
   for (d <- 0 to nbDiag-1){
     
-  	if (d <h){
+    //Si d le num?ro de la diagonale est inf?rieur ou ?gal ? h la hauteur, on rentre dans une boucle executee d+1 fois, d partant de 0
+  	if (d <= h-1){
+      // cases varie donc de 0 ? d soit de 0 ? 6 pour la derni?re diag (7 valeurs)
       for (cases <- 0 to d){
+        
         setPos(cases,d-cases)
         writeMessage(compteur)
         compteur=compteur+1
       }
+      
     }else{
+      //cases varie de 0 ? d-i, dans le premier cas 0 ? 6
+      
       for (cases <- 0 to d-i){
-        setPos(i,h-1-i)
+        
+        setPos(cases+1+j,h-1-cases)
+        
         writeMessage(compteur)
         compteur = compteur +1
-        i =i+1
+        
       }
+      j = j+1
+      i = i+2
     }
   }
 }
