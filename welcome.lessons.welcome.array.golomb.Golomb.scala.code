@@ -1,26 +1,12 @@
 def golomb(num:Int): Int = {
-	var tab = new Array[Int](num)
-  var flag = 1
+  var tab = new Array[Int](num)
   tab(0) = 1
-  var i = 0
-  var k = 1
-  while (i <= num) {
-    var flag = tab(i)
-    for (j <- k to k+flag) {
-      tab(j) = i
+  flag = 0
+  for (k <- 0 to ) {
+    var nb = tab(k)
+    for (j <- flag to (flag+nb)) {
+      tab(j) = k
     }
+    flag = tab(k)
   }
-  
-  
-  return tab(num-1)
-}
-
-def compteur(nombre:Int, tableau:Array[Int]) {
-  var resultat = 0
-  for (k <- 0 to tableau.length-1) {
-    if (tableau(k)==nombre) {
-      resultat = resultat + 1
-    }
-  }
-  return resultat
 }
