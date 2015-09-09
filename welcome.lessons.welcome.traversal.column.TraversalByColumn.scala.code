@@ -1,10 +1,10 @@
 override def run() {
   var c = 0
-  ecritMessage(c)
+  ecritMessage(c+"")
   while (!arrive()) {
-    avance()
+    tp()
     c = c + 1
-    ecritMessage(c)
+    ecritMessage(c+"")
   }
 }
 
@@ -14,7 +14,7 @@ def arrive():Boolean = {
   return ((getX()==x) && (getY()==y))
 }
 
-def avance() = {
+def tp() = {
   var y = getMondeHauteur()
   if (getY() == y) {
     setPos(getX()+1, 0)
