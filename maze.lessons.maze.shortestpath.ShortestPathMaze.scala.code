@@ -12,8 +12,16 @@ def coordonneesBiscuit():Array[Int] =
   return Array[Int](-1, -1)
 }
 
+def marquerContour(coord:Array[Int])
+{
+  if (!aMurNord && coord(1) > 0)
+  	setIndication(coord(0), coord(1) - 1, getIndication(coord(0), coord(1)))
+}
+
 override def run() 
 {
-  var biscuitX = coordonneesBiscuit()(0)
-  var biscuitY = coordonneesBiscuit()(1)
+  var coordBiscuit = coordonneesBiscuit()
+  setIndication(coord(0), coord(1), 0)
+  
+  marquerContour(Array[Int](x, y))
 }
