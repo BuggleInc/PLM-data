@@ -1,9 +1,9 @@
 def golomb(num:Int): Int = {
 	var tab = new Array[Int](num)
-  var flag = 0
+  var flag = 1
   tab(0) = 1
   for (i <- 1 to (num - 1)) {
-    var occ = compteur(i-1,tab)
+    var occ = compteur(i,tab)
     if (flag != occ) {
       flag = flag + 1
       tab(i) = tab(i-1)
