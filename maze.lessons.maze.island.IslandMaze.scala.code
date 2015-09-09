@@ -2,12 +2,34 @@ override def run() {
   var northfound=false
   while (!estSurBiscuit()) {
     if (getY()==0) {northfound=true}
-    if (!northfound) {
+    }
+    while (!northfound) {
       setDirection(Direction.NORTH)
       while (!estFaceMur()) {
         avance()}
+      if (estFaceMur()) { 
+      	if (keepHandOnSideWall()) {
+        	droite()
+        	if (estFaceMur()) {droite()}
+        	else {avance()}
+      	}
+      	else {
+        	droite()
+        	if (estFaceMur()) {
+          	retourne()
+        		avance()
+       		}
+       		else {avance()}
+     		}
+     	}
+    	else if (!estFaceMur()){ 
+     	 	if (keepHandOnSideWall()) {
+        	avance()
+      	}
+      	else {gauche();avance()}
+    	}
     }
-
+  droite()
     if (estFaceMur()) { 
       if (keepHandOnSideWall()) {
         droite()
