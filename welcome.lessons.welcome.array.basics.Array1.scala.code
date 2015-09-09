@@ -3,5 +3,21 @@ override def run() {
   var T:Array[Color] = new Array(taille) 
   for (i <- 0 to taille-1) {
     T(i)=getCouleurSol()
+    avance()
+  }
+  var large=getMondeLargeur()
+  for (i <- 0 to large-1) {
+    gauche()
+    avance()
+    droite()
+    avance()
+    printColonne(T)
+  }
+  def printColonne(T:Array[Color]): = {
+    for (i <- 0 to T.length-1) {
+      setCouleurBrosse(T.(i))
+      baisseBrosse()
+      leveBrosse()
+    }
   }
 }
