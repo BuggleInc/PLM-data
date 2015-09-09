@@ -9,7 +9,7 @@ override def run() {
     T(i) = getCouleurSol()
     
   }
-  val decalage = litMessage().toInt
+  
   var taille : Int = getMondeLargeur()
   for ( k<- 1 to taille-1 ){
     for ( m<- 1 to n-5){
@@ -17,9 +17,8 @@ override def run() {
     }
     gauche();
     avance();
-    droite();
-    avance();
-    for (p<- 0 to n-1){
+    val decalage = litMessage().toInt
+    for (p<- decalage to n-1+decalage){
       setCouleurBrosse(T(p));
       baisseBrosse();
       leveBrosse();
