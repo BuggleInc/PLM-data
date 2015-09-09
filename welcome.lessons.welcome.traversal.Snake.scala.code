@@ -1,10 +1,10 @@
 override def run() {
-  var b:Boolean = false
   setCouleurBrosse(Color.RED)
   baisseBrosse()
   b=test()
+  var cpt:Int = 0
   while(test() == false) {
-    if (estFaceMur()) {
+    if (cpt==6) {
       if (getDirection()==Direction.EST) {
         gauche()
         avance()
@@ -19,7 +19,6 @@ override def run() {
     else {
       avance()
     }
-    b=test()
   }
 }
 
