@@ -4,7 +4,7 @@ def golomb(num:Int): Int = {
   tab(0) = 1
   for (k <- 0 to num-1) {
     var nb = compteur(tab,k+1)
-    if (tab(k) != nb) {
+    while (tab(k) != nb) {
      nb = compteur(tab,k+1)
      repere = repere + 1 
      tab(repere) = k+1
