@@ -1,0 +1,24 @@
+var diag = 1;
+var nb=0;
+var x=0;
+
+def tag(){
+  ecritMessage(nb)
+  nb=nb+1
+}
+
+def eldiago(){
+  for(y<-0 to getMondeHauteur()-1){
+  	setPos(0,y)
+    tag()
+    for(i<-0 to diag){
+      setPos(x+i,y)
+      tag()
+      
+    }
+  }
+}
+
+override def run() {
+ eldiago()
+}
