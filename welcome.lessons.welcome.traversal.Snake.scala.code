@@ -12,7 +12,8 @@ override def run() {
 
 def posFin() : Boolean = {
   if(estFaceMur()){
-    if(getDirection()==Direction.EST){
+    return true
+  }else if(getDirection()==Direction.EST){
       gauche()
       if (estFaceMur()){
         droite()
@@ -24,8 +25,7 @@ def posFin() : Boolean = {
         gauche()
         return true
       }
-    }
-  }else{
+    }else{
     return false
   }
-}
+  }
