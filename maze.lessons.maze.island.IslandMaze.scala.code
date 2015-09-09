@@ -7,11 +7,11 @@ override def run() {
   }
   
   def placement(){
-  	if(mur() && !estFaceMur()){
+  	if( mur() && !estFaceMur()){
       avance();
     }
-    else if( !mur()){ gauche();avance();}
-    else if( estFaceMur()){droite();}
+    else if( !mur()){ gauche();avance()}
+    else if( estFaceMur()){droite()}
   }
   
   def cestLeNord(){
@@ -25,8 +25,7 @@ override def run() {
     
   }
   
-	while(getY()>1){
-    ecritMessage(getY())
+	while(getY()>1 || !estFaceMur()){
     cestLeNord()
   }
   droite()
