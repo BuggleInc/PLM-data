@@ -104,21 +104,23 @@ def PokeBallGO()
   {
     nord=getIndication(X,Y-1)
   }
+  
   choix = nord
-  if (sud < choix)
+  
+  if (sud < choix && !aMurNord(X,Y+1))
   {
     choix = sud
   }
-  if (ouest < choix)
+  if (ouest < choix && !aMurOuest(X,Y))
   {
     choix = ouest
   }
-  if (est<choix)
+  if (est<choix && !aMurOuest(X+1,Y))
   {
     choix = est
   }
   
-  if (choix == nord)
+  if (choix == nord && !aMurNord(X,Y))
   {
     setDirection(Direction.NORD)
     avance()
