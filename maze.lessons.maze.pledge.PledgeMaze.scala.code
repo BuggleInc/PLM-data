@@ -2,13 +2,24 @@ override def run() {
   var tourni=false
   var virage=0
   while (!estSurBiscuit()) {
-    if (!tourni) {goNorth()}
-    else {
-      while
+    if (getDirection()==Direction.NORTH) {
+      while (!estFaceMur()) {avance()}
+    }
+    if (estFaceMur() && !tourni) {
+      for (virage<-1 to 4) {
+      droite()
+        while (!estFaceMur()) {avance()}}
+      tourni=true
+    }
+    if (estFaceMur() && tourni) {
+      for (virage<-1 to 4) {
+      gauche()
+        while (!estFaceMur()) {avance()}}
+      tourni=false
     }
   }
   def goNorth() {
-    
+   	
   }
   def tourniR() {
     
