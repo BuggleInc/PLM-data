@@ -18,20 +18,17 @@ def diag(){
   n = n+1
   while(!test){
     ecritMessage(m)
-    if(getX()== getMondeLargeur() -1 || getX()==0){
-      setPos(getX(), getY()+1)
-      n=n+1
-      m=m+1
-      ecritMessage(m)
+    if(n <= getMondeHauteur()){
+      if(getY()== 0){
+      	setPos(0,n)
+      	n=n+1
+      	m=m+1
+      	ecritMessage(m)
     }
-    if(n%2 == 0){
-      m=m+1
-      setPos(getX()+1,getY())
-    }
-    else{
-      m=m+1
-      setPos(getX()-1,getY())
-    }
+    	if(n%2 == 0){
+      	m=m+1
+      	setPos(getX()+1,getY()+1)
+    	}
   }
   ecritMessage(m)
 }
