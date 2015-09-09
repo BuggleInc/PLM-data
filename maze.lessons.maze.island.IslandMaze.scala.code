@@ -2,7 +2,7 @@ override def run() {
   var northfound=false
   while (!estSurBiscuit()) {
     if (getY()==0) {northfound==true}
-    if (getY()!=0 && !northfound) {findNorth()}
+    if (!northfound) {findNorth()}
     if (getDirection()==Direction.NORD && !estFaceMur() && !northfound) {
       avance()
     }
@@ -10,15 +10,15 @@ override def run() {
       if (estFaceMur() && keepHandOnSideWall()) {
         droite()
       }
-      if (!estFaceMur() && keepHandOnSideWall()) {
+      else if (!estFaceMur() && keepHandOnSideWall()) {
         avance()
       }
-      if (!keepHandOnSideWall() && !estFaceMur()) {
+      else if (!keepHandOnSideWall() && !estFaceMur()) {
       	droite()
       	if (!estFaceMur()) {gauche();avance()}
       	else {retourne();avance()}
     	}
-      if (estFaceMur() && !keepHandOnSideWall()) {
+      else if (estFaceMur() && !keepHandOnSideWall()) {
         gauche()
         avance()
       }
