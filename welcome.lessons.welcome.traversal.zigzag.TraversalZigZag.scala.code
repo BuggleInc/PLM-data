@@ -1,2 +1,26 @@
 override def run() {
+  var abscisseFinale = getMondeLargeur()-1
+  var ordonneeFinale = getMondeHauteur()-1
+  var compteur=0
+  var numLigne=0
+  ecritMessage(compteur)
+  while (getX()!=abscisseFinale || getY()!=ordonneeFinale) {
+    compteur = compteur +1
+    if numLigne==0){
+    if(get(X)==abscisseFinale){
+      setPos(getX(),getY()+1)
+      numLigne=1
+    } else{
+      setPos(getX()+1,getY())
+    }
+    } else{
+    if(get(X)==0){
+      setPos(getX(),getY()+1)
+      numLigne=0
+    } else{
+      setPos(getX()-1,getY())
+    }    
+  }
+  }
+  }
 }
