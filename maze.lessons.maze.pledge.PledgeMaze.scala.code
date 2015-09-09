@@ -1,36 +1,22 @@
 override def run() {
-  avance()
-  while (!estSurBiscuit()){
-    longerMur()
-  }
-  prendBiscuit()
-}
-
-
-def longerMur(){
-  var nordFree:Boolean=true
-  var somvirage:Int = 0
-  while(!nordFree){
-    droite()
+  while(!estSurBiscuit()){
+    gauche()
     if (estFaceMur()){
-      gauche()
+      droite()
       if (!estFaceMur()){
         avance()
       } else {
-        gauche()
+        droite()
         if (estFaceMur()){
-          gauche()
+          droite()
           avance()
         } else {
           avance()
         }
       }
-    if (getDirection==Direction.NORD && !estFaceMur){
-      nordFree=true
     } else {
-        nordFree=false
-    }
+      avance()
     }
   }
-  avance()
+  prendBiscuit()
 }
