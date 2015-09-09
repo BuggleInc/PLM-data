@@ -8,9 +8,8 @@ def keepHandOnSideWall() {
   gauche()
   if (estFaceMur()) {
     droite()
-    avance()
-  } else {
-    gauche()
-    keepHandOnSideWall()
+    if (!estFaceMur()) {
+      avance()
+    }
   }
 }
