@@ -1,0 +1,44 @@
+override def run() {
+  
+}
+
+
+def estFin() :Boolean{
+  if (estFaceMur ) {
+    if(getDirection()==Direction.EST) {
+      gauche()
+      if (estFaceMur) {
+        return true
+      }
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      if (estFaceMur) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
+def snake() {
+  
+  baisseBrosse()
+  for (cpt1 <-1 to 7) {
+    
+  	avance(6)
+  	
+  	if (getDirection()==Direction.EST) {
+      gauche()
+      avance()
+      gauche()
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    }
+  }
+  
+  
+}
