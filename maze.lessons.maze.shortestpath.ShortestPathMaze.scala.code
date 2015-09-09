@@ -1,7 +1,9 @@
 override def run() {
   var BiscuitCoord= new Array[Int](2);
   BiscuitCoord = DetectBiscuit();
-  Numerotation(BiscuitCoord)
+  Numerotation(BiscuitCoord);
+  GoBuggle();
+  prendBiscuit();
 }
 
 
@@ -10,7 +12,31 @@ override def run() {
 2, numéroter les cases jusqu'au buggle
 3, suivre la numérotation */
 
+def GoBuggle(){
+  var X=getX();
+  var Y=getY();
+  var c=getIndication(X, Y);
+  while(!estSurBiscuit){
+    if (!aMurNord(X, Y) && getIndication(X, Y-1)<c){
+  		setDirection(Direction.NORD)
+      avance();
+    } else if(!aMurOuest(X, Y) && getIndication(X-1, Y)<c){
+      setDirection(Direction.OUEST)
+      avance();
+    } else if(X != getMondeLargeur()-1 && !aMurOuest(X+1, Y) && getIndication(X+1, Y)<c){
+      setDirection(Direction.EST);
+      avance();
+    } else if(Y != getMondeHauteur()-1 && !aMurNord(X, Y+1) && getIndication(X, Y+1)<c){
+      setDirection(Direction.SUD);
+      avance();
+    }
+    c-=1;
+    X=getX();
+    Y=getY();
+  }
+}
 
+//detecte la position du baggle
 def DetectBiscuit():Array[Int]={
   for (x<-0 to getMondeLargeur()-1){
     for (y<-0 to getMondeLargeur()-1){
@@ -26,6 +52,7 @@ def DetectBiscuit():Array[Int]={
   return Coord
 }
 
+//Numérote la map
 def Numerotation(T: Array[Int]){
   var BiscuitX = T(0);
   var BiscuitY = T(1);
