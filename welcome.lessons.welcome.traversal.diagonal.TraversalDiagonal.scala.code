@@ -9,12 +9,27 @@ override def run() {
       diag = diag + 1;
   		ligne = diag;
   		colonne = 0;
-      for (j <- 0 to diag){
-  		setPos(colonne,ligne);
-  		ecritMessage(compteur);
-      compteur=compteur+1;
-      ligne=ligne-1;
-      colonne=colonne+1}}
+      	for (j <- 0 to diag){
+  				setPos(colonne,ligne);
+  				ecritMessage(compteur);
+      		compteur=compteur+1;
+      		ligne=ligne-1;
+      		colonne=colonne+1}
+  		}
+  var compteColonne = 1
+  for (i <- diag to getMondeLargeur-2){
+    	 diag=diag-1;
+			 ligne=diag;
+    	 colonne=compteColonne;
+    	 for (j <- 1 to getMondeLargeur()-1){
+         	setPos(colonne,ligne);
+  				ecritMessage(compteur);
+      		compteur=compteur+1;
+      		ligne=ligne-1;
+      		colonne=colonne+1
+       }
+    compteColonne=compteColonne + 1;
+  }
    	/*else {
       ligne=getMondehauteur-1;
       colonne=diag%gatMondeHauteur;
