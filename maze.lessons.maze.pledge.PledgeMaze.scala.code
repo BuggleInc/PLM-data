@@ -65,7 +65,6 @@ override def run()
     {
       if (isDirectionFree(Direction.NORD) && tombe)
       {
-        tombe = true
         setDirection(Direction.NORD)
       	avance()
       }
@@ -75,6 +74,9 @@ override def run()
     else if (!tombe)
     {
       sommeAngle += keepHandOnSideWall()
+      
+      if (gaucheLibre())
+      	tombe = true
     }
     
     
