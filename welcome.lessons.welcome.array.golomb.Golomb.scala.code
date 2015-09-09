@@ -1,14 +1,12 @@
 def golomb(num:Int): Int = {
-  var T = new Array[Int](2*num+1)
+  var T = new Array[Int](5*num)
   T(0) = 0
   T(1) = 1
   T(2) = 2
   T(3) = 2
- for(i<- 2 to num){
-    for (j<- (i+1) to (i+T(i)+1)){
-      if(T(j) != i){
+ for(i<- 3 to num){
+    for (j<- (i+1) to (i+T(i))){
         T(j) = i
-      }
     }
   }
   return T(num)
