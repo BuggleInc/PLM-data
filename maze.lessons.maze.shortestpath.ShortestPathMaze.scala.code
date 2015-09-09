@@ -56,4 +56,14 @@ def numeroterLesCases(X:Int, Y:Int, cpt : Int)
     setIndication(X-1,Y,cpt+1)
     numeroterLesCases(X-1,Y,cpt+1)
   }
+  if (X+1<getMondeLargeur() && !aMurOuest(X+1,Y) && getIndication(X+1,Y)>cpt)
+  {
+    setIndication(X+1,Y,cpt+1)
+    numeroterLesCases(X+1,Y,cpt+1)
+  }
+  if (Y+1<getMondeHauteur() && !aMurNord(X,Y+1) && getIndication(X,Y+1)>cpt)
+  {
+    setIndication(X,Y+1,cpt+1)
+    numeroterLesCases(X,Y+1,cpt+1)
+  }
 }
