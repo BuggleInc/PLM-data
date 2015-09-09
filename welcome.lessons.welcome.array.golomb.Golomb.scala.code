@@ -1,9 +1,7 @@
-def golomb(num:Int): Int = {
-  var Tx = new Array[Int] (num);    // Initialisation de deux tableaux + les 3 premi?res valeurs
+def golomb(num:Int): Int = {                             
   var Ty = new Array[Int] (num);
   var i = 2
   var pointeur = 3
-  var x = 0
   var y = 0
   var ind = 0
   Tx(0)=1
@@ -11,15 +9,8 @@ def golomb(num:Int): Int = {
   Tx(1)=2
   Ty(1)=2
   Ty(2)=2
-  
-  
-  for (t <- 2 to num-1) {             // Remplissage du tableau des X
-    Tx(t)=t+1
-  }
-  
-  
+
   while (pointeur<num-1) {            // Remplissage du tableau des y avec un pointeur
-  x=Tx(i)
   y=Ty(i)
   ind=i+1
    
