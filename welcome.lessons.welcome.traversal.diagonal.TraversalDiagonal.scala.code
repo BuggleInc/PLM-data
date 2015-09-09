@@ -3,10 +3,15 @@ override def run() {
   var c:Int=0
   for (j<-0 to (2*getMondeHauteur-1)){
     for (i<-0 to diag){
-      setPos(diag/getMondeHauteur()+i,diag % getMondeHauteur()-i)
-      ecritMessage(c)
-      c=c+1
-    }
+      if (diag<7){
+        setPos(diag/getMondeHauteur()+i,diag % getMondeHauteur()-i)
+        ecritMessage(c)
+        c=c+1
+    } else {
+        setPos(getMondeHauteur()+i,diag % getMondeHauteur()-i)
+        ecritMessage(c)
+        c=c+1
+      }
     diag=diag+1
   }
 }
