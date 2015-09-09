@@ -10,10 +10,11 @@ def golomb(num:Int): Int = {
     }else{
       for (j<-i to num){
         T(j)=T(i)
+      }
+      for (j<-i to i+T(i)-1){
+        T(j)=T(i)
+      }
     }
-    for (j<-i to i+T(i)-1){
-      T(j)=T(i)
-    }
+    return (T(num))
   }
-  return (T(num))
 }
