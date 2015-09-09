@@ -1,26 +1,20 @@
-override def run() {copyMotif()}
+override def run() {reproMotif()}
 
 
 
 def reproMotif(){
   var i = getMondeLargeur()
   for (j <- 0 to i-1){
+    Motif()
     gauche()
     avance()
     droite()
     avance()    
   }}
-
-def copyMotif(){
-  var i = getMondeHauteur()
-  var T = new Array[Color](i)
-  for (j <- 0 to i-1){
-    T(j) = getCouleurSol()
-    avance()  
-    }
-  return T}
+ 
 
 def Motif(){
+  getMotif()
   var j = getMondeLargeur()
   for (k <- 0 to j-1)
   setCouleurBrosse(T(j))
@@ -28,9 +22,16 @@ def Motif(){
   avance()
 }
   
-  
+def getMotif(){
+  for (j <- 0 to H-1){
+    T(j) = getCouleurSol()
+    avance() 
+  }
+}
 
 def brosse(){
   baisseBrosse()
-  leveBrosse()
-}
+  leveBrosse()}
+
+var H = getMondeHauteur()
+var T = new Array[Color](H)
