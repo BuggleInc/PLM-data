@@ -16,11 +16,12 @@ def keepHandOnSideWall() {
     droite();
     avance();
     sommeAngle -= 1;
-  }
-  if ( !estFaceMur() && isDirectionFree(Direction.OUEST) ){
+  } else if ( !estFaceMur() && isDirectionFree(Direction.OUEST) ){
     gauche();
     avance();
     sommeAngle += 1;
+  } else if ( !isDirectionFree(Direction.NORTH) && !isDirectionFree(Direction.EST) ){
+    retourne();
   } else {
     avance();
   }
