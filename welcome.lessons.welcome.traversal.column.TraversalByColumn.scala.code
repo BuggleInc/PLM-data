@@ -1,0 +1,24 @@
+def posFinale():Boolean={
+	if ((getMondeHauteur()-1==getY())&&(getMondeLargeur()-1==get(X))){
+  	return true
+  }
+  return false
+}
+
+override def run() {
+
+	var compteur = 0
+  
+	while (!posFinale()){
+    
+		ecritMessage(compteur)
+  	if (!estFaceMur){
+    	avance()
+    	compteur += 1
+  	} else {
+    	setPos(getX()+1,0)
+  	}
+  
+	}
+
+}
