@@ -1,33 +1,29 @@
-override def run() {
+override def run()
+{
   var avancement = 0
   ecritMessage(avancement)
-  while ( (getX() , getY()) != (getMondeLargeur()-1 , getMondeHauteur()-1) ) 
+  while ( (getX(),getY()) != (getMondeLargeur()-1,getMondeHauteur()-1))
   {
-    goGauche()
-    avancement = avancement + 1
-    ecritMessage(avancement)
+    while ( getX()!= getMondeLargeur()-1)
+    {
+      goDroite()
+      avancement = 	avancement + 1
+      ecritMessage(avancement)
+    }
+    while (getX() != 0)
+    {
+      goGauche()
+      avancement = avancement + 1
+      ecritMessage(avancement)
+    }
   }
 }
 
-
-def goDroite(){
-  var Hauteur = getMondeHauteur()-1
-  var Largeur = getMondeLargeur()-1
+def goDroite()
+{
+  var Hauteur = getMondeHauteur() - 1
+  var Largeur = getMondeLargeur() - 1
   var X = getX()
   var Y = getY()
-}
-
-def goGauche(){
-  var Hauteur = getMondeHauteur()-1
-  var Largeur = getMondeLargeur()-1
-  var X = getX()
-  var Y = getY()
-  if (X==Largeur)
-  {
-    setPos(X,Y+1)
-  }
-  if (X==0)
-  {
-    setPos(0,Y+1)
-  }
+  
 }
