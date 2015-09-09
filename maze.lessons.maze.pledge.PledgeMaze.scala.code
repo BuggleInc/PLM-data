@@ -1,2 +1,89 @@
-override def run() {
+def keepHandOnSideWall() : Integer =
+{
+  var sommeAngle = 0
+  
+  if (!estFaceMur())
+  {
+    avance()
+    
+    gauche()
+    sommeAngle += 1
+    if (estFaceMur())
+    {
+    	droite()
+      sommeAngle -= 1
+    }
+  }
+  else
+  {
+    droite()
+    sommeAngle -= 1
+  }
+  
+  return sommeAngle
+}
+
+def isDirectionFree(dir:Direction) : Boolean =
+{
+  var direction = getDirection()
+  var mur = false
+  
+  setDirection(dir)
+  if (estFaceMur())
+  	mur = true
+ 	setDirection(direction)
+  
+  return !mur
+}
+
+override def run()
+{
+  var peutAllerAuNord = true
+  var i = 2
+  var suivreMurNord = false
+  var sommeAngle = 0
+  
+  while(!estSurBiscuit())
+  {
+    if (isDirectionFree(Direction.NORD) && peutAllerAuNord && !suivreMurNord)
+    {
+      i = 0
+      setDirection(Direction.NORD)
+      avance()
+      
+      if (sommeAngle == 0)
+      {
+        gauche()
+        sommeAngle += 1
+
+        if (isDirectionFree(getDirection()))
+          avance()
+        else
+        {
+          droite()
+          sommeAngle -= 1
+        }
+      }
+    }
+    else 
+    {
+      sommeAngle += keepHandOnSideWall()
+      i += 1
+    }
+    
+    if (i >= 2 && !suivreMurNord)
+    {
+      peutAllerAuNord = true
+      droite()
+      sommeAngle -= 1
+      i = 0
+    }
+    
+    if (getY() == 0)
+    {
+      suivreMurNord = true
+    }
+  }
+  
+  prendBiscuit()
 }
