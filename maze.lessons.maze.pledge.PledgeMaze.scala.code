@@ -50,6 +50,11 @@ override def run()
       i = 0
       setDirection(Direction.NORD)
       avance()
+    }
+    else 
+    {
+      sommeAngle += keepHandOnSideWall()
+      i += 1
       
       if (sommeAngle == 0)
       {
@@ -64,11 +69,6 @@ override def run()
           sommeAngle -= 1
         }
       }
-    }
-    else 
-    {
-      sommeAngle += keepHandOnSideWall()
-      i += 1
     }
     
     if (i >= 2 && !suivreMurNord)
