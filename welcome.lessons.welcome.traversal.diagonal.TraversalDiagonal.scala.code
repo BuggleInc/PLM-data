@@ -1,0 +1,38 @@
+var diag = 0;
+override def run() {
+  var posX:Int = 0
+  var posY:Int = 0
+  var cpt:Int = 0
+  while (!estPosFinale()) {
+    if (diag < getMondeHauteur()-1) {
+      posX = 0
+      posY = diag
+      for (i <- 0 to diag) {
+        setPos(posX, posY)
+        ecritMessage(cpt)
+        posX += 1
+        posY -= 1
+        cpt += 1
+      }
+    } else {
+      posX = diag%(getMondeHauteur()-1)
+      posY = getMondeHauteur()-1
+      for (i <- 0 to getMondeHauteur()-(diag%(getMondeHauteur()-1))-1) {
+        setPos(posX, posY)
+        ecritMessage(cpt)
+        posX += 1
+        posY -= 1
+        cpt += 1
+      }
+    }
+    diag += 1
+  }
+}
+
+def estPosFinale():Boolean = {
+  if (getX() == (getMondeLargeur()-1) && getY() == (getMondeHauteur-1)) {
+    return true
+  } else {
+    return false
+  }
+}
