@@ -1,8 +1,7 @@
 //Direction n'est pas définie ici
 
 var toggle = false
-left()
-left()
+reverse()
 
 while (!isFacingWall()){
   forward()
@@ -12,11 +11,17 @@ while (!isFacingWall()){
     if (isCarryingBaggle()){
       backward()
       dropBaggle()
+			reverse()
       
     }else{
       pickupBaggle()
-      left()
-      left()
+      reverse()
     }
   }
+}
+
+
+def reverse(){
+  left()
+  left()
 }
