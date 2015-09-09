@@ -1,0 +1,29 @@
+def fin() {
+  if(estFaceMur()) {
+    droite()
+    if(estFaceMur()) {
+      return true
+    }
+    return false
+    }
+  }
+  return false
+}
+
+override def run() {
+  baisseBrosse()
+  while(!fin()) {
+    var compteur = 0
+    if(estFaceMur()) {
+      if(compteur%2==0) {
+        gauche(); avance(); gauche(); avance()
+      }
+      else {
+        droite(); avance(); droite(); avance()
+      }
+    }
+    else {
+      avance()
+    }
+  }
+}
