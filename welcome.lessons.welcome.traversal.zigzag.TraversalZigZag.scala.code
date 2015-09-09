@@ -5,9 +5,11 @@ override def run() {
   while(!(positionFinale())) {
     ecritMessage(comp);
     comp = comp +1;
-  	if (col==6) {
-      col=0;
+  	if (col==0) {
       lign=lign+1;
+      setPos(col,lign);
+    } else if (col==6) {
+      lign = lign -1;
       setPos(col,lign);
     } else {
       col = col + 1;
