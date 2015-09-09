@@ -1,0 +1,17 @@
+override def run() {
+  def BiscuitX=0;
+  def BiscuitY=0;
+  (BiscuitX, BiscuitY)=DetectBiscuit()
+}
+
+
+def DetectBiscuit():(Int, Int) ={
+  for (x<-0 to getMondeLargeur()-1){
+    for (y<-0 to getMondeLargeur()-1){
+      if (aBiscuit(x,y)){
+        return(x, y)
+      }
+    }
+  }
+  return(0, 0)
+}
