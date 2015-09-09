@@ -1,29 +1,23 @@
 var diag = 1;
 var nb=0;
+var x=0;
 
-def tag(i:Int){
-  ecritMessage(i)
+def tag(){
+  ecritMessage(nb)
   nb=nb+1
 }
 
 def eldiago(){
   for(y<-0 to getMondeHauteur()-1){
   	setPos(0,y)
+    tag()
+    for(i<-0 to diag){
+      setPos(x+i,i)
+      
+    }
   }
 }
 
 override def run() {
- 
-  
-    
-    tag(nb)
-    nb=nb+1
-    x=0
-    whie(y>0 && x<getMondeLargeur()-1){
-      x=x+1
-      y=y-1
-      setPos(x, y)
-      tag(nb)
-      nb=nb+1
-    }
-  }
+ eldiago()
+}
