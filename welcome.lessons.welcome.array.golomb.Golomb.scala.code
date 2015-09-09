@@ -1,16 +1,15 @@
 def golomb(num:Int): Int = {
-  var cpt:Int=num
-  var suite:Int=1
-  var cptSuite:Int=1
-  var resultat:Int=1
-  while (cpt>0){
-  	cpt=cpt-1
-  	resultat=suite
-  	cptSuite=cptSuite-1
-  	if (cptSuite==0){
-  		suite=suite+1
-  		cptSuite=suite
-    }
-  }
-  return resultat
+  num match
+  case num if num == 1 => 1
+  case num if num == 2 => 2
+  case _ => terme(num)
+}
+
+def terme(num){
+  var cpt:Int=1
+  var nombre:Int=2
+  while (cpt<num)
+    cpt=cpt+nombre-1
+    nombre=nombre+1
+  return nombre
 }
