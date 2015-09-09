@@ -1,12 +1,11 @@
 var state = 0
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-
 	var x =0
 	var c= getCouleurSol()
   for(i<-0 to colors.length - 1){
     if(c == colors(i)){x=i}
   }
-  setCouleurBrosse(colors((x+1)%colors.length));baisseBrosse();leveBrosse()
+  setCouleurBrosse(colors((rule(state)(x)(0))%colors.length));baisseBrosse();leveBrosse()
   rule(state)(x)(1) match{
   	case 0 => gauche();gauche();gauche();gauche();
     case 1 => avance();
