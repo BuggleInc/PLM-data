@@ -1,0 +1,23 @@
+def golomb(num:Int): Int = {
+  val taille=num+1
+  var a:Int=2
+  var i:Int=1
+  var T=new Array[Int](taille)
+  
+  T(0)=0
+  T(1)=1
+  
+ 	for (j<-2 to (num-1)){
+    T(j)=j
+    T(j+1)=j
+  }
+  
+  while ((num-T(i))>0){
+    i+=1
+  }
+  
+  return i
+  
+  
+  
+}
