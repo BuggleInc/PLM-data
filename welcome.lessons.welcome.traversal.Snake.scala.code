@@ -1,0 +1,39 @@
+override def run() {
+  while (!posFinale()){
+    pasDeSerpent()
+  }
+}
+
+
+def posFinale():Boolean={
+  var res=false
+  if (estFaceMur()){
+    if ((getDirection())==Direction.EST){
+      gauche()
+      res=(estFaceMur())
+    }
+    if ((getDirection())==Direction.OUEST){
+      droite()
+      res=(estFaceMur())
+    }
+  }
+  return res
+}
+
+def pasDeSerpent(){
+  if (!estFaceMur()){
+    avance()
+  }
+  else{
+   if ((getDirection())==Direction.EST){
+     gauche()
+     avance()
+     gauche()
+   }
+   if ((getDirection())==Direction.OUEST){
+     droite()
+     avance()
+     droite()
+   }
+  }
+}
