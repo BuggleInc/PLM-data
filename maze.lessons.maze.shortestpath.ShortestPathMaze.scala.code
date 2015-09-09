@@ -21,13 +21,13 @@ override def run() {
 	
   indic(x,y,0)
 	while(!estSurBiscuit()){
-    if(!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1)){
+    if(!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1)>ind){
       dir = Direction.NORD; ind=getIndication(getX(),getY()-1)} 
-    if(!aMurNord(getX(),getY()-1) && getIndication(getX(),getY()+1)){
+    if(!aMurNord(getX(),getY()-1) && getIndication(getX(),getY()+1)>ind){
       dir = Direction.SUD; ind=getIndication(getX(),getY()+1)}
-    if(!aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY())){
+    if(!aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY())>ind){
       dir = Direction.EST; ind=getIndication(getX()+1,getY())}
-    if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())){
+    if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())>ind){
       dir = Direction.Ouest; ind=getIndication(getX()+1,getY())}
 		setDirection(dir);avance();
     
