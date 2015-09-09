@@ -2,13 +2,11 @@ var worldSize = getWorldHeight()
 
 for (i <- 1 to worldSize){
   
-  for (j <- 2 to i){
-    forward()
-  }
-  
-  pickupBaggle()
-  
-  for (j <- 2 to i){
-    backward()
+	for (j <- 2 to worldSize){
+    if (isOverBaggle()){
+      pickupBaggle()
+      backward(j)
+      return
+    }
   }
 }
