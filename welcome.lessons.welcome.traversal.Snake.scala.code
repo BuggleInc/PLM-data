@@ -1,13 +1,15 @@
 override def run() {
-  while (fini()!=false){
+  while (fini()==false){
     serpute()
   }
 }
 
 def fini(){
-  gauche()
   if (estFaceMur()==true){
+    gauche()
+    if (estFaceMur()==true){
     return true
+    }
   }
   droite()
   return false
