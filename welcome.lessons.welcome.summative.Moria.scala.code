@@ -1,0 +1,29 @@
+def trouverBiscuit(){
+  setDirection()=Direction.EST
+  while (!estSurBiscuit()){
+    avance()
+  }
+  prendbiscuit()
+  setDirection()=Direction.OUEST
+  while (!estSurBiscuit()){
+    avance()
+  }
+  poseBiscuit()
+  setDirection()=Direction.EST
+  avance()
+}
+
+def sortie(): Boolean={
+  if (estFacemur())
+  	return true
+  return false
+}
+
+
+while (sortie()==false) {
+  trouverBiscuit()
+}
+setDirection()=Direction.SUD
+avance()
+setDirection()=Direction.OUEST
+avance()
