@@ -1,0 +1,27 @@
+override def run() {
+  var comp = 0;
+  var col = 0;
+  var lign = 0;
+  while(!(positionFinale())) {
+    ecritMessage(comp);
+    comp = comp +1;
+  	if (col==6) {
+      lign=lign+1;
+      setPos(col,lign);
+      col =col -1;
+    } else if (col==0) {
+      lign = lign +1
+      col = col + 1;
+      setPos(col,lign);
+    }
+  }
+  ecritMessage(comp);
+}
+
+def positionFinale():Boolean = {
+  var res = false;
+  if (getX()==6  && getY()==6) {
+    res = true;
+  }
+  return res
+}
