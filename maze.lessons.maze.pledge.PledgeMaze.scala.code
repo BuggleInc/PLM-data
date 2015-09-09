@@ -6,16 +6,15 @@ override def run() {
   }*/
   
   var virage : Int = 0
-    
   while(!estSurBiscuit()){
     while(!estFaceMur())
     {
       avance()
     }
-
+		
     do{
       virage = keepHandsOnSideWall()
-    }while(virage!=0)
+    }while((virage!=0)&&(getDirection()!=NORD))
 
   }
   prendBiscuit()
