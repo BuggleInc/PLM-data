@@ -3,8 +3,8 @@ override def run() {
   def peindre(){baisseBrosse();leveBrosse()}
 	def peindreColonne(T:Array[Color]){
   for (j<-1 to getMondeHauteur()-1){setCouleurBrosse(T(j))
-                            avance()                        																		  peindre()
-                                    
+                                                    																		  peindre()
+                                    avance()
               
     
   }
@@ -18,7 +18,8 @@ override def run() {
    
 	}
   T(0)=getCouleurSol()
-  for (i<- 1 to getMondeHauteur()-1){recule}
+  val decalage = litMessage().toInt
+  for (i<- 1 to decalage){recule}
   
   for (k<- 1 to getMondeLargeur()){
     gauche()
