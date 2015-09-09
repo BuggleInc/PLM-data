@@ -9,13 +9,13 @@ override def run() {
 
   ecritMessage(0)
 	var compteur = 1
-  
+  var colonnes = 0
 	while (!posFinale()){
     
     setPos(getX(),getY()+1)
 		ecritMessage(compteur)
 
-    if ((getMondeHauteur()-1)%compteur != 0){
+    if (compteur%(getMondeHauteur())) != 0){
     	compteur += 1
   	} else {
     	setPos(getX()+1,0)
