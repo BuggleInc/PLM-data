@@ -1,2 +1,37 @@
 override def run() {
+  chopperCouleur
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// parcours la premiere ligne, r?cup?re les couleurs et renvoie le tableau
+def chopperCouleur(): Array[Color]= {
+  var y=getMondeHauteur()
+  var T = new Array[Color](y)
+  for (i<- 0 to getMondeHauteur()-1){
+    T(i)=getCouleurSol()
+    avance()
+  }  
+ return T
+}
+
+
+// tamponne la case
+def marque(){
+  baisseBrosse()
+  leveBrosse()
 }
