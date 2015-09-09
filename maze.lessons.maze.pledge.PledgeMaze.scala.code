@@ -30,13 +30,12 @@ def isDirectionFree() {
 }
 
 override def run() {
-  while (estFaceMur() == false) {
-      avance()
-    }
   while (getY() != 0) {
-    
-    droite()
-    keepHandOnSideWall()
+    if (estFaceMur() == false && sommeAngle == 0) {
+      avance()
+    } else {
+      keepHandOnSideWall(); setDirection(Direction.NORD)
+    }
   }
   setDirection(Direction.EAST)
   while (porteBiscuit() == false) {
