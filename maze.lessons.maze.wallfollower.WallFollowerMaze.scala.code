@@ -3,18 +3,21 @@ override def run() {
 }
 
 def getMeOutOfHere() {
+  var r:Int = 0
   while (!estSurBiscuit()) {
-    while (murAGauche()) {
+    while (murAGauche() && r == 0) {
       if (!estFaceMur()) { 
         avance()
         if (estSurBiscuit())
-          prendBiscuit()
+          r = 1
       } else {
         droite()
       }
     }
-    gauche()
-    avance()
+    if (r == 0) {
+      gauche()
+    	avance()
+    }
   }
   prendBiscuit()
 }
