@@ -1,12 +1,6 @@
 def Moria(){
   while(getCouleurSol()!=Color.green){
-    if (estFaceMur==true && estSurBiscuit==false){
-    droite()
-    avance()
-    gauche()
-    avance()
-  }
-    else rameneBiscuit()
+     rameneBiscuit()
   }
 }
 
@@ -16,6 +10,13 @@ def rameneBiscuit(){
   while (!estSurBiscuit() && estFaceMur==false){
     avance()
   }
+  if (estFaceMur){
+    droite()
+    avance()
+    gauche()
+    avance()
+  }
+  else {
   prendBiscuit()
   retourne()
   while (!estSurBiscuit()){
@@ -23,6 +24,7 @@ def rameneBiscuit(){
   }
   recule()
   poseBiscuit()
+  }
 }
 
 Moria()
