@@ -6,20 +6,30 @@ override def run() {
 }
 
 def positionFinale():Boolean={
-  if (getDirection()==Direction.EST)
-    gauche()
-    if (estFaceMur())
+  if (estFaceMur()){
+    if (getDirection()==Direction.EST){
+    	gauche()
+    	if (estFaceMur()){
     	droite()
   		return true
-  	droite()
-  	return false
-  if (getDirection()==Direction.OUEST)
-    droite()
-    if (estFaceMur())
-    	gauche()
-  		return true
-  	gauche()
-  	return false
+      }else{
+        droite()
+        return false
+      }
+    }
+  	if (getDirection()==Direction.OUEST){
+    	droite()
+    	if (estFaceMur()){
+    		gauche()
+  			return true
+      }else{
+        gauche()
+  			return false
+      }
+    }
+  }else{
+    return false
+  }
 }
 
 def avancerEnSerpent(){
