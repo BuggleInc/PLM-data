@@ -1,5 +1,11 @@
 override def run() {
   val T : Array[Color] = definirCouleurs()
+  val D = litMessage().toInt //Transforme le caract?re en entier !
+  definirCouleurs()
+  seDeplacer()
+  for (i <- 0 to getMondeLargeur()-2){
+    faireLigneCouleur(T)
+  }
   
 }
 
@@ -8,18 +14,25 @@ def marquerSol(){
   leveBrosse()
 }
 
+def seDeplacer(){
+  gauche()
+  avanc()
+  droite()
+}
+
 def definirCouleurs():Array[Color]={
   var T = new Array[Color](getMondeLargeur())
   for (i <- 0 to getMondeLargeur()-2){
     T(i)=(getCouleurSol())
     avance()
   }
+  T(getMondeLargeur()-1)=(getCouleurSol())
   return T
 }
 
-def faireLigneCouleurs(T:Array[Color]){
+def faireLigneCouleurs(T:Array[Color], D:Int){
   for (i <- 0 to getMondeLargeur()-1){
-    setCouleurBrosse(T(i))
+    setCouleurBrosse(T(i+1))
     marquerSol()
     avance()
   }
