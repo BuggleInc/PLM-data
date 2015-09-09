@@ -12,10 +12,10 @@ def auxaux():Int = {var d = 0
              }
 def aux():Boolean ={avance();return auxaux() != -1}
  
-def chercheMur():Int = {var d = 0;var e = 0;if (aux()) e=d 
-                        d = d+1;droite();if (aux()) e=d
-                        d = d+1;droite();if (aux()) e=d
-                        d = d+1;droite();if (aux()) e=d
+def chercheMur():Int = {var b = false;var d = 0;var e = -1;if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
+                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
+                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
+                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
                         droite();return e
                  				}	
 
