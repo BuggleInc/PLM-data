@@ -1,0 +1,26 @@
+override def run() {
+  var gau:Boolean = false;
+  while ( !gau ){
+    gauche();
+    if ( estFaceMur() ){
+      gau = true;
+    }
+  }
+  while ( !estSurBiscuit() ){
+    keepHandOnSideWall();
+  }
+  prendBiscuit();
+}
+
+def keepHandOnSideWall() {
+  gauche();
+  if ( estFaceMur() ){
+    droite();
+  }
+  if ( !estFaceMur() ){
+    avance();
+  } else {
+    droite();
+    keepHandOnSideWall();
+  }
+}
