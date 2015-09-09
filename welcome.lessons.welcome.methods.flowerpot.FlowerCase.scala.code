@@ -1,0 +1,74 @@
+def growFlowers() {
+  jardin()
+  gauche()
+  recule()
+  gauche()
+  avance(8)
+  gauche()
+  avance(3)
+  gauche()
+  jardin()
+}
+
+def jardin() {
+  ligneFleur(Color.red,Color.cyan)
+  FleurMilieu(Color.orange)
+  recule(3)
+  droite()
+  avance(2)
+  gauche()
+  ligneFleur(Color.pink,Color.green)
+  recule(5)
+  FleurHaut(Color.blue)
+  avance()
+  gauche()
+  avance(2)
+  droite()
+  ligneFleur(Color.red,Color.cyan)
+  FleurMilieu(Color.orange)
+  recule(3)
+  droite()
+  avance(2)
+  gauche()
+  ligneFleur(Color.pink,Color.green)
+  recule(5)
+}
+
+def faireFleur(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  leveBrosse()
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse()
+  droite()
+  leveBrosse()
+}
+
+def ligneFleur(c1:Color,c2:Color) {
+  faireFleur(c1)
+  avance(3)
+  faireFleur(c2)
+}
+
+def FleurMilieu(c:Color) {
+  recule(5)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  faireFleur(c)
+}
+
+def FleurHaut(c:Color) {
+  gauche()
+  avance(2)
+  droite()
+  avance(6)
+  faireFleur(c)
+}

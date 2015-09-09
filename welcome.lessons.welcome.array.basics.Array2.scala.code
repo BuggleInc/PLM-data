@@ -1,0 +1,27 @@
+override def run() {
+  var h:Int =getMondeHauteur()
+  var l:Int =getMondeLargeur()
+  var T = new Array[Color](h)
+  T(0)=getCouleurSol()
+  for (i<- 1 to h-1) {
+    avance()
+    T(i)=getCouleurSol
+  }
+  for (j <- 1 to l-1) {
+    recule(h-1)
+  	gauche()
+ 	 	avance()
+ 	 	droite()
+    val decalage = litMessage().toInt
+    setCouleurBrosse(T(decalage%T.length))
+    baisseBrosse()
+    leveBrosse()
+    for (k <- 1 to h-1) {
+      avance()
+      setCouleurBrosse(T((decalage+k)%T.length))
+      baisseBrosse
+      leveBrosse()
+    }
+  }
+  recule(h-1)
+}
