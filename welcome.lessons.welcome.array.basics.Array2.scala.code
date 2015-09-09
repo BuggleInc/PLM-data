@@ -6,27 +6,23 @@ override def run() {
     T(i)=getCouleurSol()
     recule(i)
   }
+  
   def reproduireMotif(){
     var decal : Int= litMessage().toInt
     setCouleurBrosse(T(decal))
     baisseBrosse()
     leveBrosse()
     avance()
-    for (k<-decal+1 to n-1){
-      setCouleurBrosse(T(k))
+    for (k<-1 to n-1){
+      setCouleurBrosse(T((k+decal)%n))
       baisseBrosse()
       leveBrosse()
       avance()
-      }
-    setCouleurBrosse(T(0))
-    baisseBrosse()
-    leveBrosse()
-    recule(n-1)
     }
-  for (compt<-1 to n-1){
-    gauche()
-  	avance()
-  	droite()
-  	reproduireMotif()
   }
-}
+  for (compt<-1  to n-1){
+    gauche()
+    avance()
+    droite()
+    reproduireMotif()
+  }
