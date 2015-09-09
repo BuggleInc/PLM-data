@@ -1,11 +1,35 @@
 override def run() {
   definirCouleurs()
+  for (cpt <- 1 to getMondeLargeur()-1){
+    faireLigneCouleurs()
+    gauche()
+    avance()
+    droite()
+    avance()
+  }
+}
+
+def marquerSol(){
+  leveBrosse()
+  baisseBrosse()
 }
 
 def definirCouleurs(){
   var T = new Array[Color](getMondeLargeur())
   for (i <- 0 to getMondeLargeur()-1){
     T(i)=(getCouleurSol())
+    avance()
+  }
+}
+
+def faireLigneCouleurs(){
+  for (i <- 0 to getMondeLargeur()-1){
+    setCouleurBrosse(T(i))
+    marquerSol()
+    avance()
+    gauche()
+    avance()
+    droite()
     avance()
   }
 }
