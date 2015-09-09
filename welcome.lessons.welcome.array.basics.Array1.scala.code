@@ -8,18 +8,7 @@ override def run() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Reproduit les couleurs en fonction du tableau.
 def reprodCouleur(T:Array[Color]){
   for (i<- 0 to getMondeHauteur()-1){
     setCouleurBrosse(T(i))
@@ -28,9 +17,11 @@ def reprodCouleur(T:Array[Color]){
   }  
 }
 
+
+// parcours la premiere ligne, r?cup?re les couleurs et renvoie le tableau
 def chopperCouleur(){
   var y=getMondeHauteur()
-  var T:Array[Color](y)
+  var T = new Array[Color](y)
   for (i<- T){
     T(i)=getCouleurSol()
     avance()
@@ -38,6 +29,8 @@ def chopperCouleur(){
  return T
 }
 
+
+// decale d'une rang?e
 def decale(){
   gauche()
   avance()
@@ -45,6 +38,8 @@ def decale(){
   avance()
 }
 
+
+// tamponne la case
 def marque(){
   baisseBrosse()
   leveBrosse()
