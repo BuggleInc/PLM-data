@@ -3,6 +3,25 @@ def aMurN():Boolean = {var b =false;var d = getDirection();setDirection(Directio
 def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
 def aMurG():Boolean = {var b =false;gauche();b = estFaceMur();droite();return b}
 def demiTour() {gauche();gauche()}
+def auxaux():Int = {var d = 0
+             if (estFaceMur()) {return 0}
+             droite();if (estFaceMur()) {return 1}
+             droite();if (estFaceMur()) {return 2}
+             droite();if (estFaceMur()) {return 3}
+             return -1
+             }
+def aux():Boolean {var b = false;avance();return auxaux() != -1}
+ 
+def chercheMur():Int = {var d = 0;var e = 0;if (aux()) e=d 
+                        d = d+1;droite();if (aux()) e=d
+                        d = d+1;droite();if (aux()) e=d
+                        d = d+1;droite();if (aux()) e=d
+                        droite();return e
+                 				}	
+
+
+
+
 
 def garM(c:Int):(Int) = {
   if (aMurD()) {
@@ -38,16 +57,10 @@ def garM(c:Int):(Int) = {
        }
      	}
     	else {
-        if (estFaceMur()) {
-          droite()
-          avance()
-          return c+1
-        } 
-        else {
-          droite()
-          avance()
-          return c
-        }
+        d = chercheMur()
+       	for (i <- 0 to d-1) {droite();c=c+1}
+        avance()
+        return c
       }
     }
   }
