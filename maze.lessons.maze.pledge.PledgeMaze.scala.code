@@ -50,22 +50,29 @@ def gaucheLibre() : Boolean =
 
 override def run()
 {
-  var peutAllerAuNord = true
+  /*var peutAllerAuNord = true
   var i = 2
-  var suivreMurNord = false
+  var suivreMurNord = false*/
+  
+  
+  
   var sommeAngle = 0
+  var tombe = false
   
   while(!estSurBiscuit())
   {
-    if (gaucheLibre())
+    if (gaucheLibre() && tombe)
     {
-      if (isDirectionFree(Direction.NORD))
+      if (isDirectionFree(Direction.NORD) && tombe)
       {
+        tombe = true
         setDirection(Direction.NORD)
       	avance()
       }
+      else
+      	tombe = false
     }
-    else
+    else if (!tombe)
     {
       sommeAngle += keepHandOnSideWall()
     }
