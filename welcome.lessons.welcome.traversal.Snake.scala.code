@@ -1,21 +1,29 @@
-
-def estFinal () {
+def estFinal () :Boolean={
   if (estFaceMur) {
     if (getDirection == Direction.EST) {
       gauche()
       if (estFaceMur) {
         return true
-      } else { return false }
+      } else {gauche()
+    gauche()
+    gauche()
+        return false} 
+		
     } else {
       droite()
       if (estFaceMur) {
         return true
-      } else return false
+      } else {droite()
+    droite()
+    droite()
+        return false}
+    
     }
-  }
+  } 
+  return false
 }
 
-def monte() {
+def monteser() {
   if (getDirection == Direction.EST) {
     gauche()
     avance()
@@ -29,8 +37,12 @@ def monte() {
 
 
 override def run() {
+  setCouleurBrosse(Color.red)
+  baisseBrosse()
   while (!estFinal())
  		if (!estFaceMur) {
     avance()
-  } else monte()
+    } else {
+      monteser()}
+  droite()
 }
