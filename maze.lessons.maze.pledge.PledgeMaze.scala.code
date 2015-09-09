@@ -6,5 +6,5 @@ def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
 def garM(c:Int):Int = { if (aMurD()) {if (estFaceMur()) {gauche();return c+1} else avance();return c} else {droite();avance();return c-1}
 }
 
-
-override def run() {while (getY()!=0) {var c = 0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (aMurN() && getY() !=0 && c!=0) {c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}
+var c = 0
+override def run() {while (getY()!=0) {c = 0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (aMurN() && getY() !=0 && c!=0) {c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}
