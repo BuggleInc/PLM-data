@@ -6,8 +6,8 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     if(c == colors(i)){x=i}
   }
   setCouleurBrosse(colors((x+1)%colors.length));baisseBrosse();leveBrosse()
-  rule(state)(x)(1) match
-  	case 0 => gauche();gauche();
+  rule(state)(x)(1) match{
+  	case 0 => gauche();gauche();gauche();gauche();
     case 1 => avance();
     case 2 => gauche();avance();
     case 4 => gauche();gauche();avance();
