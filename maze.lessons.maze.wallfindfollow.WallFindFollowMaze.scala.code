@@ -1,0 +1,37 @@
+override def run() {
+  getMeOutOfHere()
+}
+
+def getMeOutOfHere() {
+  var r:Int = 0 
+  if (!murAGauche()) {
+    while (!estFaceMur())
+    	avance()
+    gauche()
+  }
+  while (!estSurBiscuit()) {
+    while (murAGauche() && r == 0) {
+      if (!estFaceMur()) { 
+        avance()
+        if (estSurBiscuit())
+          r = 1
+      } else {
+        droite()
+      }
+    }
+    if (r == 0) {
+      gauche()
+    	avance()
+    }
+  }
+  prendBiscuit()
+}
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur())
+  	droite()
+  	return true
+  droite()
+  return false
+}
