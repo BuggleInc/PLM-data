@@ -1,2 +1,36 @@
 override def run() {
+  var cpt = 0
+  ecritMessage(cpt)
+  var position = new Array[Int](2)
+  position(0) = getX()
+  position(1) = getY()
+  while(estPositionFinale() == false) {
+    position = prochainePosition(position)
+    setPos(position(0),position(1))
+    cpt = cpt +1
+    ecritMessage(cpt)
+  }
+}
+
+def estPositionFinale() : Boolean = {
+  val hauteurMonde = getMondeHauteur
+  val largeurMonde = getMondeLargeur
+ 	if (getX() == largeurMonde && getY() == hauteurMonde) {
+    return true
+  }
+  return false
+}
+
+def prochainePosition(position : Array[Int]): Array[Int] = {
+  val hauteurMonde = getMondeHauteur
+  val largeurMonde = getMondeLargeur
+  var newPostion = new Array[Int](2)
+ 	if (position(1) != hauteurMonde-1) {
+    newPosition(1) = position(1)+1
+  }
+  else{
+    newPosition(1) = 0
+    newPosition(0) = position(0)+1
+  }
+  return newPosition
 }
