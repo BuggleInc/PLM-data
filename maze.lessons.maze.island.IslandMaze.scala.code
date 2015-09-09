@@ -1,0 +1,43 @@
+override def run() {
+	while(getY()!=1)
+  {
+  	if((getDirection()==Direction.NORD)&&(!estFaceMur()))
+    {
+  	  avance()
+  	}
+    else if(estFaceMur())
+    {
+    	do{
+      	keepHandsOnSideWall()  
+      }while(getDirection()==Direction.NORD)
+        
+    }
+  } 
+}
+
+def mG() : Boolean = {
+  var g = false
+  gauche();g= estFaceMur();droite()
+  return g
+}
+
+def mD() : Boolean = {
+  var d = false
+  droite();d= estFaceMur();gauche()
+  return d
+}
+
+def keepHandsOnSideWall() {
+  if(!mG()){
+    gauche();avance()
+  }
+  else if(!estFaceMur()){
+    avance()
+  }
+  else if(!mD()){
+    droite();avance()
+  }
+  else{
+    gauche;gauche();avance()
+  }
+}
