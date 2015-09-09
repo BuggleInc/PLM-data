@@ -7,11 +7,12 @@ override def run() {
   var cmpt=0
   while (!arrive()) {
     ecritMessage(cmpt)
-    if (!estBord(x,y)) {x=x+1;y=y+1}
-    else {
-      if (x==0) {y=y+1} else {x=x+1}
+		x=x+1;y=y+1
+    if (estBord(x,y)) {
+      if (x==-1) {y=y+1;x=0} else {x=x+1;y=0}
       while (!estBord(x,y)) {x=x-1;y=y-1}
     }
+    if (x==-1) {y=y-1;x=0} else {x=x-1;y=0}
     setPos(x,y)
     cmpt=cmpt+1
   }
@@ -29,5 +30,5 @@ def arrive ():Boolean ={
 def estBord (x:Int,y:Int):Boolean ={
   val x2=getMondeLargeur()
   val y2=getMondeHauteur()
-  return ((x==x2)||(y==y2)||(x==0)||(y==0))
+  return ((x==x2)||(y==y2)||(x==-1)||(y==-1))
 }
