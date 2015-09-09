@@ -5,7 +5,11 @@ override def run() {
   droite()
   avance()
   for (cpt <- 1 to getMondeLargeur()-1){
-    faireLigneCouleurs()
+     for (i <- 0 to getMondeLargeur()-1){
+    setCouleurBrosse(T(i))
+    marquerSol()
+    avance()
+  }
     gauche()
     avance()
     droite()
@@ -26,13 +30,13 @@ def definirCouleurs(){
   }
 }
 
-def faireLigneCouleurs(){
+/*def faireLigneCouleurs(){
   for (i <- 0 to getMondeLargeur()-1){
     setCouleurBrosse(T(i))
     marquerSol()
     avance()
   }
-}
+}*/
 
 
 /*var T = new Array[Color](getMondeLargeur())
