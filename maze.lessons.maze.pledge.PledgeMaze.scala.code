@@ -3,8 +3,9 @@ def aMurN():Boolean = {var b =false;var d = getDirection();setDirection(Directio
 def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
 
 
-def garM(c:Int):Int = { if (aMurD()) {if (estFaceMur()) {gauche();return c+1} else avance();return c} else {droite();avance();return c-1}
+def garM(c:Int,b:Boolean):(Int,Boolean) = { if (aMurD()) {if (estFaceMur()) {gauche();return (c+1,true)} else {avance();return (c,false)}} else {droite();avance();return (c-1,true)}
 }
 
 var c = 0
-override def run() {while (getY()!=0) {c = 0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (aMurN() && getY() !=0 && c!=0) {c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}
+var b = false
+override def run() {while (getY()!=0) {c = 0;b=false;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (getY() !=0 && (c!=0||!b)) {(c,b)=garM(c,b)}};while (!estSurBiscuit()) {(c,b)=garM(c,b)};prendBiscuit()}
