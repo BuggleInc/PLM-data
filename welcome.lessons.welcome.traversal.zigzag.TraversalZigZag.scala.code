@@ -4,26 +4,29 @@ override def run() {
 
 def doTheSnakyThing() {
   var compt:Int = 0
+  ecritMessage(""+compt)
   while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
     pasDeSerpent(compt)
+    compt += getMondeLargeur() - 1
   }
 }
 
 def pasDeSerpent(compt:Int) {  
+  var comptLocal:Int = 0
   if (getX() == getMondeLargeur() - 1) {
-    setPos(getMondeLargeur() - 1, compt / getMondeHauteur())
+    setPos(getMondeLargeur() - 1, compt+comptLocal / getMondeHauteur())
     for (i <- 1 to getMondeLargeur() - 1) {
-      compt += 1
-      setPos(getMondeLargeur() - 1 - i, compt / getMondeHauteur())
-      ecritMessage(""+compt) 
+      comptLocal += 1
+      setPos(getMondeLargeur() - 1 - i, compt+comptLocal / getMondeHauteur())
+      ecritMessage(""+(compt+comptLocal)) 
     }
   }
   if (getX() == 0) {
     ecritMessage(""+compt)
     for (i <- 1 to getMondeLargeur() - 1) {
-      compt += 1
-      setPos(i, compt / getMondeHauteur())
-      ecritMessage(""+compt)
+      comptLocal += 1
+      setPos(i, compt+comptLocal / getMondeHauteur())
+      ecritMessage(""+(compt+comptLocal)
     }
   }
 }
