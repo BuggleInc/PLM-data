@@ -3,12 +3,14 @@ def golomb(num:Int): Int = {
   T(0)=0
   T(1)=1
   T(2)=2
-  for (i<-1 to num){
-    if (i+T(i)-1<=num){
-      for (j<-i to i+T(i)-1){
-        T(j)=T(i)
-      }
+  for (i<-0 to num){
+    if(i+T(i)-1>=num){
+      var nb=num
+    }else{
+      var nb =i+T(i)-1
+    }
+    for(j<-i to nb){
+      T(j)=i
     }
   }
-  return (T(num))
 }
