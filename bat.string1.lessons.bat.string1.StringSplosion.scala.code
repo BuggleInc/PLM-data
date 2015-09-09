@@ -1,0 +1,23 @@
+def partieChaine(str:String, n:Integer):String =
+{
+  var chaine = ""
+  var nombreCaracteres = str.length
+
+  if (str.length >= n)
+  	nombreCaracteres = n
+  
+  for (i <- 1 to n)
+   	chaine += str(i - 1).toString()
+  
+  return chaine
+}
+
+def stringSplosion(str:String):String =
+{
+  var chaine = ""
+  
+  for (i <- 1 to str.length)
+    chaine += partieChaine(str, i)
+  
+  return chaine
+}
