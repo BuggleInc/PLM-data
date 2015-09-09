@@ -1,0 +1,26 @@
+T:Array[Color](getMondeHauteur())
+
+//Avancer et stocker les couleurs de la premi?re colonne dans T
+def analyse() {
+  for (i<-0 to getMondeHauteur()-1) {
+    T(i)=getCouleurSol();
+    avance();
+  }
+}
+
+//Code Final
+override def run() {
+  analyse();
+  for (i<-1 to getMondeLargeur()-1) {
+    avance();
+  	gauche();
+  	avance();
+  	droite();
+  	avance();
+    for (i<-0 to getMondeHauteur()-1) {
+      setCouleurBrosse(T(i));
+      baisseBrosse();
+      avance();
+    }
+  }
+}
