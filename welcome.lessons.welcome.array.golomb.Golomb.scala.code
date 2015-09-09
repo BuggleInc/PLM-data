@@ -7,8 +7,10 @@ def golomb(num:Int): Int = {
   while (T(num) == 0) {
     if (T(pointeur) == 0) {
       for (i <- 1 to cc) {
-        T(ecrire) = cc
-        ecrire = ecrire + 1
+        if (ecrire < T.length) {
+          T(ecrire) = cc
+        	ecrire = ecrire + 1
+        }
       }
       T(pointeur) = cc
       cc = cc + 1
