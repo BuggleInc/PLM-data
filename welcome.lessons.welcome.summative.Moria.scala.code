@@ -28,13 +28,17 @@ droite()
 droite()
 while (getCouleurSol()!=Color.green)
 {
-  while(!estFaceMur())
+
+  while(!estSurBiscuit() && !estFaceMur())
   {
-    while(!estSurBiscuit())
-    {
-      avance()
-    }
+    avance()
+  }
+  if (estSurBiscuit())
+  {
     bougerUnCooky()
   }
-  sortieLaby()
+  if (estFaceMur())
+  {
+    sortieLaby()
+  }
 }
