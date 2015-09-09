@@ -15,11 +15,11 @@ override def run() {
     gauche()
   	avance()
   	droite()
-    var mes= litMessage()
-    colore(tab(mes(0)))
+    var mes= litMessage().toInt
+    colore(tab(mes))
     for(j<-1 to getMondeHauteur()-1){
       avance()
-      colore(tab((mes(0)+j)%(tab.length)))
+      colore(tab((mes+j)%(tab.length)))
     }
     recule(getMondeHauteur()-1)
   }
