@@ -12,7 +12,7 @@ override def run() {
     }
 		
     do{
-      virage = keepHandsOnSideWall(virage)
+      virage = keepGoing(virage)
     }while(virage!=0)
 
   }
@@ -68,7 +68,7 @@ def isDirectionFree(dir : Direction) : Boolean = {
 
 def keepGoing(vir : Int) : Int = {
   var virage = vir
-  while(!isDirectionFree(Direction.NORD))
+  while((!isDirectionFree(Direction.NORD))&&(virage!=0))
   {
     if(!mD())
     {
