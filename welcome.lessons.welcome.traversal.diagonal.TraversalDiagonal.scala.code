@@ -15,10 +15,11 @@ override def run() {
   for (i<- 1 to hauteur-1)
        {for (j<- 0 to i) 
            {numeroterSol() ; setPos(j,i-j)} }   
-
-  for (i<- 1 to hauteur-1)
-       	{for (j<- 0 to i) 
-           	{numeroterSol() ; setPos(1,hauteur-1-j)} }
-  numeroterSol()
+	diag = hauteur-1
+  for (i<-1 to hauteur)
+  	for (j<- 0 to diag){
+  			{numeroterSol() ; setPos(i+j,hauteur-1-j)}
+    		diag-=1
+    }
 
 }
