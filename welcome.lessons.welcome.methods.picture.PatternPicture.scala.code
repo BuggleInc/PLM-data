@@ -4,6 +4,42 @@ override def run() {
 
 
 def faireGaucheDroite(c:Color){
+  setCouleurBrosse(c);
+  marqueSol();
+  avance();
+  gauche();
+  avance();
+  droite();
+  marqueSol();
+ 
   
 }
 
+def faireDroiteGauche(c:Color){
+  setCouleurBrosse(c);
+  marqueSol();
+  avance();
+  droite();
+  avance();
+  gauche();
+  
+}
+
+def marqueSol(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireMotif(){
+  avance();
+  faireDroiteGauche(Color.RED);
+  avance();
+  faireGaucheDroite(Color.YELLOW);
+  droite();
+  avance();
+  droite();
+  faireGaucheDroite(Color.GREEN);
+  avance();
+  faireDroiteGauche(Color.BLUE);
+  
+}
