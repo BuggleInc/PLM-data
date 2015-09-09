@@ -1,4 +1,7 @@
 override def run() {
+  for (cpt <=(getMondeLargeur())) {
+    faireLigneCouleur()
+  }
 }
 
 
@@ -23,11 +26,28 @@ if(getMondeLargeur()==7){
 }
 if(getMondeLargeur()==8){
   T(0)=setCouleurBrosse(Color.RED)
-  T(1)=setCouleurBrosse(Color.RED)
-  T(2)=setCouleurBrosse(Color.RED)
-  T(3)=setCouleurBrosse(Color.RED)
-  T(4)=setCouleurBrosse(Color.RED)
-  T(5)=setCouleurBrosse(Color.RED)
-  T(6)=setCouleurBrosse(Color.RED)
-  T(7)=setCouleurBrosse(Color.RED)
+  T(1)=setCouleurBrosse(Color.GREEN)
+  T(2)=setCouleurBrosse(Color.ORANGE)
+  T(3)=setCouleurBrosse(Color.YELLOW)
+  T(4)=setCouleurBrosse(Color.BLACK)
+  T(5)=setCouleurBrosse(Color.PINK)
+  T(6)=setCouleurBrosse(Color.MAGENTA)
+  T(7)=setCouleurBrosse(Color.CYAN)
+}
+
+def marquerSol {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireLigneCouleur(){
+	for (i <- T){
+  	T(i)
+  	marquerSol()
+  	avance()
+	}
+  gauche()
+  avance()
+  droite()
+  avance()
 }
