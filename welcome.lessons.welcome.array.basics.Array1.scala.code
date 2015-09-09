@@ -1,0 +1,50 @@
+def move(nbPas:Int, versLAvant:Boolean) {
+  if (versLAvant == true) {
+    var compteur:Int = 0
+    for (compteur <- 1 to nbPas) {
+      avance()
+    }
+  }
+  else {
+    for (compteur <- 1 to nbPas) {
+      recule()
+  }
+  }
+}
+
+def lireColonne() {
+  
+  var longueurTableau:Int = getMondeHauteur()
+  var T = new Array[Color] (longueurTableau)
+  T(0) = getCouleurSol()
+  longueurTableau = longueurTableau - 1
+  for (i <- 1 to longueurTableau) {
+    avance()
+    T(i) = GetCouleurSol()
+  }
+  return {T}
+}
+
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+override def run() {
+  
+  lireColonne()
+  avance()
+  var longueurTableau: Int = getMondeHauteur()-1
+  for (i <- 0 to longueurTableau) {
+    
+    gauche()
+    avance()
+    droite()
+    avance()
+    
+    for (j <- 0 to longueurTableau) {
+    setCouleurBrosse(T[j])
+    marquerSol()
+    avance()
+    }
+    
+  }
+  
+}
