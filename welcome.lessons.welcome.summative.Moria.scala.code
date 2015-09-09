@@ -1,11 +1,13 @@
-while(!estFaceMur() || estSurBiscuit){
+while(!estFaceMur() && !estSurBiscuit()){
   retourne()
-  while (!estSurBiscuit()){
+  while (!estSurBiscuit()|| !estFaceMur()){
     avance()
   }
-  prendBiscuit()
-  retourne()
-  while (!estSurBiscuit()){
+  if (!estFaceMur){
+    prendBiscuit()
+    retourne()
+  }
+  while (!estSurBiscuit() && !estFaceMur()){
     avance()
   }
   recule()
