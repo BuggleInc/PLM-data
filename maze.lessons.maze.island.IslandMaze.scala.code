@@ -19,6 +19,17 @@ def keepHandOnSideWall() {
 }
 
 def nord() {
+  if (!estFaceMur()) avance()
+  else {
+    droite()
+    if (!estFaceMur()) {
+      avance()
+      gauche()
+    }
+  }
+}
+
+/*def nord() {
   if (getDirection()==Direction.NORD ) {
     if (!estFaceMur()) avance()
     else droite()
@@ -46,4 +57,4 @@ def nord() {
     avance()
   }
   
-}
+}*/
