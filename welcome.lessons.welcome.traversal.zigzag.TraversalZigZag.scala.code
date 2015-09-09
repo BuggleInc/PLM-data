@@ -2,7 +2,19 @@ override def run() {
 }
 
 def test:Boolean={
-  if (getX()){
-    1
+  if (getX() == getHauteurMonde() -1 && getY() == getHauteurMonde() -1){
+   return true
+  }
+  return false
+}
+
+def serpentLeRetour(){
+  var n = 0
+  while(!test){
+    ecritMessage(n)
+    if(getX()== getLongueurMonde() -1 ){
+      setPos(getX(), getY() +1)
+      n=n+1
+    }
   }
 }
