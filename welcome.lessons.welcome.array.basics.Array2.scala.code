@@ -12,13 +12,12 @@ def Motif(){
   recule(H-1)
   gauche();avance();droite()
   var L = getMondeLargeur()
-  for (k <- 1 to L-1){
+  for (k <- 0 to L-1){
     var decalage = litMessage() .toInt
    	setCouleurBrosse(T(decalage%H))
   	brosse()
-    avance()
-  for (i <- 1 to H-2){
-    setCouleurBrosse(T((i+decalage)%H))
+  for (i <- 1 to H-1){
+    setCouleurBrosse(T((k+decalage)%H))
     brosse()
     avance()
   }
