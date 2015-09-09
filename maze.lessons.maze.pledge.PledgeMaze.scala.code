@@ -21,8 +21,8 @@ def keepHandOnSideWall() {
   }
 }
 
-def isDirectionFree() {
-  var dire:Direction = getDirection()
+def isDirectionFree(dir) {
+  setDirection(dir)
   if (estFaceMur == false) {
     return true
   }
@@ -31,9 +31,11 @@ def isDirectionFree() {
 
 override def run() {
   while (getY() != 0) {
-    if (estFaceMur() == false && sommeAngle == 0) {
+    var direct:Direction = getDirection()
+    if (isDirectionFree(Direction.NORD) {
       avance()
     } else {
+      setDirection(direct)
       keepHandOnSideWall(); setDirection(Direction.NORD)
     }
   }
