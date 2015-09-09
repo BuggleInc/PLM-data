@@ -15,10 +15,15 @@ override def run() {
 
 def keepHandOnSideWall()
 {
-  droite()
-  if (!estFaceMur())
+  gauche()
+  if (estFaceMur())
   {
-    avance()
-    gauche()
+    droite()
+    if (estFaceMur())
+    	droite()
+    else
+    	avance()
   }
+  else
+  	avance()
 }
