@@ -12,18 +12,15 @@ def postion_finale():Boolean = {
     if(estFaceMur()==true){return true;}}}
   return false;
 }
-def serpent(mur:Int){
+def serpent(){
   var regard = getDirection();
-  var murs = mur;
-  if (estFaceMur()==true){murs=mur+1;
-    if (murs%2==0){
-      gauche();avance();gauche();}
-    else {droite();avance();droite();}}
+  if (estFaceMur()==true){
+    if (regard==Direction.EST){
+      droite();avance();droite();}
+    else {gauche();avance();gauche();}}
   avance();
-  return murs
 }
 
 baisseBrosse();
-var nombres_mur = 0;
-do {nombres_mur = serpent(nombres_mur)} while(postion_finale()==false)
+do {serpent()} while(postion_finale()==false)
 }
