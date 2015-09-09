@@ -1,6 +1,4 @@
 def lessBy10(a:Int, b:Int, c:Int):Boolean = {
-  (a, b, c) match {
-		case (i, j, k) if ((i < j - 10) | (j < k - 10) | (k < i - 10) | (i < k - 10) | (j < i - 10) | (k < j - 10)) => return true
-    case (_, _, _) => return false
-  }
+	if (Math.max(a, Math.max(b, c)) - Math.min(a, Math.min(b, c)) > 10) {return true}
+  else {return false}
 }
