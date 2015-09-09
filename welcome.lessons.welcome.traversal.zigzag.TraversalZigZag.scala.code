@@ -1,0 +1,40 @@
+override def run() {
+  droite()
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  
+  //---
+  var cpt = 0
+  def numeroterSol()
+  		{ecritMessage(cpt) ; cpt+=1
+      } 
+  
+  //---
+  def positionFinale() : Boolean =
+  		{if (getX()==(largeur-1) && getY()==(hauteur-1)) {return true}
+     	else {return false}
+      }
+  
+  //---
+  def parcourir1() 
+  		{while (!estFaceMur()) {numeroterSol(); setPos(getX()+1,getY())}
+      }
+  
+  //---
+    def parcourir2() 
+  		{while (!estFaceMur()) {numeroterSol(); setPos(getX()-1,getY())}
+      }
+  
+  
+  //---
+  def changerLigne()
+  		{if (estFaceMur()) {numeroterSol() ; setPos(getX(), 1+getY()) }
+      }
+  
+  //---
+  parcourir1() ;
+  while (!positionFinale())
+  		{changerLigne(); parcourir2(); changerLigne(); parcourir1()}
+	numeroterSol()
+  gauche()
+}
