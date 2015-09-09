@@ -1,0 +1,54 @@
+override def run() {
+	for (i <- 1 to 9){
+    ligneMotif(9)
+  }
+}
+
+def ligneMotif(nbMotif : Int) {
+  for (i <- 1 to nbMotif -1 ){ 
+    faireMotif()
+  	for (i <- 1 to 5){avance()}
+  }
+  faireMotif()
+  droite()
+  droite()
+  for (i <- 1 to nbMotif*5){avance()}
+  droite()
+  for (i <- 1 to 5){avance()}
+  droite()
+  
+}
+
+def faireMotif() {
+  var c :Color = Color.YELLOW
+  for( cote <- 1 to 4){
+  cote match {
+    case 1 => c = Color.YELLOW
+    case 2 => c = Color.RED
+    case 3 => c = Color.BLUE
+    case 4 => c = Color.GREEN
+  }
+  avance()
+  faireV(c)
+  avance()
+  gauche()
+  
+	}
+}
+
+def marquer(c : Color) {
+  setCouleurBrosse(c : Color)
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV(c:Color) {
+  marquer(c)
+  avance()
+  gauche()
+  avance()
+  marquer(c)
+  recule()
+  droite()
+  avance()
+  marquer(c)
+}

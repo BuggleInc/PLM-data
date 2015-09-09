@@ -1,0 +1,70 @@
+override def run() {
+  ligneMotif(2)
+  avance()
+  droite()
+  ligneMotif(2)
+  droite()
+  move(4, true)
+  droite()
+  move(3, true)
+  gauche()
+  
+}
+
+def ligneMotif(nbMotif : Int) {
+  for (i <- 1 to nbMotif -1 ){ 
+    motif()
+  	for (i <- 1 to 4){avance()}
+  }
+  motif()
+  retourne()
+  for (i <- 1 to 4){avance()}
+  droite()
+  for (i <- 1 to 3){avance()}
+  
+}
+
+def move(nbPas: Int,versLAvant: Boolean) {
+  if (versLAvant){
+    for (i <- 1 to nbPas){avance()}
+  }
+  else {for (i <- 1 to nbPas){recule()}}
+    
+}
+
+def motif(){
+  for (cote <- 1 to 4){
+    var c: Color = Color.RED
+    cote match {
+      case 1 => c = Color.RED
+      case 2 => c = Color.BLUE
+      case 3 => c = Color.GREEN
+      case 4 => c = Color.YELLOW
+    }
+    coin(c)
+    avance()
+    avance()
+    avance()
+    gauche()
+    
+  }
+  
+}
+
+def coin (c : Color) {
+  avance()
+  marquer(c)
+  avance()
+  gauche()
+  avance()
+  marquer(c)
+  avance()
+  gauche()
+}
+
+def marquer(c : Color) {
+  setCouleurBrosse(c : Color)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+}
