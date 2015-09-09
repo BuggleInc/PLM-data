@@ -1,0 +1,34 @@
+override def run()
+{
+  var avancement = 0
+  ecritMessage(avancement)
+  while ( (getX(),getY()) != (getMondeLargeur()-1,getMondeHauteur()-1))
+  {
+    while ( getX()!= getMondeLargeur()-1)
+    {
+      goDroite()
+      avancement = 	avancement + 1
+      ecritMessage(avancement)
+    }
+    while (getX() != 0)
+    {
+      goGauche()
+      avancement = avancement + 1
+      ecritMessage(avancement)
+    }
+  }
+}
+
+def goDroite()
+{
+  var X = getX()
+  var Y = getY()
+  setPos(X+1,Y)
+}
+
+def goGauche()
+{
+  var X = getX()
+  var Y = getY()
+  setPos(X-1,Y)
+}
