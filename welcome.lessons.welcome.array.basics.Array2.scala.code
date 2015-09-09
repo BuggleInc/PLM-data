@@ -13,6 +13,7 @@ def Motif(){
   recule(H-1)
   gauche();avance();droite()
   var L = getMondeLargeur()
+  if (!estFaceMur){
   for (k <- 1 to L-1){
     var decalage = litMessage() .toInt
    	setCouleurBrosse(T(0+decalage%H))
@@ -23,9 +24,8 @@ def Motif(){
     brosse()
     avance()
   }
-   recule(H-1)
-   if (!estFaceMur){
-     gauche();avance();droite()} 
+   recule(H-1)   
+   gauche();avance();droite()} 
   }}
   
 
