@@ -1,0 +1,36 @@
+def est(){
+  while(!estFaceMur()){
+    avance()
+  }
+  droite()
+  if(!estFaceMur()){
+    avance()
+    droite()
+  }
+}
+
+def ouest(){
+  while(!estFaceMur()){
+    avance()
+  }
+  gauche()
+  if(!estFaceMur()){
+    avance()
+    gauche()
+  }
+}
+
+def snake(){
+  if(getDirection() == Direction.EAST){
+    est()
+  }
+  else ouest()
+}
+
+override def run() {
+  setCouleurBrosse(Color.red)
+  baisseBrosse()
+  while(getX()!=6 && getY()!=0){
+    snake()
+  }
+}
