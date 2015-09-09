@@ -1,0 +1,52 @@
+override def run() {
+  def peindre(){
+	baisseBrosse();
+  leveBrosse();
+}
+
+
+def FaireV(c:Color){
+  setCouleurBrosse(c)
+  avance();
+  peindre()
+  avance();
+  gauche();
+  avance();
+  peindre();
+  recule();
+  droite();
+  avance();
+  peindre();
+  avance();
+ 	gauche();
+}
+  
+
+def FaireMotif(){
+  FaireV(Color.YELLOW);
+  FaireV(Color.RED);
+  FaireV(Color.BLUE);
+  FaireV(Color.GREEN);
+}
+
+def Faire9Motifs(){
+  for (variable7 <- 1 to 9){
+  FaireMotif();
+  for (variable3 <- 1  to 5){
+    avance();
+  }
+  }
+  for (variable5 <- 1 to 45){
+    recule();
+  }
+  gauche();
+  for (variable6 <- 1 to 5){
+  	avance();
+	}
+  droite();
+}
+  
+for (variable4 <- 1 to 9){
+  Faire9Motifs();
+}
+}

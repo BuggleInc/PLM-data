@@ -1,0 +1,12 @@
+def island(num:Array[Int]): Int = {
+  var taille = num.length;
+  var position = 0;
+  var niveaux = 0;
+  var memoire = num(0);
+  do { 
+    if (num(position)>memoire){memoire=num(position);niveaux=niveaux+1};
+    if (num(position)<memoire){memoire=num(position)};
+  position = position+1;
+  } while (position<taille);
+  return niveaux
+}

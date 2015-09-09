@@ -1,0 +1,62 @@
+override def run() {
+def peindre(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+def motif1(c:Color){
+  setCouleurBrosse(c);
+  avance();
+  gauche();
+  peindre();
+  avance();
+  gauche();
+  avance();
+  peindre();
+  gauche();
+  avance();
+  gauche();
+}
+def motif2(c:Color){
+  setCouleurBrosse(c);
+  peindre();
+  avance();
+  gauche();
+  avance();
+  gauche();
+  peindre();
+  avance();
+  gauche();
+  avance();
+  gauche();
+}
+
+def carre(){
+  motif1(Color.RED);
+  avance();avance();
+  motif2(Color.BLUE);
+  recule();recule();
+  gauche();
+  avance();avance();
+  droite();
+  motif2(Color.YELLOW);
+  avance();avance();
+  motif1(Color.GREEN);
+  recule();recule();droite();avance();avance();gauche();
+}
+def ligne(){
+  carre();
+  for (i<-1 to 4) {avance()}
+  carre();
+}
+
+def complet(){
+  ligne();
+  for (i<-1 to 4){recule()}
+  gauche();
+  for(i<-1 to 4){avance()}
+  droite();
+  ligne();
+}
+complet()
+}

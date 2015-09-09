@@ -1,0 +1,36 @@
+def peindre(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+def fleur(c:Color){
+  setCouleurBrosse(c);
+  for(i<-1 to 2){peindre();avance();peindre()}
+  recule();gauche();recule();
+  for(i<-1 to 2){peindre();avance();peindre()}
+  recule();
+  setCouleurBrosse(Color.YELLOW)
+  peindre();
+  droite();
+}
+
+def ligne2Fleurs(c1:Color,c2:Color){
+  fleur(c1);
+  avance();avance();avance();
+  fleur(c2);
+  for (i<-1 to 5){recule()}
+}
+def ligne1Fleur(c:Color){
+  avance();avance();
+  fleur(c);
+  recule();recule();recule();
+}
+
+def growFlowers(){
+  ligne2Fleurs(Color.RED,Color.CYAN);
+  droite();avance();avance();gauche();
+  ligne1Fleur(Color.ORANGE)
+  droite();avance();avance();gauche();
+  ligne2Fleurs(Color.PINK,Color.GREEN);
+}
+
