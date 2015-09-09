@@ -5,7 +5,8 @@ def island(num:Array[Int]): Int = {
   var memoire = num(0);
   do { 
     if (num(position)==memoire +1){memoire=memoire+1;niveaux=niveaux+1};
-  position = position + 1;
+    if (num(position)==memoire-1){memoire=memoire-1};
+  position = position+1;
   } while (position<taille);
   return niveaux
 }
