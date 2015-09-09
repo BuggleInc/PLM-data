@@ -1,5 +1,6 @@
 var diag = 0;
 def posFinale() = { getX()==getMondeLargeur()-1 && getY() == getMondeHauteur()-1};
+def posInter() = { getX()==getMondeLargeur()-1 && getY() == 0};
 override def run() {
   
   
@@ -13,7 +14,7 @@ while (!posFinale) {ecritMessage(""+compt);compt+=1; if(getY()==0) {diag+=1; set
 
 
 
-while (!posFinale()){
+while (!posInter()){
   if (getY()==0) {diag+=1; setPos(0,diag)}
   else {setPos(getX()+1,getY()-1)}
 }
