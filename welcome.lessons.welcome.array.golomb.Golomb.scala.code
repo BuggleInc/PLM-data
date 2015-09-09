@@ -1,14 +1,13 @@
 def golomb(num:Int): Int = {
 
-  var T = new Array[Int](num);
+  var T = new Array[Int](num+1);
   var nombre = 2;
   var a_prendre = 2;
   var occurences=0;
   var nombres_occurences = 2;
-  T(0)=1;
+  T(1)=1;
   if (num==1){return 1};
-  if (num==2){return 2};
-  for (i <- 1 to num-1){
+  for (i <- 1 to num){
   T(i)=nombre;
   occurences=occurences+1; 
     if (occurences==nombres_occurences){
@@ -18,4 +17,4 @@ def golomb(num:Int): Int = {
                                                                                                 														a_prendre = a_prendre+1;
                                  };
   }
-  return T(num-1)}
+  return T(num)}
