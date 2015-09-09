@@ -1,14 +1,15 @@
 override def run() {
   while (!estSurBiscuit()) {
     while (!estFaceMur()) {
-      setDirection(Direction.NORTH)
       avance()
     }
-    keepHandOnSideWall()
-    if (getDirection() == Direction.EAST) {
-      droite()
-    }    
+    droite()
+    while ((estFaceMur() && !estSurBiscuit()) || (getDirection() != Direction.NORTH && !estSurBiscuit())) {
+      keepHandOnSideWall()
+    }
+    setDirection(Direction.NORTH)
   }
+  droite()
   prendBiscuit()
 }
 
@@ -18,4 +19,15 @@ def keepHandOnSideWall() = {
     }
   	avance()
   	gauche()
+}
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur()) {
+    droite()
+    return true
+  } else {
+    droite()
+    return false
+  }
 }
