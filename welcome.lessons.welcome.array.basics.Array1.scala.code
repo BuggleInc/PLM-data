@@ -4,4 +4,15 @@ override def run() {
     T(i)=getCouleurSol()
     avance()
   }
+  for (j <- 0 to getMondeLargeur()){
+    droite()
+    avance()
+    gauche()
+    avance()
+    for (k <- 0 to getMondeHauteur()-1){
+      baisseBrosse()
+      setCouleurBrosse(T(k))
+      leveBrosse()
+    }
+  }
 }
