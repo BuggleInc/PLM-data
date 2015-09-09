@@ -1,13 +1,22 @@
+var stop=false
+
 def go(){
   droite()
   droite()
-  while(!estSurBiscuit()){
-    avance()
+  while(stop==false){
+    if(estSurBiscuit()){
+      stop==true
+      prendBiscuit()
+    }
+    else if(estFaceMur()==true){
+      stop==true
+    }
+    else avance()
   }
-  prendBiscuit()
+  
 }
 
-def stop(){
+def retour(){
   droite()
   droite()
   while(!estSurBiscuit()){
@@ -28,6 +37,6 @@ def sortie(){
 
 while(!estFaceMur()){
 	go()
-  stop()
+  retour()
 }
 sortie()
