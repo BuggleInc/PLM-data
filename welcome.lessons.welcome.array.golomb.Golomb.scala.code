@@ -2,20 +2,18 @@ def golomb(num:Int): Int = {
   num match{
   	case num if num == 1 => 1
   	case num if num == 2 => 2
+    case num if num == 3 => 2
   	case _ => terme(num)
 	}
 }
 
 def terme(num:Int):Int={
-  var T = new Array 
-  
-  
-  
+  var T = new Array [Int] (num)
+  T(0)=1
+  T(1)=2
+  T(2)=2
   var cpt:Int=1
-  var nombre:Int=2
-  while (cpt<num-1){
-    cpt=cpt+nombre-1
-    nombre=nombre+1
+  while (T(num-1)==0){
+    
   }
-  return nombre-1
-}
+  
