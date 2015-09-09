@@ -1,0 +1,17 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class monkeyTrouble extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = monkeyTrouble( t.getParameter(0).asInstanceOf[Boolean], t.getParameter(1).asInstanceOf[Boolean]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def monkeyTrouble(aSmile:Boolean, bSmile:Boolean): Boolean = {
+   return ((aSmile && bSmile) || (!aSmile && !bSmile))
+} }

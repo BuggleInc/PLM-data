@@ -1,0 +1,78 @@
+override def run() {
+  var pasLigne: Int = 0
+  for (ligne <- 1 to 2) {
+    faireLigne(2)
+    gauche()
+    while ((pasLigne <= 3) && (!estFaceMur)) {
+      avance()
+      pasLigne = pasLigne + 1
+    }
+    pasLigne = 0
+    droite()
+  }
+  droite()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  gauche()
+  for (pas <- 1 to 4) {
+    avance()
+  }
+  setCouleurBrosse(Color.white)
+}
+def marque(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+def faireMoitieV1(c: Color) {
+  gauche()
+  avance()
+  marque(c)
+  recule()
+  droite()
+  avance()
+  marque(c)
+}
+def faireMoitieV2(c: Color) {
+  marque(c)
+  avance()
+  gauche()
+  avance()
+  marque(c)
+  recule()
+  droite()
+}
+def faireMotif() {
+  faireMoitieV1(Color.red)
+  avance()
+  faireMoitieV2(Color.blue)
+  gauche()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  gauche()
+  faireMoitieV1(Color.green)
+  avance()
+  faireMoitieV2(Color.yellow)
+  gauche()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  gauche()
+}
+def faireLigne(nbMotifs: Int) {
+  var nbPas: Int = nbMotifs*4 - 1
+  var pasFaits: Int = 0
+  for (motif <- 1 to nbMotifs) {
+    faireMotif()
+    while ((pasFaits <= 3) && (!estFaceMur)) {
+      avance()
+      pasFaits = pasFaits + 1
+    }
+    pasFaits = 0
+  }
+  for (pas <- 1 to nbPas) {
+    recule()
+  }
+}

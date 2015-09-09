@@ -1,0 +1,9 @@
+def has271(nums:Array[Int]): Boolean = {
+  var longTab:Int = nums.length
+  for (i <- 0 to longTab-3) {
+    if (nums(i+1)==nums(i)+5 && (Math.abs((nums(i)-1)-nums(i+2)))<=2) {
+      return true
+    }
+  }
+  return false
+}

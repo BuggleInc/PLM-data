@@ -1,0 +1,13 @@
+def golomb(num:Int): Int = {
+  var tab = new Array[Int](num)
+  var indice:Int = 0
+  var valeur:Int = 1
+  var occur:Int = 0
+  while (indice < tab.length) {
+    while (indice < tab.length && occur < valeur) {
+      tab(indice) = valeur
+      occur += 1
+      indice += 1
+    }; valeur += 1
+  }; return tab(num-1)
+}

@@ -1,0 +1,35 @@
+override def run() {
+  var cpt:Int = 0
+  var posX:Int = 0
+  var posXprec:Int = 0
+  var posY:Int = 0
+  var increment:Int = 1
+  while (!estPosFinale()) {
+    setPos(posX, posY)
+    ecritMessage(cpt)
+    if (getX() == 0 && posXprec != getX()) {
+      if (getY() < getMondeHauteur()-1) {
+        posY += 1
+        posXprec = getX()
+        increment = 1
+      }
+    } else if (getX() == getMondeLargeur()-1 && posXprec != getX()) {
+      if (getY() < getMondeHauteur()-1) {
+        posY += 1
+        posXprec = getX()
+        increment = -1
+      }
+    } else {
+      posX += increment
+    }
+    cpt += 1
+  }
+}
+
+def estPosFinale():Boolean = {
+  if (getX() == (getMondeLargeur()-1) && getY() == (getMondeHauteur-1)) {
+    return true
+  } else {
+    return false
+  }
+}

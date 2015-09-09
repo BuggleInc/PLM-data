@@ -1,0 +1,89 @@
+def faireFleur(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  recule()
+  gauche()
+  avance()
+  for (pas <- 1 to 2) {
+    recule()
+  }
+  avance()
+  setCouleurBrosse(Color.yellow)
+  droite()
+  leveBrosse()
+}
+
+
+def faireMotif() {
+  faireFleur(Color.red)
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  faireFleur(Color.cyan)
+  for (pas <- 1 to 5) {
+    recule()
+  }
+  droite()
+  for (pas <- 1 to 4) {
+    avance()
+  }
+  gauche()
+  faireFleur(Color.pink)
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  faireFleur(Color.green)
+  for (pas <- 1 to 5) {
+    recule()
+  }
+  gauche()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  droite()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  faireFleur(Color.orange)
+}
+
+
+def faireLigne() {
+  faireMotif()
+  for (pas <- 1 to 3) {
+    avance()
+  }
+  faireFleur(Color.blue)
+  avance()
+  gauche()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  droite()
+  faireMotif()
+  for (pas <- 1 to 11) {
+    recule()
+  }
+}
+
+
+def growFlowers() {
+  faireLigne()
+  droite()
+  for (pas <- 1 to 6) {
+    avance()
+  }
+  gauche()
+  faireLigne()
+  for (pas <- 1 to 8) {
+    avance()
+  }
+  droite()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  gauche()
+}

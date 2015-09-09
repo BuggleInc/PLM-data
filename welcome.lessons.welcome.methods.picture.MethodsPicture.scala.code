@@ -1,0 +1,46 @@
+override def run() {
+  for (ligne <- 1 to 3) {
+    faireLigne()
+    gauche()
+    for (pas <- 1 to 5) {
+      avance()
+    }
+    droite()
+  }
+}
+def marquer(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV(c: Color) {
+  avance()
+  marquer(c)
+  avance()
+  gauche()
+  avance()
+  marquer(c)
+  recule()
+  droite()
+  avance()
+  marquer(c)
+  avance()
+  gauche()
+}
+def faireMotif() {
+  faireV(Color.yellow)
+  faireV(Color.red)
+  faireV(Color.blue)
+  faireV(Color.green)
+  for (pas <- 1 to 5) {
+    avance()
+  }
+}
+def faireLigne() {
+  for (motif <- 1 to 3) {
+    faireMotif()
+  }
+  for (pas <- 1 to 15) {
+    recule()
+  }
+}

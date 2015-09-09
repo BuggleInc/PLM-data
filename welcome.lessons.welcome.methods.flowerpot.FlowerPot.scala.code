@@ -1,0 +1,53 @@
+def faireFleur(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  recule()
+  gauche()
+  avance()
+  for (pas <- 1 to 2) {
+    recule()
+  }
+  avance()
+  setCouleurBrosse(Color.yellow)
+  droite()
+  leveBrosse()
+}
+def faireLigne(nbFleurs: Int, cFleur1: Color, cFleur2: Color) {
+  var nbPas: Int = nbFleurs*3 - 1
+  if (nbFleurs == 2) {
+    faireFleur(cFleur1)
+    for (pas <- 1 to 3) {
+      avance()
+    }
+    faireFleur(cFleur2)
+    for (pas <- 1 to nbPas) {
+      recule()
+    }
+  } else if (nbFleurs == 1) {
+    for (pas <- 1 to 2) {
+      avance()
+    }
+    faireFleur(cFleur1)
+    for (pas <- 1 to 3) {
+      recule()
+    }
+  }
+}
+def growFlowers() {
+  faireLigne(2, Color.red, Color.cyan)
+  droite()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  gauche()
+  faireLigne(1, Color.orange, Color.white)
+  droite()
+  for (pas <- 1 to 2) {
+    avance()
+  }
+  gauche()
+  faireLigne(2, Color.pink, Color.green)
+}
