@@ -7,7 +7,7 @@ override def run() {
     }
 		
     do{
-      virage = keepGoing(virage)
+      virage = keepHandsOnWall(virage)
     }while(virage!=0)
 
   }
@@ -27,8 +27,8 @@ def mD() : Boolean = {
   return d
 }
 
-def keepHandsOnSideWall() : Int = {
-  var virage : Int = 0
+def keepHandsOnSideWall(vir : Int) : Int = {
+  var virage : Int = vir
   if(!mG())
   {
     gauche();avance();virage = virage + 1
