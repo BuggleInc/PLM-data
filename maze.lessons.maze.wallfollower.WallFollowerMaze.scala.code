@@ -6,26 +6,35 @@ override def run() {
   prendBiscuit()
 }
 
+
 def keepHandOnSideWall()
-{
-  var murGauche = false
-  if (estFaceMur())
-  {
-    gauche()
-  }
-  gauche()
-  if (estFaceMur())
-  {
-    murGauche = true
-  }
-  droite()
-  if (murGauche && !estFaceMur())
-  {
-    avance()
-  }
+{  
+  var murGauche = testMurGauche()
   if (!murGauche)
   {
     gauche()
     avance()
   }
+  if (murGauche && estFaceMur())
+  {
+    gauche()
+  }
+  if (murGauche && !estFaceMur())
+  {
+    avance()
+  }
+
+}
+
+
+def testMurGauche() : Boolean =
+{
+  gauche()
+  if (estFaceMur())
+  {
+    droite()
+    return true
+  }
+  droite()
+  return false
 }
