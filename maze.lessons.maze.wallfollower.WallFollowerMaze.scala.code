@@ -1,0 +1,31 @@
+override def run() {
+  while (!estSurBiscuit())
+  {
+    if (estFaceMur())
+    	gauche()
+    if (murAGauche())
+    	avance()
+    else
+    {
+      do
+      {
+        avance()
+      }while(!murAGauche())
+    }
+  }
+}
+
+def murAGauche():Boolean=
+{
+  var test:Boolean=false
+  gauche()
+  if (estFaceMur())
+  	test=vrai
+  else
+  	test=false
+  droite()
+  if (test)
+  	return true
+  else
+  	return false
+}
