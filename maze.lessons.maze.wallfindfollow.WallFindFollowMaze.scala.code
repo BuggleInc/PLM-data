@@ -1,0 +1,26 @@
+override def run() {
+  forward()
+  while(!isOverBaggle){
+    keepHandOnSideWall()
+  }
+  pickupBaggle()
+}
+
+def keepHandOnSideWall(){
+ 
+  //S'il y a un mur en face on tourne ? droite
+  if (isFacingWall()){
+    right()
+  
+  //Sinon on peut avancer et regarder s'il y a un mur
+  }else{
+    forward()
+    left()
+    
+    //Si il y a un mur on se remet droit pour le prochain
+    if (isFacingWall){
+      right()
+      
+    }
+  }
+}
