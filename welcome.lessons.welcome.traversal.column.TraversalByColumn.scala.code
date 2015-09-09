@@ -1,0 +1,26 @@
+override def run() {
+  var avancement = 0
+  ecritMessage(avancement)
+  while ( (getX() , getY()) != (getMondeLargeur()-1 , getMondeHauteur()-1) ) 
+  {
+    go()
+    avancement = avancement + 1
+    ecritMessage(avancement)
+  }
+}
+
+def go(){
+  var Hauteur = getMondeHauteur()-1
+  var Largeur = getMondeLargeur()-1
+  var X = getX()
+  var Y = getY()
+  if (Y==Hauteur)
+  {
+    setPos(X+1,0)
+  }
+  else
+  {
+    setPos(X,Y+1)
+  }
+}
+
