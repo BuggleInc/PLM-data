@@ -5,10 +5,23 @@ def test() {
       droite()
       return true
     }
+    if (!estFaceMur()) {
+      droite() ; droite() 
+      if (estFaceMur()) {
+        gauche()
+        return true
+      }
+    }    
   }
 }
 return false }
 
+def exo() {
+  baisseBrosse()
+  while(!test()) {
+    avance()
+  }
+}
 
 
 
@@ -21,6 +34,5 @@ return false }
 
 
 
-
-override def run() {  
+override def run() {  exo()
 }
