@@ -1,21 +1,16 @@
+var toggle = false
 
-for (i <- 1 to 10){
+while (!isFacingWall()){
+  forward()
   
-  getDirection() match{
-    case Direction.EAST =>
-    	if (isOverBaggle()){
-        pickupBaggle()
-        setDirection(Direction.WEST)
-      }else{
-        forward()
-      }
+  if (isOverBaggle()){
     
-    case Direction.WEST =>
-    	if (isOverBaggle()){
-        pickupBaggle()
-				setDirection(Direction.EAST)
-      }else{
-        forward()
-      }
+    if (isCarryingBaggle()){
+      backward()
+      dropBaggle()
+      
+    }else{
+      pickupBaggle()
+    }
   }
 }
