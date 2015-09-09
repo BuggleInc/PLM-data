@@ -1,12 +1,22 @@
-  def posFinale () {
-   if (estFaceMur()) {
-    if (getDirection() == Direction.EST) {
-      gauche(); if (estFaceMur()) {
-        return True
-      } else {avance();gauche()}} else {if (getDirection() == Direction.OUEST) {droite();if (estFaceMur()){return True} else{avance();droite()}}} else {false}}}
-  
-override def run() {
+override def run() { if (estFaceMur) {
+
+if (getDirection() == Direction.EST) {gauche(); if (estFaceMur()) {
+  return true} else {avance();gauche();false}} else {
+
+if (getDirection() == Direction.OUEST) {droite(); if (estFaceMur()) {return true} else {avance();droite();false}} } } else {false} }
   
 
   while (posFinale() == false) {avance()}
 }
+
+
+
+
+
+
+
+
+
+
+
+
