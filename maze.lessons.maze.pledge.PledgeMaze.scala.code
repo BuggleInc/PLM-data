@@ -21,6 +21,14 @@ def keepHandOnSideWall() {
   }
 }
 
+def isDirectionFree() {
+  var dire:Direction = getDirection()
+  if (estFaceMur == false) {
+    return true
+  }
+  return false
+}
+
 override def run() {
   while (porteBiscuit() == false) {
     if (estSurBiscuit == true) {
@@ -29,7 +37,11 @@ override def run() {
       if (sommeAngle != 3) {
         keepHandOnSideWall()
       } else {
-        avance()
+        if (isDirectionFree() == true) {
+          avance()
+        } else {
+          gauche()
+        }
       }
     }
   }
