@@ -1,6 +1,7 @@
 override def run() {
   var x:Int = getMondeHauteur()
   var T = new Array[Color](x+1)
+  var decalage:Int = 0
   T(0)=getCouleurSol()
   for(i<- 1 to x-1){
   	avance()
@@ -9,7 +10,7 @@ override def run() {
   T(x)=T(0)
   for(i<- 1 to x-1){recule()}
   for(k<- 1 to x-1){
-    val decalage:Int = litMessage().toInt
+    val decalage = litMessage().toInt
     gauche()
     avance()
     droite()
