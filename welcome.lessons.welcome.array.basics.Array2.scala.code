@@ -17,8 +17,9 @@ override def run() {
   for (i<- 0 to l-2){
     gauche();avance();droite()
     val decalage = litMessage().toInt
+    setCouleurBrosse(T(decalage));baisseBrosse();leveBrosse()
     for(j<- 0 to h-2){
-      setCouleurBrosse(T((j+decalage)%h));baisseBrosse();leveBrosse();avance()
+      avance();setCouleurBrosse(T((j+decalage)%h));baisseBrosse();leveBrosse();
     }
   }
 }
