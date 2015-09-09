@@ -1,5 +1,5 @@
 def golomb(num:Int): Int = {
-  var compteur : Int = 1
+/*  var compteur : Int = 1
   var valeur = 1
   var plusun : Boolean = false
   var T = new Array[Int](0)
@@ -31,4 +31,17 @@ def newTableau(tableau : Array[Int]): Array[Int] = {
     T(i) = tableau(i)
   }
   return T
+}
+*/
+  var T = new Array[Int](num)
+	var compteur : Int = 1
+  var nbValeur : Int = 1
+  while (compteur != num) {
+    for (k <- 1 to nbValeur) {
+      T(compteur-1) = nbValeur
+      compteur = compteur +1
+    }
+    nbValeur = nbValeur +1
+  }
+  return T(num-1)
 }
