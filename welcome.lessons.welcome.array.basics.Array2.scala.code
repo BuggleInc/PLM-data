@@ -17,20 +17,21 @@ override def run() {
   
 }
 
-
-
 def paint() {
   baisseBrosse()
   leveBrosse()
 }
 
 def write(C:Array[Color]) = {
-  for(i <- C )
+  val dec = litMessage(.toInt)
+  setCouleurBrosse(C(dec)
+  paint()
+  for (i<-dec+1 to dec+getMondeLargeur())
   {
-    setCouleurBrosse(i)
-    paint()
     avance()
-  }  
+    setCouleurBrosse(C(i%getMondeLargeur()))
+    paint()
+  }
 }
 
 def init() {
