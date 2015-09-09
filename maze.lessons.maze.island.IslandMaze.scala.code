@@ -5,36 +5,36 @@ override def run() {
   while(!estSurBiscuit()){
     keepHandOnSideWall()
   }
-  
+
   prendBiscuit
 
-def keepHandOnSideWall(){
-  if(estFaceMur){
-    droite()
-  } else {
-    avance()
-    gauche()
-  
+  def keepHandOnSideWall(){
     if(estFaceMur){
       droite()
+    } else {
+      avance()
+      gauche()
+
+      if(estFaceMur){
+        droite()
+      }
     }
   }
-}
 }
 
 def Nord(){
   if(getDirection == Direction.NORTH && estFaceMur){
     avance()
-    
+
   }
 }
 if (estFaceMur){
   droite()
-  
+
 } else {
   avance()
   gauche()
-  
+
   if(estFaceMur){
     droite()
   }
