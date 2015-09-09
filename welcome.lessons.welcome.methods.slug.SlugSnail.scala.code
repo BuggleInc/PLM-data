@@ -6,11 +6,13 @@ def hunt(c:Color) {
 }
 
 def isFacingTrail(c:Color) {
+  var couleur=Color.red
   if (estFaceMur()==false) {
     avance;
     getCouleurSol;
+    couleur=getCouleurSol
     recule;
-    if (c==getCouleurSol) {
+    if (c==couleur) {
       return true
     } else {
       return false
