@@ -1,0 +1,27 @@
+def extrema(nums:Array[Int]): Int = {
+  return Math.abs(maxValue(nums)-minValue(nums))
+}
+
+def maxValue(nums:Array[Int]): Int = {
+ 	var rep = nums(0)
+  var last = nums.length -1
+  for (i <- 1 to last){
+    if (nums(i)> rep){
+       rep = nums(i)
+    }
+  }
+   
+  return rep
+}
+
+def minValue(nums:Array[Int]): Int = {
+ 	var rep = nums(0)
+  var last = nums.length -1
+  for (i <- 1 to last){
+    if (nums(i)< rep){
+       rep = nums(i)
+    }
+  }
+   
+  return rep
+}
