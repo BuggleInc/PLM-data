@@ -1,0 +1,43 @@
+override def run() {
+  
+  
+  def posFinale(){
+    if (estFaceMur){
+      if (getDirection() == Direction.EST){
+        gauche()
+        if (estFaceMur){
+          return true
+        }
+      } else if (getDirection() == Direction.OUEST){
+        droite()
+        if (estFaceMur){
+          return true
+        }
+      }
+    }
+    return false
+  }
+  
+  def avancer(x:Int){
+    for (i <- 1 to x){
+      avance()
+    }
+  }
+  
+  
+  def reculer(x:Int){
+    for (i <- 1 to x){
+      recule()
+    }
+  }
+  
+  
+  def Serpent(){
+    baisseBrosse()
+    while (!posFinale()){
+      avancer(6); gauche();avance();gauche();avancer(6);droite();avance();droite()
+    }
+  }
+  
+  
+}
