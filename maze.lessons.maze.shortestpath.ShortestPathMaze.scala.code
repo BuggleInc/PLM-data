@@ -14,19 +14,19 @@ override def run() {
 }
 
 def propageIndication(x:Integer, y:Integer){
-  if (!aMurNord(x,y)){
+  if (!aMurNord(x,y) && y >= 1){
     if (getIndication(x,y-1)>getIndication(x,y)+1){
       setIndication(x,y-1, getIndication(x,y)+1);
       propageIndication(x, y-1);
     }
   }
-  if (!aMurOuest(x,y)){
+  if (!aMurOuest(x,y) && x >= 1){
     if (getIndication(x-1,y)>getIndication(x,y)+1){
       setIndication(x-1,y, getIndication(x,y)+1);
       propageIndication(x-1, y);
     }
   }
-  if (x <= getMondeLargeur()-3){
+  if (x <= getMondeLargeur()-2){
     if (!aMurOuest(x+1,y)){
       if (getIndication(x+1,y)>getIndication(x,y)+1){
         setIndication(x+1,y, getIndication(x,y)+1);
@@ -34,7 +34,7 @@ def propageIndication(x:Integer, y:Integer){
       }
     }
   }
-  if (x <= getMondeHauteur()-3){
+  if (x <= getMondeHauteur()-2){
     if (!aMurNord(x, y+1)){
       if (getIndication(x,y+1)>getIndication(x,y)+1){
         setIndication(x,y+1, getIndication(x,y)+1);
