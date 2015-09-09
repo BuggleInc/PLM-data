@@ -20,15 +20,30 @@ def keepHandOnSideWall() {
 
 def nord() {
   if (getDirection()==Direction.NORD ) {
-    while(estFaceMur()) {
+    if (!estFaceMur()) avance()
+    else droite()
+  }
+  else if (getDirection()==Direction.EST ) {
+    gauche()
+    if (estFaceMur()) droite()
+    else avance()    
+    if (!estFaceMur()) avance()
+    else droite()
+  } 
+  else if (getDirection()==Direction.SUD ) {
+    gauche()
+    if (estFaceMur()) gauche()
+    else avance()
+    if (estFaceMur()) {
       droite()
-    } 
-    avance() 
+      droite()
+    }
+    else avance()
+    if (!estFaceMur()) avance()
+    else droite()
+  } 
+  else {
+    avance()
   }
-  else if (getDirection() != Direction.NORD) {
-    while(estFaceMur()) {
-      gauche()
-    } 
-    avance() 
-  }
+  
 }
