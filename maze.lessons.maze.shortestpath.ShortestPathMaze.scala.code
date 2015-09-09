@@ -7,7 +7,7 @@ override def run() {
   def indication(x:Int, y:Int, i:Int){
     if(!aMurNord(x,y)){setIndication(x,y-1,i+1);indication(x,y-1,i+1)
                       }
-    if(y>0 && !aMurNord(x,y-1)){
+    if(y>getMondeHauteur()-1 && !aMurNord(x,y-1)){
       setIndication(x,y+1,i+1);indication(x,y+1,i+1)
     }
     if(!aMurOuest(x,y)){setIndication(x-1,y,i+1);indication(x-1,y,i+1)
