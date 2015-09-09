@@ -4,16 +4,20 @@ override def run() {
     gauche()// Choix de la direction de base. 
     				//A priori ?a sert ? rien vu que le nord est libre dans les deux cas
   }*/
-  while(!estFaceMur())
-  {
-    avance()
-  }
   
   var virage : Int = 0
-  
-  do{
-    virage = keepHandsOnSideWall()
-  }while(virage!=0)
+    
+  while(!estSurBiscuit()){
+    while(!estFaceMur())
+    {
+      avance()
+    }
+
+    do{
+      virage = keepHandsOnSideWall()
+    }while(virage!=0)
+
+  }
   
 }
 
