@@ -1,6 +1,4 @@
-var H = getMondeHauteur()
-var T = new Array[Color](H)
-override def run() {}
+override def run() {reproMotif()}
 
 
 def reproMotif(){
@@ -14,20 +12,21 @@ def reproMotif(){
   }}
  
 
-def Motif(){
+def Motif(){  
+	var H = getMondeHauteur()
+	var T = new Array[Color](H)
+  for (j <- 0 to H-1){
+    T(j) = getCouleurSol()
+    avance() 
+  }
   var j = getMondeLargeur()
   for (k <- 0 to j-1)
   setCouleurBrosse(T(j))
   brosse()
   avance()
 }
-  
-def getMotif(){
-  for (j <- 0 to H-1){
-    T(j) = getCouleurSol()
-    avance() 
-  }
-}
+
+
 
 def brosse(){
   baisseBrosse()
