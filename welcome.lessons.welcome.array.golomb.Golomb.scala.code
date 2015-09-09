@@ -1,11 +1,23 @@
 def golomb(num:Int): Int = {
   var T = new Array[Int](num+1)
+  var compteur=2
   T(0)=0
   T(1)=1
   T(2)=2
-  for (i<-0 to num){
-    for(j<-i to i+T(i)-1){
-      T(j)=i
+  if ( num==1){
+    return 1
+  }else{
+    for (i<-1 to num){
+      if (i+compteur>num){
+        for(j<-1 to num){
+          T(j)=i
+        }
+      }else{
+        for(j<-1 to compteur){
+          T(j)=i
+        }
+      }
+      compteur=T(i+1)
     }
   }
   return T(num)
