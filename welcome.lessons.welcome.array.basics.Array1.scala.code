@@ -10,25 +10,28 @@ def reproMotif(){
     avance()
     droite()
     avance()  
+    
+    
   }}
+
+def getMotif(){
+  var i = getMondeHauteur()
+  var color = new Array[Color](i)
+  for (j <- 0 to i-1){
+    color(j) = getCouleurSol();
+    avance()  
+    }
+  return color;
+}
+
 def Motif(){
   var j = getMondeLargeur()
   for (k <- 0 to j-1)
-  setCouleurBrosse(T(j))
+  setCouleurBrosse(color(j))
   brosse()
   avance()
 }
   
-
-def getMotif(){
-  var i = getMondeHauteur()
-  var T = new Array[Color](i)
-  for (j <- 0 to i-1){
-    T(j) = getCouleurSol();
-    avance()  
-    }
-  return T;
-}
   
 
 def brosse(){
