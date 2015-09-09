@@ -1,0 +1,72 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Turmites</h2>
+
+<p>Cette exercice explore une nouvelle fa?on d'?tendre le concept de la fourmi
+de Langton. Maintenant, le comportement de la fourmi ne d?pend plus
+seulement de la couleur du sol, mais aussi de son ?tat interne (repr?sent?
+par une valeur enti?re). L'id?e de changer la fourmi en un automate d?coule
+naturellement du concept de la machine de Turing. Ceci explique le nom de
+ces nouveaux animaux, qui est un m?lange de <i>Turing</i> et de
+<i>Termite</i> (si vous ne savez pas ce qu'est une machine de Turing, vous
+devriez vous jeter sur Wikipedia parce qu'il est tout simplement impossible
+d'?tre un vrai informaticien sans le savoir).</p>     
+
+<p>Une fois encore, vous devez seulement ?crire la m?thode <code>step()</code>,
+qui s'occupe de faire faire un pas ? la turmite. Une fois encore, vous devez
+tout d'abord trouver le rang de la couleur actuelle du sol dans la liste des
+couleurs. Mais cette fois, <code>rule</code> d?pend ? la fois de la couleur
+courante et de l'?tat courant. <code>rule</code> contient en fait trois
+informations dans chaque situation : la couleur ? mettre, le mouvement ?
+effectuer, et la valeur du prochain ?tat.
+Par exemple, rule(1)(0) contient
+l'information ? utiliser quand <code>state==1</code> et
+<code>color==0</code>. En d'autres mots, vous pouvez r?cup?rer l'information
+relative ? votre situation actuelle en utilisant
+<code>rule(etatCourant)(couleurActuelle)</code></p> 
+
+<p>Chaque ensemble d'informations contient trois valeurs.
+La premi?re est le rang de la couleur ? mettre sur le sol.
+La deuxi?me est le mouvement ? effectuer, avec la notation suivante :
+0=stop, 1=pas de virage, 2=gauche, 4=demi-tour, 8=droite. Veuillez noter que
+si l'instruction est stop, vous ne devez m?me pas avancer sur cette ?tape
+(mais vous ne devez pas arr?ter votre programme pour autant : les prochains
+pas peuvent faire quelque chose d'autre). Finalement, le troisi?me entier
+est la valeur du prochain <code>state</code> ? avoir apr?s cette it?ration.</p> 
+
+<p>Puisque ces notations arbitraires sont parfois difficiles ? se souvenir,
+vous devriez d?finir un ensemble de constantes que vous pouvez utiliser ? la
+place des valeurs num?riques. Leurs noms pourraient ?tre GAUCHE, DROITE,
+etc.
+D?clarez simplement ces valeurs avec le mot-cl? <code>val</code> au
+lieu de <code>var</code>. De toute fa?on, on devrait toujours utiliser
+<code>val</code> au lieu de <code>var</code> quand on peut.
+
+
+Vous devriez les ?crire en dehors de toute m?thode pour les rendre visible
+de partout.</p>
+
+<p>Utilisez de telles constantes aident beaucoup ? rendre le code plus lisible.
+Comparez les deux morceaux de code suivant:</p> 
+
+<pre>if (rule(etat)(couleurActuelle)(MVT_SUIVANT) == GAUCHE) {
+    gauche()
+}</pre>
+<p>C'est un peu plus long, mais bien plus agr?able ? lire que ceci&nbsp;:</p>
+<pre>if (rule(i)(j)(1) == 2) {
+    gauche()
+}</pre>
+ 
+ <p>Vous devriez probablement utiliser un filtrage
+pour que votre code reste lisible. Si vous avez oubli? ce que c'est,
+retournez ? <a href="plm://lessons.welcome/bdr.BDR2">cet exercice</a>.</p>
+
+<p>Vous devriez maintenant avoir assez d'informations pour r?ussir.</p>
+
+<h2>Notes bibliographiques</h2>
+<p>D'apr?s Wikipedia, les turmites ont ?t? invent?s ind?pendamment ? la fin des
+ann?es 80. Il a ?t? d?montr? que les turmites en g?n?ral sont exactement
+?quivalent en terme de puissance ? des machines de Turing ? une dimension
+avec un ruban infini, et peut donc simuler les autres. Cela signifie
+qu'absolument tous les programmes auxquels vous pouvez penser peuvent
+th?oriquement ?tre calcul? sur cet outil.</p>
