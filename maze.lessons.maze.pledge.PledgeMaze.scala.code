@@ -1,10 +1,12 @@
 override def run() {
-  keepHandOnSideWall()
+  while (!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
 }
 
 def keepHandOnSideWall() = {
 	var sommeAngle:Int = 0
-  while (!estSurBiscuit()) {
+  while (estFaceMur() || sommeAngle != 0) {
     while (estFaceMur()) {
       droite()
       sommeAngle -= 1
