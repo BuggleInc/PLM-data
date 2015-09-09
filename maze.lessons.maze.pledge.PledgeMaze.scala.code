@@ -17,41 +17,49 @@ override def run() {
 
 def keepHandOnSideWall()
 { 
-  var SommedesVirages = -1
-  do{
-    var murGauche = testMurGauche()
-    if (!murGauche)
-    {
-      gauche()
-      avance()
-      SommedesVirages += 1
-    }
-    if (murGauche && estFaceMur())
-    {
-      droite()
-      SommedesVirages += -1
-    }
-    if (murGauche && !estFaceMur())
-    {
-      avance()
-    }
-  }while (SommedesVirages != 0) 
-}
+  if(!estSurBiscuit())
+  {
+    var SommedesVirages = -1
+    do{
+      if(estSurBiscuit())
+      {
+        prendBiscuit()
+      }
+      var murGauche = testMurGauche()
+      if (!murGauche)
+      {
+        gauche()
+        avance()
+        SommedesVirages += 1
+      }
+      if (murGauche && estFaceMur())
+      {
+        droite()
+        SommedesVirages += -1
+      }
+      if (murGauche && !estFaceMur())
+      {
+        avance()
+      }
+    }while (SommedesVirages != 0) 
+  }
 
-def isDirectionFree(dir : Direction) : Boolean =
-{
-  var direction = getDirection()
-  setDirection(dir)
-  if (estFaceMur())
+  def isDirectionFree(dir : Direction) : Boolean =
   {
-    setDirection(direction)
-    return false
+    var direction = getDirection()
+    setDirection(dir)
+    if (estFaceMur())
+    {
+      setDirection(direction)
+      return false
+    }
+    else
+    {
+      setDirection(direction)
+      return true
+    }
   }
-  else
-  {
-    setDirection(direction)
-    return true
-  }
+  else prendBiscuit()
 }
 
 def testMurGauche() : Boolean =
