@@ -1,0 +1,71 @@
+def growFlowers() {
+  
+  faireDemi()
+  descendre()
+  faireDemi()
+  
+}
+
+def faireFleur(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance(2)
+  recule()
+  gauche()
+  avance()
+  recule(2)
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  droite()
+  leveBrosse()  
+}
+
+def faireFleurDuo(c1:Color,c2:Color) {
+  faireFleur(c1)
+  avance(3)
+  faireFleur(c2)
+  recule(5)
+}
+
+def faireFleurTrio(cCote:Color,cCentre:Color) {
+  faireFleur(cCote)
+  avance(3)
+  faireFleur(cCentre)
+  avance(3)
+  faireFleur(cCote)
+  recule(3)
+}
+
+def faireDemi() {
+  
+  faireFleurDuo(Color.RED,Color.CYAN)
+  droite()
+  avance(4)
+  gauche()
+  faireFleurDuo(Color.PINK,Color.GREEN)
+  gauche()
+  avance(2)
+  droite()
+  avance(2)
+  faireFleurTrio(Color.ORANGE,Color.BLUE)
+  gauche()
+  avance(2)
+  droite()
+  faireFleurDuo(Color.RED,Color.CYAN)
+  droite()
+  avance(4)
+  gauche()
+  faireFleurDuo(Color.PINK,Color.GREEN)
+}
+
+def descendre() {
+  
+  gauche()
+  avance()
+  droite()
+  recule(8)
+  droite()
+  avance(5)
+  gauche()
+  
+}

@@ -1,0 +1,28 @@
+/*def golomb(num:Int): Int = {
+  var T = new Array[Int] (num)
+  
+  for (i<-0 to num -1) T(i)=1
+  T(1)=2
+  var l : Int= 0
+  
+  while (l<num) {
+    var j=T(l)
+    for (k<-l to num -1) {
+      
+      if (T(k)==1) T(k) = j
+    }
+    
+    l = l+1
+    
+      
+    }
+  return T(num-1)
+  
+  }*/
+
+def golomb(num:Int): Int = {
+  
+  if (num==1) return 1
+  else return (1+ golomb(num-golomb(golomb(num-1))))
+}
+  

@@ -1,0 +1,71 @@
+override def run() {
+  
+  for (i<-1 to 4) {
+    faireMotif()
+    positionSuivante()
+  }
+  
+}
+
+def marque(c:Color) {
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+  
+  def faireGauche(c:Color) {
+    avance()
+    marque(c)
+    gauche()
+    avance()
+    gauche()
+    avance()
+    marque(c)
+    gauche()
+    avance()
+    gauche()
+    
+  }
+  
+  def faireDroite(c:Color) {
+    marque(c)
+    avance()
+    gauche()
+    avance()
+    marque(c)
+    gauche()
+    avance()
+    gauche()
+    avance()
+    gauche()    
+  }
+  
+  def faireMotif() {
+    faireGauche(Color.RED)
+    avance(2)
+    faireDroite(Color.BLUE)
+    recule(2)
+    gauche()
+    avance(2)
+    droite()
+    faireDroite(Color.YELLOW)
+    avance(2)
+    faireGauche(Color.GREEN)
+    // se remet en position initiale
+    recule(2)
+    gauche()
+    recule(2)
+    droite()
+  }
+  
+  def positionSuivante() {
+    if (getX()==4) {
+      if (getY()!=3) {
+        recule(4)
+        gauche()
+        avance(4)
+        droite()
+      }
+    }
+    else avance(4)
+  }
