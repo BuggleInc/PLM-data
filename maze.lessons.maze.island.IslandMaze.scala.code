@@ -1,17 +1,10 @@
 override def run() {
-  while(getY()!=1){
-    while((!mG())&&estFaceMur()){
-      droite()
-    }
-    avance();gauche()
-  }
-  
-  
-  
-  while(!estSurBiscuit()){
-		keepHandsOnSideWall()    
-  }
-  prendBiscuit()
+	if((getDirection()==Direction.NORD)&&estFaceMur()&&(getY()!=1)){
+    do{
+      keepHandsOnSideWalls()
+    }while(getDirection()!=Direction.NORD)
+    
+  } 
 }
 
 def mG() : Boolean = {
