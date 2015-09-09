@@ -1,17 +1,26 @@
-while(!estFaceMur() || estSurBiscuit){
-  retourne()
-  while (!estSurBiscuit()){
+var fin:Boolean=false
+retourne()
+while(!estFaceMur()){
+  while (estSurBiscuit()==false && estFaceMur==false ||estFaceMur==false && fin==true){
     avance()
+    if (estFaceMur==true && estSurBiscuit()==false){
+      fin=true
+    }
   }
-  prendBiscuit()
-  retourne()
-  while (!estSurBiscuit()){
-    avance()
+  if (estSurBiscuit){
+    prendBiscuit()
+    retourne()
+    while (!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    recule()
+    retourne()
   }
-  recule()
-  poseBiscuit() 
 }
-  droite()
-  avance()
-  gauche()
-  avance()
+
+droite()
+avance()
+gauche()
+avance()
