@@ -1,11 +1,16 @@
+
 override def run() {
   var xf:Int = getWorldWidth() - 1
   var yf:Int = getWorldHeight() - 1
   var counter:Int = 0
   
-  while (! (xf == getX() && yf == getY()) ){
+  while (true){
       
    	writeMessage(counter)
+    
+    if (xf == getX() && yf == getY()){
+      return
+    }
     
   	if (getY() + 1 <= yf){
       setPos(getX(), getY() + 1)
@@ -17,5 +22,4 @@ override def run() {
     counter += 1
 	}
   
-  writeMessage(counter)
 }
