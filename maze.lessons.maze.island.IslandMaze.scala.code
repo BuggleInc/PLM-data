@@ -1,0 +1,36 @@
+override def run() {
+  while (!estSurBiscuit()) {
+    while (getDIrection()==Direction.NORD && !estFaceMur()) {
+      avance()
+    }
+    while (keepHandOnSideWall() && !estFaceMur() && getDIrection()!=Direction.NORD) {
+      avance()
+    	if (estFaceMur() && keepHandOnSideWall() && !estSurBiscuit()) {droite()}
+    	else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
+    	else if(!keepHandOnSideWall()) {gauche();avance()}
+    }
+    if (!keepHandOnSideWall() && !estFaceMur()) {
+      droite()
+      if (!keepHandOnSideWall() && !estFaceMur()) {gauche();avance()}
+      else {retourne();avance()}
+    }
+    
+  }
+  def keepHandOnSideWall(): Boolean = {
+    gauche()
+    if (estFaceMur()){droite();return true}
+    else {droite();return false}
+  }
+  
+  def findNorth() {
+    getDirection() match {
+      case Direction.NORD => if (!estFaceMur()) {avance()}
+      case Direction.OUEST => droite()
+      case Direction.SUD => retourne()
+      case Direction.EST => gauche()
+    }
+  }
+  
+  prendBiscuit()
+  
+}
