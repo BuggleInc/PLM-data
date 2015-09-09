@@ -1,9 +1,10 @@
 override def run() {
-	if((getDirection()==Direction.NORD)&&estFaceMur()&&(getY()!=1)){
-    do{
-      keepHandsOnSideWall()
-    }while(getDirection()!=Direction.NORD)
-    
+	while(getY()!=1)
+  {
+  	if((getDirection()==Direction.NORD)&&(!estFaceMur()))
+    {
+  	  avance()
+  	}  
   } 
 }
 
