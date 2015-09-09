@@ -28,7 +28,13 @@ def keepHandOnSideWall()
     droite()
     if (estFaceMur()) //mur en face de soi ? on part à droite
     {
-    	droite()
+      droite()
+      if (estFaceMur())  // cul de sac ???
+      {
+        gauche()
+        recule()
+        droite()
+      }
       avance()
     }
     else  //pas de mur ? on peut continuer tout droit
