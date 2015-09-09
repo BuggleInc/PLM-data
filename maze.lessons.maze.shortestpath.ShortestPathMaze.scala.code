@@ -29,5 +29,39 @@ def DetectBiscuit():Array[Int]={
 def Numerotation(T: Array[Int]){
   var BiscuitX = T(0);
   var BiscuitY = T(1);
+  var c=0
   setIndication(BiscuitX, BiscuitY, 0)
+  
+}
+
+// fais toutes les vérifs nécessaires et marque les 4 cases autour de X,Y
+def MarquageCaseSuivante(X:Int, Y:Int, c:Int){
+  if(!aMurNord(X, Y)){
+    if (VerifCase(X, Y-1, c+1)){
+      setIndication(X, Y-1, c+1);
+    }
+  }
+  if(!aMurOuest(X, Y)){
+    if (VerifCase(X-1, Y, c+1)){
+      setIndication(X-1, Y, c+1);
+    }
+  }
+  if(!aMurNord(X, Y+1)){
+    if (VerifCase(X, Y+1, c+1)){
+      setIndication(X, Y+1, c+1);
+    }
+  }
+  if(!aMurOuest(X+1, Y)){
+    if (VerifCase(X+1, Y, c+1)){
+      setIndication(X+1, Y, c+1);
+    }
+  }
+}
+
+//si VerifCase renvoie false, c'est qu'il ne faut pas réécrire !
+def VerifCase(X:Int, Y:Int, c:Int):Boolean={
+  if(getIndication(X, Y)!='' && getIndication(X, Y)<c){
+    return false
+  }
+  return true
 }
