@@ -13,21 +13,12 @@ def tri(tab:Array[Int]):Unit ={
   var estTrie=false
   while (estTrie) {
     for (i<-0 to l-1){
-      trie2(tab(i),tab(i+1))
+        if (nums(i+1)<nums(i)) {
+    			nums(i)=nums(i+1)-nums(i)
+    			nums(i+1)=nums(i+1)-nums(i)
+    			nums(i)=nums(i+1)+nums(i)
     }
     estTrie=verifTrie()
-  }
-}
-
-
-
-
-
-def tri2 (a:Int,b:Int):Unit ={
-  if (b<a) {
-    a=b-a
-    b=b-a
-    a=b+a
   }
 }
 
