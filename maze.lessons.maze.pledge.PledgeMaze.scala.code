@@ -61,13 +61,21 @@ override def run()
   
   while(!estSurBiscuit())
   {
-    if (gaucheLibre())
+    if (gaucheLibre() && isDirectionFree(Direction.NORD))
     {
-      if (isDirectionFree(Direction.NORD))
-      {
-        setDirection(Direction.NORD)
-      	avance()
-      }
+      tombe = true
+    }
+    else if (!isDirectionFree(Direction.NORD))
+    {
+      tombe = false
+    }
+    
+    
+    
+    if (tombe)
+    {
+      setDirection(Direction.NORD)
+      avance()
     }
     else
     {
