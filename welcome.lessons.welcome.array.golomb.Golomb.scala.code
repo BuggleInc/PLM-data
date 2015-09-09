@@ -1,9 +1,10 @@
 def golomb(num:Int): Int = {
   var a =1
   var b= 1
+  var c= 1
   var T = new Array[Int] (num) 
   
-  for (cpt1 <- 1 to num) {
+  for (cpt1 <- 0 to num) {
     if (b>0) {
       T(cpt1)=a
       b-=1
@@ -11,6 +12,8 @@ def golomb(num:Int): Int = {
     else {
       a+=1
       T(cpt1)=a
+      b=T(c)
+      c+=1
     }
   }
   return a
