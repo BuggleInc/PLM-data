@@ -5,8 +5,10 @@ def golomb(num:Int): Int = {
   for (k <- 0 to num-1) {
     var j = 0
     while (compteur(tab, k+1) != tab(k)) {
+      if (repere+j <= num) {
       tab(repere+j)=k+1
       j = j + 1
+      }
     }
     if (j<=num-1) {
     tab(j)=k+2
