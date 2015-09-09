@@ -1,0 +1,26 @@
+override def run() {
+  val T : Array[Color] = definirCouleurs()
+  
+}
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def definirCouleurs():Array[Color]={
+  var T = new Array[Color](getMondeLargeur())
+  for (i <- 0 to getMondeLargeur()-1){
+    T(i)=(getCouleurSol())
+    avance()
+  }
+  return T
+}
+
+def faireLigneCouleurs(T:Array[Color]){
+  for (i <- 0 to getMondeLargeur()-1){
+    setCouleurBrosse(T(i))
+    marquerSol()
+    avance()
+  }
+}
