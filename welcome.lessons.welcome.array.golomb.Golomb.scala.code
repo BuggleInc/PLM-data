@@ -1,0 +1,29 @@
+def golomb(num:Int): Int = {
+  var Tx = new Array[Int] (num);
+  var Ty = new Array[Int] (num);
+  var i = 2
+  var pointeur = 3
+  Tx(0)=1
+  Ty(0)=1
+  Tx(1)=2
+  Ty(1)=2
+  Ty(2)=2
+  
+  for (t <- 2 to num-1) {
+    Tx(t)=t+1
+  }
+  
+  while (pointeur<num-1) {
+  x=Tx(i)
+  y=Ty(i)
+  ind=i+1
+   
+  for (j<-1 to (y)) {
+    if (pointeur<num-1) {  
+      Ty(pointeur)=ind
+      pointeur=pointeur+1
+    }
+  }   
+    i=i+1  
+  }
+}
