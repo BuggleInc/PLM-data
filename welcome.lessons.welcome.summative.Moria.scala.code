@@ -14,17 +14,16 @@ def sortir() {
 def chercherBiscuit() {
   //setDirection(Direction.EST)
   
-  if (getX() != getMondeLargeur()-3)  {
     gauche()
     gauche()
     while(!estSurBiscuit()) {
-    avance()
+    if (getX() != getMondeLargeur()-3) avance()
   }
   prendBiscuit()
     droite()
     droite()
     
-  }
+  
   else if (estSurBiscuit()) prendBiscuit()
   
   
@@ -56,7 +55,9 @@ def deposerBiscuit() {
     
   } 
   
-  //else //setDirection(Direction.EST)
+  //else 
+  //setDirection(Direction.EST)
+ 
   
 }
 
@@ -64,4 +65,4 @@ while(!ouvert()) {
   chercherBiscuit()
   deposerBiscuit()
 }
-
+sortir()
