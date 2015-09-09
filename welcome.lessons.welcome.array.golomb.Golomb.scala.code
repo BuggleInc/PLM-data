@@ -2,12 +2,12 @@ def golomb(num:Int): Int = {
   var avance=0
   var test =0
   var nombre=1
-  var T= new Array[Int](num)
+  var T= new Array[Int](num+10)
   T(0)=nombre
-  while (avance<num-1){
+  while (avance<num){
     nombre =nombre+1
     test =T(nombre-1)
-    while (test !=0 && avance < num-1){
+    while (test !=0 && avance < num){
       test=test-1
       avance=avance+1
       T(avance)=nombre
