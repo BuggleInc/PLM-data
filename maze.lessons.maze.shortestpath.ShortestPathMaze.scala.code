@@ -10,53 +10,37 @@ override def run() {
         }
       }
     }
-  var ancien = 0
-  var nouveau = 1
-  while (ancien != nouveau){
-    ancien = nouveau 
-  	for (i <- 0 to getMondeLargeur()-1){
-      for (j <- 0 to getMondeHauteur() -1){
-        if (getIndication(i,j) != 9999){
-          if (i >= 1){
-            if (!aMurOuest(i,j)){
-              if (getIndication(i-1,j) == 9999){
-              	setIndication(i-1,j,getIndication(i,j) + 1);
-                nouveau += 1;
-              }
-            }
-          }
-          if (i <= getMondeLargeur() -2){
-            if (!aMurOuest(i+1,j)){
-              if (getIndication(i+1,j) == 9999){
-              	setIndication(i+1,j,getIndication(i,j) + 1);
-                nouveau += 1;
-              }
-            }
-          }
-          if (j >= 1){
-            if (!aMurNord(i,j)){
-              if (getIndication(i,j-1) == 9999){
-              	setIndication(i,j-1,getIndication(i,j) + 1);
-                nouveau += 1;
-              }
-            }
-          }
-          if (i <= getMondeHauteur() -2){
-            if (!aMurNord(i,j+1)){
-              if (getIndication(i,j+1) == 9999){
-              	setIndication(i,j+1,getIndication(i,j) + 1);
-                nouveau += 1;
-              }
-            }
-          }
-        }
-      }
+  propageIndication()
+  
+}
+
+def propageIndication(x:Int, y:Int){
+  if (!aMurNord()){
+    if (getIndication(x,y-1)>getIndication(x,y)+1){
+      setIndication(x,y-1, getIndication(x,y)+1);
+      propageIndication(x, y-1);
     }
   }
-
-		
-
-
-
-
+  if (!aMurOuest()){
+    if (getIndication(x-1,y)>getIndication(x,y)+1){
+      setIndication(x-1,y, getIndication(x,y)+1);
+      propageIndication(x-1, y);
+    }
+  }
+  setDirection(Direction.EST)
+  if (!estFaceMur()){
+    if (getIndication(x+1,y)>getIndication(x,y)+1){
+      setIndication(x+1,y, getIndication(x,y)+1);
+      propageIndication(x+1, y);
+    }
+  }
+  setDirection(Direction.SUD)
+  if (!estFaceMur()){
+    if (getIndication(x,y+1)>getIndication(x,y)+1){
+      setIndication(x,y+1, getIndication(x,y)+1);
+      propageIndication(x, y+1);
+    }
+  }
+  setDirection(Direction.NORD)
 }
+
