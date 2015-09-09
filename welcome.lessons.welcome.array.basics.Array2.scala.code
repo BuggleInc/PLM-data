@@ -4,5 +4,17 @@ override def run() {
     T(i)=getCouleurSol()
     avance()
   }
+  for (j <- 0 to getMondeLargeur()){
+    var decalage = litMessage().toInt
+    
+    for (k <- 0 to getMondeHauteur-2){
+      setCouleurBrosse(T(k+decalage)%getMondeHauteur())
+      baisseBrosse()
+      droite()
+      gauche()
+      leveBrosse()
+      avance()
+    }
+  }
   
 }
