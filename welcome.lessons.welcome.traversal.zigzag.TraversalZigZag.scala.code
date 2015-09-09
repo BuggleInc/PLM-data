@@ -5,12 +5,10 @@ override def run() {
 def doTheSnakyThing() {
   var compt:Int = 0
   while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
-    pasDeSerpent(compt)
-    compt += getMondeLargeur() - 1
-  }
+    compt += pasDeSerpent(compt)
 }
 
-def pasDeSerpent(compt:Int) {  
+def pasDeSerpent(compt:Int):Int = {  
   var comptLocal:Int = 0
   if (getX() == getMondeLargeur() - 1) {
     setPos(getMondeLargeur() - 1, getY() + 1)
@@ -22,6 +20,7 @@ def pasDeSerpent(compt:Int) {
       ecritMessage(""+(compt+comptLocal)) 
     }
     setPos(0, getY() + 1)
+    comptLocal += 1
   } else {
     ecritMessage(""+compt)
     for (i <- 1 to getMondeLargeur() - 1) {
@@ -30,4 +29,5 @@ def pasDeSerpent(compt:Int) {
       ecritMessage(""+(compt+comptLocal))
     }
   }
+  return comptLocal
 }
