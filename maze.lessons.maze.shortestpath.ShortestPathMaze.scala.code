@@ -1,7 +1,6 @@
 override def run() {
   var X = trouverXBiscuit()
   var Y = trouverYBiscuit()
-  setIndication(X,Y,0)
   numeroterLesCases(X,Y,0)
     // Your code here
 }
@@ -45,8 +44,9 @@ def trouverYBiscuit():Int=
 }
 
 def numeroterLesCases(X:Int, Y:Int, cpt : Int)
-{
+{ //Vérifie, si possible, dans les quatre directions et se relance si la case est accessible avec cpt incrémenté.
   if (!aMurNord(X,Y) && getIndication(X,Y)>cpt && Y>0)
+  //Si la voie est libre au Nord, 
   {
     setIndication(X,Y-1,cpt+1)
     numeroterLesCases(X,Y-1,cpt+1)
