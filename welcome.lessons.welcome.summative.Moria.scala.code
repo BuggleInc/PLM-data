@@ -1,0 +1,51 @@
+def ouvert() :Boolean={
+  if ((getX() == getMondeLargeur()-3) && (!estSurBiscuit())) return true
+  else return false
+  
+}
+
+def sortir() {
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+def chercherBiscuit() {
+  setDirection(Direction.EAST)
+  
+  if (getX() != getMondeLargeur()-3)  {
+    while(!estSurBiscuit()) {
+    avance()
+  }
+  prendBiscuit()
+  }
+  else if (estSurBiscuit()) prendBiscuit()
+  
+  
+}
+def deposerBiscuit() {
+  setDirection(Direction.OUEST)
+  
+  if (getX() != getMondeLargeur()-3)  {
+    
+    
+    
+  }
+  
+  else if (porteBiscuit()) {
+    while(!estSurBiscuit()) {
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  } 
+  
+  else setDirection(Direction.EAST)
+  
+}
+
+while(!ouvert()) {
+  chercherBiscuit()
+  deposerBiscuit()
+}
