@@ -1,15 +1,5 @@
 override def run() {
-  while (getY()>0){
-    while (!(getDirection()==Direction.NORTH)){
-      droite()
-    }
-    if (estFaceMur){
-      longerMur()
-    } else {
-      avance()
-    }
-  }
-  while (!estSurBiscuit()){
+  while (!estSurBiscuit(){
     longerMur()
   }
   prendBiscuit()
@@ -17,21 +7,29 @@ override def run() {
 
 
 def longerMur(){
-  gauche()
-  if (estFaceMur()){
-    droite()
-    if (!estFaceMur()){
-      avance()
-    } else {
+  var nordFree:Boolean=false
+  while(!nordFree()){
+    gauche()
+    if (estFaceMur()){
       droite()
-      if (estFaceMur()){
-        droite()
+      if (!estFaceMur()){
         avance()
       } else {
-        avance()
+        droite()
+        if (estFaceMur()){
+          droite()
+          avance()
+        } else {
+          avance()
+        }
       }
+    } else {
+      avance()
     }
-  } else {
-    avance()
+    if (getDirection==Direction.NORD && !estFaceMur){
+      nordFree=true
+    } else {
+      nordFree=false
+    }
   }
 }
