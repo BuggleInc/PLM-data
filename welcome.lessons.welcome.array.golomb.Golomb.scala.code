@@ -3,8 +3,8 @@ def golomb(num:Int): Int = {
   var repere = 0
   tab(0) = 1
   for (k <- 0 to num-1) {
-    if (compteur(tab, k+1) != tab(k)) {
-      tab(repere) = k
+    if (compteur(tab, k+1) == tab(k)) {
+      tab(repere) = k+2
     }
     repere = k+1
     tab(repere) = k+1
