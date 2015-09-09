@@ -1,0 +1,32 @@
+override def run() {serpent()
+}
+
+def positionFinale(){
+  if(estFaceMur()){
+    gauche()
+    if(estFaceMur()){
+      droite()
+      return true
+    }
+  }
+  return false
+}
+
+def serpent(){
+  var n = 0
+  while(!positionFinale()){
+    if(estFaceMur()){
+      if (n%2 == 0){
+        gauche()
+        avance()
+        droite()
+      }
+      else(){
+        droite()
+        avance()
+        gauche()
+      }
+    }
+    avance()
+  }
+}
