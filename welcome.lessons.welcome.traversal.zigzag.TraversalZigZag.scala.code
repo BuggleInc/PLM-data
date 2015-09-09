@@ -1,5 +1,5 @@
 override def run() {
-  droite()
+  
   var hauteur : Int = getMondeHauteur()
   var largeur : Int = getMondeLargeur()
   
@@ -17,12 +17,16 @@ override def run() {
   
   //---
   def parcourir1() 
-  		{while (!estFaceMur()) {numeroterSol(); setPos(getX()+1,getY())}
+  		{droite();
+       while (!estFaceMur()) {numeroterSol(); setPos(getX()+1,getY())}
+       gauche()
       }
   
   //---
     def parcourir2() 
-  		{while (!estFaceMur()) {numeroterSol(); setPos(getX()-1,getY())}
+  		{gauche();
+       while (!estFaceMur()) {numeroterSol(); setPos(getX()-1,getY())}
+       droite()
       }
   
   
@@ -36,5 +40,4 @@ override def run() {
   while (!positionFinale())
   		{changerLigne(); parcourir2(); changerLigne(); parcourir1()}
 	numeroterSol()
-  gauche()
 }
