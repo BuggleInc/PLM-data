@@ -1,2 +1,34 @@
 override def run() {
+  baisseBrosse()
+  while (!fonctionTest()){
+    serpent()
+  }
+}
+
+
+def fonctionTest(){
+  if (estFaceMur()){
+    if (getDirection()==Direction.NORD){
+      if (estFaceMur())
+      	return true
+  }
+	return false
+}
+
+  
+def serpent(){
+  if (!estFaceMur())
+  	avance()
+    else{
+      if (getDirection()==Direction.OUEST){
+        droite()
+        avance()
+        droite()
+      }
+      else if (getDirection()==Direction.EST){
+        gauche()
+        avance()
+        gauche()
+      }
+  }
 }
