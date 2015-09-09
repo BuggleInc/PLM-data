@@ -1,23 +1,26 @@
 override def run() {
   var northfound=false
   while (!estSurBiscuit()) {
-    if (getY()==0) {northfound==true}
-    if (!northfound) {setDirection(Direction.NORTH); while (!estFaceMur()) {avance()}}
-    println("test0")
-    if (estFaceMur()) { println("test1")
+    if (getY()==0) {northfound=true}
+    if (!northfound) {
+      setDirection(Direction.NORTH)
+      while (!estFaceMur()) {
+        avance()}
+    }
+
+    if (estFaceMur()) { 
       if (keepHandOnSideWall()) {
-        println("test3")
         droite()
         if (estFaceMur()) {droite()}
         else {avance()}
       }
       else {
-        println("test4")
+
         gauche()
         avance()
       }
     }
-    else if (!estFaceMur()){ println("test2")
+    else if (!estFaceMur()){ 
       if (keepHandOnSideWall()) {
         avance()
       }
@@ -29,7 +32,7 @@ override def run() {
     if (estFaceMur()){droite();return true}
     else {droite();return false}
   }
-  
+
   def findNorth() {
     getDirection() match {
       case Direction.NORD => if (!estFaceMur()) {avance()}
@@ -38,7 +41,7 @@ override def run() {
       case Direction.EST => gauche()
     }
   }
-  
+
   prendBiscuit()
-  
+
 }
