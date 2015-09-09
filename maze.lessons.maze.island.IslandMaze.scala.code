@@ -34,18 +34,13 @@ override def run()
   
   while(!estSurBiscuit())
   {
-    if (!murAuNord() && peutAllerAuNord)
+    if (murAuNord() && peutAllerAuNord)
     {
       i = 0
       setDirection(Direction.NORD)
       avance()
     }
-    else if (murAuNord())
-    {
-     	i += 1
-    	keepHandOnSideWall()
-      peutAllerAuNord = false
-    }
+    else 
     
     if (i >= 2)
     {
