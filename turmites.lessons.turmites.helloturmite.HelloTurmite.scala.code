@@ -17,7 +17,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   } else {
     setCouleurBrosse(colors(0)); baisseBrosse(); leveBrosse()
   }
-  rule(state)(a)(MVT_SUIVANT) match {
+  rule(state)(a)(1) match {
     case PAS_DE_VIRAGE => avance()
     case GAUCHE => gauche()
     case DEMI_TOUR => retourne()
