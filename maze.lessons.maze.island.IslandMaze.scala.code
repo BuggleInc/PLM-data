@@ -1,25 +1,9 @@
 override def run() {
-  while (getY()!=0){
-    if (!estFaceMur()){
+  while(!estSurBiscuit){
+    if (!estFaceMur){
       avance()
     }
-    else {
-      if (murGauche()==false){
-        gauche()
-        avance()
-        droite()
-      }
-      else {
-        if (murDroite()==false){
-        droite()
-        avance()
-        gauche()
-      }
-        else keepHandOnSideWall()
-    }
-  }
-  }
-  while(!estSurBiscuit){
+    else
     keepHandOnSideWall()
   }
   prendBiscuit()
@@ -59,3 +43,31 @@ def murDroite():Boolean={
   gauche()
   return p
 }
+
+
+/*override def run() {
+  while (getY()!=0){
+    if (!estFaceMur()){
+      avance()
+    }
+    else {
+      if (murGauche()==false){
+        gauche()
+        avance()
+        droite()
+      }
+      else {
+        if (murDroite()==false){
+        droite()
+        avance()
+        gauche()
+      }
+        else keepHandOnSideWall()
+    }
+  }
+  }
+  while(!estSurBiscuit){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}*/
