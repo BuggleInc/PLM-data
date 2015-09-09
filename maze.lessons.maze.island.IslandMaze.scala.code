@@ -18,6 +18,17 @@ def keepHandOnSideWall() {
 }
 override def run() {
   while (porteBiscuit() == false) {
-    if (estSurBiscuit == true) {prendBiscuit()} else {keepHandOnSideWall()}
+    if (estSurBiscuit == true) {
+      prendBiscuit()
+    } else {
+      while (getY() != 0) {
+        if (estFaceMur() == false) {
+          avance()
+        } else {
+          keepHandOnWallSide(); setDirection(dir:Direction.NORD)
+        }
+      }
+      keepHandOnSideWall()
+    }
   }
 }
