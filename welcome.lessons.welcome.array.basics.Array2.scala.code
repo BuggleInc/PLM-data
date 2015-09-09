@@ -1,0 +1,43 @@
+override def run() {
+  
+  var C = new Array[Color](getMondeHauteur())
+  while(!estFaceMur())
+  {
+    C(i) = getCouleurSol()
+    avance()
+  }
+  
+  for(i<-1 to getMondeLargeur()-1)
+  {
+    init()
+    write(C)
+  }
+  
+}
+
+
+
+def paint() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def write(C:Array[Color]) = {
+  for(i <- C )
+  {
+    setCouleurBrosse(i)
+    paint()
+    avance()
+  }  
+}
+
+def init() {
+  retourne()
+  while(!estFaceMur())
+  {
+    avance()
+  }
+  droite()
+  avance()
+  droite()
+}
