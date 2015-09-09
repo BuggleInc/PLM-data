@@ -8,7 +8,9 @@ def golomb(num:Int): Int = {
       tab(repere+j)=k+1
       j = j + 1
     }
-    tab(j-1)=k+2
+    if (j<=num-1) {
+    tab(j)=k+2
+    }
     repere = j    
   }
   return tab(num-1)
