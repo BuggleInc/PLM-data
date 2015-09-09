@@ -13,10 +13,10 @@ override def run() {
     if(x< getMondeLargeur()-1 && !aMurOuest(x+1,y)){setIndication(x+1,y,i+1);indic(x+1,y,i+1)}
   }
 
-  do {
+  while( !aBiscuit(x,y) && x< getMondeLargeur()-1)    {
       while(!aBiscuit(x,y) && y < getMondeHauteur()-1){y+=1}
-      y=0;x+=1
-    }while( !aBiscuit(x,y) && x< getMondeLargeur()-1) 
+    if(!aBiscuit(x,y)){y=0;x+=1}
+    } 
     setIndication(x,y,0)
 	
   indic(x,y,0)
