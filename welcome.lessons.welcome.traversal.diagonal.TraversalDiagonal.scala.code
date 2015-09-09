@@ -6,7 +6,7 @@ def doTheThing() {
   var diag:Int = 1
   var compt:Int = 0
   ecritMessage(""+compt)
-  setPos(getX(), getY() - 1)
+  setPos(getX(), getY() + 1)
   while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
     compt += doTheDiag(compt, diag)
     diag += 1
@@ -15,9 +15,8 @@ def doTheThing() {
 
 def doTheDiag(compt:Int, diag:Int):Int = {
   var comptLocal:Int = 0
-  var i:Int = 0
-  while ((getX() != getMondeLargeur() - 1) || (getY() == getMondeHauteur - 1)) {
-    setPos(i, i + getMondeHauteur() - 1 - diag)
+  for (i <- Math.max(0, diag - 6) to Math.min(diag, getMondeLargeur() - 1))
+    setPos(i, diag - i)
     comptLocal += 1
     ecritMessage(""+(compt+comptLocal))
     i += 1
