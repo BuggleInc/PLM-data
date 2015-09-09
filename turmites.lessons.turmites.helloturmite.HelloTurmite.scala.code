@@ -13,7 +13,11 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
       a = i
     }
   }
-  setCouleurBrosse(colors(a)); baisseBrosse(); leveBrosse()
+  if (a <= colors.length-2) {
+    setCouleurBrosse(colors(a+1)); baisseBrosse(); leveBrosse()
+  } else {
+    setCouleurBrosse(colors(0)); baisseBrosse(); leveBrosse()
+  }
   if (rule(state)(a)(MVT_SUIVANT) == 'R') {droite(); avance()}
   rule(state)(a)(MVT_SUIVANT) match {
     case 
