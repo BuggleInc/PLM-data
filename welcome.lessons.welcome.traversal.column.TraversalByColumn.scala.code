@@ -1,14 +1,19 @@
 var cpt=0
 override def run() {
-  var h:Int=getMondeHauteur
-  var l:Int=getMondeLargeur
-  var x:Int=0
-  var y:Int=0
-  setPos(0,0)
-  do{
-    for (i<- 0 to 42)
-    setPos(x,y+1)
+  var h=getMondeHauteur
+  var l=getMondeLargeur
+  //var x:Int=0
+  //var y:Int=0
+    for (x <- 0 to h-1){
+      setPos(x,y)
+    	cpt+=1
+    	ecritMessage(cpt)
+    }
+  for (y <- 0 to l-1){
     cpt+=1
     ecritMessage(cpt)
-  } while(!(h==0))
+  }
+  
+    
+  } 
 }
