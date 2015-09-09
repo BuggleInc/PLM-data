@@ -6,7 +6,11 @@ override def run() {
   while(!estSurBiscuit){
     var angleSom=0
     var meDir=getDirection()
-    keepHandOnSideWall
+    do{
+      angleSom= angleSom + keepHandOnSideWall()
+    }while(angleSom !=0 && estSurBiscuit() && getDirection()!= meDir
+    }
+   
   }
   prendBiscuit()
 }
