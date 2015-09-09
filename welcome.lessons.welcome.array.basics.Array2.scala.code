@@ -9,19 +9,16 @@ override def run() {
     gauche()
     avance()
     val decalage = litMessage().toInt
-    droite()    
-      for(k <- 0 to getMondeLargeur()-2){
-    	setCouleurBrosse(T(k))
+    droite()
+    
+    for(k <- 0 to getMondeLargeur()-2){
+    	setCouleurBrosse(T((i + decalage) % getMondeLargeur()))
       avance()
     	baisseBrosse()
       leveBrosse()
       } 	 
     recule(getMondeLargeur()-1)
   }
-  
-  
-
-//	(i + 1) % getMondeLargeur
 }
   
 
