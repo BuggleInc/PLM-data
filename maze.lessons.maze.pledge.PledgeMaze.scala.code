@@ -19,25 +19,7 @@ def keepHandOnSideWall()
 { 
   var SommedesVirages = -1
   var murGauche = testMurGauche()
-  if (!murGauche)
-  {
-    gauche()
-    avance()
-    SommedesVirages += 1
-  }
-  if (murGauche && estFaceMur())
-  {
-    droite()
-    SommedesVirages += -1
-  }
-  if (murGauche && !estFaceMur())
-  {
-    avance()
-  }
-  while (SommedesVirages != 0)
-  {
-    var murGauche = testMurGauche()
-    SommedesVirages +=1
+  do{
     if (!murGauche)
     {
       gauche()
@@ -53,7 +35,7 @@ def keepHandOnSideWall()
     {
       avance()
     }
-  }
+  }while (SommedesVirages != 0) 
 }
 
 def isDirectionFree(dir : Direction) : Boolean =
