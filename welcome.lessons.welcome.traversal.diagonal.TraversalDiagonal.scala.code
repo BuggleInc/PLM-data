@@ -1,0 +1,25 @@
+var d = 0;
+override def run() {
+  h = 7
+  var nbDiag = h*2 -1
+  var compteur = 0
+  var i=0
+  
+  for (d <- 0 to nbDiag-1){
+    
+  	if (d <=h){
+      for (cases <- 0 to d){
+        setPos(d-cases,cases)
+        writeMessage(compteur)
+        compteur=compteur+1
+      }
+    }else{
+      for (cases <- 0 to d-i){
+        setPos(h-i,i)
+        writeMessage(compteur)
+        compteur = compteur +1
+        i =i+1
+      }
+    }
+  }
+}
