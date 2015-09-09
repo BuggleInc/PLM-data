@@ -1,9 +1,9 @@
 override def run() {
     
-  def indic() {
+  def trouveSortie():Int ={
     var  x= 0
     var y = 0
-		while( !aBiscuit(x,y) && x<= getMondeLargeur())    {
+		while( !aBiscuit(x,y) && x<= getMondeLargeur()-1)    {
       while(!aBiscuit(x,y) && y <= getMondeHauteur()-1){
         y+=1
         
@@ -12,7 +12,16 @@ override def run() {
       x+=1
     } 
     setIndication(x,y,0)
-    
+    return x,y   
+   }
+  
+  def indic(x:Int, y:Int, i:Int){
+		if(!aMurNord(x,y)){indic(x,y-1,i+1)} 
+    if(!aMurSud(x,y)){indic(x,y+1,i+1)}
+    if(!aMurOuest(x,y)){indic(x-1,y,i+1)}
+    if(!aMurEst(x,y)){indic(x+1,y,i+1)}
   }
-  indic()
+  
+	x,y = trouveSortie
+  indic(x,y)
 }
