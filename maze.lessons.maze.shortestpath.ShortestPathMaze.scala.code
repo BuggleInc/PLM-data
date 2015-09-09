@@ -15,13 +15,13 @@ override def run() {
 }
 
 def propageIndication(x:Integer, y:Integer){
-  if (!aMurNord()){
+  if (!aMurNord(x,y)){
     if (getIndication(x,y-1)>getIndication(x,y)+1){
       setIndication(x,y-1, getIndication(x,y)+1);
       propageIndication(x, y-1);
     }
   }
-  if (!aMurOuest()){
+  if (!aMurOuest(x,y)){
     if (getIndication(x-1,y)>getIndication(x,y)+1){
       setIndication(x-1,y, getIndication(x,y)+1);
       propageIndication(x-1, y);
