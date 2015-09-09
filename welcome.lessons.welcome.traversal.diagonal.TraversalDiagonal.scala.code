@@ -4,11 +4,20 @@ override def run() {
 def doTheThing() {
   var diag:Int = 0
   var compt:Int = 0
-  while ()
+  while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
+    compt += doTheDiag(compt, diag)
+    diag += 1
+  }
 }
 
-def doTheDiag(compt:Int):Int = {
-  
+def doTheDiag(compt:Int, diag:Int):Int = {
+  var comptLocal:Int = 0
+  var i:Int = Math.max(0, diag - 6)
+  while (getX() != getMondeLargeur() - 1 || getY() == getMondeHauteur - 1) {
+    setPos(i, i + GetMondeHauteur() - 1 - diag)
+    comptLocal += 1
+    ecrireMessage(""+(compt+comptLocal))
+    i += 1
+  }
+  return comptLocal
 }
-
-	
