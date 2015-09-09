@@ -2,7 +2,17 @@ override def run() {
   var sommeDesVirages = 0
   while (!estSurBiscuit())
   {
-    sommeDesVirages += keepHandOnSideWall()
+    if (isDirectionFree(Direction.NORD))
+    {
+      setDirection(Direction.NORD)
+      avance()
+    }
+    else
+    {
+      droite()
+      sommeDesVirages += keeHandOnSideWall()
+      
+    }
   }
   prendBiscuit()
 }
@@ -14,12 +24,12 @@ def keepHandOnSideWall():Int=
   {
     gauche()
     avance()
-    return -1
+    return +1
   }
   if (murGauche && estFaceMur())
   {
     droite()
-    return +1
+    return -1
   }
   if (murGauche && !estFaceMur())
   {
