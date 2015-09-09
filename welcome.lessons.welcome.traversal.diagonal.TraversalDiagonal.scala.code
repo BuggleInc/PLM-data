@@ -1,18 +1,18 @@
 var diag = 0;
 override def run() {
-  var x:Double=0
-  var y:Double=0
+  var x=0
+  var y=0
   val x2=getMondeLargeur()
   val y2=getMondeHauteur()
   var cmpt=0
   while (!arrive()) {
     ecritMessage(cmpt)
 		x=x+1;y=y+1
-    if (estBord(x,y)) {
-      if (x==-1) {y=y+1;x=0} else {x=x+1;y=0}
+    if (!estFaceMur()) {
+      if (x==0) {y=y+1} else {x=x+1}
       while (!estBord(x,y)) {x=x-1;y=y-1}
     }
-    if (x==-1) {y=y-1;x=0} else {x=x-1;y=0}
+    if (x==-1) {y=y+1;x=0} else {x=x+1;y=0}
     setPos(x,y)
     cmpt=cmpt+1
   }
@@ -27,8 +27,8 @@ def arrive ():Boolean ={
   return ((x==x2-1)&&(y==y2-1))
 }
 
-def estBord (x:Double,y:Double):Boolean ={
+def estBord (x:Int,y:Int):Boolean ={
   val x2=getMondeLargeur()
   val y2=getMondeHauteur()
-  return ((x==x2)||(y==y2)||(x==-1)||(y==-1))
+  return ((x==x2)||(y==y2)||(x==0)||(y==0))
 }
