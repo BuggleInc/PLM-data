@@ -1,2 +1,21 @@
 
-System.out.println(Direction.EAST)
+for (i <- 1 to 10){
+  
+  getDirection() match{
+    case Direction.EAST =>
+    	if (isOverBaggle()){
+        pickupBaggle()
+        setDirection(Direction.WEST)
+      }else{
+        forward()
+      }
+    
+    case Direction.WEST =>
+    	if (isOverBaggle()){
+        pickupBaggle()
+				setDirection(Direction.EAST)
+      }else{
+        forward()
+      }
+  }
+}
