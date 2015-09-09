@@ -1,4 +1,4 @@
-if (!sortieTrouvee()) {
+while (!sortieTrouvee()) {
   var Baggle:Int = 0 ;
   var CaseCouloirUn:Int = 0;
   for (CaseCouloirUn <- 0 to 4) {
@@ -7,16 +7,15 @@ if (!sortieTrouvee()) {
     }
     avance();
   }
-} else if (Baggle >= 3); (!sortieTrouvee()) {
-  gauche();
-  avance()
-  var Baggle:Int = 0 ;
-  var CaseCouloirDeux:Int = 0;
-  for (CaseCouloirDeux <- 0 to 3) {
-     if (estSurBiscuit()) 
-    Baggle = Baggle + 1;
-       }
-       avance();
+  if (Baggle >= 3); (!sortieTrouvee()) {
+    gauche();
+    avance();
+    var Baggle:Int = 0 ;
+    for (CaseCouloirDeux <- 0 to 3) {
+      if (estSurBiscuit()) {
+        Baggle = Baggle + 1;
+      }
+      avance();
     }
   } else if (Baggle <= 2) {
     droite();
@@ -30,3 +29,4 @@ if (!sortieTrouvee()) {
       avance();
     }
   }
+}
