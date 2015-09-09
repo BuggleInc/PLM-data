@@ -1,0 +1,34 @@
+def petales(x:Int, y:Int, c:Color){
+	setPos(x,y)
+  marque(Color.YELLOW)
+  for (i <- 0 to 3){
+    avance()
+    marque(c)
+    recule()
+    droite()
+  }
+}
+
+
+
+def marque(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def growFlowers(){
+  for (i <- 0 to 1){
+    for (j <- 0 to 1){
+  petales(2+8*i,2+8*j,Color.RED)
+  petales(6+8*i,2+8*j,Color.CYAN)
+  petales(2+8*i,6+8*j,Color.PINK)
+  petales(6+8*i,6+8*j,Color.GREEN)
+  petales(4+8*i,4+8*j,Color.ORANGE)
+  setPos(1,6)
+    }
+  }
+  petales(8,4,Color.BLUE)
+  petales(8,12,Color.BLUE)
+  setPos(9,14)
+}

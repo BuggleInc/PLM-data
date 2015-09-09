@@ -1,0 +1,24 @@
+def array667(nums:Array[Int]): Int = {
+  var six = false
+  var nb = 0
+  for ( i <- 0 to nums.length - 1){
+    if (six){
+      if (nums(i) == 7){
+        nb += 1;
+        six = false;
+      }
+      else if (nums(i) == 6){
+        nb += 1;
+      }
+      else{
+        six = false;
+      }
+    }
+    else{
+      if (nums(i) == 6){
+        six = true;
+      }
+    }
+  }
+  return nb
+}

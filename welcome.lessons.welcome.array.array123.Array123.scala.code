@@ -1,0 +1,23 @@
+def array123(nums:Array[Int]): Boolean = {
+  var un = false
+  var deux = false
+  for (i <- 0 to nums.length -1){
+    if (deux && nums(i) == 3){
+      return true;
+    }
+    else if (deux && nums(i) != 3){
+      un = false;
+      deux = false;
+    }
+    if (un && nums(i) == 2){
+      deux = true;
+    }
+    else if (un && nums(i) != 2){
+      un = false;
+    }
+    if (!un && nums(i) == 1){
+      un = true;
+    }
+  }
+  return false
+}

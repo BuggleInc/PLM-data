@@ -1,0 +1,25 @@
+var rechercheBiscuit = true
+var rangBiscuit = 0
+droite()
+droite()
+while(getX() != 18 || estSurBiscuit()){
+  if (estSurBiscuit()){
+    prendBiscuit();
+    setPos(rangBiscuit + 1, getY());
+		while (estSurBiscuit()){
+      rangBiscuit += 1;
+      setPos(rangBiscuit + 1, getY());
+    }
+    poseBiscuit();
+    avance();
+    rangBiscuit += 1;
+  }
+  else{
+    avance();
+  }
+}
+droite()
+avance()
+gauche()
+avance()
+
