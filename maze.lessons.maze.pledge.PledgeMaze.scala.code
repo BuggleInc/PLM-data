@@ -10,12 +10,12 @@ def auxaux():Int = {var d = 0
              droite();if (estFaceMur()) {return 3}
              return -1
              }
-def aux():Boolean ={avance();return auxaux() != -1}
+def aux():Boolean ={avance();var c = auxaux();recule();return c != -1}
  
-def chercheMur():Int = {var b = false;var d = 0;var e = -1;if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
-                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
-                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
-                        d = d+1;droite();if (!estFaceMur()) {avance();b=true};if (aux()) e=d;if (b) {recule}  
+def chercheMur():Int = {var d = 0;var e = 0;if (aux()) e=d 
+                        d = d+1;droite();if (aux()) e=d
+                        d = d+1;droite();if (aux()) e=d
+                        d = d+1;droite();if (aux()) e=d
                         droite();return e
                  				}	
 
@@ -61,7 +61,7 @@ def garM(c:Int):(Int) = {
         var c2 = c
        	for (i <- 0 to d-1) {droite();c2=c2+1}
         avance()
-        return c2
+        return c
       }
     }
   }
