@@ -15,20 +15,22 @@ override def run() {
 def keepHandOnSideWall()
 {  
   var murGauche = testMurGauche()
+  var sortieBoucle = false
   if (estFaceMur())
   {
     droite()
+    sortieBoucle = true
   }
-  if (!murGauche)
+  if (!murGauche && !sortieBoucle)
   {
     gauche()
     avance()
   }
-  if (murGauche && estFaceMur())
+  if (murGauche && estFaceMur() && !sortieBoucle)
   {
     droite()
   }
-  if (murGauche && !estFaceMur())
+  if (murGauche && !estFaceMur() && !sortieBoucle)
   {
     avance()
   }
