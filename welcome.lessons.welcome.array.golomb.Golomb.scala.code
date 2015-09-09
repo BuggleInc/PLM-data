@@ -3,6 +3,9 @@ def golomb(num:Int): Int = {
   tab(0) = 1
   var flag = 1
   for (k <- 0 to num-1) {
+    if (k==0) {
+      tab(k) = 2
+    }
     var nb = tab(k)
     for (j <- flag to (flag+nb)) {
       if (j <= num-1) {
