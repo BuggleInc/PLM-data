@@ -1,5 +1,31 @@
- def hunt(c:Color) {
-     // Write your code here
- }
+def hunt(c:Color) {
+  do {
+    if (isFacingTrail()==true){
+      baisseBrosse()
+      avance()
+      leveBrosse
+    } else {
+      gauche()
+    }
+  } while (!estSurBiscuit())
+  prendBiscuit()
+ 
+  }
 
- // here comes your isFacingTrail method   
+def isFacingTrail():Boolean = {
+  if (estFaceMur()==true){
+    return false
+  } 
+  else {
+    avance()
+    if (getCouleurSol()==Color.c){
+      recule()
+      return true
+    }
+    else
+    {
+      recule 
+      return false
+    }
+  }
+}
