@@ -11,6 +11,38 @@ override def run() {
     }
   }
   propageIndication(sortieX, sortieY)
+  while (!estSurBiscuit()){
+    var dir = Direction.NORD
+    var nb = 9999
+    setDirection(Direction.NORD)
+    if (!estFaceMur()){
+      nb = getIndication(getX(), getY() -1);
+    }
+    setDirection(Direction.EST)
+    if (!estFaceMur()){
+      if (nb > getIndication(getX()+1, getY())){
+        nb = getIndication(getX()+1,getY());
+        dir = Direction.EST;
+      }
+    }
+    setDirection(Direction.OUEST)
+    if (!estFaceMur()){
+      if (nb > getIndication(getX()-1, getY())){
+        nb = getIndication(getX()-1,getY());
+        dir = Direction.OUEST;
+      }
+    }
+    setDirection(Direction.SUD)
+    if (!estFaceMur()){
+      if (nb > getIndication(getX(), getY()+1)){
+        nb = getIndication(getX(),getY()+1);
+        dir = Direction.SUD;
+      }
+    }
+    setDirection(dir)
+    avance()
+  }
+  prendBiscuit()
 }
 
 def propageIndication(x:Integer, y:Integer){
