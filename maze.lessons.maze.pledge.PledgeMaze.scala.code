@@ -1,29 +1,26 @@
 override def run() {
-  
+  var vir:Int = 0
   def mur():Boolean = {
     gauche();
     if(estFaceMur()){droite();return true}
     else{droite();return false} 
   }
   
-  def placement(){
+  def placement(vir : Int):Int = {
   	if(mur() && !estFaceMur()){
-      avance();
+      avance();return vir
     }
-    else if( !mur()){ gauche();avance();}
-    else if( estFaceMur()){droite();}
-  }
-  
-  def cestLeNord(){
-      if(estFaceMur()){placement()}
-			else{avance();}
-      
-
+    else if( !mur()){ gauche();avance();return vir +1}
+    else if( estFaceMur()){droite(); return vir -1}
+    else {return vir}
   }
   
 
-  while(!estSurBiscuit()){       
-    cestLeNord()
+
+  while(!estSurBiscuit()){
+    while(!estFaceMur()){avance()}
+    while(vir!=4){vir = placement(vir);ecritMessage(vir)}
+    
   }
   prendBiscuit()
 }
