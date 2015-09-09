@@ -1,3 +1,16 @@
 def golomb(num:Int): Int = {
-  return num
+  
+  if (num > 1){
+    var occurence = golomb(num - 1)
+    var apparition = 0
+    
+    if (occurence != 0){
+      occurence = occurence - 1
+      apparition = golomb(num - 1)
+    }
+    return apparition
+  }
+  return 1
 }
+  
+  
