@@ -1,0 +1,18 @@
+def max1020(a:Int, b:Int):Int = {
+  (a,b) match {
+    case (a,b) if !estEntre(10,20,a)&&(!estEntre(10,20,b)) => 0
+    case (a,b) if estEntre(10,20,a)&&(!estEntre(10,20,b))=>a
+    case (a,b) if !estEntre(10,20,a)&&estEntre(10,20,b)=>b
+    case (a,b) =>Math.max(a,b)
+    case (_,_)=> 0
+  }
+  
+}
+
+def estEntre(a:Int,b:Int,x:Int):Boolean ={ //a<b
+  (x) match {
+    case x if x<a => false
+    case x if x>b => false
+    case _ => true
+  }
+}

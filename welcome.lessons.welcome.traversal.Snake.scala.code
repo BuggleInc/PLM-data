@@ -1,0 +1,35 @@
+override def run() {
+  baisseBrosse()
+  while (!arrive()) {
+    avanceLikeSnake()
+  }
+}
+
+def avanceLikeSnake ():Unit ={
+  if (estFaceMur()) {
+    if (getDirection()==Direction.EST) {gauche();avance();gauche()}
+    else {droite();avance();droite()}
+  }
+  else {
+    avance()
+  }
+}
+
+def arrive ():Boolean ={
+  var resultat=true
+  if (estFaceMur()) {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      resultat=estFaceMur()
+      droite()
+      return resultat
+    }
+    else{
+      droite()
+      resultat=estFaceMur()
+      gauche()
+      return resultat
+    }
+  }
+  else {return false}
+}

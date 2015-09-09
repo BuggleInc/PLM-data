@@ -1,0 +1,73 @@
+override def run() {
+  dessinTout();
+}
+  
+	def dessinTout(){
+    	ligneMotif()
+    	monterColonne()
+    	ligneMotif()
+	}
+	def monterColonne(){
+  	recule(4)
+  	gauche()
+  	avance(4)
+  	droite()
+	}
+	def ligneMotif(){
+  	faireMotif()
+  	avance(4)
+    faireMotif()
+	}
+
+	def faireMotif(){
+  	var c=Color.RED
+    faireCoin(c)
+    avance(2)
+    c=Color.BLUE
+    faireCoinBis(c)
+    recule(2)
+    gauche()
+    avance(2)
+    droite()
+    c=Color.YELLOW
+    faireCoinBis(c)
+    avance(2)
+    c=Color.GREEN
+    faireCoin(c)
+    recule(2)
+    gauche()
+    recule(2)
+    droite()
+  	}
+
+
+	def marquerSol(c:Color){
+    setCouleurBrosse(c)
+  	baisseBrosse()
+  	leveBrosse()
+	}
+
+	def faireCoin(c:Color){
+  	avance()
+    marquerSol(c)
+  	gauche()
+  	avance()
+    gauche()
+    avance()
+  	marquerSol(c)
+  	gauche()
+  	avance()
+    gauche()
+	}
+	def faireCoinBis(c:Color){
+    marquerSol(c)
+    avance()
+  	gauche()
+  	avance()
+    marquerSol(c)
+    gauche()
+    avance()
+  	gauche()
+  	avance()
+    gauche()
+	}

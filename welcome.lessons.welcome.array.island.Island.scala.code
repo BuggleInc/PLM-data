@@ -1,0 +1,13 @@
+def island(tab:Array[Int]): Int = {
+  val l=tab.length
+  var temp=tab(0)
+  var resultat=0
+  if ((temp==1)||(temp==2)){resultat=1}
+  for (i<-1 to l-1) {
+    if (temp+1==tab(i)) {temp=temp+1;resultat=resultat+1}
+    if (temp+2==tab(i)) {temp=temp+2;resultat=resultat+1}
+    if ((temp-1==tab(i))) {temp=temp-1}
+    if (temp-2==tab(i)) {temp=temp-2}
+  }
+  return resultat
+}

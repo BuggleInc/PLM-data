@@ -1,0 +1,12 @@
+def hasTeen(a:Int, b:Int, c:Int): Boolean = {
+  (a,b,c) match {
+    case (a,_,_) if estAdo(a) => true
+    case (_,b,_) if estAdo(b) => true
+    case (_,_,c) if estAdo(c) => true
+    case (_,_,_) => false
+  }
+}
+
+def estAdo (a:Int):Boolean={
+  a>=13 && a<=19
+}

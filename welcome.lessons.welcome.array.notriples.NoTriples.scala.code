@@ -1,0 +1,31 @@
+def noTriples(nums:Array[Int]): Boolean = {
+  val l=nums.length
+  tri(nums)
+  for (i<-0 to l-3){
+    if ((nums(i)==nums(i+1))&&(nums(i)==nums(i+2))) {return false}
+  }
+  return true
+}
+
+
+def tri(tab:Array[Int]):Unit ={
+  val l=tab.length
+  var estTrie=false
+  while (estTrie) {
+    for (i<-0 to l-1){
+        if (tab(i+1)<tab(i)) {
+    			tab(i)=tab(i+1)-tab(i)
+    			tab(i+1)=tab(i+1)-tab(i)
+    			tab(i)=tab(i+1)+tab(i)
+        }}
+    estTrie=verifTrie(tab)
+}
+}
+
+def verifTrie(tab:Array[Int]):Boolean ={
+  val l=tab.length
+  for (i<-0 to l-2){
+    if (tab(i)>tab(i+1)) {return false}
+  }
+  return true
+}

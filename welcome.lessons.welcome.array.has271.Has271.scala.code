@@ -1,0 +1,31 @@
+def has271(nums:Array[Int]): Boolean = {
+  val l=nums.length
+  l match {
+    case 0 => false
+    case 1 => false
+    case 2 => false
+    case _ if ((nums(l-3)+5==nums(l-2))&&((nums(l-3)-1==nums(l-1))||(differeOuPas(nums(l-3),nums(l-1)))))=> return true
+    case _ => has271(copieTableauSaufUn(nums))
+  }
+}
+
+def copieTableauSaufUn (tab:Array[Int]):Array[Int] = {
+  var l = tab.length
+  var res= new Array[Int] (l-1)
+  for (i<- 0 to l-2){
+    res(i)=tab(i)
+  }
+  return res
+}
+               
+def differeOuPas (a:Int,b:Int):Boolean ={
+  val c=a-1
+  b match{
+    case b if b==(c+2) => true
+    case b if b==(c+1) =>true
+    case b if b==c => true
+    case b if b==(c-1) => true
+    case b if b==(c-2) => true
+    case _ => false
+  }
+}
