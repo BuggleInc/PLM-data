@@ -1,15 +1,17 @@
 override def run() {
   val a=getMondeLargeur();
   val b=getMondeHauteur();
-  var comp =  0;
+  var comp = 0;
   var col = 0;
+  var lign = 0;
   while(!(positionFinale(a-1,b-1))) {
     if (estFaceMur()==true) {
+      lign = 0;
       col = col +1;
       setPos(0,col);
     } else {
-      setPos(comp,col);
-      comp = comp +1;
+      setPos(ligne,col);
+      comp = ligne +1;
     }
   }
 }
