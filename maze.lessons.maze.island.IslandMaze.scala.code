@@ -1,23 +1,22 @@
 override def run() {
-	while (!estSurBiscuit())
+  while (!estSurBiscuit())
   {
-    setDirection(Direction.NORTH)
-    if (!estFaceMur())
-    	avance()
-    else
-    	droite()
-    	if (estFaceMur())
-    	{
-    		gauche()
-    		recule()
-    		gauche()
-    		avance()
-      }
-    	else
-    		avance()
+    keepHandOnSideWall()
   }
+  prendBiscuit()
 }
 
-
-// on avance dans la direction du nord
-// si on rencontre un obstacle, on longe les murs par la gauche jusqu) ce qu'au nord ce soit dégagé
+def keepHandOnSideWall()
+{
+  gauche()
+  if (estFaceMur())
+  {
+    droite()
+    if (estFaceMur())
+    	droite()
+    else
+    	avance()
+  }
+  else
+  	avance()
+}
