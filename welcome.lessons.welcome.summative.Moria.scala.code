@@ -1,0 +1,25 @@
+def sortir()
+{
+  while (!estFaceMur())
+  {
+    deplaceBiscuit()
+  }
+}
+
+def deplaceBiscuit()
+{
+  setDirection(EAST)
+  while (!estSurBiscuit())
+  {
+    avance()
+  }
+  prendBiscuit()
+  setDirection(Direction.WEST)
+  while (!estSurBiscuit())
+  {
+    avance()
+  }
+  setDirection(Direction.EAST)
+  avance()
+  poseBiscuit()
+}

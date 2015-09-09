@@ -3,34 +3,44 @@ override def run()
 {
   var avancement = 0
   ecritMessage(avancement)
-  while ( (getX(),getY()) != (getMondeLargeur()-1,getMondeHauteur()-1))
+  while (getX() != getMondeLargeur()-1)
   {
-    while (getX != getMondeLargeur()-1)
+    while (getY() != 0)
     {
-      while (getY() != 0)
-      {
-        go()
-        avancement = avancement + 1
-        ecritMessage(avancement)
-      }
-      if (diag != getMondeHauteur() -1)
+      go()
+      avancement = avancement + 1
+      ecritMessage(avancement)
+    }
+    if (diag != getMondeHauteur() -1)
+    {
       diag = diag + 1
       setPos(0,diag)
       avancement = avancement + 1
       ecritMessage (avancement)
     }
-    /*diag = 1*/
-    /*setPos(1,getMondeHauteur() -1)
-    avancement = avancement + 1
-    ecritMessage(avancement)
-    while (getX() != getMondeLargeur() - 1)
+  }
+  setPos(1,getMondeHauteur-1)
+  avancement = avancement +1
+  ecritMessage(avancement)
+  diag=1
+  while ((getX(),getY()) != (getMondeLargeur() -1 , getMondeHauteur() -1))
+  {
+    while (getX() != getMondeLargeur()-1)
     {
       go()
       avancement = avancement + 1
       ecritMessage(avancement)
-    }*/
+    }
+    if (diag != getMondeLargeur() -1)
+    {
+      diag = diag +1
+      setPos(diag,getMondeHauteur()-1)
+      avancement = avancement +1
+      ecritMessage(avancement)
+    }
   }
 }
+
 
 def go()
 {
