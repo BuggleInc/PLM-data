@@ -1,0 +1,39 @@
+override def run() {
+  baisseBrosse()
+  while (!arrive()) {
+    pasSerpent()
+  }
+}
+
+def pasSerpent() = {
+  if (estFaceMur()) {
+    if (getDirection() == Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    } else {
+      gauche()
+      avance()
+      gauche()
+    }
+  } else {
+    avance()
+  }
+}
+
+def arrive():Boolean = {
+  if (estFaceMur()) {
+    if (getDirection() == Direction.EST) {
+      gauche()
+      var r = estFaceMur()
+      droite()
+      return r
+    } else {
+      droite()
+      var r = estFaceMur()
+      gauche()
+      return r
+    }
+  }
+  return false
+}
