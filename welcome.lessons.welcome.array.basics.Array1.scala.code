@@ -1,5 +1,5 @@
 override def run() {
-  val T : Array = definirCouleurs()
+  var T : Array[Color] = definirCouleurs()
   gauche()
   avance()
   droite()
@@ -18,7 +18,7 @@ def marquerSol(){
   baisseBrosse()
 }
 
-def definirCouleurs(){
+def definirCouleurs():Array[Color]={
   var T = new Array[Color](getMondeLargeur())
   for (i <- 0 to getMondeLargeur()-1){
     T(i)=(getCouleurSol())
