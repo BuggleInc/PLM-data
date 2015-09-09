@@ -1,0 +1,25 @@
+override def run() {
+  var xf:Int = getWorldWidth() - 1
+  var yf:Int = getWorldHeight() - 1
+  var counter:Int = 0
+  
+  while (true){
+      
+    var x = getX()
+    var y = getY()
+    
+   	writeMessage(counter)
+    
+    if (xf == x && yf == y){
+      return
+    }  
+    
+    if (x == xf || x == 0){
+      setPos(x, y + 1)
+    }else {
+      setPos(x + 1, y)
+    }
+
+  }
+}
+  
