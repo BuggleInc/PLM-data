@@ -1,0 +1,33 @@
+var sommeAngle:Int = 0;
+
+override def run() {
+  while ( !estSurBiscuit() ){
+    
+  }
+  prendBiscuit();
+}
+
+def keepHandOnSideWall() {
+  droite();
+  if ( estFaceMur() ){
+    gauche();
+  }
+  if ( !estFaceMur() ){
+    avance();
+  } else {
+    gauche();
+    keepHandOnSideWall();
+  }
+}
+
+def isDirectionFree(dir) : Boolean = {
+  var directionCourante:Direction = getDirection();
+  setDirection(dir);
+  if ( estFaceMur() ){
+    setDirection(directionCourante);
+    return true;
+  } else {
+    setDirection(directionCourante);
+    return false;
+  }
+}
