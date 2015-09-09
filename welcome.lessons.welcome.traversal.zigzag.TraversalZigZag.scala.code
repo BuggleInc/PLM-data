@@ -3,7 +3,14 @@ override def run() {
   var ligne = 0;
   var compteur = 0;
   ecritMessage(compteur);
-  do {if(getX==getMondeLargeur-1){colonne=0;ligne=ligne+1;setPos(colonne,ligne)}
-      else {colonne=colonne+1;setPos(colonne,ligne)};compteur=compteur+1;ecritMessage(compteur)}
-  while (!(getX==getMondeLargeur-1 && getY==getMondeHauteur-1))
+  do {
+    do{compteur=compteur+1;colonne=colonne+1;setPos(colonne,ligne);ecrireMessage(compteur)} while (!(colonne==getMondeHauteur()))
+    ligne=ligne+1;
+    compteur=compteur+1;
+    ecrireMessage(compteur);
+    do{compteur=compteur+1;colonne=colonne-1;setPos(colonne,ligne);ecrireMessage(compteur)} while (!(colonne==0))
+    ligne=ligne+1
+    compteur=compteur+1;
+    ecrireMessage(compteur);
+  }while (!(getX==getMondeLargeur-1 && getY==getMondeHauteur-1))
 }
