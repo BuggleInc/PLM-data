@@ -1,26 +1,24 @@
 def golomb(num:Int): Int = {
-  if (num == 1) {return 1}
-  else if (num == 2) {return 2}
-  else {
-	  var T = new Array[Int](num+1)
-	  T(1) = 1
-	  T(2) = 2
-	  T(num) = 0
-	  var p = 2
-	  while (T(num)==0) {
- 	   remplir(T, p, T(p))
-	    p = p + 1
-	  }
-	  return T(num)
-  } 
-}
-
-def remplir(T:Array[Int], x:Int, n:Int) = { //ajoute au tableau T l'élément x n fois
-  var p = 0
-  while (T(p) != 0) {
-    p = p + 1
+  var T = new Array[Int](num+1)
+  var cc = 1
+  T(num) = 0
+  var ecrire = 0
+  var pointeur = 1
+  while (T(num) == 0) {
+    if (T(pointeur) == 0) {
+      T(pointeur) = cc
+      cc = cc + 1
+      ecrire = ecrire + 1
+      pointeur = pointeur + 1
+    } else {
+      for (i <- 1 to T(pointeur) ) {
+        if (ecrire < T.length) {
+          T(ecrire) = cc
+        	ecrire = ecrire + 1
+        }
+      }
+      cc = cc + 1
+      pointeur = pointeur + 1
+    }
+    
   }
-  for (i <- 0 to n-2) {
-    if ((p+i)<T.length) {T(p+i) = x}
-  }
-}
