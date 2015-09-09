@@ -4,11 +4,12 @@ override def run() {
   }
   
   while(!estSurBiscuit){
-    var angleSom=0
+    var sommeAngle=0
     var meDir=getDirection()
     do{
-      angleSom= angleSom + keepHandOnSideWall()
-    }while(angleSom !=0 && estSurBiscuit() && getDirection()!= meDir
+      sommeAngle= sommeAngle+ keepHandOnSideWall()
+    }while(sommeAngle !=0 && estSurBiscuit() && getDirection()!= meDir)
+    
     }
    
   }
@@ -17,6 +18,9 @@ override def run() {
 
 
 def keepHandOnSideWall(){
+  
+  
+  var Angleabs
   if(estFaceMur){
     droite()
   } else {
@@ -25,6 +29,7 @@ def keepHandOnSideWall(){
 
     if(estFaceMur){
       droite()
+      Angleabs=Angleabs+1
     }
   }
 }
