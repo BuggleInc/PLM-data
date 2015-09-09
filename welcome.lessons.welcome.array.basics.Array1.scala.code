@@ -1,0 +1,34 @@
+override def run() {
+  var tab:Array[Color] = lireColonne()
+  val m = getMondeLargeur()
+  for (i <- 1 to m-1) {
+    avance()
+    gauche()
+    avance()
+    droite()
+    faireColonne(tab)
+  }
+}
+
+def lireColonne():Array[Color] = {
+  val n:Int = getMondeHauteur()
+  var t = new Array[Color] (n)
+  for (i <- 0 to n-1) {
+    t(i) = getCouleurSol()
+    avance()
+  }
+  return t
+}
+
+def point(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireColonne(tab:Array[Color]) = {
+  for (i <- tab) {
+    point(i)
+    avance()
+  }
+}
