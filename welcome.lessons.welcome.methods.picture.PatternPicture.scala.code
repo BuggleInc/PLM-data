@@ -1,0 +1,42 @@
+override def run() {
+  def ptitMotif(c: Color){
+    setCouleurBrosse(c)
+    avance()
+    baisseBrosse();leveBrosse();
+    recule()
+    gauche()
+    avance()
+    baisseBrosse();leveBrosse();
+    recule()
+    droite()
+  }
+  
+  def motif(){
+    for (i <- 1 to 2){      
+      for(j <- 1 to 2){
+        
+        for (k <- 1 to 4){
+          
+          k match{
+            case 1 => ptitMotif(Color.RED);
+            case 2 => ptitMotif(Color.BLUE);
+            case 3 => ptitMotif(Color.GREEN);
+            case 4 => ptitMotif(Color.YELLOW);
+          }
+          avance();avance();avance();gauche();
+
+          }
+        if(j<=1){        	
+          avance();avance();
+          avance();avance();}
+      	}
+      if(i<=1){
+      for(l <-1 to 4){recule()}
+      gauche()
+      avance();avance();avance();avance();
+        droite();}
+
+      }
+   	}
+  motif()
+ }

@@ -1,0 +1,30 @@
+override def run() {
+  def placement(){
+    while(getY()>=1){recule()}
+  }
+  var T = new Array[Color](getMondeHauteur)
+  var decalage:Int=0
+  for (i <- 0 to getMondeHauteur-2){
+    T(i)= getCouleurSol()
+    avance()  
+  }
+  T(getMondeHauteur-1)= getCouleurSol()
+  placement();gauche();avance();droite();
+  for (i<- 0 to getMondeLargeur()-1){
+    decalage = litMessage().toInt
+    for (j<- 0 to getMondeHauteur()-2){
+      setCouleurBrosse(T( (j+decalage)%getMondeHauteur))
+      baisseBrosse()
+      leveBrosse()
+ 			avance()
+     
+    }
+    setCouleurBrosse(T( (getMondeHauteur+decalage-1)%getMondeHauteur))
+    baisseBrosse()
+    leveBrosse()
+    placement()
+    if(getX()< getMondeLargeur()-1){gauche();avance();droite();}
+  }
+      
+ 
+}

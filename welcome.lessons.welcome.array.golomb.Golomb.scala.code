@@ -1,0 +1,19 @@
+def golomb(num:Int): Int = {
+  var T = new Array[Int](num*5)
+	var i:Int =2
+  var j:Int =2
+  T(0)=1
+  T(1)=2
+  T(2)=2
+  
+  while(i<=num){
+    for (k <- 1 to T(j)-1){
+      T(i+k-1)=j
+    }
+    j+=1
+    i+=T(j-1)
+    
+    
+  }
+  return T(num-1)
+}

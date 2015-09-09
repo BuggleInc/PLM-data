@@ -1,0 +1,31 @@
+override def run() {
+  baisseBrosse()
+  def finale():Boolean = {
+    var resultat:Boolean = false
+    if(estFaceMur() && getDirection()==Direction.EST){
+      gauche();
+      resultat = estFaceMur();
+      droite()
+     }
+    else if (estFaceMur() && getDirection()==Direction.OUEST){
+      droite();
+      resultat = estFaceMur();
+      gauche()
+    }
+    return resultat
+  }
+  
+  
+  def serpent(){
+    if(estFaceMur()){
+      if(getDirection() == Direction.EST){gauche();avance();gauche();}
+      else{droite();avance();droite();}
+    }
+    else{avance();}
+  }
+  
+  
+  while(!finale()){serpent()}
+  
+  
+}

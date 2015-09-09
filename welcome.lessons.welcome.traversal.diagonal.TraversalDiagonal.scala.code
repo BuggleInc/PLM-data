@@ -1,0 +1,20 @@
+override def run() {
+  var nb = 0;
+  var diag = 1;
+  def serpent(diag:Int):Int={
+    var diag2 = diag
+    if(getY()==0 && diag<7){ setPos(0,getX()+1); return diag+1}
+    else if(getX()==getMondeHauteur-1 && diag>=7){
+      diag2+=1
+      setPos(diag2-getMondeLargeur(),getMondeHauteur()-1); return diag2}
+    else{ setPos(getX()+1,getY-1);return diag } 
+    }
+    
+    
+    do{
+      ecritMessage(nb)
+      nb+=1
+      diag = serpent(diag)      
+    }while(getX()!=getMondeLargeur -1 || getY()!=getMondeHauteur-1 )
+    ecritMessage(nb)
+  }

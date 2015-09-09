@@ -1,0 +1,85 @@
+def motif(c:Color, d:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  leveBrosse()
+  setCouleurBrosse(d)  
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  droite()
+  
+}
+
+
+def position(x:Int, y:Int, mur:Int, ligne:Boolean){
+  if(ligne == true){avance();avance();avance();}
+  else{
+    while(getX() >= mur+1){
+      recule();
+    }
+    droite();
+    if(y>=0){for (l <- 1 to y){avance();}}
+    else{for (l <- 1 to (-y)){recule();}}
+    gauche();
+    if(x>=0){for(l <- 1 to x){avance();}}
+    else{for(l <- 1 to (-x)){recule();}}
+  }
+  
+  
+}
+
+def replacement(num:Int){
+
+	if(num ==0){
+    avance();gauche();avance();avance();droite()
+    
+  }
+  if(num ==1){    
+    while(getX() >= 2){
+      recule();
+    }
+    droite()
+  	for(k <- 1 to 6){avance();}
+    gauche()
+    
+  }
+  if(num ==2){
+  avance();gauche();avance();avance();droite()
+    
+  }
+  if(num==3){recule();recule();recule();droite();avance();avance();gauche()}
+  
+  
+  
+}
+
+def growFlowers(){
+  
+  for (k <- 0 to 3)
+  {  
+    for (i <- 1 to 5){
+    i match{
+      case 1 => motif(Color.RED, Color.YELLOW);position(0,0,(k%2)*8+1,true)
+      case 2 => motif(Color.CYAN, Color.YELLOW);position(0,4,(k%2)*8+1,false)
+      case 3 => motif(Color.PINK, Color.YELLOW);position(0,0,(k%2)*8+1,true)
+      case 4 => motif(Color.GREEN, Color.YELLOW);position(2,-2,(k%2)*8+1,false)      
+      case 5 => motif(Color.ORANGE, Color.YELLOW);
+      
+    }
+    
+     
+    
+   }
+    if(k%2==0){avance();avance();avance();motif(Color.BLUE, Color.YELLOW)}
+  replacement(k)
+  }
+
+  
+}

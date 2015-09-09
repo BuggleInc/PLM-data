@@ -1,0 +1,52 @@
+def motif(c:Color, d:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  leveBrosse()
+  setCouleurBrosse(d)  
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  droite()
+  
+}
+
+
+def position(i:Int, k:Int, ligne:Boolean){
+  if(ligne == true){avance();avance();avance();}
+  else{
+    while(getX() >= 2){
+      recule();
+    }
+    droite();
+    for (l <- 1 to k){avance();}
+    gauche();
+    for(l <- 1 to i){avance();}
+  }
+  
+  
+}
+
+def growFlowers(){
+  
+  for (i <- 1 to 5){
+    i match{
+      case 1 => motif(Color.RED, Color.YELLOW);position(0,0,true)
+      case 2 => motif(Color.CYAN, Color.YELLOW);position(2,2,false)
+      case 3 => motif(Color.ORANGE, Color.YELLOW);position(0,2,false)
+      case 4 => motif(Color.PINK, Color.YELLOW);position(0,0,true)
+      case 5 => motif(Color.GREEN, Color.YELLOW);position(0,0,false)
+      
+      
+    }
+    
+  }
+
+  
+}
