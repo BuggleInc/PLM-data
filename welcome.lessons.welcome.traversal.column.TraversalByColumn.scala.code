@@ -1,0 +1,30 @@
+def final() {
+  if ((getX()==getMondeHauteur-1) & (getY()==getMondeLargeur()-1)) {
+    return true
+  }
+  return false
+}
+
+
+def exo() {
+  var w=0 
+  while (!final()) {
+    if (getY() == getMondeHauteur -1){
+      setPos(0,getY()+1)
+      w=w+1
+    }
+    ecritMessage(w)
+    avance()
+    w=w+1
+   
+  }
+}
+
+
+
+
+
+
+override def run() { exo()
+
+}
