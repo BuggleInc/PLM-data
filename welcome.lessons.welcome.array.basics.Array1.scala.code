@@ -1,14 +1,12 @@
-def lireColonne():Array[Color] = {
+def lireColonne(taille:Int):Array[Color] = {
   
-  var longueurTableau:Int = getMondeHauteur()
-  var T:Array[Color]
-  T = new Array[Color](longueurTableau)
-  T(0) = getCouleurSol()
-  for (i <- 1 to longueurTableau -1) {
+  var res = new Array[Color] (taille)
+  res(0) = getCouleurSol()
+  for (i <- 1 to taille -1) {
     avance()
-    T(i) = getCouleurSol()
+    res(i) = getCouleurSol()
   }
-  return T
+  return res
 }
 
 def marquerSol() {baisseBrosse();leveBrosse()}
