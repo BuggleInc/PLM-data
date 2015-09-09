@@ -1,6 +1,13 @@
 def golomb(num:Int): Int = {
   if (num==1) {return 1}
-  else {
+  else {    
+		def occurrences(nums:Array[Int],lookingFor:Int):Int = {
+  		var taille : Int = nums.length
+ 		 	var nb : Int = 0
+ 		 	for (i <- 0 to taille-1) {
+  		  if (nums(i)==lookingFor) {nb = nb+1}}
+ 		 	return nb
+	}
     var T = new Array[Int](num)
     var pos : Int = 1 // position de la o? l'on veut ?crire
     var ind : Int = 1 // indice de la o? l'on doit regarder pour ?crire les nb d'occurence exacte
@@ -12,12 +19,4 @@ def golomb(num:Int): Int = {
     }
     return T(num-1)
   }
-}
-
-def occurrences(nums:Array[Int],lookingFor:Int):Int = {
-  var taille : Int = nums.length
-  var nb : Int = 0
-  for (i <- 0 to taille-1) {
-    if (nums(i)==lookingFor) {nb = nb+1}}
-  return nb
 }
