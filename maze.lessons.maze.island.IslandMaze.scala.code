@@ -6,9 +6,9 @@ override def run() {
     while ( getDirection() == Direction.NORTH && !estFaceMur() ){
       avance();
     }
-    if ( estFaceMur() && ( getY() == 0 || getY() == 1 ) ){
+    if ( estFaceMur() && ( getY() != 0 || getY() != 1 ) ){
       droite();
-      while ( getDirection() != Direction.NORTH ){
+      while ( getDirection() != Direction.NORTH && ( getY() != 0 || getY() != 1 ) ){
         keepHandOnSideWall();
       }
     }
