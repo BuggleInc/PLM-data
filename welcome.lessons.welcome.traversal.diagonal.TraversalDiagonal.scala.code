@@ -6,9 +6,28 @@ override def run() {
   var m = 0
   ecritMessage(m)
   m=m+1
+  
+  
   for (k<-1 to 6){
     diag = diag + 1
     y=y+1
+    setPos(x,y)
+    ecritMessage(m)
+  	m=m+1
+    for(i<-1 to diag){
+      x=x+1
+      y=y-1
+      setPos(x,y)
+      ecritMessage(m)
+  		m=m+1
+    }
+    x=x-diag
+    y=y+diag
+  }
+  
+  for (k<-1 to 6){
+    diag = diag - 1
+    x=x+1
     setPos(x,y)
     ecritMessage(m)
   	m=m+1
