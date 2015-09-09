@@ -1,11 +1,10 @@
 override def run() {
-  var sommeAngle:Int = 0
-  while (!estSurBiscuit()) {
-    keepHandOnSideWall()
-  }
+  keepHandOnSideWall()
 }
 
 def keepHandOnSideWall() = {
+	var sommeAngle:Int = 0
+  while (!estSurBiscuit()) {
     while (estFaceMur()) {
       droite()
       sommeAngle -= 1
@@ -13,6 +12,7 @@ def keepHandOnSideWall() = {
   	avance()
   	gauche()
   	sommeAngle += 1
+  }
 }
 
 def isDirectionFree(dir:Direction):Boolean = {
