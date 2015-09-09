@@ -18,19 +18,25 @@ def marquerContour(coord:Array[Int])
   
   if (coord(1) > 0 && !aMurNord(coord(0), coord(1)))
   {
-  	setIndication(coord(0), coord(1) - 1, indication)
-    marquerContour(Array[Int](coord(0), coord(1) - 1))
+    if (getIndication(coord(0), coord(1) - 1) == 9999)
+    {
+  		setIndication(coord(0), coord(1) - 1, indication)
+    	marquerContour(Array[Int](coord(0), coord(1) - 1))
+    }
   }
   
   if (coord(0) > 0 && !aMurOuest(coord(0), coord(1)))
   {
-    setIndication(coord(0) - 1, coord(1), indication)
-    marquerContour(Array[Int](coord(0) - 1, coord(1)))
+    if (getIndication(coord(0) - 1, coord(1)) == 9999)
+    {
+      setIndication(coord(0) - 1, coord(1), indication)
+      marquerContour(Array[Int](coord(0) - 1, coord(1)))
+    }
   }
   
   if (coord(1) < getMondeHauteur() - 1)
   {
-    if (!aMurNord(coord(0), coord(1) + 1))
+    if (!aMurNord(coord(0), coord(1) + 1) && getIndication(coord(0), coord(1) + 1) == 9999)
     {
   		setIndication(coord(0), coord(1) + 1, indication)
       marquerContour(Array[Int](coord(0), coord(1) + 1))
@@ -39,7 +45,7 @@ def marquerContour(coord:Array[Int])
   
   if (coord(0) < getMondeHauteur() - 1)
   {
-    if (!aMurOuest(coord(0) + 1, coord(1)))
+    if (!aMurOuest(coord(0) + 1, coord(1)) && getIndication(coord(0) + 1, coord(1)) == 9999)
     {
   		setIndication(coord(0) + 1, coord(1), indication)
       marquerContour(Array[Int](coord(0) + 1, coord(1)))
