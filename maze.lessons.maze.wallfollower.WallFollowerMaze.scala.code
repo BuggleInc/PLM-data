@@ -3,14 +3,17 @@ override def run() {
   {
     if (estFaceMur())
     	gauche()
-    if (murAGauche())
-    	avance()
     else
     {
-      do
-      {
+      if (murAGauche())
         avance()
-      }while(!murAGauche())
+      else
+      {
+        do
+        {
+          avance()
+        }while(!murAGauche() || (!estFaceMur()))
+      }
     }
   }
 }
