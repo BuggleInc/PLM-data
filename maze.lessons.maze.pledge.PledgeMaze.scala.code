@@ -1,0 +1,45 @@
+override def run() {
+  var sommeDesVirages = 0
+  while (!estSurBiscuit())
+  {
+    sommeDesVirages += keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall():Int=
+{  
+  var murGauche = testMurGauche()
+  if (!murGauche)
+  {
+    gauche()
+    avance()
+    return -1
+  }
+  if (murGauche && estFaceMur())
+  {
+    droite()
+    return +1
+  }
+  if (murGauche && !estFaceMur())
+  {
+    avance()
+    return 0
+  }
+}
+
+is DirectionFree(dir) : Boolean =
+{
+  direction = getDirection()
+  setDirection(dir)
+  if (estFaceMur())
+  {
+    setDirection(direction)
+    return false
+  }
+  else
+  {
+    setDirection()
+    return true
+  }
+}
