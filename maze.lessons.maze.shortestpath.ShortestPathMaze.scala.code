@@ -26,7 +26,7 @@ def DetectBiscuit():Array[Int]={
   return Coord
 }
 
-def Numerotation(T: Array[Int])={
+def Numerotation(T: Array[Int]){
   var BiscuitX = T(0);
   var BiscuitY = T(1);
   var c=0
@@ -55,12 +55,12 @@ def MarquageCaseSuivante(X:Int, Y:Int, c:Int){
       setIndication(X-1, Y, c+1);
     }
   }
-  if(Y!= getMondeHauteur()+1 && !aMurNord(X, Y+1)){
+  if(Y!= getMondeHauteur()-1 && !aMurNord(X, Y+1)){
     if (VerifCase(X, Y+1, c+1)){
       setIndication(X, Y+1, c+1);
     }
   }
-  if(X!= getMondeLargeur()+1 && !aMurOuest(X+1, Y)){
+  if(X!= getMondeLargeur()-1 && !aMurOuest(X+1, Y)){
     if (VerifCase(X+1, Y, c+1)){
       setIndication(X+1, Y, c+1);
     }
