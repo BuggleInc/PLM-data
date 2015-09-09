@@ -7,10 +7,19 @@ override def run() {
 
 def keepHandOnSideWall(){
  
-  do{ 
-    if (!isFacingWall)
-  		forward()
+  //S'il y a un mur en face on tourne ? droite
+  if (isFacingWall()){
+    right()
+  
+  //Sinon on peut avancer et regarder s'il y a un mur
+  }else{
+    forward()
     left()
-  }while(!isFacingWall)
-  right()
+    
+    //Si il y a un mur on se remet droit pour le prochain
+    if (isFacingWall){
+      right()
+      
+    }
+  }
 }
