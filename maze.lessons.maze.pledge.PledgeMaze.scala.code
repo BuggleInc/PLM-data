@@ -45,20 +45,19 @@ def keepHandOnSideWall()
   }
 }
 
-  def isDirectionFree(dir : Direction) : Boolean =
+def isDirectionFree(dir : Direction) : Boolean =
+{
+  var direction = getDirection()
+  setDirection(dir)
+  if (estFaceMur())
   {
-    var direction = getDirection()
-    setDirection(dir)
-    if (estFaceMur())
-    {
-      setDirection(direction)
-      return false
-    }
-    else
-    {
-      setDirection(direction)
-      return true
-    }
+    setDirection(direction)
+    return false
+  }
+  else
+  {
+    setDirection(direction)
+    return true
   }
   else prendBiscuit()
 }
