@@ -64,7 +64,7 @@ def isDirectionFree(dir : Direction) : Boolean = {
 
 def keepGoing(vir : Int) : Int = {
   var virage = vir
-  while((!isDirectionFree(Direction.NORD))&&(virage!=0))
+  do
   {
     if(!mD())
     {
@@ -78,6 +78,6 @@ def keepGoing(vir : Int) : Int = {
     {
       gauche();gauche(); virage = virage + 2
     }
-  }
+  }while((!isDirectionFree(Direction.NORD))&&(virage!=vir))
   return virage
 }
