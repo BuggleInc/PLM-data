@@ -1,2 +1,73 @@
 override def run() {
+  toTheNorthFriends!()
+  getMeOutHere
+}
+
+
+def toTheNorthFriends!() {
+  if (peutAllerNord()) {
+    avance()
+  } else {
+    searchLeft()
+  }
+}
+
+
+def searchLeft() {
+  if (!murAGauche()) {
+    while (!estFaceMur())
+   	  avance()
+    droite()
+  }
+  while (!peutAllerNord()) {
+    if (!estFaceMur()) {
+      avance()
+    } else {
+      droite()
+    }
+  } 
+}
+
+
+def peutAllerAuNord():Boolean = {
+  setDirection(Direction.NORD)
+  if (!estFaceMur())
+  	return true
+  return false
+}
+
+
+def getMeOutOfHere() {
+  var r:Int = 0 
+  if (!murAGauche()) {
+    while (!estFaceMur())
+    	avance()
+    droite()
+  }
+  while (!estSurBiscuit()) {
+    while (murAGauche() && r == 0) {
+      if (!estFaceMur()) { 
+        avance()
+        if (estSurBiscuit())
+          r = 1
+      } else {
+        droite()
+      }
+    }
+    if (r == 0) {
+      gauche()
+    	avance()
+    }
+  }
+  prendBiscuit()
+}
+
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur())
+  	droite()
+  	return true
+  droite()
+  return false
 }
