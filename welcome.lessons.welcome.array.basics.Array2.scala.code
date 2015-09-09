@@ -12,13 +12,13 @@ override def run() {
     T(g)=getCouleurSol()
   }
   
-  recule(h-1);gauche();avance();droite()
+  recule(h-1)
   
   for (i<- 0 to l-2){
+    gauche();avance();droite()
     val decalage = litMessage().toInt
     for(j<- 0 to h-1){
       setCouleurBrosse(T((j+decalage)%h));baisseBrosse();leveBrosse()
     }
-    gauche();avance();droite()
   }
 }
