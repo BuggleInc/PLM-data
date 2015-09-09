@@ -1,4 +1,6 @@
 override def run() {
+  avance()
+  avance()
   while(!estSurBiscuit){
     longerMur
   }
@@ -10,25 +12,14 @@ override def run() {
   
 def longerMur(){
   var dir=getDirection()
-  avance()
-  avance()
   do {
     gauche()
     if (estFaceMur()){
-      droite()
-      if (!estFaceMur()){
-        avance()
-      } else {
+      retourne()
+      if (estFaceMur()){
         droite()
-        if (estFaceMur()){
-          droite()
-          avance()
-        } else {
-          avance()
-        }
+        avance()
       }
-    } else {
-      avance()
     }
   } while(!estSurBiscuit() && getDirection!=dir)
   while (!estFaceMur){
