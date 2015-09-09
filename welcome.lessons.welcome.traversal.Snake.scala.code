@@ -1,23 +1,27 @@
 override def run() {
-  while(!posFin()){
+  var continuer = true 
+  setCouleurBrosse(Color.RED)
+  baisseBrosse()
+  while(continuer){
     if(!estFaceMur()){
       avance()
     }else if(getDirection() == Direction.EST){
       gauche()
-      avance()
-      gauche()
+      if (estFaceMur()){
+        continuer = false
+      }else{
+        avance()
+        gauche()
+      }
     }else if(getDirection() == Direction.OUEST){
       droite()
-      avance()
-      droite()
+      if (estFaceMur()){
+        continuer = false
+      }else{
+        avance()
+        droite()
+      }
     }
   }
 }
 
-def posFin() : Boolean = {
-  if(estFaceMur()){
-    return true
-  }else{
-    return false
-  }
-}
