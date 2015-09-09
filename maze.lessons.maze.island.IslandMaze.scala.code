@@ -4,7 +4,14 @@ override def run() {
   	if((getDirection()==Direction.NORD)&&(!estFaceMur()))
     {
   	  avance()
-  	}  
+  	}
+    else if(estFaceMur())
+    {
+    	do{
+      	keepHandsOnSideWall()  
+      }while(getDirection()==Direction.NORD)
+        
+    }
   } 
 }
 
