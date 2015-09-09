@@ -8,26 +8,26 @@ while (!sortieTrouvee()) {
     }
     avance();
   }
-}
-if (Baggle >= 3) {
-  gauche();
-  avance();
-  var Baggle:Int = 0 ;
-  for (CaseCouloirDeux <- 0 to 3) {
-    if (estSurBiscuit()) {
-      Baggle = Baggle + 1;
-    }
+  if (Baggle >= 3) {
+    gauche();
     avance();
-  }
-} else if (Baggle <= 2) {
-  droite();
-  avance();
-  var Baggle:Int = 0 ;
-  var CaseCouloirTrois:Int = 0;
-  for (CaseCouloirTrois <- 0 to 3) {
-    if (estSurBiscuit()) {
-      Baggle = Baggle + 1;
+    var Baggle:Int = 0 ;
+    for (CaseCouloirDeux <- 0 to 3) {
+      if (estSurBiscuit()) {
+        Baggle = Baggle + 1;
+      }
+      avance();
     }
+  } else if (Baggle <= 2) {
+    droite();
     avance();
+    var Baggle:Int = 0 ;
+    var CaseCouloirTrois:Int = 0;
+    for (CaseCouloirTrois <- 0 to 3) {
+      if (estSurBiscuit()) {
+        Baggle = Baggle + 1;
+      }
+      avance();
+    }
   }
-}
+}  
