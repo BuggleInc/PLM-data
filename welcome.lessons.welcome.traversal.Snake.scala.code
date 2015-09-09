@@ -7,10 +7,10 @@ override def run() {
 }
 
 def serpent(){
-    if (!estFaceMur){
+    if (!estFaceMur()){
       	avance()
     	}
-    if (estFaceMur){
+    if (estFaceMur()){
       if (getDirection() == Direction.EST){
         gauche()
         avance()
@@ -25,10 +25,10 @@ def serpent(){
 }
 
 def pos(): Boolean = { 
-  if (estFaceMur){
+  if (estFaceMur()){
     if (getDirection() == Direction.EST){
     	gauche()
-    	if (!estFaceMur) {
+    	if (!estFaceMur()) {
      	droite()
      	return false
    		}
