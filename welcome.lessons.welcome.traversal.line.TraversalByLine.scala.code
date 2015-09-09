@@ -1,0 +1,24 @@
+override def run() {
+  var c = 0
+  ecritMessage(c+"")
+  while (!arrive()) {
+    tp()
+    c = c + 1
+    ecritMessage(c+"")
+  }
+}
+
+def arrive():Boolean = {
+  var x = getMondeHauteur()
+  var y = getMondeLargeur()
+  return ((getX()==x-1) && (getY()==y-1))
+}
+
+def tp() = {
+  var x = getMondeLargeur()
+  if ((getX() == x-1) && (getY() != getMondeHauteur()-1)) {
+    setPos(0, getY()+1)
+  } else {
+    setPos(getX()+1, getY())
+  }
+}
