@@ -53,6 +53,16 @@ def DetectBiscuit():Array[Int]={
   return Coord
 }
 
+
+def writeMsg(x:Int,y:Int,msg:Int){
+  var oldX = getX()
+  var oldY = getY()
+  setX(x);
+  setY(y);
+  writeMessage(msg);
+  setPos(oldX, oldY);
+}
+
 //Numérote la map
 def Numerotation(T: Array[Int]){
   var BiscuitX = T(0);
@@ -63,7 +73,7 @@ def Numerotation(T: Array[Int]){
     for(x<-0 to getMondeLargeur()-1){
       for(y<-0 to getMondeHauteur()-1){
         if(c==getIndication(x, y)){
-          ecritMessage(x,y,c)
+          writeMsg(x,y,c);
           MarquageCaseSuivante(x, y, c)
         }
       }
