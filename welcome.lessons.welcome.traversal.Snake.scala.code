@@ -1,7 +1,7 @@
 override def run() {
   var toggle:Boolean = true
   
-  //brushDown()
+  brushDown()
   
   while(true){
     
@@ -30,26 +30,4 @@ override def run() {
     toggle = !toggle
   }
   
-}
-
-
-
-
-def finalPositionReached():Boolean = {
-   
-  var result:Boolean = false
-  
-  getDirection() match {
-    case Direction.EAST => 
-    	left() 
-    	var result:Boolean = isFacingWall()
-    	right()
-   
-    case Direction.WEST => 
-    	right()
-    	var result:Boolean = isFacingWall()
-    	left()
-  }
-  
-  return result
 }
