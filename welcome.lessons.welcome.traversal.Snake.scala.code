@@ -29,12 +29,25 @@ def snake(){
 }
 
 def posf():Boolean ={
-  if ((estFaceMur())&&(getDirection()==Direction.EST)){
-    left()
-    if (estFaceMur()){
-      return true
-    }
+  if(getDirection== Direction.OUEST){
     right()
+    right()
+  	if(estFaceMur()){
+    	left()
+    	if(estFaceMur()){
+      	right()
+      	return true
+    	}
+  	}
   }
-  return false
-}
+  if(getDirection()==Direction.EST){
+    if(estFaceMur()){
+      left()
+      if(estFaceMur()){
+        right()
+        return true
+      }
+    }
+  }
+  	return false
+  }
