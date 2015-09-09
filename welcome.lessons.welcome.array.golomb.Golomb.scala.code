@@ -1,12 +1,14 @@
 
 def golomb(num:Int): Int = {
 	var T = new Array[Int](num+1)  
-  var j: Int =1
+  var j: Int =0
+  var d: Int =1
   T(0)=1
   for (c <- 1 to num) {
   for (i <- 1 to T(j)) {
-      T(i)=j
+      T(i)=d
     }
-    j=j+1 }
+    j=j+1
+  d=d+1}
   return T(num)
 }
