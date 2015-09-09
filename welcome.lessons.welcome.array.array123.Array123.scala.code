@@ -1,0 +1,25 @@
+def array123(nums:Array[Int]): Boolean = {
+  
+  var one:Int = nums(0)
+  var two:Int = nums(1)
+  var three:Int = nums(2)
+  
+  
+  if (nums.length < 3){
+   return false
+ 	}
+  
+  for (i <- 3 to nums.length - 1){
+    
+    System.out.println(i, nums(i))
+    if (one == 1 && two == 2 && three == 3){
+      return true
+    }
+    
+    one = two
+    two = three
+    three = nums(i)
+  }
+  
+  return false
+}

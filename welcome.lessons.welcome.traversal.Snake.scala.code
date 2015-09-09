@@ -1,0 +1,33 @@
+override def run() {
+  var toggle:Boolean = true
+  
+  brushDown()
+  
+  while(true){
+    
+    for (i <- 1 to getWorldHeight() - 1){
+      forward()
+    }
+   	
+    if (toggle){
+      left()
+      if (isFacingWall()){
+        right()
+        return
+      }
+      forward()
+      left()
+    } else {
+      right()
+      if (isFacingWall()){
+        left()
+        return
+      }
+      forward()
+      right()
+    }
+    
+    toggle = !toggle
+  }
+  
+}
