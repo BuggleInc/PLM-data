@@ -1,5 +1,6 @@
 override def run() {
-  setPos(0,0)
+  while (getY()>0)
+  	toTheNorthWall()
   while(!isOverBaggle){
     keepHandOnSideWall()
   }
@@ -9,6 +10,30 @@ override def run() {
 def keepHandOnSideWall(){
  
   //S'il y a un mur en face on tourne ? droite
+  if (isFacingWall()){
+    right()
+  
+  //Sinon on peut avancer et regarder s'il y a un mur
+  }else{
+    forward()
+    left()
+    
+    //Si il y a un mur on se remet droit pour le prochain
+    if (isFacingWall){
+      right()
+      
+    }
+  }
+}
+
+def toTheNorthWall(){
+  /* keepHandOnSideWall modifiee pour aller au Nord si possible*/
+  
+  if (getDirection == Direction.North && isFacingWall()){
+    forward()
+  }
+  
+	//S'il y a un mur en face on tourne ? droite
   if (isFacingWall()){
     right()
   
