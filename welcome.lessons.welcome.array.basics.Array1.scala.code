@@ -5,4 +5,20 @@ override def run() {
     T(i)=getCouleurSol()
     avance()
   }
+  
+  def reproduireMotif(){
+    gauche()
+    avance()
+    droite()
+    for (k<-0 to n-1){
+      avance()
+      setCouleurBrosse(T[k])
+      baisseBrosse()
+      leveBrosse()
+    }
+  }
+  
+  for (compt<-1 to n-1){
+    reproduireMotif()
+  }
 }
