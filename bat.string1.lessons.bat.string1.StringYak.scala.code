@@ -1,0 +1,29 @@
+def stringYak(str:String):String =
+{
+  var chaine = ""
+  var rangATraiter = 0
+  
+  if (str.length >= 3)
+  {
+    for (i <- 0 to str.length - 3)
+    {
+      if (i >= rangATraiter)
+      {
+        if (str(i).toString() + str(i + 1) + str(i + 2) == "yak")
+          rangATraiter += 3
+        else
+        {
+          chaine += str(i).toString()
+          rangATraiter += 1
+        }
+      }
+    }
+    
+    if (str(str.length - 3).toString() + str(str.length - 2) + str(str.length - 1) != "yak")
+    	chaine += str(str.length - 2).toString() + str(str.length - 1)
+  }
+  else
+  	chaine = str
+  
+  return chaine
+}
