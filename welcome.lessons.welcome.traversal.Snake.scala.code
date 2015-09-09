@@ -32,7 +32,14 @@ override def run() {
 
   baisseBrosse()
   while (!posFinale()){
-    avancer(6); gauche();avance();gauche();avancer(6);droite();avance();droite()
+    if (!estFaceMur()){
+      avance()
+    } else {
+      if (getDirection() == Direction.EST){
+        gauche(); avance(); gauche()
+      } else if (getDirection() == Direction.OUEST){
+        droite(); avance(); droite()
+      }
     }
-
+  }
 }
