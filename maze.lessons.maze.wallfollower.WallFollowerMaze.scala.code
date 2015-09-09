@@ -2,7 +2,9 @@ override def run() {
   do{
     gauche();
     if(!estFaceMur){avance()}
-    else{droite();if (!estFaceMur){avance()}}
+    else{droite();if (!estFaceMur){avance()}
+        else{droite();if(!estFaceMur){avance()}
+            else{droite();avance()}}}
   }while(!estSurBiscuit())
   prendBiscuit()
 }
