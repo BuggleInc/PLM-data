@@ -1,9 +1,23 @@
 def golomb(num:Int): Int = {
-  var temp=1
-  var plop=1
+  var occurence=1
+  var tab=[]
+  var indice=1
   for (i<-1 to num){
-    if (temp==0) {plop=plop+1;temp=plop}
-    temp=temp-1
+    if (occurence==0) {indice=indice+1;occurence=indice}
+    occurence=occurence-1
+    tab=copieTableauPlusUn(tab)
+    tab(i)=indice
   }
-  return plop
+  return indice
+}
+
+def copieTableauPlusUn (tab:Array[Int]):Array[Int] = {
+  var l = tab.length
+  var res= new Array[Int] (l+1)
+  if l>0 {}
+  for (i<- 0 to l-1){
+    res(i)=tab(i)
+  }
+  return res}
+	else {[1]}
 }
