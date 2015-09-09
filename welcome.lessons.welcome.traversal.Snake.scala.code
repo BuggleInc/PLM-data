@@ -1,0 +1,22 @@
+override def run() {
+  
+  
+  def positionFinale() {
+    var bool : Boolean = false
+    if (estFaceMur()) {
+      if (getDirection() == Direction.EST)
+      		{gauche(); bool = estFaceMur(); droite(); return bool}
+      else 
+      		{droite(); bool = estFaceMur(); gauche(); return bool}
+    }
+    else false
+  }
+  
+  while (!estFaceMur()) {avance()};
+  while (!positionfinale()) {
+    if (getDirection() == Direction.EST)
+    		{gauche(); avance(); gauche(); while (!estFaceMur()) {avance()};}
+    else
+    		{droite(); avance(); droite(); while (!estFaceMur()) {avance()};}
+  }
+}
