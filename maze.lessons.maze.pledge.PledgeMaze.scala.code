@@ -4,7 +4,7 @@ def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
 
 
 def garM(c:Int):Int = { if (aMurD()) {if (estFaceMur()) {gauche();return c+1} else {avance();return c}} else {if (estFaceMur()) {droite();return c-1} else {gauche();avance();return c+1}
-}
+                                                                                                             }}
 
 
 override def run() {var c = 0;while (getY()!=0) {c=0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};c=garM(c);while ((getDirection()!=Direction.NORTH||c!=0) && getY() !=0) {c = garM(c)}};while (!estSurBiscuit()) {c = garM(c)};prendBiscuit()}
