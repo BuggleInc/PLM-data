@@ -1,3 +1,10 @@
 def golomb(num:Int): Int = {
-  var tableau new Array[Int]
-  
+  var T = new Array[Int](num)
+  T(0)=1
+  for (i<-0 to num-1){
+    for (j<-0 to T(i)-1){
+      T(j)=T(i)
+    }
+  }
+  return (T(num-1))
+}
