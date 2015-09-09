@@ -1,0 +1,23 @@
+override def run() {
+  setIndication(trouverBiscuit())
+    // Your code here
+}
+
+def trouverBiscuit():(Int,Int,Int)=
+{
+  var X = 0
+  var Y = 0
+  while ((X,Y)!=(getMondeLargeur()-1,getMondeHauteur()-1) && !aBiscuit(X,Y))
+         {
+           if (X<getMondeLargeur()-1)
+           {
+             X+=1
+           }
+           else
+           {
+             X=0
+             Y+=1
+           }
+         }
+  return (X,Y,0)
+}
