@@ -1,13 +1,23 @@
 override def run() {
-  var alea:Int = 0
+  getMeOutOfHere()
+}
+
+def getMeOutOfHere() {
   while (!estSurBiscuit()) {
-    alea = random3()
-    if (alea == 0 && !estFaceMur())
-    	avance()
-    if (alea == 1)
-    	droite()
-    if (alea == 2)
-    	gauche()
-  } 
+    while (murAGauche()) {
+      if (!estFaceMur())
+      	avance()
+      droite()
+    }
+    gauche()
+    avance()
+  }
   prendBiscuit()
+}
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur())
+  	return true
+  return false
 }
