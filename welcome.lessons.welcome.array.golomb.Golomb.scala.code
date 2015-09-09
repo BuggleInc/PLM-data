@@ -1,24 +1,17 @@
-def golomb(num:Int): Int = {
-  var nb:Int = 2
-  var cpt:Int = 2
-  var last:Int = 3
-	var T = new Array[Int](num+1)
-  T(0)=0
-  T(1)=1
-  T(2)=2
-  if (num<3) {
-    return T(num)
+def golomb(num:Int):Int = {
+  if (num==1) {
+    return 1
   }
-  while (last<num) {
-    if (cpt>0) {
-    	T(last)=nb
-      last+=1
-      cpt=cpt-1
-    }
-    if (cpt==0) {
-      nb=nb+1
-      cpt=T(nb)
-    }
+  if (num==2) {
+    return 2
   }
-  return T(num)
+  var y:Int = golomb(num-1)
+  var w:Int = golomb(y)
+  var z:Int = chercheGolomb(y-1)
+  if ((num-1-z)<w) {
+    return y
+  }
+  else {
+    return y+1
+  }
 }
