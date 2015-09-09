@@ -1,10 +1,11 @@
 override def run() {
-  gauche()
   while(!estSurBiscuit()){
-    KeepHandOnSideWall()
-  }
-  droite()
-  prendBiscuit()  
+    if(estFaceMur()){
+      KeepHandOnSideWall()
+    } else{
+      setDirection(Direction.NORTH)
+    }
+}
 }
 
 def KeepHandOnSideWall(){
