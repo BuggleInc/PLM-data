@@ -1,6 +1,7 @@
 override def run() {
   var virage : Int = 0
-  while(!estSurBiscuit()){
+  while(!estSurBiscuit())
+  {
     if(isDirectionFree(Direction.NORD))
     {
       setDirection(Direction.NORD)
@@ -19,13 +20,13 @@ override def run() {
   
 }
 
-def mG() : Boolean = /*Verifie s'il y a un mur a droite*/{
+def mG() : Boolean = /*Verifie s'il y a un mur a gauche*/{
   var g = false
   gauche();g= estFaceMur();droite()
   return g
 }
 
-def mD() : Boolean = /*Verifie s'il y a un mur a gauche*/{
+def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
   var d = false
   droite();d= estFaceMur();gauche()
   return d
