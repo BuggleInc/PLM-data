@@ -1,2 +1,38 @@
 override def run() {
+  while(estPositionFinale() == false) {
+    avanceSerpent()
+  }
+}
+
+def estPositionFinale() : Boolean = {
+  var estFace : Boolean = false
+  if (getDirection() == Direction.EST) {
+    gauche()
+    estFace = estFaceMur()
+    droite()
+  }
+  if (getDirection() == Direction.OUEST) {
+    droite()
+    estFace = estFaceMur()
+    gauche()
+  }
+  return estFace
+}
+
+def avanceSerpent() {
+  if (estFaceMur == false) {
+    avance()
+  }
+  else{
+    if (getDirection() == Direction.EST) {
+    	gauche()
+    	avance()
+    	gauche()
+  }
+  	if (getDirection() == Direction.OUEST) {
+    	droite()
+    	avance()
+    	droite()
+  }
+  }
 }
