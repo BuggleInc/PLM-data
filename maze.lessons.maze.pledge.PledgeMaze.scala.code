@@ -10,7 +10,7 @@ override def run() {
 def longerMur(){
   var nordFree:Boolean=true
   var somvirage:Int = 0
-  while(!nordFree){
+  if(!nordFree){
     droite()
     somvirage=somvirage-1
     if (estFaceMur() && somvirage!=0){
@@ -32,10 +32,13 @@ def longerMur(){
     } else {
       avance()
     }
-    if (getDirection==Direction.NORD && !estFaceMur){
-      nordFree=true
-    } else {
-      nordFree=false
-    }
+  } else {
+    avance()
   }
+  if (getDirection==Direction.NORD && !estFaceMur){
+    nordFree=true
+  } else {
+      nordFree=false
+  }
+  
 }
