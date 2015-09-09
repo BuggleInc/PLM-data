@@ -1,6 +1,4 @@
 def golomb(num:Int): Int = {
-  if(num < 2)
-  	return 0
   var G = new Array[Int](num*10)
   var last : Int = 2
   var compteur :Int = 2
@@ -10,7 +8,7 @@ def golomb(num:Int): Int = {
   G(1) = 1
   
   G(2) = 2
-  G(num) = 0
+  if (num != 1 || num != 0) {G(num) = 0}
   while( G(num)==0) {
     var valeur: Int = G(compteur)
     for (i <- 0 to valeur-1){
