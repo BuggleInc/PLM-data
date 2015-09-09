@@ -1,0 +1,29 @@
+override def run() {
+  
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  
+  //---
+  var cpt = 1
+  def numeroterSol()
+  	{ecritMessage(cpt) ; cpt+=1} 
+  
+  //---
+  def positionFinale()
+  	{if (getX() == larguer-1 && gety() == hauteur-1) {return true}
+     else {return false}}
+  
+  //---
+  def descendre() 
+  	{while (!estFaceMur) {numeroterSol(); setPos(getx(), gety()+1)} }
+  
+  //---
+  def changerColone()
+  	{if (estFaceMur) {numeroterSol(); setPos(getx()+1, 0)}}
+  
+  //---
+  descendre() ;
+  while (!positionFinale())
+  {changerColone(); descendre()}
+
+}
