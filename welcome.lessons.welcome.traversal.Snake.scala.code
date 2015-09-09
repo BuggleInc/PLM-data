@@ -1,0 +1,33 @@
+override def run() {
+  while(!posFin()){
+    if(!estFaceMur()){
+      avance()
+    }else if(getDirection() == Direction.EST){
+      gauche();avance();gauche()
+    }else if(getDirection() == Direction.OUEST){
+      droite();avance();droite()
+    }
+  }
+}
+
+def posFin() : Boolean = {
+  if(estFaceMur()){
+    if(getDirection()==Direction.Est){
+      gauche()
+      if (estFaceMur()){
+        droite()
+        return true
+      }
+    }else if(getDirection()==Direction.OUEST){
+      droite()
+      if(estFaceMur()){
+        gauche()
+        return true
+      }
+    }else{
+      return false
+    }
+  }else{
+    return false
+  }
+}
