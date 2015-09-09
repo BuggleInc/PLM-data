@@ -1,18 +1,17 @@
 def test() :Boolean= {
   if (estFaceMur()) {
-    gauche()
-    if (estFaceMur()) {
-      droite()
-      return true
-    }
-    else if (!estFaceMur()) {
-      droite() ; droite() 
+    if(getDirection()==Direction.EST) {
+      gauche()
       if (estFaceMur()) {
-        gauche()
         return true
       }
-    }    
-  
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      if (estFaceMur()) {
+        return true
+      }
+    }
 }
 return false 
         }
