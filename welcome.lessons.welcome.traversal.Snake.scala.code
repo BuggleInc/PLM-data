@@ -1,14 +1,14 @@
 def estPositionFinale() = Boolean {
   if (estFaceMur() && getDirection() == Direction.EST) {
     gauche();
-    if (estFaceMur) {
+    if (estFaceMur()) {
       return true;
     } else {
       return false;
     }
   } else if (estFaceMur() && getDirection() == Direction.OUEST) {
     droite();
-    if (estFaceMur) {
+    if (estFaceMur()) {
       return true;
     } else {
       return false;
@@ -17,7 +17,7 @@ def estPositionFinale() = Boolean {
 }
     
 def pasDeSerpent() {
-  if (!estFaceMur) {
+  if (!estFaceMur()) {
     avance();
   } else {
     if (getDirection() == Direction.OUEST) {
