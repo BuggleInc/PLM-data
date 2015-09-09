@@ -8,4 +8,20 @@ def garM(c:Int,b:Boolean):(Int,Boolean) = { if (aMurD()) {if (estFaceMur()) {gau
 
 var c = 0
 var b = false
-override def run() {while (getY()!=0) {c = 0;b=false;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (getY() !=0 && (c!=0||!b)) {(c,b)=garM(c,b)}};while (!estSurBiscuit()) {(c,b)=garM(c,b)};prendBiscuit()}
+override def run() {
+  while (getY()!=0) {
+    c = 0
+    b=false
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()) {
+      avance()
+    	}
+    while (getY() !=0 && (c!=0||!b)) {
+      (c,b)=garM(c,b)
+    	}
+  }
+  while (!estSurBiscuit()) {
+    (c,b)=garM(c,b)
+  	}
+  prendBiscuit()
+}
