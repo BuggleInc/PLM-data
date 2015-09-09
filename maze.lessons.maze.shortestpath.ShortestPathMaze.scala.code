@@ -7,10 +7,10 @@ override def run() {
 
   
   def indic(x:Int, y:Int, i:Int){
-		if(!aMurNord(x,y)){indic(x,y-1,i+1)} 
-    if( y>0 && !aMurNord(x,y-1)){indic(x,y+1,i+1)}
-    if(!aMurOuest(x,y)){indic(x-1,y,i+1)}
-    if(x< getMondeLargeur()-1 && !aMurOuest(x+1,y)){indic(x+1,y,i+1)}
+		if(!aMurNord(x,y)){setIndication(x,y-1,i+1);indic(x,y-1,i+1)} 
+    if( y>0 && !aMurNord(x,y-1)){setIndication(x,y+1,i+1);indic(x,y+1,i+1)}
+    if(!aMurOuest(x,y)){setIndication(x-1,y,i+1);indic(x-1,y,i+1)}
+    if(x< getMondeLargeur()-1 && !aMurOuest(x+1,y)){setIndication(x+1,y,i+1);indic(x+1,y,i+1)}
   }
 
   while( !aBiscuit(x,y) && x< getMondeLargeur()-1)    {
