@@ -1,2 +1,63 @@
+var sommeAngle=0
+var nordLibre=true
 override def run() {
+  while(!estSurBiscuit())
+  {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall()
+{
+  if(nordLibre && getDirection()==Direction.NORD && !estFaceMur() )
+  {
+    
+    avance()
+    if(estFaceMur())
+    {
+      droite() 
+    	nordLibre=false
+      sommeAngle=1
+    }
+ 
+  }else{
+    
+    if(sommAngle==0)
+    {
+      nordLibre=true
+    }else{
+     gauche()
+    sommeAngle-=1
+    
+  	if(estFaceMur())
+  	{
+    	 droite()
+    	 sommeAngle+=1
+  	}
+    
+  	if(!estFaceMur())
+  	{
+    	avance()
+  	}else
+    {
+    	droite();
+    	sommeAngle+=1
+  	} 
+    }
+    
+  }  
+}
+
+def freeDirection(dir:Direction):Boolean=
+{
+  var d=getDirection();
+  setDirection(dir)
+  
+  if(!estFaceMur())return true
+  else
+  {
+    setDirection(d)
+    return false
+  }
 }
