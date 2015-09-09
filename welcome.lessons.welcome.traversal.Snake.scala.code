@@ -28,14 +28,15 @@ def pos(): Boolean = {
   if (estFaceMur){
     if (getDirection() == Direction.EST){
     	gauche()
-    	if (estFaceMur()){
-     		droite()
-      	return true
-    	 }
-    	else {
+    	if (!estFaceMur) {
      	droite()
      	return false
    		}
+      else (estFaceMur()){
+     		droite()
+      	return true
+    	 }
+    	
    	}
     if (getDirection() == Direction.OUEST){
       droite()
