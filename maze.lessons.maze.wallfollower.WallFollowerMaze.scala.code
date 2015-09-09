@@ -7,19 +7,15 @@ def keepHandOnSideWall() {
     efm = false
   }
   droite()
-  if ((!estFaceMur()) && (efm == true)) {
-    avance()
-  } else if ((!estFaceMur()) && (efm == false)) {
-    avance()
-  } else if ((estFaceMur()) && (efm == true)) {
-    gauche()
-    if (!estFaceMur()) {
-      avance()
+  if (estFaceMur()) {
+    if (efm) {
+      droite()
     }
-  } else if ((estFaceMur()) && efm==false) {
-    gauche()
+  }
+  if (!estFaceMur()) {
     avance()
   }
+  
 }
 
 override def run {
