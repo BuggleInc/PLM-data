@@ -1,34 +1,13 @@
 def island(num:Array[Int]): Int = {
-  var a1 = 0
-  var a2 = 0
-  var x = 0
   var taille = num.length
-	var peut_compter1 = true
-  var peut_compter2 = true
- for (i <-0 to taille - 1)
-  {
-    if (num(i) == 1 && peut_compter1 == true)
-    	{
-        a1 = i
-        x = x + 1 ;
-        peut_compter1 = false
+	for (i <- 0 to taille - 2)
+  var x = 0
+  		{
+        if (num(i))<num(i+1))
+        	{
+            x = x +1
+          }
       }
-    if (num(i) == 2 && peut_compter2 == true)
-    	{
-        a2 = i
-        x = x +1 
-        peut_compter2 = false
-      }
-  		if (num(i) == 0 && peut_compter1 == false && a1 < i)
- 		{
-      peut_compter1 = true
-      a1 = i
-    } 
-    			if (num(i) == 1 && peut_compter2 == false && a2 < i)
- 		{
-      peut_compter2 = true
-      a2 = i
-    } 
   
-  }
+ 
   return x }
