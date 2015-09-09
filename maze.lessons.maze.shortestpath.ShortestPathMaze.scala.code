@@ -1,20 +1,19 @@
 override def run() {
   var sortieX = 0
   var sortieY = 0
-    for (i <- 0 to getMondeLargeur()-1){
-      for (j <- 0 to getMondeHauteur() -1){
-        if (aBiscuit(i,j)){
-          setIndication(i,j,0);
-          sortieX = i;
-          sortieY = j;
-        }
+  for (i <- 0 to getMondeLargeur()-1){
+    for (j <- 0 to getMondeHauteur() -1){
+      if (aBiscuit(i,j)){
+        setIndication(i,j,0);
+        sortieX = i;
+        sortieY = j;
       }
     }
+  }
   propageIndication()
-  
 }
 
-def propageIndication(x:Integer, y:Integer){
+def void propageIndication(x:Integer, y:Integer){
   if (!aMurNord(x,y)){
     if (getIndication(x,y-1)>getIndication(x,y)+1){
       setIndication(x,y-1, getIndication(x,y)+1);
