@@ -1,11 +1,16 @@
 override def run() {
+  var dir:Direction = getDirection()
+  var sommeAngle:Int = 0
   while (!estSurBiscuit()) {
+    while (isDirectionFree(dir) && sommeAngle == 0) {
+      avance()
+    }
     keepHandOnSideWall()
   }
+  prendBiscuit()
 }
 
 def keepHandOnSideWall() = {
-	var sommeAngle:Int = 0
     while (estFaceMur()) {
       droite()
       sommeAngle -= 1
