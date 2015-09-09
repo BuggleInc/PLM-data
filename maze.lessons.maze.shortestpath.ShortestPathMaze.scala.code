@@ -44,34 +44,13 @@ def trouverYBiscuit():Int=
   return Y
 }
 
-def numeroterLesCases(XBiscuit:Int, YBiscuit:Int, cpt : Int)
+def numeroterLesCases(X:Int, Y:Int, cpt : Int)
 {
-  var X = XBiscuit
-  var Y = YBiscuit
-  var cpt = 1
-  var tailleMonde = getMondeHauteur()*getMondeLargeur()
-  while (cpt<tailleMonde)
+  if (!aMurNord(X,Y) && getIndication(X,Y)>cpt && Y>0)
   {
-    var murNord = true
-    var murOuest = true
-    if (Y>0 && !aMurNord(X,Y))
-    {
-      setIndication(X,Y-1,cpt)
-      murNord = false
-    }
-    if (X>0 && !aMurOuest(X,Y))
-    {
-      setIndication(X-1,Y,cpt)
-      murOuest = false
-    }
-    if (!murNord)
-    {
-      Y=Y-1
-    }
-    else if (!murOuest)
-    {
-      X=X-1
-    }
-    cpt+=1
+    numeroterLesCases(X,Y-1)
   }
-}
+  if (!aMurOuest(X,Y) && getIndication(X,Y)>cpt && X>0)
+  {
+    numeroterLesCases(X-1,Y)
+  }
