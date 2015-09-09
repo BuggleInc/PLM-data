@@ -1,0 +1,18 @@
+def last2(str:String):Int =
+{
+  if (str.length >= 4)
+  {
+    var motif = str(str.length - 2).toString() + str(str.length - 1)
+    var occurrences = 0
+
+    for (i <- 0 to str.length - 4)
+    {
+      if (str(i).toString() + str(i + 1) == motif)
+        occurrences += 1
+    }
+
+    return occurrences
+  }
+  
+  return 0
+}
