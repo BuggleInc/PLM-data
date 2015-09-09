@@ -31,7 +31,16 @@ def Numerotation(T: Array[Int]){
   var BiscuitY = T(1);
   var c=0
   setIndication(BiscuitX, BiscuitY, 0)
-  
+  while (litMessage()==''){
+    for(x<-0 to getMondeLargeur()-1){
+      for(y<-0 to getMondeHauteur()-1){
+        if(c=getIndication(x, y)){
+          MarquageCaseSuivante(x, y, c)
+        }
+      }
+    }
+    c+=1
+  }
 }
 
 // fais toutes les vérifs nécessaires et marque les 4 cases autour de X,Y
