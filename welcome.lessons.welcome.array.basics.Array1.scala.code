@@ -1,0 +1,35 @@
+def peindreSol(c: Color) {
+	setCouleurBrosse(c)
+  
+  baisseBrosse()
+  leveBrosse()
+}
+
+override def run() {
+  var hauteurMonde:Int = getMondeHauteur()
+  var largeurMonde:Int = getMondeLargeur()
+  
+  var couleurs = new Array[Color](hauteurMonde)
+  
+  avance(hauteurMonde - 1)
+  
+  for (i <- 1 to hauteurMonde - 1) {
+    couleurs(i - 1) = getCouleurSol()
+    
+    recule()
+  }
+  
+  for (i <- 0 to largeurMonde - 2) {
+    gauche()
+    avance()
+    droite()
+    
+    for (j <- 1 to hauteurMonde) {
+      peindreSol(couleurs(j % hauteurMonde))
+      
+      avance()
+    }
+    
+    recule(hauteurMonde - 1)
+  }
+}

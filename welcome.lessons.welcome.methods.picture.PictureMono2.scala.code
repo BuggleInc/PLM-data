@@ -1,0 +1,42 @@
+def marquerSol() {
+	baisseBrosse(); leveBrosse()  
+}
+
+def faireV() {
+  avance(2)
+  
+  marquerSol()
+  
+  gauche()
+  avance()
+  droite()
+  avance()
+  
+  marquerSol()
+  
+  avance()
+  droite()
+  avance()
+  
+  marquerSol()
+  
+  gauche()
+  avance(2)
+  
+  gauche()
+}
+
+override def run() {
+  for (y <- 1 to 3) {
+    for (x <- 1 to 3) {
+      for (k <- 1 to 4) {
+        faireV()
+      }
+      avance(7)
+    }
+    recule(7)
+    gauche()
+    avance(7)
+    droite()
+  }
+}

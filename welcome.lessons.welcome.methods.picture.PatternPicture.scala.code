@@ -1,0 +1,73 @@
+def peindreSol(c: Color) {
+  setCouleurBrosse(c)
+  
+  // On marque le sol.
+  baisseBrosse()
+  leveBrosse()
+}
+
+def dessineV(c: Color) {
+  avance()
+  peindreSol(c)
+  
+  for (compteur <- 1 to 2) {
+    gauche(); avance()
+  }
+  
+  peindreSol(c)
+  
+  gauche()
+  avance()
+  gauche()
+}
+
+def dessineVInverse(c: Color) {
+  peindreSol(c)
+  
+  for (compteur <- 1 to 2) {
+    avance(); gauche()
+  }
+  
+  peindreSol(c)
+  
+  for (compteur <- 1 to 2) {
+    avance(); gauche()
+  }
+}
+
+def dessineMotif() {
+  dessineV(Color.RED)
+  avance(2)
+  dessineVInverse(Color.BLUE)
+
+  recule(2)
+  gauche()
+  avance(2)
+  droite()
+
+  dessineVInverse(Color.YELLOW)
+  avance(2)
+  dessineV(Color.GREEN)
+
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+}
+
+override def run() {
+	dessineMotif()
+  
+  avance(4)
+  
+  dessineMotif()
+  
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  
+  dessineMotif()
+  avance(4)
+  dessineMotif()
+}
