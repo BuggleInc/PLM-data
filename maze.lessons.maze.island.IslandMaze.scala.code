@@ -1,5 +1,5 @@
 override def run() {
-  while (!estSurBiscuit()){
+  while (getY()>0){
     while (!(getDirection()==Direction.NORTH)){
       droite()
     }
@@ -8,6 +8,9 @@ override def run() {
     } else {
       avance()
     }
+  }
+  while (!estSurBiscuit()){
+    longerMur()
   }
   prendBiscuit()
 }
