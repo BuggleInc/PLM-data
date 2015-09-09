@@ -1,12 +1,30 @@
-var nbBiscuit:Int=0
-var nbCaseOrange:Int=1
+var fini:Boolean=false
 
-while (2*nbBiscuit!=nbCaseOrange){
-  avance();
-  if (estSurBiscuit()==true){
-    nbBiscuit=nbBiscuit+1;
+while (fini==false){
+  if (estSurMessage()==true){
+      if (litMessage()=='R'){
+        droite();
+        avance();
+      }else if (litMessage=='L'){
+        gauche();
+        avance();
+      }else if (litMessage=='I'){
+        retourne();
+        avance();
+      }else if (litMessage=='A'){
+    avance();
+      }else if (litMessage=='B'){
+        avance(2);
+      }else if (litMessage=='C'){
+        avance(3);
+      }else if (litMessage=='Z'){
+        recule();
+      }else if (litMessage=='Y'){
+        recule(2);
+      }else if (litMessage=='X'){
+        recule(3);
+      }
+  }else{
+    fini=true
   }
-  if (estSurOrange()==true){
-    nbCaseOrange=nbCaseOrange+1;
-   }
 }
