@@ -1,14 +1,15 @@
 def extrema(nums:Array[Int]): Int = {
   var maximum=0
   var minimum=0
+  var extrema=0
   for (i<-0 to nums.length-1){
     if (maximum < nums(i)){
       maximum=nums(i)
-    }else{
-      if (minimum>nums(i)){
-        minimum=nums(i)
-      }
+    }
+    if (minimum>nums(i)){
+      minimum=nums(i)
     }
   }
+  extrema=maximum-minimum
   return (maximum-minimum)
 }
