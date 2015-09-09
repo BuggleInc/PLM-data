@@ -7,31 +7,17 @@ override def run() {
       avance()
       gauche()
     }else if(getDirection() == Direction.OUEST){
-      droite();avance();droite()
+      droite()
+      avance()
+      droite()
     }
   }
 }
 
 def posFin() : Boolean = {
-  if(estFaceMur() && getDirection()==Direction.EST){
-    gauche()
-    if (estFaceMur()){
-      droite()
-      return true
-      }else{
-      droite()
-      return false
-    }
-  }else if(estFaceMur() && getDirection()==Direction.OUEST){
-    droite()
-    if(estFaceMur()){
-      gauche()
-      return true
-      }else{
-      droite()
-      return false
-    }
+  if(estFaceMur()){
+    return true
   }else{
     return false
   }
-  }
+}
