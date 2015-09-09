@@ -6,8 +6,11 @@ def estPositionFinale():Boolean = {
 }
 
 def vaPositionSuivante(oldX: Int, oldY: Int) {
-	var newX:Int = oldX + ((oldY + 1) % 6)
+	var newX:Int = oldX
   var newY:Int = (oldY + 1) % getMondeHauteur()
+  
+  if (oldX == getMondeHauteur() - 1)
+  	newX += 1
   
   setPos(newX, newY)
 }
