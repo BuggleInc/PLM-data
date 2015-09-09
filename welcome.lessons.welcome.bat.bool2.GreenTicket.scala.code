@@ -1,0 +1,7 @@
+def greenTicket(a:Int, b:Int, c:Int):Int = {
+  (a, b, c) match {
+    case (i, j, k) if ((i != j) & (j != k) & (i != k)) => return 0
+    case (i, j, k) if ((i = j) & (j = k)) => return 20
+    case (i, j, k) if (((i = j) & (j != k)) | ((i = k) & (j != k)) | ((j = k) & i != j)) => return 10
+  }
+}
