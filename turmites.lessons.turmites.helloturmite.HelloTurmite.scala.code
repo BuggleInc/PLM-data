@@ -1,0 +1,29 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var MVT_SUIVANT=1;
+  var NEXTCOLOR=0;
+  var NEXTSTATE=0
+  var state = 0;
+  for (i<-0 to rule(state).length-1){
+    if (getCouleurSol()==rule(state)(i)){
+      MVT_SUIVANT=rule(state)(i)(1)
+      NEXTCOLOR=rule(state)(i)(0)
+      NEXTSTATE=rule(state)(i)(2)
+    }
+  }
+  setCouleurSol(colors(NEXTCOLOR))
+  state=NEXTSTATE
+  MVT_SUIVANT match{
+    case 2 => right(); avance();
+    case 8 => left(); avance();
+    case 4 => retourne(); avance();
+    case 1 => avance();
+    case 0=> 
+  }
+}
+
+
+def setCouleurSol(couleur:Color){
+  setCouleurBrosse(couleur); baisseBrosse; leveBrosse;
+}

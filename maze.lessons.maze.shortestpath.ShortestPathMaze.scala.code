@@ -1,0 +1,115 @@
+override def run() {
+  var BiscuitCoord= new Array[Int](2);
+  BiscuitCoord = DetectBiscuit();
+  Numerotation(BiscuitCoord);
+  GoBuggle();
+  prendBiscuit();
+}
+
+
+/* étapes:
+1, détecter le Baggle
+2, numéroter les cases jusqu'au buggle
+3, suivre la numérotation */
+
+def GoBuggle(){
+  var X=getX();
+  var Y=getY();
+  var c=getIndication(X, Y);
+  while(!estSurBiscuit){
+    if (!aMurNord(X, Y) && getIndication(X, Y-1)<c){
+  		setDirection(Direction.NORD)
+      avance();
+    } else if(!aMurOuest(X, Y) && getIndication(X-1, Y)<c){
+      setDirection(Direction.OUEST)
+      avance();
+    } else if(X != getMondeLargeur()-1 && !aMurOuest(X+1, Y) && getIndication(X+1, Y)<c){
+      setDirection(Direction.EST);
+      avance();
+    } else if(Y != getMondeHauteur()-1 && !aMurNord(X, Y+1) && getIndication(X, Y+1)<c){
+      setDirection(Direction.SUD);
+      avance();
+    }
+    c-=1;
+    X=getX();
+    Y=getY();
+  }
+}
+
+//detecte la position du baggle
+def DetectBiscuit():Array[Int]={
+  for (x<-0 to getMondeLargeur()-1){
+    for (y<-0 to getMondeLargeur()-1){
+      if (aBiscuit(x,y)){
+        var Coord = new Array[Int](2)
+        Coord(0)=x
+        Coord(1)=y
+        return Coord;
+      }
+    }
+  }
+  var Coord = new Array[Int](2)
+  return Coord
+}
+
+
+def writeMsg(x:Int,y:Int,msg:Int){	
+  /*
+  var oldX = getX()
+  var oldY = getY()
+  setPos(x,y);
+  writeMessage(msg);
+  setPos(oldX, oldY);
+  */
+}
+
+//Numérote la map
+def Numerotation(T: Array[Int]){
+  var BiscuitX = T(0);
+  var BiscuitY = T(1);
+  var c=0
+  setIndication(BiscuitX, BiscuitY, 0)
+  while (c<100){
+    for(x<-0 to getMondeLargeur()-1){
+      for(y<-0 to getMondeHauteur()-1){
+        if(c==getIndication(x, y)){
+          MarquageCaseSuivante(x, y, c)
+        }
+      }
+    }
+    c+=1
+
+  }
+}
+
+// fais toutes les vérifs nécessaires et marque les 4 cases autour de X,Y
+def MarquageCaseSuivante(X:Int, Y:Int, c:Int){
+  if(!aMurNord(X, Y)){
+    if (VerifCase(X, Y-1, c+1)){
+      setIndication(X, Y-1, c+1);
+    }
+  }
+  if(!aMurOuest(X, Y)){
+    if (VerifCase(X-1, Y, c+1)){
+      setIndication(X-1, Y, c+1);
+    }
+  }
+  if(Y!= getMondeHauteur()-1 && !aMurNord(X, Y+1)){
+    if (VerifCase(X, Y+1, c+1)){
+      setIndication(X, Y+1, c+1);
+    }
+  }
+  if(X!= getMondeLargeur()-1 && !aMurOuest(X+1, Y)){
+    if (VerifCase(X+1, Y, c+1)){
+      setIndication(X+1, Y, c+1);
+    }
+  }
+}
+
+//si VerifCase renvoie false, c'est qu'il ne faut pas réécrire !
+def VerifCase(X:Int, Y:Int, c:Int):Boolean={
+  if (getIndication(X,Y)<c) {
+    return false
+  }
+  return true
+}
