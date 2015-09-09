@@ -12,13 +12,14 @@ override def run() {
     setCouleurBrosse(T(decal))
     baisseBrosse()
     leveBrosse()
-    avance()
     for (k<-1 to n-1){
+      avance()
       setCouleurBrosse(T((k+decal)%n))
       baisseBrosse()
       leveBrosse()
       avance()
     }
+    recule(n-1)
   }
   for (compt<-1  to n-1){
     gauche()
