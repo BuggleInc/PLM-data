@@ -3,6 +3,11 @@ override def run() {
   var Y = trouverYBiscuit()
   setIndication(X,Y,0)
   numeroterLesCases(X,Y,0)
+  while(!estSurBiscuit())
+  {
+    PokeBallGO()
+  }
+  prendBiscuit()
     // Your code here
 }
 
@@ -50,7 +55,7 @@ def numeroterLesCases(X:Int, Y:Int, cpt : Int)
   {
     //Vérifie, si possible, dans les quatre directions et se relance si la case est accessible avec cpt incrémenté.
     if (!aMurNord(X,Y) && Y>0 && getIndication(X,Y-1)>cpt)
-    //Si la voie est libre au Nord, 
+    //Si la voie est libre au Nord, blablabla
     {
       setIndication(X,Y-1,cpt+1)
       numeroterLesCases(X,Y-1,cpt+1)
@@ -70,5 +75,63 @@ def numeroterLesCases(X:Int, Y:Int, cpt : Int)
       setIndication(X,Y+1,cpt+1)
       numeroterLesCases(X,Y+1,cpt+1)
     }
+  }
+}
+
+def PokeBallGO()
+{
+  var X = getX()
+  var Y = getY()
+  var cpt = getIndication(X,Y)
+  var nord = 9999
+  var sud = 9999
+  var ouest = 9999
+  var est = 9999
+  var choix = 0
+  if (X+1<getMondeLargeur())
+  {
+    Est=getIndication(X+1,Y)
+  }
+  if (X>0)
+  {
+    Ouest = getIndication(X-1,Y)
+  }
+  if (Y+1<getMondeHauteur())
+  {
+    Sud=getIndication(X,Y+1)
+  }
+  if (Y>0)
+  {
+    Nord=getIndication(X,Y-1)
+  }
+  choix = nord
+  if (sud < choix)
+  {
+    choix = sud
+  }
+  if (ouest < choix)
+  {
+    choix = ouest
+  }
+  if (est<choix)
+  {
+    choix = est
+  }
+  
+  if (choix = nord)
+  {
+    setPosition(X,Y-1)
+  }
+  if (choix = sud)
+  {
+    setPosition(X,Y+1)
+  }
+  if (choix = ouest)
+  {
+    setPosition(X-1,Y)
+  }
+  if (choix = est)
+  {
+    setPosition(X+1,Y)
   }
 }
