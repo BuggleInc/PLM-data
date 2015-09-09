@@ -1,12 +1,12 @@
 override def run() {
   while (!estSurBiscuit()) {
-    if (!keepHandOnSideWall() && !estFaceMur()) {gauche()}
     while (keepHandOnSideWall() && !estFaceMur()) {
       avance()
     }
     if (estFaceMur() && keepHandOnSideWall() && !estSurBiscuit()) {droite()}
     else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
     else if(!keepHandOnSideWall()) {gauche();avance()}
+    if (!keepHandOnSideWall() && !estFaceMur()) {gauche()}
     
   }
   def keepHandOnSideWall(): Boolean = {
