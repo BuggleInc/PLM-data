@@ -4,10 +4,11 @@ def golomb(num:Int): Int = {
   T(2) = 2
   T(num) = 0
   var p = 2
-  var c = 2
   while (T(num)==0) {
     remplir(T, p, T(p))
+    p = p + 1
   }
+  return T(num)
 }
 
 def remplir(T:Array[Int], x:Int, n:Int) = { //ajoute au tableau T l'élément x n fois
