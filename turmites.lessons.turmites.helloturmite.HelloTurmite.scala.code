@@ -6,7 +6,10 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   for(i<-0 to colors.length - 1){
     if(c == colors(i)){x=i}
   }
-       setCouleurBrosse(colors((x+1)%colors.length));baisseBrosse();leveBrosse()
-    if(rule(state()(x)){gauche();avance();}
-    else{droite();avance()}
+    setCouleurBrosse(colors((x+1)%colors.length));baisseBrosse();leveBrosse()
+    if(rule(state()(x) match
+            case 1 => avance();
+            case 2 => gauche();avance();
+            case 4 => gauche();gauche();avance();
+            case 8 => droite();avance();
   }
