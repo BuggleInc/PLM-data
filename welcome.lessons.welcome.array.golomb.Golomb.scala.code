@@ -12,8 +12,8 @@ def golomb(num:Int): Int = {
   var tab = new Array[Int](num)
   var repere = 0
   for (k <- 0 to num-1) {
-    for (j <- repere to repere+tab(k)) {
-      tab(j) = k
+    if (compteur(k, tab) != tab(k)) {
+      tab(repere) = k
     }
     repere = k
   }
