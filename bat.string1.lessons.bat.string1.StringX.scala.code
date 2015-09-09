@@ -5,10 +5,10 @@ def stringX(str:String):String =
  	var i=0;
   var j=str.length();
   
-  str.drop(i).take(1)=="x"
-  str.drop(j).take(1)=="x";
+  if(str.drop(i).take(1)=="x")i+=1
+  if(str.drop(j).take(1)=="x")j-=1;
   
- for(k <- 1 to j-1)
+ for(k <- i to j-1)
   {
     
     if(str.drop(k).take(1)!="x" )
