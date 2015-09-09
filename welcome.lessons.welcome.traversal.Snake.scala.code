@@ -1,0 +1,36 @@
+override def run() {
+  while (!estFinal())
+ 		if (!estFaceMur) {
+    avance()
+  } else monte()
+}
+def estFinal () {
+  if (estFaceMur) {
+    if (getDirection == Direction.EST) {
+      gauche()
+      if (estFaceMur) {
+        return true
+      } else return false
+    } else {
+      droite()
+      if (estFaceMur) {
+        return true
+      } else return false
+    }
+  }
+}
+
+def monte() {
+  if (getDirection == Direction.EST) {
+    gauche()
+    avance()
+    gauche()
+  } else {
+    droite()
+    avance()
+    droite()
+  }
+}
+
+
+}
