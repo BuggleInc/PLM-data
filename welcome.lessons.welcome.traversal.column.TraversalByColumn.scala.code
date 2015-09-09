@@ -1,0 +1,23 @@
+override def run() {
+  val a=getMondeLargeur();
+  val b=getMondeHauteur();
+  var comp =  0;
+  var col = 0;
+  while(!(positionFinale(a,b))) {
+    if (estFaceMur()==true) {
+      col = col +1;
+      setPos(0,col);
+    } else {
+      setPos(comp,col);
+      comp = comp +1;
+    }
+  }
+}
+
+def positionFinale(a:Int, b:Int):Boolean = {
+  var res = false;
+  if (getX()==a && getY()==b) {
+    res = true
+  }
+  return res
+}
