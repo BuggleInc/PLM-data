@@ -18,16 +18,16 @@ def marquer(xb:Int,yb:Int) {
   setIndication(x,y,i)
   i = i + 1
   for (j <- 0 to getMondeLargeur() * getMondeHauteur() - 1) {
-    if (aMurNord(x,y) == false && getIndication(x,y-1)) {
+    if (aMurNord(x,y) == false && getIndication(x,y-1) == 9999) {
       setIndication(x,y-1,i)
     }
-    if (aMurSud(x,y) == false && getIndication(x,y+1)) {
+    if (aMurSud(x,y) == false && getIndication(x,y+1) == 9999) {
       setIndication(x,y+1,i)
     }
-    if (aMurEst(x,y) == false && getIndication(x+1,y)) {
+    if (aMurEst(x,y) == false && getIndication(x+1,y) == 9999) {
       setIndication(x+1,y,i)
     }
-    if (aMurOuest(x,y) == false && getIndication(x-1,y)) {
+    if (aMurOuest(x,y) == false && getIndication(x-1,y) == 9999) {
       setIndication(x-1,y,i)
     }
     i = i + 1
