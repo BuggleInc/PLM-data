@@ -1,18 +1,13 @@
+
+
 def golomb(num:Int): Int = {
   var tab = new Array[Int](num)
-  tab(0) = 1
-  var flag = 2
-  for (k <- 1 to num-1) {
-    if (k==1) {
-      tab(k) = 2
+  var repere = 0
+  for (k <- 0 to num) {
+    var occ = tab(k)
+    for (i <- repere to repere+nb) {
+      tab(i) = k
     }
-    var nb = tab(k)
-    for (j <- flag to (flag+nb)) {
-      if (j <= num-1) {
-      	tab(j) = k
-      }
-    }
-    flag = tab(k)
+    repere = k
   }
-  return tab(num-1)
 }
