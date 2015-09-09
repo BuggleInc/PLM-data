@@ -16,17 +16,9 @@ def keepHandOnSideWall()
 {  
   var murGauche = testMurGauche()
   var sortieBoucle = false
-  if (estSurMessage())
+  if (!estFaceMur())
   {
-    droite()
-    if (!estFaceMur())
-    {
-      avance()
-    }
-  }
-  if (estFaceMur())
-  {
-    droite()
+    avance()
     sortieBoucle = true
   }
   if (!murGauche && !sortieBoucle)
@@ -42,7 +34,6 @@ def keepHandOnSideWall()
   {
     avance()
   }
-  ecritMessage("Déjà passé")
 }
 
 
