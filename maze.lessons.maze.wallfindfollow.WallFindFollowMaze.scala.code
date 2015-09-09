@@ -1,6 +1,10 @@
 override def run() {
   while (!murAGauche()) {
-    avance()
+    if (!estFaceMur()) {
+      avance()
+    } else {
+      droite()
+    }
   }
   keepHandOnSideWall()
 }
