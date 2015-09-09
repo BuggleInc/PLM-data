@@ -1,0 +1,17 @@
+def stringMatch(a:String, b:String):Int = 
+{
+  if (a.length >= 2 && b.length >= 2)
+  {
+    var occurrences = 0
+
+    for (i <- 0 to Math.min(a.length, b.length) - 2)
+    {
+      if(a(i).toString() + a(i + 1) == b(i).toString() + b(i + 1))
+        occurrences += 1
+    }
+
+    return occurrences
+  }
+  
+  return 0
+}
