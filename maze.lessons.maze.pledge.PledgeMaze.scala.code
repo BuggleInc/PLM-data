@@ -12,7 +12,7 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if ( estFaceMur() && isDirectionFree2(Direction.EST) ){
+  if ( estFaceMur() && somAngle == 0 ){
     droite();
     avance();
     sommeAngle -= 1;
@@ -22,6 +22,11 @@ def keepHandOnSideWall() {
     sommeAngle += 1;
   } else if ( !isDirectionFree(Direction.NORTH) && !isDirectionFree2(Direction.EST) ){
     retourne();
+  } else if ( estFaceMur() ){
+    gauche();
+    avance();
+    gauche();
+    avanve();
   } else {
     avance();
   }
