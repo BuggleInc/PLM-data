@@ -1,11 +1,11 @@
 override def run() {
-    var  x= 0
-    var y = 0
-  	var dir: Direction = Direction.NORTH
-  	var ind = 9999
-  
-def indic(x:Int, y:Int, i:Int){
-		if(!aMurNord(x,y) && getIndication(x,y-1) >=i){
+  var  x= 0
+  var y = 0
+  var dir: Direction = Direction.NORTH
+  var ind = 9999
+
+  def indic(x:Int, y:Int, i:Int){
+    if(!aMurNord(x,y) && getIndication(x,y-1) >=i){
       setIndication(x,y-1,i+1);
       indic(x,y-1,i+1)
     }
@@ -13,7 +13,7 @@ def indic(x:Int, y:Int, i:Int){
       setIndication(x,y+1,i+1);
       indic(x,y+1,i+1)
     }
-  
+
     if(!aMurOuest(x,y) && getIndication(x-1,y)>=i){
       setIndication(x-1,y,i+1);
       indic(x-1,y,i+1)
@@ -23,29 +23,37 @@ def indic(x:Int, y:Int, i:Int){
       indic(x+1,y,i+1)
     }
   }
-  
 
-	for(i<- 0 to getMondeLargeur()-1){
+
+  for(i<- 0 to getMondeLargeur()-1){
     for(j<- 0 to getMondeHauteur() -1 ){
       if(aBiscuit(i,j)){x=i;y=j}
     }
   }
   setIndication(x,y,0)
-  
-    while(!estSurBiscuit()){
+
+  while(!estSurBiscuit()){
     if(!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1)<ind){
-      dir = Direction.NORD; ind=getIndication(getX(),getY()-1)} 
+      dir = Direction.NORD;
+      ind=getIndication(getX(),getY()-1)
+    } 
     if(!aMurNord(getX(),getY()-1) && getIndication(getX(),getY()+1)<ind){
-      dir = Direction.SUD; ind=getIndication(getX(),getY()+1)}
-    if(!aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY())<ind){
-      dir = Direction.EST; ind=getIndication(getX()+1,getY())}
-    if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())<ind){
-      dir = Direction.OUEST; ind=getIndication(getX()+1,getY())}
-		setDirection(dir);avance();
-    ecritMessage(getIndication(getX(),getY()))
+      dir = Direction.SUD;
+      ind=getIndication(getX(),getY()+1)
     }
-  
-  
-	indic(x,y,0)
-  
+    if(!aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY())<ind){
+      dir = Direction.EST;
+      ind=getIndication(getX()+1,getY())
+    }
+    if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())<ind){
+      dir = Direction.OUEST;
+      ind=getIndication(getX()+1,getY())
+    }
+    setDirection(dir);avance();
+    ecritMessage(getIndication(getX(),getY()))
+  }
+
+
+  indic(x,y,0)
+
 }
