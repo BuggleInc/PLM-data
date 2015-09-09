@@ -5,6 +5,12 @@ override def run() {
   var colonne = 0;
   ecritMessage(compteur)
   do{
+  diag = diag + 1;
+  ligne = diag;
+  colonne = 0;
+  compteur = compteur + 1;
+  setPos(colonne,ligne);
+  ecritMessage(compteur);
   do{
     compteur=compteur+1;
     ligne=ligne-1;
@@ -12,11 +18,5 @@ override def run() {
     setPos(colonne,ligne);
     ecritMessage(compteur);
   }while(!(colonne==diag))
-  diag = diag + 1;
-  ligne = diag;
-  colonne = 0;
-  compteur = compteur + 1;
-  setPos(colonne,ligne);
-  ecritMessage(compteur);
 	}while (!(getX==getMondeLargeur()-1 && getY==getMondeHauteur()-1))
 }
