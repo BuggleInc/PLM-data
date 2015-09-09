@@ -4,33 +4,17 @@ override def run()
   ecritMessage(avancement)
   while ( (getX(),getY()) != (getMondeLargeur()-1,getMondeHauteur()-1))
   {
-
     while ( getX()!= getMondeLargeur()-1)
     {
       goDroite()
       avancement = 	avancement + 1
       ecritMessage(avancement)
     }
-    if (getY()!=getMondeHauteur() -1)
+    while (getX() != 0)
     {
-      setPos(getX(),getY()+1)
+      goGauche()
       avancement = avancement + 1
       ecritMessage(avancement)
-    }
-    if (getY()!=getMondeHauteur() -1)
-    {
-      while (getX() != 0)
-      {
-        goGauche()
-        avancement = avancement + 1
-        ecritMessage(avancement)
-      }
-      if (getY()!=getMondeHauteur()-1)
-      {
-        setPos(getX(),getY()+1)
-        avancement = avancement + 1
-        ecritMessage(avancement)
-      }
     }
   }
 }
