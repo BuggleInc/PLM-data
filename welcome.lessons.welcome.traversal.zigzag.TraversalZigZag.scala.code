@@ -3,11 +3,9 @@ override def run() {
     brushDown()
   	
     while(!testArrive()){
-      
-      //Snake dans le test
-     writeMessage(compteur)
-     compteur = compteur +1  
-      
+      //Snake est dans le test
+     	writeMessage(compteur)
+     	compteur = compteur +1  
       
     }
   	right()
@@ -20,8 +18,8 @@ def testArrive (): Boolean = {
   }
   var d = getDirection()
   d match {
-    case Direction.WEST => left(); if (isFacingWall()) {return true}else{forward()}; left;
-    case Direction.EAST => right(); if (isFacingWall()) {return true}else{forward()}; right;
+    case Direction.WEST => left(); if (isFacingWall()) {return true}else{forward()}; left();
+    case Direction.EAST => right(); if (isFacingWall()) {return true}else{forward()}; right();
   }
   return false
 }
