@@ -1,8 +1,9 @@
 override def run() {
-  while(!isDirectionFree(getDirection()))
-  {// Choix de la direction de base. A priori ?a sert ? rien vu que le nord est libre dans les deux cas
-    gauche()
-  }
+  /*while(!isDirectionFree(getDirection()))
+  {
+    gauche()// Choix de la direction de base. 
+    				//A priori ?a sert ? rien vu que le nord est libre dans les deux cas
+  }*/
   while(!estFaceMur())
   {
     avance()
@@ -32,7 +33,7 @@ def keepHandsOnSideWall() : Int = {
   var virage : Int = 0
   if(!mD())
   {
-    droite();avance();virage = (virage + 1)%4
+    droite();avance();virage = (virage - 1)%4
   }
   else if(!estFaceMur())
   {
@@ -40,7 +41,7 @@ def keepHandsOnSideWall() : Int = {
   }
   else if(!mG())
   {
-    gauche();avance();virage = (virage - 1)%4
+    gauche();avance();virage = (virage + 1)%4
   }
   else
   {
