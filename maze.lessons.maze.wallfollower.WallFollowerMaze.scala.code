@@ -1,14 +1,18 @@
-override def run() {
-    var a:Int = 0
-  while (!estSurBiscuit()) {
-    a=random3()
-    if ((a==0) && (!estFaceMur)) {
-      avance()
-    } else if (a==1) {
-      droite()
-    } else if (a==2) {
-      gauche()
-    }
+def keepHandOnSideWall() {
+  var efm:Boolean = false
+  gauche()
+  if (estFaceMur()) {
+    efm = true
+  } else {
+    efm = false
   }
-  prendBiscuit()
+  droite()
+  if ((!estFaceMur()) && (efm == true)) {
+    avance()
+  } else if ((!estFaceMur()) && (efm == false)) {
+    avance()
+  } else if ((estFaceMur()) && (efm == true)) {
+    gauche()
+  }
 }
+
