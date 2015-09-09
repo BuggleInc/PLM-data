@@ -1,0 +1,43 @@
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()  
+}
+
+def deplace(a: Int) {
+  if (a%9 == 1 || a%9 == 2 || a%9 == 3 || a%9 == 4 || a%9 == 5 || a%9 == 6 || a%9 == 7 || a%9 == 8) {
+    avance(); avance(); avance(); avance(); avance() 
+  } else {
+    avance(); avance(); avance(); avance(); avance() 
+    gauche()
+    avance(); avance(); avance(); avance(); avance()
+    droite()
+  }
+}
+
+def motif() {
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+}
+
+override def run() {
+  for (i <- 1 to 81) {
+    motif()
+    deplace(i)
+  }
+}

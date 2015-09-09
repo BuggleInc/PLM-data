@@ -1,0 +1,21 @@
+def max2Value(nums:Array[Int]): Int = {
+  var max:Int = Integer.MIN_VALUE
+  var min:Int = Integer.MIN_VALUE
+  if (nums(0) < nums(1)) {
+    max = nums(1)
+    min = nums(0)
+  } else {
+    max = nums(0)
+    min = nums(1)
+  }
+  for (i <- 2 to nums.length-1) {
+    if (nums(i) >= max) {
+      min = max
+      max = nums(i)
+    }
+    if (nums(i) > min && nums(i) < max) {
+      min = nums(i)  
+    }
+  }
+  return min
+}

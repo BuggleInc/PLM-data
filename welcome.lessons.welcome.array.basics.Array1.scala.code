@@ -1,0 +1,15 @@
+override def run() {
+  var hauteur:Int = getMondeHauteur()
+  var motif = new Array[Color](hauteur)
+  for (i <- 0 to hauteur-1) {
+    var couleur:Color = getCouleurSol()
+    motif(i) = couleur
+    avance()
+  }
+  for (j <- 2 to getMondeLargeur()){
+  gauche(); avance(); droite(); avance()
+  for (i <- 1 to hauteur) {
+    setCouleurBrosse(motif(i-1))
+    baisseBrosse(); leveBrosse(); avance()
+  }}
+}

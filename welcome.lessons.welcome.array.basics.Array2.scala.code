@@ -1,0 +1,33 @@
+def colonne(decalage:Int, motif:Array[Color]) {
+  var hauteur: Int = motif.length
+  for (i <- 0 to hauteur-2) {
+    setCouleurBrosse(motif((i+decalage)%hauteur))
+    baisseBrosse(); leveBrosse(); avance()
+  }
+  
+  setCouleurBrosse(motif((hauteur-1)%decalage))
+  baisseBrosse(); leveBrosse()
+}
+
+override def run() {
+  var hauteur:Int = getMondeHauteur()
+  var motif = new Array[Color](hauteur)
+  for (i <- 0 to hauteur-2) {
+    var couleur:Color = getCouleurSol()
+    motif(i) = couleur
+    avance()
+  }
+  var couleur:Color = getCouleurSol()
+  motif(hauteur-1) = couleur
+  for (i <- 1 to hauteur-1) {recule()}
+  gauche(); avance(); droite()  
+  for (j <- 2 to getMondeLargeur()-1){
+    var decalage = litMessage().toInt
+    colonne(decalage, motif)
+    for (i <- 1 to hauteur-1) {recule()}
+    gauche(); avance(); droite()
+  }
+  var decalage = litMessage().toInt
+  colonne(decalage, motif)
+  for (i <- 1 to decalage-1) {recule()}
+}

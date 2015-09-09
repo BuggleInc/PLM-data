@@ -1,0 +1,47 @@
+def marque() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  avance(); avance()
+  marque()
+  avance()
+  gauche()
+  avance()
+  marque()
+  recule()
+  droite()
+  avance()
+  marque()
+  avance()
+  avance()
+  gauche()
+}
+
+def avance_7() {avance(); avance(); avance(); avance(); avance(); avance(); avance()}
+
+
+def deplace() {
+    gauche()
+    avance_7
+    droite()
+}
+
+def faireMotif() {
+  for (i <- 1 to 4) {
+    faireV()
+  }
+}
+
+
+override def run() {
+  for (k <- 1 to 9) {
+    for (j <- 1 to 9) {
+    	faireMotif()
+      avance_7()
+    }
+    deplace()
+  }
+    
+}
