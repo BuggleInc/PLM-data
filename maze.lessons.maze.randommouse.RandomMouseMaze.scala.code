@@ -1,0 +1,16 @@
+override def run() {
+  var dir:Int = 0
+  while (!estSurBiscuit()) {
+    dir = random3()
+    if (dir == 0) {
+      if (!estFaceMur()) {
+        avance()
+      }
+    } else if (dir == 1) {
+      droite()
+    } else {
+      gauche()
+    }
+  }
+  prendBiscuit()
+}
