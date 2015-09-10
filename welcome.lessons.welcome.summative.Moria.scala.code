@@ -1,0 +1,25 @@
+def Moria() {
+  while(!fin) {
+    setDirection(Direction.EST)
+    while(!estSurBiscuit()) {
+      avance()
+    }
+    prendBiscuit()
+    setDirection(Direction.OUEST)
+    while(!estSurBiscuit()) {
+      avance()
+    }
+    recule()
+    poseBiscuit()
+  }
+}
+
+
+def fin() :Boolean={
+  if (getDirection==Direction.EST && estFaceMur) {
+    return true
+  }
+  else {
+    return false
+  }
+}
