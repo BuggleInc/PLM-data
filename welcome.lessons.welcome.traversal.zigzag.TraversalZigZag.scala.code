@@ -1,13 +1,11 @@
 override def run() {
   var cpt=0
-  var x=0
-  for (y<-0 to getMondeLargeur()-1){
-    while (x!=getMondeLargeur()){
-      setPos(x,y)
+  for (y<-0 to (getMondeLargeur()-1)/2){
+    for (x<-0 to getMondeHauteur()){
+      setPos(x,2y)
       ecritMessage(cpt)
       cpt+=1
-      x+=1
-     }
-    x=getMondeHauteur()-x
+    } cpt+=8
   }
 }
+
