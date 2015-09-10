@@ -1,20 +1,15 @@
 override def run(){
 
   def keepHandOnSideWall(): Boolean={
-    var somme=0
-    if(somme==4 || somme==(-4)){gauche(); return false}
+    droite()
+    if(estFaceMur()){ 
+      gauche()
+      return true}
     else{
-    	droite()
-      somme+=1
-    	if(estFaceMur()){ 
-      	gauche()
-        somme-=1
-      	return true}
-    	else{
-      	gauche()
-      	return false}
-    }
+      gauche()
+      return false}
   }
+  
   
   while(!estSurBiscuit()){
     if(keepHandOnSideWall()){
