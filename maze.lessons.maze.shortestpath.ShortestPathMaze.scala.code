@@ -1,12 +1,11 @@
-
 override def run() {
   var I:Int = 1;
   var X:Int = 0;
   var Y:Int = 0;
-  marquerBaggle(0,0);
   for ( k <- 0 to getMondeLargeur()-1 ){
     for ( j <- 0 to getMondeHauteur()-1 ){
-      if ( getIndication(k,j) == 0 ){
+      if ( !aBiscuit(k,j) ){
+        setIndication(k,j,0);
         X = k;
         Y = j;
       }
@@ -17,19 +16,6 @@ override def run() {
     deplacer();
   }
   prendBiscuit();
-}
-
-def marquerBaggle(x:Int,y:Int) {
-  var x1 = x;
-  var y1 = y;
-  while ( !aBiscuit(x1,y1) ){
-    x1 += 1;
-    if ( x1 == getMondeLargeur() ){
-      x1 = 0;
-      y1 += 1;
-    }
-  }
-  setIndication(x1,y1,0);
 }
 
 def marquer(x:Int,y:Int,i:Int) {
