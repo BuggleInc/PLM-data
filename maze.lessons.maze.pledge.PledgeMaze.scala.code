@@ -5,7 +5,7 @@ override def run() {
       goN()
     }
     droite()
-    /*while (quitterMur(sommeAngle)) {
+    while (quitterMur(sommeAngle)) {
       gauche()
  			sommeAngle = sommeAngle + 1
 			if (estFaceMur()) {
@@ -16,7 +16,7 @@ override def run() {
    		droite()
  			sommeAngle = sommeAngle - 1
  			} else {avance()}
-		}*/
+		}
   }
   prendBiscuit()
 }
@@ -24,7 +24,7 @@ override def run() {
 
 
 def quitterMur(sommeAngle:Int):Boolean = {
-  if ((sommeAngle == 0) && (allerN())) {return true}
+  if ((sommeAngle == 0) && (!allerN())) {return true}
   else if (estSurBiscuit()) {return true}
   else {return false}
 }
