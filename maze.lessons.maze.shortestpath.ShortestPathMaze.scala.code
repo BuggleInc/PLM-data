@@ -1,3 +1,29 @@
 override def run() {
-    // Your code here
+  var dir:Direction = getDirection()
+  var sommeAngle:Int = 0
+  while (!estSurBiscuit()) {
+  while (isDirectionFree(dir) && sommeAngle == 0) {
+    avance()
+  }
+  while (estFaceMur()) {
+    droite()
+    sommeAngle -= 1
+  }
+	avance()
+	gauche()
+  sommeAngle += 1
+  }
+}
+
+
+def isDirectionFree(dir:Direction):Boolean = {
+  var dirActu = getDirection()
+  setDirection(dir)
+  if (estFaceMur()) {
+    setDirection(dirActu)
+    return false
+  } else {
+    setDirection(dirActu)
+    return true
+  }
 }
