@@ -3,14 +3,11 @@ override def run() {
   // part du principe qu'on a un mur ? gauche
   def keepHandOnSideWall() {
     gauche()
-    if (!estFaceMur()) {avance()}
-       // pas mur ? gauche ?
-    else {droite() ; if (!estFaceMur()) {avance()}
-         					  // pas mur en face ?
+    if (!estFaceMur()) {avance()} // pas mur ? gauche, go
+    else {droite() ; if (!estFaceMur()) {avance()} // sinon pas mur en face ? go
         						else {droite() ; if (!estFaceMur()) {avance()}
-                           						// pas mur ? droite ?		
-           													  else {droite() ; avance()}
-                           						// va en arri?re
+                          						// sinon pas mur ? droite ? go
+           													  else {droite() ; avance()} // sinon va en arri?re
    }}}
   
   //---
