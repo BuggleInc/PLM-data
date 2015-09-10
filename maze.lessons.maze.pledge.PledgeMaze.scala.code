@@ -27,12 +27,12 @@ override def run() {
   }
   def choix2() {
     if (estFaceMur() && keepHandOnSideWall2()) {
-      droite()
+      gauche()
       virages-=1
-      if (estFaceMur()) {droite();virages-=1}
+      if (estFaceMur()) {gauche();virages-=1}
       else {avance()}
     }
-    else if (estFaceMur() && !keepHandOnSideWall2()) {droite();if(!estFaceMur) {avance();virages-=1} else {droite()}}
+    else if (estFaceMur() && !keepHandOnSideWall2()) {gauche();if(!estFaceMur) {avance();virages-=1} else {gauche()}}
     else if (!estFaceMur() && keepHandOnSideWall2()) {avance()}
     else if (!estFaceMur() && !keepHandOnSideWall2()) {droite();avance();virages-=1}
   }
