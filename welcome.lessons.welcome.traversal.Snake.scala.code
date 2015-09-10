@@ -1,0 +1,41 @@
+def fonctionTest(){
+  if (estFaceMur == true){
+    if (getDirection() == Direction.EST){
+      gauche();
+      if(estFaceMur() == true){
+        return true
+      }
+    }
+    if (getDirection() == Direction.OUEST){
+      droite();
+      if(estFaceMur() == true){
+        return true
+      }
+    }
+    
+  }
+  return false
+}
+
+
+def pasSerpent(){
+  do{
+    avance();
+  }while (!estFaceMur())
+  if (getDirection() == Direction.OUEST){
+    droite()
+    avance();
+    droite();
+  }
+  if (getDirection() == Direction.EST){
+    gauche();
+    avance();
+    gauche();
+  }
+}
+
+override def run() {
+  while (!fonctionTest()) {
+    pasSerpent();
+  }
+}
