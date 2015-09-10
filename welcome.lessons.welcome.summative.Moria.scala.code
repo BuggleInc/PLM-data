@@ -1,0 +1,27 @@
+def checksortie(): Boolean= {
+  droite()
+  if (!(estFaceMur())) {
+    gauche()
+    return true    
+  } else { return false}
+}
+
+override run() {
+  while (!(checksortie())) {
+    avance()
+    if (estSurBiscuit()) {
+      prendBiscuit()
+      while (porteBiscuit()) {
+        recule()
+        if (estSurBiscuit()) {
+          avance()
+          poseBiscuit()
+        }
+      }
+    }  
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
