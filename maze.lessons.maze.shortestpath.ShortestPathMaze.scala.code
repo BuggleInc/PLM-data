@@ -21,9 +21,9 @@ override def run() {
       setIndication(posXNote, posYNote-1, cpt)
     }; if (!aMurOuest(posXNote, posYNote)) {
       setIndication(posXNote-1, posYNote, cpt)
-    }; if (!aMurNord(posXNote, posYNote+1)) {
+    }; if (posYNote < getMondeHauteur()-1 && !aMurNord(posXNote, posYNote+1)) {
       setIndication(posXNote, posYNote+1, cpt)
-    }; if (!aMurOuest(posXNote+1, posYNote)) {
+    }; if (posXNote < getMondeLargeur()-1 && !aMurOuest(posXNote+1, posYNote)) {
       setIndication(posXNote+1, posYNote, cpt)
     }
   }
