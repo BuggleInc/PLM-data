@@ -15,7 +15,7 @@ override def run() {
   var posYNote:Int = posYBiscuit
   var cpt:Int = 0
   
-  setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
+  setIndication(posXNote, posYNote, cpt)			 //On marque 0 a la sortie
   
   while (casesLibres()) { //Tant que toutes les cases ne portent pas d'indication,
     for (x <- 0 to getMondeLargeur()-1) { //On parcourt chaque case de la grille
@@ -23,6 +23,7 @@ override def run() {
         if (getIndication(x,y) == cpt) { //Et si on rencontre une case portant la valeur du compteur,
           ecritMessage(cpt)
           indicationCasesAdjacentes(cpt+1, x, y) //On marque les cases adjacentes
+          effaceMessage()
         }
       }
     }
@@ -30,7 +31,7 @@ override def run() {
   }
   ecritMessage("Ok")
   /*
-  //Il ne reste plus qu'à suivre les indications par valeur décroissante
+  //Il ne reste plus qu'a suivre les indications par valeur decroissante
   var pasAvantBiscuit:Int = getIndication(getX(),getY())
   
   while (pasAvantBiscuit != 0) {
