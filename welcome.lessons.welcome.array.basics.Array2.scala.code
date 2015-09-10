@@ -11,30 +11,41 @@ override def run() {
   recule(i-1)
   gauche()
   avance()
-  droite()
-  for (cpt <- 0 to k) {
+  for (cpt <- 0 to k-3) {
     val decalage = litMessage().toInt
+    droite()
     var n = (decalage)%i
     setCouleurBrosse(T(n))
     baisseBrosse()
     leveBrosse()
-    for (c <- 0 to T.length-3) {
-      avance()
-    	setCouleurBrosse(T((decalage+1)%i))
+    for (c <- 1 to T.length-1) {
+      avance() 
+      color = (T(c+decalage)%i)
+    	setCouleurBrosse(color)
     	baisseBrosse()
     	leveBrosse()
  	 	}
-    avance()
-    setCouleurBrosse(T(cpt))
-  	baisseBrosse()
-  	leveBrosse()
+   
   	recule(i-1)
   	gauche()
   	avance()
-  	droite()
 	}
- 
-}
-
+val decalage = litMessage().toInt
+    droite()
+    var n = (decalage)%i
+    setCouleurBrosse(T(n))
+    baisseBrosse()
+    leveBrosse()
+    for (c <- 1 to T.length-1) {
+      avance() 
+      color = (T(c+decalage)%i)
+    	setCouleurBrosse(color)
+    	baisseBrosse()
+    	leveBrosse()
+ 	 	}
+   
+  	recule(i-1)
+  	gauche() 
+ droite()
 
 
