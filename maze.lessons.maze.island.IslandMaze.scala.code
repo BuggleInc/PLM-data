@@ -1,19 +1,24 @@
 override def run() {
-	while(getY()!=1)
+	while(getY()!=0)
   {
-    ecritMessage("poulet")
-  	if((getDirection()==Direction.NORD)&&(!estFaceMur()))
+  	if(estFaceMur())
     {
-  	  avance()
-  	}
-    else if(estFaceMur())
-    {
-    	do{
-      	keepHandsOnSideWall()  
-      }while(getDirection()==Direction.NORD)
-        
+    	keepHandsOnSideWall()  
+      while(getDirection()!=Direction.NORD)
+      {
+        gauche()
+      }
     }
-  } 
+    else if(getDirection()==Direction.NORD)
+    {
+      avance()
+    }
+  }
+  while(!estSurBiscuit())
+  {
+    keepHandsOnSideWall()
+  }
+  prendBiscuit()
 }
 
 def mG() : Boolean = {
@@ -29,14 +34,14 @@ def mD() : Boolean = {
 }
 
 def keepHandsOnSideWall() {
-  if(!mG()){
-    gauche();avance()
+  if(!mD()){
+    droite();avance()
   }
   else if(!estFaceMur()){
     avance()
   }
-  else if(!mD()){
-    droite();avance()
+  else if(!mG()){
+    gauche();avance()
   }
   else{
     gauche;gauche();avance()

@@ -1,0 +1,83 @@
+override def run() {
+  var virage : Int = 0
+  while(!estSurBiscuit())
+  {
+    if(isDirectionFree(Direction.NORD))
+    {
+      setDirection(Direction.NORD)
+    }
+    while(!estFaceMur())
+    {
+      avance()
+    }
+		keepGoing(virage)
+  }
+  prendBiscuit()
+  
+}
+
+def mG() : Boolean = /*Verifie s'il y a un mur a gauche*/{
+  var g = false
+  gauche();g= estFaceMur();droite()
+  return g
+}
+
+def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
+  var d = false
+  droite();d= estFaceMur();gauche()
+  return d
+}
+
+def keepHandsOnSideWall(vir : Int) : Int = {
+  var virage : Int = vir
+  if(!mG())
+  {
+    gauche();avance();virage = virage + 1
+  }
+  else if(!estFaceMur())
+  {
+    avance()
+  }
+  else if(!mD())
+  {
+    droite();avance();virage = virage - 1
+  }
+  else
+  {
+    gauche;gauche();avance();virage = virage + 2
+  }
+  return virage
+}
+
+def isDirectionFree(dir : Direction) : Boolean = {
+  var actu : Direction = getDirection()
+  setDirection(dir)
+  if(estFaceMur())
+  {
+    setDirection(actu);return false
+  }
+  else
+  {
+    setDirection(actu);return true
+  }
+}
+
+def keepGoing(vir : Int) : Int = {
+  var virage = vir
+  do
+  {
+    if(!mD())
+    {
+      droite();avance(); virage = virage + 1
+    }
+    else if(!mG())
+    {
+      gauche();avance(); virage = virage - 1
+    }
+    else
+    {
+      gauche();gauche(); virage = virage + 2
+    }
+  }while((estFaceMur())&&(virage!=vir))
+  return virage
+}
