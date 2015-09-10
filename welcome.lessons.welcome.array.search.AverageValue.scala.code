@@ -1,8 +1,17 @@
-def averageValue(nums:Array[Int]): Int = {
-  var len:Int=nums.length
-  val somme:Int = 0
-  for ( i <- 0 to len ){
-    somme=somme+T[i]
+override def run() {
+  var len:Int=getMondeHauteur()
+  var T=new Array[Color](len)
+  for (i<-0 to T.length-1){
+    T(i)=getCouleurSol()
+    avance;
   }
-  return (somme/len)
+  var largeur:Int=getMondeLargeur()
+  for (i<-1 to largeur-1){
+    avance;gauche;avance;droite;
+    for (j<-0 to T.length-1){
+      setCouleurBrosse(T(j));
+      baisseBrosse;leveBrosse
+      avance
+    }
+  }
 }
