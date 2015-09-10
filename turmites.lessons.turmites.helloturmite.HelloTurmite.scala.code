@@ -12,7 +12,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
       a = i
     }
   }
-  setCouleurBrosse(rule(state)(a)(0)); baisseBrosse(); leveBrosse()
+  setCouleurBrosse(colors(rule(state)(a)(0))); baisseBrosse(); leveBrosse()
   rule(state)(a)(1) match {
     case PAS_DE_VIRAGE => avance()
     case GAUCHE => gauche(); avance()
