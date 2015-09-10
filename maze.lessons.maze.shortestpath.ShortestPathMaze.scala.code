@@ -29,20 +29,20 @@ def min(a:Int,b:Int):Int = {
 
 def remplir(x:Int,y:Int) {
   if (getIndication(x,y)>=9999) {
-    if (!aMurNord() && !aMurOuest()) {
+    if (!aMurNord(x,y) && !aMurOuest(x,y)) {
       setIndication(x,y,min(getIndication(x,y-1),getIndication(x-1,y))+1)
     }
-    if (!aMurNord()) {
+    if (!aMurNord(x,y)) {
       setIndication(x,y,getIndication(x,y-1)+1)
     }
-    if (!aMurOuest()) {
+    if (!aMurOuest(x,y)) {
       setIndication(x,y,getIndication(x-1,y)+1)
     }
   }
-  if (!aMurNord() && getIndication(x,y-1)>getIndication(x,y)) {
+  if (!aMurNord(x,y) && getIndication(x,y-1)>getIndication(x,y)) {
     setIndication(x,y-1,getIndication(x,y)+1)
   }
-  if (!aMurOuest() && getIndication(x-1,y)>getIndication(x,y)) {
+  if (!aMurOuest(x,y) && getIndication(x-1,y)>getIndication(x,y)) {
     setIndication(x-1,y,getIndication(x,y)+1)
   }
   if (y-1>=0) {
