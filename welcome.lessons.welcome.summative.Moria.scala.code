@@ -1,0 +1,17 @@
+def Moria() = {
+  gauche(); gauche(); avance();
+  while (!estFaceMur) {
+    while(!estSurBiscuit()) {
+     	avance();
+    }
+    if (estSurBiscuit) {
+      prendBiscuit();
+      gauche(); gauche();
+      while (!estSurBiscuit()) {
+        avance()
+      }
+      recule();
+      poseBiscuit();
+    }
+  }
+}
