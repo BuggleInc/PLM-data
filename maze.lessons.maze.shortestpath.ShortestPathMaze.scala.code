@@ -1,40 +1,93 @@
 override def run() {
-  var sommeAngle : Int = 0
+  // variables
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
   
-  // part du principe qu'on a un mur a gauche
-  def keepHandOnSideWall() {
-    gauche()
-    if (!estFaceMur())
-    		 {avance(); sommeAngle = sommeAngle+1}
-       // pas mur a gauche ? go
-    else {droite() ; if (!estFaceMur())
-          							 {avance()}
-         					  // pas mur en face ? go
-        						else {droite() ; if (!estFaceMur())
-                          							   {avance(); sommeAngle = sommeAngle-1}
-                           						// pas mur a droite ?
-           													  else {droite()}
-                           						// va en arriere
-}}}
+  //-------------------------------------------
   
-  //---
-  def isDirectionFree(dir:Direction):Boolean = {
-    var directionBuggle : Direction = getDirection()
-    var bool : Boolean = true
-    setDirection(dir)
-    bool = (!estFaceMur)
-    setDirection(directionBuggle)
-    return bool
+  def trouverSortie():Double {
+  	var x : Int = 0
+    var y : Int = 0
+    while (!aBiscuit(x,y)) { // tant qu'on a pas trouv?, parcours en largeur
+      if (x < largeur-1) {x+=1}
+      else {y+=1 ; x=0}
+    }
+    setIndication(x,y,0) 
+    return (x,y) // marque sortie + retourne la position de la sortie
   }
   
+  //-------------------------------------------
+  
+  def marquerCasesAdjacentes((x,y):Double) {
+    var i : Int = getIndication(x,y)
+    // on consid?re la case (x,y) num?rot?e i
+    // r?cursif : condition d'arret = plus de cases dispo
+    // bool?en pour savoir quel appel r?cursif faire
+    // probl?me d'ordre de priorit? dans la r?cursivit?e
+ 		var booldessus : Boolean = false ;
+    var booldroite : Boolean = false ;
+    var booldessous : Boolean = false ;
+    var boolgauche : Boolean = false ;
+    //case au dessus
+    if (y >0
+        && !aMurNord(x,y)
+        && getIndication(x,y-1)==9999)
+    			{setIndication(x,y-1,i+1) ; booldessus = true}
+    //case a droite
+    if (x < largeur-1
+        && !aMurOuest(x,y)
+        && getIndication(x+1,y)==9999)
+      		{setIndication(x+1,y,i+1); booldroite = true}
+    //case en dessous
+    if (y < hauteur-1
+        && !aMurNord(x,y+1)
+        && getIndication(x,y+1)==9999)
+    			{setIndication(x,y+1,i+1); booldessous = true}
+     //case a gauche
+    if (x > 0
+        && !aMurOuest(x-1,y)
+        && getIndication(x-1,y)==9999)
+    			{setIndication(x-1,y,i+1); boolgauche = true}
+    
+    if (booldessus) {marquerCasesAdjacentes((x,y-1))}
+    if (booldroite) {marquerCasesAdjacentes((x+1,y))}
+    if (booldessous) {marquerCasesAdjacentes((x,y+1))}
+    if (boolgauche) {marquerCasesAdjacentes((x-1,y))}
+    
+  }
+  
+  //-------------------------------------------
+  
+  def directionPlusCourte() {
+    var posx : Int = getX()
+    var posy : Int = getY()
+    var ind : Int = getIndication(posx,posy)
+    //case au dessus
+    if (posy > 0
+        && !aMurNord(posx,posy)
+        && getIndication(posx,posy-1)<ind)
+    			{setDirection(Direction.NORD)}
+    //case ? droite
+    if (posx < largeur-1 
+        && !aMurOuest(posx,posy)
+        && getIndication(posx+1,posy)<ind)
+    			{setDirection(Direction.EST)}
+    //case au dessous
+    if (posy < hauteur-1
+        && !aMurNord(posx,posy+1) 
+        && getIndication(posx,posy+1)<ind)
+    			{setDirection(Direction.SUD)}
+    //case ? gauche
+    if (posx > 0
+        && !aMurOuest(posx-1,posy)
+        && getIndication(posx-1,posy)<ind)
+    			{setDirection(Direction.OUEST)}
+    }
+  
   //---
+  var pos : Double = trouverSortie()
+  marquerCasesAdjacentes(pos)
   while (!estSurBiscuit) {
-    while (getDirection()==Direction.NORTH && !estFaceMur() && !estSurBiscuit) 
-    			{avance()}
-    droite() // pour commencer avec un mur ? gauche
-  	sommeAngle = -1 // cf 1er virage ligne au dessus
-  	while (sommeAngle!=0 && !estSurBiscuit)
-    			{keepHandOnSideWall()}
+    directionPlusCourte(); avance()}
+	prendBiscuit()
   }
-  prendBiscuit()
-}
