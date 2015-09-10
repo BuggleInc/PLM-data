@@ -1,31 +1,29 @@
 override def run() {
   
-  while(!isOverBaggle){
-    var angleSom = 0
-    var memDir = getDirection()
+  while(!isOverBaggle()){
+    //On se colle à un obstacle si on n'en a pas
+    if (!checkGauche())
+    	colleObstacle()
     
+    //Tant que on ne tourne pas en rond on fait le tour en gardant une main dessus
+    var troisSix = 0
     do {
-      angleSom = angleSom + keepHandOnSideWall(checkGauche())
-    }while(angleSom != 0 && getDirection() != memDir)
+    	troisSix = troisSix + keepHandOnSideWall()
+    }while (!isOverBaggle() && troisSix != 0)
     
-    if (isDirectionFree(Direction.NORTH)){
-      setDirection(Direction.NORTH)
-      forward()
+    //Si on tourne en rond on continue jusqu'a ce qu'on puisse sortir
+    while (!isDirectionFree(Direction.NORTH) && !isOverBaggle()){
+      keepHandOnSideWall()
     }
+    setDirection(Direction.NORTH)
+    colleObstacle()
   }
   pickupBaggle()
 }
 
 //1
-def keepHandOnSideWall(murGauche : Boolean): Int = {
-  
-  //S'il n'y a pas de mur a gauche, en cherche un devant nous
-  if (!murGauche){
-    while (!isFacingWall())
-    	forward()
-    right()
-  }
-  
+def keepHandOnSideWall(): Int = {
+    
   var angleAbs = 0
   
   //S'il y a un mur en face on tourne a droite
@@ -66,4 +64,12 @@ def isDirectionFree( dir: Direction ):Boolean ={
   var res = isFacingWall()
   setDirection(memDir)
   return !res
+}
+
+//4
+def colleObstacle(){
+  while(!isFacingWall() && !isOverBaggle()){
+    forward()
+  }
+  right()
 }
