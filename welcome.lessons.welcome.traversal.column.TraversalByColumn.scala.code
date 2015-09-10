@@ -1,2 +1,21 @@
 override def run() {
+  var x=getX()
+  var y=getY()
+  var pas=0
+  while (!posFinale(x,y)) {
+    ecritMessage(pas.toString)
+    if (y==getMondeHauteur-1) {
+      x=x+1
+      y=0
+    } else y=y+1   
+  pas=pas+1
+  }
+}
+
+def posFinale(x:Int,y:Int):Boolean = {
+  var yf=getMondeHauteur()-1
+  var xf=getMondeLargeur()-1
+  if (y==yf & x==xf) {
+    return true
+  } else return false
 }
