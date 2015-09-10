@@ -4,13 +4,13 @@ override def run() {
   while (!positionFinale()){
     ecritMessage(cpt)
     cpt=cpt+1
-    if (murFace()){
-        setPos(getMondeLargeur()-1,getX()+1)
+    if (murDroite()){
+        setPos(getY()+1,getMondeHauteur()-1)
     }else{
-    	if (murGauche()){
-      	setPos(getY()+1,0)
+    	if (estFaceMur()){
+      	setPos(0,getX()+1)
       }else{
-        setPos(getX()-1,getY()+1)
+        setPos(getX()+1,getY()-1)
       }
    	}
   }
@@ -20,16 +20,9 @@ def positionFinale():Boolean={
   return getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1
 }
   
-def murGauche():Boolean={
-  gauche()
-  var reponse:Boolean=estFaceMur()
+def murDroite():Boolean={
   droite()
-  return reponse
-}
-
-def murFace():Boolean={
-  retourne()
   var reponse:Boolean=estFaceMur()
-  retourne()
+  gauche()
   return reponse
 }
