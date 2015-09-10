@@ -63,17 +63,17 @@ def isDirectionFree(dir : Direction) : Boolean = {
 
 def keepGoing(vir : Int) : Int = {
   var virage = vir
-  var d = mD(); var g = !mG(); var h = estFaceMur(); var b = estDosMur()
-  if((!d)&&(h))
+  var d = mD(); var g = !mG(); var f = estFaceMur()
+  if((!d)&&f)
   {
     droite();virage = virage + 1
-    while(g)
+    while(g&&(!f))
     {
       ecritMessage("poulet")
       avance()
     }
   }
-  else if((!g)&&h)
+  else if((!g)&&f)
   {
     gauche();virage = virage - 1
     while(d)
