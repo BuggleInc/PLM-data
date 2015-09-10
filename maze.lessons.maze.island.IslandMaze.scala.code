@@ -1,0 +1,39 @@
+override def run() {
+  while (getY()!=0)
+  {
+    if (!estFaceMur())
+    	avance()
+    else
+    {
+      keepHandOnSideWall()
+      setDirection(Direction.NORD)
+    }
+  }
+  while (!estSurBiscuit())
+  	keepHandOnSideWall()
+  prendBiscuit()
+}
+
+
+
+def keepHandOnSideWall()
+{
+  droite()
+  if (estFaceMur()) //on regarde si mur à gauche
+  {
+    gauche()
+    if (estFaceMur()) //mur en face de soi ? on part à droite
+    {
+      gauche()
+      if (estFaceMur())  // cul de sac ???
+      {
+        gauche()
+      }
+      avance()
+    }
+    else  //pas de mur ? on peut continuer tout droit
+    	avance()
+  }
+  else //pas de mur à gauche ? on tourne à gauche
+  	avance()
+}

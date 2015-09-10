@@ -1,0 +1,112 @@
+override def run() {
+  repererSortie()
+  while(!marquageComplet())
+  {
+    marquerCasesAdjacentes(repererCasesAdjacentes())
+  }
+  allerSortie()
+  prendBiscuit()
+}
+
+def marquageComplet():Boolean = //v?rifie si on a marqu? toutes les cases
+{
+  for (i <- 0 to getMondeLargeur()-1)
+  {
+    for (j <- 0 to getMondeHauteur()-1)
+    {
+      if (getIndication(i,j)==9999)
+      {
+        return false
+      }
+    }
+  }
+  return true
+}
+
+def repererSortie() //rep?re sortie, y met 0
+{
+  for (i <- 0 to getMondeLargeur()-1)
+  {
+    for (j <- 0 to getMondeHauteur()-1)
+    {
+      if (aBiscuit(i,j))
+      {
+        setIndication(i,j,0)
+      }
+    }
+  }
+}
+
+def repererCasesAdjacentes() //rep?re cases adjacentes
+{
+  var casesAdjacentes:Array[Boolean]=(true,true,true,true)
+  //on analyse sa propre case
+  if (aMurOuest(getX(),getY()))
+  {
+    casesAdjacentes(0)=false
+    if (aMurNord(getX(),getY()))
+      casesAdjacentes(1)=false
+  }
+  //on analyse case ? droite
+  if (aMurOuest(getX(),getY()))
+  	casesAdjacentes(2)=false
+  //on analyse case en dessous
+  if (aMurNord(getX(),getY()))
+  	casesAdjacentes(3)=false
+  return casesAdjacentes
+}
+
+def marquerCasesAdjacentes(casesAdjacentes:Array[Boolean]) //marque cases adjacentes
+{
+  var maCase=getIndication(getX(),getY())
+  if (casesAdjacentes(0)==true)
+  {
+    if (getIndication(getX()-1,getY())==9999)
+    	setIndication(getX()-1,getY(),maCase+1)
+  }
+  if (casesAjdacentes(1)==true)
+  {
+    if (getIndication(getX(),getY()-1)==9999)
+    	setIndication(getX(),getY()+1,maCase+1)
+  }
+  if (casesAjdacentes(2)==true)
+  {
+    if (getIndication(getX()+1,getY())==9999)
+    	setIndication(getX()+1,getY(),maCase+1)
+  }
+  else
+  {
+    if (getIndication(getX(),getY()+1)==9999)
+    	setIndication(getX(),getY()+1,maCase+1)
+  }
+}
+
+def allerSortie() //atteint la sortie en lisant le sol
+{
+  var indications:Array[Int]=(getIndication(getX()-1,getY()),getIndication(getX(),getY()-1,getIndication(getX()+1,getY()),getIndication(getX(),getY()+1))
+  var minimum=9999
+  for (i<- indications)
+  {
+    if (i<minimum)
+    {
+      minimum=i
+    }
+  }
+  if (minimum==indications(0))
+  {
+    gauche()
+  	avance()
+    droite()
+  }
+  if (minimum==indication(1))                                                                 {
+    avance()
+  }
+	if (minimum==indications(2))
+	{
+    droite()
+    avance()
+    gauche()
+  }
+	else
+		recule()                                                                           
+}                                                                        

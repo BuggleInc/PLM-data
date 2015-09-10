@@ -1,0 +1,63 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Boucles pour <tt>(for)</tt></h2>
+
+<p>Les boucles <tt>while</tt> sont bien adapt?es aux situations o? l'on veut
+r?aliser une action tant qu'une condition est r?alis?e, mais elles sont
+moins pratiques pour r?aliser une action un nombre pr?d?termin? de fois. Par
+exemple, lorsque nous voulions reculer de <code>nbPas</code> dans l'exercice
+pr?c?dent, il fallait cr?er une nouvelle variable, l'initialiser, et
+demander ? reculer tant que la nouvelle variable n'?tait pas ?gale ?
+<code>nbPas</code>, en incr?mentant cette variable ? la main ? la fin du
+corps de la boucle.</p> 
+
+<p>Dans ce genre de cas, les boucles de type <code>for</code> sont plus
+pratique. Leur syntaxe est la suivante :</p> 
+<pre>for (<b>initialisation</b>; <b>condition</b>; <b>increment</b>) {
+    <b>action</b>();
+}</pre>
+
+<p>Par exemple, pour r?p?ter le corps de boucle <code>n</code> fois,
+
+il faut ?crire:</p>
+<pre>for (int compteur=0; compteur&lt;n; compteur++) {
+    <b>action</b>();
+}</pre>
+
+<p>Ce code est ?quivalent du point de vue de l'ordinateur, mais du point de vue
+du programmeur, ce n'est pas forc?ment la m?me chose. L'une ou l'autre forme
+peut rendre le code plus facile ? lire, en fonction de la situation. C'est
+donc ? vous, le programmeur, de choisir la forme de boucle est la plus
+adapt?e ? chaque cas. L'objectif absolu doit ?tre de garder votre code aussi
+simple que possible en toute situation. De la sorte, vos journ?es resteront
+plaisantes et productives.
+</p>
+<pre>int compteur = 0;
+while (compteur &lt; n) {
+    <b>action</b>();
+    <b>compteur++</b>;
+}</pre>
+
+<p>Dans ce cas, le code avec une boucle <code>for</code> est plus simple ?
+lire, non?</p>
+
+
+<p>On peut imaginer des utilisations bien plus avanc?es des boucles
+<tt>for</tt> car toute instruction valide peut ?tre utilis?e comme
+initialisation, condition et incr?mentation. L'exemple suivant est un peu
+extr?me, puisqu'il n'y a m?me pas de corps de boucle. La buggle est avanc?e
+jusqu'? se retrouver face au mur dans la condition et l'incr?mentation.</p>
+
+<pre>for (; !estFaceMur() ; avance()) { 
+   <span class="comment">/* rien dans le corps de boucle */</span>
+}
+<span class="comment">/* la buggle est maintenant face ? un mur */</span></pre>
+ 
+
+<h3>Objectif de cet exercice</h3>
+<p> Il s'agit maintenant de refaire le m?me exercice que pr?c?demment (avancer
+jusqu'? trouver un baggle, le ramasser, revenir l? o? on ?tait au d?but puis
+reposer le baggle), mais en utilisant une boucle <tt>for</tt> pour revenir
+au point de d?part ? la place d'une boucle <code>while</code>.</p>
+
+<p>Une fois ceci fait, vous pouvez passez ? l'exercice suivant.</p>
