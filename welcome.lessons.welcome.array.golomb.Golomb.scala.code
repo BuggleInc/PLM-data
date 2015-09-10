@@ -1,15 +1,11 @@
 def golomb(num:Int): Int = {
-  var sequence = new Array[Int](num)
-  sequence(0) = 1
   
-	for (i <- 1 to num){
-    System.out.println("start")
-    for(j <- 1 to sequence(i - 1)){
-      System.out.println(j)
-      sequence(j) = i -1 
-    }
-    System.out.println("stop")
+  var array = new Array[Int](num)
+  
+	for (i <- 0 to num - 1){
+    array(0) = 1
+    array(i + 1) = 1 + array[i + 1 - array[array[i]]]
   }
   
-  return 0
+  return array[num - 1]
 }
