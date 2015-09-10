@@ -1,15 +1,13 @@
 override def run() {
  	var murG=false
+  var Nord=(getDirection())==Direction.NORD
   
-  while(!murG){
-    if (!estFaceMur()){
-      avance()
-    }
-    else{
-      droite()
-      murG=true
-    }
-  }
+  while((!estFaceMur())&&(Nord)){
+    avance()
+  }  
+  
+  
+  
   droite()
   while(!estSurBiscuit()){
     keepHandOnSideWall()
