@@ -43,13 +43,13 @@ def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
       whoNeedsAMap(x-1,y)
     }
   }
-  if (y < getMondeHauteur() - 1 && getIndication(x,y+1) > c + 1) {
+  if (y > 0 && getIndication(x,y+1) > c + 1) {
     if (!aMurNord(x,y)) {
       setIndication(x,y+1,c + 1)
       whoNeedsAMap(x,y+1)
     }
   }
-  if (y > 0 && getIndication(x,y-1) > c + 1) {
+  if (y < getMondeHauteur() - 1 && getIndication(x,y-1) > c + 1) {
     if (!aMurNord(x,y-1)) {
       setIndication(x,y-1,c + 1)
       whoNeedsAMap(x,y-1)
