@@ -8,9 +8,7 @@ override def run() {
       for (j <- 0 to getMondeHauteur()-1)
       {
 				if (getIndication(i,j)==valeur)
-        {
         	marquerCasesAdjacentes(repererCasesAdjacentes(i,j),i,j)
-        }
       }
     }
     valeur +=1
@@ -65,6 +63,7 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   {
     if (!aMurOuest(X+1,Y))
   		casesAdjacentes(2)=true
+  }
   //on analyse case en dessous
   if (Y!=getMondeHauteur())
   {
