@@ -1,0 +1,73 @@
+
+
+override def run() {
+  val h=getMondeHauteur
+  val l=getMondeLargeur
+  var x0=0
+  var y0=0
+  for (x<-0 to h-1){
+    for (y<-0 to l-1){
+      if (aBiscuit(x,y)==true){
+        x0=x
+        y0=y
+      }
+    }
+  }
+  numerote(x0,y0,0)
+  while(!estSurBiscuit){
+    var abs=getX()
+    var ord=getY()
+    var indic=getIndication(abs,ord)
+    if (getIndication(abs,ord-1)==indic-1){
+      setDirection(Direction.NORD)
+    }
+    else  {
+      if (getIndication(abs,ord+1)==indic-1){
+        setDirection(Direction.SUD)
+      }
+      else{
+        if (getIndication(abs+1,ord)==indic-1){
+          setDirection(Direction.EST)
+        }
+        else{
+          if (getIndication(abs-1,ord)==indic-1){
+            setDirection(Direction.OUEST)
+          }
+        }
+      }
+    }
+    avance()
+  }
+  prendBiscuit
+}
+
+
+def numerote(x:Int,y:Int,i:Int){
+  val h=getMondeHauteur
+  val l=getMondeLargeur
+  setIndication(x,y,i)
+  if (y>0){
+  if (!aMurNord(x,y)){
+    numerote(x,y-1,i+1)
+  }
+  }
+  if (x>0){
+  if (!aMurOuest(x,y)){
+    numerote(x-1,y,i+1)
+  }
+  }
+  if (y<h-1){
+  if (!aMurNord(x,y+1)){
+    numerote(x,y+1,i+1)
+  }
+  }
+  if (x<l-1){
+  if (!aMurOuest(x+1,y)){
+    numerote(x+1,y,i+1)
+  }
+  }
+}
+
+override def run() {
+    // Your code here
+}
