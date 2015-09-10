@@ -1,0 +1,31 @@
+def estPositionFinale() : Boolean = {
+  if (getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+def positionSuivante() {
+  if (diag <= 6) {
+    for (i <- 0 to diag) {
+      setPos(i, diag - i);
+    }
+  } else {
+    for (i <- diag - 6 to 6) {
+      setPos(i, diag - i);
+    }
+  }
+}
+
+var diag = 0;
+
+override def run() {
+  var cpt : Int = 0;
+  ecritMessage(cpt);
+  while (!estPositionFinale) {
+    positionSuivante();
+    cpt += 1;
+    ecritMessage(cpt);
+  }
+}
