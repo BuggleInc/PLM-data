@@ -1,10 +1,12 @@
+var sommeAngle:Int=0
 override def run() {
   while (!estSurBiscuit()){
-    if (getDirection==Direction.NORTH && !estFaceMur()){
+    if (getDirection==Direction.NORTH && !estFaceMur()&&sommeAngle){
       avance()
     }else{
       if (getDirection==Direction.NORTH){
       	droite()
+        sommeAngle=sommeAngle-1
       }
       keepHandOnSideWall()
     }
@@ -16,16 +18,20 @@ def keepHandOnSideWall():Unit={
   gauche()
   if(!estFaceMur()){
     avance()
+    sommeAngle=sommeAngle+1
   }else{
     droite()
     if(!estFaceMur()){
       avance()
+      sommeAngle=sommeAngle-1
     }else{
       droite()
       if(!estFaceMur()){
       	avance()
+        sommeAngle=sommeAngle-1
       }else{
         droite()
+        sommeAngle=sommeAngle-1
         avance()
       }
     }
