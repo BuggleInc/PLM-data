@@ -24,7 +24,29 @@ def keepHandOnSideWall() {
   }
 }
 
+def fonceAuNord() {
+  if (!estFaceMur()) {
+    avance()
+    
+    return
+  }
+  
+  droite()
+  
+  if (!estFaceMur()) {
+    avance()
+    
+    return
+  }
+  
+  gauche()
+}
+
 override def run() {
+  
+  while(getY() != 0) {
+    fonceAuNord()
+  }
   
   while (!estSurBiscuit()) {
     keepHandOnSideWall()
