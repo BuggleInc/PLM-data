@@ -1,12 +1,23 @@
 override def run() {
   while(!estSurBiscuit()){
-    avance()
+    while(!estFaceMur)
+    {
+      avance()
+    }
+    var somme = 0
+    while (somme!=4 )
+    {
+      keepHandOnSideWall()
+    }
+    }
   }
 }
 
 
 
-def keepHandOnSideWall():Int={
+def keepHandOnSideWall():Int=
+{
+  var virage = 0
   gauche()
   if (estFaceMur())
   {
@@ -21,11 +32,13 @@ def keepHandOnSideWall():Int={
       if (!estFaceMur())
       {
         avance()
+        virage = virage + 1
       }
       else 
       {
         droite()
         avance()
+        virage= virage +2
       }
     }
   }
@@ -37,12 +50,11 @@ def keepHandOnSideWall():Int={
   if (!estFaceMur)
   {
     avance()
-    return 1
+    virage = virage -1
   }
   else
   {
     droite()
-    return 0
   }
-
+  return virage
 }
