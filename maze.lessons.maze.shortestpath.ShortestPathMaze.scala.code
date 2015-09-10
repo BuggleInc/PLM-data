@@ -1,7 +1,7 @@
 override def run() {
   var x=0
   var y=0
-  while (!aBisctuit(x,y)) {
+  while (!aBiscuit(x,y)) {
     x+=1
     if (x==getMondeLargeur()) {x=0;y+=1}
   }
@@ -11,7 +11,7 @@ override def run() {
 def recc(x:Int,y:Int,p:Int,prems:Boolean) {
   var dir:Direction = Direction.NORT
   if (p!=0 || (p==0 && prems)) {
-    if (trouverCaseN(x,y,p)) {setIndication(x,y-1,p);recc(x,y-1,p+1,false)}
+    if (trouverCaseN(x,y)) {setIndication(x,y-1,p);recc(x,y-1,p+1,false)}
     else if (trouverCaseW(x,y)) {setIndication(x,y+1,p);recc(x,y+1,p+1,false)} 
     else if (trouverCaseS(x,y)) {setIndication(x-1,y,p);recc(x-1,y,p+1,false)}
     else if (trouverCaseE(x,y)) {setIndication(x+1,y,p);recc(x+1,y,p+1,false)}
