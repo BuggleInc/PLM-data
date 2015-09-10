@@ -11,8 +11,9 @@ override def run() {
   for (k <- 2 to getMondeLargeur()) {
     gauche();avance();droite(); 
     val decalage=litMessage().toInt
-    for (l<- 0 to getMondeHauteur()-1){
-      setCouleurBrosse(T((l+decalage)%getMondeHauteur)); baisseBrosse(); leveBrosse(); avance();
+    setCouleurBrosse(T((decalage)%getMondeHauteur))
+    for (l<- 1 to getMondeHauteur()-1){
+      avance(); setCouleurBrosse(T((l+decalage)%getMondeHauteur)); baisseBrosse(); leveBrosse();
       if (estFaceMur()){while (!(estDosMur())){
     recule()
         
