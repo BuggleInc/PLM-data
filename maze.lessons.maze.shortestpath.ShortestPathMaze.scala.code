@@ -16,18 +16,17 @@ override def run() {
   var posYNote:Int = posYBiscuit
   
   setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
-  //while (casesLibres()) {
-    if (!aMurNord(posXNote,posYNote)) {
-      setIndication(posXNote, posYNote-1, cpt)
-    }; if (!aMurOuest(posXNote, posYNote)) {
-      setIndication(posXNote-1, posYNote, cpt)
-    }; if (posYNote < getMondeHauteur()-1 && !aMurNord(posXNote, posYNote+1)) {
-      setIndication(posXNote, posYNote+1, cpt)
-    }; if (posXNote < getMondeLargeur()-1 && !aMurOuest(posXNote+1, posYNote)) {
-      setIndication(posXNote+1, posYNote, cpt)
-    }; cpt += 1
-  //}
-  ecritMessage(getIndication(posXBiscuit,posYBiscuit))
+  
+  while (casesLibres()) {
+    for (x <- 0 to getMondeLargeur()-1) {
+      for (y <- 0 to getMondeHauteur()-1) {
+        if (getIndication(x,y) == cpt) {
+          indicationCaseAdjacente(cpt+1, x, y)
+        }
+      }
+    }
+    cpt += 1
+  }
 }
 
 def casesLibres():Boolean = {
@@ -40,4 +39,16 @@ def casesLibres():Boolean = {
     }
   }
   return false
+}
+
+def indicationCaseAdjacente(n:Int, posXNote:Int, posYNote:Int) = {
+  if (getIndication(posXNote, posYNote-1) == 9999 && !aMurNord(posXNote,posYNote)) {
+      setIndication(posXNote, posYNote-1, cpt)
+    }; if (getIndication(posXNote-1, posYNote) == 9999 && !aMurOuest(posXNote, posYNote)) {
+      setIndication(posXNote-1, posYNote, cpt)
+    }; if (posYNote < getMondeHauteur()-1 && getIndication(posXNote, posYNote+1) &&  !aMurNord(posXNote, posYNote+1)) {
+      setIndication(posXNote, posYNote+1, cpt)
+    }; if (posXNote < getMondeLargeur()-1 && getIndication(posXNote+1, posYNote) &&  !aMurOuest(posXNote+1, posYNote)) {
+      setIndication(posXNote+1, posYNote, cpt)
+    }
 }
