@@ -2,14 +2,11 @@ override def run() {
   var compteur:Int=0
   ecritMessage(compteur)
   while (getX() !=(getMondeLargeur()-1) && getY() != getMondeHauteur()-1) {
-    avance()
+    setPos(getX(),getY()+1)
     compteur+=1
     ecritMessage(compteur)
     if (estFaceMur()){
-      recule(getMondeHauteur()-1)
-      gauche()
-      avance()
-      droite()
+      setPos(getX()+1,0)
     }    
   }
   compteur+=1
