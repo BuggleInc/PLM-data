@@ -74,13 +74,13 @@ def indicationCaseDepart():Boolean = {
 }
 
 def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
-  if (posY > 0 && getIndication(posX, posY-1) > n && !aMurNord(posX, posY)) {
+  if (posY > 0 && getIndication(posX, posY-1) > n-1 && !aMurNord(posX, posY)) {
     setIndication(posX, posY-1, n)
-  }; if (posX > 0 && getIndication(posX-1, posY) > n && !aMurOuest(posX, posY)) {
+  }; if (posX > 0 && getIndication(posX-1, posY) > n-1 && !aMurOuest(posX, posY)) {
     setIndication(posX-1, posY, n)
-  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) > n && !aMurNord(posX, posY+1)) {
+  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) > n-1 && !aMurNord(posX, posY+1)) {
     setIndication(posX, posY+1, n)
-  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) > n && !aMurOuest(posX+1, posY)) {
+  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) > n-1 && !aMurOuest(posX+1, posY)) {
     setIndication(posX+1, posY, n)
   }
 }
