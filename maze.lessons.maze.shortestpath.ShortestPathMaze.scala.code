@@ -1,35 +1,61 @@
 override def run() {
-    var  x= 0
-    var y = 0
-  	var dir: Direction = Direction.NORTH
-  	var ind = 9999
-  
+  var  x= 0
+  var y = 0
+  var dir: Direction = Direction.SUD
+  var ind = 9999
 
-  
+  def indic(x:Int, y:Int, i:Int){
+    if(!aMurNord(x,y) && getIndication(x,y-1) >=i){
+      setIndication(x,y-1,i+1);
+      indic(x,y-1,i+1)
+    }
+    if( y< getMondeHauteur()-1 && !aMurNord(x,y+1) && getIndication(x,y+1)>=i){
+      setIndication(x,y+1,i+1);
+      indic(x,y+1,i+1)
+    }
 
-	for(i<- 0 to getMondeLargeur()-1){
+    if(!aMurOuest(x,y) && getIndication(x-1,y)>=i){
+      setIndication(x-1,y,i+1);
+      indic(x-1,y,i+1)
+    }
+    if(x< getMondeLargeur()-1 && !aMurOuest(x+1,y) && getIndication(x+1,y) >=i){
+      setIndication(x+1,y,i+1);
+      indic(x+1,y,i+1)
+    }
+  }
+
+
+  for(i<- 0 to getMondeLargeur()-1){
     for(j<- 0 to getMondeHauteur() -1 ){
       if(aBiscuit(i,j)){x=i;y=j}
     }
   }
   setIndication(x,y,0)
+  indic(x,y,0)
 
-def indic(x:Int, y:Int, i:Int){
-		if(!aMurNord(x,y) && getIndication(x,y-1) == 9999){setIndication(x,y-1,i+1);indic(x,y-1,i+1)} 
-    if( y>0 && !aMurNord(x,y-1) && getIndication(x,y+1) == 9999){setIndication(x,y+1,i+1);indic(x,y+1,i+1)}
-    if(!aMurOuest(x,y) && getIndication(x-1,y) == 9999){setIndication(x-1,y,i+1);indic(x-1,y,i+1)}
-    if(x< getMondeLargeur()-1 && !aMurOuest(x+1,y) && getIndication(x+1,y) ==9999){setIndication(x+1,y,i+1);indic(x+1,y,i+1)}
-  }
-indic(x,y,0)
   while(!estSurBiscuit()){
-    if(!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1)>ind){
-      dir = Direction.NORD; ind=getIndication(getX(),getY()-1)} 
-    if(!aMurNord(getX(),getY()-1) && getIndication(getX(),getY()+1)>ind){
-      dir = Direction.SUD; ind=getIndication(getX(),getY()+1)}
-    if(!aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY())>ind){
-      dir = Direction.EST; ind=getIndication(getX()+1,getY())}
-    if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())>ind){
-      dir = Direction.OUEST; ind=getIndication(getX()+1,getY())}
-		setDirection(dir);avance();}
-  
+    dir=Direction.NORTH
+    ind=9999
+    if(getIndication(getX(),getY()-1)<ind && !aMurNord(getX(),getY())){
+      dir = Direction.NORD;
+      ind = getIndication(getX(),getY()-1)
+    } 
+    if( getY()<getMondeHauteur()-1 && getIndication(getX(),getY()+1)<ind && !aMurNord(getX(),getY()+1)){
+      dir = Direction.SUD;
+      ind = getIndication(getX(),getY()+1)
+    }
+    if(getX()<getMondeLargeur()-1  && getIndication(getX()+1,getY())<ind && !aMurOuest(getX()+1,getY())){
+      dir = Direction.EST;
+      ind = getIndication(getX()+1,getY())
+    }
+    if(getIndication(getX()+1,getY())<ind && !aMurOuest(getX(),getY())){
+      dir = Direction.OUEST;
+      ind = getIndication(getX()+1,getY())
+    }
+    setDirection(dir);avance();
+    ecritMessage(ind)
+  }
+
+
+
 }
