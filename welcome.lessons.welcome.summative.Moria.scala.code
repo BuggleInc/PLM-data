@@ -1,5 +1,5 @@
 def Moria() = {
-  gauche(); gauche(); avance();
+  setDirection(Direction.EST); avance();
   while (!estFaceMur) {
     avance();
     if (estSurBiscuit) {
@@ -9,7 +9,7 @@ def Moria() = {
         avance()
       }
       recule();
-      gauche(); gauche();
+      setDirection(Direction.OUEST);
       poseBiscuit();
     }
   }
