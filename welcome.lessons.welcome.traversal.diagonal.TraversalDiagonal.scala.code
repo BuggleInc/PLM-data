@@ -8,21 +8,16 @@ def diagonale(){
   var H=getMondeHauteur()
   var mess = 0
   while (!fonctionTest){
-     if (diag<7){
-      for (j <- 0 to diag){
-       
-       	setPos(j,diag-j)        
-      }
-       diag = diag + 1
-     }
-      else {
-        for (j <- 0 to 13){
-        setPos(j,diag-j)
-      }
-     diag = diag + 1
-  } 
-   
-  }}
+      for (i <- 0 to L-1){
+        for (j <- 0 to H-1){
+          if (i+j==diag){
+            setPos(i,j)
+          }
+        }
+      } 
+    diag=diag+1   
+  }
+}
 
 
 def fonctionTest() : Boolean={
