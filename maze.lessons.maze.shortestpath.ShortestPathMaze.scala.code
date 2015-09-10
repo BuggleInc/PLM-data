@@ -63,29 +63,44 @@ def suitChemin()
     var X = getX()
     var Y = getY()
     var aAvancer = false
-    setDirection(Direction.NORD)
-    if (Y>0 && (getIndication(X,Y-1))+1==p && !estFaceMur() && aAvancer==false)
+
+    if (Y>0 && (getIndication(X,Y-1))+1==p && aAvancer==false)
     {
-      avance()
-      aAvancer = true
+      setDirection(Direction.NORD)
+      if (!estFaceMur)
+      {
+        avance()
+        aAvancer = true
+      }
     }
-    setDirection(Direction.SUD)
-    if ((Y+1)<getMondeHauteur() && (getIndication(X,Y+1)+1)==p && !estFaceMur() && aAvancer==false)
+    
+    if ((Y+1)<getMondeHauteur() && (getIndication(X,Y+1)+1)==p && aAvancer==false)
     {
-      avance()
-      aAvancer = true
-    }
-    setDirection(Direction.EST)
-    if ((X+1)<getMondeLargeur() && (getIndication(X+1,Y)+1)==p && !estFaceMur() && aAvancer == false)
+      setDirection(Direction.SUD)
+      if (!estFaceMur)
+      {
+        avance()
+        aAvancer = true
+      }
+    
+    if ((X+1)<getMondeLargeur() && (getIndication(X+1,Y)+1)==p && aAvancer == false)
     {  
-      avance()
-      aAvancer = true
+      setDirection(Direction.EST)
+      if (!estFaceMur)
+      {
+        avance()
+        aAvancer = true
+      }
     }
-    setDirection(Direction.OUEST)
+    
     if ((X>0) && (getIndication(X-1,Y)+1)==p && !estFaceMur() && aAvancer == false)
-    { 
-      avance()
-      aAvancer = true
+    {
+      setDirection(Direction.OUEST)
+      if (!estFaceMur)
+      {
+        avance()
+        aAvancer = true
+      }
     }
   }
 }
