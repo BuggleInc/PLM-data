@@ -1,14 +1,11 @@
 override def run() {
   
-  while (getY()>0 && !isOverBaggle())
-  	toTheNorthWall()
-  
   while(!isOverBaggle){
     var angleSom = 0
     var memDir = getDirection()
     
     do {
-      angleSom = angleSom + keepHandOnSideWall()
+      angleSom = angleSom + keepHandOnSideWall(checkGauche())
     }while(angleSom != 0 && !isOverBaggle && getDirection()!= memDir)
     
     setDirection(Direction.NORTH)
