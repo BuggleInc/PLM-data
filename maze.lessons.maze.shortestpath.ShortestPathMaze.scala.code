@@ -97,10 +97,11 @@ def marquerCasesAdjacentes(casesAdjacentes:Array[Boolean],X:Int,Y:Int) //marque 
 
 def allerSortie() //atteint la sortie en lisant le sol
 {
-  var indications:Array[Int]=List(getIndication(getX()-1,getY()),
-                              getIndication(getX(),getY()-1),
-                  		      	 getIndication(getX()+1,getY()),
-                              getIndication(getX(),getY()+1))
+  var indications:Array[Int]=new Array[Int](4)
+  indications(0)=getIndication(getX()-1,getY())
+  indications(1)=getIndication(getX(),getY()-1)
+  indications(2)=getIndication(getX()+1,getY())
+  indications(3)=getIndication(getX(),getY()+1)
   var minimum=9999
   for (i<- indications)
   {
