@@ -6,14 +6,14 @@ def step(rule:Array[Char], colors:Array[Color]) {
     if (getCouleurSol() == colors(i)) {
       x = i;
     }
-   if (rule(i) == 'R') {
+   if (rule(x) == 'R') {
      droite();
      
    }
     else {
       gauche();
     }
-    setCouleurSol(colors((i+1)%colors.length))
+    setCouleurSol(colors((x+1)%colors.length))
     avance()
     
   }
