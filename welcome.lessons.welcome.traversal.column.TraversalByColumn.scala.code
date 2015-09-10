@@ -1,0 +1,21 @@
+def fin(): Boolean= {
+  if(getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+override def run() {
+  var compteur = 0
+  while(!fin()) {
+    for(i<-0 to getMondeLargeur()-1) {
+      for(j<-0 to getMondeHauteur()-1) {
+        setPos(i,j)
+        ecritMessage(compteur)
+        compteur = compteur + 1
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+def fin() : Boolean = {
+  if(estFaceMur()) {
+    gauche()
+    if(estFaceMur()) {
+      droite()
+      return true
+    }
+    else {
+      droite()
+      return false
+    }
+  }
+  else {
+    return false
+  }
+}
+
+override def run() {
+  baisseBrosse()
+  var compteur = 0
+  while(!fin()) {
+    if(estFaceMur()) {
+      if(compteur%2==0) {
+        gauche(); avance(); gauche(); avance()
+        compteur = compteur + 1
+      }
+      else {
+        droite(); avance(); droite(); avance()
+        compteur = compteur + 1
+      }
+    }
+    else {
+      avance()
+    }
+  }
+}

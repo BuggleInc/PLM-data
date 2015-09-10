@@ -1,0 +1,42 @@
+def dessin() {
+  baisseBrosse(); leveBrosse()
+}
+
+def faireV() {
+  dessin(); avance(); gauche(); avance(); dessin(); recule(); droite(); avance(); dessin()
+}
+
+def carre() {
+  for(i<- 1 to 4) {
+    avance(); avance(); faireV(); avance(); avance(); gauche()
+  } 
+}
+
+def ligne() {
+  for(i<-1 to 3) {
+    carre(); avance(); avance(); avance(); avance(); avance(); avance(); avance();
+    carre(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); carre()
+  }
+}
+override def run() {
+  ligne()
+  for(i<-1 to 2) {
+    for(i<-1 to 14) {
+      recule()
+    }
+    gauche()
+    for(i<-1 to 7) {
+      avance()
+    }
+    droite()
+    ligne()
+  }
+  for(i<-1 to 14) {
+    recule()
+  }
+  droite()
+  for(i<-1 to 14) {
+    avance()
+  }
+  gauche()
+}
