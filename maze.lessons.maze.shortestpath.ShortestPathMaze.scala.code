@@ -62,37 +62,30 @@ def suitChemin()
     var p = getIndication(getX(),getY())
     var X = getX()
     var Y = getY()
-    if (Y>0 && (getIndication(X,Y-1))+1==p )
+    var aAvancer = false
+    setDirection(Direction.NORD)
+    if (Y>0 && (getIndication(X,Y-1))+1==p && !estFaceMur() && aAvancer==false)
     {
-      setDirection(Direction.NORD)
-      if (!estFaceMur)
-      {
-        avance()
-      }
+      avance()
+      aAvancer = true
     }
-    else if ((Y+1)<getMondeHauteur() && (getIndication(X,Y+1)+1)==p)
+    setDirection(Direction.SUD)
+    if ((Y+1)<getMondeHauteur() && (getIndication(X,Y+1)+1)==p && !estFaceMur() && aAvancer==false)
     {
-      setDirection(Direction.SUD)
-      if (!estFaceMur)
-      {
-        avance()
-      }
+      avance()
+      aAvancer = true
     }
-    else if ((X+1)<getMondeLargeur() && (getIndication(X+1,Y)+1)==p)
-    {
-      setDirection(Direction.EST)
-      if (!estFaceMur)
-      {
-        avance()
-      }
+    setDirection(Direction.EST)
+    if ((X+1)<getMondeLargeur() && (getIndication(X+1,Y)+1)==p && !estFaceMur() && aAvancer = false)
+    {  
+      avance()
+      aAvancer = true
     }
-    else
-    {
-      setDirection(Direction.OUEST)
-      if (!estFaceMur)
-      {
-        avance()
-      }
-    }
-  }
-}
+    setDirection(Direction.OUEST)
+    if ((X>0) &&(getIndication(X-1,Y)+1==p && !estFaceMur() && aAvancer = false)
+        { 
+          avance()
+          aAvancer = true
+        }
+        }
+        }
