@@ -1,28 +1,30 @@
 override def run() {
   
-  while(!isOverBaggle){
-    var angleSom = 0
-    var memDir = getDirection()
-    
-    do {
-      angleSom = angleSom + keepHandOnSideWall(checkGauche())
-    }while(angleSom != 0 && !isOverBaggle && getDirection()!= memDir)
-    
-    setDirection(Direction.NORTH)
+  setDirection(Direction.NORTH)
+  colleObstacle()
+  var memDirec = getDirection()
+  var somme = 0
+  do{
+    somme = somme + keepHandOnSideWall()
   }
-  pickupBaggle()
+  while (!isOverBaggle() && !(somme != 0 && getDirection() != memDirec) )
 }
 
-//1
-def keepHandOnSideWall(murGauche : Boolean): Int = {
+
+
+def colleObstacle(){
+  /* Avance jusqu'a rencontre un obstacle, puis tourne vers la droite pour qu'il soit a gauche */
   
-  //S'il n'y a pas de mur a gauche, en cherche un devant nous
-  if (!murGauche){
-    while (!isFacingWall())
-    	forward()
-    right()
-  }
-  
+  while(!isFacingWall() && !isOverBaggle()){
+    forward()
+  }  
+  right()
+}
+
+
+
+def keepHandOnSideWall(): Int = {
+    
   var angleAbs = 0
   
   //S'il y a un mur en face on tourne a droite
@@ -32,7 +34,8 @@ def keepHandOnSideWall(murGauche : Boolean): Int = {
   
   //Sinon on peut avancer et regarder s'il y a un mur
   }else{
-    forward()
+    if (!isOverBaggle())
+    	forward()
     left()
     angleAbs = angleAbs -1
     
@@ -44,14 +47,4 @@ def keepHandOnSideWall(murGauche : Boolean): Int = {
     }
   }
   return angleAbs
-}
-
-
-//2
-def checkGauche(){
-  /*Regarde s'il y a un mur ? gauche, si oui renvoie true*/
-  left()
-  var resultat = isFacingWall()
-  right()
-  return resultat
 }
