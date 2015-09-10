@@ -5,21 +5,18 @@ override def run() {
       goN()
     }
     droite()
-    var murT = true
-    if (murT) {
-      while (((sommeAngle!=0) && (!estFaceMur())) || !estSurBiscuit()) {
-        gauche()
- 				sommeAngle = sommeAngle + 1
-				  if (estFaceMur()) {
-    				droite()
-   					sommeAngle = sommeAngle - 1
-				  }
-        if (estFaceMur()) {
-   			droite()
- 			  sommeAngle = sommeAngle - 1
- 				} else {avance()}
-			}
-    }
+    while (((sommeAngle!=0) && (!estFaceMur())) || !estSurBiscuit()) {
+      gauche()
+ 			sommeAngle = sommeAngle + 1
+				if (estFaceMur()) {
+    			droite()
+   				sommeAngle = sommeAngle - 1
+				}
+      if (estFaceMur()) {
+   		droite()
+ 			sommeAngle = sommeAngle - 1
+ 			} else {avance()}
+		}
   }
   prendBiscuit()
 }
