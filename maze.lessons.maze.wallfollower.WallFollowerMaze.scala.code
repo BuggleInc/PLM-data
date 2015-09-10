@@ -3,20 +3,17 @@ override def run() {
   while (!isOverBaggle()){
     keepHandOnSideWall()
 		forward()
+    if (isFacingWall()){
+      right()
+    }
   }
 }
 
 
 
 def keepHandOnSideWall(){
-	var facing = isFacingWall()
-  left()
-  var m = isFacingWall()
-  
-  if (facing && m){
+	left()
+  if (isFacingWall()){
     right()
-    right()
-  }else if(facing){
-    left()
   }
 }
