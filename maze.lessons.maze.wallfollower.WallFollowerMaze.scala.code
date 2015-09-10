@@ -1,0 +1,17 @@
+override def run() {
+  KeepHandOnSideWall()
+}
+def KeepHandOnSideWall():Unit={
+  if (estFaceMur()){
+    gauche()
+  }
+  else {avance()
+    if(!murAGauche()){gauche();avance()}
+  }
+}
+def murAGauche():Boolean={
+  gauche()
+  var resultat=estFaceMur()
+  droite()
+  return resultat
+}
