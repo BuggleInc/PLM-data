@@ -1,22 +1,19 @@
 def nord() {
-  while(getY()!=0) {
-  while(getDirection==Direction.NORTH & !(estFaceMur())) {
-    avance()
-  }
-  while(estFaceMur()) {
+  while (getX()!=10) {
+    while (!estFaceMur()) {
+      avance()
+    }
+    if (estFaceMur()) {
+      droite() ; avance() ; gauche()
+    }
+    while (!estFaceMur()) {
+      avance()
+    }
     droite()
   }
-  if (getDirection()==Direction.SOUTH) {
-    droite() ; droite() ; recule()
-  }
-    droite() 
-    if (estFaceMur()) {
-      gauche() ; recule() }
-    else {
-      avance() ; gauche() ; avance()
-    }
-  }
 }
+
+
 
 def nord2() {
   while (getX()!=getMondeHauteur()-2) {
@@ -54,7 +51,7 @@ gauche()
 
 
 override def run() {
-  nord()
+  nord2()
 while (!estSurBiscuit()) {
  keepHandOnSideWall()
 }
