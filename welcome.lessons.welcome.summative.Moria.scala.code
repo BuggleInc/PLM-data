@@ -1,0 +1,19 @@
+override def run() {
+  while(!estFaceMur()){
+    while(!porteBiscuit()){
+      setDirection(Direction.EST)
+      avance()
+      if (estSurBiscuit()){
+        prendBiscuit()
+      }
+    }
+    
+    while(!estSurBiscuit()){
+      setDirection(Direction.OUEST)
+      avance()
+    }
+    recule()
+    poseBiscuit()
+  }
+  
+}
