@@ -23,7 +23,6 @@ override def run() {
         if (getIndication(x,y) == cpt) { //Et si on rencontre une case portant la valeur du compteur,
           ecritMessage(cpt)
           indicationCasesAdjacentes(cpt+1, x, y) //On marque les cases adjacentes
-          effaceMessage()
         }
       }
     }
@@ -74,15 +73,8 @@ override def run() {
 }
 
 def casesLibres():Boolean = {
-  // Retourne s'il reste des cases libres dans la grille
-  for (x <- 0 to getMondeLargeur()-1) {
-    for (y <- 0 to getMondeHauteur()-1) {
-      if (getIndication(x,y)==9999) {
-        return true
-      }
-    }
-  }
-  return false
+  // Retourne si la case du buggle a une indication
+  return (getIndication(getX(),getY()) != 9999)
 }
 
 def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
