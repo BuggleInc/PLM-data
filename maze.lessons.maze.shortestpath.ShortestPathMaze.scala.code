@@ -44,10 +44,10 @@ def ppC(x:Int,y:Int):Direction = {
   var m = getIndication(x,y)
   var d = Direction.EAST
   var l = 0
-  if (testV(x+1,y)) {l = getIndication(x+1,y);if (l < m) {m=l;d=Direction.EAST}}
-  if (testV(x-1,y)) {l = getIndication(x-1,y);if (l < m) {m=l;d=Direction.WEST}}
-  if (testV(x,y-1)) {l = getIndication(x,y-1);if (l < m) {m=l;d=Direction.NORTH}}
-  if (testV(x,y+1)) {l = getIndication(x,y+1);if (l < m) {m=l;d=Direction.SOUTH}}
+  if (testV(x+1,y)) {if (!aMurOuest(x+1,y)) {l = getIndication(x+1,y);if (l < m) {m=l;d=Direction.EAST}}}
+  if (testV(x-1,y)) {if (!aMurOuest(x,y)) {l = getIndication(x-1,y);if (l < m) {m=l;d=Direction.WEST}}}
+  if (testV(x,y-1)) {if (!aMurNord(x,y)) {l = getIndication(x,y-1);if (l < m) {m=l;d=Direction.NORTH}}}
+  if (testV(x,y+1)) {if (!aMurNord(x,y+1)) {l = getIndication(x,y+1);if (l < m) {m=l;d=Direction.SOUTH}}}
   return d
 }
 
@@ -69,6 +69,7 @@ override def run() {
   casP(a,b,0)
   while (!estSurBiscuit()) {
     d = ppC(getX(),getY())
+    setDirection(d)
     avance()
   }
   }
