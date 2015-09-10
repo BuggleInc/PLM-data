@@ -1,0 +1,66 @@
+override def run() {
+  baisseBrosse()
+  do{	
+  	snake()
+  	} while (!posf())
+  	right()
+  right()
+  right()
+  right()
+}
+
+def snake(){
+  	
+  	while(!estFaceMur()){
+    	avance()
+  	}
+  	if (getDirection()== Direction.EST){
+    	left()
+    	if(!estFaceMur())
+    	avance()
+  	}
+  	if (getDirection()== Direction.OUEST){
+    	right()
+    	if (!estFaceMur())
+    	avance()
+  	}
+  right()
+  if(estFaceMur()){
+    right()
+    right()
+  }  
+}
+
+def posf():Boolean ={
+  if(getDirection()==Direction.OUEST){
+    right()
+    if (estFaceMur()){
+      right()
+      if(estFaceMur()){
+        return true
+      }
+      left()
+    }
+    left()
+  }
+  if(getDirection==Direction.EST){
+    if(estFaceMur()){
+      left()
+      if(estFaceMur()){
+        right()
+        return true
+      }
+      right()
+    }
+  }
+  if(getDirection()==Direction.NORD){
+    if(estFaceMur()){
+      right()
+      if(estFaceMur()){
+        return true
+      }
+      left()
+    }
+  }
+  return false
+}

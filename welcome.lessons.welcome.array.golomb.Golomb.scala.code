@@ -1,0 +1,24 @@
+def golomb(num:Int): Int = {
+  if (num == 1){
+    return 1
+  }
+  if(num==2){
+    return 2
+  }
+  var T= new Array[Int](num)
+  T(0)=1
+  T(1)=2
+  T(2)=2
+  var ou:Int=3
+  var quoi:Int=3
+  while (ou<=num-1){
+    var a:Int=0
+    while((a <=T(quoi-1)-1)&&(ou<=num-1)){
+      T(ou)=quoi
+    	ou=ou+1
+      a=a+1
+    }
+    quoi = quoi+1
+  }
+  return T(num-1)
+}

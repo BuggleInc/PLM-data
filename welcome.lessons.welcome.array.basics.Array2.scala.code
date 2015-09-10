@@ -1,0 +1,46 @@
+override def run() {
+  var T = new Array[Color](getMondeHauteur())
+  var nbr:Int=1
+  col1(T)
+  left()
+  avance()
+  right()
+  for (m<-0 to getMondeLargeur()-3){
+    col(T)
+    left()
+  avance()
+  right()
+  }
+  col(T)
+}
+
+def col1(T:Array[Color]){
+  for (i<-0 to getMondeHauteur()-2){
+    T(i)=getCouleurSol()
+    avance()
+  }
+  T(getMondeHauteur()-1)=getCouleurSol()
+  for(a<-0 to getMondeHauteur()-2){
+    recule()
+  }
+}
+
+
+
+def col(T:Array[Color]){
+  var deca:Int=0
+  deca = litMessage().toInt
+  setCouleurBrosse(T((deca)%getWorldHeight()+1))
+  baisseBrosse()
+  leveBrosse()
+  for(a<-1 to getMondeHauteur()-1){
+    avance()
+    setCouleurBrosse(T((a+deca)%getWorldHeight()+1))
+    baisseBrosse()
+  	leveBrosse()
+	}
+  for (a<-1 to getWorldHeight()-1){
+    recule()
+  }
+  
+}
