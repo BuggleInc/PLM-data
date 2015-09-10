@@ -1,0 +1,36 @@
+def chercheASortir ():Unit={
+  var fin=0
+  var dir=0
+  while (fin==0){
+  //if ((getDirection())==Direction.EAST) {
+    if (dir==0){
+    if (porteBiscuit()) {
+      if (estFaceBiscuit()||estFaceMur()) {
+        poseBiscuit();gauche();gauche();avance();dir=1
+      }
+      else {avance()}
+    }
+    else {gauche();gauche();dir=1}
+  }
+  else {
+    if (estSurBiscuit()) {
+      prendBiscuit();gauche();gauche();dir=0
+    }
+    else {
+      if (!estFaceMur()) {
+        avance()
+      }
+      else {
+        droite();avance();gauche();avance();fin=1
+      }
+      }
+  }
+}
+}
+def estFaceBiscuit():Boolean ={
+  avance()
+  var resultat=estSurBiscuit()
+  recule()
+  return resultat
+}
+chercheASortir()
