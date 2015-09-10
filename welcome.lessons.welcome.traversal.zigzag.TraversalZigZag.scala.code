@@ -6,7 +6,23 @@ override def run()
   {
     for (i <- 0 to getMondeLargeur()-1) 
     {
-      if (getX() == 0)
+      if (getX() == 0) 
+      {
+        for (j <- 0 to getMondeHauteur()-1) 
+        {
+          setPos(j, i)
+          ecritMessage(compteur)
+          compteur = compteur + 1
+        }
+      } else 
+      {
+        for (j <- getMondeHauteur-1 to 0) 
+        {
+          setPos(j, i)
+          ecritMessage(compteur)
+          compteur = compteur + 1
+        }
+      }
     }
     positionFinale = true
   }
