@@ -1,21 +1,37 @@
 override def run() {
-  var direction = getDirection()
-  while(!estSurBiscuit()){
-    while(!estFaceMur)
+  while(!estSurBiscuit())
+  {
+    var direction = getDirection
+    if (direction!=Direction.SUD)
     {
-      avance()
+      setDirection(Direction.NORD)
+      if (!estFaceMur())
+      {
+        goNord()
+        droite()
+      }
+      else
+      {
+        setDirection(direction)
+      }
     }
     var somme = 0
-    keepHandOnSideWall
-    while (somme!=0 )
-    {
-      keepHandOnSideWall()
-    }
     keepHandOnSideWall()
-    
+    while(somme!=0)
+    keepHandOnSideWall()
+    somme = somme + keepHandOnSideWall()
   }
+
+  prendBiscuit()  
 }
 
+def goNord()
+{
+  while(!estFaceMur())
+  {
+    avance()
+  }
+}
 
 
 
