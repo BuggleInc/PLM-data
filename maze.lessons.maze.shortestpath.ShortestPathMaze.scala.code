@@ -25,29 +25,28 @@ def marquerBaggle(x:Int,y:Int) {
 }
 
 def marquer(x:Int,y:Int,i:Int) {
-    if ( !aMurNord(x,y) ){
-      if ( getIndication(x,y-1) == 9999 ){
-        setIndication(x,y-1,i);
-        marquer(x,y-1,i+1);
-      }
+  if ( !aMurNord(x,y) ){
+    if ( getIndication(x,y-1) == 9999 ){
+      setIndication(x,y-1,i);
+      marquer(x,y-1,i+1);
     }
-    if ( !aMurOuest(x,y) ){
-      if ( getIndication(x-1,y) == 9999 ){
-        setIndication(x-1,y,i);
-        marquer(x-1,y,i+1);
-      }
+  }
+  if ( !aMurOuest(x,y) ){
+    if ( getIndication(x-1,y) == 9999 ){
+      setIndication(x-1,y,i);
+      marquer(x-1,y,i+1);
     }
-    if ( !aMurSud(x,y) ){
-      if ( getIndication(x,y+1) == 9999 ){
-        setIndication(x,y+1,i);
-        marquer(x,y+1,i+1);
-      }
+  }
+  if ( !aMurSud(x,y) ){
+    if ( getIndication(x,y+1) == 9999 ){
+      setIndication(x,y+1,i);
+      marquer(x,y+1,i+1);
     }
-    if ( !aMurEst(x,y) ){
-      if ( getIndication(x+1,y) == 9999 ){
-        setIndication(x+1,y,i);
-        marquer(x+1,y,i+1);
-      }
+  }
+  if ( !aMurEst(x,y) ){
+    if ( getIndication(x+1,y) == 9999 ){
+      setIndication(x+1,y,i);
+      marquer(x+1,y,i+1);
     }
   }
 }
