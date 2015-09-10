@@ -14,28 +14,30 @@ override def run() {
 
 def keepHandOnSideWall() {
   
-  if (!estFaceMur()) {
-    avance()
-  }
-  else {
-    droite()
-    if (!estFaceMur()) {
+  if (estFaceMur()) {
+    gauche()
+    if(!estFaceMur) {
       avance()
+      droite()
     }
     else {
-      droite()
-      if (!estFaceMur()) {
+      gauche()
+      if (!estFaceMur) {
         avance()
+        droite()
       }
       else {
-        droite()
-        if (!estFaceMur()) {
+        gauche()
+        if (!estFaceMur) {
           avance()
+          droite()
         }
-        
       }
     }
- }
+  }
+  else {
+    avance()
+  }
 }
 
 def northWall() {
