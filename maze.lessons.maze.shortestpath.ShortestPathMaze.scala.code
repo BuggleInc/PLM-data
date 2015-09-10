@@ -1,23 +1,25 @@
-override def run() {
+override def run()
+{
   repererSortie()
   var valeur=0
-  while (!marquageComplet())
+  var fini:Boolean=false
+  while (!fini)
   {
     for (i <- 0 to getMondeLargeur()-1)
     {
       for (j <- 0 to getMondeHauteur()-1)
       {
-					if (getIndication(i,j)==valeur)
-        	{
-          	marquerCasesAdjacentes(repererCasesAdjacentes(i,j),i,j)
-        	}
-        	valeur +=1
+				if (getIndication(i,j)==valeur)
+        	if (!marquerCasesAdjacentes(i,j))
+        		fini=true
       }
     }
+    valeur +=1
   }
   allerSortie()
+
   prendBiscuit()
-}
+} 
 
 def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases
 {
@@ -26,9 +28,7 @@ def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases
     for (j <- 0 to getMondeHauteur()-1)
     {
       if (getIndication(i,j)==9999)
-      {
         return false
-      }
     }
   }
   return true
@@ -51,53 +51,97 @@ def repererSortie() //repère sortie, y met 0
 def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes
 {
   var casesAdjacentes:Array[Boolean]=new Array[Boolean](4)
-	casesAdjacentes(0) = true
-  casesAdjacentes(1) = true
-  casesAdjacentes(2) = true
-  casesAdjacentes(3) = true
-  
+	casesAdjacentes(0) = false
+  casesAdjacentes(1) = false
+  casesAdjacentes(2) = false
+  casesAdjacentes(3) = false
   //on analyse sa propre case
-  if (aMurOuest(X,Y))
-    casesAdjacentes(0)=false
-  if (aMurNord(X,Y))
-    casesAdjacentes(1)=false
+  if (X!=0)
+  {
+    if (!aMurOuest(X,Y))
+    {
+      casesAdjacentes(0)=true
+    }
+  }
+  if (Y!=0)
+  {
+  	if (!aMurNord(X,Y))
+    	casesAdjacentes(1)=true
+  }
   //on analyse case à droite
-  if (aMurOuest(X+1,Y))
-  	casesAdjacentes(2)=false
+  if (X!=getMondeLargeur()-1)
+  {
+    if (!aMurOuest(X+1,Y))
+  		casesAdjacentes(2)=true
+  }
   //on analyse case en dessous
-  if (aMurNord(X,Y+1))
-  	casesAdjacentes(3)=false
+  if (Y!=getMondeHauteur()-1)
+  {
+    if (!aMurNord(X,Y+1))
+  		casesAdjacentes(3)=true
+  }
   return casesAdjacentes
 }
 
-def marquerCasesAdjacentes(casesAdjacentes:Array[Boolean],X:Int,Y:Int) //marque cases adjacentes
+def marquerCasesAdjacentes(X:Int,Y:Int):Boolean= //marque cases adjacentes, indique si on a marqué une case ou pas
 {
   var maCase=getIndication(X,Y)
+  var test:Boolean=false
+  var casesAdjacentes = repererCasesAdjacentes(X,Y)
   if (casesAdjacentes(0)==true)
   {
     if (getIndication(X-1,Y)==9999)
+    {
     	setIndication(X-1,Y,maCase+1)
+    	test=true
+    }
   }
   if (casesAdjacentes(1)==true)
   {
     if (getIndication(X,Y-1)==9999)
-    	setIndication(getX(),getY()+1,maCase+1)
+    {
+    	setIndication(X,Y-1,maCase+1)
+    	test=true
+    }
   }
   if (casesAdjacentes(2)==true)
   {
     if ((getIndication(X+1,Y)==9999))
+    {
     	setIndication(X+1,Y,maCase+1)
+    	test=true
+    }
   }
-  else
+  if (casesAdjacentes(3)==true)
   {
     if (getIndication(X,Y+1)==9999)
+    {
     	setIndication(X,Y+1,maCase+1)
+      test=true
+    }
   }
+  return test
 }
 
 def allerSortie() //atteint la sortie en lisant le sol
 {
-  var indications:Array[Int]=(getIndication(getX()-1,getY()),getIndication(getX(),getY()-1,getIndication(getX()+1,getY()),getIndication(getX(),getY()+1)))
+  var indications:Array[Int]=new Array[Int](4)
+  if (getX()==0)
+  	indications(0)=9999
+  if (getX()!=0)
+  	indications(0)=getIndication(getX()-1,getY())
+  if (getY()==0)
+  	indications(1)=9999
+  if (getY()!=0)
+  	indications(1)=getIndication(getX(),getY()-1)
+  if (getX()==getMondeLargeur())
+  	indications(2)=9999
+  if (getX()!= getMondeLargeur())
+  	indications(2)=getIndication(getX()+1,getY())
+  if (getY()==getMondeHauteur())
+  	indications(3)=9999
+  else
+  	indications(3)=getIndication(getX(),getY()+1)
   var minimum=9999
   for (i<- indications)
   {
@@ -112,7 +156,7 @@ def allerSortie() //atteint la sortie en lisant le sol
   	avance()
     droite()
   }
-  if (minimum==indication(1))                                                                 {
+	if (minimum==indications(1))                                                                {
     avance()
   }
 	if (minimum==indications(2))
@@ -121,6 +165,6 @@ def allerSortie() //atteint la sortie en lisant le sol
     avance()
     gauche()
   }
-	else
+	if (minimum==indications(3))
 		recule()                                                                           
 }
