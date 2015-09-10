@@ -1,8 +1,7 @@
 def golomb(num:Int): Int = {
-  var nieme:Int = 1
-  for(i<- 0 to num-1){
-    nieme = nieme -1
-    for(j<- i to 2*i){nieme = nieme+1}
-  }
-  return(nieme)
+  var T = new Array[Int](num)
+  T(0)=1
+  for(i<- 1 to num-1){T(i)=T(0)}
+  for(j<- 0 to num-1){T(j+i)=T(j+i)+1}
+  return(T(num))
 }
