@@ -2,12 +2,14 @@ override def run() {
   baisseBrosse()
   while(fonctionTest()==false){
     if (estFaceMur==false){avance()}
-    else {avance()}
+    else if (estFaceMur==true){
+      droite
+    } 
   }
   
 }
 
-def fonctionTest() {
+def fonctionTest() : Boolean{
   return false
   if (getDirection()==Direction.EST){
     if (estFaceMur()==true){
