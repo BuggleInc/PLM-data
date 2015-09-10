@@ -1,21 +1,6 @@
-retourne()
-biscuit()
-def biscuit(){
-  if (estFaceMur()==false){
-		while (!estSurBiscuit){
-  		avance()
-		}
-		prendBiscuit()
-		while (!estSurBiscuit){
-  		recule()
-		}
-		avance()
-		poseBiscuit()
-		avance()
-		biscuit()
-  }
-  droite()
-  avance()
-  gauche()
-  avance()
+while (!estSurBiscuit()){
+  if (estSurBiscuit() && !porteBiscuit()){prendBiscuit()}
+  if (estSurBiscuit() && porteBiscuit()){recule();poseBiscuit()}
+  if (!estSurBiscuit() && !porteBiscuit()){recule}
+  if (!estSurBiscuit() && porteBiscuit()){avance()}
 }
