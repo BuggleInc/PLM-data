@@ -1,29 +1,42 @@
 override def run() {
-  var dir:Direction = getDirection()
-  var sommeAngle:Int = 0
-  while (!estSurBiscuit()) {
-  while (isDirectionFree(dir) && sommeAngle == 0) {
-    avance()
-  }
-  while (estFaceMur()) {
-    droite()
-    sommeAngle -= 1
-  }
-	avance()
-	gauche()
-  sommeAngle += 1
+  var posXBiscuit:Int = 0
+  var posYBiscuit:Int = 0
+  var cpt:Int = 0
+  
+  while (!aBiscuit(posXBiscuit, posYBiscuit)) {
+    if (posXBiscuit == getMondeLargeur() - 1) {
+      posXBiscuit = 0
+      posYBiscuit += 1
+    } else {
+      posXBiscuit += 1
+    }
+  } // On a la position du biscuit
+  
+  var posXNote:Int = posXBiscuit
+  var posYNote:Int = posYBiscuit
+  
+  setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
+  while (casesLibres()) {
+    if (!aMurNord(posXNote,posYNote)) {
+      setIndication(posXNote, posYNote-1, cpt)
+    }; if (!aMurOuest(posXNote, posYNote)) {
+      setIndication(posXNote-1, posYNote, cpt)
+    }; if (!aMurNord(posXNote, posYNote+1)) {
+      setIndication(posXNote, posYNote+1, cpt)
+    }; if (!aMurOuest(posXNote+1, posYNote)) {
+      setIndication(posXNote+1, posYNote, cpt)
+    }
   }
 }
 
-
-def isDirectionFree(dir:Direction):Boolean = {
-  var dirActu = getDirection()
-  setDirection(dir)
-  if (estFaceMur()) {
-    setDirection(dirActu)
-    return false
-  } else {
-    setDirection(dirActu)
-    return true
+def casesLibres():Boolean = {
+  // Retourne s'il reste des cases libres dans la grille
+  for (x <- 0 to getMondeLargeur()-1) {
+    for (y <- 0 to getMondeHauteur()-1) {
+      if (getIndication(x,y)==9999) {
+        return true
+      }
+    }
   }
+  return false
 }
