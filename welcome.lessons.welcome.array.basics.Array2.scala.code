@@ -6,6 +6,7 @@ override def run() {
   seDeplacer()
   for (i <- 0 to getMondeLargeur()-2){
     faireLigneCouleurs(T:Array[Color])
+    recule(H-1)
   }
 
 }
@@ -34,9 +35,10 @@ def definirCouleurs():Array[Color]={
 
 def faireLigneCouleurs(T:Array[Color]){
   val D = litMessage().toInt //Transforme le caractere en entier !
-  for (i <- 0 to getMondeHauteur()-1){
+  for (i <- 0 to getMondeHauteur()-2){
     setCouleurBrosse(T((i+D)%getMondeHauteur()))
     marquerSol()
     avance()
   }
+  setCouleurBrosse(T((getMondeHauteur()-1+D)%getMondeHauteur()))
 }
