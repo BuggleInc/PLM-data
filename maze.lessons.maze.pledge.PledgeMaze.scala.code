@@ -1,0 +1,67 @@
+override def run() {
+}
+def sortirGraceAuNord() {
+  
+  while(!estSurBiscuit()){
+      while(!regardeLeNord()&&(!estSurBiscuit())){
+ 				 KeepHandOnSideWall()
+  }
+    while (!estFaceMur()&&(!estSurBiscuit())){avance()}
+    KeepHandOnSideWall()
+  }
+  prendBiscuit()
+  gauche()
+}
+
+def trouveFinAvecMurGauche2()={
+    while(!murAGauche()){
+    if (!aucunMur()){avance()}
+    else {gauche()}
+  }
+  trouveFinAvecMurGauche()
+}
+
+def trouveFinAvecMurGauche():Unit= {
+  while(!estSurBiscuit()){
+  KeepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+def KeepHandOnSideWall():Unit={
+  if (estFaceMur()){
+    droite()
+  }
+  else {avance()
+    while(!murAGauche()){gauche();avance()}
+  }
+}
+def murAGauche():Boolean={
+  gauche()
+  var resultat=estFaceMur()
+  droite()
+  return resultat
+}
+
+def murADroite():Boolean={
+  droite()
+  var resultat=estFaceMur()
+  gauche()
+  return resultat
+}
+
+def aucunMur ():Boolean={
+  var resultat=estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  return resultat
+}
+
+def regardeLeNord():Boolean={
+  var dir=getDirection()
+  return dir==Direction.NORTH
+}
