@@ -1,6 +1,8 @@
 override def run() {
   var posXBiscuit:Int = 0
   var posYBiscuit:Int = 0
+  var cpt:Int = 0
+  
   while (!aBiscuit(posXBiscuit, posYBiscuit)) {
     if (posXBiscuit == getMondeLargeur() - 1) {
       posXBiscuit = 0
@@ -9,5 +11,32 @@ override def run() {
       posXBiscuit += 1
     }
   } // On a la position du biscuit
-  ecritMessage(0, (posXBiscuit, posYBiscuit))
+  
+  var posXNote:Int = posXBiscuit
+  var posYNote:Int = posYBiscuit
+  
+  setIndication(posXNote, posYNote, cpt)			 //On marque 0 ? la sortie
+  while (casesLibres()) {
+    if (!aMurNord(posXNote,posYNote)) {
+      setIndication(posXNote, posYNote-1, cpt)
+    } if (!aMurOuest(posXNote, posYNote)) {
+      setIndication(posXNote-1, posYNote, cpt)
+    } if (!aMurNord(posXNote, posYNote+1)) {
+      setIndication(posXNote, posYNote+1, cpt)
+    } if (!aMurOuest(posXNote+1, posYNote)) {
+      setIndication(posXNote+1, posYNote, cpt)
+    }
+  }
+}
+
+def casesLibres():Boolean = {
+  // Retourne s'il reste des cases libres dans la grille
+  for (x <- 0 to getMondeLargeur()-1) {
+    for (y <- 0 to getMondeHauteur()-1) {
+      if (getIndication(x,y)==9999) {
+        return true
+      }
+    }
+  }
+  return false
 }
