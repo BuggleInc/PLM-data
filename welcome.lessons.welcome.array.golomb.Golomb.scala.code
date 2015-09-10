@@ -1,4 +1,12 @@
 def golomb(num:Int): Int = {
-  return 0
+  var sequence = Array[int](num)
+  sequence(0) = 1
   
+	for (i <- 0 to num - 1){
+    for(j <- 1 to sequence(i)){
+      sequence(j) = i
+    }
+  }
+  
+  System.out.println(sequence(num - 1))
 }
