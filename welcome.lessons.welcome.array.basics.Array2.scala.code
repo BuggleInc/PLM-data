@@ -3,7 +3,7 @@ override def run() {
   var L: Int = getMondeLargeur()
   var T : Array[Color] = definirCouleurs()
   definirCouleurs()
-  recule(H-2)
+  recule(H-1)
   seDeplacer()
   for (i <- 0 to getMondeLargeur()-2){
     faireLigneCouleurs(T:Array[Color])
@@ -23,8 +23,8 @@ def seDeplacer(){
 }
 
 def definirCouleurs():Array[Color]={
-  var T = new Array[Color](getMondeLargeur())
-  for (i <- 0 to getMondeLargeur()-2){
+  var T = new Array[Color](getMondeHauteur())
+  for (i <- 0 to getMondeHauteur()-2){
     T(i)=(getCouleurSol())
     avance()
   }
