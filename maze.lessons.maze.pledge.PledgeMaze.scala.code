@@ -55,3 +55,16 @@ def isDirectionFree2(dir:Direction) : Boolean = {
     return true;
   }
 }
+
+def keepHandOnSideWall() {
+  gauche();
+  if ( estFaceMur() ){
+    droite();
+  }
+  if ( !estFaceMur() ){
+    avance();
+  } else {
+    droite();
+    keepHandOnSideWall();
+  }
+}
