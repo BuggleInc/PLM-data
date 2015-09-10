@@ -12,7 +12,7 @@ override def run() {
   gauche()
   avance()
   droite()
-  for (cpt <- 0 to k-1) {
+  for (cpt <- 0 to k) {
     val decalage = litMessage().toInt
     var n = (decalage)%i
     setCouleurBrosse(T(n))
@@ -20,7 +20,7 @@ override def run() {
     leveBrosse()
     for (c <- 0 to T.length-3) {
       avance()
-    	setCouleurBrosse(T(c))
+    	setCouleurBrosse(T(c+1))
     	baisseBrosse()
     	leveBrosse()
  	 	}
