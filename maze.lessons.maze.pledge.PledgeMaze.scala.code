@@ -1,0 +1,33 @@
+override def run() {
+  while (!estSurBiscuit()){
+    if (getDirection==Direction.NORTH && !estFaceMur()){
+      avance()
+    }else{
+      if (getDirection==Direction.NORTH){
+      	droite()
+      }
+      keepHandOnSideWall()
+    }
+  }  
+  prendBiscuit()
+}
+
+def keepHandOnSideWall():Unit={
+  gauche()
+  if(!estFaceMur()){
+    avance()
+  }else{
+    droite()
+    if(!estFaceMur()){
+      avance()
+    }else{
+      droite()
+      if(!estFaceMur()){
+      	avance()
+      }else{
+        droite()
+        avance()
+      }
+    }
+  }
+}
