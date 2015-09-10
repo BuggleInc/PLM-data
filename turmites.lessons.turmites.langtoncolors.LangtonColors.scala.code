@@ -1,13 +1,15 @@
 def step(rule:Array[Char], colors:Array[Color]) {
-  for(i<-0 to colors.length-1) {
+  for(i<-0 to colors.length-2) {
     if(getCouleurSol()==colors(i)) {
       if(rule(i)=='R') {
         droite()
         avance()
+        setCouleurSol(colors(i+1))
       }
       else if(rule(i)=='L') {
         gauche()
         avance()
+        setCouleurSol(colors(i+1))
       }
     }
   }
