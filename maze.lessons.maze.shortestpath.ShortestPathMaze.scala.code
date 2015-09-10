@@ -2,9 +2,26 @@ override def run() {
   for (i<- 0 to getMondeLargeur()-1){
     for( j <- 0 to getMondeHauteur()-1){
       if (aBiscuit(i,j)){
-        setIndication(i,j,0)
+        num(i,j,0)
       }
     }
   }
   
+}
+
+def num (x : Int, y: Int, n: Int){
+  if(getIndication() == 9999){
+    
+  	setIndication(x,y,n)
+  	if (y == 0 && x==0){
+    	num(x+1,y,n+1)
+    	num(x,y+1,n+1)
+  	}else if(x==11 && y==0){
+    	num(x-1,y,n+1)
+    	num(x,y+1,n+1)
+  	}else if(x == 11 && y == 11){
+    	num(x,y-1,n+1)
+      num(x-1,y,n+1)
+    }else if(x = 0 
+  }
 }
