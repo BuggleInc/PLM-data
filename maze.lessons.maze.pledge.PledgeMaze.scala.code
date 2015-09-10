@@ -5,7 +5,7 @@ override def run() {
     var memDir = getDirection()
     
     do {
-      angleSom = angleSom + keepHandOnSideWall(checkGauche())
+      angleSom = angleSom + keepHandOnSideWall(true)
     }while(angleSom != 0 && !isOverBaggle && getDirection()!= memDir)
     
     setDirection(Direction.NORTH)
@@ -49,7 +49,7 @@ def keepHandOnSideWall(murGauche : Boolean): Int = {
 
 //2
 def checkGauche():Boolean ={
-  /*Regarde s'il y a un mur ? gauche, si oui renvoie true*/
+  /*Regarde s'il y a un mur a gauche, si oui renvoie true */
   left()
   var resultat = isFacingWall()
   right()
