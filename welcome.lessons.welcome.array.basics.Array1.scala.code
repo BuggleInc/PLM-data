@@ -2,12 +2,11 @@ override def run() {
   var n:Int=getMondeHauteur()
 	var couleurs=new Array[Color](getMondeHauteur())
   lireCol1()
-  for(i<- 1 to getMondeLargeur()-1){
-    recule(getMondeLargeur()-i)
-    gauche()
-    avance()
-    droite()
-    avance()
+  gauche()
+  avance()
+  droite()
+  avance()
+  avanceCol()
   }
 }
 
@@ -18,4 +17,10 @@ def lireCol1(){
     couleurs(i)=getCouleurSol()
     avance()
   }
+  for(i<- 1 to getMondeLargeur()-1){
+    recule(getMondeLargeur()-i)
+}
+
+def avanceCol(){
+  avance(7)
 }
