@@ -7,17 +7,7 @@ def estPositionFinale() : Boolean = {
 }
 
 def positionSuivante() {
-  if (diag != 0) {
-  	if (diag <= 6) {
-    	for (i <- 0 to diag) {
-      	setPos(i, diag - i);
-    	}
-  	} else {
-    	for (i <- diag - 6 to 6) {
-      	setPos(i, diag - i);
-    	}
-  	}
-  }
+  
 }
 
 var diag : Int = 0;
@@ -27,9 +17,19 @@ override def run() {
   ecritMessage(cpt);
   diag = 1;
   while (!estPositionFinale) {
-    positionSuivante();
-    cpt += 1;
-    ecritMessage(cpt);
+  	if (diag <= 6) {
+    	for (i <- 0 to diag) {
+      	setPos(i, diag - i);
+        cpt += 1;
+    		ecritMessage(cpt);
+    	}
+  	} else {
+    	for (i <- diag - 6 to 6) {
+      	setPos(i, diag - i);
+        cpt += 1;
+    		ecritMessage(cpt);
+      }
+    }
     if (getX() == 0 || getY() == 6) {
       diag = diag + 1;
     } 
