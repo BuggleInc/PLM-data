@@ -1,0 +1,23 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class max1020 extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = max1020( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def max1020(a:Int, b:Int):Int = {
+	val A = Math.max(a,b)
+	val B = Math.min(a,b)
+	if (A<21 && A>9)
+		return A
+	if (B<21 && B>9)
+		return B
+	return 0
+} }
