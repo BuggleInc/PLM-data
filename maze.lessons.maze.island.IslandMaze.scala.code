@@ -1,0 +1,62 @@
+def fin(): Boolean = {
+  if(estSurBiscuit()) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+def murDroite() : Boolean = {
+  droite()
+  if(estFaceMur()) {
+    gauche()
+    return true
+  }
+  else {
+    gauche()
+    return false
+  }
+}
+
+override def run() {
+  droite()
+  while(getX()<getMondeLargeur()-1) {
+    if(!estFaceMur()) {
+      avance()
+    }
+    else {
+      gauche()
+      while(murDroite()) {
+        if(!estFaceMur()) {
+          avance()
+        }
+        else {
+          gauche()
+        }
+      }
+      droite()
+      avance()      
+    }
+  }
+  while(!estFaceMur()) {
+    avance()
+  }
+  gauche()
+  while(!fin()) {
+    if(murDroite()) {
+      if(estFaceMur()) {
+        gauche()
+      }
+      else {
+        avance()
+      }
+    }
+    else {
+      droite()
+      avance()
+    }
+  }
+  prendBiscuit()
+  
+}

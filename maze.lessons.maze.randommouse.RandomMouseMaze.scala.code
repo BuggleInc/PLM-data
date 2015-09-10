@@ -1,0 +1,28 @@
+def fin(): Boolean = {
+  if(estSurBiscuit()) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+override def run() {
+  while(!fin()) {
+    var num=random3()
+    if(num==0) {
+      gauche()
+      gauche()
+    }
+    else if(num==1) { 
+      gauche()
+    }
+    else {
+      droite()
+    }
+    if(!estFaceMur()) {
+      avance()
+    }
+  }
+  prendBiscuit() 
+}
