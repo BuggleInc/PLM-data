@@ -5,7 +5,17 @@ override def run() {
     if (estFaceMur){
       droite()
       avance()
-    } else avance()
+    }
+    else {
+      gauche()
+      if (!estFaceMur()){
+        avance()
+      }
+      else {
+        gauche()
+        avance()
+      }
+    }
   }
   
   keepHandOnSideWall()
