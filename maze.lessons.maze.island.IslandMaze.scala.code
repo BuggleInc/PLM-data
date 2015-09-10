@@ -16,7 +16,7 @@ def toTheNorthFriends() {
 
 
 def searchLeft() {
-  var direction:Direction = getDirection() // on veut compenser le fait que peutAllerNord oriente vers le Nord quand on le test//
+  var direction:Direction = getDirection()
   if (!murAGauche()) {
     gauche()
     avance()
@@ -37,7 +37,7 @@ def searchLeft() {
 }
 
 
-def peutAllerNord():Boolean = { // l'erreur est l? dedans //
+def peutAllerNord():Boolean = { //attention : tester peutAllerNord nous oriente vers le Nord //
   setDirection(Direction.NORD)
   if (!estFaceMur())
   	return true
