@@ -28,24 +28,32 @@ def marquer(x:Int;y:Int) {
   i += 1;
   if ( c != 0 ){
     if ( !aMurNord(x,y) ){
-      setIndication(x,y-1,i);
-      c-=1;
-      marquer(x,y-1);
+      if ( getIndication(x,y-1) != 9999 ){
+        setIndication(x,y-1,i);
+        c-=1;
+        marquer(x,y-1);
+      }
     }
     if ( !aMurOuest(x,y) ){
-      setIndication(x-1,y,i);
-      c-=1;
-      marquer(x-1,y);
+      if ( getIndication(x-1,y) != 9999 ){
+        setIndication(x-1,y,i);
+        c-=1;
+        marquer(x-1,y);
+      }
     }
     if ( !aMurSud(x,y) ){
-      setIndication(x,y+1,i);
-      c-=1;
-      marquer(x,y+1);
+      if ( getIndication(x,y+1) != 9999 ){
+        setIndication(x,y+1,i);
+        c-=1;
+        marquer(x,y+1);
+      }
     }
     if ( !aMurEst(x,y) ){
-      setIndication(x+1,y,i);
-      c-=1;
-      marquer(x+1,y);
+      if ( getIndication(x+1,y) != 9999 ){
+        setIndication(x+1,y,i);
+        c-=1;
+        marquer(x+1,y);
+      }
     }
   }
 }
