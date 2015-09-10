@@ -1,0 +1,19 @@
+override def run() {
+  val hauteur = getMondeHauteur()
+  val largeur = getMondeLargeur()
+  
+  def posFinale(): Boolean = {
+    if (getX() == largeur-1 && getY() == hauteur-1) {
+      return true
+    }
+    return false
+  }
+  
+  while (!posFinale()) {
+      if (getY() != hauteur-1) {
+        setPos(getX(),getY()+1)
+      }
+      setPos(getX()+1,0)
+    }
+    
+  }
