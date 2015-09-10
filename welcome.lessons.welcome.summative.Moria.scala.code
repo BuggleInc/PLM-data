@@ -1,7 +1,4 @@
 def trouverBiscuit(){
-  while (!estSurBiscuit() & !estFaceMur()){
-    avance()
-  }
   prendBiscuit()
   retourne()
 }
@@ -17,7 +14,7 @@ def rameneBiscuit(){
 }
 
 def sortie(): Boolean={
-  if (estFaceMur()  & !estSurBiscuit()){
+  if (estFaceMur()  && !estSurBiscuit()){
   	return true
   }
   return false
@@ -25,8 +22,12 @@ def sortie(): Boolean={
 
 retourne()
 while (!sortie()) {
-  trouverBiscuit()
-  rameneBiscuit()
+  avance()
+  if (estSurBiscuit()){
+  	trouverBiscuit()
+  	rameneBiscuit()
+  }
+
 }
 droite()
 avance()
