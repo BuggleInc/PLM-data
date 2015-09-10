@@ -1,32 +1,48 @@
 override def run() {
   val a:Int = ilEstOuLeBiscuit1()
   whoNeedsAMap(a,ilEstOuLeBiscuit2(a))
-  recule()
+  timeToBreakOut()
+  prendBiscuit()
 }
 
 
-def timeToBreakOut() {
+def timeToBreakOut():Int = {
   val x:Int = getX()
   val y:Int = getY()
   val b:Int = getIndication(x,y)
-  if (getIndication(x+1,y) == b - 1) {
-    setDirection(Direction.EST)
-    avance()
-    timeToBreakOut()
-  } else if (getIndication(x-1,y) == b - 1) {
-    setDirection(Direction.OUEST)
-    avance()
-    timeToBreakOut()
-  } else if (getIndication(x,y+1) == b - 1) {
-    setDirection(Direction.NORD)
-    avance()
-    timeToBreakOut()
-  } else if (getIndication(x,y-1) == b - 1) {
-    setDirection(Direction.SUD)
-    avance()
-    timeToBreakOut()
+  if (x < getMondeLargeur() - 1 && getIndication(x+1,y) == b - 1) {
+    if (!aMurOuest(x+1,y)) {
+   	  setDirection(Direction.EST)
+    	avance()
+   	  timeToBreakOut()
+      return 0 // c est repugnant mais il fallait rendre sur que un timeToBreakOut ne continue pas apres avoir lance un autre timeToBreakOut sinon il peut effectuer un mouvement de trop puisque la position finale sera à portée d'une position à 1 de distance d'une ancienne position et ca fait pas des chokapics (je crois que ca marche comme ca mais cpas important anyway) //
+    }
   }
-  prendBiscuit()
+  if (x > 0 && getIndication(x-1,y) == b - 1) {
+    if (!aMurOuest(x,y)) {
+    	setDirection(Direction.OUEST)
+    	avance()
+    	timeToBreakOut()
+      return 0
+    }
+  }
+  if (y > 0 && getIndication(x,y-1) == b - 1) {
+    if (!aMurNord(x,y)) {
+    	setDirection(Direction.NORD)
+    	avance()
+    	timeToBreakOut()
+      return 0
+    }
+  }
+  if (y < getMondeHauteur() - 1 && getIndication(x,y+1) == b - 1) {
+    if (!aMurNord(x,y+1)) {
+    	setDirection(Direction.SUD)
+    	avance()
+    	timeToBreakOut()
+      return 0
+    }
+  }
+  return 0
 }
 
 
