@@ -1,12 +1,12 @@
 def sortirMoria(){
   var a:Boolean=true
-  while (getCouleurSol()!=Color.green){
+  var fin:Int=0
+  while (fin==0){
     retourne()
     avance()
     while (a){
-      avance()
       if (estFaceMur()){a=false}
-      if (estSurBiscuit()){a=false}
+      else{if (estSurBiscuit()){a=false}else{avance()}}
     }
     a=true
     if (estSurBiscuit()){
@@ -17,7 +17,7 @@ def sortirMoria(){
     	}
     	recule()
       poseBiscuit()
-    }else{droite();avance();gauche();avance()}
+    }else{droite();avance();gauche();avance();fin=1}
 	}
 }
 sortirMoria()
