@@ -1,5 +1,8 @@
-def keepHandOnSideWall() : Integer =
+def keepHandOnSideWall() : Int =
 {
+  // s'il y a un mur face au buggle, il tourne ? droite pour avancer au prochain tour
+  // sinon il avance, et tourne ? gauche s'il n'y a pas de mur ? gauche 
+  
   var sommeAngle = 0
   
   if (!estFaceMur())
@@ -8,6 +11,7 @@ def keepHandOnSideWall() : Integer =
     
     gauche()
     sommeAngle += 1
+    
     if (estFaceMur())
     {
     	droite()
@@ -23,113 +27,117 @@ def keepHandOnSideWall() : Integer =
   return sommeAngle
 }
 
-def isDirectionFree(dir:Direction) : Boolean =
+def trouverMur()
 {
-  var direction = getDirection()
-  var mur = false
+  // va vers la gauche du buggle tant qu'il n'y a pas de mur ? gauche
+  var murTrouve = false
   
-  setDirection(dir)
-  if (estFaceMur())
-  	mur = true
- 	setDirection(direction)
-  
-  return !mur
+  while (!murTrouve)
+  {
+    gauche()
+    if (!estFaceMur())
+      avance()
+    else
+      murTrouve = true
+    droite()
+  }
 }
 
-def gaucheLibre() : Boolean =
+def murAGauche():Boolean =
 {
   var mur = false
   
   gauche()
   if (estFaceMur())
   	mur = true
-  droite()
+ 	droite()
   
   return mur
 }
 
+def murAuNord():Boolean =
+{
+  var mur = false
+  var direction = getDirection()
+  
+  setDirection(Direction.NORD)
+  if (estFaceMur())
+  	mur = true
+ 	setDirection(direction)
+  
+  return mur
+}
+
+def changerDirection() : Int =
+{
+  var directionChangee = false
+  var sommeAngle = 0
+  
+  gauche()
+  if (!estFaceMur())
+  {
+    avance()
+    directionChangee = true
+    sommeAngle = 1
+  }
+  else
+  {
+    droite()
+  }
+  
+  return sommeAngle
+}
+
 override def run()
 {
-  /*var peutAllerAuNord = true
-  var i = 2
-  var suivreMurNord = false*/
-  
-  
-  
+  var surMurExtreme = false
   var sommeAngle = 0
-  var tombe = false
+  var tourner = false
+  trouverMur()
   
   while(!estSurBiscuit())
   {
-    if (!tombe)
-    	droite()
-    if (estFaceMur() && isDirectionFree(Direction.NORD))
+    if (sommeAngle == 0 && !estFaceMur() && getDirection() == Direction.NORD)
     {
-      tombe = true
+      tourner = true
+    }
+    else if (!surMurExtreme)
+    {
+      if (!murAuNord() && !murAGauche())
+      {
+        setDirection(Direction.NORD)
+        avance()
+      }
+      else
+      	sommeAngle += keepHandOnSideWall()
     }
     else
+    	sommeAngle += keepHandOnSideWall()
+    
+    if (getY() == 0 && !surMurExtreme)
     {
-      tombe = false
+      while (getDirection != Direction.NORD)
+      {
+      	gauche()
+        sommeAngle += 1
+      }
+    	surMurExtreme = true
     }
     
-    if (sommeAngle == 0)
+    if (tourner)
     {
       gauche()
-      sommeAngle -= 1
-    }
-    
-    
-    
-    if (tombe)
-    {
-      setDirection(Direction.NORD)
-      avance()
-    }
-    else
-    {
-      sommeAngle += keepHandOnSideWall()
-    }
-    
-    
-    
-    /*if (isDirectionFree(Direction.NORD) && peutAllerAuNord && !suivreMurNord && gaucheLibre())
-    {
-      i = 0
-      setDirection(Direction.NORD)
-      avance()
-      
-      if (sommeAngle == 0)
+      if (!estFaceMur())
       {
-        gauche()
+      	avance()
+        tourner = false
         sommeAngle += 1
-
-        if (isDirectionFree(getDirection()))
-          avance()
-        else
-        {
-          droite()
-          sommeAngle -= 1
-        }
+      }
+      else
+      {
+        droite()
       }
     }
-    else 
-    {
-      sommeAngle += keepHandOnSideWall()
-      i += 1
-    }
-    
-    if (i >= 2 && !suivreMurNord)
-    {
-      peutAllerAuNord = true
-      droite()
-      sommeAngle -= 1
-      i = 0
-    }
-    
-    if (getY() == 0)
-    {
-      suivreMurNord = true
-    }*/
   }
   
   prendBiscuit()
