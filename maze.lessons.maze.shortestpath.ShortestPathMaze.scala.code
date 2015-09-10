@@ -30,28 +30,28 @@ def marquer(x:Int,y:Int,i:Int,c1:Int) {
   var c = c1;
   if ( c != 0 ){
     if ( !aMurNord(x,y) ){
-      if ( getIndication(x,y-1) != 9999 ){
+      if ( getIndication(x,y-1) == 9999 ){
         setIndication(x,y-1,i);
         c-=1;
         marquer(x,y-1,i+1,c);
       }
     }
     if ( !aMurOuest(x,y) ){
-      if ( getIndication(x-1,y) != 9999 ){
+      if ( getIndication(x-1,y) == 9999 ){
         setIndication(x-1,y,i);
         c-=1;
         marquer(x-1,y,i+1,c);
       }
     }
     if ( !aMurSud(x,y) ){
-      if ( getIndication(x,y+1) != 9999 ){
+      if ( getIndication(x,y+1) == 9999 ){
         setIndication(x,y+1,i);
         c-=1;
         marquer(x,y+1,i+1,c);
       }
     }
     if ( !aMurEst(x,y) ){
-      if ( getIndication(x+1,y) != 9999 ){
+      if ( getIndication(x+1,y) == 9999 ){
         setIndication(x+1,y,i);
         c-=1;
         marquer(x+1,y,i+1,c);
