@@ -1,6 +1,4 @@
 override def run(){
-  setCouleurBrosse(Color.red)
-  baisseBrosse()
   while(getY()!=0){
     if(!estFaceMur()){avance()}
     else{gauche()
@@ -8,6 +6,7 @@ override def run(){
          else{retourne(); avance();gauche()}
         }
   }
+  gauche()
   
   def keepHandOnSideWall(): Boolean={
     droite()
@@ -25,7 +24,7 @@ override def run(){
       else{gauche()}
     }
     else{droite()
-         
+         avance()
         }
     
   }
