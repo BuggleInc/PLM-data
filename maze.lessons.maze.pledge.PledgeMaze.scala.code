@@ -1,2 +1,40 @@
+var sommeAngle : Int = 0
+
 override def run() {
+  while(!estSurBiscuit) {
+    if(getDirection() == Direction.NORD && !estFaceMur && sommeAngle ==0) {
+      avance()
+    } else {
+    	if(getDirection() == Direction.NORD && sommeAngle == 0) {
+        droite()
+        sommeAngle = sommeAngle-1
+      }
+      keepHandOnSideWall()
+    }
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall(): Unit = {
+  gauche()
+  sommeAngle = sommeAngle+1
+  if(!estFaceMur) {
+    avance()
+  }else {
+    droite()
+    sommeAngle = sommeAngle -1
+    if(!estFaceMur) {
+      avance()
+    }else{
+      droite()
+      sommeAngle = sommeAngle -1
+      if(!estFaceMur) {
+        avance()
+      }else{
+        droite()
+        sommeAngle = sommeAngle-1
+        avance()
+      }
+    }
+  } 
 }
