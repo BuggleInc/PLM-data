@@ -1,0 +1,18 @@
+def max1020(a:Int, b:Int):Int = {
+  if (isInRange(a, 10, 20) && isInRange(b, 10, 20)){
+    return Math.max(a, b)
+  }
+  else if (isInRange(a, 10, 20) && !isInRange(b, 10, 20)){
+    return a
+  }
+  else if (!isInRange(a, 10, 20) && isInRange(b, 10, 20)){
+    return b
+  }
+  else{
+    return 0
+  }
+}
+
+def isInRange(v:Int, a:Int, b:Int):Boolean = {
+  return (v >= a && v <= b)
+}

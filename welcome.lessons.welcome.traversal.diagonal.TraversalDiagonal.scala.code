@@ -1,0 +1,20 @@
+override def run() {
+  var worldSize = getWorldHeight()
+  var diag = 0
+  
+  for (i <- 1 to worldSize){
+    for (j <- 1 to i){
+      setPos(j-1, i-j)
+      writeMessage(diag)
+      diag += 1
+    }
+  }
+  
+   for (i <- 1 to worldSize){
+    for (j <- 0 to -i by -1){
+      setPos(j-1, j-i)
+      writeMessage(diag)
+      diag += 1
+    }
+  }
+}

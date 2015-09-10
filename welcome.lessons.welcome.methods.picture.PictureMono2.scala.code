@@ -1,0 +1,44 @@
+def makeV() {
+	drawCase()
+  forward()
+  left()
+  forward()
+	drawCase()
+  backward()
+  right()
+  forward
+	drawCase()
+  forward()
+}
+
+def drawCase(){
+  brushDown()
+  brushUp()
+}
+
+
+def makePattern() {
+  
+  for (i <- 1 to 4){
+    forward(2)
+    makeV()
+    forward()
+    left()
+  }
+  
+  forward(7)
+}
+
+
+override def run(){
+  
+  for (i <- 1 to 3){
+  	for (j <- 1 to 3){
+    	makePattern()
+  	} 
+    
+    left()
+    forward(7)
+    right()
+  }
+}
