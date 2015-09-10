@@ -58,8 +58,14 @@ def regardeLeNord():Unit={
 
 def suivreEtoilePolaire():Unit={
   regardeLeNord()
-  while (!estFaceMur()&&(!murADroite())){
-    if (!estFaceMur()){avance()} 
-    else {droite();avance();gauche()}
+    while(!murAGauche()&&(getDirection()!=Direction.NORTH)){
+    if (!aucunMur()){avance()}
+    else {gauche()}
+  }
+  while(!estSurBiscuit()){
+  KeepHandOnSideWall()
+  }
+  prendBiscuit()
+}
   } 
 }
