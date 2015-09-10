@@ -1,9 +1,14 @@
-int blueTicket(int a, int b, int c) {
-  if (a+b==10 || a+c==10 || b+c==10) {
+
+def blueTicket(a:Int, b:Int, c:Int):Int = {
+  var e1:Int=a+b
+  var e2:Int=b+c
+  var e3:Int=a+c
+  if (e1==10 || e2==10 || e3==10) {
     return 10
-  } else if ((a+b==10+b+c ||a+b==10+a+c)||(b+c==10+b+a || b+c==10+a+c)||(a+c==10+a+b || b+c==10+a+c)){
+  } else if (e1==10+e2 || e1==10+e3) {
     return 5
-  } else { 
+  } else {
     return 0
   }
 }
+
