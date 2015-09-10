@@ -37,6 +37,63 @@ def goNord()
 
 def keepHandOnSideWall():Int={
   var virage = 0
-  
+  gauche()
+  if (estFaceMur())
+  {
+    droite()
+    if (!estFaceMur())
+    {
+      avance()
+      gauche
+      if (estFaceMur)
+      {
+        droite()
+      }
+      else
+      {
+        avance()
+        virage = 1
+      }
+    }
+    else
+    {
+      droite()
+      if (!estFaceMur())
+      {
+        avance()
+        gauche
+        if (estFaceMur)
+        {
+          droite()
+          virage = 1
+        }
+        else
+        {
+          avance()
+        }
+      }
+      else 
+      {
+        droite()
+        avance()
+        gauche()
+        if (estFaceMur)
+        {
+          droite()
+          virage = -2
+        }
+        else
+        {
+          avance()
+          virage = -1
+        }
+      }
+    }
+  }
+  else
+  {
+    avance()
+    virage = 1
+  }
   return virage
 }
