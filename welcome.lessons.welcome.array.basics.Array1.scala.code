@@ -1,0 +1,37 @@
+override def run() {
+  exo()
+   var x =getMondeHauteur
+   for(compteur <- 1 to x-1){
+     avance()
+   }
+   droite()
+   for(compteur <- 1 to x-1){
+     recule()
+   }
+   gauche()
+}
+
+def exo(){
+  var x = getMondeHauteur
+  var T = new Array[Color](x)
+  for(compteur <- 0 to T.length-1){
+    T(compteur) = getCouleurSol()
+    avance()
+  }
+  for(i <- 1 to x){
+    gauche()
+    avance()
+    droite()
+    avance()
+    for(k <- 0 to x-1){
+      Brosse(T(k))
+    }
+  }
+}
+
+def Brosse(c:Color){
+  setCouleurBrosse(c:Color)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+}

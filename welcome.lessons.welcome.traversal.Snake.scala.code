@@ -1,0 +1,35 @@
+override def run() {serpent()
+}
+
+def positionFinale():Boolean ={
+  if(estFaceMur()){
+    gauche()
+    if(estFaceMur()){
+      droite()
+      return true
+    }
+    droite()
+  }
+  return false
+}
+
+def serpent(){
+  var n = 0
+  baisseBrosse()
+  while(!positionFinale()){
+    if(estFaceMur()){
+      if (n%2 == 0){
+        gauche()
+        avance()
+        gauche()
+      }
+      if(n%2 == 1){
+        droite()
+        avance()
+        droite()
+      }
+      n = n+1
+    }
+    avance()
+  }
+}

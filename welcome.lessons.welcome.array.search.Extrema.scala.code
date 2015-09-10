@@ -1,0 +1,26 @@
+def extrema(nums:Array[Int]): Int = {
+  val max = maxValue(nums)
+  val min = minValue(nums)
+  return (max - min)
+}
+
+
+def maxValue(nums:Array[Int]): Int = {
+  var x = 0
+  for(i <- 0 to nums.length -1){
+    if(x < nums(i)){
+      x = nums(i)
+    }
+  }
+  return x
+}
+
+def minValue(nums:Array[Int]): Int = {
+  var x = 0
+  for(i <- 0 to nums.length -1){
+    if(x > nums(i)){
+      x = nums(i)
+    }
+  }
+  return x
+}
