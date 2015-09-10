@@ -1,4 +1,4 @@
-var casesMarquees:Int = 0
+var casesMarquees:Int = 1
 
 def trouveSortie(): Array[Int] = {
   var result: Array[Int] = new Array[Int](2)
@@ -21,38 +21,53 @@ def trouveSortie(): Array[Int] = {
   return result
 }
 
-def marqueCasesAdjacentes(pos: Array[Int], poidsPrecedent: Int) {
-  if (!aMurNord(pos(0), pos(1) - 1)) {
-    setIndication(pos(0), pos(1) - 1, poidsPrecedent)
+def marqueCasesAccessibles(pos: Array[int], poids: Int) {
+  // Case au dessus.
+  if (!aMurNord(pos(0), pos(1))) {
+    setIndication(pos(0), pos(1) - 1, poids + 1)
+    
     casesMarquees += 1
   }
-  	
-}
-
-def ecritIndication(poidsDepart: Int) {
-  var xMax:Int = getMondeLargeur() - 1
-  var yMax:Int = getMondeHauteur() - 1
   
-  for (x <- 0 to xMax) {
-    for (y <- 0 to yMax) {
-      if (getIndication(x, y) == poidsDepart) {
-        marqueCasesAdjacentes(Array(x, y), poidsDepart + 1)
-      }
-    }
+  // Case en dessous.
+  if (!aMurNord(pos(0), pos(1) + 1)) {
+    setIndication(pos(0), pos(1) + 1, poids + 1)
+    
+    casesMarquees += 1
+  }
+  
+  // Case à guache.
+  if (!aMurOuest(pos(0), pos(1))) {
+    setIndication(pos(0) - 1, pos(1), poids + 1)
+    
+    casesMarquees += 1
+  }
+  
+  // Case à droite.
+  if (!aMurOuest(pos(0) + 1, pos(1))) {
+    setIndication(pos(0) + 1, pos(1), poids + 1)
+    
+    casesMarquees += 1
   }
 }
 
 def ecritIndications() {
+  var poidsCourant:Int = 0
   var posSortie: Array[Int] = trouveSortie()
+  
+  var xMax:Int = getMondeLargeur() - 1
+  var yMax:Int = getMondeHauteur() - 1
   
   setIndication(posSortie(0), posSortie(1), 0)
   
-  var poidsCourant:Int = 1
-  
-  casesMarquees += 1
-  
-  while (casesMarquees != (getMondeHauteur() * getMondeLargeur())) {
-    ecritIndication(poidsCourant)
+  while (casesMarquees != getMondeHauteur() * getMondeLargeur()) {
+    for (x <- 0 to xMax) {
+      for (y <- 0 to yMax) {
+        if (getIndication(x, y) == poidsCourant) {
+          marqueCasesAccessibles(Array(x, y))
+        }
+      }
+    }
     
     poidsCourant += 1
   }
