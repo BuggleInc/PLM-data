@@ -4,25 +4,15 @@ override def run() {
      goN()
    } 
  	 if (estFaceMur()) {
-	    var x = getX()
-	    var y = getY()
-     	var d = getDirection() 
-	    do {
+	    while (!allerN()) {
 	      if (checkg()) {gauche(); avance()}
 	      else if (!estFaceMur()) {avance()}
-	      else {droite()} }
-	      while (((getX() == x) && (getY() == y) && (d == getDirection)) || estSurBiscuit())
-	    if (!estSurBiscuit()) {
-	      while (!allerN()) {
-	        if (checkg()) {gauche(); avance()}
-	        else if (!estFaceMur()) {avance()}
-	        else {droite()}
-	      }
-	      goN()
+	      else {droite()}
+	    }
+	    goN()
 	    }  
 	  }
 	}
-}  
 
 
 def allerN():Boolean = {
