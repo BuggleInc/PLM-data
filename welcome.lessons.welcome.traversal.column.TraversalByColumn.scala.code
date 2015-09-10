@@ -1,4 +1,8 @@
 override def run() {
+  while( ! positionFinale()){
+    parcours()
+  }
+  
 }
 
 
@@ -14,17 +18,9 @@ def positionFinale(): Boolean ={
   return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
 }
 
-def serpente(){
+def parcours(){
   if (estFaceMur()){
-    if(getDirection()== Direction.OUEST){
-      droite()
-      avance()
-      droite()
-    }
-    else {
-      gauche()
-      avance()
-      gauche()
+    setPos(getX() +1 , 0)
     }
   } else{avance()}
 }
