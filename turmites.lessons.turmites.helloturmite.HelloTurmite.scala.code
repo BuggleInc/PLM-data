@@ -1,0 +1,43 @@
+var state = 0;
+
+val ARRET = 0
+val PAS_VIRAGE = 1
+val GAUCHE = 2
+val DEMI_TOUR = 4
+val DROITE = 8
+
+val COULEUR_SUIVANTE = 0
+val MVT_SUIVANT = 1
+val ETAT_SUIVANT = 2
+
+def setCouleurSol(c:Color)
+{
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
+{
+  var idCouleurActuelle = 0
+  
+  for (i <- 0 to colors.length - 1)
+  {
+    if (colors(i) == getCouleurSol())
+    	idCouleurActuelle = i
+  }
+  
+  
+  
+  setCouleurSol(colors(rule(state)(idCouleurActuelle)(COULEUR_SUIVANTE)))
+  
+  rule(state)(idCouleurActuelle)(MVT_SUIVANT) match
+  {
+    case GAUCHE => gauche(); avance()
+    case DEMI_TOUR => gauche(); gauche(); avance()
+    case DROITE => droite(); avance()
+    case PAS_VIRAGE => avance()
+  }
+
+  state = rule(state)(idCouleurActuelle)(ETAT_SUIVANT)
+}
