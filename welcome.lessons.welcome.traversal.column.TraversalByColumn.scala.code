@@ -1,27 +1,9 @@
 override def run() {
   var cpt=0
-  var x=0
-  var y=0
-  ecritMessage(cpt)
-  do{
-    if (getY()==getMondeHauteur()-1){
-      x=x+1
-      y=0
-      setPos(x,y)
-      cpt+=1
+  for (x<-0 to getMondeLargeur()-2){
+    for (y<-0 to getMondeHauteur()-2){
       ecritMessage(cpt)
-    } else {
-      y+=1
-      setPos(x,y)
+      setPos(x,y+1)
       cpt+=1
-      ecritMessage(cpt)
-    }
-  } while (fin()==false)
-}
-
-def fin(){
-  if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1){
-    return true
-  } else return false
-}
-
+     }
+  }
