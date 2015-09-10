@@ -2,22 +2,22 @@ override def run() {
   
   // part du principe qu'on a un mur ? gauche
   def keepHandOnSideWall() {
-    droite()
-    if (!estFaceMur()) {avance()} // pas mur ? droite? go
-    else {gauche() ; if (!estFaceMur()) {avance()} // sinon pas mur en face ? go
-          else {droite()}
-   }}
-  
-  //---
-  
-def murAGauche():Boolean =
-  {gauche(); if (!estFaceMur()) {droite(); return true}
-  					 else {droite(); return false}}
-  //---  
+    gauche()
+    if (!estFaceMur()) {avance()}
+       // pas mur ? gauche ? go !
+    else {droite() ; if (!estFaceMur()) {avance()}
+         					  // pas mur en face ?
+        						else {droite() ; if (!estFaceMur()) {avance()}
+                           						// pas mur ? droite ?
+           													  else {droite() ; avance()}
+                           						// va en arri?re
+                                          
+}}} 
   
   while (!estSurBiscuit) {
     while (!estFaceMur() && !estSurBiscuit) 
     			{avance()}
+    droite()
   	while (estFaceMur() && getDirection()!=Direction.NORTH && !estSurBiscuit)
     			{keepHandOnSideWall()}
   }
