@@ -1,2 +1,20 @@
 override def run() {
+  droite()
+  while( ! positionFinale()){
+    ecritMessage( ""+(getY() + getX()*7))
+    parcours()
+  }
+  ecritMessage("48")
+  
+}
+
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def parcours(){
+  if (estDosMur()){
+    setPos(getX() +1 , 0)
+  } else{setPos(getX(), getY()+1)}
 }
