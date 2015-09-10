@@ -2,14 +2,16 @@ override def run() //CHECKED
 {
   repererSortie()
   var valeur=0
-  while (!marquageComplet())
+  var fini:Boolean=false
+  while (!fini)
   {
     for (i <- 0 to getMondeLargeur()-1)
     {
       for (j <- 0 to getMondeHauteur()-1)
       {
 				if (getIndication(i,j)==valeur)
-        	marquerCasesAdjacentes(i,j)
+        	if (!marquerCasesAdjacentes(i,j))
+        		fini=true
       }
     }
     valeur +=1
@@ -81,30 +83,44 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   return casesAdjacentes
 }
 
-def marquerCasesAdjacentes(X:Int,Y:Int) //marque cases adjacentes
+def marquerCasesAdjacentes(X:Int,Y:Int):Boolean= //marque cases adjacentes
 {
   var maCase=getIndication(X,Y)
+  var test:Boolean=false
   var casesAdjacentes = repererCasesAdjacentes(X,Y)
   if (casesAdjacentes(0)==true)
   {
     if (getIndication(X-1,Y)==9999)
+    {
     	setIndication(X-1,Y,maCase+1)
+    	test=true
+    }
   }
   if (casesAdjacentes(1)==true)
   {
     if (getIndication(X,Y-1)==9999)
+    {
     	setIndication(X,Y-1,maCase+1)
+    	test=true
+    }
   }
   if (casesAdjacentes(2)==true)
   {
     if ((getIndication(X+1,Y)==9999))
+    {
     	setIndication(X+1,Y,maCase+1)
+    	test=true
+    }
   }
   if (casesAdjacentes(3)==true)
   {
     if (getIndication(X,Y+1)==9999)
+    {
     	setIndication(X,Y+1,maCase+1)
+      test=true
+    }
   }
+  return test
 }
 
 def allerSortie() //atteint la sortie en lisant le sol
