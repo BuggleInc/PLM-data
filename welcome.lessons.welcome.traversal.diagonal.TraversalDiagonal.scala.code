@@ -1,0 +1,47 @@
+var diag = 0;
+var cpt: Int =0
+var x = 0
+var y = 0
+override def run() {
+  ecritMessage(cpt)
+  while(diag!=7) {
+  	if (y==0 && x==6) {
+      diag=diag+1
+      setPos(1,6)
+      cpt=cpt+1
+      ecritMessage(cpt)
+    } else if (y!=0) {
+    	x=x+1
+    	y=y-1
+    	setPos(x,y)
+    	cpt=cpt+1
+    	ecritMessage(cpt)
+    } else {
+      diag=diag+1
+      x=0
+      y=diag
+      setPos(x,y)
+      cpt=cpt+1
+    	ecritMessage(cpt)
+    }
+  }
+  while (diag!=14) {
+    if (y==6 && x==6) {
+      cpt=cpt+1
+      ecritMessage(cpt)
+    } else if (x!=6) {
+    	x=x+1
+    	y=y-1
+    	setPos(x,y)
+    	cpt=cpt+1
+    	ecritMessage(cpt)
+    } else {
+      diag=diag+1
+      x=diag-7
+      y=6
+      setPos(x,y)
+      cpt=cpt+1
+    	ecritMessage(cpt)
+    }
+  }
+}
