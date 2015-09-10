@@ -1,15 +1,14 @@
 override def run() {
-  
+  var somme = 0
   while(!isOverBaggle()){
-  	var somme = 0
-  	setDirection(Direction.NORTH)
+    //Aller tt droit jusqu'a l'obstacle
   	colleObstacle()
     somme = somme + 1
   
   	do{
     	somme = somme + keepHandOnSideWall()
   	}
-  	while (!isOverBaggle() && (somme != 0 && Direction.NORTH != getDirection())  )
+  	while (!isOverBaggle() && somme != 0 )
 	}
   pickupBaggle()
 }
