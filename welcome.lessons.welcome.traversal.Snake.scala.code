@@ -8,16 +8,16 @@ override def run() {
   def fonctionTest(): Boolean = {
     if (estFaceMur() && getDirection() == Direction.OUEST) {
       droite()
-      if (estFaceMur()) {
-        gauche()
-        return true
+      var test = estFaceMur()
+      gauche()
+        return test
       }
     }
     if (estFaceMur() && getDirection() == Direction.EST) {
       gauche()
-      if (estFaceMur()) {
-        droite()
-        return true
+      var test = estFaceMur()
+      droite()
+        return test
       }
     }
     return false
