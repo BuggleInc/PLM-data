@@ -1,0 +1,26 @@
+override def run() {
+  baisseBrosse()
+  while( !test()) {
+    if (!estFaceMur()) {
+      avance()}
+    else {
+      if (getDirection()==Direction.OUEST) {
+        droite()
+        avance()
+        droite()}
+      else { gauche(); avance();gauche()}}
+  }
+}
+
+
+def test():Boolean ={
+  var tst=false
+  if (estFaceMur()) {
+    gauche()
+    if (estFaceMur()) {
+      tst = true
+    droite()}
+    else { droite()}
+  }
+  return tst
+}
