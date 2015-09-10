@@ -28,15 +28,21 @@ override def run() {
   
   
   while(getY!=0) {
-    while (isDirectionFree(Direction.NORTH)) {
+    if (isDirectionFree(Direction.NORTH)) {
       setDirection(Direction.NORTH);
-    	avance()
-    }; 
-    setDirection(Direction.EAST); 
-    sommeAngle-=1;
-    keepHandOnSideWall
+      while (!estFaceMur()) {
+        avance()
+      }
+      setDirection(Direction.EAST); 
+    	sommeAngle-=1;
+    }
+    else {
+      keepHandOnSideWall
+      
+    }
   }
- 
+    
+   
   
   setDirection(Direction.EAST); 
  	while (!estSurBiscuit()) {
