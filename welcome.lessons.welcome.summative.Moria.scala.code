@@ -1,9 +1,7 @@
 def Moria() = {
   gauche(); gauche(); avance();
   while (!estFaceMur) {
-    while(!estSurBiscuit()) {
-     	avance();
-    }
+    avance();
     if (estSurBiscuit) {
       prendBiscuit();
       gauche(); gauche();
@@ -11,6 +9,7 @@ def Moria() = {
         avance()
       }
       recule();
+      gauche(): gauche();
       poseBiscuit();
     }
   }
