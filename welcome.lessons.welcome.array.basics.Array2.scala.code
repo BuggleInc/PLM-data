@@ -15,10 +15,17 @@ for(i<-0 to getMondeHauteur()-2){
     droite()
   	lit=litMessage().toInt
     for( i <- 0 to getMondeHauteur()-1){
-      setCouleurBrosse(T((i+lit)%getMondeHauteur()))
+      if (!estFaveMur()){
+        setCouleurBrosse(T((i+lit)%getMondeHauteur()))
     	baisseBrosse()
     	leveBrosse()
       avance()
+    	
+      }else{setCouleurBrosse(T((i+lit)%getMondeHauteur()))
+    	baisseBrosse()
+    	leveBrosse()
+     }
+      
     	
       
   }
