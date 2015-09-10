@@ -22,33 +22,7 @@ def trouveSortie(): Array[Int] = {
 }
 
 def marqueCasesAccessibles(pos: Array[Int], poids: Int) {
-  // Case au dessus.
-  if (!aMurNord(pos(0), pos(1))) {
-    setIndication(pos(0), pos(1) - 1, poids + 1)
-    
-    casesMarquees += 1
-  }
   
-  // Case en dessous.
-  if (!aMurNord(pos(0), pos(1) + 1)) {
-    setIndication(pos(0), pos(1) + 1, poids + 1)
-    
-    casesMarquees += 1
-  }
-  
-  // Case à guache.
-  if (!aMurOuest(pos(0), pos(1))) {
-    setIndication(pos(0) - 1, pos(1), poids + 1)
-    
-    casesMarquees += 1
-  }
-  
-  // Case à droite.
-  if (!aMurOuest(pos(0) + 1, pos(1))) {
-    setIndication(pos(0) + 1, pos(1), poids + 1)
-    
-    casesMarquees += 1
-  }
 }
 
 def ecritIndications() {
