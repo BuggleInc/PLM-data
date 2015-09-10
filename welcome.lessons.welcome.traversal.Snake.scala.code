@@ -1,2 +1,32 @@
 override def run() {
+  var fini : Boolean =false
+  while (fini==false){
+    while(estFaceMur==false){
+      avance()
+    }
+    if (getDirection==ouest){
+      droite()
+      avance()
+      droite()
+    }
+    else{
+      gauche()
+      avance()
+      gauche()
+    }
+    if (getDirection==est){
+      gauche()
+      if(estFaceMur==true){
+        fini==true
+      }
+
+    }
+     if (getDirection==ouest){
+      droite()
+      if(estFaceMur==true){
+        fini==true
+      }
+
+    }
+  }
 }
