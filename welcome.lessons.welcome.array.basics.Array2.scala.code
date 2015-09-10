@@ -1,0 +1,51 @@
+override def run() {
+  var L = getMondeLargeur()
+  var H =getMondeHauteur()
+  var T = new Array [Color](H)
+
+
+
+  for (j <- 0 to T.length-2){
+    var m = getCouleurSol()
+    T(j)=m
+    avance()
+  }
+  T(H-1)=(getCouleurSol())
+  recule(H-1)
+  gauche()
+  avance()
+  droite()
+
+  for (g <- 0 to L-3){
+    val D =litMessage().toInt
+    for ( i<- 0 to H-2){
+
+
+      setCouleurBrosse(T((i+D)%H))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }	
+    setCouleurBrosse(T((H-1+D)%H))
+    baisseBrosse()
+    leveBrosse()
+  
+  recule(H-1)
+  gauche()
+  avance()
+  droite()
+}
+  val V =litMessage().toInt
+  for ( i<- 0 to H-2){
+
+
+    setCouleurBrosse(T((i+V)%H))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+  setCouleurBrosse(T((H-1+V)%H))
+  baisseBrosse()
+  leveBrosse()
+  recule(H-1)
+}
