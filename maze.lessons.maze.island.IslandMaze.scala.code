@@ -4,15 +4,19 @@ override def run() {
      goN()
    } 
  	 if (estFaceMur()) {
-	    while (!estSurBiscuit()) {
-	      if (checkg()) {gauche(); avance()}
-	      else if (!estFaceMur()) {avance()}
-	      else {droite()}
-	    }
-	    goN()
-	    }  
-	  }
-	}
+     var c = 0
+     var x = getX()
+     var y = getY()
+	   while ((!estSurBiscuit()) || (c != 2)) {
+	     if (checkg()) {gauche(); avance()}
+	     else if (!estFaceMur()) {avance()}
+	     else {droite()}
+       if ((getX()==x) && (getY()==y)) {c = c + 1}
+	   }
+	   goN()
+	   }  
+  }
+}
 
 
 def allerN():Boolean = {
