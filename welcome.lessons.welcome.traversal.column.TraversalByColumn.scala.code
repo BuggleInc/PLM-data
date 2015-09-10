@@ -1,0 +1,30 @@
+override def run() {
+}
+
+
+baisseBrosse()
+  while( ! positionFinale()){
+    serpente()
+  }
+  droite()
+}
+
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def serpente(){
+  if (estFaceMur()){
+    if(getDirection()== Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+    else {
+      gauche()
+      avance()
+      gauche()
+    }
+  } else{avance()}
+}
