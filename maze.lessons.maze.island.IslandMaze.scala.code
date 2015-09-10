@@ -30,14 +30,16 @@ def avance1() {
 }
 
 def avN() {
-  while (estFaceMur!=true) {
-    if (getDirection==Direction.South) {
-        
+  if ((getDirection==Direction.North)&&(estFaceMur==false)) {
+        avance()
+    } else {gauche()
+           if (estFaceMur==false) {
+             avance()
+           } else {
+             retourne()
+             if (estFaceMur==false) {
+               avance()
+             }
+           }
     }
-    avance()
-  } 
-  gauche()
-  if (estFaceMur()) {
-    retourne()
-    }
-}
+} 
