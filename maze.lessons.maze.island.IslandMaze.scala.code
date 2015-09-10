@@ -21,13 +21,16 @@ def searchLeft() {
    	  avance()
     droite()
   }
-  while (!peutAllerNord()) {
+  while (!peutAllerNord() && getDirection() != Direction.SUD) {
+    while (!murAGauche())
+    	droite()
     if (!estFaceMur()) {
       avance()
     } else {
       droite()
     }
-  } 
+  }
+  avance()
 }
 
 
