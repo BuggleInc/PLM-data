@@ -55,12 +55,14 @@ def numerotation(x:Int,y:Int,i:Int)
   }
 }
 
-def suitChemin(x:Int,y:Int)
+def suitChemin()
 {
   while(!estSurBiscuit())
   {
-    var p = getIndication(x,y)
-    if (y>0 && (getIndication(x,y-1))+1==p )
+    var p = getIndication(getX(),getY())
+    var X = getX()
+    var Y = getY()
+    if (Y>0 && (getIndication(X,Y-1))+1==p )
     {
       setDirection(Direction.NORD)
       if (!estFaceMur)
@@ -68,7 +70,7 @@ def suitChemin(x:Int,y:Int)
         avance()
       }
     }
-    else if ((y+1)<getMondeHauteur() && (getIndication(x,y+1)+1)==p)
+    else if ((Y+1)<getMondeHauteur() && (getIndication(X,Y+1)+1)==p)
     {
       setDirection(Direction.SUD)
       if (!estFaceMur)
@@ -76,7 +78,7 @@ def suitChemin(x:Int,y:Int)
         avance()
       }
     }
-    else if ((x+1)<getMondeLargeur() && (getIndication(x+1,y)+1)==p)
+    else if ((X+1)<getMondeLargeur() && (getIndication(X+1,Y)+1)==p)
     {
       setDirection(Direction.EST)
       if (!estFaceMur)
