@@ -1,2 +1,16 @@
 override def run() {
+  while (!estSurBiscuit()) {
+    if (checkg()) {gauche(); avance()}
+    else if (!estFaceMur()) {avance()}
+    else {droite}
+  }
+prendBiscuit()
+}
+    
+
+
+def checkg() = {
+  gauche()
+  var r = estFaceMur()
+  droite()
 }
