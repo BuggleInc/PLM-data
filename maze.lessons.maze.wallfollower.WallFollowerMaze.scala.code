@@ -11,14 +11,17 @@ def keepHandOnSideWall(){
     gauche()
     if (estFaceMur()){
       droite()
-      avance()
+      if (estFaceMur()){
+        droite()
+        if (estFaceMur())
+        	droite()
+      }
     }
-    else{
-      avance()
-    }
+    avance()
   }
   else{
     gauche()
-    avance()
+    if (!estFaceMur())
+    	avance()
   }
 }
