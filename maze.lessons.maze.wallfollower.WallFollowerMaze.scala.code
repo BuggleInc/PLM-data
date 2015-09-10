@@ -9,13 +9,14 @@ override def run() {
 
 
 def keepHandOnSideWall(){
-  if (isFacingWall()){
-    left()
-    
-    if (isBackingWall()){
-      right()
-      right()
-    }
-  }
+	var facing = isFacingWall()
+  left()
+  var left = isFacingWall()
   
+  if (facing && left){
+    right()
+    right()
+  }else if(facing){
+    left()
+  }
 }
