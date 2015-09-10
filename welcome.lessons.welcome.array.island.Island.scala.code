@@ -1,11 +1,16 @@
 def island(num:Array[Int]): Int = {
-  var nbile=0
+  var nbmonte=0
+  var nbdes=0
   var last = num.length -1
   for (i <- 0 to last-1){
-    if (num(i)>1 && num(i+1)<=num(i)){
-    	nbile=nbile+1
+    if (num(i+1)<num(i)){
+    	nbmonte=nbmonte+1
     }
   }
-   
-  return nbile
+  for (i <- 0 to last-1){
+    if (num(i+1)>num(i)){
+    	nbdes=nbdes+1
+      
+    
+  return (nbdes+nbmonte)/2
 }
