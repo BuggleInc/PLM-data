@@ -11,10 +11,12 @@ override def run() {
   def nord() {
     while (getY()!=0) {
       var posa=getY()
-      while (getY()<=posa) {keepHandOnSideWall()}
+      while (getY()<=posa) {
+        setDirection(Direction.NORTH)
+    		while (!estFaceMur()) {avance()}
+        keepHandOnSideWall()
+      }
     }
-    setDirection(Direction.NORTH)
-    while (!estFaceMur()) {avance()}
   }
   
 
