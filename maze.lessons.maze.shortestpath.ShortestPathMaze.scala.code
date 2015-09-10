@@ -17,18 +17,18 @@ def choix(x:Int,y:Int) {
   var o = 9999
   
   setDirection(Direction.NORD)
-  if (!estFaceMur) n=getIndication(x,y-1)
+  if (!estFaceMur) {n=getIndication(x,y-1)}
   setDirection(Direction.EST)
-  if (!estFaceMur) e=getIndication(x+1,y)
+  if (!estFaceMur) {e=getIndication(x+1,y)}
   setDirection(Direction.SUD)
-  if (!estFaceMur) s=getIndication(x,y+1)
+  if (!estFaceMur) {s=getIndication(x,y+1)}
   setDirection(Direction.OUEST)
-  if (!estFaceMur) o=getIndication(x-1,y)
+  if (!estFaceMur) {o=getIndication(x-1,y)}
   
-  if (n<=e && n<=s &&n<=o) dir =Direction.NORD
-  else if (e<=n && e<=s && e<=o) dir =Direction.EST
-  else if (s<=e && s<=n && s<=o) dir =Direction.SUD
-  else dir =Direction.OUEST
+  if (n<=e && n<=s &&n<=o) {dir =Direction.NORD}
+  else if (e<=n && e<=s && e<=o) {dir =Direction.EST}
+  else if (s<=e && s<=n && s<=o) {dir =Direction.SUD}
+  else {dir =Direction.OUEST}
   
   setDirection(dir)
   avance()
