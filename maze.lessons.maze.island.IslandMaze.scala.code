@@ -1,5 +1,5 @@
 override def run() {
-    while(!estSurBiscuit())
+  while(!estSurBiscuit())
   {
     if (getDirection==Direction.NORD && !estFaceMur)
     {
@@ -29,28 +29,27 @@ override def run() {
       }
     }
     gauche()
-  if (estFaceMur)
-  {
-  droite()
-  while(!estSurBiscuit())
-  {
-    keepHandOnSideWall()
-  }
-  prendBiscuit()
-  }
-  else
-  {
-    while (!estFaceMur)
+    if (estFaceMur)
     {
-      avance()
+      droite()
+      while(!estSurBiscuit())
+      {
+        keepHandOnSideWall()
+      }
+      prendBiscuit()
     }
-    droite()
-    while(!estSurBiscuit())
-  {
-    keepHandOnSideWall()
-  }
-  prendBiscuit()
-  }
+    else
+    {
+      while (!estFaceMur)
+      {
+        avance()
+      }
+      droite()
+      while(!estSurBiscuit())
+      {
+        keepHandOnSideWall()
+      }
+    }
   }
   prendBiscuit()
 }
