@@ -1,10 +1,17 @@
 droite(); droite()
 while(!estFaceMur()) {
-  while(!estSurBiscuit()) {
+  while(!estSurBiscuit() && !estFaceMur()) {
     avance()
   }
-  prendBiscuit()
-  droite(); droite()
+  if(estSurBiscuit()) {
+    prendBiscuit()
+    droite(); droite()
+  else {
+    droite()
+    avance()
+    gauche()
+    avance()
+  }
   while(!estSurBiscuit()) {
     avance()
   }
