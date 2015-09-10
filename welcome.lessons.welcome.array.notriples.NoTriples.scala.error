@@ -1,6 +1,9 @@
-Le monde 'noTriples' diffère:
-noTriples(Array(1,1,2,2,1)) returned false while true were expected.
-noTriples(Array(1,1,2,2,2,1)) returned true while false were expected.
-noTriples(Array(1,1,1,2,2,2,1)) returned true while false were expected.
-
-------------------------------------------
+noTriples:3: error: overloaded method value fill with alternatives:
+  (n1: Int,n2: Int,n3: Int,n4: Int,n5: Int)(elem: => Int)(implicit evidence$13: scala.reflect.ClassTag[Int])Array[Array[Array[Array[Array[Int]]]]] <and>
+  (n1: Int,n2: Int,n3: Int,n4: Int)(elem: => Int)(implicit evidence$12: scala.reflect.ClassTag[Int])Array[Array[Array[Array[Int]]]] <and>
+  (n1: Int,n2: Int,n3: Int)(elem: => Int)(implicit evidence$11: scala.reflect.ClassTag[Int])Array[Array[Array[Int]]] <and>
+  (n1: Int,n2: Int)(elem: => Int)(implicit evidence$10: scala.reflect.ClassTag[Int])Array[Array[Int]] <and>
+  (n: Int)(elem: => Int)(implicit evidence$9: scala.reflect.ClassTag[Int])Array[Int]
+ cannot be applied to (Array[Int])
+ var occurences = Array.fill[Int](nums)(0)
+                            ^
