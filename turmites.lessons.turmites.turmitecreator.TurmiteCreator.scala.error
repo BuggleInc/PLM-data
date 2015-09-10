@@ -1,22 +1,8 @@
-Turmite:17: error: missing arguments for constructor Array in class Array
-T(0)=new Array[Int] = Array(1,2,0,1,2,1)
-     ^Turmite:18: error: type mismatch;
- found   : (Int, Int, Int, Int, Int, Int)
- required: Array[Int]
-T(1)=(0,1,0,0,1,1)
-     ^Turmite:19: error: type mismatch;
- found   : (Int, Int)
- required: Array[Int]
-U(0)=(1,0);(2,1);(0,0)
-     ^Turmite:20: error: type mismatch;
- found   : (Int, Int)
- required: Array[Int]
-U(1)=(1,0);(2,1);(1,1)
-     ^Turmite:23: error: type mismatch;
- found   : Array[Array[Int]]
- required: Array[Array[Array[Int]]]
-var rule:Array[Array[Array[Int]]] = T
-                                    ^Turmite:65: error: not found: value x
+Turmite:15: error: too many arguments for constructor Array: (_length: Int)Array[Array[Int]]
+var T = new Array[Array[Int]](2,6)
+        ^Turmite:16: error: too many arguments for constructor Array: (_length: Int)Array[Array[Int]]
+var U = new Array[Array[Int]](2,6)
+        ^Turmite:65: error: not found: value x
   state = rule(state)(x)(2) 
                       ^Turmite:69: error: not found: value init
 		init();
@@ -26,6 +12,6 @@ and  method step in class Turmite of type (colors: Array[java.awt.Color])Unit
 match argument types (Array[java.awt.Color])
 			step(colors);
                         ^Turmite:55: error: method step is defined twice
-  conflicting symbols both originated in file 'plm.runtime191.Turmite'
+  conflicting symbols both originated in file 'plm.runtime192.Turmite'
 def step(colors:Array[Color] ) {
     ^
