@@ -1,16 +1,10 @@
 gauche()
 gauche()
-while(estFaceMur()!=true){
+
+while(estFaceMur()!=true && getCouleurSol()!=Color.GREEN){
   if (porteBiscuit()){
     while(!estSurBiscuit){
-      if (estFaceMur){
-        droite()
-				avance(2)
-				droite()
-				avance()
-      }else{
-        avance()
-      }
+      avance()
     }
     recule()
     poseBiscuit()
@@ -18,15 +12,18 @@ while(estFaceMur()!=true){
     gauche()
     avance()
   }else{
-    while(!estSurBiscuit()){
-      avance()
+    while(!estSurBiscuit() && getCouleurSol()!=Color.GREEN){
+     if (estFaceMur()){
+        droite()
+				avance()
+				gauche()
+				avance() 
+      }else{
+        avance()
+      }
     }
     prendBiscuit()
     gauche()
     gauche()
   }
 }
-droite()
-avance(2)
-droite()
-avance()
