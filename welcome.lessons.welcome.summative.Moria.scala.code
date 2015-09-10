@@ -1,0 +1,32 @@
+def estFaceBiscuit():Boolean ={
+  avance()
+  var resultat=estSurBiscuit()
+  recule()
+  return resultat
+}
+
+def chercheASortir ():Unit={
+  val dir=getDirection()
+  if (dir==Direction.EAST) {
+    if (porteBiscuit) {
+      if (estFaceBiscuit()||estFaceMur()) {
+        poseBiscuit()
+      }
+      else {avance()}
+    }
+    else {gauche();gauche()}
+  }
+  else {
+    if (estSurBiscuit()) {
+      prendBiscuit();gauche();gauche()
+    }
+    else {
+      if (!estFaceMur()) {
+        avance()
+      }
+      else {
+        droite();avance();gauche();avance()
+      }
+      }
+  }
+}
