@@ -7,7 +7,7 @@ def getMeOutOfHere() {
   if (!murAGauche()) {
     while (!estFaceMur())
     	avance()
-    gauche()
+    droite()
   }
   while (!estSurBiscuit()) {
     while (murAGauche() && r == 0) {
@@ -29,9 +29,10 @@ def getMeOutOfHere() {
 
 def murAGauche():Boolean = {
   gauche()
-  if (estFaceMur())
+  if (estFaceMur()) {
   	droite()
   	return true
+  }
   droite()
   return false
 }
