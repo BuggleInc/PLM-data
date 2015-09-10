@@ -1,10 +1,9 @@
 def golomb(num:Int): Int = {
   var T = new Array[Int](num)
   T(0)=1
-  T(1)=2
-  for(i<- 2 to num-1){T(i)=T(0)}
-  for(j<- 2 to num-1){
-    for(k<- j+T(j)-1 to num-1){T(k)=T(k)+1}
+  for(i<- 1 to num-1){T(i)=T(0)}
+	for(j<- 1 to num-1){
+    if(i+T(i) <= num-1){T(i+T(i))=T(i+T(i))+1}
   }
   return(T(num-1))
 }
