@@ -5,11 +5,14 @@ override def run() {
       avance()
     }
     else {
-      ouAvance() match{
-        case 0 => avance()
-        case 1 => avance()
-        case 2 => avance()
-        case 3 => droite();avance()      
+      gauche()
+      if (estFaceMur==true){
+        ouAvance() match{
+          case 0 => avance()
+          case 1 => avance()
+          case 2 => avance()
+          case 3 => droite();avance()      
+        }        
       }
     }
   }
