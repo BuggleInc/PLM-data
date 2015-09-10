@@ -4,16 +4,18 @@ override def run() {
   	T(compteur)=getCouleurSol()
   	avance()
   }
-  
-  gauche()
-  avance()
-  droite()
-  for (compteur<-0 to getMondeHauteur()-1 ){
-    setCouleurBrosse(T(compteur))
-    leveBrosse()
-    baisseBrosse()
+  for (compteur<-1 to getMondeLargeur() ){
+    gauche()
     avance()
+    droite()
+    for (compteur<-0 to getMondeHauteur()-1 ){
+      setCouleurBrosse(T(compteur))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
   }
+
 
 }
 
