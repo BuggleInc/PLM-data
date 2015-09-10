@@ -4,7 +4,24 @@ override def run()
   while (positionFinale == false) 
   {
     avanceCommeSerpent()
-    /*positionFinale = positionFinale()*/
+    if (estFaceMur()) 
+    {
+      if (getDirection()==Direction.EAST) 
+      {
+        gauche()
+        if (estFaceMur()) 
+        {
+          positionFinale = true
+        }
+      } else 
+      {
+        droite()
+        if (estFaceMur()) 
+        {
+          positionFinale = true
+        } 
+      }
+    }
   }
 }
 
