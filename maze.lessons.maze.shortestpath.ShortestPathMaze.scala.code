@@ -1,13 +1,17 @@
 
 override def run() {
   var I:Int = 1;
-  var xBaggle:Int = 0;
-  var yBaggle:Int = 0;
   var X:Int = 0;
   var Y:Int = 0;
-  marquerBaggle(xBaggle,yBaggle);
-  X = xBaggle;
-  Y = yBaggle;
+  marquerBaggle(0,0);
+  for ( k <- 0 to getMondeLargeur()-1 ){
+    for ( j <- 0 to getMondeHauteur()-1 ){
+      if ( getIndication(k,j) == 0 ){
+        X = k;
+        Y = j;
+      }
+    }
+  }
   marquer(X,Y,I);
 }
 
