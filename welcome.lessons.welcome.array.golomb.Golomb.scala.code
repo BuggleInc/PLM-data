@@ -1,0 +1,27 @@
+def golomb(num:Int): Int = {
+  num match{
+  	case num if num == 1 => 1
+  	case num if num == 2 => 2
+    case num if num == 3 => 2
+  	case _ => terme(num)
+	}
+}
+
+def terme(num:Int):Int={
+  var T = new Array [Int] (num)
+  T(0)=1
+  T(1)=2
+  T(2)=2
+  var nb:Int=3
+  var caseLibre:Int=3
+  while (T(num-1)==0){
+    for (i<-1 to T(nb-1)){
+      if (caseLibre<=T.length-1){
+        T(caseLibre)=nb
+      	caseLibre=caseLibre+1
+      }
+    }
+    nb=nb+1
+  }
+  return nb-1
+}

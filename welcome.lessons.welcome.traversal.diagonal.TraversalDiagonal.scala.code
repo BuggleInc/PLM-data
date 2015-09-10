@@ -1,0 +1,29 @@
+var diag = 0;
+override def run() {
+  var cpt:Int=0
+  while (!positionFinale()){
+    ecritMessage(cpt)
+    cpt=cpt+1
+    if (murDroite()){
+        setPos(getY()+1,getMondeHauteur()-1)
+    }else{
+    	if (estFaceMur()){
+      	setPos(0,getX()+1)
+      }else{
+        setPos(getX()+1,getY()-1)
+      }
+   	}
+  }
+  ecritMessage(cpt)
+}
+
+def positionFinale():Boolean={
+  return getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1
+}
+  
+def murDroite():Boolean={
+  droite()
+  var reponse:Boolean=estFaceMur()
+  gauche()
+  return reponse
+}

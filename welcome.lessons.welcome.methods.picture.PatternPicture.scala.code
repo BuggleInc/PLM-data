@@ -1,0 +1,68 @@
+override def run() {
+  
+  def symbole1(c:Color){
+    avance();
+    peindre(c);
+    gauche();
+    avance();
+    gauche();
+    avance();
+    peindre(c);
+    gauche();
+    avance();
+    gauche();
+  }
+  
+  def symbole2(c:Color){
+    peindre(c);
+    avance();
+    gauche();
+    avance();
+    peindre(c);
+    gauche();
+    avance();
+    gauche();
+    avance();
+    gauche(); 
+  }
+  
+  def peindre(c:Color){
+    setCouleurBrosse(c);
+    baisseBrosse();
+    leveBrosse();
+  }
+  
+  def carre(){
+    symbole1(Color.red);
+    avance(2)
+    symbole2(Color.blue);
+    recule(2);
+    gauche();
+    avance(2);
+    droite();
+    symbole2(Color.yellow)
+    avance(2);
+    symbole1(Color.green);
+    recule(2);
+    gauche();
+    recule(2);
+    droite();
+  }
+  
+  def ligne(){
+    	carre();
+      avance(4)
+    	carre()
+  }
+  
+  def colone(){
+    	ligne();
+    	recule(4);
+      gauche();
+      avance(4);
+    	droite();
+    	ligne();
+  }
+  
+  colone();
+}
