@@ -6,6 +6,8 @@ def estFaceBiscuit():Boolean ={
 }
 
 def chercheASortir ():Unit={
+  var fin=0
+  while (fin!=3){
   if (getDirection()==Direction.EAST) {
     if (porteBiscuit()) {
       if (estFaceBiscuit()||estFaceMur()) {
@@ -24,8 +26,9 @@ def chercheASortir ():Unit={
         avance()
       }
       else {
-        droite();avance();gauche();avance()
+        droite();avance();gauche();avance();fin=fin+1
       }
       }
   }
+}
 }
