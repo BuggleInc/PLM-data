@@ -3,21 +3,40 @@ override def run() {
   val h=getMondeHauteur()
   
   ecritMessage("0")
+  
   while (!posFinale()){
-    if ((getY())==(h-1)){
-    setPos((getX()+1),0)
-    ecritMessage(cpt.toString)
-  }
-  else{
-    setPos(getX(),getY()+1)
-    ecritMessage(cpt.toString)
-  }
+    if ((getY())%2==0){
+      parcours1()
+    	ecritMessage(cpt.toString)
+    }
+    else{
+      parcours2()
+      ecritMessage(cpt.toString)
+    }
     cpt+=1
   }
     
   
   }
 
+def parcours1()={
+  if ((getX())==(l-1)){
+    setPos(l-1,getY()+1)
+  }
+  else{
+    setPos(getX()+1,getY())
+    
+  }
+}
+
+def parcours2()={
+  if ((getX())==0){
+    setPos(0,getY()+1)
+  }
+  else{
+    setPos(getX()-1,getY())
+  }
+}
 
 def posFinale():Boolean={
   val l=getMondeLargeur()
