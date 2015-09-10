@@ -47,8 +47,9 @@ def initLangton(name:String) {
         // println("{"+rule(0)(i)(NEXT_COLOR)+","+rule(0)(i)(NEXT_MOVE)+","+rule(0)(i)(NEXT_STATE)+"}");
     }
 }
-
-def state(colors:Array[Color] ) {
+var state=0
+def init(colors:Array[Color] ) {
+  
 	var x =0
 	var c= getCouleurSol()
   for(i<-0 to colors.length - 1){
@@ -58,4 +59,3 @@ def state(colors:Array[Color] ) {
   rule(state)(x)(1)
 	state = rule(state)(x)(2)
   }
-  
