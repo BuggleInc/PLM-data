@@ -1,19 +1,15 @@
-def deplacerBiscuit() {
-  prendBiscuit();
-  retourne();
-  while(!estSurBiscuit) {
-    avance();
-  }
-  recule();
-  poseBiscuit();
-  retourne();
-}
-
-override def run() {
+def sortir() {
   retourne();
   while (getCouleurSol() != Color.GREEN) {
     if (estSurBiscuit()) {
-      deplacerBiscuit();
+      prendBiscuit();
+      retourne();
+  		while(!estSurBiscuit) {
+    	avance();
+  		}
+  		recule();
+  		poseBiscuit();
+  		retourne();
     } else if (estFaceMur()) {
       droite();
       avance();
