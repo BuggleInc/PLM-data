@@ -2,7 +2,7 @@ def golomb(num:Int): Int = {
   var suite = new Array[Int](num)
   suite(0) = 1
   suite(1) = 2
-  for (i <- 1 to num-1) {
+  for (i <- 2 to num-1) {
     suite(i) = 1 + suite(i-suite(suite(i-1)))
   }
   return suite(num-1)
