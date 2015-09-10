@@ -1,15 +1,15 @@
 def sortir() {
-  setDirection(Direction.EST);
+  retourne();
   while (getCouleurSol() != Color.GREEN) {
     if (estSurBiscuit()) {
       prendBiscuit();
-      setDirection(Direction.OUEST);
+      retourne();
   		while(!estSurBiscuit) {
     		avance();
   		}
   		recule();
   		poseBiscuit();
-  		setDirection(Direction.EST);
+  		retourne();
     } else if (estFaceMur()) {
       droite();
       avance();
