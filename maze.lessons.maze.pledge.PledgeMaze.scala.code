@@ -6,9 +6,17 @@ override def run() {
     }
     if (estFaceMur()) {
       while (((sommeAngle!=0) && (estFaceMur())) || !estSurBiscuit()) {
-        KeepHandWall()
-        go()
-      }
+        gauche()
+ 				sommeAngle = sommeAngle + 1
+				  if (estFaceMur()) {
+    				droite()
+   					sommeAngle = sommeAngle - 1
+				  }
+        if (estFaceMur()) {
+   			droite()
+ 			  sommeAngle = sommeAngle - 1
+ 				} else {avance()}
+			}
     }
   }
   prendBiscuit()
