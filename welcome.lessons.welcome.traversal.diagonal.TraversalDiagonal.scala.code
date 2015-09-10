@@ -3,6 +3,7 @@ override def run() {
   val hauteur = getMondeHauteur()
   val largeur = getMondeLargeur()
   var cpt = 0
+  var sens = "montee"
   
   def posFinale(): Boolean = {
     if (getX() == largeur-1 && getY() == hauteur-1) {
@@ -13,6 +14,12 @@ override def run() {
   
   
   while (!posFinale()) {
+    if (getX() == 6 && getY() == 6) {
+      sens = "descente"
+      setPos(1,hauteur-1)
+      diag = diag + 1
+    }
+    if (sens == "montee") {
     if (getX() == diag) {
       ecritMessage(cpt)
       cpt = cpt + 1
@@ -24,5 +31,17 @@ override def run() {
       setPos(getX()+1, getY()-1)
     }
   }
+    if (sens == "descente") {
+    if (getY() == 2*hauteur-diag) {
+      ecritMessage(cpt)
+      cpt = cpt + 1
+      diag = diag + 1
+      setPos(getX()+1, hauteur-1)
+    } else {
+      ecritMessage(cpt)
+      cpt = cpt + 1
+      setPos(getX()+1, getY()-1)
+    }
+    }
   ecritMessage(cpt)
 }
