@@ -1,5 +1,9 @@
+var casesMarquees:Int = 0
+
 def trouveSortie(): Array[Int] = {
   var result: Array[Int] = new Array[Int](2)
+  
+  result(0); result(1) = 0
   
   var xMax:Int = getMondeLargeur() - 1
   var yMax:Int = getMondeHauteur() - 1
@@ -16,8 +20,28 @@ def trouveSortie(): Array[Int] = {
   
   return result
 }
-override def run() {
-  var positionSortie: Array[Int] = trouveSortie()
+
+def ecritIndication(poidsDepart: Int) {
+  var xMax:Int = getMondeLargeur() - 1
+  var yMax:Int = getMondeHauteur() - 1
   
-  setIndication(positionSortie(0), positionSortie(1), 0)
+  for (x <- 0 to xMax) {
+    for (y <- 0 to yMax) {
+      if (getIndication(x, y) == poidsDepart) {
+        
+      }
+    }
+  }
+}
+
+def ecritIndication() {
+  var posSortie: Array[Int] = trouveSortie()
+  
+  setIndication(posSortie(0), posSortie(1), 0)
+  
+  cassesMarquees += 1
+}
+
+override def run() {
+  ecritIndicaton()
 }
