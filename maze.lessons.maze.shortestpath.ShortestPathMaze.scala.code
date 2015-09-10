@@ -34,12 +34,11 @@ override def run() {
   indic(x,y,0)
 
   while(!estSurBiscuit()){
-    dir=Direction.NORTH
     if(!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1)<ind){
       dir = Direction.NORD;
       ind = getIndication(getX(),getY()-1)
     } 
-    if( getIndication(getX(),getY()+1)<ind && !aMurNord(getX(),getY()+1) && getY()<getMondeHauteur()-1){
+    if( getY()<getMondeHauteur()-1 &&!aMurNord(getX(),getY()+1) && getIndication(getX(),getY()+1)<ind ){
       dir = Direction.SUD;
       ind = getIndication(getX(),getY()+1)
     }
