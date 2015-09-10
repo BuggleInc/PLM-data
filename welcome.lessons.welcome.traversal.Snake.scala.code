@@ -8,16 +8,21 @@ def Serpent(){
 }
 
 def fonctionTest(){
-  return false
   if (getDirection()==Direction.EST){
     if (estFaceMur()==true){
     gauche()
-   	return estFaceMur()
+   	if (!estFaceMur()){
+      avance()
+      gauche()      
+    } else {return true}
     }}
   else if (getDirection()==Direction.OUEST){
     if (estFaceMur()==true){
     droite()
-    return estFaceMur()
+    if (!estFaceMur()){
+      avance()
+      droite()
+    } else {return true}
     }}
   return false
 }
