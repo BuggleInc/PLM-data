@@ -3,7 +3,15 @@ override def run() {
   while (!estSurBiscuit()){
     hasard=random3()
     hasard match {
-      case 0 
+      case 0 => if (!estFaceMur){
+        avance()
+      }
+      case 1 =>droite();if (!estFaceMur){
+        avance()
+      }
+      case 2 =>gauche;if (!estFaceMur){
+        avance()
+      }
     }
   prendBiscuit()
 }
