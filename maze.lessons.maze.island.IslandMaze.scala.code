@@ -18,11 +18,24 @@ override def run() {
 
 
 def keepHandOnSideWall(){
+  
+  if (getDirection() == Direction.NORTH){
+    
 	right()
   for (i <- 1 to 3){
   	if (isFacingWall()){
    	 left()
   	}
+  }
+    
+  }else{
+    
+ 	left()
+  for (i <- 1 to 3){
+  	if (isFacingWall()){
+   	 right()
+  	}
+  }
   }
   
 }
