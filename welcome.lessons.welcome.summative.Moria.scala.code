@@ -1,18 +1,25 @@
-while(estDosMur()!=true){
- while(!estSurBiscuit() && !estDosMur()){
-   recule()
- }
- if (!estSurBiscuit()){
-   gauche()
-   avance()
-   gauche()
- }
- while (!estSurBiscuit() && !estDosMur){
-   avance()
- }
- recule()
- if (porteBiscuit()){
-   poseBiscuit()
- }
- recule()
+var a = 1
+while (a!=0){
+  while(!estSurBiscuit() && !estDosMur()){
+    recule()
+  }
+  if (estSurBiscuit()){
+    prendBiscuit()
+  }
+  if (estDosMur()){
+    gauche()
+    avance()
+    gauche()
+    a=0
+  }
+  if(a!=0){
+    while(!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    if(porteBiscuit()){
+      poseBiscuit()
+    }
+    recule()
+  }
 }
