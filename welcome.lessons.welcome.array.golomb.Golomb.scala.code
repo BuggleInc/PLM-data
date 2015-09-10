@@ -4,7 +4,7 @@ def golomb(num:Int): Int = {
   
 	for (i <- 0 to num - 1){
     array(0) = 1
-    array(i + 1) = 1 + array[i + 1 - array[array[i]]]
+    array(i + 1) = 1 + array(i + 1 - array(array(i)))
   }
   
   return array[num - 1]
