@@ -1,0 +1,26 @@
+def golomb(num:Int): Int = {
+ 	var aMettre = 0
+  var i = 3
+  var indiceGauche :Int  = 3
+  
+  var T = new Array[Int](2 * (num+8));
+for (i <- 0 to T.length-1) {
+  T(i) = 0
+ 
+}
+  T(0 )=0 ;
+  T(1) =1;
+  T(2)=2;
+  T(3)=2
+  while (T(num) == 0)
+  		{
+        aMettre = T(i)
+        for (j <-( indiceGauche + 1) to( indiceGauche + aMettre ) )
+        {T(j) = i }
+        indiceGauche = indiceGauche + aMettre
+        i = i + 1 
+				        
+      }
+  
+  return T(num)
+  }

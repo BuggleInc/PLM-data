@@ -1,0 +1,78 @@
+def mur_nord():Boolean = 
+		
+{
+  if (getDirection() == Direction.NORTH && estFaceMur())
+  	
+ 			{
+        return true
+       
+      }
+  if(getDirection() == Direction.EAST)
+  		{
+        gauche()
+        if(estFaceMur())
+        	{droite()
+            return true
+          }
+        droite()
+      }
+    if(getDirection() == Direction.WEST)
+  		{
+        droite()
+        if(estFaceMur())
+        	{
+            return true
+          }
+        gauche()
+      }
+  
+  return false }
+
+
+def arrive() : Boolean =
+	{
+    if (estFaceMur() && mur_nord())
+    {return true}
+    else
+    {false}
+  }
+
+
+
+  
+override def run() {
+
+  while(!arrive())
+  { baisseBrosse()
+   
+    if (!estFaceMur())
+    		{
+          avance()
+        }
+    else if (getDirection() == Direction.EAST)
+    				{
+              gauche()
+              avance()
+              gauche()
+            }
+    else if (getDirection() == Direction.WEST)
+    				{
+              droite()
+              avance()
+              droite()
+            }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+}

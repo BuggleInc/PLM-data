@@ -1,7 +1,7 @@
 def met_couleur_tableau():Array[Color] =
 {	
   
-  var taille: Int = getWorldHeight()
+  var taille: Int = getMondeLargeur()
   var T = new Array[Color](taille)
   T(0)=getCouleurSol()
   for (i <- 1 to taille - 1 )
@@ -9,27 +9,28 @@ def met_couleur_tableau():Array[Color] =
       avance()
       T(i)=getCouleurSol()
     }
-  for (i <-0 to taille - 1)
+  for (i <- 0 to (taille - 2))
   {
-    recule()
+    recule();
   }
+  return T
 }	
 
 def coloriage(T:Array[Color],decalage:Int)
 {
-  var taille = getWorldHeight()
-  var c = T((0+decalge)%taille)
+  var taille = getMondeLargeur()
+  var c : Color = T((0+decalage)%taille)
   setCouleurBrosse(c)
   baisseBrosse () 
   leveBrosse ()
-  for (i <- 1 to taille - 1)
+  for (i <- 1 to (taille - 1))
   {		avance()
-      c = T((i+decalge)%taille)
-  setCouleurBrosse
+    var c = T((i+decalage)%taille)
+  setCouleurBrosse(c)
   baisseBrosse () 
   leveBrosse ()
   }
-  for(i<-0 to taille - 1 )
+  for(i<-0 to (taille - 2) )
   	{
       recule()
     }
@@ -37,15 +38,16 @@ def coloriage(T:Array[Color],decalage:Int)
 
 
 override def run() {
-  var taille = getWorldHeight()
+  var taille = getMondeLargeur()
   
-  T = met_couleur_tableau()
-  for (i <- 0 to taille - 1)
+  var T : Array[Color] = met_couleur_tableau()
+  for (i <- 0 to taille - 2)
   	{
-      val decalage = litMessage().toInt
+      
       gauche()
       avance()
       droite()
+      val decalage:Int = litMessage().toInt
       coloriage(T,decalage)
     }
   
