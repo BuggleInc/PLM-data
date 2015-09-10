@@ -1,0 +1,45 @@
+def tabcolor ():Array[Color]={
+  var tab= new Array[Color](getMondeHauteur())
+  for (i<- 0 to getMondeHauteur()-1){
+    tab(i)=getCouleurSol()
+    avance()
+  }
+  return tab
+}
+def useBrosse(c : Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  
+}
+
+
+override def run() {
+  val m =getMondeLargeur()
+  val n=getMondeHauteur()
+  var tab=tabcolor()
+  recule(n-1)
+  gauche()
+  avance()
+  
+  for (j<-0 to getMondeLargeur()-2){
+    var cpt:Int=litMessage()
+    droite()
+    for (l<-0 to getMondeHauteur()-1){
+      
+      var co:Color=tab(l+cpt)
+    	useBrosse(co)
+   		avance()
+    }
+  	recule(n-1)
+	  gauche()
+ 	  avance()
+}
+  avance(n-1)
+  gauche()
+  avance(m-1)
+  droite()
+}
+
+override def run() {
+}
