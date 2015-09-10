@@ -1,62 +1,134 @@
-def coordonneesBiscuit():Array[Int] =
+def coordonneesBiscuit() : Array[Int] = 
 {
-  for (x <- 0 to getMondeLargeur - 1)
-  {
-    for (y <- 0 to getMondeHauteur - 1)
-  	{
-      if (aBiscuit(x, y))
-      	return Array[Int](x, y)
-  	}
-  }
+  var coordonnees = Array(0, 0)
   
-  return Array[Int](-1, -1)
+  for (x <- 0 to getMondeLargeur() - 1)
+  	for (y <- 0 to getMondeHauteur() - 1)
+  		if (aBiscuit(x, y))
+  			coordonnees = Array(x, y)
+  
+  return coordonnees
 }
 
-def marquerContour(coord:Array[Int])
+def marquerSol(depart:Array[Int])
 {
-  var indication = 1 + getIndication(coord(0), coord(1))
+  var compteur = 0
+  var arreter = false
+  setIndication(depart(0), depart(1), 0)
   
-  if (coord(1) > 0 && !aMurNord(coord(0), coord(1)))
+  while(!arreter)
   {
-    if (getIndication(coord(0), coord(1) - 1) == 9999)
+    var continuer = false
+    for (x <- 0 to getMondeLargeur() - 1)
     {
-  		setIndication(coord(0), coord(1) - 1, indication)
-    	marquerContour(Array[Int](coord(0), coord(1) - 1))
+      for (y <- 0 to getMondeHauteur() - 1)
+      {
+        if (getIndication(x, y) == compteur)
+        {
+          if (marquerCaseAutour(Array(x, y), compteur + 1))
+          	continuer = true
+        }
+      }
     }
-  }
-  
-  if (coord(0) > 0 && !aMurOuest(coord(0), coord(1)))
-  {
-    if (getIndication(coord(0) - 1, coord(1)) == 9999)
-    {
-      setIndication(coord(0) - 1, coord(1), indication)
-      marquerContour(Array[Int](coord(0) - 1, coord(1)))
-    }
-  }
-  
-  if (coord(1) < getMondeHauteur() - 1)
-  {
-    if (!aMurNord(coord(0), coord(1) + 1) && getIndication(coord(0), coord(1) + 1) == 9999)
-    {
-  		setIndication(coord(0), coord(1) + 1, indication)
-      marquerContour(Array[Int](coord(0), coord(1) + 1))
-    }
-  }
-  
-  if (coord(0) < getMondeHauteur() - 1)
-  {
-    if (!aMurOuest(coord(0) + 1, coord(1)) && getIndication(coord(0) + 1, coord(1)) == 9999)
-    {
-  		setIndication(coord(0) + 1, coord(1), indication)
-      marquerContour(Array[Int](coord(0) + 1, coord(1)))
-    }
+    
+    if (!continuer)
+    	arreter = true
+    
+    compteur += 1
   }
 }
 
-override def run() 
+def marquerCaseAutour(coordonnees:Array[Int], valeur:Int) : Boolean =
 {
-  var coordBiscuit = coordonneesBiscuit()
-  setIndication(coordBiscuit(0), coordBiscuit(1), 0)
+  // retourne si au moins une case a ?t? marqu?e
+  var caseMarquee = false
   
-  marquerContour(coordBiscuit)
+  if (coordonnees(0) > 0 && !aMurOuest(coordonnees(0), coordonnees(1)))
+  {
+    if (getIndication(coordonnees(0) - 1, coordonnees(1)) == 9999)
+    {
+    	setIndication(coordonnees(0) - 1, coordonnees(1), valeur)
+    	caseMarquee = true
+    }
+  }
+  
+  if (coordonnees(1) > 0 && !aMurNord(coordonnees(0), coordonnees(1)))
+  {
+    if (getIndication(coordonnees(0), coordonnees(1) - 1) == 9999)
+    {
+    	setIndication(coordonnees(0), coordonnees(1) - 1, valeur)
+    	caseMarquee = true
+    }
+  }
+  
+ 	if (coordonnees(0) < getMondeLargeur() - 1)
+  {
+    if (!aMurOuest(coordonnees(0) + 1, coordonnees(1)) && getIndication(coordonnees(0) + 1, coordonnees(1)) == 9999)
+    { 
+      setIndication(coordonnees(0) + 1, coordonnees(1), valeur)
+    	caseMarquee = true
+    }
+  }
+  
+  if (coordonnees(1) < getMondeHauteur() - 1)
+  {
+    if (!aMurNord(coordonnees(0), coordonnees(1) + 1) && getIndication(coordonnees(0), coordonnees(1) + 1) == 9999)
+    { 
+      setIndication(coordonnees(0), coordonnees(1) + 1, valeur)
+    	caseMarquee = true
+    }
+  }
+  
+  return caseMarquee
+}
+
+def suivreIndications()
+{
+  val compteur = getIndication(getX(), getY())
+  var direction = 3 // 0 : gauche, 1 : haut, 2 : droite, 3 : bas
+  
+  setDirection(Direction.NORD)
+  
+  if (getX() > 0)
+  {
+    gauche()
+    if (!estFaceMur() && getIndication(getX() - 1, getY()) == compteur - 1)
+    	direction = 0
+    else
+    	droite()
+  }
+  
+  if (getY() > 0 && direction == 3)
+  {
+    if (!estFaceMur() && getIndication(getX(), getY() - 1) == compteur - 1)
+    	direction = 1
+  }
+  
+  if (getX() < getMondeHauteur() - 1 && direction == 3)
+  {
+    droite()
+    if (!estFaceMur() && getIndication(getX() + 1, getY()) == compteur - 1)
+    	direction = 2
+    else
+    	gauche()
+  }
+  
+  if (direction == 3)
+  {
+    droite()
+  	droite()
+  }
+  
+  avance()
+}
+
+override def run()
+{
+ 	val coordonneesFin = coordonneesBiscuit()
+  marquerSol(coordonneesFin)
+  
+  while (!estSurBiscuit())
+  	suivreIndications()
+  
+  prendBiscuit()
 }
