@@ -1,0 +1,25 @@
+override def run() {
+  var pos : Int = 0
+  droite()
+  while( ! positionFinale()){
+    ecritMessage( "" + pos)
+    parcours()
+    pos = pos + 1
+  }
+  ecritMessage(""+pos)
+  gauche()
+  
+}
+
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def parcours(){
+  var dir : Int = 1
+  if (estFaceMur() || estDosMur()){
+    setPos(getX() , getY()+1)
+    dir = -1*dir
+  } else{setPos(getX() + dir, getY())}
+}
