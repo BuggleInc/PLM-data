@@ -1,0 +1,32 @@
+override def run() {
+
+var lit:Int=0
+var T = new Array[Color](getMondeHauteur())  
+T(0)=getCouleurSol()
+for(i<-0 to getMondeHauteur()-2){
+    avance()
+  	T(i+1)=getCouleurSol()
+}
+  
+  for (j<- 0 to getMondeHauteur()-2){
+  	recule(getMondeHauteur()-1)
+    gauche()
+    avance()
+    droite()
+  	lit=litMessage().toInt
+    for( i <- 0 to getMondeHauteur()-1){
+      if (!estFaceMur()){
+        setCouleurBrosse(T((i+lit)%getMondeHauteur()))
+    	baisseBrosse()
+    	leveBrosse()
+      avance()
+    	
+      }else{setCouleurBrosse(T((i+lit)%getMondeHauteur()))
+    	baisseBrosse()
+    	leveBrosse()
+     }
+        
+  }
+  }
+ recule(getMondeHauteur()-1)
+}
