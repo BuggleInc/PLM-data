@@ -1,5 +1,31 @@
 var state = 0;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    /* Your code comes here */
+    
+ 	var color = getCouleurSol()
+  var index = 0
+  
+  for ((c, i) <- colors.zipWithIndex){
+    if (color == c){
+      index = i
+    }
+  }
+  
+  rule(state)(index) match{
+    case 'R' => right()
+    case 'L' => left()
+  }
+  
+  if (index == rule.length - 1){
+    setBrushColor(colors(0))
+  }else{
+    setBrushColor(colors(index + 1))
+  }
+  
+  brushDown()
+  brushUp()
+  forward()
+  
+  state += 1
+  
 }
