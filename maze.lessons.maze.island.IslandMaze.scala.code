@@ -6,7 +6,7 @@ override def run() {
 
 def toTheNorthFriends() {
   while (getY() != 0) {
-    if (peutAllerNord()) {
+    if (peutAllerNord() && getDirection != Direction.Sud) {
       avance()
     } else {
       searchLeft()
@@ -18,9 +18,8 @@ def toTheNorthFriends() {
 def searchLeft() {
   var direction:Direction = getDirection() // on veut compenser le fait que peutAllerNord oriente vers le Nord quand on le test//
   if (!murAGauche()) {
-    while (!estFaceMur())
-   	  avance()
-    droite()
+    gauche()
+    avance()
     direction = getDirection()
   }
   while (!peutAllerNord() && direction != Direction.SUD) {
