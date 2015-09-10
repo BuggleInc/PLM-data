@@ -12,8 +12,12 @@ override def run() {
     gauche();avance();droite(); 
     val decalage=litMessage().toInt
     for (l<- 0 to getMondeHauteur()-1){
-      avance(); setCouleurBrosse(T((l+decalage)%getMondeHauteur)); baisseBrosse(); leveBrosse()
+      setCouleurBrosse(T((l+decalage)%getMondeHauteur)); baisseBrosse(); leveBrosse(); avance();
+      if (estFaceMur()){while (!(estDosMur())){
+    recule()
+        
+      }
+}
     }
-    avance()
   }
 }
