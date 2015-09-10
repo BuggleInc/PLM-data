@@ -1,0 +1,61 @@
+var state = 0;
+val GAUCHE = 2
+val DROITE = 8
+val STOP = 0
+val PASVIRAGE = 1
+val UTURN = 4
+
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+    /* Your code comes here */
+  var l = colors.length
+  var couleurSol = getGroundColor()
+  var couleur = 0
+  var etatCourant = state
+ 
+  while (couleurSol != colors(i) && i<l){
+    couleur = couleur + 1
+  }
+  
+  var toDo = rule(etatCourant)(couleur)
+  toDo match{
+    case DROITE => right();forward();
+    case GAUCHE => left();forward();
+    case STOP => ;
+    case PASVIRAGE => forward()
+    case UTURN => right();right();forward();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+def step(rule:Array[Char], colors:Array[Color]) {
+  var col = getGroundColor()
+  var l = colors.length
+  var i = 0  
+  
+  while (col != colors(i)){
+    i = i + 1
+  }
+  
+  var lettre = rule(i)
+  lettre match {
+    case 'R' => right()
+    case 'L' => left()
+  }
+  paint(colors( (i+1)%l ))
+  forward()
+}
+
+def paint( c: Color ){
+  setBrushColor(c)
+  brushDown()
+  brushUp()
+}
