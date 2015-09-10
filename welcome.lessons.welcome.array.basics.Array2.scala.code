@@ -24,7 +24,7 @@ override def run() {
   gauche()
   avance()
   
-  for (j<-0 to getMondeLargeur()-2){
+  for (j<-0 to getMondeLargeur()-3){
     var cpt:Int=litMessage().toInt
     droite()
     var co:Color=tab((0+cpt)%n)
@@ -39,4 +39,17 @@ override def run() {
 	  gauche()
  	  avance()
 }
+  var cpt:Int=litMessage().toInt
+    droite()
+    var co:Color=tab((0+cpt)%n)
+    useBrosse(co)
+    for (l<-1 to getMondeHauteur()-1){
+      avance()
+      co=tab((l+cpt)%n)
+    	useBrosse(co)
+   		
+    }
+  	recule(n-1)
+	  gauche()
+  
 }
