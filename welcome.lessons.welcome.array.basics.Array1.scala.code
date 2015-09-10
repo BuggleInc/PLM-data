@@ -1,19 +1,12 @@
 override def run() {
-  colone()
-  for (k <- 2 to getMondeLargeur())
-  gauche();avance();droite();parcoursColone()}
-
-
-  def colone(){
     var T = new Array[Color](getMondeHauteur())
     for (i <- 0 to getMondeHauteur()-1){
       T(i)=getCouleurSol()
-      avance()
+      avance() //Fini de parcours la 1ere colone
+  for (k <- 2 to getMondeLargeur())
+  gauche();avance();droite();
+  for (l<- 0 to getMondeHauteur()-1){
+      avance(); setCouleurBrosse(); T(l); baisseBrosse(); leveBrosse()
     }
-  }
-
-  def parcoursColone(tableau:Array[Color](taille)){
-    for (l<- 0 to taille-1){
-      avance(); setCouleurBrosse(); tableau(l); baisseBrosse(); leveBrosse()
     }
-  }
+}
