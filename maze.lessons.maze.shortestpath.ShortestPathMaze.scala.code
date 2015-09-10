@@ -74,7 +74,11 @@ override def run() {
 
 def indicationCaseDepart():Boolean = {
   // Retourne si la case du buggle a une indication
-  return (getIndication(getX(),getY()) != 9999)
+  if (getIndication(getX(),getY()) < 9999) {
+    return true
+  } else {
+    return false
+  }
 }
 
 def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
