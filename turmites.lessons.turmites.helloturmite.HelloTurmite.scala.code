@@ -14,10 +14,10 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   	}
   setCouleurBrosse(colors(rule(state)(col)(0)))
   rule(state)(col)(1) match{
-    case GAUCHE() => gauche(); avance()
-    case PDV => avance()
-    case DT => droite();droite()
-    case DROITE => droite()
+    case left => gauche(); avance()
+    case pdv => avance()
+    case dt => droite();droite()
+    case right => droite()
     avance()
   }
   state = rule(state)(col)(2)
