@@ -1,11 +1,12 @@
 def max2Value(nums:Array[Int]): Int = {
   var s:Int=Integer.MIN_VALUE
   var e:Int=Integer.MIN_VALUE
+  var indicemax1=0
   
   for (i<-0 to nums.length-1){
     if (nums(i)>e){
       e=nums(i)
-      
+      indicemax=i
     }else{
       e=e
     }
@@ -13,7 +14,7 @@ def max2Value(nums:Array[Int]): Int = {
   
   for (i<-0 to nums.length-1){
     
-    if (nums(i)>s && nums(i)<e){
+    if (nums(i)>s && nums(i)<=e && i!=indicemax1 ){
       s=nums(i)
     }else{
       s=s
