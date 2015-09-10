@@ -28,13 +28,13 @@ def definirCouleurs():Array[Color]={
     T(i)=(getCouleurSol())
     avance()
   }
-  T(getMondeLargeur()-1)=(getCouleurSol())
+  T(getMondeHauteur()-1)=(getCouleurSol())
   return T
 }
 
 def faireLigneCouleurs(T:Array[Color]){
   val D = litMessage().toInt //Transforme le caractere en entier !
-  for (i <- 0 to getMondeLargeur()-1){
+  for (i <- 0 to getMondeHauteur()-1){
     setCouleurBrosse(T((i+D)%getMondeHauteur()))
     marquerSol()
     avance()
