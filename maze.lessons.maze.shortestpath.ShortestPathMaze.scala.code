@@ -9,19 +9,19 @@ def timeToBreakOut() {
   val x:Int = getX()
   val y:Int = getY()
   val b:Int = getIndication(x,y)
-  if (getIndication(x+1,y) == b - 1) {
+  if (x < getMondeLargeur() - 1 && getIndication(x+1,y) == b - 1) {
     setDirection(Direction.EST)
     avance()
     timeToBreakOut()
-  } else if (getIndication(x-1,y) == b - 1) {
+  } else if (x > 0 && getIndication(x-1,y) == b - 1) {
     setDirection(Direction.OUEST)
     avance()
     timeToBreakOut()
-  } else if (getIndication(x,y-1) == b - 1) {
+  } else if (y > 0 && getIndication(x,y-1) == b - 1) {
     setDirection(Direction.NORD)
     avance()
     timeToBreakOut()
-  } else if (getIndication(x,y+1) == b - 1) {
+  } else if (y < getMondeHauteur() - 1 && getIndication(x,y+1) == b - 1) {
     setDirection(Direction.SUD)
     avance()
     timeToBreakOut()
