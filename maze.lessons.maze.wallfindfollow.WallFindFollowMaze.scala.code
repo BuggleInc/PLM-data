@@ -1,0 +1,30 @@
+override def run() {
+  while (!estSurBiscuit()){
+    if(!estFaceMur()){
+      avanced()
+    }
+    if(estFaceMur()){
+      left()
+    }
+  }
+  prendBiscuit()
+  right()
+}
+
+def murdroite():Boolean={
+  right()
+  if (estFaceMur()){
+    left()
+    return true
+  }
+  left()
+  return false
+}
+
+def avanced(){
+  avance()
+  if (!murdroite()){
+    right()
+    avanced()
+  }
+}
