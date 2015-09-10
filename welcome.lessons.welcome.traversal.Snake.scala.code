@@ -8,9 +8,26 @@ override def run() {
   
 }
 def posFinale() {
-  return estFaceMur&
+  var murNord=false
+  if (getDirection() == Direction.EST) {
+    gauche()
+    if (estFaceMur) {
+      nurNord=true
+    }
+    droite()
+  } else {droite()
+      if (estFaceMur) {
+         murNord=true
+      }
+      gauche()}
+  return murNord&estFaceMur
 }
 
+
 def avanceCommeSerpent() {
-  
+  if (!estFaceMur) {
+    avance()
+  } else if (getDirection() == Direction.EST) {
+            gauche();avance();gauche()
+         } else {droite();avance();droite()}
 }
