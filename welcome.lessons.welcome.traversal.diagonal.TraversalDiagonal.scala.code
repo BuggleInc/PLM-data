@@ -1,0 +1,17 @@
+override def run() {
+  var pos : Int = 0
+  var dir : Int = 1
+  while( ! positionFinale()){
+    ecritMessage( "" + pos)
+    if (estFaceMur()) {
+      setPos(0 , getX()+1)
+    } else{setPos(getX() +1 , getY()-1)}
+      pos = pos + 1
+  }
+  ecritMessage(""+pos)
+}
+
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
