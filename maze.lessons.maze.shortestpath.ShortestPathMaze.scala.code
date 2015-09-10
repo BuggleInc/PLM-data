@@ -47,7 +47,15 @@ def ecritIndications() {
   
   setIndication(posSortie(0), posSortie(1), 0)
   
+  var poidsCourant:Int = 1
+  
   casesMarquees += 1
+  
+  while (casesMarquees != (getMondeHauteur() * getMondeLargeur())) {
+    ecritIndication(poidsCourant)
+    
+    poidsCourant += 1
+  }
 }
 
 override def run() {
