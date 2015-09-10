@@ -1,0 +1,11 @@
+def aMurN():Boolean = {var b =false;var d = getDirection();setDirection(Direction.NORTH);b = estFaceMur();setDirection(d);return b}
+                                                                      
+def aMurD():Boolean = {var b =false;droite();b = estFaceMur();gauche();return b}
+
+
+def garM(c:Int):Int ={ if (aMurD()) {if (estFaceMur()) {gauche(); return c+1} else {avance();return c}} else {droite();avance();return c-1}
+}
+
+
+override def run() {var c = 0;
+  while (getY()!=0) {c = 0;setDirection(Direction.NORTH);while (!estFaceMur()) {avance()};while (!aMurD()) {droite();avance();gauche()};c=garM(c);while (getY() !=0 && c != 0) {c=garM(c)}};while (!estSurBiscuit()) {c=garM(c)};prendBiscuit()}

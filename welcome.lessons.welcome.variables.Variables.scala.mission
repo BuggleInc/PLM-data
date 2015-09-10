@@ -1,0 +1,154 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Stocker et manipuler des donn?es</h2>
+  <p>Les programmes que nous avons ?crit jusque l? passent ? cot? d'un point
+fondamental en informatique. En effet, la science informatique est celle de
+traiter des <b>donn?es</b> gr?ce ? des <b>instructions</b>. Dans le monde
+des buggles, les principales donn?es sont cach?es derri?re la repr?sentation
+graphique, mais ce n'est pas une raison pour ne jamais manipuler
+explicitement des donn?es. </p>
+
+  <h3>Les donn?es en Scala</h3>
+<p>Dans un programme, on peut utiliser diff?rents <i>types</i> de donn?es, tels
+que les entiers, les nombres ? virgules ou les cha?nes de caract?res. Si on
+veut utiliser une donn?e plusieurs fois, il faut la stocker dans une
+<i>variable</i>, qui est une sorte de case contenant une valeur: vous rangez
+votre donn?e (disons '5') dans la variable (disons ?longueur?), et vous
+pouvez la retrouver plus tard quand vous en avez besoin. C'est exactement
+comme prendre une bo?te avec une ?tiquette (disons ?cadeau?) et d'y ranger
+quelque chose dedans (disons, un flacon de Channel Num?ro 5).  </p>
+
+<h3>D?claration de Variables</h3>  
+
+<p>Il est tr?s simple de <b>d?clarer</b> (c'est-?-dire, cr?er) une variable en
+Scala. Il suffit d'?crire
+
+le mot-cl? <code>var</code>, le nom de la variable, deux points (:),
+le type de la variable, un signe ?gal (=) et une valeur initiale.
+
+
+Le nom de la variable est un label pour la retrouver plus tard
+
+ tandis que son type est le genre de donn?es qu'on va pouvoir
+stocker dans cette variable.
+Il est interdit de mettre des espaces dans les noms de variable.
+On peut nommer une variable <code>dejaFait</code>, mais <code>deja
+fait</code> n'est pas un identificateur de variable valide.
+  </p>
+
+  
+  <p>Ainsi, pour cr?er une variable nomm?e <b>x</b> contenant des entiers avec 42
+en valeur initiale, on ?crira :</p> 
+<pre><code class="code-container">var x:Int = 42</code></pre>
+  <p>Dans la plupart des cas, le compilateur est capable de deviner le type de la
+variable d'apr?s la valeur initiale. On peut alors omettre le type de la
+variable:</p>
+<pre><code class="code-container">var x = 42</code></pre>
+  <p>Il est n?cessaire de sp?cifier le type de la variable lorsque l'on
+initialise ses variables avec des valeurs g?n?riques, telles que la valeur
+tr?s particuli?re <code>null</code>, dont le type se trouve ?tre
+ambigu. M?me quand le type est clair, vous pouvez le sp?cifier si vous le
+souhaitez. Ainsi, pour une variable contenant 5 en valeur initiale, on peut
+?crire: </p>
+  <pre><code class="code-container">var x: Int =  5 <span class="comment">// je peux quand m?me donner le type si je veux</span>
+var y = 10       <span class="comment">// ou bien je peux l'omettre</span></code></pre>
+ 
+<p>Comme vous pouvez le voir, les variables sont <b>typ?es</b> en
+Scala. Cela veut dire qu'elles sont en quelque sorte sp?cialis?es: une
+variable donn?e ne peut stocker qu'un type de donn?es sp?cifique. N'essayez
+m?me pas de ranger des nombres dans une variable faite pour recevoir des
+lettres ! On dit que Scala est un langage <b>typ? statiquement</b>.</p>
+<p>D'autres langages (comme le python) sont moins regardants, et on peut ranger
+n'importe quel type de donn?es dans n'importe quelle variable sans
+restriction. ? premi?re vue, cela semble plus simple, mais ce genre de
+restriction permet au compilateur de d?tecter plus d'erreurs de logiques
+pour vous, ce qui n'est pas dommage. En quelque sorte, il est plus facile
+d'?crire du python, mais le typage emp?che certaines erreurs de se glisser
+dans vos programmes.</p>
+<p>Voici quelque uns des types de donn?es existants en Scala :</p>
+<ul>
+  <li><b>Int</b>, pour les entiers;</li>
+  <li><b>Double</b>, pour les nombres ? virgule;</li> 
+  <li><b>Boolean</b>, pour les bool?ens,
+c'est-?-dire les variables dont la valeur est soit
+"vrai" soit "faux";</li>
+  <li><b>String</b>, pour les cha?nes de caract?res.</li>
+</ul>
+  
+<p>Si vous savez que votre ?variable? ne va jamais changer de valeur (par
+exemple parce qu'il s'agit de la taille de l'?cran ou une autre constante du
+genre), alors vous devriez en faire une <b>valeur</b> plut?t qu'une
+variable.
+Utilisez simplement le mot-cl? <code>val</code> au lieu de
+<code>var</code>.
+Le compilateur pourra alors faire plus de v?rifications pour aider les
+?tourdis cherchant ? modifier les constantes. Plus int?ressant, le
+compilateur parvient ?galement ? produire du code plus rapide dans certains
+cas.</p>
+
+
+<p>C'est la m?me histoire pour les cha?nes, nombres ? virgule flottante et les
+bool?ens.</p>
+
+  
+<pre><code class="code-container">val nom:String = "Martin Quinson"; <span class="comment">// impossible de le modifier (c'est une valeur)</span>
+var taille: Double = 1.77; <span class="comment">// en metre</span>
+var marie = true; <span class="comment">// Signifie vrai; le contraire (faux) s'?crirait "false"</span>
+<span class="comment">// Scala sait que 'true' est une valeur de type Boolean, pas besoin de le r?p?ter</span></code></pre>
+ 
+
+<h3>Affectations</h3>
+
+<p>Une fois que votre variable est d?clar?e, vous pouvez y <i>affecter</i> une
+nouvelle valeur plus tard dans votre programme. C'est vraiment tr?s simple :</p> 
+<pre><code class="code-container">x = 3</code></pre>
+
+<p>? droite du signe ?gal, on peut mettre une expression quelconque, qui peut
+contenir des constantes, des variables et des op?rations :</p>
+
+<pre><code class="code-container">x = 3 + 2
+x = 3 * x
+greeting = "Hello "+name <span class="comment">// + est (?galement) l'op?rateur pour concat?ner les cha?nes (c?d pour les fusionner)</span></code></pre> 
+
+<h3>Objectif de cet exercice</h3>
+Il est temps de faire un exercice un peu plus dur, n'est ce pas ? L'objectif
+cette fois est d'avancer jusqu'au biscuit qui se trouve devant la buggle, le
+ramasser, revenir ? la position initiale, puis de poser le biscuit.
+
+<h3>Comment faire ?</h3> 
+<p>Pour r?soudre ce probl?me, il faut le d?composer en parties que vous savez
+r?soudre. Par exemple, on peut vouloir faire les ?tapes suivantes :
+<ol>
+  <li>Avancer jusqu'? se trouver sur un biscuit</li>
+  <li>Ramasser le biscuit au sol</li>
+  <li>Reculer du m?me nombre de cases que ce qu'on a avanc?</li>
+  <li>Reposer le biscuit au sol</li>
+</ol></p>
+
+<p>Bien entendu, il est impossible de reculer du bon nombre de case ? l'?tape 3
+si l'on a pas compt? le nombre de pas faits ? la premi?re ?tape. On va pour
+cela utiliser une variable, que l'on peut nommer <code>nbPas</code>.</p>
+
+<p>On cr?e cette variable (de type <code>int</code>) avant l'?tape 1, on
+l'initialise ? 0, et chaque fois qu'on avance d'un pas, on l'incr?mente de 1
+(<code>nbPas = nbPas + 1;</code>).</p>
+  
+
+<p>Si vous connaissez le Java ou d'autres langages du genre, vous serez
+probablement tent? d'utiliser l'op?rateur <code>++</code> pour incr?menter
+la variable. Malheureusement, cet op?rateur n'existe pas en
+Scala. C'est parce qu'il serait difficile de savoir quoi faire quand on
+l'applique ? un nombre complexe ou ? une cha?ne de caract?res. Le probl?me
+ne se pose pas en Java, o? ++ est d?fini pour le type <code>int</code> qui
+n'est pas un type d'objet mais un type primitif (si vous ne connaissez pas
+l'op?rateur ++, ignorez simplement ce paragraphe : cela n'existe pas en
+Scala).</p>
+
+
+<p>Ensuite, l'?tape 3 consiste simplement ? cr?er une nouvelle variable enti?re
+<code>dejaFait</code> initialis?e ? z?ro, et reculer d'un pas tant que
+<code>dejaFait</code> n'est pas ?gal ? <code>nbPas</code>, en incr?mentant
+<code>dejaFait</code> ? chaque fois. Il faut utiliser l'op?rateur
+<code>!=</code> pour tester l'in?galit? entre deux valeurs.</p> 
+
+<p>? vous de jouer !</p>

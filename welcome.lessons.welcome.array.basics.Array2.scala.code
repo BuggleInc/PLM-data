@@ -1,0 +1,16 @@
+def coupstylo(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
+override def run() {
+  var T = new Array[Color] (getWorldHeight)
+  T(0)=getCouleurSol
+  for (i <- 1 to T.length - 1)
+  {avance();T(i) = getCouleurSol()}
+  for (i <- 0 to T.length -2)
+  {  for (j<-1 to T.length -1) {recule()}
+  gauche()
+  avance()
+  droite();val decal = litMessage().toInt;coupstylo(T((0+decal)%T.length))
+   for (j <-1 to T.length-1)
+   {avance();coupstylo(T((j+decal)%T.length))
+   }}
+    for (i<-1 to T.length -1) {recule()}
+}

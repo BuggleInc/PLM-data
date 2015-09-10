@@ -1,0 +1,27 @@
+def finpos():Boolean = {var b = false
+             	var b2 = false
+             	var d = getDirection()
+             	if (d == Direction.EST) {gauche();b2 = estFaceMur();droite()} else {droite();b2 =estFaceMur();gauche()}
+             b = estFaceMur() && b2
+             return b}
+
+def avPS() {
+  if (estFaceMur()) {
+  	var d = getDirection();
+  		if (d == Direction.EST) {
+    		gauche();
+    		avance();
+    		gauche()
+  		} 
+  	else {
+    	droite();
+    	avance();
+    	droite()
+  	}
+	}
+	else avance()
+           }
+
+
+override def run() {setCouleurBrosse(Color.RED);baisseBrosse();while (!finpos()) {avPS()}
+}

@@ -1,0 +1,19 @@
+var diag = 0;
+def finpos():Boolean = {return ((getMondeHauteur()-1 == getX() && (getMondeLargeur() -1== getY())))}
+def nexcase(diag:Int):Int = {var x = getX()
+                      var y = getY()
+                      var diag2 = 0
+                             if (diag <=5) {if (y==0) {y=x +1;diag2 = diag +1;x=diag2-y} else {y=y-1;x=x+1;diag2 = diag}} else
+                             if (diag ==6) {if (y==0) {y=x;diag2 = diag +1;x=diag2-y} else {y=y-1;x=x+1;diag2 = diag}}
+                             else if (x==6) {y=x;diag2 = diag +1;x=diag2-y} else {y=y-1;x=x+1;diag2 = diag}
+                      setPos(x,y)
+                            return diag2}
+
+
+
+override def run() {var c=0
+                    var k = 1
+                    var diag = 0
+                    while (!finpos()) {ecritMessage(c.toString);diag = nexcase(diag);c+=1}
+                    ecritMessage(c.toString)
+}
