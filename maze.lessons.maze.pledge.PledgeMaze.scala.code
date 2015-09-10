@@ -1,11 +1,15 @@
 override def run() {
   var sommeAngle=0
-  do { sommeAngle = keepHandOnSideWall(sommeAngle)
+  while(!estSurBiscuit()) {
+    do { sommeAngle = keepHandOnSideWall(sommeAngle)
      }
     while (sommeAngle !=0) 
+  while (isDirectionFree(Direction.NORD)) {
+    setDirection(Direction.NORD)
+    avance()
+  }
  
-  while(!estSurBiscuit()) {
-    keepHandOnSideWall(sommeAngle)
+  
   }
   prendBiscuit()
 }
@@ -14,18 +18,18 @@ def keepHandOnSideWall(sa:Int) :Int= {
   var sommeAngle=sa
   gauche()
   sommeAngle = sommeAngle +1
-  print(sommeAngle)
+
   while (estFaceMur()) {
     droite()
     sommeAngle = sommeAngle -1
-    print (sommeAngle)
+  
   }
   avance()
   return sommeAngle
   
 }
 
-def nord() {
+/*def nord() {
   if (!estFaceMur()) avance()
   else {
     droite()
@@ -34,13 +38,13 @@ def nord() {
       gauche()
     }
   }
-}
+}*/
 
-/*def isDirectionFree (dir) :Boolean = {
+def isDirectionFree (dir) :Boolean = {
   var d = false
   var dirAct = getDirection()
   setDirection(dir)
   if (!estFaceMur()) d =true
   setDirection(dirAct)
   return d
-}*/
+}
