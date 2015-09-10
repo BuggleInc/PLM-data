@@ -6,6 +6,8 @@ override def run() {
     	case 1 => avance()
     	case 2 => avance()
     	case 3 => droite();avance()
+      case 4 => avance()
+      case 5 => droite()
   	}
 	}
   
@@ -13,6 +15,8 @@ override def run() {
 }
 
 def ouAvance():Int ={
+  if (getDirection()==Direction.NORD && estFaceMur==false){return 4}
+  if (getDirection()==Direction.NORD && estFaceMur==true){return 5}
   gauche()
   if (estFaceMur==false){ return 0 }
   else{
