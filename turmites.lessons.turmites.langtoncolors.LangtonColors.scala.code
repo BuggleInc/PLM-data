@@ -1,0 +1,23 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  var col = getGroundColor()
+  var l = colors.length
+  var i = 0  
+  
+  while (col != colors(i)){
+    i = i + 1
+  }
+  
+  var lettre = rule(i)
+  lettre match {
+    case 'R' => right()
+    case 'L' => left()
+  }
+  paint(colors( (i+1)%l ))
+  forward()
+}
+
+def paint( c: Color ){
+  setBrushColor(c)
+  brushDown()
+  brushUp()
+}
