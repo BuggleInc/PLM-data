@@ -8,13 +8,15 @@ def isDirectionFree () {
 }
 
 
-def suivre_mur() {
+def suivre_mur(angle) {
   gauche();
-  while(estFaceMur()){droite()}
+  angle = angle + 1;
+  while(estFaceMur()){droite();angle=angle-1}
   avance();
+  return angle
   }
 
 var angle = 0;
 var dir = getDirection();
-do {suivre_mur()} while (!(angle==0 && getDirection==dir))
+do {angle=suivre_mur(angle)} while (!(angle==0 && getDirection==dir))
 }
