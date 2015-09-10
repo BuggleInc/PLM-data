@@ -1,12 +1,15 @@
 override def run() {
   var cpt:Int=0
+  var droite:Boolean=false
   ecritMessage(cpt)
   while (!positionFinale()){
-    if (getX()==getMondeLargeur()-1){
+    if (getX()==getMondeLargeur()-1 && droite){
       setPos(getX(),getY()+1)
+      droite=false
     }else{
-    	if (getX()==0 && getY()!=0){
+    	if (getX()==0 && getY()!=0 && !droite){
       	setPos(getX(),getY()+1)
+        droite=true
     	}else{
       	if (getY()%2==0){
         	setPos(getX()+1,getY())
