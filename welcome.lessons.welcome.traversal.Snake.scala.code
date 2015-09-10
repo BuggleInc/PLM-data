@@ -1,5 +1,5 @@
 override def run() {
-  
+  while ( checkMur() && )
   baisseBrosse()
   likeASnake()
 }
@@ -28,4 +28,19 @@ def tdroite(){
   avance()
   droite()
   
+}
+
+def checkMur () : Boolean ={
+  var rep= false
+  if (getDirection() == Direction.EST){
+    gauche()
+    if (estFaceMur()){rep=true}
+    droite()
+  }
+  else {
+    droite()
+    if (estFaceMur()){rep= true}
+    gauche()
+  }
+  return rep
 }
