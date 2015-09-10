@@ -1,16 +1,8 @@
 override def run() {
   
-  while (!isFacingWall()){
-    forward()
-  }
-  
-	right()
-  while(isFacingWall()){
-		left()
-  }
-  
   while (!isOverBaggle()){
     keepHandOnSideWall()
+    
 		forward()
   }
   
@@ -22,7 +14,11 @@ override def run() {
 
 def keepHandOnSideWall(){
 	left()
-  while(isFacingWall()){
-		right()
+  for (i <- 1 to 3){
+  	if (isFacingWall()){
+   	 right()
+  	}
   }
+  
+}
 }
