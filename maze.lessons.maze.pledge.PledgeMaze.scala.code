@@ -27,116 +27,18 @@ def keepHandOnSideWall() : Int =
   return sommeAngle
 }
 
-def trouverMur()
-{
-  // va vers la gauche du buggle tant qu'il n'y a pas de mur ? gauche
-  var murTrouve = false
-  
-  while (!murTrouve)
-  {
-    gauche()
-    if (!estFaceMur())
-      avance()
-    else
-      murTrouve = true
-    droite()
-  }
-}
-
-def murAGauche():Boolean =
-{
-  var mur = false
-  
-  gauche()
-  if (estFaceMur())
-  	mur = true
- 	droite()
-  
-  return mur
-}
-
-def murAuNord():Boolean =
-{
-  var mur = false
-  var direction = getDirection()
-  
-  setDirection(Direction.NORD)
-  if (estFaceMur())
-  	mur = true
- 	setDirection(direction)
-  
-  return mur
-}
-
-def changerDirection() : Int =
-{
-  var directionChangee = false
-  var sommeAngle = 0
-  
-  gauche()
-  if (!estFaceMur())
-  {
-    avance()
-    directionChangee = true
-    sommeAngle = 1
-  }
-  else
-  {
-    droite()
-  }
-  
-  return sommeAngle
-}
-
 override def run()
 {
-  var surMurExtreme = false
   var sommeAngle = 0
-  var tourner = false
-  trouverMur()
   
   while(!estSurBiscuit())
   {
-    if (sommeAngle == 0 && !estFaceMur() && getDirection() == Direction.NORD)
-    {
-      tourner = true
-    }
-    else if (!surMurExtreme)
-    {
-      if (!murAuNord() && !murAGauche())
-      {
-        setDirection(Direction.NORD)
-        avance()
-      }
-      else
-      	sommeAngle += keepHandOnSideWall()
-    }
-    else
-    	sommeAngle += keepHandOnSideWall()
+    sommeAngle += keepHandOnSideWall()
     
-    if (getY() == 0 && !surMurExtreme)
+    if (sommeAngle == 0)
     {
-      while (getDirection != Direction.NORD)
-      {
-      	gauche()
-        sommeAngle += 1
-      }
-    	surMurExtreme = true
-    }
-    
-    if (tourner)
-    {
-      gauche()
-      if (!estFaceMur())
-      {
+      while(!estFaceMur())
       	avance()
-        tourner = false
-        sommeAngle += 1
-      }
-      else
-      {
-        droite()
-      }
     }
   }
   
