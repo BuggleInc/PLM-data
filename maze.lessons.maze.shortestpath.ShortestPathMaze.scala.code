@@ -3,64 +3,82 @@ override def run() {
   var hauteur : Int = getMondeHauteur()
   var largeur : Int = getMondeLargeur()
   
-  //---
-  def trouverSortie() {
-  	for (x <- 0 to largeur-1 ; y <- 0 to hauteur-1)
-    		{if (aBiscuit(x,y)) {setIndication(x,y,0)}}
-  }
+  //-------------------------------------------
   
-  //---
-  def marquerCasesAdjacentes(i:Int) {
-    for (x <- 0 to largeur-1 ; y <- 0 to hauteur-1){
-      // on consid?re la case (x,y) num?rot?e i
-      if (getIndication(x,y)==i) {
-        
-        //case au dessus
-        if (y >0 && !aMurNord(x,y) && getIndication(x,y-1)==9999)
-        		{setIndication(x,y-1,i+1)}
-        //case ? droite
-        if (x < largeur-1 && !aMurOuest(x,y) && getIndication(x+1,y)==9999)
-        		{setIndication(x+1,y,i+1)}
-        //case au dessous
-        if (y < hauteur-1 && !aMurNord(x,y+1) && getIndication(x,y+1)==9999)
-        		{setIndication(x,y+1,i+1)}
-        //case ? gauche
-        if (x > 0 && !aMurOuest(x-1,y) && getIndication(x-1,y)==9999)
-        		{setIndication(x-1,y,i+1)}
-      }
+  def trouverSortie():Double {
+  	var x : Int = 0
+    var y : Int = 0
+    while (!aBiscuit(x,y)) {
+      if (x < largeur-1) {x+=1}
+      else {y+=1 ; x=0}
     }
+    setIndication(x,y,0)
+    return (x,y)
   }
   
-  //---
+  //-------------------------------------------
+  
+  def marquerCasesAdjacentes((x,y):Double) {
+    var i : Int = getIndication(x,y)
+    // on consid?re la case (x,y) num?rot?e i
+ 
+    //case au dessus
+    if (y >0 && !aMurNord(x,y) && getIndication(x,y-1)==9999)
+    		{setIndication(x,y-1,i+1)
+         marquerCasesAdjacentes(x,y-1)}
+    //case ? droite
+    if (x < largeur-1 && !aMurOuest(x,y) && getIndication(x+1,y)==9999)
+      		{setIndication(x+1,y,i+1)
+           marquerCasesAdjacentes(x+1,y)}
+    //case au dessous
+    if (y < hauteur-1 && !aMurNord(x,y+1) && getIndication(x,y+1)==9999)
+    		{setIndication(x,y+1,i+1)
+        marquerCasesAdjacentes(x,y+1)}
+     //case ? gauche
+     if (x > 0 && !aMurOuest(x-1,y) && getIndication(x-1,y)==9999)
+    		{setIndication(x-1,y,i+1)
+        marquerCasesAdjacentes(x-1,y)}
+  }
+  
+  //-------------------------------------------
+  
   def estMondeMarque():Boolean = {
     for ( x <-0 to largeur-1 ; y <- 0 to hauteur-1)
     		{if (getIndication(x,y)==9999) {return false}}
     return true
   }
   
-  //---
+  //-------------------------------------------
+  
   def directionPlusCourte() {
-    var x : Int = getX()
-    var y : Int = getY()
-    var ind : Int = getIndication(x,y)
+    var posx : Int = getX()
+    var posy : Int = getY()
+    var ind : Int = getIndication(posx,posy)
     //case au dessus
-    if (y >0 && !aMurNord(x,y) && getIndication(x,y-1)==ind-1)
+    if (posy > 0
+        && !aMurNord(posx,posy)
+        && getIndication(posx,posy-1)==ind-1)
     		{setDirection(Direction.NORD)}
     //case ? droite
-    if (x < largeur-1 && !aMurOuest(x,y) && getIndication(x+1,y)==ind-1)
+    if (posx < largeur-1 
+        && !aMurOuest(posx,posy)
+        && getIndication(posx+1,posy)==ind-1)
     		{setDirection(Direction.EST)}
     //case au dessous
-    if (y < hauteur-1 && !aMurNord(x,y+1) && getIndication(x,y+1)==ind-1)
+    if (posy < hauteur-1
+        && !aMurNord(posx,posy+1) 
+        && getIndication(posx,posy+1)==ind-1)
     		{setDirection(Direction.SUD)}
     //case ? gauche
-    if (x > 0 && !aMurOuest(x-1,y) && getIndication(x-1,y)==ind-1)
+    if (posx > 0
+        && !aMurOuest(posx-1,posy)
+        && getIndication(posx-1,posy)==ind-1)
     		{setDirection(Direction.OUEST)}
     }
   
   //---
   trouverSortie()
-	var indice : Int = 0
-  while (!estMondeMarque()) {marquerCasesAdjacentes(indice); indice+=1}
+  marquerCasesAdjacentes()
   while (!estSurBiscuit) {
     directionPlusCourte(); avance()}
 	prendBiscuit()
