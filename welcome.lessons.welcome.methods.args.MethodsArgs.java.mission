@@ -1,0 +1,85 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>M?thodes avec param?tres</h2>
+
+<p>N'?tes vous pas fatigu? d'?crire encore et encore le code qui permet
+d'avancer ou de reculer d'un nombre pr?d?termin? de pas ? Oui, mais ?crire
+les m?thode <tt>avance2()</tt>, <tt>avance3()</tt>, <tt>avance4()</tt>, et
+<tt>recule2()</tt>, <tt>recule3()</tt>, <tt>recule4()</tt>, et ainsi de
+suite, ?a ne constitue pas un r?el gain de temps. Et puis, c'est carr?ment
+moche !</p>
+
+<p>Heureusement, il est possible de donner des <b>param?tres</b> ? vos
+m?thodes. Il faut marquer leur type et leur nom entre les parenth?ses qui
+suivent le nom de la m?thode. Ensuite, on peut les utiliser dans le corps de
+la fonction comme s'il s'agissait de variables d?finies ici.</p>
+
+<pre>double diviseParDeux(double x) {
+     return x / 2;
+}</pre>
+
+<p>? l'usage, il faut indiquer les valeurs qu'elles doivent prendre entre les
+parenth?ses de l'appel.</p>
+<pre>double resultat = diviseParDeux(3.14);</pre>
+
+<p>Si on veut avoir plusieurs param?tres, il faut les s?parer par des virgules,
+lors de la d?claration comme lors de l'appel.</p>
+
+<pre>double divise(double x, double y) {
+
+
+     return x / y;
+}</pre>
+<pre>double res = divise(3.14 , 1.5);
+
+</pre>
+
+
+<p>En Java, il est possible d'avoir plusieurs m?thodes du m?me nom, ?
+condition qu'elles n'aient pas la m?me <b>signature</b>, c'est ? dire le
+m?me nombre de param?tres et les m?mes types de param?tres.</p>
+
+<pre>double max(double x, double y) {
+  if (x > y) {
+    return x;
+  }
+  return y;
+}int max(int x, int y) {
+  if (x > y) {
+    return x;
+  }
+  return y;
+}
+int max(int x, int y; int z) {
+  if (x > y && x > z) {
+    return x;
+  }
+  if (y > z) {
+    return y;
+  }
+  return z;
+}</pre>
+
+<p>Remarquez que nous avons ici laiss? de cot? les <tt>else</tt> de chaque
+alternative. Cela fonctionne tout de m?me car un <tt>return</tt> interrompt
+l'ex?cution de la m?thode. Si on arrive ? la derni?re ligne de
+<code>max(int,int)</code>, on est
+donc s?r que <code>x&lt;=y</code> car dans le cas contraire, le
+<tt>return</tt> de la deuxi?me ligne aurait arr?t? l'ex?cution de la
+fonction.</p>
+<!-- introduce default value for parameters in Python language -->
+
+
+
+
+<h3>Objectif de cet exercice</h3>
+<p>Cette fois, vous devez ?crire une m?thode
+<code>move(int nbPas,boolean versLAvant)
+
+ </code> qui se d?place de
+<code>nbPas</code> pas. Si <code>versLAvant</code> est vrai, il faut avancer
+de ce nombre de pas; dans le cas contraire, il faut reculer.</p>
+
+<p>Cette fois, il y a un seul monde, et sept buggles, qui ex?cutent toutes le
+code que vous allez ?crire.
+Cet exercice ne devrait pas vous poser de probl?me particulier.</p>

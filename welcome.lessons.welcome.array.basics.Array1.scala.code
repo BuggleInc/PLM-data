@@ -1,0 +1,32 @@
+override def run() {
+  var longueur:Int=1
+  var base:Color=getCouleurSol():Color
+  avance()
+  while (getCouleurSol() !=base) {
+    avance()
+    longueur=longueur+1}
+  var T = new Array[Color](longueur)
+  for (i<-0 to longueur-1) {    
+    T(i)=getCouleurSol()
+    avance()}
+  recule()
+  gauche()
+  avance()
+  droite()
+  avance()
+  for (j <-1 to longueur-1) {
+    avance()
+    for (k <- 0 to longueur-1) {
+      setCouleurBrosse(T(k))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+      }
+    gauche()
+    avance()
+    droite()
+  } 
+  gauche()
+  recule()
+  droite()
+}
