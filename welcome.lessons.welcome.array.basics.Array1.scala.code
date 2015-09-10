@@ -1,46 +1,26 @@
 override def run() {
-var h:Int=0
-h=getMondeHauteur()
-var T=new Array[Color](h)
-
+var T = new Array[Color](getMondeHauteur())  
   
-  for (i <-0 to h-1){
-  T(i)=getCouleurSol()
-  avance()
-}
-	leveBrosse()
-  recule(h-1)
-  gauche()
-  avance()
-  droite()
-  peindre()
-  gauche()
-  avance()
-  droite()
-  peindre()
-  gauche()
-  avance()
-  droite()
-  peindre()
-  gauche()
-  avance()
-  droite()
-  peindre()
-  gauche()
-  avance()
-  droite()
-
-}
-
-def peindre(){
-  var h:Int=0
-	h=getMondeHauteur()  
-  var c:Color=Color.white
-  for (i <- 0 to h-1){
+for(i<-0 to getMondeHauteur()-1){
+    T(i)=getCouleurSol()
     avance()
-    c=T(i)
-    setCouleurBrosse(c)
-    baisseBrosse()
+}
+  
+  for (j<- 0 to getMondeHauteur()-1){
+  	gauche()
+  	avance()
+  	droite()
+  	avance()
+  	for( i <- 0 to getMondeHauteur()-1){
+    	setCouleurBrosse(T(i))
+    	baisseBrosse()
+    	leveBrosse()
+    	avance()
+      
   }
-  leveBrosse()
+  }
+  recule()
+  droite()
+  avance()
+  gauche()
 }
