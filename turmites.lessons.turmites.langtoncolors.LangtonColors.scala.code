@@ -1,0 +1,31 @@
+def setCouleurSol(c:Color)
+{
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def step(rule:Array[Char], colors:Array[Color])
+{
+  var couleurChangee = false
+  
+  for (i <- 0 to rule.length - 1)
+  {
+    if (getCouleurSol() == colors(i) && !couleurChangee)
+    {
+      var iSuivant = i + 1
+      if (iSuivant > rule.length - 1)
+      	iSuivant = 0
+      
+      setCouleurSol(colors(iSuivant))
+      
+      if (rule(i) == 'R')
+      	droite()
+      else
+      	gauche()
+      
+      avance()
+      couleurChangee = true
+    }
+  }
+}
