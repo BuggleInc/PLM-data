@@ -1,5 +1,5 @@
 def nord() {
-  while (getY()!=0) {
+  while (getX()!=getMondeHauteur()-2) {
     var x=0
     while(!estFaceMur()) {
       avance()
@@ -8,7 +8,7 @@ def nord() {
         x=x+1
         droite() }
    if (x==2) {
-     avance() ; droite()
+     droite() ; droite() ;recule() ; droite()
    }
     if (estFaceMur()) {
       gauche() ; avance()
