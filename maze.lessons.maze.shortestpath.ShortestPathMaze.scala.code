@@ -40,6 +40,18 @@ def casP(x:Int,y:Int,k:Int) { //Numérote les cases adjacentes, relance sur ces 
     }
   }                                                  
 }
+def ppC(x:Int,y:Int):Direction = {
+  var m = 9999
+  var d = Direction.NORTH
+  var l = 0
+  if (testV(x+1,y)) {l = getIndication(x+1,y);if (l < m) {m=l;d=Direction.EAST}
+  if (testV(x-1,y)) {l = getIndication(x-1,y);if (l < m) {m=l;d=Direction.WEST}
+  if (testV(x,y+1)) {l = getIndication(x,y+1);if (l < m) {m=l;d=Direction.SOUTH}
+  if (testV(x,y-1)) {l = getIndication(x,y-1);if (l < m) {m=l;d=Direction.NORTH}
+  return d
+}
+
+
 
 override def run() {
     // Your code here
@@ -54,5 +66,9 @@ override def run() {
   var b=y
   setIndication(a,b,0)
   casP(a,b,0)
-  
+  while (!estSurBiscuit()) {
+    d = ppC(getX(),getY())
+    avance()
+  }
+  }
 }
