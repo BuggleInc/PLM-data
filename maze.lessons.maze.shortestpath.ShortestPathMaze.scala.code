@@ -30,7 +30,7 @@ def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases CHECKE
   return true
 }
 
-def repererSortie() //repère sortie, y met 0
+def repererSortie() //repère sortie, y met 0 CHECKED
 {
   for (i <- 0 to getMondeLargeur()-1)
   {
@@ -38,7 +38,6 @@ def repererSortie() //repère sortie, y met 0
     {
       if (aBiscuit(i,j))
       {
-        avance()
         setIndication(i,j,0)
       }
     }
@@ -52,6 +51,7 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   casesAdjacentes(1) = false
   casesAdjacentes(2) = false
   casesAdjacentes(3) = false
+  avance()
   //on analyse sa propre case
   if (X!=0)
   {
