@@ -10,7 +10,7 @@ override def run() {
     }
   }
   setIndication(xB,yB,0)
-  //remplir(xB,yB)
+  remplir(xB,yB)
   //while(!estSurBiscuit()) {
     //setDirection(meilleurDirection(getX(),getY()))
     //avance()
@@ -30,19 +30,19 @@ def min(a:Int,b:Int):Int = {
 def remplir(x:Int,y:Int) {
   if(!aMurNord(x,y)) {
     setIndication(x,y-1,min(getIndication(x,y-1),getIndication(x,y)+1))
-    remplir(x,y-1)
+    //remplir(x,y-1)
   }
   if(!aMurOuest(x,y)) {
     setIndication(x-1,y,min(getIndication(x-1,y),getIndication(x,y)+1))
-    remplir(x-1,y)
+    //remplir(x-1,y)
   }
   if(!aMurNord(x,y+1)) {
     setIndication(x,y+1,min(getIndication(x,y+1),getIndication(x,y)+1))
-    remplir(x,y+1)
+    //remplir(x,y+1)
   }
   if(!aMurOuest(x+1,y)) {
     setIndication(x+1,y,min(getIndication(x+1,y),getIndication(x,y)+1))
-    remplir(x+1,y)
+    //remplir(x+1,y)
   }
 }
 
