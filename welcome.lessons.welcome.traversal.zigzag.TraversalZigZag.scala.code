@@ -1,0 +1,32 @@
+def estArrive():Boolean = {
+  return ((getX() == getMondeLargeur() - 1) 
+  	&& (getY() == getMondeHauteur() - 1))
+}
+
+def avanceZigZag(oldX: Int, oldY: Int) {
+  if (oldY % 2 == 0) {
+    if(oldX == 6)
+    	setPos(oldX, oldY + 1)
+    else
+    	setPos(oldX + 1, oldY)
+  } else {
+    if(oldX == 0)
+    	setPos(oldX, oldY + 1)
+    else
+    	setPos(oldX - 1, oldY)
+  }
+}
+
+override def run() {
+  var compteur:Int = 0
+  
+  ecritMessage(compteur)
+  
+  while (!estArrive()) {
+    avanceZigZag(getX(), getY())
+    
+    compteur += 1
+    
+    ecritMessage(compteur)
+  }
+}

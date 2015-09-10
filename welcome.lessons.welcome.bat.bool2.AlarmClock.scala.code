@@ -1,0 +1,10 @@
+def alarmClock(day:Int, vacation:Boolean): String = {
+	var weekDay:Boolean =  (day > 0 && day < 6)
+  
+  (vacation, weekDay) match {
+    case (true, true) => "10:00"
+    case (true, false) => "off"
+    case (false, false) => "10:00"
+    case (false, true) => "7:00"
+  }
+}

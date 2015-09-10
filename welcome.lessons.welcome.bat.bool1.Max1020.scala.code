@@ -1,0 +1,12 @@
+def in1020(a:Int): Boolean = {
+  return (a >= 10 && a <= 20)
+}
+
+def max1020(a:Int, b:Int):Int = {  
+	(in1020(a), in1020(b)) match {
+    case (false, false) => return 0
+    case (true, true) => Math.max(a, b)
+    case (true, false) => return a
+    case (false, true) => return b
+  }
+}

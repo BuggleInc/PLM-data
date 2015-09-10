@@ -1,0 +1,17 @@
+override def run() {
+  
+  var decision:Int = 0
+  
+  while (!estSurBiscuit()) {
+		decision = random3()
+    
+    if (decision == 0 && !estFaceMur())
+    	avance()
+    else if (decision == 1)
+    	droite()
+    else
+    	gauche()
+  }
+  
+  prendBiscuit()
+}

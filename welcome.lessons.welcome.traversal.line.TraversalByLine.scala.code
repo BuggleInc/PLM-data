@@ -1,0 +1,30 @@
+def estPositionFinale():Boolean = {
+  if (getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur() - 1)
+  	return true
+  
+  return false
+}
+
+def vaPositionSuivante(oldX: Int, oldY: Int) {
+	var newX:Int = (oldX + 1) % getMondeLargeur()
+  var newY:Int = oldY
+  
+  if (oldX == getMondeHauteur() - 1)
+  	newY += 1
+  
+  setPos(newX, newY)
+}
+
+override def run() {
+  var compteur:Int = 0
+  
+  ecritMessage(compteur)
+  
+  while (!estPositionFinale()) {
+    vaPositionSuivante(getX(), getY())
+    
+    compteur += 1
+    
+    ecritMessage(compteur)
+  }
+}
