@@ -5,6 +5,11 @@ override def run() {
 }
 
 
+def timeToBreakOut() {
+  
+}
+
+
 def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
   if (getIndication(x+1,y) > getIndication(x,y) + 1) {
     if (!aMurOuest(x+1,y)) {
@@ -38,16 +43,18 @@ def ilEstOuLeBiscuit1():Int = { // trouve l'arriv?e et la marque //
     for (j <- 0 to getMondeHauteur() - 1) {
       if (hasBaggle(i,j)) {
         setIndication(i,j,0)
-        return 0
+        return i
       }
     }
   }
+  return 9999
 }
 
 def ilEstOuLeBiscuit2(i:Int):Int = {
   for (j <- 0 to getMondeHauteur() - 1) {
     if (hasBaggle(i,j)) {
-      return 0
+      return j
     }
   }
+  return 9999
 }
