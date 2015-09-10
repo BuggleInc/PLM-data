@@ -1,2 +1,59 @@
 override def run() {
+  var virage=0
+  while (!estSurBiscuit){
+    chercheMurNord()
+    do {       			virage=virage+keepHandOnSideWall()
+    } while(virage!=0)
+  }
+  prendBiscuit
+}
+
+def chercheMurNord(){
+  while (!estFaceMur && getDirection==Direction.NORTH){
+    avance()
+  }
+}
+
+
+def keepHandOnSideWall():Int={
+  var s=0
+  if(murDroite==true && estFaceMur==false){
+    avance()
+  }
+  else{
+  if (murDroite==false){
+    droite()
+    avance()
+    s=1
+  }
+  else{
+    if (murGauche==false){
+    gauche()
+    s= -1
+  	}
+    else avance()
+  }
+}
+   return s
+}
+
+def murGauche():Boolean={
+  var p=false
+  gauche()
+  if (estFaceMur()){
+    p=true
+  }
+  droite()
+  return p
+}
+
+
+def murDroite():Boolean={
+  var p=false
+  droite()
+  if (estFaceMur()){
+    p=true
+  }
+  gauche()
+  return p
 }
