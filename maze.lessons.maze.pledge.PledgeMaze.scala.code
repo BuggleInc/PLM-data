@@ -14,6 +14,13 @@ override def run() {
 def keepHandOnSideWall() {
   
   var a=0
+  
+  if (a==0) {
+    setDirection(Direction.NORTH)
+    while (!estFaceMur) {
+      avance() 
+    }
+  }
   if (estFaceMur()) {
     gauche()
     if(!estFaceMur) {
@@ -41,11 +48,7 @@ def keepHandOnSideWall() {
     a-=1
     droite()
   }
-  if (a==0) {
-    setDirection(Direction.NORTH)
-    while (!estFaceMur) {
-      avance() 
-    }
-  }
+  
+  
 }
 
