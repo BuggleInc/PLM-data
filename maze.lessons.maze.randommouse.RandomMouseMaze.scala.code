@@ -1,0 +1,12 @@
+override def run() {
+  var i=0
+    while (!estSurBiscuit()) {
+      i=random3()
+      i match  {
+        case 0 => if (!estFaceMur()) {avance()}
+        case 1 => droite()
+        case 2 => gauche()
+      }
+    }
+  prendBiscuit()
+}

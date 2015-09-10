@@ -1,0 +1,53 @@
+override def run() {
+  def FaireV(c:Color) {
+  	setCouleurBrosse(c)
+    baisseBrosse()
+ 	 	leveBrosse()
+  	avance()
+  	gauche()
+  	avance()
+  	baisseBrosse()
+  	leveBrosse()
+  	recule()
+  	droite()
+  	avance()
+  	baisseBrosse()
+  	leveBrosse()
+  
+	}
+  
+  def couleurMotif(i:Int): Color= {
+    i match {
+      case 1 => return Color.yellow
+      case 2 => return Color.red
+      case 3 => return Color.blue
+      case 4 => return Color.green
+    }
+  }
+  
+  def faireMotif() {
+    for (i <- 1 to 4) {
+  		avance()
+  		FaireV(couleurMotif(i))
+  		avance()
+  		gauche()
+		}
+  }
+  def Motif3etR() {
+    for (i <- 1 to 9)	{
+    	faireMotif()
+    	avance(5)
+    }
+    recule(40)
+    gauche()
+    avance(5)
+    droite()
+  }
+  
+  for (i<- 1 to 9){
+    Motif3etR()
+  }
+
+	
+
+}
