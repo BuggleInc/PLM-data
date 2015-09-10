@@ -1,29 +1,12 @@
-override def run() {
-	nord()
-  while(!estSurBiscuit){
-    keepHandOnSideWall()
-  }
-  prendBiscuit()
-  droite()
+override def run(){
+  posi()
 }
-  def keepHandOnSideWall(){
-  while (estFaceMur){
-    droite()
-  }
-  avance()
-  gauche()
-}
-def nord(){
-  var posa = 0
-  while (getY() != 0){
-  setDirection(Direction.NORTH)
-  while (!estFaceMur()){
-    avance()
-  }
-  posa= getY()
-  
-  while ((posa < getY() || posa== getY())&& !(getY()==0)){
-    keepHandOnSideWall()
-  }
+def posi():Integer,Integer{
+  for (x<-0 to getMondeLargeur()-1){
+  	for (y<-0 to getMondeHauteur()-1){
+      if (aBiscuit(x,y)==true){
+        return x,y
+      }
+    }
   }
 }
