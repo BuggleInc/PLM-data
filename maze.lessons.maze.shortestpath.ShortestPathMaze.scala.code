@@ -19,31 +19,49 @@ def marquerBaggle() {
     }
   }
   setIndication(xBaggle,yBaggle,i);
-  i += 1;
   c -= 1;
   x = xBaggle;
   y = YBaggle;
 }
 
-def marquer() {
+def marquer(x:Int,y:Int) {
+  i += 1;
   if ( c != 0 ){
     if ( !aMurNord(x,y) ){
       setIndication(x,y-1,i);
       c-=1;
+      marquer(x,y-1);
     }
     if ( !aMurOuest(x,y) ){
       setIndication(x-1,y,i);
       c-=1;
+      marquer(x-1,y);
     }
     if ( !aMurSud(x,y) ){
       setIndication(x,y+1,i);
       c-=1;
+      marquer(x,y+1);
     }
     if ( !aMurEst(x,y) ){
       setIndication(x+1,y,i);
       c-=1;
+      marquer(x+1,y);
     }
-    i+=1;
-    
+  }
+}
+
+def aMurSud(x:Int,y:Int) : Boolean = {
+  if ( y != getMondeHauteur()-1 ){
+    return aMurNord(x,y+1);
+  } else {
+    return false;
+  }
+}
+
+def aMurOuest(x:Int,y:Int) : Boolean = {
+  if ( x != getMondeLargeur()-1 ){
+    return aMurNord(x+1,y);
+  } else {
+    return false;
   }
 }
