@@ -20,8 +20,15 @@ def murExterne ()
       } else 
       {
         droite()
-        avance()
-        gauche()
+        if (!estFaceMur()) 
+        {
+          avance()
+          gauche()
+        } else 
+        {
+          recule()
+          gauche()
+        }
       }
     } 
     keepHandOnSideWall() 
