@@ -43,11 +43,14 @@ override def run() {
   setCouleurBrosse(res(j+decalage))
   marquerSol()
   avance()
-  	for (i <- 1 to longueurTableau -2){
+  	for (i <- 1 to longueurTableau -1){
       setCouleurBrosse(res((j+decalage+i)%longueurTableau))
       marquerSol()
       avance()
     }
+  var compteur2:Int = 0
+  for (compteur2 <- 1 to longueurTableau -1) {recule()}
+  transition()
   }
   
 }
