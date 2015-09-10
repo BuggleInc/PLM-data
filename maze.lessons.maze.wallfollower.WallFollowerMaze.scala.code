@@ -10,7 +10,9 @@ override def run(){
   }
   
   while(!estSurBiscuit()){
-    if(keepHandOnSideWall()){avance()}
+    if(keepHandOnSideWall()){
+      if(!estFaceMur()){avance()}
+      else{retourne(); avance()}
     else{droite()
          avance()
         }
