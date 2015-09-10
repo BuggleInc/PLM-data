@@ -48,14 +48,14 @@ def initLangton(name:String) {
     }
 }
 
-def init(colors:Array[Color] ) {
+def state(colors:Array[Color] ) {
 	var x =0
 	var c= getCouleurSol()
   for(i<-0 to colors.length - 1){
     if(c == colors(i)){x=i}
   }
-  setCouleurBrosse(colors((rule(init)(x)(0))%colors.length));baisseBrosse();leveBrosse()
-  rule(init)(x)(1)
+  setCouleurBrosse(colors((rule(state)(x)(0))%colors.length));baisseBrosse();leveBrosse()
+  rule(state)(x)(1)
 	state = rule(state)(x)(2)
   }
   
