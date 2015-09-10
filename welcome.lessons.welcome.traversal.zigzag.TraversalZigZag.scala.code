@@ -11,19 +11,6 @@ override def run() {
     return false
   }
   
-  while (!posFinale()) {
-      if (getX() != largeur-1) {
-        ecritMessage(cpt)
-        cpt = cpt + 1
-        setPos(getX()+1,getY())
-      } else {
-        ecritMessage(cpt)
-        cpt = cpt + 1
-        setPos(0,getY()+1)
-      }
-    }
-  ecritMessage(cpt)
-  
   while(!posFinale()) {
     if (direction == 'gauche') {
       if (getX() != largeur-1) {
@@ -49,4 +36,6 @@ override def run() {
         direction = 'gauche'
     }
   }
+}
+  ecritMessage(cpt)
 }
