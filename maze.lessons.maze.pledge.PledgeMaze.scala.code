@@ -15,12 +15,7 @@ def keepHandOnSideWall() {
   
   var a=0
   
-  if (a==0 && getDirection==Direction.EST) {
-    gauche()
-    while (!estFaceMur) {
-      avance() 
-    }
-  }
+ 
   if (estFaceMur()) {
     gauche()
     if(!estFaceMur) {
@@ -47,6 +42,13 @@ def keepHandOnSideWall() {
     avance()
     a-=1
     droite()
+  }
+  
+   if (a==0 && getDirection==Direction.EST) {
+    gauche()
+    while (!estFaceMur) {
+      avance() 
+    }
   }
   
   
