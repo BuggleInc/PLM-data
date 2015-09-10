@@ -11,7 +11,6 @@ override def run() {
     else
     {
       setDirection(direction)
-      
     }
     keepHandOnSideWall()
   }  
@@ -34,6 +33,15 @@ def keepHandOnSideWall(){
     if (!estFaceMur())
     {
       avance()
+      gauche()
+        if (!estFaceMur)
+        {
+          avance()
+        }
+        else
+        {
+          droite()
+        }
     }
     else
     {
@@ -41,11 +49,29 @@ def keepHandOnSideWall(){
       if (!estFaceMur())
       {
         avance()
+        gauche()
+        if (!estFaceMur)
+        {
+          avance()
+        }
+        else
+        {
+          droite()
+        }
       }
       else 
       {
         droite()
         avance()
+        gauche()
+        if (!estFaceMur)
+        {
+          avance()
+        }
+        else
+        {
+          droite()
+        }
       }
     }
   }
