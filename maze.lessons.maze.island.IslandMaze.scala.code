@@ -6,8 +6,12 @@ override def run() {
 
 def toTheNorthFriends() {
   while (getY() != 0) {
-    if (getDirection() != Direction.SUD && peutAllerNord()) {
-      avance()
+    if (getDirection() != Direction.SUD)
+    	if (peutAllerNord()) {
+      	avance()
+      } else {
+        searchLeft()
+      }
     } else {
       searchLeft()
     }
