@@ -1,0 +1,17 @@
+def setCouleurSol(c : Color) {
+  setCouleurBrosse(c);
+  baisseBrosse();
+  leveBrosse();
+}
+
+def step() {
+  if (getCouleurSol() == Color.WHITE) {
+    setCouleurSol(Color.BLACK);
+    droite();
+    avance();
+  } else {
+    setCouleurSol(Color.WHITE);
+    gauche();
+    avance();
+  }
+}
