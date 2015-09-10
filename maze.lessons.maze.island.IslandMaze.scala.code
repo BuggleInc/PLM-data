@@ -1,69 +1,34 @@
 override def run() {
   var northfound=false
   while (!estSurBiscuit()) {
-    if (getY()==0) {northfound=true}
     while (!northfound) {
-      setDirection(Direction.NORTH)
-      while (!estFaceMur()) {
-        avance()}
-      if (estFaceMur()) { 
-      	if (keepHandOnSideWall()) {
-        	droite()
-        	if (estFaceMur()) {droite()}
-        	else {avance()}
-      	}
-      	else {
-        	droite()
-        	if (estFaceMur()) {
-          	retourne()
-        		avance()
-       		}
-       		else {avance()}
-     		}
-     	}
-    	else if (!estFaceMur()){ 
-     	 	if (keepHandOnSideWall()) {
-        	avance()
-      	}
-      	else {gauche();avance()}
-    	}
+      choix()
+      goNorth()
+      if (getY()==0) {northfound=true}
     }
-  droite()
-    if (estFaceMur()) { 
-      if (keepHandOnSideWall()) {
-        droite()
-        if (estFaceMur()) {droite()}
-        else {avance()}
-      }
-      else {
-        droite()
-        if (estFaceMur()) {
-          retourne()
-        	avance()
-        }
-        else {avance()}
-      }
-    }
-    else if (!estFaceMur()){ 
-      if (keepHandOnSideWall()) {
-        avance()
-      }
-      else {gauche();avance()}
-    }
+    choix()
+      
   }
   def keepHandOnSideWall(): Boolean = {
     gauche()
     if (estFaceMur()){droite();return true}
     else {droite();return false}
   }
-
-  def findNorth() {
-    getDirection() match {
-      case Direction.NORD => if (!estFaceMur()) {avance()}
-      case Direction.OUEST => droite()
-      case Direction.SUD => retourne()
-      case Direction.EST => gauche()
+  
+  def choix () {
+    if (estFaceMur() && keepHandOnSideWall()) {
+      droite()
+      if (estFaceMur()) {droite()}
+      else {avance()}
     }
+    else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
+    else if (!estFaceMur() && keepHandOnSideWall()) {avance()}
+    else if (!estFaceMur() && !keepHandOnSideWall()) {gauche()}
+  }
+  
+  def goNorth() {
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()) {avance()}
   }
 
   prendBiscuit()
