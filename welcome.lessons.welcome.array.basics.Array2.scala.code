@@ -19,7 +19,12 @@ override def run() {
     baisseBrosse()
     leveBrosse()
     avance()
-  	LigneCouleur()
+   for (c <- 0 to T.length-2) {
+    	setCouleurBrosse(T(c+n+1))
+    	baisseBrosse()
+    	leveBrosse()
+      avance()
+ 	 	}
   	setCouleurBrosse(T(cpt))
   	baisseBrosse()
   	leveBrosse()
@@ -30,21 +35,3 @@ override def run() {
 	}
 }
 
-def LigneCouleur() {
-  var i = getMondeHauteur()
-  var k = getMondeLargeur()
-  var T = new Array [Color](i)
-  for (j<- 0 to T.length-2) {
-  	var m = getCouleurSol()
-  	T(j) = m
-  	avance()
-	} 
-   val decalage = litMessage().toInt
-   var n = (decalage)%i
-  for (c <- 0 to T.length-2) {
-    	setCouleurBrosse(T(c+n+1))
-    	baisseBrosse()
-    	leveBrosse()
-      avance()
- 	 	}
-}
