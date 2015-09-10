@@ -3,8 +3,8 @@
 <h2>Instructions conditionnelles</h2>
 
 Les programmes faits d'une simple suite d'instructions comme celui de
-l'exercice pr?c?dent sont bien ennuyeux. Ils font toujours la m?me chose, et
-ne peuvent pas r?agir aux conditions ext?rieurs. Une <b>instruction
+l'exercice précédent sont bien ennuyeux. Ils font toujours la même chose, et
+ne peuvent pas réagir aux conditions extérieurs. Une <b>instruction
 conditionnelle</b> permet au programme de s'adapter en disant quelque chose
 comme <i>S'il pleut, prend un parapluie</i>. 
 
@@ -16,89 +16,89 @@ comme <i>S'il pleut, prend un parapluie</i>.
 }
 <b>aFaireDansTousLesCas()</b></code></pre>
 
-<p>Le mot <code>if</code> signifie ?si? en anglais. Si la condition est vraie,
-alors le code du bloc suivant sera ex?cut?, puis l'ex?cution se poursuivra
-avec la suite du code, apr?s le bloc. Sinon, si la condition est fausse, le
-bloc suivant sera ignor? et l'ex?cution passera directement au code plac?
-apr?s lui. Le bloc conditionnel peut contenir plusieurs instructions. Il
-peut m?me contenir d'autre tests, avec leurs sous-blocs associ?s.</p>
+<p>Le mot <code>if</code> signifie «si» en anglais. Si la condition est vraie,
+alors le code du bloc suivant sera exécuté, puis l'exécution se poursuivra
+avec la suite du code, après le bloc. Sinon, si la condition est fausse, le
+bloc suivant sera ignoré et l'exécution passera directement au code placé
+après lui. Le bloc conditionnel peut contenir plusieurs instructions. Il
+peut même contenir d'autre tests, avec leurs sous-blocs associés.</p>
 
 <p>Dans cet exemple, les instructions <code>aFaireSiVraie()</code> et
-<code>aFaireEnsuiteSiVraie()</code> seront ex?cut?e si (et seulement si) la
+<code>aFaireEnsuiteSiVraie()</code> seront exécutée si (et seulement si) la
 condition est vraie tandis que l'instruction
-<code>aFaireDansTousLesCas()</code> sera ex?cut?e que la condition soit
+<code>aFaireDansTousLesCas()</code> sera exécutée que la condition soit
 vraie ou fausse. 
 </p>
 
 <p>En Scala, les blocs sont
-d?limit?s par des accolades : le symbole { commence un bloc
+délimités par des accolades : le symbole { commence un bloc
 tandis
-que le symbole } le ferme.  Les caract?res blancs ne sont pas pris en
-compte, tant que les instructions restent s?par?es
-soit par des points-virgules, soit par des retour ? la ligne.
-Il reste tr?s important d'indenter correctement votre code
+que le symbole } le ferme.  Les caractères blancs ne sont pas pris en
+compte, tant que les instructions restent séparées
+soit par des points-virgules, soit par des retour à la ligne.
+Il reste très important d'indenter correctement votre code
 pour qu'il reste lisible.
 
-Il est tr?s facile de se perdre dans un code qui n'est pas correctement
-indent?. Il est donc important que vous fassiez en sorte que votre code
+Il est très facile de se perdre dans un code qui n'est pas correctement
+indenté. Il est donc important que vous fassiez en sorte que votre code
 reste clair et lisible pour que le relire et le modifier reste plaisant et
 productif.</p>
 
 
-<p>La condition doit ?tre une expression de type
+<p>La condition doit être une expression de type
 <code>Boolean</code>
-(expression bool?enne).  Le sous-bloc sera ex?cut? seulement si cette
+(expression booléenne).  Le sous-bloc sera exécuté seulement si cette
 expression vaut <code>true</code>
-(vrai), et il sera ignor? si sa valeur est
+(vrai), et il sera ignoré si sa valeur est
 <code>false</code> (faux).
 <code>true</code> et
 <code>false</code> sont des constantes
-d?finies directement par Scala, tout comme 0 ou 1 en math?matiques.</p>
+définies directement par Scala, tout comme 0 ou 1 en mathématiques.</p>
 
-<p>La condition peut aussi ?tre une variable bool?enne (nous reviendrons sur
+<p>La condition peut aussi être une variable booléenne (nous reviendrons sur
 les variables dans un autre exercice, pas de panique) ou un test
-arithm?tique,comme <code>x == 5</code>, qui teste si la valeur actuelle de
-<tt>x</tt> est 5, ou bien comme <b>!=</b> (teste l'in?galit?, c?d si le
-membre gauche a une valeur diff?rente du membre droit), <b>&lt;</b>
-(inf?rieur ?), <b>&gt;</b> (sup?rieur ?), <b>&lt;=</b> (inf?rieur ou ?gal
-?), <b>&gt;=</b> (sup?rieur ou ?gal ?).</p>
+arithmétique,comme <code>x == 5</code>, qui teste si la valeur actuelle de
+<tt>x</tt> est 5, ou bien comme <b>!=</b> (teste l'inégalité, càd si le
+membre gauche a une valeur différente du membre droit), <b>&lt;</b>
+(inférieur à), <b>&gt;</b> (supérieur à), <b>&lt;=</b> (inférieur ou égal
+à), <b>&gt;=</b> (supérieur ou égal à).</p>
 
-<p>Attention au pi?ge classique, qui consiste ? tester l'?galit? d'une variable
+<p>Attention au piège classique, qui consiste à tester l'égalité d'une variable
 avec = au lieu de ==. Heureusement, le
-compilateur d?tecte le plus souvent ce
-probl?me et vous le signale, mais pas tout le temps. Si la variable est de
-type bool?en, il peut se faire prendre au pi?ge, et il convient donc d'?tre
+compilateur détecte le plus souvent ce
+problème et vous le signale, mais pas tout le temps. Si la variable est de
+type booléen, il peut se faire prendre au piège, et il convient donc d'être
 attentif...</p>
 
-<p>La condition peut ?galement ?tre un appel ? certaines m?thodes
-particuli?res, dont le r?sultat est un bool?en. Par exemple, la m?thode
+<p>La condition peut également être un appel à certaines méthodes
+particulières, dont le résultat est un booléen. Par exemple, la méthode
 <tt>estFaceMur()</tt> de la buggle renvoie
-vrai si la buggle est face ? un mur, et
+vrai si la buggle est face à un mur, et
 faux sinon.</p>
 
-<p>Enfin, il est possible de construire une condition compos?e de plusieurs
-sous-conditions reli?es par des op?rations bool?ennes:</p>
+<p>Enfin, il est possible de construire une condition composée de plusieurs
+sous-conditions reliées par des opérations booléennes:</p>
 <ul>
   <li><code>cond1 && cond2</code> est vraie si
 <tt>cond1</tt> <b>et</b> <tt>cond2</tt> est vraie (d'ailleurs, si
-<tt>cond1</tt> est fausse, <tt>cond2</tt> n'est m?me pas ?valu?e puisqu'on
-sait d?j? que la conjonction des deux propositions ne peut pas ?tre vraie).</li> 
+<tt>cond1</tt> est fausse, <tt>cond2</tt> n'est même pas évaluée puisqu'on
+sait déjà que la conjonction des deux propositions ne peut pas être vraie).</li> 
   <li><code>cond1 || cond2</code> est vraie si
 <tt>cond1</tt> <b>ou</b> <tt>cond2</tt> est vraie (d'ailleurs, si
-<tt>cond1</tt> est vraie, <tt>cond2</tt> n'est m?me pas ?valu?e puisqu'on
-sait d?j? que la disjonction des deux propositions ne peut pas ?tre fausse).</li>
+<tt>cond1</tt> est vraie, <tt>cond2</tt> n'est même pas évaluée puisqu'on
+sait déjà que la disjonction des deux propositions ne peut pas être fausse).</li>
   <li><code>!cond</code> est vraie si
 <tt>cond</tt> ne l'est pas.</li>
-  <li>Quand les expressions deviennent compliqu?es, il est pr?f?rable d'ajouter
-quelques parenth?ses pour lever toute ambigu?t? sur l'ordre
-d'?valuation. N'h?sitez pas ? mettre suffisamment de parenth?ses pour la
+  <li>Quand les expressions deviennent compliquées, il est préférable d'ajouter
+quelques parenthèses pour lever toute ambiguïté sur l'ordre
+d'évaluation. N'hésitez pas à mettre suffisamment de parenthèses pour la
 rendre plus lisible.</li>
 </ul> 
 
-<p>Pour finir, il est possible de sp?cifier ce qu'il faut faire quand la
-condition est fausse, en utilisant la syntaxe suivante (?else? signifie
-?sinon? en anglais). Dans ce cas, l'instruction
-<code>aFaireSiLaConditionEstFausse()</code> ne sera ex?cut?e que si la
+<p>Pour finir, il est possible de spécifier ce qu'il faut faire quand la
+condition est fausse, en utilisant la syntaxe suivante («else» signifie
+«sinon» en anglais). Dans ce cas, l'instruction
+<code>aFaireSiLaConditionEstFausse()</code> ne sera exécutée que si la
 condition est fausse.</p>
  <pre><code class="code-container">if (<b>condition</b>) {
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiLaConditionEstVraie();</b>
@@ -106,13 +106,13 @@ condition est fausse.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>aFaireSiElleEstFausse();</b>
 }</code></pre>
 
-<h3>Objectif de cet exercice</h3><a name="Objectifs"/> Si la buggle est face ? un mur, il faut reculer d'un
+<h3>Objectif de cet exercice</h3><a name="Objectifs"/> Si la buggle est face à un mur, il faut reculer d'un
 pas; Sinon, il faut avancer d'un pas.
-Pour savoir si on est face ? un mur, il suffit d'utiliser la m?thode
-pr?d?finie des buggles nomm?e <code>estFaceMur()</code>. 
+Pour savoir si on est face à un mur, il suffit d'utiliser la méthode
+prédéfinie des buggles nommée <code>estFaceMur()</code>. 
 
 <p>Cet exercice est un peu particulier : il faut que votre programme fonctionne
-pour plusieurs buggles, chacune ?tant dans une situation initiale
-diff?rente. Le m?me code sera utilis? pour chacune d'entre elles.</p>
+pour plusieurs buggles, chacune étant dans une situation initiale
+différente. Le même code sera utilisé pour chacune d'entre elles.</p>
 
-<p>Quand votre programme fonctionne enfin, passez ? l'exercice suivant.</p>
+<p>Quand votre programme fonctionne enfin, passez à l'exercice suivant.</p>
