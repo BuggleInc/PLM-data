@@ -63,19 +63,26 @@ def init(){
     //case 8 => droite();avance();
 }
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-	var x =0
-	var c= getCouleurSol()
-  for(i<-0 to colors.length - 1){
-    if(c == colors(i)){x=i}
-  }
-  setCouleurBrosse(colors((rule(state)(x)(0))%colors.length));baisseBrosse();leveBrosse()
-  rule(state)(x)(1) match{
-  	case 0 => gauche();gauche();gauche();gauche();
-    case 1 => avance();
-    case 2 => gauche();avance();
-    case 4 => gauche();gauche();avance();
-    case 8 => droite();avance();
-  }
+	nbSteps=8432;
   state = rule(state)(x)(2)
   
 }
+
+
+
+def init() {
+    /* Your code comes here. */
+
+    /* Something like 
+     *   nbSteps = 42;
+     *   rule = Array( Array( Array(0,NOTURN,0), Array(0, NOTURN, 0) ) ); 
+     * but with possibly more states (ie, bigger second dimension), and more color (ie bigger third -- internal -- dimension) 
+     * and naturally, less boring than this turmite doing absolutely nothing (runs forward endlessly).
+     */
+
+    /* It can also be something like
+     *   nbSteps = 42;
+     *   initLangton("RL");
+     */
+
+    /* remember to send your best creations for inclusion in the gallery */
