@@ -8,12 +8,12 @@ override def run() {
 def allerN():Boolean = {
   var d = getDirection()
   if ((d == Direction.NORTH) && (!estFaceMur())) {return true}
-  else if (d == Direction.EAST) {
+  else if (d == Direction.WEST) {
     gauche()
     var r = estFaceMur()
     droite()
     return r}
- 	else if (d == Direction.WEST) {
+ 	else if (d == Direction.EAST) {
     droite()
     var r = estFaceMur()
     gauche()
@@ -32,8 +32,8 @@ def goN() = {
   var d = getDirection()
   d match {
     case Direction.NORTH => avance()
-    case Direction.EAST => gauche(); avance()
-    case Direction.WEST => droite(); avance()
+    case Direction.WEST => gauche(); avance()
+    case Direction.EAST => droite(); avance()
     case Direction.SOUTH => gauche(); gauche(); avance()
   }
 }
