@@ -30,35 +30,24 @@ def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
 
 def keepHandsOnSideWall(vir : Int) : Int = {
   var virage : Int = vir
-	/*if(estFaceMur())
+	if(estFaceMur())
   {
-    if(!mD())
+    if(virage<0)
     {
-      droite();virage=virage-1
-    }
-    else if(!mG())
-    {
-      gauche();virage=virage+1
+      if(!mG())
+      {
+        gauche();virage=virage+1
+      }
     }
     else
     {
-      gauche();gauche();virage=virage+2
-    }
-  }*/
-  if(virage<0)
-  {
-    if(!mG())
-    {
-      gauche();virage=virage+1
+      if(!mD())
+      {
+        droite();virage=virage-1
+      }
     }
   }
-  else
-  {
-  	if(!mD())
-    {
-      droite();virage=virage-1
-    }
-  }
+  
   avance()
   return virage
 }
