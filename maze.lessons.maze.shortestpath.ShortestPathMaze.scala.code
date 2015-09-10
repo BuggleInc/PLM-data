@@ -54,10 +54,16 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   casesAdjacentes(2) = false
   casesAdjacentes(3) = false
   //on analyse sa propre case
-  if (!aMurOuest(X,Y))
-    casesAdjacentes(0)=true
-  if (!aMurNord(X,Y))
-    casesAdjacentes(1)=true
+  if (X!=0)
+  {
+    if (!aMurOuest(X,Y))
+    	casesAdjacentes(0)=true
+  }
+  if (Y!=0)
+  {
+  	if (!aMurNord(X,Y))
+    	casesAdjacentes(1)=true
+  }
   //on analyse case à droite
   if (X!=getMondeLargeur())
   {
