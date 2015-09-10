@@ -11,7 +11,7 @@ override def run() {
         	{
           	marquerCasesAdjacentes(repererCasesAjdacentes(i,j),i,j)
         	}
-        valeur +=1
+        	valeur +=1
       }
     }
   }
@@ -48,16 +48,14 @@ def repererSortie() //repère sortie, y met 0
   }
 }
 
-def repererCasesAdjacentes(X:Int,Y:Int):Array= //repère cases adjacentes
+def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes
 {
   var casesAdjacentes:Array[Boolean]=(true,true,true,true)
   //on analyse sa propre case
   if (aMurOuest(X,Y))
-  {
     casesAdjacentes(0)=false
-    if (aMurNord(X,Y))
-      casesAdjacentes(1)=false
-  }
+  if (aMurNord(X,Y))
+    casesAdjacentes(1)=false
   //on analyse case à droite
   if (aMurOuest(X,Y))
   	casesAdjacentes(2)=false
