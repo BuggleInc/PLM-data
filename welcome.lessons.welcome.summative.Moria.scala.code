@@ -3,13 +3,12 @@ def sortirMoria(){
   while (getCouleurSol()!=Color.green){
     retourne()
     avance()
-    while (a==false){
+    while (a){
+      avance()
       if (estFaceMur()){
         a=true
-      }else{
-      	avance()
-        if (estSurBiscuit()){a=true}
       }
+      if (estSurBiscuit()){a=true}
     }
   	if (estFaceMur()){
       droite();avance();gauche();avance()
