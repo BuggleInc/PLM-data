@@ -23,7 +23,13 @@ override def run() {
   }
 
   while (!estSurBiscuit()){
+    while (!estFaceMur()){
+      avance()
+    }
     keepHandOnSideWall()
+    while (getDirection()!=Direction.NORTH){
+      droite()
+    }
   }
   prendBiscuit()
 }
