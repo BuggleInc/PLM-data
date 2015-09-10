@@ -1,4 +1,30 @@
 override def run() {
+  while(!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+
+def keepHandOnSideWall(){
+  gauche()
+  if (estFaceMur()){
+    droite()
+    if (estFaceMur()){
+      droite()
+      if (estFaceMur())
+      	droite()
+    }
+  avance()
+  }
+  else{
+    avance()
+  }
+}
+
+
+/*
+override def run() {
   var nordTrouve=false
   var virages=0
   while(!estSurBiscuit()){
@@ -91,4 +117,4 @@ def choix2(virageIn:Int): Int={
     virages=virages-1
   }
   return virages
-}
+}*/
