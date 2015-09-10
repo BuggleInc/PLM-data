@@ -1,15 +1,12 @@
-var mur=false
 def go(){
   droite()
   droite()
-  while(!estSurBiscuit() && mur==false){
-    if(estFaceMur()){
-      mur=true
+  while(!estFaceMur()){
+    if(estSurBiscuit()){
+  	  prendBiscuit()
+      return
     }
     else avance()
-  }
-  if(estSurBiscuit()){
-  	prendBiscuit()
   }
 }
 
