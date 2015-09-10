@@ -6,10 +6,12 @@ override def run() {
     
     do {
       angleSom = angleSom + keepHandOnSideWall(checkGauche())
-    }while(angleSom != 0 && !isOverBaggle && getDirection()!= memDir)
+    }while(angleSom != 0 && getDirection() != memDir)
     
-    setDirection(Direction.NORTH)
-    if(!isFacingWall()){forward()}
+    if (isDirectionFree(Direction.NORTH)){
+      setDirection(Direction.NORTH)
+      forward()
+    }
   }
   pickupBaggle()
 }
@@ -55,4 +57,13 @@ def checkGauche():Boolean ={
   var resultat = isFacingWall()
   right()
   return resultat
+}
+
+//3
+def isDirectionFree( dir: Direction ):Boolean ={
+  var memDir = getDirection()
+  setDirection(dir)
+  var res = isFacingWall()
+  setDirection(memDir)
+  return !res
 }
