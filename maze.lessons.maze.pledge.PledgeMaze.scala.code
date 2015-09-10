@@ -20,17 +20,17 @@ override def run() {
 
 def keepHandOnSideWall():Int={
   var virage = 0
-  gauche()
+  droite()
   if (estFaceMur())
   {
-    droite()
+    gauche()
     if (!estFaceMur())
     {
       avance()
     }
     else
     {
-      droite()
+      gauche()
       if (!estFaceMur())
       {
         avance()
@@ -38,7 +38,7 @@ def keepHandOnSideWall():Int={
       }
       else 
       {
-        droite()
+        gauche()
         avance()
         virage= virage +2
       }
@@ -48,7 +48,7 @@ def keepHandOnSideWall():Int={
   {
     avance()
   }
-  gauche()
+  droite()
   if (!estFaceMur)
   {
     avance()
@@ -56,7 +56,7 @@ def keepHandOnSideWall():Int={
   }
   else
   {
-    droite()
+    gauche()
   }
   return virage
 }
