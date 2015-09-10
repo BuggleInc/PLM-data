@@ -5,35 +5,41 @@ override def run() {
  
    while (!(getX() == 6) || !(getY() == 6) )
   {		
-  	if (y % 2 == 0 && x != 6)
-    	{
-        x =x +1
-      }
-    else if (y % 2 == 0 && x == 6)
-    		{
-          y = y + 1
-        }
-    				else if ( y % 2 == 1 && x != 0)
-    				{
-              x = x - 1
-            }
-    						else 
-    						{
-                  y = y -1
-                }
+     
+  	while ( x !=6)
+  			{
+          x = x + 1
+          ecritMessage(compteur)
+    compteur = compteur + 1
+		
+    setPos(x,y)
     
-   
-  
+        } 
+    if ( !(getX() == 6) || !(getY() == 6) )
+    {
+     ecritMessage(compteur)
+    compteur = compteur + 1
+    y = y + 1
+      setPos(x,y)}
     
-  		
-  	
-    
+    	if ( !(getX() == 6) || !(getY() == 6) )
+    {
+    while ( x != 0 )
+  			{
+          x= x - 1
     ecritMessage(compteur)
     compteur = compteur + 1
 		
     setPos(x,y)
     
-  	
+        }  
+		
+    
+    ecritMessage(compteur)
+        compteur = compteur + 1
+    y = y + 1
+      setPos(x,y)}
+  		
+   	
   }
-  
 ecritMessage(compteur)}
