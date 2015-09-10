@@ -28,33 +28,20 @@ def min(a:Int,b:Int):Int = {
 }
 
 def remplir(x:Int,y:Int) {
-  if (getIndication(x,y)>=9999) {
-    if (!aMurNord(x,y) && !aMurOuest(x,y)) {
-      setIndication(x,y,min(getIndication(x,y-1),getIndication(x-1,y))+1)
-    }
-    if (!aMurNord(x,y)) {
-      setIndication(x,y,getIndication(x,y-1)+1)
-    }
-    if (!aMurOuest(x,y)) {
-      setIndication(x,y,getIndication(x-1,y)+1)
-    }
-  }
-  if (!aMurNord(x,y) && getIndication(x,y-1)>getIndication(x,y)) {
-    setIndication(x,y-1,getIndication(x,y)+1)
-  }
-  if (!aMurOuest(x,y) && getIndication(x-1,y)>getIndication(x,y)) {
-    setIndication(x-1,y,getIndication(x,y)+1)
-  }
-  if (y-1>=0) {
+  if(!aMurNord(x,y)) {
+    setIndication(x,y-1,min(getIndication(x,y-1),getIndication(x,y)+1))
     remplir(x,y-1)
   }
-  if (y+1<=getMondeHauteur()) {
-    remplir(x,y+1)
-  }
-  if (x-1>=0) {
+  if(!aMurOuest(x,y)) {
+    setIndication(x-1,y,min(getIndication(x-1,y),getIndication(x,y)+1))
     remplir(x-1,y)
   }
-  if (x+1<=getMondeLargeur()) {
+  if(!aMurNord(x,y+1)) {
+    setIndication(x,y+1,min(getIndication(x,y+1),getIndication(x,y)+1))
+    remplir(x,y+1)
+  }
+  if(!aMurOuest(x+1,y)) {
+    setIndication(x+1,y,min(getIndication(x+1,y),getIndication(x,y)+1))
     remplir(x+1,y)
   }
 }
