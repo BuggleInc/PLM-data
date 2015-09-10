@@ -1,6 +1,6 @@
 override def run() {
   var sommeAngle=0
-  do { keepHandOnSideWall()
+  do { var sommeAngle= keepHandOnSideWall(sommeAngle)
      }
     while (sommeAngle !=0) 
  
@@ -10,8 +10,8 @@ override def run() {
   prendBiscuit()
 }
 
-def keepHandOnSideWall() {
-  
+def keepHandOnSideWall(sa:Int) :Int= {
+  var sommeAngle=sa
   gauche()
   sommeAngle = sommeAngle +1
   while (estFaceMur()) {
@@ -19,6 +19,7 @@ def keepHandOnSideWall() {
     sommeAngle = sommeAngle -1
   }
   avance()
+  return sommeAngle
   
 }
 
