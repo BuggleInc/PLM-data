@@ -1,12 +1,16 @@
 override def run(){
-  posi()
+  reperage()
 }
-def posi():Integer,Integer={
+def reperage(){
+  var pox=0
+  var poy=0
   for (x<-0 to getMondeLargeur()-1){
   	for (y<-0 to getMondeHauteur()-1){
       if (aBiscuit(x,y)==true){
-        return x,y
+        	pox=x
+        	poy=y
       }
     }
   }
+  setIndication(pox,poy,0)
 }
