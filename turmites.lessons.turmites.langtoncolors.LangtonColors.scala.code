@@ -1,2 +1,26 @@
 def step(rule:Array[Char], colors:Array[Color]) {
+  
+	var color = getCouleurSol()
+  
+  for ((c, i) <- colors.zipWithIndex){
+    if (color == c){
+      var index = i
+    }
+  }
+  
+  rule(i) match{
+    case 'R' =>
+    	right()
+    case 'L' =>
+    	left()
+  }
+  
+  if (color == Color.white){
+    setBrushColor(Color.black)
+  }else{
+    setBrushColor(Color.white)
+  }
+  brushDown()
+  brushUp()
+  forward()
 }
