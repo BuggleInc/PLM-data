@@ -1,13 +1,18 @@
 override def run() {
-  
-    while(estSurBiscuit==false){
-    ouAvance() match{
-      case 0 => avance()
-      case 1 => avance()
-      case 2 => avance()
-      case 3 => droite();avance()
-    }
+  while (estFaceMur==false){
+    avance()
   }
+  droite()
+  
+  
+  while(estSurBiscuit==false){
+  	ouAvance() match{
+    	case 0 => avance()
+    	case 1 => avance()
+    	case 2 => avance()
+    	case 3 => droite();avance()
+  	}
+	}
   
   prendBiscuit
 }
