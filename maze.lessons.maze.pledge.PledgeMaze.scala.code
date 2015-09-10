@@ -1,0 +1,27 @@
+override def run() {
+  while((getY() != 0) || (getY() != 19)){
+    
+  }
+  while(!estSurBiscuit()){
+  	GaucheMur()
+  prendBiscuit()
+  }
+}
+
+def GaucheMur(){
+  var sommeAngle = 0
+  gauche()
+  sommeAngle = sommeAngle-1
+  if(estFaceMur){
+    droite()
+    sommeAngle = sommeAngle+1
+  	while(estFaceMur()){
+    	droite()
+      sommeAngle = sommeAngle+1
+  	}
+    avance()
+  }
+  else{
+      avance()
+  }
+}
