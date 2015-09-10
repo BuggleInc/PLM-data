@@ -1,34 +1,34 @@
 override def run() {
+  
   while (getY()>0 && !isOverBaggle())
   	toTheNorthWall()
+  
   while(!isOverBaggle){
     var angleSom = 0
     var memDir = getDirection()
+    
     do {
       angleSom = angleSom + keepHandOnSideWall()
     }while(angleSom != 0 && !isOverBaggle && getDirection()!= memDir)
     
     setDirection(Direction.NORTH)
   }
-  
   pickupBaggle()
 }
 
-def keepHandOnSideWall(): Int = {
+//1
+def keepHandOnSideWall(murGauche : Boolean): Int = {
   
-  //S'il n'y a pas de mur a gauche, en cherche un
-  while(!checkGauche){
-     var de = random3()
-    
-    de match{
-      case 0 => if (!isFacingWall()) {forward()};
-      case 1 => left()
-      case 2 => right()
+  //S'il n'y a pas de mur a gauche, en cherche un devant nous
+  if (!murGauche){
+    while (!isFacingWall())
+    	forward()
+    right()
   }
   
   var angleAbs = 0
   
-  //S'il y a un mur en face on tourne ? droite
+  //S'il y a un mur en face on tourne a droite
   if (isFacingWall()){
     right()
     angleAbs = angleAbs +1
@@ -40,37 +40,17 @@ def keepHandOnSideWall(): Int = {
     angleAbs = angleAbs -1
     
     //Si il y a un mur on se remet droit pour le prochain
-    if (isFacingWall){
+    if (isFacingWall()){
       right()
       angleAbs = angleAbs +1
       
     }
   }
-  
   return angleAbs
 }
 
-def toTheNorthWall(){
-  /* keepHandOnSideWall modifiee pour aller au Nord si possible*/
-  
-  if (getDirection() == Direction.NORTH && !isFacingWall()){
-    forward()
-  }
-  
-  else if (isFacingWall()){
-    right()
-  
-  }else{
-    forward()
-    left()
-    
-    if (isFacingWall){
-      right()
-      
-    }
-  }
-}
 
+//2
 def checkGauche(){
   /*Regarde s'il y a un mur ? gauche, si oui renvoie true*/
   left()
