@@ -1,6 +1,21 @@
-def trouveSortie(): (Int, Int) = {
+def trouveSortie(): Array[Int] = {
+  var result: Array[Int] = new Array[Int](2)
   
+  var xMax:Int = getMondeLargeur() - 1
+  var yMax:Int = getMondeHauteur() - 1
+  
+  for (x <- 0 to xMax) {
+    for (y <- 0 to yMax)) {
+      if (aBiscuit(x, y)) {
+        result(0) = x; result(1) = y
+        
+        return result
+      }
+    }
+  }
 }
 override def run() {
+  var positionSortie: Array[Int] = trouveSortie()
   
+  setIndication(positionSortie(0), positionSortie(1), 0)
 }
