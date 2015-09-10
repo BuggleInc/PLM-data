@@ -1,10 +1,9 @@
 override def run() {
-  whoNeedsAMap(ilEstOuLeBiscuit())
-  recule()
+  whoNeedsAMap(ilEstOuLeBiscuit1(),ilEStOuLeBiscuit2(ilEstOuLeBiscuit1())) // oui c'est moche //
 }
 
 
-def whoNeedsAMap((x,y):Tuple { // marque le monde (accessible) //
+def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
   if (getIndication(x+1,y) > getIndication(x,y) + 1) {
     if (!aMurOuest(x+1,y)) {
       setIndication(x+1,y,getIndication(x,y) + 1)
@@ -32,13 +31,21 @@ def whoNeedsAMap((x,y):Tuple { // marque le monde (accessible) //
 }
 
 
-def ilEstOuLeBiscuit() { // trouve l'arriv?e et la marque //
+def ilEstOuLeBiscuit1() { // trouve l'arriv?e et la marque //
   for (x <- 0 to getMondeLargeur() - 1) {
     for (y <- 0 to getMondeHauteur() - 1) {
       if (hasBaggle(x,y)) {
         setIndication(x,y,0)
-        return (i,j)
+        return x
       }
+    }
+  }
+}
+
+def ilEstOuLeBiscuit2(x:Int) {
+  for (y <- 0 to getMondeHauteur() - 1) {
+    if (hasBaggle(x,y)) 
+    	return y
     }
   }
 }
