@@ -1,5 +1,6 @@
 override def run() {
-  val x,y = positionSortie()
+  val x = positionSortieX()
+  val y = positionSortieY()
   ecrire(x,y,0)
   while(!estSurBiscuit) choix(getX(),getY())
   prendBiscuit()
@@ -32,13 +33,23 @@ def choix(x:Int,y:Int) {
   avance()
 }
 
-def positionSortie() :Int,Int ={
+def positionSortieX() :Int ={
   for (i<- 0 to getMondeLargeur() -1) {
     for (j<-0 to getMondeHauteur() -1) {
-      if (aBiscuit(i,j)) return (i,j)
+      if (aBiscuit(i,j)) return (i)
     }
   }
 }
+
+def positionSortieY() :Int ={
+  for (i<- 0 to getMondeLargeur() -1) {
+    for (j<-0 to getMondeHauteur() -1) {
+      if (aBiscuit(i,j)) return (j)
+    }
+  }
+}
+
+
 
 def ecrire(x:Int,y:Int,i:Int) {
   setIndication(x,y,i)
