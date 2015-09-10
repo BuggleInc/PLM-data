@@ -10,21 +10,29 @@ def timeToBreakOut() {
   val y:Int = getY()
   val b:Int = getIndication(x,y)
   if (x < getMondeLargeur() - 1 && getIndication(x+1,y) == b - 1) {
-    setDirection(Direction.EST)
-    avance()
-    timeToBreakOut()
+    if (!aMurOuest(x+1,y)) {
+   	  setDirection(Direction.EST)
+    	avance()
+   	  timeToBreakOut()
+    }
   } else if (x > 0 && getIndication(x-1,y) == b - 1) {
-    setDirection(Direction.OUEST)
-    avance()
-    timeToBreakOut()
+    if (!aMurOuest(x,y)) {
+    	setDirection(Direction.OUEST)
+    	avance()
+    	timeToBreakOut()
+    }
   } else if (y > 0 && getIndication(x,y-1) == b - 1) {
-    setDirection(Direction.NORD)
-    avance()
-    timeToBreakOut()
+    if (!aMurNord(x,y)) {
+    	setDirection(Direction.NORD)
+    	avance()
+    	timeToBreakOut()
+    }
   } else if (y < getMondeHauteur() - 1 && getIndication(x,y+1) == b - 1) {
-    setDirection(Direction.SUD)
-    avance()
-    timeToBreakOut()
+    if (!aMurNord(x,y+1)) {
+    	setDirection(Direction.SUD)
+    	avance()
+    	timeToBreakOut()
+    }
   }
   prendBiscuit()
 }
