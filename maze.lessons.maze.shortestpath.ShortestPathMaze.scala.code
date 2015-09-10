@@ -17,3 +17,25 @@ def trouveBiscuit():(Int,Int)={
   return (9999,9999) //cas où il n'y a pas de biscuit
 }
 
+def indiqueBiscuit():Unit={
+  var (x,y)=trouveBiscuit()
+  setIndication(x,y,0)
+}
+
+def indiqueLeReste(x,y):Unit={
+  if (aBiscuit(x,y)){
+    (x,y) match {
+      //au dessus
+      //case _,0 => rien
+      //case x,y if (y!=0)&&aMurNord(x,y) =>rien
+      case x,y if (y!=0)&&(!aMurNord(x,y))=> if (getIndication(x,y-1))!=9999 {indiqueLeReste(x,y-1)}
+      //a gauche
+      //case 0,_ => rien
+      case x,y if x!=0 => if (getIndication(x-1,y))!=9999 {indiqueLeReste(x-1,y)}
+      //a droite
+      //case 6,_ => rien
+      //case x,y
+      case _,_ =>in
+    }
+  }
+}
