@@ -8,7 +8,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     var c = getCouleurSol()
   var i = indexOfValue(colors,c)
   val e = rule(state)(i)
-  var co = Color.black
+  var co:Color = null
   e(1) match {
     case 0 => co = colors(e(0));state = e(2)
     case 1 => co = colors(e(0));state = e(2);avance()
