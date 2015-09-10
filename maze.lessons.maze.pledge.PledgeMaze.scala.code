@@ -29,7 +29,22 @@ def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
 
 def keepHandsOnSideWall(vir : Int) : Int = {
   var virage : Int = vir
-  
+  if(!mD())
+  {
+    droite();avance();virage = virage - 1
+  }
+  else if(!mG())
+  {
+    gauche();avance();virage = virage + 1
+  }
+  else if(!estFaceMur())
+  {
+    avance()
+  }
+  /*else
+  {
+    gauche;gauche();avance();virage = virage + 2
+  }*/
   return virage
 }
 
