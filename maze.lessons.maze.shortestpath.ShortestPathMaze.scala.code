@@ -1,31 +1,36 @@
 def testV(x:Int,y:Int):Boolean = {return (x <= getMondeLargeur() -1 && y <= getMondeHauteur() -1)} //Vérifie si les coordonnées (x,y) sont valides
 
 def casP(x:Int,y:Int,k:Int) { //Numérote les cases adjacentes, relance sur ces mêmes cases
+  var m = 0
   println("Coucou")
   if (testV(x,y-1)) {
     println("P-e")
     if (!aMurNord(x,y)) {
-    setIndication(x,y-1,Math.min(k+1,getIndication(x,y-1)))
-    casP(x,y-1)
+      m=Math.min(k+1,getIndication(x,y-1))
+    setIndication(x,y-1,m)
+    casP(x,y-1,m+1)
     }
   }
   if (testV(x-1,y)) {
     println("Sans doute")
     if (!aMurOuest(x,y)) {
-        setIndication(x-1,y,Math.min(k+1,getIndication(x-1,y)))
-      casP(x-1,y)
+      m=Math.min(k+1,getIndication(x-1,y))
+        setIndication(x-1,y,m)
+      casP(x-1,y,m+1)
     }
   }
   if (testV(x,y+1)) {
     if (!aMurNord(x,y+1)) {
-      setIndication(x,y+1,Math.min(k+1,getIndication(x,y+1)))
-      casP(x,y+1)
+      m=Math.min(k+1,getIndication(x,y+1))
+      setIndication(x,y+1,m)
+      casP(x,y+1,k)
     }
   }
   if (testV(x+1,y)) {
     if (!aMurOuest(x+1,y)) {
-      setIndication(x,y+1,Math.min(k+1,getIndication(x+1,y)))
-      casP(x+1,y)
+      m=Math.min(k+1,getIndication(x+1,y)
+      setIndication(x,y+1,m))
+      casP(x+1,y,m+1)
     }
   }                                                  
 }
