@@ -1,6 +1,6 @@
 override def run() {
-  keepHandOnSideWall()
-  prendBiscuit()
+  setDirection(Direction.SOUTH)
+  chercherNord()
 }
 
 
@@ -18,6 +18,26 @@ def keepHandOnSideWall(){
       }
       else{
         avance()
+      }
+    }
+  }
+}
+
+def chercherNord(){
+  while(getX()!=0){
+    if(!estFaceMur()){
+      avance()
+    }
+    else{
+      droite()
+      if(!estFaceMur()){
+        avance();gauche()
+      }
+      else{
+        gauche();gauche();
+        if(!estFaceMur){
+          avance();gauche()
+        }
       }
     }
   }
