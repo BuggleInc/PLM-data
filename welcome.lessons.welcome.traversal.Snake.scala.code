@@ -1,0 +1,21 @@
+override def run() {
+  baisseBrosse()
+  for (i<-0 to 2){
+  avance(6);gauche();avance();gauche();avance(6);
+  droite();avance();droite()
+  }
+  avance(6)
+}
+
+def arriver(){
+	if (estFaceMur() && getDirection() == Direction.EST){
+    gauche();
+    if (estFaceMur()){
+      droite()
+      return true
+    }
+    else{
+      return false
+    }
+  }
+}

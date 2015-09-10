@@ -1,0 +1,48 @@
+override def run() {
+  var x = getMondeHauteur();
+  var tab = new Array[Color](x);
+  for (i<-1 to (x-1)){
+ 	  remplirTableauh(tab);
+  	seReplacer();
+  	colorier(tab)
+  }
+  avance(x-1);
+}
+
+def remplirTableaub(t:Array[Color]){
+  var x = getMondeHauteur();
+  for (i<- 0 to x-2){
+    t(i+1)=getCouleurSol();
+    avance();
+  }
+  t(0)=getCouleurSol();
+}
+
+def remplirTableauh(t:Array[Color]){
+  var x = getMondeHauteur();
+  t(x-1)=getCouleurSol();
+  for (i<- 1 to x-1){
+    avance();
+    t(i-1)=getCouleurSol();
+  }
+}
+
+def seReplacer(){
+  var x = getMondeHauteur();
+  recule(x-1)
+  gauche();avance();droite();
+}
+
+def colorier(t:Array[Color]){
+  var x = getMondeHauteur();
+  for (i<-0 to x-2){
+  	setCouleurBrosse(t(i));
+    baisseBrosse();
+    leveBrosse();
+    avance();
+  }
+  setCouleurBrosse(t(x-1));
+  baisseBrosse();
+  leveBrosse();
+  recule(x-1)
+}

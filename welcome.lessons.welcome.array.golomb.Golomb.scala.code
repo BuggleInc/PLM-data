@@ -1,0 +1,26 @@
+def golomb(num:Int): Int = {
+  var a = new Array[Int](2*(num+1))
+  
+  for (t<-0 to a.length-1){
+    a(t)=0
+  }
+  
+  a(0)=0
+  a(1)=1
+  a(2)=2
+  a(3)=2
+  
+	var rang = 3
+  var valeur = 3
+	var aMettre = 0
+  
+  while(a(num)==0){
+    aMettre = a(valeur)
+    for (k<-rang+1 to rang+aMettre){
+       a(k)=valeur
+    }
+    rang = rang + aMettre
+    valeur = valeur + 1
+  }
+	return a(num)
+}

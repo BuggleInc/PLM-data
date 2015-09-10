@@ -1,0 +1,59 @@
+override def run() {
+  faireCote()
+  gauche();avance(4);droite()
+  faireCote();
+  avance(4);
+}
+
+def faireCoteGauche(c:Color) {
+  gauche();avance();
+  setCouleurBrosse(c)
+  baisseBrosse()
+	leveBrosse()
+  recule();
+  droite();
+  avance();
+  baisseBrosse()
+	leveBrosse();
+  recule(); 
+}
+
+def faireCoteDroit(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+	leveBrosse()
+  avance();
+  gauche();
+  avance();
+  baisseBrosse()
+	leveBrosse();
+  recule();
+  droite();
+  recule();
+}
+
+def faireMotif(){
+  faireCoteGauche(Color.RED);
+  avance(2);
+  faireCoteDroit(Color.BLUE);
+  gauche();avance(2);droite();
+  faireCoteGauche(Color.GREEN);
+  recule(2);
+  faireCoteDroit(Color.YELLOW);
+  avance(3);droite();avance(2);gauche();recule(3);
+}
+
+
+def faireCote(){
+  faireMotif();
+  avance(4);
+  faireMotif();
+  recule(4);
+}
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+override def run() {
+  for(i<-1 to 9){
+    faireEtage();
+  }
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+	leveBrosse()
+  avance();gauche();avance()
+  baisseBrosse();leveBrosse()
+  recule();droite();avance()
+  baisseBrosse();leveBrosse()	
+  recule(2)
+}
+
+
+def faireCote(c:Color) {
+  avance()
+  faireV(c)
+  avance();avance();avance()
+  gauche()
+}
+
+def maison() {
+  faireCote(Color.YELLOW);
+  faireCote(Color.RED);
+  faireCote(Color.BLUE);
+  faireCote(Color.GREEN);
+  
+}
+
+def faireEtage() {
+  for (i<-1 to 9){
+    maison();
+    for(j<-1 to 5){
+      avance();
+    }
+  }
+  for (k<-1 to 45){
+    recule();    
+  }
+  gauche();avance(5);droite();
+}

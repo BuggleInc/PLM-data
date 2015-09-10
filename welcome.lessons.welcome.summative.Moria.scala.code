@@ -1,0 +1,40 @@
+def chercher_buggle(){
+  while(!estSurBiscuit() && !estFaceMur()){
+    avance()
+  }
+  if(!estFaceMur){
+ 	  prendBiscuit();
+  	droite();droite()
+  }
+  while(!estSurBiscuit() && !estFaceMur()){
+    avance()
+  }
+  if(porteBiscuit()){
+  	recule();
+  	poseBiscuit();droite();droite()
+  }
+}
+
+  
+droite();droite()
+chercher_buggle()
+
+while(!estFaceMur){
+  avance()
+  chercher_buggle()
+}
+if(estSurBiscuit()){
+  prendBiscuit();
+  droite();droite()
+  while(!estSurBiscuit()){
+    avance()
+	}
+  recule();
+  poseBiscuit();
+  droite();droite();
+  while(!estFaceMur()){
+    avance()
+  }
+}
+
+droite();avance();gauche();avance()
