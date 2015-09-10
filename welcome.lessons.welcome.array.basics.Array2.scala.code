@@ -2,12 +2,11 @@ override def run() {
   var H: Int = getMondeHauteur()
   var L: Int = getMondeLargeur()
   var T : Array[Color] = definirCouleurs()
-  val D = litMessage().toInt //Transforme le caractere en entier !
   definirCouleurs()
   recule(H-1)
   seDeplacer()
   for (i <- 0 to getMondeLargeur()-2){
-    faireLigneCouleurs(T:Array[Color],D:Int)
+    faireLigneCouleurs(T:Array[Color])
   }
   
 }
@@ -33,11 +32,11 @@ def definirCouleurs():Array[Color]={
   return T
 }
 
-def faireLigneCouleurs(T:Array[Color], D:Int){
+def faireLigneCouleurs(T:Array[Color]){
+  val D = litMessage().toInt //Transforme le caractere en entier !
   for (i <- 0 to getMondeLargeur()-1){
     setCouleurBrosse(T((i+D)%getMondeHauteur()))
     marquerSol()
     avance()
   }
-  seDeplacer()
 }
