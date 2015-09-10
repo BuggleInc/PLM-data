@@ -11,10 +11,6 @@ override def run() {
       virage = keepHandsOnSideWall(virage)
     }while(virage!=0)
     ecritMessage("poulet")
-    if(gASuivre())
-    {
-      gauche();virage=virage+1;avance()
-    }
   }
   prendBiscuit()
   
@@ -31,18 +27,6 @@ def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
   droite();d= estFaceMur();gauche()
   return d
 }
-
-def gASuivre() : Boolean = {
-  var res = false
-  gauche()
-  if(!estFaceMur())
-  {
-    avance();gauche();res=estFaceMur()
-    droite();recule();droite()
-  }
-  return res
-}
-
 
 def keepHandsOnSideWall(vir : Int) : Int = {
   var virage : Int = vir
