@@ -1,11 +1,12 @@
 override def run() {
   var somAng:Int=4
-  var Dirr=0
+  var Dirr:Int=0
   
   while(estSurBiscuit==false){
-    if (somAng==6||somAng==2){
+    if (somAng==8||somAng==0){
       somAng=4
-      Dirr=1
+      if (Dirr==0){Dirr=1}
+      else (Dirr==1){Dirr=0}
     }
     
   	ouAvance(Dirr) match{
@@ -22,18 +23,33 @@ override def run() {
 }
 
 
-def ouAvance(Dirr:Int):Int ={  
-  if (getDirection()==Direction.NORD && estFaceMur==false){return 4}
-  if (getDirection()==Direction.NORD && estFaceMur==true){return 5}
-  gauche()
-  if (estFaceMur==false){ return 0 }
-  else{
-    droite()
-    if(estFaceMur==false){ return 1 }
-    else {
-      droite()
-      if (estFaceMur==false){ return 2 }
-      else{return 3}
-    }
+def ouAvance(Dirr:Int):Int ={ 
+  if (Dirr == 0){
+    if (getDirection()==Direction.NORD && estFaceMur==false){return 4}
+    if (getDirection()==Direction.NORD && estFaceMur==true){return 5}  
+      gauche()
+  	if (estFaceMur==false){ return 0 }
+  	else{
+    	droite()
+    	if(estFaceMur==false){ return 1 }
+    	else {
+      	droite()
+     	 if (estFaceMur==false){ return 2 }
+      	else{return 3}
+    	}
+ 		}
   }
+  if (Dirr==1){
+    gauche()
+    if (estFaceMur==false){ return 0 }
+    else{
+      droite()
+      if(estFaceMur==false){ return 1 }
+      else {
+        droite()
+        if (estFaceMur==false){ return 2 }
+        else{return 3}
+      }
+    }
+  }  
 }
