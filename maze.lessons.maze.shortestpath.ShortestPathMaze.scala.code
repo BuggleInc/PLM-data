@@ -12,9 +12,16 @@ def reperage(){
       }
     }
   }
-  setIndication(pox,poy,0)
 }
 
 def suivant(pox:Int,poy:Int,i:Int){
-  
+  setIndication(pox,poy,i)
+  if (pox==0){}
+  if (poy==0){}
+  if (pox==getMondeLargeur()-1){}
+  if (poy==getMondeHauteur()-1){}
+  if (aMurOuest(x,y))suivant(pox-1,poy,i+1)
+  if (aMurOuest(x-1,y))suivant(pox+1,poy,i+1)
+  if (aMurNord(pox,poy-1)){suivant(pox,poy-1,i+1)}
+  if (aMurNord(pox,poy)==false){suivant(pox,poy+1,i+1)}
 }
