@@ -12,8 +12,8 @@ def max2Value(nums:Array[Int]): Int = {
        rep = nums(i)
     }
   }
- 	// le prog est mal foutu
-  //if(maxi==31){rep=31}
+ 	
+  if(arrayCountX(nums, maxi)>1){rep=maxi}
   return rep
 }
 
@@ -25,6 +25,18 @@ def maxValue(nums:Array[Int]): Int = {
   for (i <- 1 to last){
     if (nums(i)> rep){
        rep = nums(i)
+    }
+  }
+   
+  return rep
+}
+
+def arrayCountX(nums:Array[Int],x:Int): Int = {
+  var rep = 0
+  var last = nums.length -1
+  for (i <- 0 to last){
+    if (nums(i)== x){
+       rep = rep+1
     }
   }
    
