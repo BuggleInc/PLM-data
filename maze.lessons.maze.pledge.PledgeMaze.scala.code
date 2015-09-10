@@ -1,4 +1,5 @@
 var sommeAngle:Int = 0;
+var gau:Boolean = true;
 
 override def run() {
   while ( !estSurBiscuit() ){
@@ -42,21 +43,26 @@ def isDirectionFree2(dir:Direction) : Boolean = {
   }
 }
 
+
 def keepHandOnSideWall() {
-  if ( !isDirectionFree2(Direction.OUEST) && !estFaceMur() ){
-    avance();
-  } else {
+  if ( estFaceMur() && isDirectionFree2(Direction.EST) ){
     droite();
-    if ( estFaceMur() ){
-      gauche();
-    }
-    if ( !estFaceMur() ){
-      avance();
-      sommeAngle -= 1;
-    } else {
-      gauche();
-      sommeAngle += 1;
-      keepHandOnSideWall();
-    }
+    avance();
+    sommeAngle -= 1;
+  } else if ( !estFaceMur() && isDirectionFree2(Direction.OUEST) ){
+    gauche();
+    avance();
+    sommeAngle += 1;
+  } else if ( !isDirectionFree(Direction.NORTH) && !isDirectionFree2(Direction.EST) ){
+    retourne();
+  } else if ( estFaceMur() && !isDirectionFree2(Direction.OUEST) && !gau ){
+    var gau:Boolean = isDirectionFree2(Direction.OUEST);
+    gauche();
+    avance();
+    gauche();
+    avance();
+    sommeAngle += 2;
+  } else { 
+    avance();
   }
 }
