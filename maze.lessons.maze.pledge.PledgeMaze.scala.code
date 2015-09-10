@@ -1,4 +1,6 @@
-def keepHandOnSideWall = {gauche(); if (!estFaceMur) {avance()} else {while(estFaceMur()) {droite};avance()} }
+var sommeAngle = 0
+
+def keepHandOnSideWall = {gauche();sommeAngle+=1; if (!estFaceMur) {avance()} else {while(estFaceMur()) {droite;sommeAngle-=1};avance()} }
 
 override def run() { 
  
