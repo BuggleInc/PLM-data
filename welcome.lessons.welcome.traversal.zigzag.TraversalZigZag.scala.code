@@ -18,7 +18,10 @@ def positionFinale(): Boolean ={
 
 def parcours(){
   var dir : Int = 1
-  if (estFaceMur() || estDosMur()){
+  if (estFaceMur() && dir==1) {
+    setPos(getX() , getY()+1)
+    dir = -1*dir
+  } else if (estDosMur() && dir == -1){
     setPos(getX() , getY()+1)
     dir = -1*dir
   } else{setPos(getX() + dir, getY())}
