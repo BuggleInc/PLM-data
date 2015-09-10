@@ -1,5 +1,5 @@
 override def run() {
-  setDirection(Direction.SOUTH)
+  setDirection(Direction.NORD)
   chercherNord()
 }
 
@@ -24,18 +24,18 @@ def keepHandOnSideWall(){
 }
 
 def chercherNord(){
-  while(getX()!=0){
+  while(getY()!=0){
     if(!estFaceMur()){
       avance()
     }
     else{
-      droite()
-      if(!estFaceMur()){
-        avance();gauche()
+      gauche();
+      if(!estFaceMur){
+        avance();droite()
       }
       else{
-        gauche();gauche();
-        if(!estFaceMur){
+        droite();droite()
+        if(!estFaceMur()){
           avance();gauche()
         }
       }
