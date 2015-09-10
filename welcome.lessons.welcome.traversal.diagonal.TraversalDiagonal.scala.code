@@ -9,22 +9,21 @@ override def run() {
   yy+=1
   setPos(x,y)
   while (getX()!=getMondeLargeur()-1){
-    cpt+=1
-    ecritMessage(cpt)
-    if (yy!=getMondeHauteur()-1){
-      yy+=1
-      x=0
-      setPos(x,yy)
-      y=yy
-    }
-    while (y!=0){
+    if (y!=0){
       cpt+=1
       ecritMessage(cpt)
       x+=1
       y-=1
       setPos(x,y)
+    } else if(yy!=getMondeHauteur()-1){
+      cpt+=1
+      ecritMessage(cpt)
+      x=0
+      yy+=1
+      y=yy
+      setPos(x,y)
+    } 
     }
-  }
   x=1
   y=getMondeHauteur()-1
   setPos(x,y)
