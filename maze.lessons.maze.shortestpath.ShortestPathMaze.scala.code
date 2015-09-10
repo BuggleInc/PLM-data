@@ -59,41 +59,25 @@ def suitChemin(x:Int,y:Int)
   while(!estSurBiscuit())
   {
     var p = getIndication(x,y)
-    if (y>0)
-    {
-      var h = getIndication(x,y-1)
-    }
-    if ((y+1)<getMondeHauteur())
-    {
-      var b = getIndication(x,y+1)
-    }
-    if (x>0)
-    {
-      var g = getIndication(x-1,y)
-    }
-    if ((x+1)<getMondeLargeur())
-    {
-      var d = getIndication(x+1,y)
-    }
-    if (h+1==p)
+    if (y>0 && (getIndication(x,y-1))+1==p)
     {
       setDirection(Direction.NORD)
       avance()
     }
-    else if(b+1==p)
+    else if ((y+1)<getMondeHauteur() && (getIndication(x,y+1)+1)==p)
     {
       setDirection(Direction.SUD)
       avance()
     }
-    else if(g+1==p)
+    else if ((x+1)<getMondeLargeur() && (getIndication(x+1,y)+1)==p)
     {
-      setDirection(Direction.OUEST)
+      setDirection(Direction.EST)
       avance()
     }
     else
     {
-     setDirection(Direction.EST)
-     avance()
+      setDirection(Direction.OUEST)
+      avance()
     }
   }
 }
