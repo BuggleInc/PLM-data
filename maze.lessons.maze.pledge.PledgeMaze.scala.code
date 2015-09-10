@@ -19,19 +19,18 @@ override def run() {
 
 
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(): Int={
   
   
-  var Angleabs
+  var Angleabs=0
   if(estFaceMur){
     droite()
+    Angleabs=Angleabs+1
   } else {
     avance()
     gauche()
 
-    if(estFaceMur){
-      droite()
-      Angleabs=Angleabs+1
+
     }
   }
   return Angleabs
