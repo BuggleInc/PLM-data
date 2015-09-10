@@ -2,7 +2,7 @@ var sommeAngle = 0
 
 def keepHandOnSideWall = {gauche();sommeAngle+=1; if (!estFaceMur) {avance()} else {while(estFaceMur()) {droite;sommeAngle-=1};avance()} }
 
-def isDirectionFree(dir) = {var dirAct = getDirection();
+def isDirectionFree(dir:Direction) = {var dirAct = getDirection();
                             setDirection(dir);
                             var mur = estFaceMur();
                             setDirection(dirAct);
