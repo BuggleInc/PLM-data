@@ -4,14 +4,14 @@ override def run() {
   while (!positionFinale()){
     ecritMessage(cpt)
     cpt=cpt+1
-    if (murGauche()){
-      if (murFace()){
-        setPos(getMondeLargeur()-1,getY()+1)
-      }else{
-      	setPos(getY()+1,0)
-      }
+    if (murFace()){
+        setPos(getMondeLargeur()-1,getX()+1)
     }else{
-    	setPos(getX()-1,getY()+1)
+    	if (murGauche()){
+      	setPos(getY()+1,0)
+      }else{
+        setPos(getX()-1,getY()+1)
+      }
    	}
   }
 }
