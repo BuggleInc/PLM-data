@@ -1,24 +1,13 @@
-
 override def run() {
-  var comp = 0;
-  var col = 1;
-  var lign = 0;
-  while (!(positionFinale())) {
-    if (getY == 0) {
-      lign = lign +1
-    } else {
-      col = col +1;
-    }
-    setPos(col-lign,lign);  
-  }
-}
-
-
-
-def positionFinale():Boolean = {
-  var res = false;
-  if (getX()==6  && getY()==6) {
-    res = true;
-  }
-  return res
+  var a = random3();  
+  while (!estSurBiscuit()) {
+  	if (a==0) {
+      if (!estFaceMur()) {
+        avance();
+      }
+    } else if (a==1) {
+      droite();
+    } else gauche()
+  } 
+  prendBisctui()
 }
