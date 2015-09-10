@@ -1,7 +1,7 @@
 override def run() {
-  setPos(11,5)
-  prendBiscuit()
-  right()
+  while(!estSurBiscuit()){
+    av()
+  }
 }
 
 
@@ -15,4 +15,11 @@ def murdroite(): Boolean ={
   return false
 }
 
-
+def av(){
+  if(murdroite() && !estFaceMur()){
+    avance()
+  }
+  if(murdroite() && estFaceMur()){
+    left()
+  }
+}
