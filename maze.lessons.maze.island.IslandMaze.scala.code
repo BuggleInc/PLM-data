@@ -28,26 +28,29 @@ override def run() {
         avance()
       }
     }
-    gauche()
-    if (estFaceMur)
-    {
-      droite()
-      while(!estSurBiscuit())
-      {
-        keepHandOnSideWall()
-      }
-      prendBiscuit()
-    }
     else
     {
-      while (!estFaceMur)
+      gauche()
+      if (estFaceMur)
       {
-        avance()
+        droite()
+        while(!estSurBiscuit())
+        {
+          keepHandOnSideWall()
+        }
+        prendBiscuit()
       }
-      droite()
-      while(!estSurBiscuit())
+      else
       {
-        keepHandOnSideWall()
+        while (!estFaceMur)
+        {
+          avance()
+        }
+        droite()
+        while(!estSurBiscuit())
+        {
+          keepHandOnSideWall()
+        }
       }
     }
   }
