@@ -1,10 +1,9 @@
 override def run() {
-  while (getY()!=0) {
-    nord()
-  }
-  gauche()
-  gauche()
-  
+  var sommeAngle=0
+  do { keepHandOnSideWall()
+     }
+    while (sommeAngle !=0) 
+ 
   while(!estSurBiscuit()) {
     keepHandOnSideWall()
   }
@@ -12,9 +11,12 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
+  
   gauche()
+  sommeAngle = sommeAngle +1
   while (estFaceMur()) {
     droite()
+    sommeAngle = sommeAngle -1
   }
   avance()
   
@@ -31,3 +33,11 @@ def nord() {
   }
 }
 
+def isDirectionFree(dir) :Boolean={
+  var d = false
+  var dirAct = getDirection()
+  setDirection(dir)
+  if (!estFaceMur()) d =true
+  setDirection(dirAct)
+  return d
+}
