@@ -53,19 +53,19 @@ def meilleurDirection(x:Int,y:Int):Direction = {
   var s:Int = 9999
 	var d:Direction = getDirection()
   setDirection(Direction.NORD)
-  if (!estFaceMur()) {
+  if (!estFaceMur() && y-1>=0) {
     n=getIndication(x,y-1)
   }
   setDirection(Direction.SUD)
-  if (!estFaceMur()) {
+  if (!estFaceMur() && y+1<getMondeHauteur()) {
     s=getIndication(x,y+1)
   }
   setDirection(Direction.EST)
-  if (!estFaceMur()) {
+  if (!estFaceMur() && x-1>=0) {
     e=getIndication(x-1,y)
   }
   setDirection(Direction.OUEST)
-  if (!estFaceMur()) {
+  if (!estFaceMur() && x+1<getMondeLargeur()) {
     o=getIndication(x+1,y)
   }
   setDirection(d)
