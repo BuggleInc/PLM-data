@@ -1,0 +1,28 @@
+var diag = 0;
+override def run() {
+  val hauteur = getMondeHauteur()
+  val largeur = getMondeLargeur()
+  var cpt = 0
+  
+  def posFinale(): Boolean = {
+    if (getX() == largeur-1 && getY() == hauteur-1) {
+      return true
+    }
+    return false
+  }
+  
+  
+  while (!posFinale()) {
+    if (getX() == diag) {
+      ecritMessage(cpt)
+      cpt = cpt + 1
+      diag = diag + 1
+      setPos(0, diag)
+    } else {
+      ecritMessage(cpt)
+      cpt = cpt + 1
+      setPos(getX()+1, getY(-1))
+    }
+  }
+  ecritMessage(cpt)
+}
