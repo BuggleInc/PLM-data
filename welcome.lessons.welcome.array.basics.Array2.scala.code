@@ -2,13 +2,13 @@ override def run() {
 
 var lit:Int=0
 var T = new Array[Color](getMondeHauteur())  
-  
+T(0)=getCouleurSol()
 for(i<-0 to getMondeHauteur()-2){
-    T(i)=getCouleurSol()
     avance()
+  	T(i+1)=getCouleurSol()
 }
   
-  for (j<- 0 to getMondeHauteur()-1){
+  for (j<- 0 to getMondeHauteur()-2){
   	recule(getMondeHauteur()-1)
     gauche()
     avance()
