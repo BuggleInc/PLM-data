@@ -1,0 +1,49 @@
+var i:Int = 0;
+var xBaggle:Int = 0;
+var yBaggle:Int = 0;
+var x:Int = 0;
+var y:Int = 0;
+var i:Int = 0;
+var c:Int = getMondeLargeur()*getMondeHauteur();
+
+override def run() {
+    
+}
+
+def marquerBaggle() {
+  while ( aBiscuit(xBaggle,yBaggle) ){
+    xBaggle += 1;
+    if ( xBaggle == getMondeLargeur() ){
+      xBaggle = 0;
+      yBaggle += 1;
+    }
+  }
+  setIndication(xBaggle,yBaggle,i);
+  i += 1;
+  c -= 1;
+  x = xBaggle;
+  y = YBaggle;
+}
+
+def marquer() {
+  if ( c != 0 ){
+    if ( !aMurNord(x,y) ){
+      setIndication(x,y-1,i);
+      c-=1;
+    }
+    if ( !auMurOuest(x,y) ){
+      setIndication(x-1,y,i);
+      c-=1;
+    }
+    if ( !auMurSud(x,y) ){
+      setIndication(x,y+1,i);
+      c-=1;
+    }
+    if ( !auMurEst(x,y) ){
+      setIndication(x+1,y,i);
+      c-=1;
+    }
+    i+=1;
+    
+  }
+}
