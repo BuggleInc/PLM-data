@@ -6,7 +6,10 @@ override def run() {
     {
       avance()
     }
-		keepGoing(virage)
+		do
+    {
+      virage = keepGoing(virage)
+    }while(virage!=0)
   }
   prendBiscuit()
   
@@ -60,20 +63,23 @@ def isDirectionFree(dir : Direction) : Boolean = {
 
 def keepGoing(vir : Int) : Int = {
   var virage = vir
-  do
+  var d = !mD(); var g = !mG(); var h = !estFaceMur(); var b = !estDosMur()
+  if(d&&(!h))
   {
-    if(!mD())
+    droite();virage = virage + 1
+    while(!g)
     {
-      droite();avance(); virage = virage + 1
+      avance()
     }
-    else if(!mG())
+  }
+  else if(g&&(!h))
+  {
+    gauche();virage = virage - 1
+    while(!d)
     {
-      gauche();avance(); virage = virage - 1
+      avance()
     }
-    else
-    {
-      gauche();gauche(); virage = virage + 2
-    }
-  }while((estFaceMur())&&(virage!=vir))
+  }
+  
   return virage
 }
