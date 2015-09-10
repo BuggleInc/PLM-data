@@ -16,12 +16,14 @@ override def run() {
     gauche()
     avance()
     droite()
-    
-    avance()
     var decalage = litMessage().toInt
+    //avance()
     
-    for (compteur<-(decalage+5)%getMondeHauteur() to getMondeHauteur()-1 ){
-      setCouleurBrosse(T(compteur))
+    
+    for (i<-(0 to getMondeHauteur()-1 ){
+      
+      
+      setCouleurBrosse(T((i + decalage) % taille))
       baisseBrosse()
       leveBrosse()
       avance()
