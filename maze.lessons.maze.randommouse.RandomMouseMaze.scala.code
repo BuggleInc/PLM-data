@@ -1,5 +1,5 @@
 override def run() {
-  droite
+  droite()
 }
 
 
@@ -8,7 +8,15 @@ def ordre_passage(){
   while(!estSurBiscuit()){
     droite()
     if(!estFaceMur){
-      
+      avance()
+    }
+    gauche()
+    if(!estFaceMur){
+      avance()
+    }
+    else{
+      gauche()
+      avance()
     }
   }
 }
