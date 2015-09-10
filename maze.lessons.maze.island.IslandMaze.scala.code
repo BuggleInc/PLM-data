@@ -1,0 +1,23 @@
+override def run() {
+  droite()
+  while(getX()<getMondeLargeur()-1) {
+    if(!estFaceMur()) {
+      avance()
+    }
+    else {
+      gauche()
+      while(murDroite()) {
+        if(!estFaceMur()) {
+          avance()
+        }
+        else {
+          gauche()
+        }
+      }
+      droite()
+      avance()
+      
+    }
+  }
+  
+}
