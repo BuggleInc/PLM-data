@@ -11,7 +11,7 @@ override def run() {
   var r = 0
   while (getX()!=0) {
     if (getDirection==Direction.SOUTH) {
-      gauche()
+      droite()
     }
    avance1()
   }
@@ -32,5 +32,18 @@ def avance1() {
   if (estFaceMur()) {
     droite()
     
+  } else {avance()}
+}
+
+
+def avN() {
+  if (estFaceMur) {
+    droite()
+    if (estFaceMur) {
+      droite()
+      if (estFaceMur) {
+         droite()
+      } else {avance()}
+    } else {avance()}
   } else {avance()}
 }
