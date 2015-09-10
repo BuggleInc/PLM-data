@@ -23,8 +23,10 @@ override def run() {
 //} 
 
 def isDirectionFree(dir:Direction): Boolean = {
+  pastDirection=getDirection
   setDirection(dir)
   if(estFaceMur()){
+    setDirection(pastDirection)
     return false
   } else {
     return true
