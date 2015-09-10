@@ -2,12 +2,12 @@ def step(rule:Array[Char], colors:Array[Color]) {
   var ind:Int = 0
   var c:Color = getCouleurSol()
   for (j <- 0 to 20001) {
-  	for (i<-0 to colors.length-1) {
+  	for (i<-0 to colors.length()-1) {
       if (colors(i)==c) {
         ind = i
       }
     }
-    setCouleurBrosse(colors((ind+1)%colors.length))
+    setCouleurBrosse(colors((ind+1)%colors.length()))
     baisseBrosse()
     leveBrosse()
     if (rule(ind)=='R') {
