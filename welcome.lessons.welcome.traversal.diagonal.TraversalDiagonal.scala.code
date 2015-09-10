@@ -4,13 +4,24 @@ override def run() {
   var y=0
   var diag = 0
   var compteur = 0
+  var mar = 0
   while ((getX(),getY())!=(6,6)) {
-    if ((getX()==6)||(getY==0)) {
+    if (((getX()==6)||(getY==0))&&(mar==0)) {
       diag = diag + 1
       ecritMessage(compteur)
       setPos(0,diag)
       x=0
       y=diag
+      compteur=compteur+1
+      
+      
+    } else if ((getX()==6)||(getY==6)) {
+      diag = diag + 1
+      mar=mar+1
+      ecritMessage(compteur)
+      setPos(mar,6)
+      x=mar
+      y=6
       compteur=compteur+1
       
       
