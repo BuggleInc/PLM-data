@@ -1,0 +1,34 @@
+override def run() {
+  while (!fonctionTest()) {
+    if (!estFaceMur()) {
+      avance()
+    } else {
+      if (getDirection() == Direction.OUEST) {
+        droite()
+        avance()
+      }
+      if (getDirection() == Direction.EST) [
+        gauche()
+        avance()
+      ]
+    }
+  }
+}
+
+def fonctionTest() {
+    if (estFaceMur()) {
+      if (getDirection() == Direction.EST) {
+        gauche()
+        if (estFaceMur()) {
+          return true
+        }
+      }
+      if (getDirection() == Direction.OUEST) {
+        droite()
+        if (estFaceMur()) {
+          return true
+        }
+      }
+    }
+    return false
+  }
