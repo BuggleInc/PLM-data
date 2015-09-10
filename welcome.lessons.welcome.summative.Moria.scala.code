@@ -5,23 +5,19 @@ def sortirMoria(){
     avance()
     while (a){
       avance()
-      if (estFaceMur()){
-        a=false
-      }
+      if (estFaceMur()){a=false}
       if (estSurBiscuit()){a=false}
     }
     a=true
-  	if (estFaceMur()){
-      droite();avance();gauche();avance()
-    }else{
-    	prendBiscuit()
+    if (porteBiscuit()){
+      prendBiscuit()
     	retourne()
     	while (!estSurBiscuit()){
       	avance()
     	}
     	recule()
       poseBiscuit()
-  	}
+    }else{droite();avance();gauche();avance()}
 	}
 }
 sortirMoria()
