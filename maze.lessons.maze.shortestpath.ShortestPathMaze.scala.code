@@ -51,22 +51,26 @@ def repererSortie() //repère sortie, y met 0
 def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes
 {
   var casesAdjacentes:Array[Boolean]=new Array[Boolean](4)
-	casesAdjacentes(0) = true
-  casesAdjacentes(1) = true
-  casesAdjacentes(2) = true
-  casesAdjacentes(3) = true
-  
+	casesAdjacentes(0) = false
+  casesAdjacentes(1) = false
+  casesAdjacentes(2) = false
+  casesAdjacentes(3) = false
   //on analyse sa propre case
-  if (aMurOuest(X,Y))
-    casesAdjacentes(0)=false
-  if (aMurNord(X,Y))
-    casesAdjacentes(1)=false
+  if (!aMurOuest(X,Y))
+    casesAdjacentes(0)=true
+  if (!aMurNord(X,Y))
+    casesAdjacentes(1)=true
   //on analyse case à droite
-  if (aMurOuest(X+1,Y))
-  	casesAdjacentes(2)=false
+  if (X!=getMondeLargeur())
+  {
+    if (!aMurOuest(X+1,Y))
+  		casesAdjacentes(2)=true
   //on analyse case en dessous
-  if (aMurNord(X,Y+1))
-  	casesAdjacentes(3)=false
+  if (Y!=getMondeHauteur())
+  {
+    if (!aMurNord(X,Y+1))
+  		casesAdjacentes(3)=true
+  }
   return casesAdjacentes
 }
 
