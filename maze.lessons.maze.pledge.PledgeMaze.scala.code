@@ -46,14 +46,17 @@ def isDirectionFree2(dir:Direction) : Boolean = {
 
 def keepHandOnSideWall() {
   if ( estFaceMur() && isDirectionFree2(Direction.EST) ){
+    var gau:Boolean = isDirectionFree2(Direction.OUEST);
     droite();
     avance();
     sommeAngle -= 1;
   } else if ( !estFaceMur() && isDirectionFree2(Direction.OUEST) ){
+    var gau:Boolean = isDirectionFree2(Direction.OUEST);
     gauche();
     avance();
     sommeAngle += 1;
   } else if ( !isDirectionFree(Direction.NORTH) && !isDirectionFree2(Direction.EST) ){
+    var gau:Boolean = isDirectionFree2(Direction.OUEST);
     retourne();
   } else if ( estFaceMur() && !isDirectionFree2(Direction.OUEST) && !gau ){
     var gau:Boolean = isDirectionFree2(Direction.OUEST);
@@ -63,6 +66,7 @@ def keepHandOnSideWall() {
     avance();
     sommeAngle += 2;
   } else { 
+    var gau:Boolean = isDirectionFree2(Direction.OUEST);
     avance();
   }
 }
