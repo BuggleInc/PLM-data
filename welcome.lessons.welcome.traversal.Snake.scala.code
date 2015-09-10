@@ -3,6 +3,8 @@ override def run() {
     while (!estFaceMur){
       avance()
     }
+    getX()
+    getY()
     if (getDirection()==Direction.EAST){
       gauche()
       avance()
@@ -13,6 +15,22 @@ override def run() {
       droite()
     }  
   }
-  pasDeSerpent()
-  pasDeSerpent()
+  def estEnPosition():Boolean{
+    if (estFaceMur()){
+      if (getDirection()==Direction.EAST){
+        gauche()
+        if (estFaceMur()){
+          droite()
+          return true
+        }
+        else return false
+      }else return false
+    }
+  }
+  while (getX()!=6 && get(Y)!=0){
+    pasDeSerpent()
+  }
+  while (!estPosition()){
+    gauche()
+  }
 }
