@@ -3,12 +3,12 @@ override def run() {
   var virages=0
   while (!estSurBiscuit()) {
     while (!northfound) {
-      while (virages>0 && !northfound) {
+      while (virages>=0 && !northfound) {
         choix2()
       }
       goNorth()
       if (getY()==0) {northfound=true;droite()}
-      while (virages<4 && !northfound) {choix1()}
+      while (virages=<4 && !northfound) {choix1()}
       goNorth()
       if (getY()==0) {northfound=true;droite()}
     }
