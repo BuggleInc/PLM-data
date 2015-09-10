@@ -2,23 +2,6 @@ override def run() {
   var hasard=0
   while (!estSurBiscuit()){
     hasard=random3()
-    if (hasard==0){
-      if (!estFaceMur()){
-        avance()
-      }else{
-        if(hasard==1){
-          gauche()
-          if(!estFaceMur()){
-            avance()
-          }
-        }else{
-          droite()
-          if (!estFaceMur()){
-            avance()
-          }
-        }
-      }
-    }
-  }
+    match hasard
   prendBiscuit()
 }
