@@ -1,0 +1,31 @@
+
+
+override def run() {
+  var h : Int =getMondeHauteur
+  var l : Int = getMondeLargeur
+  var cpt:Int = 0
+  var diag = 0
+  
+  while (fonctionTest==false){
+  	for (i<- 0 to l-1){
+      for (j<- 0 to h-1){
+        if (i+j==diag){
+          setPos(i,j)
+          ecritMessage(cpt)
+          cpt+=1
+        }
+      }
+    }
+  diag+=1
+  }
+	
+}
+
+
+
+def fonctionTest : Boolean={
+  var h : Int =getMondeHauteur
+  var l : Int = getMondeLargeur
+  if(getX()==l-1 && getY()==h-1){return true}
+  return false
+}

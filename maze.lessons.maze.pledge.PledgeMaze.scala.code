@@ -1,0 +1,48 @@
+override def run() {
+  var somAng:Int=4
+  var Dirr=0
+  
+  while(estSurBiscuit==false){
+    if (somAng==8||somAng==0){
+      somAng=4
+      Dirr=1
+    }
+    
+  	ouAvance(Dirr) match{
+    	case 0 => avance();somAng+=1
+    	case 1 => avance()
+    	case 2 => avance();somAng-=1
+    	case 3 => droite();avance()
+      case 4 => avance()
+      case 5 => droite()
+  	}
+	}
+  
+  prendBiscuit
+}
+
+
+def ouAvance(Dirr:Int):Int ={
+  
+  var g:String ="er"
+  
+  if (Dirr==0){
+    g=Direction.NORD
+  }
+  if (Dirr==1){
+    g=Direction.EST
+  }
+  if (getDirection()==g && estFaceMur==false){return 4}
+  if (getDirection()==g && estFaceMur==true){return 5}
+  gauche()
+  if (estFaceMur==false){ return 0 }
+  else{
+    droite()
+    if(estFaceMur==false){ return 1 }
+    else {
+      droite()
+      if (estFaceMur==false){ return 2 }
+      else{return 3}
+    }
+  }
+}
