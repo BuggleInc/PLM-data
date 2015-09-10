@@ -40,34 +40,36 @@ override def run() {
     var posYaSuivre:Int = y
   	var valeur:Int = getIndication(x,y)
   
-  	if (x < getMondeLargeur()-1 && getIndication(x+1,y) == valeur-1 && !aMurOuest(x+1,y)) {
-    	posXaSuivre = x+1
-      posYaSuivre = y
-  	} else if (y < getMondeHauteur()-1 && getIndication(x,y+1) == valeur-1 && !aMurNord(x,y+1)) {
-    	posXaSuivre = x
-      posYaSuivre = y+1
-  	} else if (x > 0 && getIndication(x-1,y) == valeur-1 && !aMurOuest(x,y)) {
-    	posXaSuivre = x-1
-      posYaSuivre = y
-  	} else if (y > 0 && getIndication(x,y-1) == valeur-1 && !aMurNord(x,y)) {
-    	posXaSuivre = x
-      posYaSuivre = y-1
+    if (!estSurBiscuit()) {
+  		if (x < getMondeLargeur()-1 && getIndication(x+1,y) == valeur-1 && !aMurOuest(x+1,y)) {
+    		posXaSuivre = x+1
+      	posYaSuivre = y
+  		} else if (y < getMondeHauteur()-1 && getIndication(x,y+1) == valeur-1 && !aMurNord(x,y+1)) {
+    		posXaSuivre = x
+      	posYaSuivre = y+1
+  		} else if (x > 0 && getIndication(x-1,y) == valeur-1 && !aMurOuest(x,y)) {
+    		posXaSuivre = x-1
+      	posYaSuivre = y
+  		} else if (y > 0 && getIndication(x,y-1) == valeur-1 && !aMurNord(x,y)) {
+    		posXaSuivre = x
+      	posYaSuivre = y-1
+    	}
+    	if ((posXaSuivre == (getX()+1)) && (posYaSuivre == getY())) {
+      	setDirection(Direction.EST)
+      	avance()
+    	} else if ((posXaSuivre == getX()) && (posYaSuivre == (getY()+1))) {
+      	setDirection(Direction.SUD)
+      	avance()
+    	} else if ((posXaSuivre == (getX()-1)) && (posYaSuivre == getY())) {
+      	setDirection(Direction.OUEST)
+      	avance()
+    	} else if ((posXaSuivre == getX()) && (posYaSuivre == getY()-1)) {
+      	setDirection(Direction.NORD)
+      	avance()
+    	}/* else {
+      	ecritMessage("Erreur")
+    	}*/
     }
-    if ((posXaSuivre == (getX()+1)) && (posYaSuivre == getY())) {
-      setDirection(Direction.EST)
-      avance()
-    } else if ((posXaSuivre == getX()) && (posYaSuivre == (getY()+1))) {
-      setDirection(Direction.SUD)
-      avance()
-    } else if ((posXaSuivre == (getX()-1)) && (posYaSuivre == getY())) {
-      setDirection(Direction.OUEST)
-      avance()
-    } else if ((posXaSuivre == getX()) && (posYaSuivre == getY()-1)) {
-      setDirection(Direction.NORD)
-      avance()
-    }/* else {
-      ecritMessage("Erreur")
-    }*/
   }
   prendBiscuit()
 }
