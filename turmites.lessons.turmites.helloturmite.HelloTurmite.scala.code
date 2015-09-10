@@ -12,9 +12,13 @@ def setCouleurSol(couleur:Color) {
 }
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-  var x=rule(state)(getCouleurSol())(0)
-  var y=rule(state)(getCouleurSol())(1)
-  var z=rule(state)(getCouleurSol())(2)
+  for (i<- 0 to colors.length-1) {
+    if (getCouleurSol() == colors(i)) {
+      j = i;
+    }
+  var x=rule(state)(j)(0)
+  var y=rule(state)(j)(1)
+  var z=rule(state)(j)(2)
   (x,y,z) match {
     case (_,GAUCHE,_) => setCouleurSol(colors(x)) ; gauche(); avance(); state=z
     case (_,DROITE,_) => setCouleurSol(colors(x)) ; droite(); avance(); state=z
