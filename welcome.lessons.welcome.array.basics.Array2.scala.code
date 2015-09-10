@@ -1,0 +1,35 @@
+override def run() {
+  var T=new Array[Color](getMondeHauteur())
+  var m= 0
+  T=tableau()
+  for (l <- 1 to getMondeLargeur()-1){
+    gauche()
+    avance()
+    droite()
+    val m = litMessage().toInt
+    peindre(T,m)
+  }
+}
+
+def tableau():Array[Color] = {
+  var motif=new Array[Color](getMondeHauteur())
+  for (compteur <- 0 to getMondeHauteur()-2 ){
+    motif(compteur)=getCouleurSol()
+    avance()
+  }
+  for (compteur <- 0 to getMondeHauteur()-2){
+    recule()
+  }
+  return motif
+}
+def peindre(motif:Array[Color],m:Integer){
+  for (long<- 1 to getMondeHauteur()){
+    baisseBrosse()
+    setCouleurBrosse((motif((long+1+getMondeHauteur()-m)%getMondeHauteur())))
+    leveBrosse()
+    avance()
+  }
+ 	for (compteur <- 0 to getMondeHauteur()-1){
+    recule()
+	}
+}

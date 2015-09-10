@@ -1,0 +1,60 @@
+override def run() {
+	baisseBrosse()
+  while(!pos())
+  {
+    serpent()
+  }
+  leveBrosse()
+}
+
+def serpent(){
+    if (!estFaceMur()){
+      	avance()
+    	}
+   else {
+      if (getDirection() == Direction.EAST){
+        gauche()
+        avance()
+        gauche()
+      }
+      else {
+        droite()
+        avance()
+        droite()
+      }
+    }
+}
+
+def pos(): Boolean = { 
+  if (estFaceMur()){
+    if (getDirection() == Direction.EAST){
+    	gauche()
+    	if (!estFaceMur()) {
+     		droite()
+     		return false
+   		}
+      else {
+     		droite()
+      	return true
+    	 }
+    	
+   	}
+    if (getDirection() == Direction.WEST){
+      droite()
+      if (estFaceMur()){
+       	gauche()
+        return true
+      }
+      else {
+      	gauche()
+      	return false
+    	}
+    }
+    else {
+      return false
+    }
+  }
+  else {
+    return false
+  }
+}

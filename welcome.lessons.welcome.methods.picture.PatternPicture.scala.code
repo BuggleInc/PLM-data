@@ -1,0 +1,79 @@
+override def run() {
+  for (colonne<-1 to 2){
+    ligne()
+    gauche()
+    for (move<-1 to 4){
+      if (!estFaceMur()){
+        avance()
+      }
+    }
+  droite()
+  }
+  setCouleurBrosse(Color.green)//couleur du pinceau pas bonne
+  for (move<-1 to 4){// position final pas bonne
+    avance()
+  }
+  droite()
+  for (move<-1 to 3){
+    avance()
+  }
+ 	gauche()//bande de cassecouille
+}
+def bgmotif(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+}
+def bdmotif(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  gauche()  
+}
+
+def motif(){//mettre plusieurs arguments est meilleur
+  bgmotif(Color.red)
+  bgmotif(Color.red)
+  avance()
+  avance()
+  bdmotif(Color.blue)
+  bdmotif(Color.blue)
+  gauche()
+  avance()
+  avance()
+  droite()
+  bgmotif(Color.green)
+  bgmotif(Color.green)
+  recule()
+  recule()
+  bdmotif(Color.yellow)
+  bdmotif(Color.yellow)
+  droite()
+  avance()
+  avance()
+  gauche()
+}
+def ligne(){
+  for (compteur <-1 to 2){
+    motif()
+    for (move <-1 to 4){
+      if (!estFaceMur()){
+         avance()
+      }
+    }
+  }
+  gauche()
+  gauche()
+  while (!estFaceMur()){
+    avance()
+  }
+  droite()
+  droite()
+}
