@@ -3,7 +3,9 @@ def golomb(num:Int): Int = {
   T(0)=1
   for(i<- 0 to num-1){T(i)=T(0)}
   for(j<- 1 to num-1){
-    for(k<- j to j+T(j)){T(k)=T(j)}
+    if(j+T(j)<=num){
+    	for(k<- j to j+T(j)){T(k)=T(j)}
+    }
   }
   return(T(num-1))
 }
