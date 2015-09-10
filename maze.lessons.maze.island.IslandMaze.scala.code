@@ -3,14 +3,15 @@ override def run() {
   {
     var direction = getDirection
     setDirection(Direction.NORD)
-    if (!estFaceMur() && estDosMur())
+    if (!estFaceMur())
     {
       goNord()
       droite()
     }
     else
     {
-      droite()
+      setDirection(direction)
+      
     }
     keepHandOnSideWall()
   }  
