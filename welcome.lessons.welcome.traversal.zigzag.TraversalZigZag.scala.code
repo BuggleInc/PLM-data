@@ -1,0 +1,29 @@
+override def run() 
+{
+  var compteur = 0
+  var positionFinale = false
+  while(positionFinale == false) 
+  {
+    for (i <- 0 to getMondeLargeur()-1) 
+    {
+      if (getX() == 0) 
+      {
+        for (j <- 0 to getMondeHauteur()-1) 
+        {
+          setPos(j, i)
+          ecritMessage(compteur)
+          compteur = compteur + 1
+        }
+      } else 
+      {
+        for (j <- 0 to getMondeHauteur()-1) 
+        {
+          setPos(6-j, i)
+          ecritMessage(compteur)
+          compteur = compteur + 1
+        }
+      }
+    }
+    positionFinale = true
+  }
+}

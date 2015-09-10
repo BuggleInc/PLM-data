@@ -1,0 +1,20 @@
+var nbcookie = 0
+var sortie = 0
+while (sortie==0) {
+  nbcookie = 0;
+  do {
+    avance();
+    if (estSurBiscuit()) {
+      nbcookie = nbcookie + 1;
+    };
+  } while (!crossing())
+  if (nbcookie<3) {
+    droite();
+  } else {
+    gauche();
+  }
+  if (sortieTrouvee()) {
+    sortie=1;
+    avance();
+  }
+}
