@@ -1,26 +1,27 @@
 override def run() {
-  while ((!estSurBiscuit()) && allerN()) { 
-    goN()
-  }
-  if (estFaceMur()) {
-    var x = getX()
-    var y = getY()
-    do {
-      if (checkg()) {gauche(); avance()}
-      else if (!estFaceMur()) {avance()}
-      else {droite()} }
-      while (((getX() == x) && (getY() == y)) || estSurBiscuit())
-    if (!estSurBiscuit()) {
-      while (!allerN()) {
-        if (checkg()) {gauche(); avance()}
-        else if (!estFaceMur()) {avance()}
-        else {droite()}
-      }
-      goN()
-    }  
-  }
-}
-  
+  while (!estSurBiscuit()) {
+   while (allerN()) {
+     goN()
+   } 
+ 	 if (estFaceMur()) {
+	    var x = getX()
+	    var y = getY()
+	    do {
+	      if (checkg()) {gauche(); avance()}
+	      else if (!estFaceMur()) {avance()}
+	      else {droite()} }
+	      while (((getX() == x) && (getY() == y)) || estSurBiscuit())
+	    if (!estSurBiscuit()) {
+	      while (!allerN()) {
+	        if (checkg()) {gauche(); avance()}
+	        else if (!estFaceMur()) {avance()}
+	        else {droite()}
+	      }
+	      goN()
+	    }  
+	  }
+	}
+}  
 
 
 def allerN():Boolean = {
