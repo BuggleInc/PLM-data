@@ -1,0 +1,41 @@
+override def run() {
+  val hauteur = getMondeHauteur()
+  val largeur = getMondeLargeur()
+  var cpt = 0
+  var direction = "gauche"
+  
+  def posFinale(): Boolean = {
+    if (getX() == largeur-1 && getY() == hauteur-1) {
+      return true
+    }
+    return false
+  }
+  
+  while(!posFinale()) {
+    if (direction == "gauche") {
+      if (getX() != largeur-1) {
+        ecritMessage(cpt)
+        cpt = cpt + 1
+        setPos(getX()+1, getY())
+      } else {
+        ecritMessage(cpt)
+        cpt = cpt + 1
+        setPos(largeur-1, getY()+1)
+        direction = "droite"
+      }
+    }
+    if (direction == "droite") {
+      if (getX() != 0) {
+        ecritMessage(cpt)
+        cpt = cpt + 1
+        setPos(getX()-1, getY())
+      } else {
+        ecritMessage(cpt)
+        cpt = cpt + 1
+        setPos(0, getY()+1)
+        direction = "gauche"
+    }
+  }
+}
+  ecritMessage(cpt)
+}
