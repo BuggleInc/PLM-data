@@ -1,37 +1,18 @@
-def setCouleurSol(c:Color) {
-  setCouleurBrosse(c:Color)
-  baisseBrosse()
-  leveBrosse()
-}
-
-def step(rule:Array[Char], colors:Array[Color]) {
-  var couleur = false
-  for(i<-0 to colors.length-1) {
-    if(getCouleurSol()==colors(i) && couleur==false) {
-      if(rule(i)=='R') {
-        droite()
-        avance()
-        if(i==colors.length-1) {
-          setCouleurSol(colors(0))
-          couleur=true
-        }
-        else {
-          setCouleurSol(colors(i+1))
-          couleur=true
-        }
+def step(rule:Array[Char] , colors:Array[Color]) {
+  var col:Boolean=false
+  for (i<-0 to colors.length-1) {
+    if (getCouleurSol() == colors(i) && !col) {
+      var i2=i+1
+      if (i2>colors.length-1) {
+        i2=0
       }
-      else if(rule(i)=='L') {
-        gauche()
-        avance()
-        if(i==colors.length-1) {
-          setCouleurSol(colors(0))
-          couleur=true
-        }
-        else {
-          setCouleurSol(colors(i+1))
-          couleur=true
-        }
+      setCouleurBrosse(colors(i2)) ; baisseBrosse() ; leveBrosse()
+      if (rule(i) == 'L') {
+        gauche() ; avance() ; col=true
+      }
+      else {
+        droite() ; avance() ; col=true
       }
     }
   }
-}
+} 
