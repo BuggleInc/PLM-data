@@ -17,15 +17,17 @@ override def run() {
     diag+=1
     y=diag
   }
-  while (diag!=2*getMondeHauteur()){
-    while (x<=diag){
+  x=1
+  y=getMondeHauteur()
+  while (diag!=0){
+    while (y<=getMondeHauteur-diag()-1){
       ecritMessage(compteur)
       compteur+=1
       setPos(x,y-getMondeHauteur)
       y=y-1
       x+=1
     }
-    x=0
+    x=getMondeHauteur-diag()-1
     diag+=1
     y=diag
   }
