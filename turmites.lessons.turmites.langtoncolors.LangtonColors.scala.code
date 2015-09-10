@@ -3,7 +3,10 @@ def step(rule:Array[Char], colors:Array[Color]) {
   for(i <- 0 to colors.length-1){
   	if(getCouleurSol() == colors(i) && !col){
       var i2 = i+1
-    	setCouleurBrosse(colors(i))
+      if(i2 > colors.length-1){
+        i2 = 0
+      }
+    	setCouleurBrosse(colors(i2))
     	baisseBrosse()
     	leveBrosse()
     	if(rule(i) == "L"){
@@ -16,22 +19,4 @@ def step(rule:Array[Char], colors:Array[Color]) {
     	}
   	}
   }
-}
-
-def step() {
-    if(getCouleurSol()==Color.white){
-      setCouleurBrosse(Color.black)
-      baisseBrosse()
-      leveBrosse()
-      droite()
-      avance()
-    }
-    else if(getCouleurSol()==Color.black){
-      setCouleurBrosse(Color.white)
-      baisseBrosse()
-      leveBrosse()
-      gauche()
-      avance()
-
-    }
 }
