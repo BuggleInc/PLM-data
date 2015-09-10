@@ -1,31 +1,19 @@
 override def run() {
-  var T = new Array[Color](getWorldHeight())
-  T(0) =getCouleurSol()
-  for (i <- 1 to T.length-1){
-    avance()
-    T(i) = getCouleurSol()
-  }
-  for (i <- 0 to getWorldHeight()-2 ) {recule()}
   
-  for (L <- 0 to getMondeLargeur()-2) {
-    //Positionnement
-    gauche()
-    avance()
-    droite()
-		val decalage = litMessage().toInt
-    marquer( T((decalage) % T.length))
-    for (h <- 0 to getMondeHauteur-2) {
-      avance()
-      marquer( T((h + decalage +1) % T.length))
-      
-    }
-    for (i <- 0 to getWorldHeight()-2 ) {recule()}
+  while( ! positionFinale()){
+    ecritMessage( ""+(getY() + getX()*7))
+    parcours()
   }
-
+  
 }
 
-def marquer(c : Color) {
-  setCouleurBrosse(c)
-  baisseBrosse()
-  leveBrosse()
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def parcours(){
+  if (estDosMur()()){
+    setPos(getX() +1 , 0)
+  } else{setPos(getX(), getY()+1)}
 }
