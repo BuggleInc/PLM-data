@@ -10,17 +10,17 @@ override def run() {
   }
 }
 
-def lireCol1(){
+def lireCol1(c:Array[Color]){
   for (i <- 1 to getMondeHauteur()-1){
-    couleurs(i)=getCouleurSol()
+    c(i)=getCouleurSol()
     avance()
   }
   recule(getMondeHauteur()-1)
 }
 
-def avanceCol(){
+def avanceCol(c:Array[Color]){
   for (k<- 1 to getMondeHauteur()-1){
-    setCouleurBrosse(couleurs(k))
+    setCouleurBrosse(c(k))
     baisseBrosse()
     leveBrosse()
     avance()
