@@ -1,0 +1,21 @@
+override def run() {
+  droite()
+  while( ! positionFinale()){
+    ecritMessage( ""+(getY()*7 + getX()))
+    parcours()
+  }
+  ecritMessage("48")
+  gauche()
+  
+}
+
+
+def positionFinale(): Boolean ={
+  return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def parcours(){
+  if (estFaceMur()){
+    setPos(0 , getY()+1)
+  } else{setPos(getX()+1, getY())}
+}

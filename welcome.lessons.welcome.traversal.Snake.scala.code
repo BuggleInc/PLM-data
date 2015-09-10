@@ -1,0 +1,38 @@
+override def run() {
+  baisseBrosse()
+  while( ! positionFinale()){
+    serpente()
+  }
+  droite()
+}
+
+
+def positionFinale(): Boolean ={
+  if (estFaceMur()){
+    if (getDirection()== Direction.WEST){
+      droite()
+      if (estFaceMur()) return true
+      gauche()
+    } else {
+      gauche()
+      if (estFaceMur()) return true
+      droite()
+    }
+  }
+  return false
+}
+
+def serpente(){
+  if (estFaceMur()){
+    if(getDirection()== Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+    else {
+      gauche()
+      avance()
+      gauche()
+    }
+  } else{avance()}
+}

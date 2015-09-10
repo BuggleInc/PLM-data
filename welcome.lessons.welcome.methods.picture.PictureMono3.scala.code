@@ -1,0 +1,49 @@
+override def run() {
+  for (i <- 1 to 9){
+    ligneMotif()
+  }
+}
+
+def ligneMotif() {
+  for (i <- 1 to 8){ 
+    faireMotif()
+  	for (i <- 1 to 7){avance()}
+  }
+  faireMotif()
+  retourne()
+  for (i <- 1 to 49){avance()}
+  droite()
+  for (i <- 1 to 7){avance()}
+  droite()
+  
+}
+
+def faireMotif() {
+  for( cote <- 1 to 4){
+  avance()
+  avance()
+  faireV()
+  avance()
+  avance()
+  gauche()
+  
+	}
+}
+
+
+
+def marquer() {
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV() {
+  marquer()
+  avance()
+  gauche()
+  avance()
+  marquer()
+  recule()
+  droite()
+  avance()
+  marquer()
+}
