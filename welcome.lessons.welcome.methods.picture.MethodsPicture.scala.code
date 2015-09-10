@@ -1,0 +1,64 @@
+def avancex5() {
+  for (c <- 1 to 5){
+    avance();
+  }
+}
+
+def brosse() {
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireV(c: Color) {
+  setCouleurBrosse(c);
+  avance();
+  brosse();
+  gauche();
+  avance();
+  droite();
+  avance();
+  brosse();
+  droite();
+  avance();
+  gauche();
+  avance();
+  brosse();
+  avance();
+  gauche();
+}
+
+def motif() {
+  for (compteur <- 1 to 4){
+    if ( compteur == 1 ){
+      faireV(Color.YELLOW);
+    }
+    if ( compteur == 2){
+      faireV(Color.RED);
+    }
+    if ( compteur == 3){
+      faireV(Color.BLUE);
+    }
+    if ( compteur == 4){
+      faireV(Color.GREEN);
+    }
+  }
+}
+
+def motifx3() {
+  motif();
+  avancex5();
+  motif();
+  avancex5();
+  motif();
+  retourne();
+  avancex5(); avancex5();
+  droite();
+  avancex5();
+  droite();
+}
+
+override def run() {
+  for ( i <- 1 to 3 ){
+    motifx3();
+  }
+}

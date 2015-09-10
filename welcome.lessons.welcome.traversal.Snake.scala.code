@@ -1,0 +1,42 @@
+override def run() {
+  baisseBrosse();
+  while ( !estFaceMur() ){
+    avance();
+  }
+  while ( !testFinal() ){
+    snake();
+    while ( !estFaceMur() ){
+      avance();
+    }
+  }
+}
+
+def testFinal() : Boolean = {
+ if ( estFaceMur() ){
+   if ( getDirection() == Direction.EST ){
+     gauche();
+     if ( !estFaceMur() ){
+       droite();
+     } else {
+       droite();
+       return true;
+     }
+   } else {
+     droite();
+     if ( !estFaceMur() ){
+       gauche();
+     } else {
+       return true;
+     }
+   }
+ } 
+ return false;
+}
+
+def snake() {
+  if ( getDirection() == Direction.OUEST ){
+    droite(); avance(); droite();
+  } else {
+    gauche(); avance(); gauche();
+  }
+}

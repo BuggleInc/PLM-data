@@ -1,0 +1,61 @@
+def fleur(c:Color){
+  setCouleurBrosse(c:Color);
+  baisseBrosse();
+  avance(); avance();
+  recule();
+  gauche(); avance();
+  recule(); recule();
+  avance();
+  setCouleurBrosse(Color.yellow);
+  leveBrosse();
+  droite(); recule();
+}
+
+def growFlowers1(){
+  fleur(Color.red);
+  avancex4(); 
+  fleur(Color.cyan);
+  retour1();
+  droite(); avancex4(); gauche();
+  fleur(Color.pink);
+  avancex4();
+  fleur(Color.green);
+  recule(); recule(); recule(); recule();
+  gauche(); avance(); avance(); droite(); avance(); avance();
+  fleur(Color.orange);
+}
+
+def retour1(){
+  recule(); recule(); recule(); recule();
+}
+
+def growFlowers2(){
+  growFlowers1();
+  avancex4();
+  fleur(Color.blue);
+  avance(); avance(); gauche(); avance(); avance(); droite();
+  growFlowers1();
+}
+
+def avancex4(){
+  avance(); avance(); avance(); avance();
+}
+
+def deplace1(){
+  retourne();
+  while(!estFaceMur()){
+    avance();
+  }
+  gauche(); avancex4(); avance(); avance(); gauche();
+}
+
+def deplace2(){
+  recule(); recule(); droite(); avance(); avance(); gauche();
+}
+
+def growFlowers(){
+  growFlowers2();
+  deplace1();
+  growFlowers2();
+  deplace2();
+}

@@ -1,0 +1,74 @@
+override def run() {
+  grandCarre(2,2);
+  avance(); avance(); avance(); avance();
+}
+
+def petitCarre(i:Int){
+  if (i%4 == 1){
+    setCouleurBrosse(Color.red);
+  }
+  if (i%4 == 2){
+    setCouleurBrosse(Color.blue);
+  }
+  if (i%4 == 3){
+    setCouleurBrosse(Color.green);
+  }
+  if (i%4 == 0){
+    setCouleurBrosse(Color.yellow);
+  }
+  if (i%2 == 1){
+    avance();
+    baisseBrosse();
+    leveBrosse();
+    gauche();
+    avance();
+    gauche();
+    avance();
+    baisseBrosse();
+    leveBrosse();
+    gauche();
+    avance();
+    gauche();
+  } else {
+    baisseBrosse();
+    leveBrosse();
+    avance();
+    gauche();
+    avance();
+    baisseBrosse();
+    leveBrosse();
+    gauche();
+    avance();
+    gauche();
+    avance();
+    gauche();
+  }
+}
+
+def moyenCarre(){
+  petitCarre(1);
+  avance(); avance();
+  petitCarre(2);
+  gauche(); avance(); avance(); droite();
+  petitCarre(3);
+  recule(); recule();
+  petitCarre(4);
+  droite();
+  avance(); avance(); gauche();
+}
+
+def grandCarre(i:Int,j:Int){
+  for (colonne <- 1 to j){
+    for (ligne <- 1 to i-1){
+      moyenCarre();
+      avance(); avance(); avance(); avance();
+    }
+    moyenCarre();
+    for (r <- 1 to 4 * (i-1)){
+      recule();
+    }
+    if (colonne!=j){
+      gauche(); avance(); avance(); avance(); avance(); droite();
+    }
+  }
+}

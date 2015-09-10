@@ -1,0 +1,34 @@
+var diag = 0;
+override def run() {
+  var x:Int = 0;
+  var y:Int = 0;
+  var c:Int = 0;
+  ecritMessage(c);
+  c+=1;
+  setPos(x,y);
+  while ( !testFinal() ){
+    if ( y!=0 && x!=getMondeLargeur()-1 ){
+      x+=1;
+      y-=1;
+    } else if ( diag <= 5 ){
+      diag+=1;
+      x = 0;
+      y = diag;
+    } else {
+      diag+=1;
+      x=diag-6;
+      y=getMondeHauteur()-1;
+    }
+    setPos(x,y);
+    ecritMessage(c);
+    c+=1;
+  }
+}
+
+def testFinal() : Boolean = {
+  if ( getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1 ){
+    return true;
+  } else {
+    return false;
+  }
+}
