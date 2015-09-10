@@ -1,5 +1,14 @@
 def nord() {
-  while (getX()!=getMondeHauteur()-2) {
+  while(getDirection==Direction.NORTH & !(estFaceMur())) {
+    avance()
+  }
+  while(estFaceMur()) {
+    droite()
+  }
+}
+
+def nord2() {
+  while (getY()!=0) {
     var x=0
     while(!estFaceMur()) {
       avance()
@@ -14,10 +23,8 @@ def nord() {
       gauche() ; avance()
     }
     }
-    avance() 
+    avance() ;gauche() ; avance()
   }  
-
-
 
 def keepHandOnSideWall() {
 gauche()
@@ -36,7 +43,7 @@ gauche()
 
 
 override def run() {
-  nord()
+  nord2()
 while (!estSurBiscuit()) {
  keepHandOnSideWall()
 }
