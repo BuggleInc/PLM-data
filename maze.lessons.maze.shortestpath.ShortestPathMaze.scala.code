@@ -16,7 +16,7 @@ override def run() {
   var posYNote:Int = posYBiscuit
   
   setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
-  while (cpt < 2) {
+  //while (casesLibres()) {
     if (!aMurNord(posXNote,posYNote)) {
       setIndication(posXNote, posYNote-1, cpt)
     }; if (!aMurOuest(posXNote, posYNote)) {
@@ -26,7 +26,7 @@ override def run() {
     }; if (posXNote < getMondeLargeur()-1 && !aMurOuest(posXNote+1, posYNote)) {
       setIndication(posXNote+1, posYNote, cpt)
     }; cpt += 1
-  }
+  //}
 }
 
 def casesLibres():Boolean = {
