@@ -5,7 +5,11 @@ override def run() {
     ecritMessage(cpt)
     cpt=cpt+1
     if (murGauche()){
-      setPos(getY()+1,0)
+      if (murFace()){
+        setPos(getMondeLargeur()-1,getY()+1)
+      }else{
+      	setPos(getY()+1,0)
+      }
     }else{
     	setPos(getX()-1,getY()+1)
    	}
@@ -20,5 +24,12 @@ def murGauche():Boolean={
   gauche()
   var reponse:Boolean=estFaceMur()
   droite()
+  return reponse
+}
+
+def murFace():Boolean={
+  retourne()
+  var reponse:Boolean=estFaceMur()
+  retourne()
   return reponse
 }
