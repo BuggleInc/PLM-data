@@ -7,25 +7,19 @@ def fin(): Boolean = {
   }
 }
 
-def murDroite(): Boolean= {
-  droite()
-  if(estFaceMur()) {
-    gauche()
-    return true
-  }
-  else {
-    gauche()
-    return false
-  }
-}
-
 override def run() {
   while(!fin()) {
     if(!estFaceMur()) {
       avance()
     }
+    var num=random3()
     else {
-      if(murDroite()) {
+      if(num==0) {
+        gauche()
+        gauche()
+        avance()
+      }
+      else if(num==1){
         gauche()
         avance()
       }
