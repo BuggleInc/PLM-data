@@ -12,18 +12,15 @@ def murExterne ()
 {
   while (getY()!=0) 
   {
-    if(getDirection==Direction.NORTH && !estFaceMur()) 
+    while (getDirection(Direction.NORTH)) 
     {
-      avance()
-    }
-    if(!estFaceMur()) 
+      if (!estFaceMur()) 
+      {
+        avance()
+      }
+    } else 
     {
-      avance()
-      droite()
-    }
-    if(estFaceMur()) 
-    {
-      droite()
+      keepHandOnSideWall() 
     }
   }
 }
