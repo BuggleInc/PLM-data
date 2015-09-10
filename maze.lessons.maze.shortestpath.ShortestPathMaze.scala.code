@@ -9,11 +9,10 @@ override def run() //CHECKED
       for (j <- 0 to getMondeHauteur()-1)
       {
 				if (getIndication(i,j)==valeur)
-        	marquerCasesAdjacentes(repererCasesAdjacentes(i,j),i,j)
+        	marquerCasesAdjacentes(i,j)
       }
     }
     valeur +=1
-                                avance()
   }
   allerSortie()
 
@@ -82,9 +81,10 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   return casesAdjacentes
 }
 
-def marquerCasesAdjacentes(casesAdjacentes:Array[Boolean],X:Int,Y:Int) //marque cases adjacentes
+def marquerCasesAdjacentes(X:Int,Y:Int) //marque cases adjacentes
 {
   var maCase=getIndication(X,Y)
+  var casesAdjacentes = repererCasesAdjacentes(X,Y)
   if (casesAdjacentes(0)==true)
   {
     if (getIndication(X-1,Y)==9999)
