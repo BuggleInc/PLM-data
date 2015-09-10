@@ -1,4 +1,4 @@
- def ramasseBiscuit() = {
+def ramasseBiscuit() = {
     while(!estSurBiscuit()){
       recule()
     }
@@ -12,7 +12,14 @@
     recule()
  }
 
-while (!estDosMur()){
+def testMur() : Boolean = {
+  droite()
+  if (estFaceMur){
+    return true
+  }else return false
+}
+
+while (testMur()){
   ramasseBiscuit()
 }
 
