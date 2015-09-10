@@ -1,23 +1,30 @@
 override def run() {
-  while(!estSurBiscuit()){
-    while(getY()!=0){
+  droite()
+    while(getX()!=10){
     	while(!estFaceMur){
       	avance()
     	}
-      var n = 0
-    	while(estFaceMur && (n%2 == 0) && (n%4 != 0)){
-      	gauche()
-        n = n+1
+    	if(estFaceMur){
+      	droite()
+        avance()
+        gauche()
     	}
       while(!estFaceMur){
       	avance()
       }
-      while(n!=0){
-        gauche()
-        n = n-1
-      }
-    }
+      droite()
+  }
+  while(!estSurBiscuit()){
   	GaucheMur()
+    droite()
+    if(!estFaceMur){
+      avance()
+      if(estSurBiscuit()){
+        prendBiscuit()
+      }
+      recule()
+   	}
+    gauche()
   }
   prendBiscuit()
 }
