@@ -1,5 +1,6 @@
 retourne()
-while (!estFaceMur() && !estSurBiscuit()){
+while (!estFaceMur()){
+  if (estSurBiscuits && !porteBiscuit() && estFaceMur()){prendBiscuit();retourne()}
   if (estSurBiscuit() && !porteBiscuit()){prendBiscuit();retourne();avance()}
   if (!estSurBiscuit() && !porteBiscuit()){avance()}
   if (!estSurBiscuit() && porteBiscuit()){avance()}
