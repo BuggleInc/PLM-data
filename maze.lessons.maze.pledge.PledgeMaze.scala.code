@@ -1,4 +1,5 @@
 override def run() {
+  var sommeAngle : Int = 0
   
   // part du principe qu'on a un mur a gauche
   def keepHandOnSideWall() {
@@ -27,12 +28,11 @@ override def run() {
   }
   
   //---
-  var sommeAngle : Int = 0
   while (!estSurBiscuit) {
     while (getDirection()==Direction.NORTH && !estFaceMur() && !estSurBiscuit) 
     			{avance()}
-    droite()
-  	sommeAngle = -1
+    droite() // pour commencer avec un mur ? gauche
+  	sommeAngle = -1 // cf 1er virage ligne au dessus
   	while (sommeAngle!=0 && !estSurBiscuit)
     			{keepHandOnSideWall()}
   }
