@@ -1,21 +1,14 @@
 override def run() {
-  var hasard=0
   while (!estSurBiscuit){
     setDirection(Direction.NORTH)
     if (estFaceMur){
-    	hasard=random3()
-    	hasard match {
-      	case 0 => if (!estFaceMur){
-        	avance()
-      	}
-      	case 1 =>droite();if (!estFaceMur){
-        	avance()
-      	}
-      	case 2 =>gauche;if (!estFaceMur){
-        	avance()
-      	}
-    	}
-  	}else{
+      droite()
+      if (faceMur){
+        droite()
+        avance()
+        gauche()
+      }
+    }else{
       avance()
     }
   }
