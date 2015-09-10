@@ -78,24 +78,21 @@ def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
   var posXActu:Int = getX()
   var posYActu:Int = getY()
   if (posY > 0 && getIndication(posX, posY-1) > n && !aMurNord(posX, posY)) {
-    setPos(posX, posY-1)
     setIndication(posX, posY-1, n)
-    ecritMessage(getIndication(posX, posY-1))
-    setPos(posXActu, posYActu)
+    ecritMessage(posX +" "+ posY+" "+getIndication(posX, posY-1))
+    effaceMessage()
   }; if (posX > 0 && getIndication(posX-1, posY) > n && !aMurOuest(posX, posY)) {
-    setPos(posX-1, posY)
     setIndication(posX-1, posY, n)
-    ecritMessage(getIndication(posX-1, posY))
-    setPos(posXActu, posYActu)
+    ecritMessage(posX +" "+ posY+" "+getIndication(posX-1, posY))
+    effaceMessage()
   }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) > n && !aMurNord(posX, posY+1)) {
-    setPos(posX, posY+1)
     setIndication(posX, posY+1, n)
-    ecritMessage(getIndication(posX, posY+1))
-    setPos(posXActu, posYActu)
+    ecritMessage(posX +" "+ posY+" "+getIndication(posX, posY+1))
+    effaceMessage()
   }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) > n && !aMurOuest(posX+1, posY)) {
     setPos(posX+1, posY)
     setIndication(posX+1, posY, n)
-    ecritMessage(getIndication(posX+1, posY))
+    ecritMessage(posX +" "+ posY+" "+getIndication(posX+1, posY))
     setPos(posXActu, posYActu)
   }
 }
