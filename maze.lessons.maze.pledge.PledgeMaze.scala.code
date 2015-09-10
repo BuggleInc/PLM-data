@@ -15,12 +15,20 @@ override def run(){
   }
   
   while(!estSurBiscuit()){
+    var somme=0
+    if(somme==3 || somme==(-3)){
+      avance()
+      while(!estFaceMur()){
+    		avance()
+  		}
+    }
     if(keepHandOnSideWall()){
       if(!estFaceMur()){avance()}
-      else{gauche()}
+      else{gauche(); somme-=1}
     }
     else{droite()
          avance()
+         somme+=1
         }
     
   }
