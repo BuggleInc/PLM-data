@@ -14,7 +14,7 @@ def marquerSol() {baisseBrosse();leveBrosse()}
 def premiereColonne() {
   var longueurTableau: Int = getWorldHeight()
   var res:Array[Color] = lireColonne(longueurTableau)
-  for (k <- 0 to longueurTableau -7) {
+  for (k <- 0 to longueurTableau -2) {
     setCouleurBrosse(res(k))
     marquerSol()
     avance()
@@ -37,24 +37,4 @@ override def run() {
   premiereColonne()
   transition()
   
-}
-
-def run1() {
-  
-  var longueurTableau: Int = getWorldHeight()
-  var j:Int = 0
-  var res:Array[Color] = lireColonne(longueurTableau)
-  for (i <- 1 to longueurTableau -1) {
-    for (j <- 1 to longueurTableau -1){
-    val decalage = litMessage().toInt
-    setCouleurBrosse(res(j+decalage))
-    marquerSol()
-    avance()
-  	}
-  var compteur:Int = 0
-  for (compteur <- 1 to longueurTableau -1) {recule()}
-  gauche()
-  avance()
-  droite()
-	}
 }
