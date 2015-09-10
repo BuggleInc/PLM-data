@@ -5,7 +5,7 @@ override def run() {
       goN()
     }
     droite()
-    while (((sommeAngle!=0) && (!estFaceMur())) || !estSurBiscuit()) {
+    while (quitterMur()) {
       gauche()
  			sommeAngle = sommeAngle + 1
 				if (estFaceMur()) {
@@ -21,7 +21,11 @@ override def run() {
   prendBiscuit()
 }
  
- 
+def quitterMur(sommeAngle) = {
+  if ((sommeAngle == 0) && (allerN())) {return true}
+  else if (estSurBiscuit()) {return true}
+  else {false}
+}
 
 def allerN():Boolean = {
   var d = getDirection()
