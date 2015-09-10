@@ -1,2 +1,32 @@
 override def run() {
 }
+
+override def run() {
+  var T= new Array[Color](getMondeHauteur())
+	
+  T(0)=getCouleurSol()
+  
+  for (compteur <-0 to getMondeHauteur()-2){
+  	avance()
+    T(compteur)=getCouleurSol()
+  	
+  }
+  for (compteur<-1 to getMondeLargeur()-1 ){
+    
+    gauche()
+    avance()
+    droite()
+    
+    avance()
+    var decalage = litMessage().toInt
+    
+    for (compteur<(i+5)%getMondeHauteur() to getMondeHauteur()-1 ){
+      setCouleurBrosse(T(compteur))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+  }
+	//recule()
+
+}
