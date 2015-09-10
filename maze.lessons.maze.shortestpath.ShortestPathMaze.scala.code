@@ -21,7 +21,7 @@ override def run()
   prendBiscuit()
 } 
 
-def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases
+def marquageComplet():Boolean = //v?rifie si on a marqu? toutes les cases
 {
   for (i <- 0 to getMondeLargeur()-1)
   {
@@ -34,7 +34,7 @@ def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases
   return true
 }
 
-def repererSortie() //repère sortie, y met 0
+def repererSortie() //rep?re sortie, y met 0
 {
   for (i <- 0 to getMondeLargeur()-1)
   {
@@ -48,7 +48,7 @@ def repererSortie() //repère sortie, y met 0
   }
 }
 
-def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes
+def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //rep?re cases adjacentes
 {
   var casesAdjacentes:Array[Boolean]=new Array[Boolean](4)
 	casesAdjacentes(0) = false
@@ -68,7 +68,7 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   	if (!aMurNord(X,Y))
     	casesAdjacentes(1)=true
   }
-  //on analyse case à droite
+  //on analyse case ? droite
   if (X!=getMondeLargeur()-1)
   {
     if (!aMurOuest(X+1,Y))
@@ -83,7 +83,7 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
   return casesAdjacentes
 }
 
-def marquerCasesAdjacentes(X:Int,Y:Int):Boolean= //marque cases adjacentes, indique si on a marqué une case ou pas
+def marquerCasesAdjacentes(X:Int,Y:Int):Boolean= //marque cases adjacentes, indique si on a marqu? une case ou pas
 {
   var maCase=getIndication(X,Y)
   var test:Boolean=false
