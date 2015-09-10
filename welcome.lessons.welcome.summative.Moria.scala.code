@@ -1,18 +1,25 @@
 
 
-while(estFaceMur()==false){
+while(cdt==false){
+  
   setDirection(plm.universe.Direction.EST)
 
   while (estSurBiscuit==false ){     
     avance()
   }
-  prendBiscuit();retourne() 
-  while (estSurBiscuit==false){
-    avance()
-  }
-  recule();poseBiscuit()
-  retourne();avance()
-
+  if (porteBiscuit==false && estSurBiscuit==true){
+  	prendBiscuit();retourne()  
+    while (estSurBiscuit==false){
+      avance()
+    }
+    recule();poseBiscuit()
+    retourne();avance()
+  }  	
 }
 
 droite();avance();gauche();avance()
+
+def cdt:Boolean ={
+  if (estFaceMur== true && estSurBiscuit==false){return true}
+  return false
+}
