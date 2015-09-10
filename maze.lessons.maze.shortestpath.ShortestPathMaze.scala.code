@@ -21,7 +21,7 @@ override def run() {
     for (x <- 0 to getMondeLargeur()-1) {
       for (y <- 0 to getMondeHauteur()-1) {
         if (getIndication(x,y) == cpt) {
-          indicationCasesAdjacente(cpt+1, x, y)
+          indicationCasesAdjacentes(cpt+1, x, y)
         }
       }
     }
@@ -41,14 +41,14 @@ def casesLibres():Boolean = {
   return false
 }
 
-def indicationCasesAdjacente(n:Int, posX:Int, posY:Int) = {
-  if (getIndication(posX, posY-1) == 9999 && !aMurNord(posX, posY)) {
-      setIndication(posX, posY-1, n)
-    }; if (getIndication(posX-1, posY) == 9999 && !aMurOuest(posX, posY)) {
-      setIndication(posX-1, posY, n)
-    }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) == 9999 &&  !aMurNord(posX, posY+1)) {
-      setIndication(posX, posY+1, n)
-    }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) == 9999 &&  !aMurOuest(posX+1, posY)) {
-      setIndication(posX+1, posY, n)
-    }
+def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
+  if (posY > 0 && getIndication(posX, posY-1) == 9999 && !aMurNord(posX, posY)) {
+    setIndication(posX, posY-1, n)
+  }; if (posX > 0 && getIndication(posX-1, posY) == 9999 && !aMurOuest(posX, posY)) {
+    setIndication(posX-1, posY, n)
+  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) == 9999 &&  !aMurNord(posX, posY+1)) {
+    setIndication(posX, posY+1, n)
+  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) == 9999 &&  !aMurOuest(posX+1, posY)) {
+    setIndication(posX+1, posY, n)
+  }
 }
