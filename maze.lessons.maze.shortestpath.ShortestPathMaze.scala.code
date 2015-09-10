@@ -1,24 +1,23 @@
 override def run()
 {
   repererSortie()
-  var valeur=0
+  var valeur = 0
   var fini:Boolean=false
   while (!fini)
   {
-    for (i <- 0 to getMondeLargeur()-1)
+    for (i <- 0 to getMondeLargeur() - 1)
     {
-      for (j <- 0 to getMondeHauteur()-1)
+      for (j <- 0 to getMondeHauteur() - 1)
       {
-				if (getIndication(i,j)==valeur)
-        	if (!marquerCasesAdjacentes(i,j))
+				if (getIndication(i, j) == valeur)
+        	if (!marquerCasesAdjacentes(i, j))
         		fini=true
       }
     }
     valeur +=1
   }
- // allerSortie()
-
- // prendBiscuit()
+ allerSortie()
+ prendBiscuit()
 } 
 
 def marquageComplet():Boolean = //v?rifie si on a marqu? toutes les cases
