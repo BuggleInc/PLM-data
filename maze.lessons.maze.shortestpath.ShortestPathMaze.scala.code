@@ -33,18 +33,6 @@ def ecritIndications() {
   var yMax:Int = getMondeHauteur() - 1
   
   setIndication(posSortie(0), posSortie(1), 0)
-  
-  while (casesMarquees != getMondeHauteur() * getMondeLargeur()) {
-    for (x <- 0 to xMax) {
-      for (y <- 0 to yMax) {
-        if (getIndication(x, y) == poidsCourant) {
-          marqueCasesAccessibles(Array(x, y), poidsCourant)
-        }
-      }
-    }
-    
-    poidsCourant += 1
-  }
 }
 
 override def run() {
