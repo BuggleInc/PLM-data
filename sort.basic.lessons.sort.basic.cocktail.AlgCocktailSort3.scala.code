@@ -1,16 +1,18 @@
 def cocktailSort3() {
-  var ok:Boolean = false
+  var okcroi:Boolean = false
+  var okdecroi:Boolean = false
   var max:Int = getNombreValeurs()-2
   var min:Int = 0
-  while(ok == false){
-    ok=true
+  while(okcroi == false && okdecroi == false){
+    okcroi=true
+    okdecroi = true
     for(i<-min to max){
-      if( !plusPetit(i,i+1)){echange(i,i+1);ok=false; }      
+      if( !plusPetit(i,i+1)){echange(i,i+1);okcroi=false; }      
     }
-    if(ok == true){return}
+    if(okcroi == true){return}
     max+= -1
     for(i<- 0 to max-min){
-      if( !plusPetit(max-i,max-i+1)){echange(max-i,max-i+1);ok=false; }      
+      if( !plusPetit(max-i,max-i+1)){echange(max-i,max-i+1);okdecroi=false; }      
     }
     min+=1
   }
