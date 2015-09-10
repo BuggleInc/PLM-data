@@ -11,10 +11,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     }
   }
   
-  rule(state)(index) match{
-    case 'R' => right()
-    case 'L' => left()
-  }
   
   if (index == rule.length - 1){
     setBrushColor(colors(0))
@@ -24,7 +20,14 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   
   brushDown()
   brushUp()
-  forward()
+  
+  rule(state)(index) match{
+    case 0 => 
+    case 1 => forward()
+    case 2 => left() ; forward()
+    case 4 => left() ; left() ; forward()
+    case 8 => right(); forward()
+  }
   
   state += 1
   
