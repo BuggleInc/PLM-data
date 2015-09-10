@@ -15,12 +15,11 @@ def murExterne ()
     if(getDirection==Direction.NORTH && !estFaceMur()) 
     {
       avance()
-    } else 
+    }
+    if(!estFaceMur()) 
     {
-      while(!(getDirection()==Direction.NORTH && !estFaceMur())) 
-      {
-        keepHandOnSideWall() 
-      }
+      avance()
+      droite()
     }
   }
 }
