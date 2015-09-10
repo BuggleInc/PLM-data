@@ -1,22 +1,32 @@
 override def run() {
-}
-
-var cpt=0
+  var cpt=0
   var a=0
   var b=0
+  
   while(cpt!=48) {
-    if (a!=getMondeLargeur-1) {
-      ecritMessage(cpt)
-      a+=1
-      setPos(a,b)
-      cpt+=1
-    }
-    else {
+    for (cpt1<-1 to 3) {
+      for (cpt2<- 1 to 6) { // premi?re ligne
+        ecritMessage(cpt)
+        a+=1
+        setPos(a,b)
+        cpt+=1
+      }
       ecritMessage(cpt)
       b+=1
-      a=0
+      setPos(a,b)
       cpt+=1
+      for (cpt3<-1 to 6) { // deuxi?me ligne
+        ecritMessage(cpt)
+        a-=1
+        setPos(a,b)
+        cpt+=1
+      }
+      ecritMessage(cpt)
+      cpt+=1
+      b+=1
       setPos(a,b)
     }
   }
   ecritMessage(48)
+}
+
