@@ -1,4 +1,4 @@
-override def run() {
+override def run() //CHECKED {
   repererSortie()
   var valeur=0
   while (!marquageComplet())
@@ -15,7 +15,7 @@ override def run() {
   }
   allerSortie()
   prendBiscuit()
-} //CHECKED
+} 
 
 def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases CHECKED
 {
@@ -44,7 +44,7 @@ def repererSortie() //repère sortie, y met 0 CHECKED
   }
 }
 
-def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes
+def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacentes CHECKED
 {
   var casesAdjacentes:Array[Boolean]=new Array[Boolean](4)
 	casesAdjacentes(0) = false
@@ -74,12 +74,12 @@ def repererCasesAdjacentes(X:Int,Y:Int):Array[Boolean]= //repère cases adjacente
     if (!aMurNord(X,Y+1))
   		casesAdjacentes(3)=true
   }
-  avance()
   return casesAdjacentes
 }
 
 def marquerCasesAdjacentes(casesAdjacentes:Array[Boolean],X:Int,Y:Int) //marque cases adjacentes
 {
+  avance()
   var maCase=getIndication(X,Y)
   if (casesAdjacentes(0)==true)
   {
