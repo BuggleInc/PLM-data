@@ -1,0 +1,67 @@
+override def run() {
+  while (!estSurBiscuit()) {
+   while (allerN()) {
+     goN()
+   } 
+ 	 if (estFaceMur()) {
+     var c = 0
+     var x = getX()
+     var y = getY()
+	   while ((!estSurBiscuit()) && (c != 4)) {
+	     if (checkg()) {gauche(); avance()}
+	     else if (!estFaceMur()) {avance()}
+	     else {droite()}
+       if ((getX()==x) && (getY()==y)) {c = c + 1}
+	   }
+	   if (c == 4) {
+       while (!allerN()) {
+         if (checkg()) {gauche(); avance()}
+         else if (!estFaceMur()) {avance()}
+         else {droite()}
+       }
+     }
+	 }  
+  }
+  prendBiscuit()
+}
+
+
+def allerN():Boolean = {
+  var d = getDirection()
+  if (d == Direction.NORTH) {return !estFaceMur()}
+  else if (d == Direction.EAST) {
+    gauche()
+    var r = !estFaceMur()
+    droite()
+    return r}
+ 	else if (d == Direction.WEST) {
+    droite()
+    var r = !estFaceMur()
+    gauche()
+    return r}
+  else {
+    gauche()
+    gauche()
+    var r = !estFaceMur()
+    gauche()
+    gauche()
+    return r
+  }
+}
+  
+def goN() = {
+  var d = getDirection()
+  d match {
+    case Direction.NORTH => avance()
+    case Direction.EAST => gauche(); avance()
+    case Direction.WEST => droite(); avance()
+    case Direction.SOUTH => gauche(); gauche(); avance()
+  }
+}
+
+def checkg():Boolean = {
+  gauche()
+  var r = !estFaceMur()
+  droite()
+  return r
+}
