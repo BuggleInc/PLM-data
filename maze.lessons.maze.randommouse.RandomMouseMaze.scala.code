@@ -1,0 +1,31 @@
+override def run() 
+{
+  var choix = 0
+  while (!estSurBiscuit()) 
+  {
+    choix = random3()
+    if (choix == 0) 
+    {
+      if (!estFaceMur()) 
+      {
+        avance()
+      }
+    }
+    if (choix == 1) 
+    {
+      droite()
+      if (!estFaceMur()) 
+      {
+        avance()
+      }
+    }
+    if (choix == 2) 
+    {
+      gauche()
+      if (!estFaceMur()) 
+      {
+        avance()
+      }
+    }
+  }
+}
