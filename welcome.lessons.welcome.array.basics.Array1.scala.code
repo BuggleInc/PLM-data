@@ -1,0 +1,38 @@
+
+def met_tableau_couleur():Array[Color] = 
+{var taille = getMondeLargeur();
+  var T = new Array[Color](taille)
+	for (i <- 0 to (taille-1) )
+	{
+    T(i)= getCouleurSol()
+  	avance()
+  }
+  
+  return T
+}
+
+def coloriage(T : Array[Color]) 
+{var taille = getMondeLargeur();
+ 
+  for (i <-0 to (taille-1))
+	{
+    setCouleurBrosse(T(i));
+    baisseBrosse;
+    leveBrosse;
+    avance();
+  }
+}
+
+  
+override def run() {
+  var taille = getMondeLargeur();
+    var T:Array[Color] = met_tableau_couleur()
+    for (i <-0 to (taille - 2))
+    {
+      gauche();
+    	avance();
+    	droite();
+      avance();
+    	coloriage(T);
+    }
+}
