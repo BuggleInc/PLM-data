@@ -8,7 +8,7 @@ override def run() {
     }
 		do
     {
-      virage = keepHandsOnSideWall(virage)
+      virage = suivreG(virage)
     }while(virage!=0)
   }
   prendBiscuit()
@@ -92,4 +92,21 @@ def isDirectionFree(dir : Direction) : Boolean = {
   {
     setDirection(actu);return true
   }
+}
+
+def suivreG(vir : Int) : Int = {
+  var virage = vir
+  if(mG()&&(!estFaceMur()))
+  {
+    avance()
+  }
+  else if(mG()&&estFaceMur())
+  {
+    droite();virage=virage-1;avance()
+  }
+  else if(!mG())
+  {
+    gauche();virage=virage+1;avance()
+  }
+  return virage
 }
