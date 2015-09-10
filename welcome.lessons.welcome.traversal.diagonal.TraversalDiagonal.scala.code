@@ -1,12 +1,18 @@
 override def run() {
   var pos : Int = 0
-  var dir : Int = 1
+  var moitié : Int = 1
   while( ! positionFinale()){
     ecritMessage( "" + pos)
-    if (estFaceMur()) {
-      setPos(0 , getX()+1)
-    } else{setPos(getX() +1 , getY()-1)}
-      pos = pos + 1
+    if (moitié1) {
+      if (estFaceMur()) {
+        setPos(0 , getX()+1)
+      } else{setPos(getX() +1 , getY()-1)}
+    } else {
+      if (getX() == 6) {
+        set Pos (getY() + 1,6)
+      } else{setPos(getX() +1 , getY()-1)}
+    }
+    pos = pos + 1
   }
   ecritMessage(""+pos)
 }
@@ -14,4 +20,8 @@ override def run() {
 
 def positionFinale(): Boolean ={
   return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
+}
+
+def moitié1 () : Boolean = {
+  return x+y > 7
 }
