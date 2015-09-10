@@ -1,5 +1,5 @@
 override def run() {
-    def keepHandOnSideWall(): Integer = {
+  def keepHandOnSideWall(): Integer = {
     droite()
     if (!estFaceMur()){
       avance()
@@ -9,20 +9,36 @@ override def run() {
       gauche()
       if (!estFaceMur()){
         avance()
+        return 0
       }
       else {
         gauche()
         if (!estFaceMur()){
           avance()
+          return 1
         }
         else {
           gauche()
           avance()
+          return 0
         }
       }
     }
   }
-
+  
+  def isDirectionFree(dir) : Boolean = {
+    var d = getDirection
+    setDirection(dir)
+    if (estFaceMur){
+      setDirection(d)
+      return false
+    }
+    else {
+      setDirection(d)
+      return true
+    }
+  }
+  
   while (getY()!=0){
     while (!estFaceMur() && getY()!=0){
       avance()
