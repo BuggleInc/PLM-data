@@ -1,7 +1,7 @@
 def golomb(num:Int): Int = {
   var suite = new Array[Int](num+1)
   suite(1) = 1
-  for (i <- 2 to num-1) {
+  for (i <- 2 to num-2) {
     suite(i+1) = 1 + suite(i+1-suite(suite(i)))
   }
   suite(num) = 1 + suite(num-suite(suite(num-1)))
