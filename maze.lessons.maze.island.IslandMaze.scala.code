@@ -1,2 +1,20 @@
 override def run() {
+  while (!estSurBiscuit()) {
+    if ((getDirection()==Direction.NORTH) && (!estFaceMur())) {
+    	avance()}
+    else if (checkg()) {gauche(); avance()}
+    else if (!estFaceMur()) {avance()} 
+    else {droite}
+  }
+  prendBiscuit()
+}
+        
+
+
+
+def checkg():Boolean = {
+  gauche()
+  var r = !estFaceMur()
+  droite()
+  return r
 }
