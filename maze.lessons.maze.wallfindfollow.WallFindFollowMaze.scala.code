@@ -1,5 +1,6 @@
 override def run() {
-  MurAGauche()
+  murNord
+  murAGauche()
   while (!estSurBiscuit()){
     keepHandOnSideWall()
   }
@@ -26,11 +27,22 @@ def keepHandOnSideWall():Unit={
   }
 }
 
-def MurAGauche():Unit={
+def murAGauche():Unit={
   var murGauche:Boolean=false
   gauche()
   while (!estFaceMur()){
     avance()
   }
   droite()
+}
+
+def murNord():Unit={
+  if(!estFaceMur()){
+    avance()
+  }else{
+    droite()
+    while (getDirection!=Direction.NORTH){
+      keepHandOnSideWall()
+  	}
+	}
 }
