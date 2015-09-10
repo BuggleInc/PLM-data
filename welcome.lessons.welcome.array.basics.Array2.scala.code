@@ -15,4 +15,16 @@ override def run() {
   gauche()
   avance()
   droite()
+  
+  for (j <- 0 to longueurTableau -2) {
+  val decalage = litMessage().toInt
+  setCouleurBrosse(res((j+decalage)%longueurTableau))
+  marquerSol()
+  	for (k <- 0 to longueurTableau -2){
+      avance()
+      setCouleurBrosse(res((k + decalage + 1)%longueurTableau))
+      marquerSol()
+    for (m <- 1 to longueurTableau -1) {recule()}
+    }
+  }
 }
