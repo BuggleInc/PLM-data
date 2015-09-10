@@ -1,4 +1,4 @@
-override def run() {
+/*override def run() {
   while (!estSurBiscuit()) {
     if (checkg()) {gauche(); avance()}
     else if (!estFaceMur()) {avance()}
@@ -14,4 +14,25 @@ def checkg():Boolean = {
   var r = !estFaceMur()
   droite()
   return r
+}*/
+  
+override def run() {
+  while (!estSurBiscuit()) {
+    KeepHandWall()
+    go()
+  }
 }
+
+def KeepHandWall() = 
+  gauche()
+  if (estFaceMur()) {
+    droite()
+  }
+}
+
+def go() = {
+  if (estFaceMur()) {
+    droite()
+  } else {avance()}
+}
+
