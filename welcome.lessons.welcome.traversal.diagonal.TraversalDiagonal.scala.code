@@ -1,0 +1,37 @@
+var diag = 1
+
+def posFinale():Boolean={
+	if ((getMondeHauteur()-1==getY())&&(getMondeLargeur()-1==getX())){
+  	return true
+  }
+  return false
+}
+
+override def run() {
+
+  
+  ecritMessage(0)
+	var compteur = 1
+  
+	while (!posFinale()){
+
+    if (!estFaceMur()){
+      setPos(getX()+1, getY()-1)
+  	} else if (estFaceMur()){
+      if (diag <=6){
+        setPos(0, getY()+diag)
+        diag += 1
+      } else if (diag > 6){
+        setPos(getX()-diag+2, 0)
+        diag = diag -1
+      }
+    }
+      ecritMessage(compteur)
+      compteur += 1
+      
+
+	}
+  
+  ecritMessage(compteur)
+  
+}

@@ -1,0 +1,54 @@
+override def run() {
+  
+  
+  def faireDiag(c:Color){
+    avance(); gauche()
+    setCouleurBrosse(c); baisseBrosse(); leveBrosse()
+    avance(); gauche(); avance(); gauche()
+    baisseBrosse(); leveBrosse()
+    avance(); gauche()
+  }
+  
+  
+  def faireAntiDiag(c:Color){
+  	setCouleurBrosse(c); baisseBrosse(); leveBrosse()
+    avance(); gauche(); avance(); gauche()
+    baisseBrosse(); leveBrosse()
+    avance(); gauche(); avance(); gauche()
+  }
+  
+  def faireMotif(){
+    faireDiag(Color.red)
+    avance(); avance()
+    faireAntiDiag(Color.blue)
+    recule(); recule(); gauche(); avance(); avance(); droite()
+    faireAntiDiag(Color.yellow)
+    avance(); avance()
+    faireDiag(Color.green)
+    recule(); recule(); droite(); avance(); avance(); gauche(); avance(); avance(); avance()
+    if (!estFaceMur){
+      avance()
+    }
+  }
+
+  var motif = 0
+  
+  while (motif < 4){
+    for (i <- 1 to 2){
+      faireMotif()
+      motif = motif + 1
+    }
+    for (i <- 1 to 7){
+      recule()
+    }
+    gauche()
+    for (i <- 1 to 4){
+      if(!estFaceMur){
+        avance()
+      }
+    }
+    droite()
+  }
+  
+  avance(); avance(); avance(); avance(); droite(); avance(); avance(); avance(); gauche()
+}
