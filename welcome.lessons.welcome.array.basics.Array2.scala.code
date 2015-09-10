@@ -1,6 +1,6 @@
 override def run() {
   var T = new Array[Color](getMondeHauteur())
-    T(0)=getCouleurSol()
+  T(0)=getCouleurSol()
   for (i <- 1 to getMondeHauteur()-1){
     avance()
     T(i)=getCouleurSol()
@@ -15,11 +15,11 @@ override def run() {
     for (l<- 1 to getMondeHauteur()-1){
       avance(); setCouleurBrosse(T((l+decalage)%getMondeHauteur)); baisseBrosse(); leveBrosse();
       if (estFaceMur()){while (!(estDosMur())){
-    recule()
-        
+        recule()
+
       }
-                        setCouleurBrosse(T((l+decalage+1)%getMondeHauteur)); baisseBrosse();
-}
+     setCouleurBrosse(T((l+decalage+1)%getMondeHauteur)); baisseBrosse();
+                       }
     }
   }
 }
