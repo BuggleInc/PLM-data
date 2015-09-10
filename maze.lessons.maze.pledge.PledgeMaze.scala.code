@@ -1,2 +1,30 @@
 override def run() {
+  
+  // part du principe qu'on a un mur a gauche
+  def keepHandOnSideWall() {
+    var compteur : Int = 0
+    gauche()
+    if (!estFaceMur()) {avance(); compteur+=1}
+       // pas mur a gauche ? go
+    else {droite() ; if (!estFaceMur()) {avance()}
+         					  // pas mur en face ? go
+        						else {droite() ; if (!estFaceMur()) {avance(); compteur-=1}
+                           						// pas mur a droite ?
+           													  else {droite()}
+                           						// va en arriere
+}}}
+  
+  //---
+  def isDirectionFree(dir:Direction):Boolean = {
+    var directionBuggle : Direction = getDirection()
+    var bool : Boolean = true
+    setDirection(dir)
+    bool = (!estFaceMur)
+    setDirection(directionBuggle)
+    return bool
+  }
+  
+  //---
+  while (!estSurBiscuit) {keepHandOnSideWall()}
+  prendBiscuit()
 }
