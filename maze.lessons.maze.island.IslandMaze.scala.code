@@ -1,4 +1,9 @@
 override def run(){
+  while(getY()!=0){
+    if(!estFaceMur()){avance()}
+    else{gauche(); avance(); droite()}
+  }
+  
   def keepHandOnSideWall(): Boolean={
     droite()
     if(estFaceMur()){ 
