@@ -2,6 +2,6 @@ def keepHandOnSideWall = {gauche(); if (!estFaceMur) {avance()} else {while(estF
 
 override def run() { 
   
-  setDirection(Direction.NORTH); while(!estFaceMur) {avance()}
-  while (!estSurBiscuit()) {keepHandOnSideWall}; prendBiscuit()
+  
+  while (!estSurBiscuit()) {setDirection(Direction.NORTH); while(!estFaceMur) {avance()};keepHandOnSideWall}; prendBiscuit()
 }
