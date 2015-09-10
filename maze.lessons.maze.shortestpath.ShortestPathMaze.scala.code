@@ -17,7 +17,7 @@ override def run() {
   
   setIndication(posXNote, posYNote, cpt)			 //On marque 0 a la sortie
   
-  while (casesLibres()) { //Tant que toutes les cases ne portent pas d'indication,
+  while (casesLibres()) { //Tant que la case du Buggle ne porte pas d'indication,
     for (x <- 0 to getMondeLargeur()-1) { //On parcourt chaque case de la grille
       for (y <- 0 to getMondeHauteur()-1) {
         if (getIndication(x,y) == cpt) { //Et si on rencontre une case portant la valeur du compteur,
@@ -64,7 +64,7 @@ override def run() {
       setDirection(Direction.NORD)
       avance()
     } else {
-      ecritMessage(getIndication(getX(),getY()))
+      ecritMessage("Erreur")
     }
   }
 }
@@ -75,13 +75,13 @@ def casesLibres():Boolean = {
 }
 
 def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
-  if (posY > 0 && getIndication(posX, posY-1) == 9999 && !aMurNord(posX, posY)) {
+  if (posY > 0 && getIndication(posX, posY-1) > n && !aMurNord(posX, posY)) {
     setIndication(posX, posY-1, n)
-  }; if (posX > 0 && getIndication(posX-1, posY) == 9999 && !aMurOuest(posX, posY)) {
+  }; if (posX > 0 && getIndication(posX-1, posY) > n && !aMurOuest(posX, posY)) {
     setIndication(posX-1, posY, n)
-  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) == 9999 && !aMurNord(posX, posY+1)) {
+  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) > n && !aMurNord(posX, posY+1)) {
     setIndication(posX, posY+1, n)
-  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) == 9999 && !aMurOuest(posX+1, posY)) {
+  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) > n && !aMurOuest(posX+1, posY)) {
     setIndication(posX+1, posY, n)
   }
 }
