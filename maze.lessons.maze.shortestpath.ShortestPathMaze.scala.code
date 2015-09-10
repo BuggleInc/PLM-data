@@ -1,3 +1,217 @@
 override def run() {
-    // Your code here
+    var x=0
+      var y=0
+      var dir:Direction=Direction.NORTH
+      var ind=9999
+ 
+  def indication(x:Int, y:Int, i:Int){
+    if(!aMurNord(x,y)){setIndication(x,y-1,i+1):indication(x,y-1,i+1)}
+    if(y>0&&!aMurNord(x,y-1)){setIndication(x,y+1,i+1):indication(x,y+1,i+1)}
+    if(!aMurOuest(x,y)){setIndication(x-1,y,i+1):indication(x-1,y,i+1)}
+    if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y)){setIndication(x+1,y,i+1):indication(x+1,y,i+1)}
+   
+    while(!aBiscuit)
+    for(i <- 0 to getMondeLargeur()-1){
+      for (j <- 0 to getMondeHauteur()-1){
+        if(aBiscuit(i,j)){x=i,y=j}
+      }
+    }
+   
+  }
+ 
+}
+
+
+override def run() {
+  var x=0
+  var y=0
+  var dir:Direction=Direction.NORTH
+  var ind=9999
+
+  def indication(x:Int, y:Int, i:Int){
+    if(!aMurNord(x,y)){setIndication(x,y-1,i+1);indication(x,y-1,i+1)
+                      }
+    if(y>0 && !aMurNord(x,y-1)){
+      setIndication(x,y+1,i+1);indication(x,y+1,i+1)
+    }
+    if(!aMurOuest(x,y)){setIndication(x-1,y,i+1);indication(x-1,y,i+1)
+                       }
+    if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999){setIndication(x+1,y,i+1);indication(x+1,y,i+1)
+                                                                                }
+
+
+    for(i <- 0 to getMondeLargeur()-1){
+      for (j <- 0 to getMondeHauteur()-1){
+        if(aBiscuit(i,j)){x=i;y=j}
+
+      }
+    }
+  }
+}
+
+override def run() {
+  var x=0
+  var y=0
+  var dir:Direction=Direction.NORTH
+  var ind=9999
+  var i=0
+
+  def indication(x:Int, y:Int, i:Int){
+    if(!aMurNord(x,y)){setIndication(x,y-1,i+1);indication(x,y-1,i+1)
+                      }
+    if(y>getMondeHauteur()-1 && !aMurNord(x,y-1)){
+      setIndication(x,y+1,i+1);indication(x,y+1,i+1)
+    }
+    if(!aMurOuest(x,y)){setIndication(x-1,y,i+1);indication(x-1,y,i+1)
+                       }
+    if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999){setIndication(x+1,y,i+1);indication(x+1,y,i+1)
+                                                                                }
+
+  }
+  for(i <- 0 to getMondeLargeur()-1){
+    for (j <- 0 to getMondeHauteur()-1){
+      if(aBiscuit(i,j)){x=i;y=j}
+
+   
+    }
+ 
+  }
+  while(!estSurBiscuit){
+    if(!aMurNord(getX(),getY() && getIndication(getX(),getY()-1)<ind){
+      dir = Direction.NORD; ind=getIndication(getX(),getY()-1)}
+       if(!aMurNord(getX(),getY()-1) && getIndication(getX(),getY()+1)<ind){
+         dir = Direction.SUD; ind=getIndication(getX(),getY()+1)}
+       if(!aMurOuest(getX()+1,get(Y)) && getIndication(getX()+1,getY())<ind){
+         dir = Direction.EST; ind=getIndication(getX()+1,getY())
+       }
+       if(!aMurOuest(getX(),getY()) && getIndication(getX()+1,getY())<ind){
+         dir=Direction.OUEST; ind=getIndication(getX()+1, getY())
+       }
+
+       setDirection(dir);avance();
+      
+
+       }
+       }
+override def run() {
+  var cpt=0
+  var h=getMondeHauteur
+  var l=getMondeLargeur
+  var x:Int=0
+  var y:Int=0
+  //var x:Int=0
+  //var y:Int=0
+    for (y <- 0 to l-1){  
+      for (x <- 0 to h-1){
+        if(y%2==0){
+          setPos(x,y)
+                ecritMessage(cpt)
+            cpt+=1 
+        } else {
+                setPos(h-1-x,y)
+                ecritMessage(cpt)
+                cpt+=1
+        }
+             
+                 
+      }
+ 
+  }
+   
+  }
+
+override def run() {
+  var diag=0
+  var h=getMondeHauteur
+  var l=getMondeLargeur
+  var x:Int=0
+  var y:Int=0
+  //var x:Int=0
+  //var y:Int=0
+    for (x <- 0 to l-1){  
+      for (y <- 0 to h-1){
+        if(y%2==0){
+          setPos(x,y)
+                ecritMessage(diag)
+            diag+=1 
+        } else {
+                setPos(h-1-x,y)
+                ecritMessage(diag)
+                diag+=1
+        }
+             
+                 
+      }
+ 
+  }
+   
+  }
+
+override def run() {
+  var cpt=0
+  var h=getMondeHauteur
+  var l=getMondeLargeur
+  var x:Int=0
+  var y:Int=0
+  //var x:Int=0
+  //var y:Int=0
+    for (x <- 0 to h-1){
+            for (y <- 0 to l-1){
+                setPos(x,y)
+          ecritMessage(cpt)
+            cpt+=1
+           
+  }
+ 
+  }
+   
+override def run() {
+  var cpt=0
+  var diag=0
+  var h=getMondeHauteur
+  var nbDiag=h*2-1
+  var l=getMondeLargeur
+  var i=0
+  //var x:Int=0
+  //var y:Int=0
+    for (diag <- 0 to nbDiag-1){  
+      if (diag<h){
+        for (cases <- 0 to diag){
+        setPos(cases+diag,cases)
+        ecritMessage(cpt)
+        cpt+=1
+      }
+    }else{
+          for(cases <- 0 to diag-i){
+            setPos(i,h-i-1)
+            ecritMessage(cpt)
+            cpt+=1
+          i+=1
+      }
+      }
+     
+     
+    }
+       
+}
+override def run() {
+ 
+  while(!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+ 
+  prendBiscuit
+
+def keepHandOnSideWall(){
+  if(estFaceMur){
+    droite()
+  } else {
+    avance()
+    gauche()
+ 
+    if(estFaceMur){
+      droite()
+    }
+  }
+}
 }
