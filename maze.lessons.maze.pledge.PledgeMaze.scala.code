@@ -4,7 +4,7 @@ override def run() {
   while(!estSurBiscuit()){
     while (nordTrouve==false){
       while(nordTrouve==false && virages>0){
-        choix2(virages)
+        virages=choix2(virages)
         goNord()
         if (getY()==0){
           nordTrouve=true
@@ -12,7 +12,7 @@ override def run() {
         }
       }
       while (nordTrouve==false && virages<4){
-        choix1(virages)
+        virages=choix1(virages)
         goNord()     
         if (getY()==0){
           nordTrouve=true
@@ -20,7 +20,7 @@ override def run() {
         }
       }
     }
-    choix1(virages)
+    virages=choix1(virages)
   }
   prendBiscuit()
 }
