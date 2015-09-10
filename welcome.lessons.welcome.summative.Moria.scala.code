@@ -3,7 +3,11 @@
 while(!estFaceMur()){
   setDirection(plm.universe.Direction.EST)
   while (estSurBiscuit==false){
-    avance()
+    if (estFaceMur==false){
+      avance()
+    }
+    else{droite();avance();gauche();avance()}
+    
   }
   
   prendBiscuit();retourne()
@@ -14,4 +18,3 @@ while(!estFaceMur()){
   recule();poseBiscuit()
   retourne();avance()
 }
-droite();avance();gauche();avance()
