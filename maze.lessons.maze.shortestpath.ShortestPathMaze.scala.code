@@ -5,10 +5,10 @@ override def run() {
   
   //-------------------------------------------
   
-  def trouverSortie():Double {
+  def trouverSortie():Double = {
   	var x : Int = 0
     var y : Int = 0
-    while (!aBiscuit(x,y)) { // tant qu'on a pas trouv?, parcours en largeur
+    while (!aBiscuit(x,y)) { // tant qu'on a pas trouve, parcours en largeur
       if (x < largeur-1) {x+=1}
       else {y+=1 ; x=0}
     }
@@ -20,10 +20,10 @@ override def run() {
   
   def marquerCasesAdjacentes((x,y):Double) {
     var i : Int = getIndication(x,y)
-    // on consid?re la case (x,y) num?rot?e i
+    // on considere la case (x,y) numerotee i
     // r?cursif : condition d'arret = plus de cases dispo
-    // bool?en pour savoir quel appel r?cursif faire
-    // probl?me d'ordre de priorit? dans la r?cursivit?e
+    // booleen pour savoir quel appel r?cursif faire
+    // probleme d'ordre de priorit? dans la recursivitee
  		var booldessus : Boolean = false ;
     var booldroite : Boolean = false ;
     var booldessous : Boolean = false ;
@@ -67,7 +67,7 @@ override def run() {
         && !aMurNord(posx,posy)
         && getIndication(posx,posy-1)<ind)
     			{setDirection(Direction.NORD)}
-    //case ? droite
+    //case a droite
     if (posx < largeur-1 
         && !aMurOuest(posx,posy)
         && getIndication(posx+1,posy)<ind)
@@ -77,7 +77,7 @@ override def run() {
         && !aMurNord(posx,posy+1) 
         && getIndication(posx,posy+1)<ind)
     			{setDirection(Direction.SUD)}
-    //case ? gauche
+    //case a gauche
     if (posx > 0
         && !aMurOuest(posx-1,posy)
         && getIndication(posx-1,posy)<ind)
