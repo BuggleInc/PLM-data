@@ -16,18 +16,20 @@ def toTheNorthFriends() {
 
 
 def searchLeft() {
+  var direction:Direction = getDirection() // on veut compenser le fait que peutAllerNord oriente vers le Nord quand on le test//
   if (!murAGauche()) {
     while (!estFaceMur())
    	  avance()
     droite()
+    direction = getDirection()
   }
-  while (!peutAllerNord() && getDirection() != Direction.SUD) {
-    while (!murAGauche())
-    	droite()
+  while (!peutAllerNord() && direction != Direction.SUD) {
+    setDirection(direction)
     if (!estFaceMur()) {
       avance()
     } else {
       droite()
+      direction = getDirection()
     }
   }
   avance()
