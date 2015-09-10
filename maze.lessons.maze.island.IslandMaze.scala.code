@@ -39,5 +39,24 @@ override def run() {
       avance()      
     }
   }
+  while(!estFaceMur()) {
+    avance()
+  }
+  gauche()
+  while(!fin()) {
+    if(murDroite()) {
+      if(estFaceMur()) {
+        gauche()
+      }
+      else {
+        avance()
+      }
+    }
+    else {
+      droite()
+      avance()
+    }
+  }
+  prendBiscuit()
   
 }
