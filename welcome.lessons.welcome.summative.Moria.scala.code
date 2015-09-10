@@ -8,6 +8,9 @@ def go(){
     }
     else avance()
   }
+  if(estSurBiscuit()){
+  	prendBiscuit()
+  }
 }
 
 def stop(){
@@ -36,6 +39,9 @@ def sortie(){
 
 while(!estFaceMur()){
 	go()
-  stop()
+  if(estFaceMur()){
+    sortie()
+  }
+  else stop()
 }
 sortie()
