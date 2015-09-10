@@ -1,2 +1,47 @@
 override def run() {
+  var cpt=1
+  val h=getMondeHauteur()
+  
+  ecritMessage("0")
+  
+  while (!posFinale()){
+    if ((getY())%2==0){
+      parcours1()
+    	ecritMessage(cpt.toString)
+    }
+    else{
+      parcours2()
+      ecritMessage(cpt.toString)
+    }
+    cpt+=1
+  }
+    
+  
+  }
+
+def parcours1()={
+  var l=getMondeLargeur()
+  if ((getX())==(l-1)){
+    setPos(l-1,getY()+1)
+  }
+  else{
+    setPos(getX()+1,getY())
+    
+  }
+}
+
+def parcours2()={
+  if ((getX())==0){
+    setPos(0,getY()+1)
+  }
+  else{
+    setPos(getX()-1,getY())
+  }
+}
+
+def posFinale():Boolean={
+  val l=getMondeLargeur()
+  val h=getMondeHauteur()
+  
+  return ((getX()==(l-1))&&(getY()==(h-1)))
 }
