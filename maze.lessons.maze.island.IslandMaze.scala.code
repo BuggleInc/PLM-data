@@ -1,0 +1,41 @@
+override def run() {
+  while(getY!=0){
+    ext()
+  }
+  gauche()
+  while(!estSurBiscuit()){
+    keepHandOnWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnWall(){
+  gauche()
+  if (estFaceMur()){
+    droite()
+    if(estFaceMur()){
+      droite()
+    }else{
+      avance()
+    }
+  }else{
+    avance()
+  }
+}
+
+def ext(){
+  if (!estFaceMur()){
+    avance()
+  }else{
+    droite()
+    if(!estFaceMur()){
+      avance()
+      gauche()
+    }else{
+      gauche()
+      gauche()
+      avance()
+      droite()
+    }
+  }
+}
