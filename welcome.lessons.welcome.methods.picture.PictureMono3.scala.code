@@ -1,0 +1,55 @@
+override def run() {
+  ligneV()
+  for(i<-1 to 8){
+      gauche()
+    for (i<- 1 to 7){
+      avance()
+    }
+    droite()
+    ligneV()
+  }
+  setPos(0, 62)
+}
+
+def faireV(){
+  avance()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  leveBrosse()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  leveBrosse()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  leveBrosse()
+  avance()
+  gauche()
+}
+
+
+def carreV() {
+  for (i<-1 to 4){
+    faireV()
+  }
+}
+
+def ligneV(){
+  carreV()
+  for (i<-1 to 7){
+    avance()
+  }
+  for (i<-1 to 8){
+    carreV()
+    for (i<-1 to 7){
+      avance()
+    }
+  }
+}

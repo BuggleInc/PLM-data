@@ -1,0 +1,29 @@
+override def run() {
+  var hauteur = getMondeHauteur()
+  var T=new Array[Color](hauteur)
+  for ( i<-0 to hauteur-2 ){
+    T(i)=getCouleurSol()
+    avance()
+  }
+  T(hauteur-1)=getCouleurSol()
+  recule(hauteur-1)
+  for (i<-0 to hauteur-2){
+    leveBrosse()
+    gauche()
+    avance()
+    droite()
+    var n = litMessage().toInt
+    baisseBrosse()
+    leveBrosse()
+    for ( i<-n to T.length-2+n){
+      setCouleurBrosse(T(i % hauteur))
+      baisseBrosse()
+      leveBrosse()
+      avance()
+    }
+    setCouleurBrosse(T((hauteur-1+n)%hauteur))
+    baisseBrosse()
+    leveBrosse()
+    recule(hauteur-1)
+  }
+}
