@@ -1,6 +1,12 @@
 override def run() {
-  suivreEtoilePolaire()
-  trouveFinAvecMurGauche2
+  
+  while(!estSurBiscuit()){
+      while(!estSurBiscuit()||(!regardeLeNord())){
+ 				 KeepHandOnSideWall()
+  }
+    while (!estFaceMur()){avance()}
+  }
+  prendBiscuit()
 }
 
 def trouveFinAvecMurGauche2()={
@@ -53,19 +59,5 @@ def aucunMur ():Boolean={
 
 def regardeLeNord():Unit={
   var dir=getDirection()
-  if (dir!=Direction.NORTH){setDirection(Direction.NORTH)}
-}
-
-def suivreEtoilePolaire():Unit={
-  regardeLeNord()
-    while(!murAGauche()&&(getDirection()!=Direction.NORTH)){
-    if (!aucunMur()){avance()}
-    else {gauche()}
-  }
-  while(!estSurBiscuit()){
-  KeepHandOnSideWall()
-  }
-  prendBiscuit()
-}
-  } 
+  return dir==Direction.NORTH
 }
