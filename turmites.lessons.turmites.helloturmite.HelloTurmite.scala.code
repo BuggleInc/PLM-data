@@ -1,0 +1,21 @@
+def coupstylo(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
+def indexOfValue(nums:Array[Color] ,lookingFor:Color): Int = {var a = -1;for (i <- 0 to nums.length-1) {if (nums(i)==lookingFor && a==(-1)) a=i};return a}
+
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+    /* Your code comes here */
+    var c = getCouleurSol()
+  var i = indexOfValue(colors,c)
+  val n = rule.length
+  val e = rule(state)(i)
+  var co = Color.black
+  e match {
+    case (d,0,s) => c = d;state = s
+    case (d,1,s) => c = d;state = s;avance()
+    case (d,2,s) => c = d;state = s;gauche();avance()
+    case (d,4,s) => c = d;state = s;droite();droite();avance()
+    case (d,8,s) => c = d;state = s;droite();avance()
+  }
+  
+}
