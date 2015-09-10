@@ -1,0 +1,53 @@
+override def run() {
+  while(getY>0 && !estSurBiscuit){
+    truc()
+  }
+  def truc(){
+  while(!estSurBiscuit()&& !estFaceMur()){
+    var sommeAngle=0
+    var meDir=getDirection()
+    do{
+      sommeAngle= sommeAngle+ keepHandOnSideWall()
+    }while(sommeAngle !=0 && estSurBiscuit() && getDirection()!= meDir)
+    
+    }
+   
+  }
+  prendBiscuit()
+
+
+
+
+
+def keepHandOnSideWall(): Int={
+  
+  
+  var Angleabs=0
+  if(estFaceMur){
+    droite()
+    Angleabs=Angleabs+1
+  } else {
+    if(!estSUrBiscuit()){
+      avance()
+      gauche()
+      Angleabs=Angleabs-1
+    }
+  }
+}
+
+
+    }
+  }
+  return Angleabs
+
+
+
+if (estFaceMur){
+    droite()
+		Angleabs=Angleabs+1
+}
+return Angleabs
+  
+
+  
+  
