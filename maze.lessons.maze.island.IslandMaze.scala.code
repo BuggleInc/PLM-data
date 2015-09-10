@@ -21,8 +21,10 @@ def murAGauche():Boolean =
   //---  
   
   while (!estSurBiscuit) {
-    while (!estFaceMur()) {avance()}
-  	while (estFaceMur() && getDirection()!=Direction.NORTH) {keepHandOnSideWall()}
+    while (!estFaceMur() && !estSurBiscuit) 
+    			{avance()}
+  	while (estFaceMur() && getDirection()!=Direction.NORTH && !estSurBiscuit)
+    			{keepHandOnSideWall()}
   }
   prendBiscuit()
 }
