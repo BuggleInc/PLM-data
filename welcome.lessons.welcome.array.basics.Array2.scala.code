@@ -1,8 +1,10 @@
 def tabcolor ():Array[Color]={
   var tab= new Array[Color](getMondeHauteur())
-  for (i<- 0 to getMondeHauteur()-1){
-    tab(i)=getCouleurSol()
+  tab(0)=getCouleurSol()
+  for (i<- 1 to getMondeHauteur()-1){
     avance()
+    tab(i)=getCouleurSol()
+    
   }
   return tab
 }
@@ -36,5 +38,3 @@ override def run() {
  	  avance()
 }
 }
- 
-
