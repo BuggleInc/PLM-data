@@ -1,0 +1,53 @@
+override def run() {
+  var Tableau=chopperCouleur()
+  for (i <- 0 to getMondeLargeur-2){
+  	decale()
+  	reprodCouleur(Tableau)
+  }
+  recule(getMondeHauteur()-1)
+}
+
+
+
+
+
+
+
+// Reproduit les couleurs en fonction du tableau.
+def reprodCouleur(T:Array[Color]){
+  val decalage=litMessage().toInt
+  for (i<- 0 to getMondeHauteur()-1){
+    setCouleurBrosse(T((i+decalage)%getMondeHauteur()))
+    marque()
+    if(i<=getMondeHauteur-2){avance()}
+  }  
+}
+
+
+// parcours la premiere ligne, recupere les couleurs et renvoie le tableau
+def chopperCouleur(): Array[Color]= {
+  var y=getMondeHauteur()
+  var T = new Array[Color](y)
+  for (i<- 0 to getMondeHauteur()-1){
+    T(i)=getCouleurSol()
+    if (i<=getMondeHauteur-2){avance()}
+  }
+  
+ return T
+}
+
+
+// decale d'une rangee
+def decale(){
+  recule(getMondeHauteur()-1)
+  gauche()
+  avance()
+  droite()
+}
+
+
+// tamponne la case
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}

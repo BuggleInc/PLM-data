@@ -1,0 +1,84 @@
+override def run() {
+  colonne()
+  avance(4)
+}
+
+def colonne(){
+  for(m <- 1 to 2){
+    if (m==2){newLine()}
+    ligne()
+  }
+}
+
+
+
+def ligne(){
+  for (l <- 1 to 2 ){
+    carre()
+    retourpos()
+    if (l==1){avance(4)}
+    
+  }
+  recule(4)
+}
+
+def carre (){
+  var sens = true
+  for (k <- 1 to 4){
+    k match {
+    case 2 => sens = false
+    case 3 => sens = false
+    case _ => sens = true}
+    faireL(k,sens)
+    
+  } 
+}
+
+
+
+def faireL (x: Int, sens: Boolean){
+   x match {
+    case 1 => setCouleurBrosse(Color.red)
+    case 2 =>( setCouleurBrosse(Color.blue), avance(2) )
+    case 3 =>( setCouleurBrosse(Color.yellow), recule(2), gauche(), avance(2), droite())
+    case 4 =>( setCouleurBrosse(Color.green), avance(2))
+   }
+  
+	if (sens){
+    for(i  <- 1 to 2){
+    avance()
+    marque()
+    gauche()
+    avance()
+    gauche() 
+    } 
+  }
+  else {
+   
+    for(j  <- 1 to 2){
+    marque()
+    avance()
+    gauche()
+    avance()
+    gauche()
+    } 
+  }
+}  
+  
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def retourpos(){
+  recule(2)
+  gauche()
+  recule(2)
+  droite()
+}
+
+def newLine(){
+  gauche()
+  avance(4)
+  droite()
+}
