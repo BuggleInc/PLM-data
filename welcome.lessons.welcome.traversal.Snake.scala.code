@@ -3,19 +3,20 @@ override def run() {
   while (fini==false){
     while(estFaceMur==false){
       avance()
-    
-      if (getDirection==Direction.OUEST){
-        droite()
-        avance()
-        droite()
-      }
-      else{
-        gauche()
-        avance()
-        gauche()
-    	}
     }
-    if (getDirection==Direction.EST){
+    if (getDirection==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+    else{
+      gauche()
+      avance()
+      gauche()
+    }
+    
+  }
+  if (getDirection==Direction.EST){
       gauche()
       if(estFaceMur==true){
         fini==true
@@ -29,5 +30,4 @@ override def run() {
       }
 
     }
-  }
 }
