@@ -4,6 +4,7 @@ override def run() {
 		keepHandOnSideWall()
   }
   prendBiscuit()
+  positionFin()
 }
 
 def keepHandOnSideWall() {
@@ -30,7 +31,10 @@ def testGauche():Boolean = {
   return test
 }
 
-def repose() {
-  if(getDirection()==Direction.EAST)
-  	gauche()
+def positionFin() {
+  droite()
+  if(!estFaceMur())
+  	retourne()
+  else
+  gauche()
 }
