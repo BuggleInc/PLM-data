@@ -1,5 +1,8 @@
 def keepHandOnSideWall()
 {
+  // s'il y a un mur face au buggle, il tourne ? droite pour avancer au prochain tour
+  // sinon il avance, et tourne ? gauche s'il n'y a pas de mur ? gauche 
+  
   if (!estFaceMur())
   {
     avance()
@@ -9,24 +12,28 @@ def keepHandOnSideWall()
     	droite()
   }
   else
+    droite()
+}
+
+def trouverMur()
+{
+  // va vers la gauche du buggle tant qu'il n'y a pas de mur ? gauche
+  var murTrouve = false
+  
+  while (!murTrouve)
   {
+    gauche()
+    if (!estFaceMur())
+      avance()
+    else
+      murTrouve = true
     droite()
   }
 }
 
 override def run()
 {
-  var place = false
-  while (!place)
-  {
-    gauche()
-    if (!estFaceMur())
-    {
-      avance()
-    	place = true
-    }
-    droite()
-  }
+  trouverMur()
   
   while(!estSurBiscuit())
     keepHandOnSideWall()
