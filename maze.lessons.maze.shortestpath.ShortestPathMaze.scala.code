@@ -1,13 +1,13 @@
 var i:Int = 0;
 var xBaggle:Int = 0;
 var yBaggle:Int = 0;
-var x:Int = 0;
-var y:Int = 0;
+var X:Int = 0;
+var Y:Int = 0;
 var c:Int = getMondeLargeur()*getMondeHauteur();
 
 override def run() {
   marquerBaggle();
-  marquer();
+  marquer(X,Y);
 }
 
 def marquerBaggle() {
@@ -20,11 +20,11 @@ def marquerBaggle() {
   }
   setIndication(xBaggle,yBaggle,i);
   c -= 1;
-  x = xBaggle;
-  y = yBaggle;
+  X = xBaggle;
+  Y = yBaggle;
 }
 
-def marquer(x:Int;y:Int) {
+def marquer(x:Int,y:Int) {
   i += 1;
   if ( c != 0 ){
     if ( !aMurNord(x,y) ){
