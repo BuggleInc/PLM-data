@@ -13,6 +13,10 @@ override def run() {
     }
   }
   marquer(X,Y,I);
+  while ( !esSurBiscuit() ){
+    deplacer();
+  }
+  prendBiscuit();
 }
 
 def marquerBaggle(x:Int,y:Int) {
@@ -69,4 +73,35 @@ def aMurEst(x:Int,y:Int) : Boolean = {
   } else {
     return false;
   }
+}
+
+def deplacer() {
+  var n = 9999;
+  var s = 9999;
+  var e = 9999;
+  var o = 9999;
+  var x2 = getX();
+  var y2 = getY();
+  if ( !aMurNord() ){
+    n = getIndication(x2,y2-1);
+  }
+  if ( !aMurSud() ){
+    s = getIndication(x2,y2+1);
+  }
+  if ( !aMurEst() ){
+    e = getIndication(x2+1,y2);
+  }
+  if ( !aMurOuest() ){
+    o = getIndication(x2-1,y2);
+  }
+  if ( n < s && n < e && n < o ){
+    setDirection(Direction.NORD);
+  } else if ( s < n && s < e && s < o ){
+    setDirection(Direction.SUD);
+  } else if ( e < n && e < s && e < o ){
+    setDirection(Direction.EST);
+  } else {
+    setDirection(Direction.OUEST);
+  }
+  avance();
 }
