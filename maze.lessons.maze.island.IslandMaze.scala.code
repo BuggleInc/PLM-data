@@ -4,6 +4,9 @@ override def run() {
     while (getDirection() == Direction.NORD && !estFaceMur()){
       avance()
     }
+    if (getDirection() == Direction.NORD && estFaceMur()){
+      droite()
+    }
     keepHandOnSideWall()
   }
   prendBiscuit()
