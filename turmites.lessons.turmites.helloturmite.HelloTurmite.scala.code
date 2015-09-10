@@ -3,7 +3,7 @@ val GAUCHE = 2
 val stop = 0
 val PDV = 1
 val DT = 4
-val RIGHT = 8
+val DROITE = 8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var col = 0
@@ -17,7 +17,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     case GAUCHE => gauche(); avance()
     case PDV => avance()
     case DT => droite();droite()
-    case RIGHT => droite()
+    case DROITE => droite()
     avance()
   }
   state = rule(state)(col)(2)
