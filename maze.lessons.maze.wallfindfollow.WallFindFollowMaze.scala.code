@@ -1,0 +1,40 @@
+override def run() {
+  while(!murAgauche()){
+    if (aucunMur()){avance()}
+    else {gauche()}
+  }
+  trouveFinAvecMurGauche()
+}
+
+def trouveFinAvecMurGauche() {
+  while(!estSurBiscuit()){
+  KeepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+def KeepHandOnSideWall():Unit={
+  if (estFaceMur()){
+    droite()
+  }
+  else {avance()
+    while(!murAGauche()){gauche();avance()}
+  }
+}
+def murAGauche():Boolean={
+  gauche()
+  var resultat=estFaceMur()
+  droite()
+  return resultat
+}
+
+def aucunMur ():Boolean={
+  var resultat=estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  resultat=resultat||estFaceMur()
+  gauche()
+  return resultat
+}
