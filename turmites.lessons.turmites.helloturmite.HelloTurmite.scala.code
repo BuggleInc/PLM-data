@@ -10,17 +10,17 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] )
   var col = 0
   for (i <- 0 to ((colors.length)-1))
   {
-  	if(getCouleurSol() == colors(i))
+  	if (getCouleurSol() == colors(i))
     {
       col = i
     	}
   	}
   setCouleurBrosse(colors(rule(state)(col)(0)))
   rule(state)(col)(1) match{
-    case GAUCHE => gauche(); avance()
-    case PDV => avance()
-    case DEMI => droite();droite()
-    case DROITE => droite()
+    case (GAUCHE)(col)(1) => gauche(); avance()
+    case (PDV)(col)(1) => avance()
+    case (DEMI)(col)(1) => droite();droite()
+    case (DROITE)(col)(1) => droite()
     avance()
   }
   state = rule(state)(col)(2)
