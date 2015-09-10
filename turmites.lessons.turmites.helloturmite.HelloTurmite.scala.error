@@ -1,5 +1,33 @@
-Turmite:6: error: STOP is already defined as value STOP
-val STOP = 0;
-    ^Turmite:6: error: STOP  is already defined as value STOP
-val STOP = 0;
-    ^
+Turmite:17: error: not found: value x
+  x=rule(state)(getCouleurSol())(0)
+  ^Turmite:18: error: not found: value y
+  y=rule(state)(getCouleurSol())(1)
+  ^Turmite:19: error: not found: value z
+  z=rule(state)(getCouleurSol())(2)
+  ^Turmite:20: error: not found: value x
+  (x,y,z) match {
+   ^Turmite:20: error: not found: value y
+  (x,y,z) match {
+     ^Turmite:20: error: not found: value z
+  (x,y,z) match {
+       ^Turmite:21: error: not found: value x
+    case (_,GAUCHE,_) => setCouleurSol(colors(x)) ; gauche(); avance(); state=z
+                                              ^Turmite:21: error: not found: value z
+    case (_,GAUCHE,_) => setCouleurSol(colors(x)) ; gauche(); avance(); state=z
+                                                                              ^Turmite:22: error: not found: value x
+    case (_,DROITE,_) => setCouleurSol(colors(x)) ; droite(); avance(); state=z
+                                              ^Turmite:22: error: not found: value z
+    case (_,DROITE,_) => setCouleurSol(colors(x)) ; droite(); avance(); state=z
+                                                                              ^Turmite:23: error: not found: value x
+    case (_,NOMOVE,_) => setCouleurSol(colors(x)) ; state= z
+                                              ^Turmite:23: error: not found: value z
+    case (_,NOMOVE,_) => setCouleurSol(colors(x)) ; state= z
+                                                           ^Turmite:24: error: not found: value x
+    case (_,DEMI,_) => setCouleurSol(colors(x)) ; gauche(); gauche(); avance() ;state=z
+                                            ^Turmite:24: error: not found: value z
+    case (_,DEMI,_) => setCouleurSol(colors(x)) ; gauche(); gauche(); avance() ;state=z
+                                                                                      ^Turmite:25: error: not found: value x
+    case (_,PASVIRAGE,_)=> setCouleurSol(colors(x)) ; avance(); state = z
+                                                ^Turmite:25: error: not found: value z
+    case (_,PASVIRAGE,_)=> setCouleurSol(colors(x)) ; avance(); state = z
+                                                                        ^
