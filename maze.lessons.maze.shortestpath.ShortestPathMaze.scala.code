@@ -1,7 +1,7 @@
 override def run() {
 	val x = positionSortieX()
   val y = positionSortieY()
-  ecrire(x,y,0)
+  //ecrire(x,y,0)
   
   while(!estSurBiscuit) {
     choix(getX(),getY())
@@ -59,9 +59,9 @@ def positionSortieY() :Int ={
 
 def ecrire(x:Int,y:Int,i:Int) {
   setIndication(x,y,i)
-  //if (y-1>=0 && !aMurNord(x,y)) ecrire(x,y-1,i+1)
-  //if (x-1>=0 && !aMurOuest(x,y)) ecrire(x-1,y,i+1)
-  if (y<getMondeHauteur() && !aMurNord(x,y+1) ) ecrire(x,y+1,i+1)
-  if (x<getMondeLargeur() && !aMurOuest(x+1,y) ) ecrire(x+1,y,i+1)
+  if (y-1>=0 && !aMurNord(x,y)) ecrire(x,y-1,i+1)
+  if (x-1>=0 && !aMurOuest(x,y)) ecrire(x-1,y,i+1)
+  if (y+1<getMondeHauteur() && !aMurNord(x,y+1) ) ecrire(x,y+1,i+1)
+  if (x+1<getMondeLargeur() && !aMurOuest(x+1,y) ) ecrire(x+1,y,i+1)
   
 }
