@@ -1,0 +1,28 @@
+override def run() {
+  var murG=false
+  while(!murG){
+    gauche()
+    if (estFaceMur()){
+      murG=true
+    }
+  }
+  droite()
+  while(!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+
+
+def keepHandOnSideWall(){
+  gauche()
+  if (!estFaceMur()){
+    avance()
+  }
+  else{
+    droite()
+    droite()
+    keepHandOnSideWall()
+  }
+}
