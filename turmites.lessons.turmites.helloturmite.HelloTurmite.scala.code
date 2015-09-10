@@ -1,7 +1,6 @@
 var state = 0;
 val GAUCHE = 2
 val DROITE = 8
-val STOP = 0
 val PASVIRAGE = 1
 val UTURN = 4
 
@@ -21,7 +20,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   toDo match{
     case DROITE => right();forward();
     case GAUCHE => left();forward();
-    case STOP => ;
     case PASVIRAGE => forward()
     case UTURN => right();right();forward();
   }
