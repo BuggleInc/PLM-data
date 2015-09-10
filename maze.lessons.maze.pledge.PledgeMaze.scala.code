@@ -1,9 +1,10 @@
 override def run() {
   avance()
   while(!estSurBiscuit()){
-    while (!direction()){
+    while (getDirection!=Direction.NORTH){
       keepHandOnWall()
     }
+    direction()
   }
   prendBiscuit()
 }
@@ -23,11 +24,10 @@ def keepHandOnWall(){
   }
 }
 
-def direction():Boolean={
+def direction(){
   if (getDirection()==Direction.NORTH && !estFaceMur()){
     while(!estFaceMur()){
       avance()
     }
   }
-  return true
 }
