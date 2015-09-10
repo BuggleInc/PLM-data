@@ -1,5 +1,5 @@
 def golomb(num:Int): Int = {
-  var cpt = 1
+  var cpt = 0
   var som = 0
   if(num==1)
   	return 1
@@ -9,8 +9,8 @@ def golomb(num:Int): Int = {
   {
     while(som<num)
     {
-      som = som + golomb(cpt)
       cpt = cpt+1
+      som = som + golomb(cpt)
     }
     return cpt
   }
