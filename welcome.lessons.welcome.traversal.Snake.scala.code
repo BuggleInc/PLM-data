@@ -1,34 +1,35 @@
 override def run() {
+  baisseBrosse()
   while (fonctionTest() == false) {
+    serpent()
+  }
+  
+  def fonctionTest(): Boolean = {
+    if (estFaceMur() && getDirection() == Direction.OUEST) {
+      droite()
+      return estFaceMur()
+    }
+    if (estFaceMur() && getDirection() == Direction.EST) {
+      gauche()
+      return estFaceMur()
+    }
+    return false
+  }
+def serpent() {  
     if (!estFaceMur()) {
       avance()
     } else {
       if (getDirection() == Direction.OUEST) {
         droite()
         avance()
+        droite()
       }
       if (getDirection() == Direction.EST) {
         gauche()
         avance()
-      }
-    }
-  }
-def fonctionTest() {
-    if (estFaceMur()) {
-      if (getDirection() == Direction.EST) {
         gauche()
-        if (estFaceMur()) {
-          return true
-        }
-      }
-      if (getDirection() == Direction.OUEST) {
-        droite()
-        if (estFaceMur()) {
-          return true
-        }
       }
     }
-    return false
-  }
+}
 }
 
