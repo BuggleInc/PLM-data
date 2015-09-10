@@ -1,0 +1,43 @@
+override def run() { 
+  var x = getMondeLargeur();
+  var y = getMondeHauteur()
+  var T = new Array[Color] (y);
+  
+  
+  for (i<- 0 to (y-1)) {
+    T(i)=getCouleurSol();
+    if ((estFaceMur())==false) {
+      avance();}
+  }
+  rec()
+  var o = 0;
+  
+  
+  for (i<-1 to (y-1)) {
+    
+    gauche();
+    avance();
+    o=litMessage().toInt;
+    droite();
+    
+    
+    for (j <- 0 to (y-1)) {
+      
+      setCouleurBrosse(T((j + o) % y));
+      baisseBrosse();
+      leveBrosse();
+      
+      if ((estFaceMur())==false) {
+      avance();}
+    }
+    rec()
+  }
+}
+
+
+def rec() {
+  var y = getMondeHauteur()
+  for (i<-1 to (y-1)) {
+    recule()
+  }
+}

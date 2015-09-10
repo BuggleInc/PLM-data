@@ -1,0 +1,25 @@
+def indexOfMaxValue(nums:Array[Int]):Int = {
+       var L=nums.length
+       var pos=nums(0)
+       
+  for (i<-0 to L-1) {
+    
+     if (nums(i)>=pos) {
+       pos=nums(i)
+      
+     }
+  }
+return indexOfValue(nums,pos)
+}
+
+def indexOfValue(nums:Array[Int] ,lookingFor:Int): Int = {
+       var L=nums.length
+       var pos=(-1)
+  for (i<-0 to L-1) {
+     if (nums(i)==lookingFor) {
+       pos=i
+       return pos
+     }
+  }
+return pos
+}

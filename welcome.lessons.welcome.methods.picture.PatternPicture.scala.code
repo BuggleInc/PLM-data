@@ -1,0 +1,31 @@
+override def run() {carre();prochaincarred();carre();prochaincarreh();carre();prochaincarrea();carre();retourpos
+}
+
+
+def faireF(c:Color) { setCouleurBrosse(c); avance(); point();
+               recule(); gauche(); avance();
+               point(); recule(); droite();   
+}
+
+
+def point()       {baisseBrosse(); leveBrosse()}
+
+
+def carre() {
+  faireF(Color.red);avance();avance();gauche();avance();retourne();faireF(Color.blue);recule();recule();gauche();avance();retourne();faireF(Color.green);avance();avance();avance();gauche();faireF(Color.yellow);avance();avance();avance();gauche();
+}
+
+def prochaincarred() { for (i <- 1 to 4) {avance()}
+  
+}
+
+def prochaincarreh() {gauche(); for (i <- 1 to 4) {avance()}; droite();
+  
+}
+
+
+def prochaincarrea() { for (i <- 1 to 4) {recule()}
+  
+}
+
+def retourpos() {for (i <- 1 to 4) {avance()};}

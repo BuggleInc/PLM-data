@@ -1,0 +1,48 @@
+override def run() {
+  ///setCouleurBrosse(Color.green)
+  baisseBrosse()
+  var dir = Direction.EST
+  var bool = MurNord()
+  while (!bool) {
+    avance()
+    bool = MurNord()
+    if (!bool) {
+      dir=getDirection()
+      if ((estFaceMur)&&(dir==Direction.EST)&&(!bool)) {
+        gauche()
+        avance()
+        gauche()
+      }
+      if ((estFaceMur)&&(dir==Direction.OUEST)&&(!bool)) {
+        droite()
+        avance()
+        droite()
+      }
+    }
+    bool=MurNord()
+  }
+}
+
+
+def MurNord(): Boolean= {
+  if (getDirection()==Direction.EST) {
+  if (estFaceMur()) {
+    gauche()
+    if (estFaceMur()) {
+       droite()
+       return true
+  } else {droite(); return false}
+} else {
+    return false
+  }
+    
+  } else {
+    return false
+  }
+}
+  /*if(getX()==6 && getY()==0) {
+    return true;
+  } else {
+    return false;
+  }
+}*/

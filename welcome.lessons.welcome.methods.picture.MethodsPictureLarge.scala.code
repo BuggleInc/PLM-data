@@ -1,0 +1,41 @@
+override def run() {for (i<- 1 to 9) {
+                                      ligne9()
+                                     }
+                    
+                    
+                    
+retourpos();
+}
+
+
+def faireV(c:Color) { setCouleurBrosse(c); point();
+               avance(); gauche(); avance();
+               point(); recule(); droite(); avance; point()
+  
+}
+
+
+def point()       {baisseBrosse(); leveBrosse()}
+
+
+def virageg() {
+  avance();gauche();avance()
+}
+
+def carre() {
+  avance();faireV(Color.yellow);virageg();faireV(Color.red);virageg();faireV(Color.blue);virageg();faireV(Color.green);avance();gauche();
+}
+
+def prochaincarred() { for (i <- 1 to 5) {avance()}
+  
+}
+
+def prochaincarreh() {gauche(); for (i <- 1 to 5) {avance()}; droite();
+  
+}
+
+def ligne9() {carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();carre();prochaincarred();prochaincarreh();}
+
+
+
+def retourpos() {droite(); for (i <- 1 to 45) {avance()}; gauche();}
