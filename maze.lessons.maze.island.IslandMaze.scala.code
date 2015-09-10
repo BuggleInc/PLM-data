@@ -1,6 +1,7 @@
 override def run() {
   while (!estSurBiscuit)
   {
+    murExterne()
     keepHandOnSideWall()
   }
   prendBiscuit()
@@ -8,7 +9,19 @@ override def run() {
 
 def murExterne () 
 {
-  while (getY()!=0)
+  while (getY()!=0) 
+  {
+    if(getDirection(Direction.NORTH) && !estFaceMur()) 
+    {
+      avance()
+    } esle 
+    {
+      while(!(getDirection(Direction.NORTH) && !estFaceMur())) 
+      {
+        keepHandOnSideWall() 
+      }
+    }
+  }
 }
 
 def keepHandOnSideWall() 
