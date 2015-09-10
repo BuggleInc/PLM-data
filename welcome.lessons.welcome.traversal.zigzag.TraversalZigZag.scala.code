@@ -3,7 +3,14 @@ override def run() {
   droite()
   while( ! positionFinale()){
     ecritMessage( "" + pos)
-    parcours()
+    var dir : Int = 1
+  if (estFaceMur() && dir==1) {
+    setPos(getX() , getY()+1)
+    dir = -1*dir
+  } else if (estDosMur() && dir == -1){
+    setPos(getX() , getY()+1)
+    dir = -1*dir
+  } else{setPos(getX() + dir, getY())}
     pos = pos + 1
   }
   ecritMessage(""+pos)
@@ -14,15 +21,4 @@ override def run() {
 
 def positionFinale(): Boolean ={
   return getMondeHauteur()-1 == getY() && getMondeLargeur()-1 == getX() 
-}
-
-def parcours(){
-  var dir : Int = 1
-  if (estFaceMur() && dir==1) {
-    setPos(getX() , getY()+1)
-    dir = -1*dir
-  } else if (estDosMur() && dir == -1){
-    setPos(getX() , getY()+1)
-    dir = -1*dir
-  } else{setPos(getX() + dir, getY())}
 }
