@@ -1,8 +1,11 @@
 def go(){
   droite()
   droite()
-  while(!estSurBiscuit() && !estFaceMur()){
-    avance()
+  while(!estSurBiscuit()){
+    if(estFaceMur()){
+      return
+    }
+    else avance()
   }
   if(estSurBiscuit()){
   	prendBiscuit()
