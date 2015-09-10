@@ -3,9 +3,17 @@ override def run() {
     gauche()
     if (estFaceMur()){
       droite()
-      avance()
+      if (estFaceMur){
+        droite()
+      }else{
+        avance()
+      }
     }else{
-      avance()
+      if (!estFaceMur){
+        avance()
+      }else{
+        
+      }
     }
   }
   prendBiscuit()
