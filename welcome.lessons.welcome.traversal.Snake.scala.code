@@ -1,6 +1,6 @@
 override def run() {
   baisseBrosse()
-  while(posFinale() == false){posFinale();serpent()}
+  while(posFinale() == false){serpent()}
 }
 
 def serpent(){
@@ -11,8 +11,13 @@ def serpent(){
 
 def posFinale():Boolean ={
   var x:Boolean = false
-  if(estFaceMur() && getDirection() == Direction.EST){gauche()}
-  if(estFaceMur() && getDirection() == Direction.OUEST){droite()}
-  if(estFaceMur()){x = true}
-  return(x)
+  if(estFaceMur())
+  	if(getDirection() == Direction.EST){
+      gauche()
+      if(estFaceMur()){x = true}
+    }
+  	if(getDirection() == Direction.OUEST){
+      droite
+      if(estFaceMur()){x = true}
+    }
 }
