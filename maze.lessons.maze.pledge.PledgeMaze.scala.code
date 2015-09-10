@@ -1,6 +1,8 @@
 override def run() {
+  var somme = 0
   while(!estSurBiscuit())
   {
+    
     var direction = getDirection
     if (direction!=Direction.SUD)
     {
@@ -9,15 +11,19 @@ override def run() {
       {
         goNord()
         droite()
+        somme -=1
       }
       else
       {
         setDirection(direction)
       }
     }
-    keepHandOnSideWall()
+    while(somme!=0 && !estSurBiscuit())
+    {
+      somme = somme + keepHandOnSideWall()
+    }
+    
   }
-
   prendBiscuit()  
 }
 
@@ -29,52 +35,65 @@ def goNord()
   }
 }
 
-def keepHandOnSideWall(){
+
+
+def keepHandOnSideWall():Int={
+  var virage = 0
   gauche()
+  virage += 1
   if (estFaceMur())
   {
     droite()
+    virage -=1
     if (!estFaceMur())
     {
       avance()
-      gauche()
-      if (!estFaceMur)
+      gauche
+      virage +=1
+      if (estFaceMur)
       {
-        avance()
+        droite()
+        virage -=1
       }
       else
       {
-        droite()
+        avance()
       }
     }
     else
     {
       droite()
+      virage -=1
       if (!estFaceMur())
       {
         avance()
-        gauche()
-        if (!estFaceMur)
+        gauche
+        virage +=1
+        if (estFaceMur)
         {
-          avance()
+          droite()
+          virage -=1
         }
         else
         {
-          droite()
+          avance()
         }
       }
       else 
       {
         droite()
+        virage -=1
         avance()
         gauche()
-        if (!estFaceMur)
+        virage +=1
+        if (estFaceMur)
         {
-          avance()
+          droite()
+          virage -=1 
         }
         else
         {
-          droite()
+          avance()
         }
       }
     }
@@ -83,4 +102,5 @@ def keepHandOnSideWall(){
   {
     avance()
   }
+  return virage
 }
