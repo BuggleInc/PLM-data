@@ -35,8 +35,9 @@ def definirCouleurs():Array[Color]={
 
 def faireLigneCouleurs(T:Array[Color], D:Int){
   for (i <- 0 to getMondeLargeur()-1){
-    setCouleurBrosse(T(i+1))
+    setCouleurBrosse(T((i+D)%getMondeHauteur())
     marquerSol()
     avance()
   }
+  seDeplacer()
 }
