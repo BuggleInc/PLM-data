@@ -2,11 +2,28 @@ override def run() {
   def estEnPosition():Boolean ={
     var abs:Int=getMondeLargeur();
     var ord:Int=getMondeHauteur();
-    if (getX() ==  abs){
+    if (getX() ==  abs-1){
       if (getY()==ord-1){
         return true
       }else return false
     }else return false
   }
+  var num : Int = 0
+  var depX : Int = 0
+  var depY : Int = 0
+  baisseBross()
+  while (!estEnPosition()){
+    for (compt1<-1 to abs-1){
+      for (compt2<-1 to ord-1){
+        num=num+1
+        ecritMessage("num")
+        avance()
+      }
+      depX=depX+1
+      depY=depY+1
+      setPos (depX,depY)
+    }
+  }
+  
   
 }
