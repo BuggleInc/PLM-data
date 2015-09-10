@@ -47,6 +47,7 @@ override def run() {
     else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance();virages+=1}
     else if (!estFaceMur()) {
       if (getDirection()!=Direction.NORTH) {avance()}
+      else if (keepHandOnSideWall()) {avance()}
       else {gauche();virages+=1}
     }
 
