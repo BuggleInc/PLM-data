@@ -10,17 +10,22 @@ override def run() {
       setPos(col,lign);
       lign=lign+1;
       col =col -1;
-      pair = pair +1
+      pair = pair +1;
+      comp= comp +1;
     } else if (col==0) {
       setPos(col,lign)
       lign = lign +1
       col = col + 1;
-
       pair = pair+1;
+      comp= comp +1;
     } else {
       if (pair%2==0) {
         col=col+1;
-      } else col=col-1
+        comp= comp +1;
+      } else {
+        col=col-1;
+        comp= comp +1;
+      }
     }
   }
   ecritMessage(comp);
