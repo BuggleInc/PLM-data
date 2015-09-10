@@ -1,2 +1,24 @@
 override def run() {
+  baisseBrosse()
+  while(posFinale() == false){serpent}
+}
+
+def posFinale():Boolean{
+  var x:Boolean = false
+  if(estFaceMur() == true)
+  	if(getDirection() == Direction.EST){
+      gauche()
+      if(estFaceMur() == true){x = true}
+    }
+  	if(getDirection() == Direction.OUEST){
+      droite()
+      if(estFaceMur() == true){x = true}
+    }
+  return(x)
+}
+
+def serpent(){
+  if(!estFaceMUr()){avance()}
+  if(estFaceMur() && getDirection() == Direction.EST){gauche();avance();gauche()}
+  if(estFaceMur() && getDirection() == Direction.OUEST){droite();avance();droite()}
 }
