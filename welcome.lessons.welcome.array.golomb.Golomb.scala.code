@@ -4,7 +4,8 @@ def golomb(num:Int): Int = {
   var pos =0
   for(i <- 0 to num){
     for(j <- 0 to T(i)){
-      T(j+pos)=i+1
+      if(j+pos>num){return T(num)}
+      else{T(j+pos)=i+1}
       
     }
     pos=pos+T(i)
