@@ -21,11 +21,12 @@ def lireCol1(couleurs:Array[Color]){
 
 def avanceCol(couleurs:Array[Color]){
   val dec = litMessage().toInt
-  for (k<- 0 to getMondeHauteur()-2){
+  for (k<- 0 to getMondeHauteur()-1){
     setCouleurBrosse(couleurs((k+dec)%couleurs.length))
     baisseBrosse()
     leveBrosse()
-    avance()
+    if(k!=getMondeHauteur()-1){}
+    	avance()
   }
   recule(getMondeHauteur()-1)
 }
