@@ -1,26 +1,4 @@
-def lireColonne(taille:Int):Array[Color] = {
-  
-  var longueurTableau: Int = getWorldHeight()
-  var res = new Array[Color] (taille)
-  res(0) = getCouleurSol()
-  for (i <- 1 to taille -1) {
-    avance()
-    res(i) = getCouleurSol()
-  }
-  for (l <- 1 to longueurTableau -1) {
-    recule()
-  }
-  return res
-}
-
 def marquerSol() {baisseBrosse();leveBrosse()}
-
-def transition() {
-  gauche()
-  avance()
-  droite()
-  
-}
 
 def premiereCase() {
   var longueurTableau: Int = getWorldHeight()
@@ -32,25 +10,19 @@ def premiereCase() {
   avance()
 }
 
-
 override def run() {
   var longueurTableau: Int = getWorldHeight()
-  var res:Array[Color] = lireColonne(longueurTableau)
-  transition()
-  var j:Int = 0
-  for (j <- 0 to longueurTableau -1){
-  val decalage = litMessage().toInt
-  setCouleurBrosse(res(j+decalage))
-  marquerSol()
-  avance()
-  	for (i <- 1 to longueurTableau -2){
-      setCouleurBrosse(res((j+decalage+i)%longueurTableau))
-      marquerSol()
-      avance()
-    }
-  var compteur2:Int = 0
-  for (compteur2 <- 1 to longueurTableau -1) {recule()}
-  transition()
+  var res = new Array[Color] (longueurTableau)
+  res(0) = getCouleurSol()
+  for (i <- 1 to taille -1) {
+    avance()
+    res(i) = getCouleurSol()
+  }
+  for (l <- 1 to longueurTableau -1) {
+    recule()
   }
   
+  gauche()
+  avance()
+  droite()
 }
