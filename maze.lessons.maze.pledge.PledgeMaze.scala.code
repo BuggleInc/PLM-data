@@ -1,31 +1,37 @@
 override def run() {
-  var tourni=false
-  var virage=0
+  var northfound=false
+  var virages=0
   while (!estSurBiscuit()) {
-    if (getDirection()==Direction.NORTH) {
-      while (!estFaceMur()) {avance()}
+    while (!estFaceMur()) {
+      choix()
+      goNorth()
+      if (getY()==0) {northfound=true;droite()}
     }
-    if (estFaceMur() && !tourni) {
-      for (virage<-1 to 4) {
-      droite()
-        while (!estFaceMur()) {avance()}}
-      tourni=true
-    }
-    if (estFaceMur() && tourni) {
-      for (virage<-1 to 4) {
-      gauche()
-        while (!estFaceMur()) {avance()}}
-      tourni=false
-    }
+    choix()
+      
   }
-  def goNorth() {
-   	
-  }
-  def tourniR() {
-    
+  def keepHandOnSideWall(): Boolean = {
+    gauche()
+    if (estFaceMur()){droite();return true}
+    else {droite();return false}
   }
   
-  def tourniL() {
-    
+  def choix () {
+    if (estFaceMur() && keepHandOnSideWall()) {
+      droite()
+      if (estFaceMur()) {droite()}
+      else {avance()}
+    }
+    else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
+    else if (!estFaceMur() && keepHandOnSideWall()) {avance()}
+    else if (!estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
   }
+  
+  def goNorth() {
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()) {avance()}
+  }
+
+  prendBiscuit()
+
 }
