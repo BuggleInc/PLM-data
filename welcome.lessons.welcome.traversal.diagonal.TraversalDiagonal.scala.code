@@ -29,7 +29,7 @@ override def run() {
   x=1
   y=getMondeHauteur()-1
   setPos(x,y)
-  while (getPos()!=(getMondeLargeur()-1,getMondeHauteur()-1)){
+  while (!fin()){
     while (x!=getMondeLargeur()-1){
       cpt+=1
       ecritMessage(cpt)
@@ -44,4 +44,9 @@ override def run() {
     setPos(xx,y)
     x=xx
   }
+}
+
+def fin(): Boolean={
+  if (getX()==getMondeLargeur()-1&&getY()==getMondeHauteur()-1){return true}
+  else return false
 }
