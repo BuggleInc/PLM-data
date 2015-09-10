@@ -3,7 +3,7 @@ override def run() {
   while(!estSurBiscuit())
   {
     dir = getDirection()
-    if(false)
+    if(murNord( && getDirection()==Direction.NORTH ))
     {
       goNorth()
     }
@@ -55,4 +55,19 @@ def goNorth() {
   {
     avance()
   }
+}
+
+def murNord():Boolean = {
+  var res = false
+  var save:Direction = getDirection()
+  while(getDirection()!=Direction.NORTH)
+  {
+    droite()
+  }
+  res = estFaceMur()
+  while(getDirection()!=save)
+  {
+    droite()
+  }
+  return res
 }
