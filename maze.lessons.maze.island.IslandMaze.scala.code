@@ -7,6 +7,9 @@ def nord() {
      while (estFaceMur()) {
         x=x+1
         droite() }
+    if (getDirection()==Direction.NORTH | getDirection()==Direction.SOUTH) {
+      droite()
+    }
     }
     avance() 
   }  
@@ -30,7 +33,6 @@ gauche()
 
 
 override def run() {
-  setPos(getMondeHauteur()-1,5)
   nord()
 while (!estSurBiscuit()) {
  keepHandOnSideWall()
