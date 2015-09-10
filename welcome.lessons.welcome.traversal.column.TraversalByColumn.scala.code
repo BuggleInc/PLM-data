@@ -1,0 +1,29 @@
+override def run() {
+  var i=0
+  var x=0
+  var y=1
+  retourne()
+  ecritMessage(i)
+  i+=1
+  setPos(x,y)
+  while (i!=getMondeHauteur()*getMondeLargeur()) {
+    if ((i+1)%7==0 && i!=48) {
+      x+=1
+      y=0
+      ecritMessage(i)
+      setPos(x,y)
+      i+=1
+    }
+    else if (i!=48) {ecritMessage(i);y+=1;setPos(x,y);i+=1}
+    else {ecritMessage(i)}
+  }
+  
+  def posFinale() : Boolean = {
+    if (estFaceMur()) {
+      gauche()
+      if (estFaceMur()) {droite; return true}
+      else {droite();return false}
+  	}
+    else {return false}
+  }
+}

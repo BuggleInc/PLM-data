@@ -1,0 +1,25 @@
+override def run() {
+  baisseBrosse()
+  var i=0
+  avance(getMondeLargeur()-1)
+  while (!posFinale()) {
+    if (i%2==0) {gauche();avance();gauche()}
+    else {droite();avance();droite()}
+    i+=1
+    avance(getMondeLargeur()-1)
+  }
+  
+  def posFinale() : Boolean = {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      if (estFaceMur()) {droite(); return true}
+      else {droite(); return false}
+    }
+    else if (getDirection()==Direction.OUEST) {
+      droite()
+      if (estFaceMur()) {gauche(); return true}
+      else {gauche(); return false}
+  	}
+    else {return false}
+  }
+}

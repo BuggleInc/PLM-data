@@ -1,0 +1,25 @@
+override def run() {
+  var Ctab=new Array[Color](getMondeHauteur())
+  for (i<- 1 to getMondeHauteur()) {
+    Ctab(i-1)=getCouleurSol()
+    avance()
+  }
+  recule(getMondeHauteur())
+  for (i<- 1 to getMondeLargeur()-1) { 
+  	gauche()
+    avance()
+    droite()
+    avance()
+    peinture(Ctab) 
+  }
+}
+
+def peinture(Ctab:Array[Color]) {
+  for (i <- 0 to Ctab.length-1) {
+    setCouleurBrosse(Ctab(i))
+  	baisseBrosse()
+  	leveBrosse()
+  	avance()
+  }
+  recule(getMondeHauteur())
+}

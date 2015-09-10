@@ -1,0 +1,36 @@
+override def run() {
+  var northfound=false
+  while (!estSurBiscuit()) {
+    while (!northfound) {
+      choix()
+      goNorth()
+      if (getY()==0) {northfound=true;droite()}
+    }
+    choix()
+      
+  }
+  def keepHandOnSideWall(): Boolean = {
+    gauche()
+    if (estFaceMur()){droite();return true}
+    else {droite();return false}
+  }
+  
+  def choix () {
+    if (estFaceMur() && keepHandOnSideWall()) {
+      droite()
+      if (estFaceMur()) {droite()}
+      else {avance()}
+    }
+    else if (estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
+    else if (!estFaceMur() && keepHandOnSideWall()) {avance()}
+    else if (!estFaceMur() && !keepHandOnSideWall()) {gauche();avance()}
+  }
+  
+  def goNorth() {
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()) {avance()}
+  }
+
+  prendBiscuit()
+
+}
