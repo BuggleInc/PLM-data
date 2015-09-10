@@ -1,6 +1,7 @@
 override def run() {
   var len:Int=getWorldHeight-1
   var T=new Array[Color](len)
+  var largeur:Int=getMondeLargeur
   for (i<-0 to len-1){
     getCouleurSol;
     T(i)=getCouleurSol
@@ -8,5 +9,13 @@ override def run() {
   }
   for (i<-0 to len-1){
     recule
-  } 
+  }
+  for (i<-1 to largeur){
+    gauche;avance;droite;
+    litMessage().toInt
+    for (j<-0 to len-1){
+      setCouleurBrosse(T(j+litMessage().toInt)%len)
+      baisseBrosse;leveBrosse;avance;
+    }
+     
 }
