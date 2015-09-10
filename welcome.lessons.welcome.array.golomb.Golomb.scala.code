@@ -2,7 +2,10 @@ def golomb(num:Int): Int = {
   var T = new Array[Int](num)
   T(0)=1
   for(i<- 1 to num-1){T(i)=T(0)}
-  
+  for(j<- 1 to num-1){
+    for(k<- j+T(j) to num-1){T(k)=T(k)+1}
+  }
+  return(T(num-1))
 }
 
 
@@ -10,4 +13,4 @@ def golomb(num:Int): Int = {
 
 
 
-12233444555666777788889999
+1223344455566667777888899999
