@@ -3,17 +3,18 @@ override def run() {
   var virages=0
   while (!estSurBiscuit()) {
     while (!estFaceMur()) {
-      if (virages>0) {
+      while (virages>0) {
         choix2()
       }
-      else {choix1()}
+      goNorth()
+      while (virages<4) {choix1()}
       goNorth()
       if (getY()==0) {northfound=true;droite()}
     }
-    if (virages>0) {
+    if (virages>=4) {
       choix2()
     }
-    else {choix1()}
+    else if (virages<=-4) {choix1()}
       
   }
   def keepHandOnSideWall(): Boolean = {
