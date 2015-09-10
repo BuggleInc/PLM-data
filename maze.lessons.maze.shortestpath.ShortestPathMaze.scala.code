@@ -1,58 +1,57 @@
 
 override def run() {
-  var i:Int = 0;
+  var I:Int = 1;
   var xBaggle:Int = 0;
   var yBaggle:Int = 0;
   var X:Int = 0;
   var Y:Int = 0;
   var c:Int = getMondeLargeur()*getMondeHauteur();
-  marquerBaggle();
-  marquer(X,Y);
-}
-
-def marquerBaggle() {
-  while ( aBiscuit(xBaggle,yBaggle) ){
-    xBaggle += 1;
-    if ( xBaggle == getMondeLargeur() ){
-      xBaggle = 0;
-      yBaggle += 1;
-    }
-  }
-  setIndication(xBaggle,yBaggle,i);
-  c -= 1;
+  marquerBaggle(xBaggle,yBaggle);
+  C -= 1;
   X = xBaggle;
   Y = yBaggle;
+  marquer(X,Y,I,C);
 }
 
-def marquer(x:Int,y:Int) {
-  i += 1;
+def marquerBaggle(x:Int,y:Int) {
+  while ( aBiscuit(x,y) ){
+    x += 1;
+    if ( x == getMondeLargeur() ){
+      x = 0;
+      y += 1;
+    }
+  }
+  setIndication(x,y,0);
+}
+
+def marquer(x:Int,y:Int,i:Int,c:Int) {
   if ( c != 0 ){
     if ( !aMurNord(x,y) ){
       if ( getIndication(x,y-1) != 9999 ){
         setIndication(x,y-1,i);
         c-=1;
-        marquer(x,y-1);
+        marquer(x,y-1,i+1,c);
       }
     }
     if ( !aMurOuest(x,y) ){
       if ( getIndication(x-1,y) != 9999 ){
         setIndication(x-1,y,i);
         c-=1;
-        marquer(x-1,y);
+        marquer(x-1,y,i+1,c);
       }
     }
     if ( !aMurSud(x,y) ){
       if ( getIndication(x,y+1) != 9999 ){
         setIndication(x,y+1,i);
         c-=1;
-        marquer(x,y+1);
+        marquer(x,y+1,i+1,c);
       }
     }
     if ( !aMurEst(x,y) ){
       if ( getIndication(x+1,y) != 9999 ){
         setIndication(x+1,y,i);
         c-=1;
-        marquer(x+1,y);
+        marquer(x+1,y,i+1,c);
       }
     }
   }
