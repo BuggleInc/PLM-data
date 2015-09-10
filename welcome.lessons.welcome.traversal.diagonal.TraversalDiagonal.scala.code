@@ -1,3 +1,30 @@
 var diag = 0;
 override def run() {
+  var x=getX()
+  var y=getY()
+  var pas=0
+  while (!posFinale(x,y)) {
+    ecritMessage(pas.toString)
+    if (y==0 || x==getMondeHauteur()-1) {
+      if (y==0 & x==getMondeHauteur()-1) {
+        setPos(1,getMondeHauteur()-1)
+      } else if (y==0) {
+           setPos(0,diag+1)
+      } else setPos(diag-5,getMondeHauteur()-1)
+      setPos(0,diag+1);diag=diag+1
+    } else setPos(x+1,y-1)
+    x=getX()
+    y=getY() 
+    pas=pas+1  
+  }
+  ecritMessage(pas.toString)
 }
+
+def posFinale(x:Int,y:Int):Boolean = {
+  if (y==getMondeHauteur()-1 & x==getMondeHauteur()-1) {
+    return true
+  } else return false
+}
+
+avanceclassique: 
+setPos(x+1,y-1)
