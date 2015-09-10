@@ -1,6 +1,6 @@
 override def run() {
   while(!estSurBiscuit()){
-    while((getY()!=0) || (getY() != 11)){
+    while(getY()!=0){
     	while(!estFaceMur){
       	avance()
     	}
@@ -9,7 +9,9 @@ override def run() {
       	gauche()
         n = n+1
     	}
-      avance()
+      while(!estFaceMur){
+      	avance()
+      }
       while(n!=0){
         gauche()
         n = n-1
