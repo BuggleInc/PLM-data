@@ -8,6 +8,7 @@ override def run() {
       for (j <- 0 to getMondeHauteur()-1)
       {
 				if (getIndication(i,j)==valeur)
+        	avance()
         	marquerCasesAdjacentes(repererCasesAdjacentes(i,j),i,j)
       }
     }
@@ -17,17 +18,14 @@ override def run() {
   prendBiscuit()
 }
 
-def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases
+def marquageComplet():Boolean = //vérifie si on a marqué toutes les cases CHECK
 {
   for (i <- 0 to getMondeLargeur()-1)
   {
     for (j <- 0 to getMondeHauteur()-1)
     {
       if (getIndication(i,j)==9999)
-      {
-        avance()
         return false
-      }
     }
   }
   return true
