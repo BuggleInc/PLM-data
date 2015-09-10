@@ -1,0 +1,18 @@
+override def run() {
+  baisseBrosse()
+  while(!(getX==6 && getY==0)){
+    if(estFaceMur()){
+      if(getDirection() == Direction.EST){
+        gauche()
+        avance()
+        gauche()
+      }
+      else{
+        droite()
+        avance()
+        droite()
+      }
+    }
+    else{ avance(6)}
+  }
+}

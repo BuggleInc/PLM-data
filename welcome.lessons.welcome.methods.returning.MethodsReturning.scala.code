@@ -1,0 +1,25 @@
+def haveBaggle():Boolean = {
+  if(estSurBiscuit()){
+    return true
+  }
+  else{
+    var biscuit = false
+    for(compteur1<- 1 to 6) {
+      avance()
+      if(estSurBiscuit()){biscuit = true }
+    }
+    for(compteur1<- 1 to 6){recule()}
+    return biscuit
+  }
+  
+}
+
+def colonneBiscuit(){
+  var vuBiscuit = false
+  while(!haveBaggle()){
+    droite()
+    avance()
+    gauche()
+  }
+  
+}
