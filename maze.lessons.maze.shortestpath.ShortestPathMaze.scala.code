@@ -1,7 +1,6 @@
 override def run() {
   var posXBiscuit:Int = 0
   var posYBiscuit:Int = 0
-  var cpt:Int = 0
   
   while (!aBiscuit(posXBiscuit, posYBiscuit)) {
     if (posXBiscuit == getMondeLargeur() - 1) {
@@ -14,6 +13,7 @@ override def run() {
   
   var posXNote:Int = posXBiscuit
   var posYNote:Int = posYBiscuit
+  var cpt:Int = 0
   
   setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
   
@@ -43,12 +43,12 @@ def casesLibres():Boolean = {
 
 def indicationCasesAdjacente(n:Int, posX:Int, posY:Int) = {
   if (getIndication(posX, posY-1) == 9999 && !aMurNord(posX, posY)) {
-      setIndication(posX, posY-1, cpt)
+      setIndication(posX, posY-1, n)
     }; if (getIndication(posX-1, posY) == 9999 && !aMurOuest(posX, posY)) {
-      setIndication(posX-1, posY, cpt)
+      setIndication(posX-1, posY, n)
     }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) == 9999 &&  !aMurNord(posX, posY+1)) {
-      setIndication(posX, posY+1, cpt)
+      setIndication(posX, posY+1, n)
     }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) == 9999 &&  !aMurOuest(posX+1, posY)) {
-      setIndication(posX+1, posY, cpt)
+      setIndication(posX+1, posY, n)
     }
 }
