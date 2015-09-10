@@ -5,8 +5,9 @@ def setCouleurSol(c:Color) {
 }
 
 def step(rule:Array[Char], colors:Array[Color]) {
+  var couleur = false
   for(i<-0 to colors.length-2) {
-    if(getCouleurSol()==colors(i)) {
+    if(getCouleurSol()==colors(i) && couleur==false) {
       if(rule(i)=='R') {
         droite()
         avance()
