@@ -4,8 +4,10 @@ override def run() {
   while(!estSurBiscuit()){
     if(getDirection() == Direction.NORD && isDirectionFree(Direction.NORD)){
       avance()
-    }else if (getDirection() == Direction.NORD && !isDirectionFree(Direction.NORD) && sommeAngle =0){
+    }else if (!isDirectionFree(Direction.NORD)){
       keepHandOnSideWall()
+    }else if (getDirection() == Direction.NORD && sommeAngle = 0){
+      avance()
     }
   }
   prendBiscuit()
@@ -21,7 +23,7 @@ def keepHandOnSideWall(){
     sommAngle+=1
   }else {
     gauche()
-    sommeAngle+=1
+    sommeAngle+=-1
     avance()
   }
 }
