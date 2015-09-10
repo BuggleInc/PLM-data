@@ -1,18 +1,30 @@
 override def run() {
+  var ang=0
+  while(!estSurBiscuit()){
+    if (ang==0){
+      while(!estFaceMur()){
+        avance()
+      }
+    }
+    ang = ang + keepHandOnwall()
+  }
 }
   
 def keepHandOnWall():Int={
-  var sommeAngle=0
+  var s=0
   gauche()
-  sommeAngle=++
+  s=s+1
   if (estFaceMur()){
     droite()
+    s=s-1
     if(estFaceMur()){
       droite()
+      s=s-1
     }else{
       avance()
     }
   }else{
     avance()
   }
+  return s
 }
