@@ -1,3 +1,37 @@
+def fin(): Boolean = {
+  if(estSurBiscuit()) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+def murDroite() {
+  droite()
+  if estFaceMur() {
+    gauche()
+    return true
+  }
+  else {
+    gauche()
+    return false
+  }
+}
+
 override def run() {
-    // Your code here 
+  while(!fin()) {
+    if(!estFaceMur()) {
+      avance()
+    }
+    else {
+      if murDroite() {
+        gauche()
+      }
+      else {
+        droite()
+      }
+    }
+  }
+  prendBiscuit() 
 }
