@@ -1,5 +1,5 @@
 def keepHandOnSideWall() {
-  if (!estFaceMur) {
+  if (!estFaceMur()) {
     gauche();
     if (estFaceMur()) {
       droite();
@@ -13,7 +13,7 @@ def keepHandOnSideWall() {
 }
 
 override def run() {
-  while (!estSurBiscuit) {
+  while (!estSurBiscuit()) {
     keepHandOnSideWall();
   }
   prendBiscuit();
