@@ -32,7 +32,7 @@ def timeToBreakOut() {
 
 def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
   val c:Int = getIndication(x,y)
-  if (x < getMondeLargeur() && getIndication(x+1,y) > c + 1) {
+  if (x < getMondeLargeur() - 1 && getIndication(x+1,y) > c + 1) {
     if (!aMurOuest(x+1,y)) {
       setIndication(x+1,y,c + 1)
       whoNeedsAMap(x+1,y)
@@ -44,7 +44,7 @@ def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
       whoNeedsAMap(x-1,y)
     }
   }
-  if (y < getMondeHauteur() && getIndication(x,y+1) > c + 1) {
+  if (y < getMondeHauteur() - 1 && getIndication(x,y+1) > c + 1) {
     if (!aMurNord(x,y)) {
       setIndication(x,y+1,c + 1)
       whoNeedsAMap(x,y+1)
