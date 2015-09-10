@@ -3,7 +3,14 @@ gauche()
 while(estFaceMur()!=true){
   if (porteBiscuit()){
     while(!estSurBiscuit){
-      avance()
+      if (estFaceMur){
+        droite()
+				avance(2)
+				droite()
+				avance()
+      }else{
+        avance()
+      }
     }
     recule()
     poseBiscuit()
