@@ -1,0 +1,17 @@
+override def run() {
+  var compteur:Int=0
+  ecritMessage('compteur':String)
+  while ((getX(),getY())!=(getMondeHauteur()-1,getMondeLargeur()-1)) {
+    avance()
+    compteur+=1
+    ecritMessage('compteur':String)
+    if (estFaceMur()){
+      recule(getMondeHauteur()-1)
+      gauche()
+      avance()
+      droite()
+    }    
+  }
+  compteur+=1
+  ecritMessage('compteur':String)
+}
