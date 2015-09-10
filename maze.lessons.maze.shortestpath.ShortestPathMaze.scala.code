@@ -15,9 +15,9 @@ override def run() {
   var posYNote:Int = posYBiscuit
   var cpt:Int = 0
   
-  setIndication(posXNote, posYNote, cpt)			 //On marque 0 à la sortie
+  setIndication(posXNote, posYNote, cpt)			 //On marque 0 a la sortie
   
-  while (casesLibres()) { //Tant que toutes les cases ne portent pas d'indication,
+  while (casesLibres()) { //Tant que la case du Buggle ne porte pas d'indication,
     for (x <- 0 to getMondeLargeur()-1) { //On parcourt chaque case de la grille
       for (y <- 0 to getMondeHauteur()-1) {
         if (getIndication(x,y) == cpt) { //Et si on rencontre une case portant la valeur du compteur,
@@ -27,21 +27,40 @@ override def run() {
     }
     cpt += 1
   }
-  
-  //Il ne reste plus qu'à suivre les indications par valeur décroissante
+  //Il ne reste plus qu'a suivre les indications par valeur decroissante
   var pasAvantBiscuit:Int = getIndication(getX(),getY())
   
   while (pasAvantBiscuit != 0) {
-    if (rechercheASuivre() == (getX()+1, getY())) {
+    //On recherche la case a suivre
+  	var x:Int = getX()
+  	var y:Int = getY()
+    var posXaSuivre:Int = x
+    var posYaSuivre:Int = y
+  	var valeur:Int = getIndication(x,y)
+  
+  	if (x < getMondeLargeur()-1 && getIndication(x+1,y) == valeur-1) {
+    	posXaSuivre = x+1
+      posYaSuivre = y
+  	} else if (y < getMondeHauteur()-1 && getIndication(x,y+1) == valeur-1) {
+    	posXaSuivre = x
+      posYaSuivre = y+1
+  	} else if (x > 0 && getIndication(x-1,y) == valeur-1) {
+    	posXaSuivre = x-1
+      posYaSuivre = y
+  	} else if (y > 0 && getIndication(x,y-1) == valeur-1) {
+    	posXaSuivre = x
+      posYaSuivre = y-1
+    }
+    if ((posXaSuivre == (getX()+1)) && (posYaSuivre == getY())) {
       setDirection(Direction.EST)
       avance()
-    } else if (rechercheASuivre() == (getX(), getY()+1)) {
+    } else if ((posXaSuivre == getX()) && (posYaSuivre == (getY()+1))) {
       setDirection(Direction.SUD)
       avance()
-    } else if (rechercheASuivre() == (getX()-1, getY())) {
+    } else if ((posXaSuivre == (getX()-1)) && (posYaSuivre == getY())) {
       setDirection(Direction.OUEST)
       avance()
-    } else if (rechercheASuivre() == (getX(), getY()-1)) {
+    } else if ((posXaSuivre == getX()) && (posYaSuivre == getY()-1)) {
       setDirection(Direction.NORD)
       avance()
     } else {
@@ -51,42 +70,18 @@ override def run() {
 }
 
 def casesLibres():Boolean = {
-  // Retourne s'il reste des cases libres dans la grille
-  for (x <- 0 to getMondeLargeur()-1) {
-    for (y <- 0 to getMondeHauteur()-1) {
-      if (getIndication(x,y)==9999) {
-        return true
-      }
-    }
-  }
-  return false
+  // Retourne si la case du buggle a une indication
+  return (getIndication(getX(),getY()) != 9999)
 }
 
 def indicationCasesAdjacentes(n:Int, posX:Int, posY:Int) = {
-  if (posY > 0 && getIndication(posX, posY-1) == 9999 && !aMurNord(posX, posY)) {
+  if (posY > 0 && getIndication(posX, posY-1) > n && !aMurNord(posX, posY)) {
     setIndication(posX, posY-1, n)
-  }; if (posX > 0 && getIndication(posX-1, posY) == 9999 && !aMurOuest(posX, posY)) {
+  }; if (posX > 0 && getIndication(posX-1, posY) > n && !aMurOuest(posX, posY)) {
     setIndication(posX-1, posY, n)
-  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) == 9999 &&  !aMurNord(posX, posY+1)) {
+  }; if (posY < getMondeHauteur()-1 && getIndication(posX, posY+1) > n && !aMurNord(posX, posY+1)) {
     setIndication(posX, posY+1, n)
-  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) == 9999 &&  !aMurOuest(posX+1, posY)) {
+  }; if (posX < getMondeLargeur()-1 && getIndication(posX+1, posY) > n && !aMurOuest(posX+1, posY)) {
     setIndication(posX+1, posY, n)
-  }
-}
-
-def rechercheASuivre():statement = {
-  //Recherche la case a suivre
-  var x:Int = getX()
-  var y:Int = getY()
-  var valeur:Int = getIndication(x,y)
-  
-  if (x < getMondeLargeur()-1 && getIndication(x+1,y) == valeur-1) {
-    return (x+1, y)
-  } else if (y < getMondeHauteur()-1 && getIndication(x,y+1) == valeur-1) {
-    return (x, y+1)
-  } else if (x > 0 && getIndication(x-1,y) == valeur-1) {
-    return (x-1,y)
-  } else if (y > 0 && getIndication(x,y-1) == valeur-1) {
-    return (x,y-1)
   }
 }
