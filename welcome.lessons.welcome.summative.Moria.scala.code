@@ -1,0 +1,24 @@
+def posFinale(){
+  if (estFaceMur()){
+    return true
+  }
+  return false
+}
+
+while (!posFinale()){
+  droite(); droite()
+  while (!estSurBiscuit){
+    avance()
+  }
+  if (estSurBiscuit()){
+    prendBiscuit()
+    droite(); droite()
+  }
+  while (!estSurBiscuit){
+    avance()
+  }
+  recule()
+  poseBiscuit()
+}
+
+droite(); avance(); gauche(); avance()
