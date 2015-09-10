@@ -1,7 +1,15 @@
 override def run() {
   while(!estSurBiscuit()){
     if(estFaceMur()){droite()}
-    else{avance}
+    else{
+      droite()
+      if(!estFaceMur()){avance()}
+      else{
+        retourne()
+        if(!estFaceMur()){avance()}
+        else{droite();avance()}
+      }
+    }
   }
   prendBiscuit()
 }
