@@ -1,0 +1,47 @@
+override def run() {
+  var H: Int = getMondeHauteur()
+  var L: Int = getMondeLargeur()
+  var T : Array[Color] = definirCouleurs()
+  recule(H-1)
+  seDeplacer()
+  for (i <- 0 to getMondeLargeur()-3){
+    faireLigneCouleurs(T:Array[Color])
+    recule(H-1)
+    seDeplacer()
+  }
+  faireLigneCouleurs(T:Array[Color])
+  recule(H-1)
+
+}
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def seDeplacer(){
+  gauche()
+  avance()
+  droite()
+}
+
+def definirCouleurs():Array[Color]={
+  var T = new Array[Color](getMondeHauteur())
+  for (i <- 0 to getMondeHauteur()-2){
+    T(i)=(getCouleurSol())
+    avance()
+  }
+  T(getMondeHauteur()-1)=(getCouleurSol())
+  return T
+}
+
+def faireLigneCouleurs(T:Array[Color]){
+  val D = litMessage().toInt //Transforme le caractere en entier !
+  for (i <- 0 to getMondeHauteur()-2){
+    setCouleurBrosse(T((i+D)%getMondeHauteur()))
+    marquerSol()
+    avance()
+  }
+  setCouleurBrosse(T((getMondeHauteur()-1+D)%getMondeHauteur()))
+  marquerSol()
+}

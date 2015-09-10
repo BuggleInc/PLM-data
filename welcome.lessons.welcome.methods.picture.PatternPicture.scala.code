@@ -1,0 +1,85 @@
+override def run() {
+  faireFigureEntiere
+}
+
+def marqueSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireCarreCouleur1(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  marqueSol()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  marqueSol()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireCarreCouleur2(c:Color){
+  setCouleurBrosse(c)
+  marqueSol()
+  avance()
+  gauche()
+  avance()
+  marqueSol()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
+
+def faireGrandCarre(){
+  faireCarreCouleur1(Color.RED)
+  avance()
+  avance()
+  faireCarreCouleur2(Color.BLUE)
+  recule() //La Baggle se reposition pour le carr? suivant.
+  recule()
+  gauche()
+  avance()
+  avance()
+  droite()
+  faireCarreCouleur2(Color.YELLOW)
+  avance()
+  avance()
+  faireCarreCouleur1(Color.GREEN)
+}
+
+def faireFigureEntiere(){
+  faireGrandCarre()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  gauche()
+  faireGrandCarre()
+  for (cpt <- 1 to 6){
+    recule()
+  }
+  gauche()
+  avance()
+  avance()
+  droite()
+  faireGrandCarre()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  gauche()
+  faireGrandCarre()
+  recule()
+  recule()
+  droite()
+  avance()
+  avance()
+  gauche()
+}
