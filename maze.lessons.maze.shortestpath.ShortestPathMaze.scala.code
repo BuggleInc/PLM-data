@@ -1,20 +1,34 @@
 override def run() {
+  var ang=0
+  avance()
   while(!estSurBiscuit()){
-    keepHandOnWall()
+    if (ang==0){
+      while(!estFaceMur()){
+        avance()
+      }
+      droite()
+      ang=ang-1
+    }
+    ang = ang + keepHandOnWall()
   }
-  ecritMessage(0)
+  prendBiscuit()
 }
-
-def keepHandOnWall(){
+  
+def keepHandOnWall():Int={
+  var s=0
   gauche()
+  s=s+1
   if (estFaceMur()){
     droite()
+    s=s-1
     if(estFaceMur()){
       droite()
+      s=s-1
     }else{
       avance()
     }
   }else{
     avance()
   }
+  return s
 }
