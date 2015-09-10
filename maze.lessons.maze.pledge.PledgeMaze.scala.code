@@ -1,0 +1,50 @@
+override def run() {
+  
+  setDirection(Direction.NORTH)
+  colleObstacle()
+  var memDirec = getDirection()
+  var somme = 0
+  do{
+    somme = somme + keepHandOnSideWall()
+  }
+  while (!isOverBaggle() && !(somme != 0 && getDirection() != memDirec) )
+}
+
+
+
+def colleObstacle(){
+  /* Avance jusqu'a rencontre un obstacle, puis tourne vers la droite pour qu'il soit a gauche */
+  
+  while(!isFacingWall() && !isOverBaggle()){
+    forward()
+  }  
+  right()
+}
+
+
+
+def keepHandOnSideWall(): Int = {
+    
+  var angleAbs = 0
+  
+  //S'il y a un mur en face on tourne a droite
+  if (isFacingWall()){
+    right()
+    angleAbs = angleAbs +1
+  
+  //Sinon on peut avancer et regarder s'il y a un mur
+  }else{
+    if (!isOverBaggle())
+    	forward()
+    left()
+    angleAbs = angleAbs -1
+    
+    //Si il y a un mur on se remet droit pour le prochain
+    if (isFacingWall()){
+      right()
+      angleAbs = angleAbs +1
+      
+    }
+  }
+  return angleAbs
+}

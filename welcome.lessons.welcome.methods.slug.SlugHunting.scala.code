@@ -1,0 +1,79 @@
+def hunt() {
+    // Write your code here
+  
+  var chasseContinue = true
+  
+  while(chasseContinue){
+  
+  	// Tantqu'on a une piste on continue la chasse (4 cases ? regarder)
+  	var trace = false
+  	while(trace == false){
+    	// on regarde o? est la trace 
+    	// /!\ boucle infinie rajouter un compteur
+    	if (isFacingTrail())
+    		trace = true
+    	else 
+    		left()
+  	}
+  
+  	// Une fois qu'on l'a on avance
+  	paint()
+  	forward()
+  	if (isOverBaggle()){
+  		pickupBaggle()
+      paint()
+    	chasseContinue = false
+  	}
+  
+  }
+  
+  
+}
+
+
+def paint(){
+  brushDown()
+  brushUp()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Copy your isFacingTrail() here
+def isFacingTrail():Boolean = {
+   // Write your code here
+  
+  // Renvoie vrai si la cellule en face est verte
+  
+  if (!isFacingWall)
+  	forward()
+  else
+  	return false
+  
+  if (getGroundColor == Color.green){
+  	backward()
+  	return true
+  
+  }else
+  	backward()
+  
+  return false
+  
+}

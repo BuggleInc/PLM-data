@@ -1,0 +1,55 @@
+def hunt(c:Color) {
+     // Write your code here
+  var chasseContinue = true
+  
+  while(chasseContinue){
+  
+  	// Tantqu'on a une piste on continue la chasse (4 cases ? regarder)
+  	var trace = false
+  	while(trace == false){
+    	// on regarde o? est la trace 
+    	// /!\ boucle infinie rajouter un compteur
+    	if (isFacingTrailColor(c))
+    		trace = true
+    	else 
+    		left()
+  	}
+  
+  	// Une fois qu'on l'a on avance
+  	paint()
+  	forward()
+  	if (isOverBaggle()){
+  		pickupBaggle()
+      paint()
+    	chasseContinue = false
+  	}
+  
+  }
+  
+ }
+
+ // here comes your isFacingTrail method
+def paint(){
+  brushDown()
+  brushUp()
+}
+
+def isFacingTrailColor(couleur: Color):Boolean = {
+  
+  // Renvoie vrai si la cellule en face est de la couleur
+  
+  if (!isFacingWall)
+  	forward()
+  else
+  	return false
+  
+  if (getGroundColor == couleur){
+  	backward()
+  	return true
+  
+  }else
+  	backward()
+  
+  return false
+  
+}

@@ -1,0 +1,61 @@
+override def run() {
+  for(i <- 1 to 3){
+    traceLigne()
+  }
+  
+}
+
+def traceLigne(){
+  /** Trace 3 gd carr?s puis monte d'une ligne */
+  for (i <- 1 to 3){
+    grandCarre()
+    forward(21)
+  }
+  left()
+  forward(21)
+  right()
+}
+
+
+
+
+def grandCarre() {
+  for (i<- 1 to 3){
+  	makePattern()
+  }
+}
+
+
+def makePattern() {
+  /** trace une ligne de 3 carr?s puis change de ligne */
+  for (j <- 1 to 3){
+  	carre()
+  	forward(7)
+  }
+  // Changement de ligne
+  left()
+  forward(7)
+  right()
+}
+
+
+def carre() {
+  for (i <- 1 to 4){
+    makeV()
+  	}
+}
+
+def paint() {
+  brushDown()
+  brushUp()
+}
+def makeV() {
+  forward(2)
+  paint()
+  forward();left();forward();
+  paint()
+  backward();right();forward()
+  paint()
+  forward(2)
+  left()
+}
