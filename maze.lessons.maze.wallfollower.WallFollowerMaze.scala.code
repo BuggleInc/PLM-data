@@ -1,5 +1,5 @@
 override def run() {
-  keepHandOnSideWall(){
+  def toucheMur(){
     gauche()
     if (estFaceMur){
       droite()
@@ -7,4 +7,13 @@ override def run() {
     }
     return false
   }
+  
+  def keepHandOnSideWall(){
+    while (!estSurBiscuit){
+      if ((toucheMur())&&(!estFaceMur)){
+        avance()
+      } else if (!toucheMur()){
+        avance()
+      }
+    }
 }
