@@ -4,11 +4,12 @@ override def run() {
   var pas=0
   while (!posFinale(x,y)) {
     ecritMessage(pas.toString)
-    if (y==getMondeHauteur-1) {
-      x=x+1
-      y=0
-    } else y=y+1   
-  pas=pas+1
+    if (y==0) {
+      setPos(x+1, 0)
+    } else setPos(x, y-1)   
+    x=getX()
+    y=getY() 
+    pas=pas+1  
   }
 }
 
