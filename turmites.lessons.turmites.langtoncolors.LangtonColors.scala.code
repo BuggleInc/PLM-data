@@ -11,12 +11,22 @@ def step(rule:Array[Char], colors:Array[Color]) {
       if(rule(i)=='R') {
         droite()
         avance()
-        setCouleurSol(colors(i+1))
+        if(i==color.length-1) {
+          setCouleurSol(colors(0))
+        }
+        else {
+          setCouleurSol(i+1)
+        }
       }
       else if(rule(i)=='L') {
         gauche()
         avance()
-        setCouleurSol(colors(i+1))
+        if(i==color.length-1) {
+          setCouleurSol(colors(0))
+        }
+        else {
+          setCouleurSol(i+1)
+        }
       }
     }
   }
