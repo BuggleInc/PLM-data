@@ -1,0 +1,29 @@
+override def run() {
+  var n :Int= getMondeHauteur()
+  var T =new Array [Color](n)
+  for (i<-0 to n-1){
+    avance(i)
+    T(i)=getCouleurSol()
+    recule(i)
+  }
+  
+  def reproduireMotif(){
+    var decal : Int= litMessage().toInt
+    setCouleurBrosse(T(decal))
+    baisseBrosse()
+    leveBrosse()
+    for (k<-1 to n-1){
+      avance()
+      setCouleurBrosse(T((k+decal)%n))
+      baisseBrosse()
+      leveBrosse()
+    }
+    recule(n-1)
+  }
+  for (compt<-1  to n-1){
+    gauche()
+    avance()
+    droite()
+    reproduireMotif()
+  }
+}

@@ -1,0 +1,40 @@
+override def run() {
+  
+  def marquerSol(c:Color){
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+  
+  def faireDessin(c:Color){
+    avance()
+    marquerSol(c)
+    gauche()
+    avance()
+    gauche()
+    avance()
+    marquerSol(c)
+    gauche()
+    avance()
+    gauche()
+    avance(3)
+    gauche()
+
+  }
+  def faireMotif(){
+    faireDessin(Color.red)
+    faireDessin(Color.blue)
+    faireDessin(Color.green)
+    faireDessin(Color.yellow)
+  }
+  faireMotif()
+  avance(4)
+  faireMotif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  faireMotif()
+  avance(4)
+  faireMotif()
+}

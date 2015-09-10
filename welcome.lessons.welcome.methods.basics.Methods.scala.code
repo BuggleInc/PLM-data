@@ -1,0 +1,27 @@
+/**
+*avance,recupere le biscuit et le ramene
+*/
+
+
+def goAndGet() {
+  var nbPas:Int=0
+  var compt:Int=0
+  while(!estSurBiscuit){
+    avance()
+    nbPas=nbPas+1
+  }
+  if (estSurBiscuit){
+    prendBiscuit()
+  }
+  for (compt<-1 to nbPas){
+    recule()
+  }
+  poseBiscuit()
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
