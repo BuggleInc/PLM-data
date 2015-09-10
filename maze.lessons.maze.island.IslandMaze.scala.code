@@ -8,9 +8,11 @@ def run1() {
 
 
 override def run() {
+  var r = 0
   while (getX()!=0) {
     if (getDirection==Direction.SOUTH) {
-      droite()
+      r = random2()
+      if (r==0) {droite()} else {gauche()}
     }
    avance1()
   }
