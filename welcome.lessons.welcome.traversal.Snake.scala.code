@@ -1,0 +1,22 @@
+override def run() {
+  def pasDeSerpent(){
+    while (!estFaceMur){
+      avance()
+    }
+    if (getDirection()==Direction.EAST){
+      gauche()
+      avance()
+      gauche()
+    }else{
+      droite()
+      avance()
+      droite()
+    }
+  }
+  setCouleurBrosse(Color.RED)
+  baisseBrosse()
+  while (getY()!=0){
+    pasDeSerpent()
+  }
+  avance(6)  
+}
