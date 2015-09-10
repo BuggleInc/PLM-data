@@ -1,0 +1,28 @@
+override def run() {
+  doTheSpin()
+}
+
+def doTheSpin() {
+  var diag:Int = 1
+  var compt:Int = 0
+  ecritMessage(""+compt)
+  setPos(getX(), getY() + 1)
+  while ((getX(), getY()) != (getMondeLargeur() - 1, getMondeHauteur() - 1)) {
+    compt += doTheSpinningDiag(compt, diag)
+    diag += 1
+  }
+}
+
+def doTheSpinningDiag(compt:Int, diag:Int):Int = {
+  var comptLocal:Int = 0
+  for (i <- Math.max(0, diag - (getMondeHauteur() - 1)) to Math.min(diag, getMondeLargeur() - 1)) {
+    setPos(i, diag - i)
+    droite()
+    droite()
+    droite()
+    droite()
+    comptLocal += 1
+    ecritMessage(""+(compt+comptLocal))
+  }
+  return comptLocal
+}

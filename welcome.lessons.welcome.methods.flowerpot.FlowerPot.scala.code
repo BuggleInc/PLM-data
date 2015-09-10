@@ -1,0 +1,55 @@
+def fleur(c : Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  setCouleurBrosse(Color.yellow)
+  leveBrosse()
+  droite()
+}
+
+def ligne1() {   //les fleurs rouges et cyan //
+  fleur(Color.red)
+  for (i <- 1 to 3)
+  	avance()
+  fleur(Color.cyan)
+  for (i <- 1 to 5)
+  	recule()
+}
+
+def ligne2() {   // la fleur orange //
+  droite()
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  fleur(Color.orange)
+  for (i <- 1 to 3)
+  	recule()
+}
+
+def ligne3() {   // les fleurs rose et verte //
+  droite()
+  avance()
+  avance()
+  gauche()
+  fleur(Color.pink)
+  for (i <- 1 to 3)
+  	avance()
+  fleur(Color.green)
+  for (i <- 1 to 5)
+  	recule()
+}
+
+def growFlowers() {
+  ligne1()
+  ligne2()
+  ligne3()
+}

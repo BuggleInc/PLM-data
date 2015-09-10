@@ -1,0 +1,17 @@
+def golomb(num:Int): Int = {
+  var pasDInspiration:Int = 1 // les valeurs croissantes de la suite //
+  var compt:Int = 1 // compteur du nombre d'occurences de chaque valeur //
+  var nums = new Array[Int](num) // un joli tableau <3 //
+  nums(0) = 1
+  for (i <- 1 to num - 1) {
+    if (compt != nums(pasDInspiration-1)) {
+      nums(i) = pasDInspiration
+      compt = compt + 1
+    } else {
+      pasDInspiration = pasDInspiration + 1
+      nums(i) = pasDInspiration
+      compt = 1
+    }
+  }
+  return nums(num - 1)
+}

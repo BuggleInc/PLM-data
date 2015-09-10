@@ -1,0 +1,86 @@
+override def run() {
+  toTheNorthFriends()
+  getMeOutOfHere()
+}
+
+
+def toTheNorthFriends() {
+  while (getY() != 0) {
+    if (getDirection() != Direction.SUD) {
+    	if (peutAllerNord()) {
+      	avance()
+      } else {
+        searchLeft()
+      }
+    } else {
+      searchLeft()
+    }
+  }
+}
+
+
+def searchLeft() {
+  var direction:Direction = getDirection()
+  if (!murAGauche()) {
+    gauche()
+    avance()
+    direction = getDirection()
+  }
+  while (!peutAllerNord() && direction != Direction.SUD) {
+    setDirection(direction)
+    if (!estFaceMur()) {
+      avance()
+    } else {
+      droite()
+      direction = getDirection()
+    }
+  }
+  if (direction == Direction.SUD)
+  	setDirection(direction)
+  avance()
+}
+
+
+def peutAllerNord():Boolean = { //attention : tester peutAllerNord nous oriente vers le Nord //
+  setDirection(Direction.NORD)
+  if (!estFaceMur())
+  	return true
+  return false
+}
+
+
+def getMeOutOfHere() {
+  var r:Int = 0 
+  if (!murAGauche()) {
+    while (!estFaceMur())
+    	avance()
+    droite()
+  }
+  while (!estSurBiscuit()) {
+    while (murAGauche() && r == 0) {
+      if (!estFaceMur()) { 
+        avance()
+        if (estSurBiscuit())
+          r = 1
+      } else {
+        droite()
+      }
+    }
+    if (r == 0) {
+      gauche()
+    	avance()
+    }
+  }
+  prendBiscuit()
+}
+
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur()) {
+  	droite()
+  	return true
+  }
+  droite()
+  return false
+}

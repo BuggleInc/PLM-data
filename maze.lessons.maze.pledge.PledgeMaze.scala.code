@@ -1,0 +1,62 @@
+override def run() {
+  toTheNorthFriends()
+}
+
+
+def toTheNorthFriends() {
+  while (!porteBiscuit()) {
+    if (peutAllerNord()) {
+      avance()
+    } else {
+      getMeOutOfHere()
+    }
+  }
+}
+
+
+def getMeOutOfHere() {
+  var r:Int = 0 
+  var angle:Int = 0
+  droite()
+  angle += 1
+  while (!estSurBiscuit() && angle != 0) {
+    while (murAGauche() && r == 0) {
+      if (!estFaceMur()) { 
+        avance()
+        if (estSurBiscuit())
+          r = 1
+      } else {
+        droite()
+        angle += 1
+      }
+    }
+    if (r == 0) {
+      gauche()
+      angle -= 1
+    	avance()
+      if (estSurBiscuit())
+      	r = 1
+    }
+  }
+  if (r == 1)
+ 	  prendBiscuit()
+}
+
+
+def peutAllerNord():Boolean = { //attention : tester peutAllerNord nous oriente vers le Nord //
+  setDirection(Direction.NORD)
+  if (!estFaceMur())
+  	return true
+  return false
+}
+
+
+def murAGauche():Boolean = {
+  gauche()
+  if (estFaceMur()) {
+  	droite()
+  	return true
+  }
+  droite()
+  return false
+}

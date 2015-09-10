@@ -1,0 +1,36 @@
+override def run() {
+  var motif = scanMotif(getMondeHauteur())
+  for (i <- 1 to getMondeHauteur() - 1) {
+    prodMotif(motif)
+  }
+}
+
+def scanMotif(long:Int): Array[Color] = {
+  var motif = new Array[Color] (long)
+  motif(0) = getCouleurSol()
+  for (i <- 1 to long-1) {
+    avance()
+    motif(i) = getCouleurSol()
+  }
+  for (i <- 1 to long-1)
+  	recule()
+  return motif
+}
+
+def prodMotif(motif:Array[Color]) { 
+  gauche()
+  avance()
+  droite()
+  val decalage = litMessage().toInt
+  setCouleurBrosse(motif(decalage % motif.length))
+  baisseBrosse()
+  leveBrosse()
+  for (i <- 1 to motif.length - 1) {    
+    avance()
+    setCouleurBrosse(motif((i + decalage) % motif.length))
+    baisseBrosse()
+    leveBrosse()
+  }
+  for (i <- 1 to motif.length - 1)
+  	recule()
+}

@@ -1,0 +1,80 @@
+override def run() {
+  val a:Int = ilEstOuLeBiscuit1()
+  whoNeedsAMap(a,ilEstOuLeBiscuit2(a))
+}
+
+
+def timeToBreakOut() {
+  val x:Int = getX()
+  val y:Int = getY()
+  val b:Int = getIndication(x,y)
+  if (getIndication(x+1,y) == b - 1) {
+    setDirection(Direction.EST)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x-1,y) == b - 1) {
+    setDirection(Direction.OUEST)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x,y+1) == b - 1) {
+    setDirection(Direction.NORD)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x,y-1) == b - 1) {
+    setDirection(Direction.SUD)
+    avance()
+    timeToBreakOut()
+  }
+  prendBiscuit()
+}
+
+
+def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
+  val c:Int = getIndication(x,y)
+  if (x < getMondeLargeur() - 1 && getIndication(x+1,y) > c + 1) {
+    if (!aMurOuest(x+1,y)) {
+      setIndication(x+1,y,c + 1)
+      whoNeedsAMap(x+1,y)
+    }
+  }
+  if (x > 0 && getIndication(x-1, y) > c + 1) {
+    if (!aMurOuest(x,y)) {
+      setIndication(x-1,y,c + 1)
+      whoNeedsAMap(x-1,y)
+    }
+  }
+  if (y > 0 && getIndication(x,y+1) > c + 1) {
+    if (!aMurNord(x,y)) {
+      setIndication(x,y+1,c + 1)
+      whoNeedsAMap(x,y+1)
+    }
+  }
+  if (y < getMondeHauteur() - 1 && getIndication(x,y-1) > c + 1) {
+    if (!aMurNord(x,y-1)) {
+      setIndication(x,y-1,c + 1)
+      whoNeedsAMap(x,y-1)
+    }
+  }
+}
+
+
+def ilEstOuLeBiscuit1():Int = { // trouve l'arriv?e et la marque //
+  for (i <- 0 to getMondeLargeur() - 1) {
+    for (j <- 0 to getMondeHauteur() - 1) {
+      if (hasBaggle(i,j)) {
+        setIndication(i,j,0)
+        return i
+      }
+    }
+  }
+  return 9999
+}
+
+def ilEstOuLeBiscuit2(i:Int):Int = {
+  for (j <- 0 to getMondeHauteur() - 1) {
+    if (hasBaggle(i,j)) {
+      return j
+    }
+  }
+  return 9999
+}
