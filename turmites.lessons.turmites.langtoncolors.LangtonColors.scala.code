@@ -1,6 +1,8 @@
 def step(rule:Array[Char], colors:Array[Color]) {
+  var col:Boolean == false
   for(i <- 0 to colors.length-1){
-  	if(getCouleurSol() == colors(i)){
+  	if(getCouleurSol() == colors(i) && !col){
+      var i2 = i+1
     	setCouleurBrosse(colors(i))
     	baisseBrosse()
     	leveBrosse()
