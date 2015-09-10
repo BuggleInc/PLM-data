@@ -1,0 +1,45 @@
+def Brosse(){
+  baisseBrosse() ; leveBrosse()
+}
+
+
+
+
+def fleur(c:Color) {
+  setCouleurBrosse(c:Color)
+  Brosse() ; avance() ; avance() ; Brosse() ; recule() ; gauche() ; avance() ; Brosse() ; recule() ; recule() ; Brosse() 
+  setCouleurBrosse(Color.yellow)
+  avance() ; Brosse() ;droite(); avance() 
+}
+
+
+def jardin1() {
+  fleur(Color.red) ;avance(); avance() ; fleur(Color.cyan) 
+  recule() ; recule() ; recule() ;recule() ; recule() ; recule()
+  droite() ; avance() ; avance() ; gauche() ; avance() ; avance() 
+  fleur(Color.orange) ; recule() ; recule() ;recule() ; recule()
+  droite() ; avance() ; avance() ; gauche() 
+  fleur(Color.pink) ;avance(); avance() ; fleur(Color.green)
+  recule() ; recule() ; recule() ; recule() ; recule() ; recule()
+}
+
+def jardin() {
+  jardin1()
+  for (compt <-1 to 6) {
+    avance() }
+  gauche() ; avance() ; avance() ; droite() ; fleur(Color.blue) ; gauche() ; avance() ; avance() ; droite()
+  jardin1()
+  droite() ; avance() ; droite() ; avance() ;avance() ;avance() ;avance() ;avance() ;avance() ;avance() ;avance()
+  gauche() ; avance() ; avance()  ; avance() ;gauche()
+  jardin1()
+  for (compt <-1 to 6) {
+    avance() }
+  gauche() ; avance() ; avance() ; droite() ; fleur(Color.blue) ; gauche() ; avance() ; avance() ; droite()
+  jardin1()
+}
+
+
+
+def growFlowers() {
+  jardin()
+}

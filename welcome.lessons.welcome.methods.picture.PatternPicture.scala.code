@@ -1,0 +1,43 @@
+def Brosse() {
+  baisseBrosse() ; leveBrosse()
+}
+def fairecgb(c:Color) {
+  setCouleurBrosse(c:Color)
+  avance() ; Brosse() ; gauche() ; avance() ; gauche() ; avance();Brosse() ; gauche() ; avance() ; gauche()
+}
+
+def fairecdb(c:Color) {
+  setCouleurBrosse(c:Color)
+  avance() ;avance() ; Brosse(); avance() ; gauche() ; avance() ;Brosse(); gauche() ; avance() ; gauche() ; avance() ; gauche() ; recule() ; recule()
+}
+
+
+def fairecgh(c:Color) {
+  setCouleurBrosse(c:Color)
+  gauche() ; avance() ; avance() ;droite() ; Brosse() ; avance() ; gauche() ; avance() ; Brosse() ; gauche() ;avance() ; gauche() ; avance() ; gauche() ; avance() ; avance() ; avance()
+}
+def fairecdh(c:Color) {
+  setCouleurBrosse(c:Color)
+  gauche() ; Brosse() ; avance() ; gauche();avance();Brosse(); gauche() ;avance() ; gauche() ; recule(); recule() ; gauche() ; recule() ; recule() ; droite()
+  
+}
+
+
+def faireMotif() {
+  fairecgb(Color.red);fairecdb(Color.blue); fairecgh(Color.yellow); fairecdh(Color.green)
+}
+
+def faireligne() {
+    faireMotif() ; avance() ; avance() ; avance() ; avance() ; faireMotif()
+ }
+def faireexo() {
+    faireligne(); recule() ;recule() ;recule() ;recule() ; gauche() ; avance() ; avance()
+    avance() ; avance() ; droite() ; faireligne()
+  }
+
+
+
+
+override def run() {
+ faireexo()
+}

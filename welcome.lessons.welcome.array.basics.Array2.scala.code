@@ -1,0 +1,33 @@
+def Brosse(c:Color) {
+  setCouleurBrosse(c:Color)
+  baisseBrosse() ; leveBrosse()
+}
+
+def exo() {
+  var x=getMondeHauteur()
+  var T = new Array[Color](x)
+  for (compt<-0 to T.length-2) {
+    T(compt)=getCouleurSol()
+    avance()
+  }
+  T(T.length-1)=getCouleurSol()
+  for (i<-1 to x-1) {
+    for (a<- 1 to x-1) {
+      recule()
+    }
+    gauche() ; avance() ; droite() 
+    val decalage = litMessage().toInt
+  for (k<- 0 to x-2) {
+    Brosse(T((k+decalage)%x)) ; avance()
+  }
+   Brosse(T((x-1+decalage)%x))
+ }
+  for (t<- 1 to x-1) {
+    recule()
+  }
+}
+
+
+
+override def run() {exo()
+}
