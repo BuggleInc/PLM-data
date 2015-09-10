@@ -1,3 +1,9 @@
+val STOP = 0
+val NOTURN = 1
+val LEFT = 2
+val UTURN = 4
+val RIGHT = 8
+
 var state = 0;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
@@ -22,11 +28,11 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   brushUp()
   
   rule(state)(index)(NEXT_MOVE) match{
-    case 0 => 
-    case 1 => forward()
-    case 2 => left() ; forward()
-    case 4 => left() ; left() ; forward()
-    case 8 => right(); forward()
+    case STOP => 
+    case NOTURN => forward()
+    case LEFT => left() ; forward()
+    case UTURN => left() ; left() ; forward()
+    case RIGHT => right(); forward()
   }
   
   if (state == rule.length - 1){
