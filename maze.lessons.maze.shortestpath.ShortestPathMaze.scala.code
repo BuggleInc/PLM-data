@@ -1,37 +1,58 @@
 override def run() {
   val a:Int = ilEstOuLeBiscuit1()
   whoNeedsAMap(a,ilEstOuLeBiscuit2(a))
-  recule()
+  timeToBreakOut()
 }
 
 
 def timeToBreakOut() {
-  
+  val x:Int = getX()
+  val y:Int = getY()
+  val b:Int = getIndication(x,y)
+  if (getIndication(x+1,y) == b - 1) {
+    setDirection(Direction.EST)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x-1,y) == b - 1) {
+    setDirection(Direction.OUEST)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x,y+1) == b - 1) {
+    setDirection(Direction.NORD)
+    avance()
+    timeToBreakOut()
+  } else if (getIndication(x,y-1) == b - 1) {
+    setDirection(Direction.SUD)
+    avance()
+    timeToBreakOut()
+  }
+  prendBiscuit()
 }
 
 
 def whoNeedsAMap(x:Int ,y:Int) { // marque le monde (accessible) //
-  if (getIndication(x+1,y) > getIndication(x,y) + 1) {
+  val c:Int = getIndication(x,y)
+  if (x < getMondeLargeur() && getIndication(x+1,y) > c + 1) {
     if (!aMurOuest(x+1,y)) {
-      setIndication(x+1,y,getIndication(x,y) + 1)
+      setIndication(x+1,y,c + 1)
       whoNeedsAMap(x+1,y)
     }
   }
-  if (getIndication(x-1, y) > getIndication(x,y) + 1) {
+  if (x > 0 && getIndication(x-1, y) > c + 1) {
     if (!aMurOuest(x,y)) {
-      setIndication(x-1,y,getIndication(x,y) + 1)
+      setIndication(x-1,y,c + 1)
       whoNeedsAMap(x-1,y)
     }
   }
-  if (getIndication(x,y+1) > getIndication(x,y) + 1) {
+  if (y < getMondeHauteur() && getIndication(x,y+1) > c + 1) {
     if (!aMurNord(x,y)) {
-      setIndication(x,y+1,getIndication(x,y) + 1)
+      setIndication(x,y+1,c + 1)
       whoNeedsAMap(x,y+1)
     }
   }
-  if (getIndication(x,y-1) > getIndication(x,y) + 1) {
+  if (y > 0 && getIndication(x,y-1) > c + 1) {
     if (!aMurNord(x,y-1)) {
-      setIndication(x,y-1,getIndication(x,y)+1)
+      setIndication(x,y-1,c + 1)
       whoNeedsAMap(x,y-1)
     }
   }
