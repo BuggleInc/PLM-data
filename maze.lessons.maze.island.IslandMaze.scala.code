@@ -6,11 +6,12 @@ override def run() {
  	 if (estFaceMur()) {
 	    var x = getX()
 	    var y = getY()
+     	var d = getDirection() 
 	    do {
 	      if (checkg()) {gauche(); avance()}
 	      else if (!estFaceMur()) {avance()}
 	      else {droite()} }
-	      while (((getX() == x) && (getY() == y)) || estSurBiscuit())
+	      while (((getX() == x) && (getY() == y) && (d == getDirection)) || estSurBiscuit())
 	    if (!estSurBiscuit()) {
 	      while (!allerN()) {
 	        if (checkg()) {gauche(); avance()}
