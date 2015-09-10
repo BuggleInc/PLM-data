@@ -2,10 +2,11 @@ override def run() {
   val a:Int = ilEstOuLeBiscuit1()
   whoNeedsAMap(a,ilEstOuLeBiscuit2(a))
   timeToBreakOut()
+  prendBiscuit()
 }
 
 
-def timeToBreakOut() {
+def timeToBreakOut():Int {
   val x:Int = getX()
   val y:Int = getY()
   val b:Int = getIndication(x,y)
@@ -14,6 +15,7 @@ def timeToBreakOut() {
    	  setDirection(Direction.EST)
     	avance()
    	  timeToBreakOut()
+      return 0
     }
   }
   if (x > 0 && getIndication(x-1,y) == b - 1) {
@@ -21,6 +23,7 @@ def timeToBreakOut() {
     	setDirection(Direction.OUEST)
     	avance()
     	timeToBreakOut()
+      return 0
     }
   }
   if (y > 0 && getIndication(x,y-1) == b - 1) {
@@ -28,6 +31,7 @@ def timeToBreakOut() {
     	setDirection(Direction.NORD)
     	avance()
     	timeToBreakOut()
+      return 0
     }
   }
   if (y < getMondeHauteur() - 1 && getIndication(x,y+1) == b - 1) {
@@ -35,9 +39,9 @@ def timeToBreakOut() {
     	setDirection(Direction.SUD)
     	avance()
     	timeToBreakOut()
+      return 0
     }
   }
-  prendBiscuit()
 }
 
 
