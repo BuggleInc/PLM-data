@@ -17,7 +17,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     couleur = couleur + 1
   }
   
-  var toDo = rule(etatCourant)(couleur)
+  var toDo = rule(etatCourant)(couleur)(1)
   toDo match{
     case DROITE => right();forward();
     case GAUCHE => left();forward();
