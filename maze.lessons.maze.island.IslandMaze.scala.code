@@ -10,29 +10,27 @@ override def run()
 
 def murExterne () 
 {
-  while (getY()!=0) 
+  while (getDirection()==Direction.NORTH && getY()!=0) 
   {
-    while (getDirection()==Direction.NORTH) 
+    if (!estFaceMur()) 
     {
+      avance()
+    } else 
+    {
+      droite()
       if (!estFaceMur()) 
       {
         avance()
+        gauche()
       } else 
       {
-        droite()
-        if (!estFaceMur()) 
-        {
-          avance()
-          gauche()
-        } else 
-        {
-          recule()
-          gauche()
-        }
+        recule()
+        gauche()
       }
-    } 
-    keepHandOnSideWall() 
-  }
+    }
+  } 
+  keepHandOnSideWall() 
+
 }
 
 def keepHandOnSideWall() 
