@@ -9,9 +9,12 @@ override def run() {
     gauche()
   }
   def nord() {
+    var posa=getY()
     while (getY()!=0) {
-      
+      while (getY()<=posa) {keepHandOnSideWall()}
     }
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()) {avance()}
   }
   
 
