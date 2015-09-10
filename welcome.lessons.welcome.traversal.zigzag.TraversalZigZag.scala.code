@@ -3,18 +3,19 @@ override def run() {
   var y=getY()
   var pas=0
   var sensDroite=true
-  ecritMessage(pas.toString)
-  setPos(1,0)
-  pas=pas+1
   while (!posFinale(x,y)) {
     ecritMessage(pas.toString)
     if (x==getMondeHauteur-1) {
-      setPos(x, y+1);sensDroite=true
+      if (sensDroite) {
+      setPos(x,y+1);sensDroite=false
+      } else setPos(x-1,y)
     } else if (x==0) {
-      setPos(x, y+1);sensDroite=false
-    } else if (sensDroite) {
-      setPos(x+1,y)
-    } else setPos(x-1,y)
+             if (sensDroite) {
+               setPos(x+1,y)
+             } else setPos(x,y+1);sensDroite=true
+    } else  if (sensDroite) {
+               setPos(x+1,y)
+            } else setPos(x-1,y)
     x=getX()
     y=getY() 
     pas=pas+1  
