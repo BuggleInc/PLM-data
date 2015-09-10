@@ -4,7 +4,7 @@ override def run() {
   while(!estSurBiscuit()){
     if(isDirectionFree(Direction.NORTH) && sommeAngle == 0 && getDirection()==Direction.NORD){
       avance()
-    }else if (estFaceMur()){
+    }else if (estFaceMur() && getDirection() == Direction.NORD){
       droite()
       sommeAngle+=1
     }else{
