@@ -1,11 +1,16 @@
 def nord() {
+  while(getY()!=0) {
   while(getDirection==Direction.NORTH & !(estFaceMur())) {
     avance()
   }
   while(estFaceMur()) {
     droite()
   }
+  if (getDirection()==Direction.SOUTH) {
+    droite() ; droite() ; recule()
+  }
 }
+}  
 
 def nord2() {
   while (getX()!=getMondeHauteur()-2) {
