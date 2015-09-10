@@ -1,9 +1,4 @@
 override def run(){
-  while(!estFaceMur()){
-    avance()
-  }
-  gauche()
-  
   def keepHandOnSideWall(): Boolean={
     droite()
     if(estFaceMur()){ 
@@ -15,19 +10,12 @@ override def run(){
   }
   
   while(!estSurBiscuit()){
-    var pos=(0,0)
-    if(pos==(getX(),getY())){
-       while(!estFaceMur()){
-         avance()
-  			}
-    }
     if(keepHandOnSideWall()){
       if(!estFaceMur()){avance()}
       else{gauche()}
     }
     else{droite()
          avance()
-         pos=(getX(),getY())
         }
     
   }
