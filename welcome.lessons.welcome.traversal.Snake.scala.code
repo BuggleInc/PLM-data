@@ -1,5 +1,5 @@
 override def run() {
-  setCouleurBrosse(BLEU)
+  setCouleurBrosse(Color.YELLOW)
   baisseBrosse()
   while (fonctionTest() == false) {
     serpent()
@@ -8,11 +8,15 @@ override def run() {
   def fonctionTest(): Boolean = {
     if (estFaceMur() && getDirection() == Direction.OUEST) {
       droite()
-      return estFaceMur()
-    }
+      var test = estFaceMur()
+      gauche()
+        return test
+      }
     if (estFaceMur() && getDirection() == Direction.EST) {
       gauche()
-      return estFaceMur()
+      var test = estFaceMur()
+      droite()
+        return test
     }
     return false
   }
@@ -20,7 +24,8 @@ def serpent() {
     while (!estFaceMur()) {
       avance()
     }
-      if (getDirection() == Direction.OUEST) {
+  if (estFaceMur()) {    
+  if (getDirection() == Direction.OUEST) {
         droite()
         avance()
         droite()
@@ -30,5 +35,6 @@ def serpent() {
         avance()
         gauche()
       }
+}
 }
 }
