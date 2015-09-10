@@ -22,18 +22,9 @@ override def run() {
 }
 
 
-def ouAvance(Dirr:Int):Int ={
-  
-  var g: Direction=Direction.NORD
-  if (Dirr==0){
-    g=Direction.NORD
-  }
-  if (Dirr==1){
-    g=Direction.OUEST
-  }
-
-  if (getDirection()==g && estFaceMur==false){return 4}
-  if (getDirection()==g && estFaceMur==true){return 5}
+def ouAvance(Dirr:Int):Int ={  
+  if (getDirection()==Direction.NORD && estFaceMur==false){return 4}
+  if (getDirection()==Direction.NORD && estFaceMur==true){return 5}
   gauche()
   if (estFaceMur==false){ return 0 }
   else{
