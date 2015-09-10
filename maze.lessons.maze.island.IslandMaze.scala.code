@@ -5,6 +5,29 @@ override def run() {
     {
       avance()
     }
+    else if(getDirection==Direction.SUD)
+    {
+      retourne()
+      if (!estFaceMur)
+      {
+        avance()
+      }
+    }
+    else if(getDirection==Direction.EST)
+    {
+      gauche()
+      if (!estFaceMur){
+        avance()
+      }
+    }
+    else
+    {
+      droite()
+      if (!estFaceMur)
+      {
+        avance()
+      }
+    }
     keepHandOnSideWall()
   }
   prendBiscuit()
