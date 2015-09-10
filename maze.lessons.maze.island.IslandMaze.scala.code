@@ -23,11 +23,11 @@ override def run() {
   }
 
   while (getY()!=0){
-    while (!estFaceMur()){
+    while (!estFaceMur() && getY()!=0){
       avance()
     }
     keepHandOnSideWall()
-    while (getDirection()!=Direction.NORTH){
+    while (getDirection()!=Direction.NORTH && getY()!=0){
       droite()
     }
   }
