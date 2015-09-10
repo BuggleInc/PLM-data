@@ -1,18 +1,24 @@
 def max2Value(nums:Array[Int]): Int = {
-  var m : Int = nums(0)
   var n  = nums.length
+  var i = 0
+  var m = nums(0)
   var m2 = Integer.MIN_VALUE
   for (k<-1 to n-1){
-    if (m < nums(k)){
+    if (nums(k)>m){
       m=nums(k)
+      i=k
     }
-    else m=m
+    else {
+      m=m
+      i=i
+    }
   }
+  
   for (k<-0 to n-1){
-    if (nums(k)<m && nums(k)>m2){
+    if (nums(k)<=m && nums(k)>m2 && k!=i){
       m2=nums(k)
-    }else if nums(k)=m{
-      m2=num(k)
+    }else{
+      m2=m2
     }
   }
   return m2
