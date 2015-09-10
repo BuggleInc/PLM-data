@@ -9,7 +9,10 @@ def nord() {
   if (getDirection()==Direction.SOUTH) {
     droite() ; droite() ; recule()
   }
-    droite() ; avance()
+    droite() 
+    if (estFaceMur()) {
+      
+    }
   }
 }
 
@@ -49,7 +52,7 @@ gauche()
 
 
 override def run() {
-  nord()
+  nord2()
 while (!estSurBiscuit()) {
  keepHandOnSideWall()
 }
