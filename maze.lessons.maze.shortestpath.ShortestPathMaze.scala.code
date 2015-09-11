@@ -40,23 +40,18 @@ def min (a:Int,b:Int):Int={
   if (a<b) {return a} else {return b}
 }
 
-def min4(x:Int,y:Int,a:Int,b:Int):Int ={
-  return min(min(x,y),min(a,b))
-}
-
 def caseVoisineLaPlusProche(x:Int,y:Int):Direction={
-  val haut=getIndication(x,y-1)
+  var haut=getIndication(x,y-1)
   val gauche=getIndication (x-1,y)
   val droite=getIndication (x+1,y)
   val bas=getIndication (x,y+1)
   var pluspetit=min4(haut,gauche,droite,bas)
-  pluspetit match {
-    case haut => Direction.NORD
-    case gauche => Direction.OUEST
-    case droite => Direction.EST
-    case _ => Direction.SUD
-  }  
-} 
+  var resultat=Direction.NORD
+  if (!aMurNord(x,y)){resultat=Direction.NORD}
+  if (min(haut,gauche)==gauche){if (!aMurOuest(x,y)){resultat=Direction.OUEST;haut=gauche}}
+  if (min(haut,droite)==droite){if (!aMurOuest(x+1,y)){resultat=Direction.EST;haut=droite}}
+  if (min(haut,bas)==bas){if (!aMurNord(x,y+1)){resultat=Direction.SUD}}
+  return resultat}   
 
 def suivreLeChemin():Unit={
   var temp=Direction.NORD
