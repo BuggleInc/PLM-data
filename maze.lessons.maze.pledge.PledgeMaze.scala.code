@@ -1,22 +1,22 @@
 override def run() {
-   def keepHandOnSideWall(){
-     var SommeAngle=0
-     gauche()
-     if (estFaceMur){
-       droite()
-       if (!estFaceMur){
-         avance()
-         }
-         else{
-           droite()
-           SommeAngle=SommeAngle-1
-         }
-     }else{
-       avance()
-       SommeAngle=SommeAngle+1
+  def keepHandOnSideWall(){
+    var SommeAngle=0
+    gauche()
+    if (estFaceMur){
+      droite()
+      if (!estFaceMur){
+        avance()
+      }
+      else{
+        droite()
+        SommeAngle=SommeAngle-1
+      }
+    }
+    else{
+      avance()
+      SommeAngle=SommeAngle+1
      }
    }
-  
   def MainGaucheMur(): Boolean ={
     gauche()
     if (estFaceMur()){
@@ -43,12 +43,12 @@ override def run() {
         }
         else{
           avance()
+        }
       }
-    }
-    else{
+      else{
         keepHandOnSideWall
       }
     }
+  }
     prendBiscuit()
-}
 }
