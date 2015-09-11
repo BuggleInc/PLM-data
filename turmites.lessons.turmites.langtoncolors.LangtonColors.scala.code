@@ -5,7 +5,15 @@ def step(rule:Array[Char], colors:Array[Color]) {
       a=cpt1
     }
   }
-  setCouleurSol(colors(a))
+  
+  if (a<colors.length) {
+    
+  
+  setCouleurSol(colors(a+1))
+  }
+  else {
+    setCouleurSol(colors(0))
+  }
   if (rule(a)=='R') {
     droite()
     avance()
@@ -14,6 +22,7 @@ def step(rule:Array[Char], colors:Array[Color]) {
     gauche()
     avance()
   }
+  
 }
 
 def setCouleurSol(a:Color) {
