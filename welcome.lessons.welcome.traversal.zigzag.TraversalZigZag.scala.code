@@ -5,6 +5,18 @@ override def run() {
   var line=false
   while((getX() != getMondeLargeur()-1)&&(getY() != getMondeHauteur()-1)){
   	for (i <- 0 to getMondeLargeur()-1){
+          droite()
+  	if((estFaceMur()) && (getDirection()==Direction.EST)){
+    	gauche()
+      line=true
+    	}else{gauche()}
+  	}
+    gauche()
+  	if((estFaceMur()) && (getDirection()==Direction.OUEST)){
+  		droite()
+      line=false
+    	}else{droite()}
+  	}
      	if (raw!=0){
        	setPos(getX(), getY()+1)
         line=true
@@ -30,3 +42,5 @@ override def run() {
   	}
   }
 }
+
+
