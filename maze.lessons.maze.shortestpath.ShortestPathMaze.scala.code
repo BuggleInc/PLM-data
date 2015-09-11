@@ -47,12 +47,12 @@ def trouveLeBiscuit(): Array[Int] = {
 def marqueCaseAutour (x : Int, y : Int) {
   var coordIni = (x,y)
   cpt =getIndication(x,y)+1
-  if (!aMurNord) {
+  if (!aMurNord(x,y)) {
     if (getIndication(x,y-1) == 9999) {
     	setIndication(x,y-1,cpt)
     }
   }
-  if (!aMurOuest) {
+  if (!aMurOuest(x,y)) {
     if (getIndication(x-1,y) == 9999) {
     	setIndication(x-1,y,cpt)
     }
