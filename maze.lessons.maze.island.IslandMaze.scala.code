@@ -3,7 +3,7 @@ override def run() {
   while(!estSurBiscuit())
   {
     dir = getDirection()
-    if(!murNord() && !testGauche())
+    if(!murNord() && getDirection()!=direction.SOUTH)
     {
       goNorth()
     }
@@ -19,7 +19,7 @@ def keepHandOnSideWall() {
   {
     avance()
   }
-  droite()
+  gauche()
   if(!estFaceMur())
   	avance()
   else
