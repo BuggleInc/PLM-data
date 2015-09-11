@@ -5,7 +5,7 @@ override def run() {
   var line=false
   while((getX() != getMondeLargeur()-1)&&(getY() != getMondeHauteur()-1)){
   	for (i <- 0 to getMondeLargeur()-1){
-          droite()
+    droite()
   	if((estFaceMur()) && (getDirection()==Direction.EST)){
     	gauche()
       line=true
@@ -17,14 +17,15 @@ override def run() {
       line=false
     	}else{droite()}
   	}
-     	if (raw!=0){
-       	setPos(getX(), getY()+1)
+     
+    if (raw!=0){
+    		setPos(getX(), getY()+1)
         line=true
         cpt+=1
         ecritMessage(cpt)
-      }else{ecritMessage(cpt)}
-    	for(j <- 0 to getMondeHauteur()-2){
-        if(line==false){
+    }else{ecritMessage(cpt)}
+    for(j <- 0 to getMondeHauteur()-2){
+    	if(line==false){
       		setPos(getX()+1, getY())
        		raw=raw+1
         	cpt +=1
