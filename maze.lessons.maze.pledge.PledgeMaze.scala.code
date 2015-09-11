@@ -1,0 +1,48 @@
+override def run() {
+}
+
+def run() {
+  while(getY() != 0){
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()){
+      avance()
+    }
+    if (getY() != 0) {
+      while( getDirection() != Direction.WEST) {
+      keepHandOnSideWall()
+      }
+    } else {
+      setDirection(Direction.EAST)
+    }
+    
+  }
+  while(!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+
+
+
+def keepHandOnSideWall() {
+  
+  gauche()
+  if (!estFaceMur()){
+    avance()
+  }
+  else {
+    while (estFaceMur()){
+      droite()
+      }
+    avance()
+  }
+  
+}
+
+def isDirectionFree(dir){
+  var directionCourante : Direction = getDirection()
+  setDirection(dir)
+  return ! estFaceMur()
+  setDirection(directioncourante)
+}
