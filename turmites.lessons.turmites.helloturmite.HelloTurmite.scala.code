@@ -1,5 +1,5 @@
 var state = 0;
-val STOP = 0
+val stop = 0
 val NOVIRAGE = 1
 val GAUCHE = 2 
 val DEMITOUR = 4
@@ -17,7 +17,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var MVT_SUIV = rule(state)(couleur)(1)
   var STATE_SUIV = rule(state)(couleur)(2)   
     
-  setCouleurBrosse(COULEURSUIV)
+  setCouleurBrosse(colors(COULEURSUIV))
   baisseBrosse()
   leveBrosse()    
   rule(state)(couleur)(MVT_SUIV) match {
@@ -25,7 +25,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     case GAUCHE => gauche()
     case DEMITOUR => retourne()
     case DROITE => droite()
-    case STOP => step(colors,rule)
+    case stop => step(colors,rule)
   }
     state = STATE_SUIV
     /* Your code comes here */
