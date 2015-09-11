@@ -17,6 +17,8 @@ override def run()
 {
   var compteur:Int = 0
   
+  ecritMessage(compteur)
+  
   do
   {
     setPos(getX()+diag,getY()+1+diag)
@@ -24,9 +26,10 @@ override def run()
     for(i <- 0 to diag)
     {
       ecritMessage(compteur)
-      setPos(getX()+1,getY()+1)
+      setPos(getX()+1,getY()-1)
       compteur = compteur + 1
     }
+    
     
     if(diag<getMondeLargeur())
     {
