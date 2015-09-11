@@ -2,7 +2,7 @@ def step(rule:Array[Char], colors:Array[Color]) {
   var c = getCouleurSol()
   var nbc = colors.length
   ind = trouverColor(colors, c)
-  nc = (ind+1)%nbc
+  var nc = (ind+1)%nbc
   var r = rule(ind)
   r match {
     case 'R' => point(colors(nc)); droite(); avance()
