@@ -2,11 +2,15 @@ override def run() {
   var posfinale=false
   setCouleurBrosse(Color.blue)
   baisseBrosse()
-  while(!posfinale)
-//    rep()
-  	movesnake()
+  while(!estFaceMur())
+  	avance()
+  if(getDirection()==Direction.OUEST){
+    droite()
+    avance()
+    droite()
+  }
+  
 }
-
 
 
 
@@ -21,8 +25,6 @@ def movesnake(){
   }
   
 }
-
-
 
 
 
