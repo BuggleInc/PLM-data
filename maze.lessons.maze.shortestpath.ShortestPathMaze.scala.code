@@ -3,6 +3,7 @@ override def run() {
   setIndication(getMondeLargeur()-1,Y,0)
   var y :Int=Y
   prop(getMondeLargeur()-1,Y)
+  moreprop(getMondeLargeur-1,Y)
 }
 
 
@@ -41,3 +42,37 @@ def trouverfin(): Int={
   return Y
 }
 
+def moreprop(x:Int,y:Int){
+  if(x>0){
+    prop(x-1,y)
+    moreprop(x-1,y)
+    if(y<getMondeHauteur()-1){
+      prop(x-1,y+1)
+      moreprop(x-1,y+1)
+    }
+    if(y>0){
+      prop(x-1,y-1)
+      moreprop(x-1,y-1)
+    }
+  }
+  if(x<getMondeLargeur()-1){
+    prop(x+1,y)
+    moreprop(x+1,y)
+    if(y<getMondeHauteur()-1){
+      prop(x+1,y+1)
+      moreprop(x+1,y+1)
+    }
+    if(y>0){
+      prop(x+1,y-1)
+      moreprop(x+1,y-1)
+    }
+  }
+  if(y>0){
+    prop(x,y-1)
+    moreprop(x,y-1)
+  }
+  if(y<getMondeHauteur()-1){
+    prop(x,y+1)
+    moreprop(x,y+1)
+  }
+}
