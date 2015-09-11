@@ -1,43 +1,9 @@
-override def run(){
-  var somme= 0
-  while(getY()!=0){
-    if(!estFaceMur()){avance()}
-    else{gauche()
-         if(!estFaceMur()){
-           avance();
-           droite()
-           somme+=1
-         }
-         else{
-           retourne(); 
-           avance();
-           gauche()
-           somme-=1
-         }
-        }
-    if(somme==0){setDirection(Direction.NORTH)}
-  }
-  gauche()
-  
-  def keepHandOnSideWall(): Boolean={
-    droite()
-    if(estFaceMur()){ 
-      gauche()
-      return true}
-    else{
-      gauche()
-      return false}
-  }
-  
-  while(!estSurBiscuit()){
-    if(keepHandOnSideWall()){
-      if(!estFaceMur()){avance()}
-      else{gauche()}
-    }
-    else{droite()
-         avance()
-        }
-    
+verride def run() {
+	while(!estSurBiscuit()){
+    var direction=random3()
+    if( direction== 0 && !estFaceMur()){ avance()}
+    if (direction==1){droite()}
+    if(direction==2){gauche()}
   }
   prendBiscuit()
 }
