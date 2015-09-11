@@ -1,2 +1,34 @@
 override def run() {
+ 	var cpt=0
+	var i=0
+  while (cpt<=48){
+    while(!isWallR()){
+      ecritMessage(cpt)
+      setPos((cpt+1)%getMondeHauteur(),i)
+      cpt=cpt+1
+    }
+    ecritMessage(cpt)
+    if (i<=5){
+      i=i+1
+      setPos(0,i)
+    }
+    cpt=cpt+1
+  }
+}
+
+
+def isWallR(): Boolean={
+  var rep= false
+  droite()
+  if (estFaceMur){rep=true}
+  gauche()
+  return rep
+}
+
+def isWallL(): Boolean={
+  var rep= false
+  gauche()
+  if (estFaceMur){rep=true}
+  droite()
+  return rep
 }
