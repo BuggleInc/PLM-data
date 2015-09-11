@@ -27,25 +27,22 @@ override def run() {
 def trouveLeBiscuit(): Array[Int] = {
   val hauteurMonde = getMondeHauteur
 	val largeurMonde = getMondeLargeur
-  var y = 0
-  var x = 0
+  /*var y = 0
+  var x = 0*/
   var T = new Array[Int](2)
-  for (i <- 1 to hauteurMonde) {
-    x = 0
+  for (y <- 0 to hauteurMonde-1) {
     if (aBiscuit(x,y)) {
       T(0) = x
       T(1) = y
       return T
     }
-    for (j <- 1 to largeurMonde) {
-      x = x+1
+    for (x <- 0 to largeurMonde-1) {
       if (aBiscuit(x,y)) {
         T(0) = x
         T(1) = y
         return T 
       }
     }
-    y = y+1
   }
   return T
 }
