@@ -61,16 +61,16 @@ override def run() {
   while(getX()!=posX && getY()!=posY){
     var num = getIndication(getX(),getY())
     var dir= 1
-    if(!aMurEst(posX+1,posY)){
+    if(!aMurEst(posX,posY)){
       if(getIndication(posX+1,posY)<num){num=getIndication(posX+1,posY)}
     }
-    if(!aMurNord(posX,posY-1)){
+    if(!aMurNord(posX,posY)){
       if(getIndication(posX,posY-1)<num){num=getIndication(posX,posY-1);dir=2}
     }
-     if(!aMurOuest(posX-1,posY)){
-       if(getIndication(posX-1,posY)<num){num=getIndication(posX-1,posY);dir=3}
+     if(!aMurOuest(posX,posY)){
+       if(getIndication(posX,posY)<num){num=getIndication(posX-1,posY);dir=3}
     }
-    if(!aMurSud(posX,posY+1)){
+    if(!aMurSud(posX,posY)){
       if(getIndication(posX,posY+1)<num){num=getIndication(posX,posY+1);dir=4}
     }
     for(i<-1 to dir){gauche();avance()}
