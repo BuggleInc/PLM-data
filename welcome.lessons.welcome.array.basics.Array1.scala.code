@@ -1,0 +1,88 @@
+override def run() {
+  var T : Array[Color] = definirCouleurs()
+  gauche()
+  avance()
+  droite()
+  avance()
+  for (cpt <- 1 to getMondeLargeur()-1){
+    faireLigneCouleurs(T)
+    gauche()
+    avance()
+    droite()
+    avance()
+  }
+  avance(getMondeLargeur()-1)
+  gauche()
+  avance(getMondeLargeur()-1)
+  droite()
+}
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def definirCouleurs():Array[Color]={
+  var T = new Array[Color](getMondeLargeur())
+  for (i <- 0 to getMondeLargeur()-1){
+    T(i)=(getCouleurSol())
+    avance()
+  }
+  return T
+}
+
+def faireLigneCouleurs(T:Array[Color]){
+  for (i <- 0 to getMondeLargeur()-1){
+    setCouleurBrosse(T(i))
+    marquerSol()
+    avance()
+  }
+}
+
+
+/*var T = new Array[Color](getMondeLargeur())
+
+if(getMondeLargeur()==6){
+	T(0)=Color.RED
+	T(1)=Color.CYAN
+	T(2)=Color.GREEN
+	T(3)=Color.MAGENTA
+	T(4)=Color.ORANGE
+	T(5)=Color.PINK
+}
+if(getMondeLargeur()==7){
+  T(0)=Color.PINK
+	T(1)=Color.YELLOW
+	T(2)=Color.RED
+	T(3)=Color.ORANGE
+	T(4)=Color.MAGENTA
+	T(5)=Color.GREEN
+  T(0)=Color.CYAN
+}
+if(getMondeLargeur()==8){
+  T(0)=Color.RED
+  T(1)=Color.GREEN
+  T(2)=Color.ORANGE
+  T(3)=Color.YELLOW
+  T(4)=Color.BLACK
+  T(5)=Color.PINK
+  T(6)=Color.MAGENTA
+  T(7)=Color.CYAN
+}
+
+def marquerSol() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireLigneCouleur(){
+	for (i <- 0 to getMondeLargeur()-1){
+  	setCouleurBrosse(T(i))
+  	marquerSol()
+  	avance()
+	}
+  gauche()
+  avance()
+  droite()
+  avance()
+}*/
