@@ -1,32 +1,62 @@
 override def run() 
 {
-  var choix = 0
-  while (!estSurBiscuit()) 
+  murExterne()
+  while (!estSurBiscuit)
   {
-    choix = random3()
-    if (choix == 0) 
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def murExterne () 
+{
+  while (getDirection()==Direction.NORTH && getY()!=0) 
+  {
+    if (!estFaceMur()) 
     {
-      if (!estFaceMur()) 
-      {
-        avance()
-      }
-    }
-    if (choix == 1) 
+      avance()
+    } else 
     {
       droite()
       if (!estFaceMur()) 
       {
         avance()
-      }
-    }
-    if (choix == 2) 
-    {
-      gauche()
-      if (!estFaceMur()) 
+        gauche()
+      } else 
       {
-        avance()
+        recule()
+        gauche()
       }
     }
+  } 
+  /*keepHandOnSideWall() */
+}
+
+def keepHandOnSideWall() 
+{
+  if (murADroite())
+  {
+    if (estFaceMur)
+    {
+     gauche() 
+      if (estFaceMur()) 
+      {
+        gauche()
+      }
+    }
+    avance()
+  } else 
+  {
+    droite()
+    avance()
   }
-  prendBiscuit()
+}
+
+def murADroite() : Boolean =
+{
+  var murDroite = false
+  droite()
+  murDroite = estFaceMur()
+  gauche()
+  return murDroite
 }
