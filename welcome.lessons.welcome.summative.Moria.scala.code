@@ -10,9 +10,19 @@ def degageRocher(){
   retourne()
 }
 
-override def moria(){
+def moria(){
   retourne()
-  while(!estFaceMur()){degageRocher()}
+  while(!estFaceMur()){
+    while(!estSurBiscuit()){
+      avance()
+    }
+    prendBiscuit()
+    retourne()
+    while(!estSurBiscuit()){avance()}
+    recule()
+    poseBiscuit()
+    retourne()
+  }
   droite()
   avance()
   gauche()
