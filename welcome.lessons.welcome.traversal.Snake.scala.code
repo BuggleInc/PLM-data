@@ -14,7 +14,7 @@ def movesnake(){
   while(!estFaceMur()){
     avance()}
  
-  //rep()
+  rep()
  
   if((estFaceMur()) && (getDirection()==Direction.EST)){
     gauche()
@@ -36,10 +36,20 @@ def movesnake(){
 
 
 
-//def rep(){
-//  if(estFaceMur()==true){
-    
-//  	posfinale=true
-//  }
-//  return posfinale
-//}
+def rep(){
+  if(estFaceMur()){
+    if(getDirection()==Direction.EST){
+      gauche()
+      if(estFaceMur()){
+        posfinale=true
+      }else{droite()}
+    }
+    if(getDirection()==Direction.OUEST){
+      droite()
+      if(estFaceMur()){
+        posfinale=true
+      }else{gauche()}
+    }
+   }
+  return posfinale
+}
