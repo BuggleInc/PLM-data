@@ -14,14 +14,24 @@ for (c <- 1 to getMondeHauteur()){
 
 setIndication(x,y,0)
 
-var MurEst:Boolean
-var MurSud:Boolean
-
 if (aMurNord(n,m+1) && m<=getMondeHauteur-1){
-  MurSud=false
 }
 if (aMurOuest(n+1,m)) && n<-getMondeLargeur -1){
-  MurEst=false
 }
 
-
+def ecriture(x,y){
+		var v=getIndication(x,y)
+  
+    if (!aMurNord && v!=9999){
+      setIndication(x,y-1,v+1)
+    }
+		if (!aMurOuest && v!=9999){
+      setIndication(x-1,y,v+1)
+    }
+  	if (aMurNord(x,y+1) && y<=getMondeHauteur-1 && v!=9999){
+      setIndication(x,y+,v+1)
+		}
+		if (aMurOuest(x+1,y)) && x<-getMondeLargeur -1 && v!=9999){
+      setIndication(x+1,y,v+1)
+		}
+}
