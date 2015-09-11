@@ -10,10 +10,17 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  while(testGauche() && !estFaceMur())
+  if(testGauche() && !estFaceMur)
+  	{
+      avance()
+    }
+  else if(!testGauche())
   {
-    
+    gauche()
+    avance()
   }
+  else
+  	gauche()
 }
 
 def testGauche():Boolean = {
