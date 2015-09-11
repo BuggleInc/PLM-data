@@ -17,8 +17,8 @@ def reperage(){
 
 def suivant(x:Int,y:Int,i:Int){
   setIndication(x,y,i)
-  if  (!aMurOuest(x,y) && pox!=0){suivant(pox-1,poy,i+1)}
-  else if (!aMurOuest(x+1,y) && pox!=getMondeLargeur()-1){suivant(pox+1,poy,i+1)}
-  else if (!aMurNord(pox,poy+1) && poy==getMondeHauteur()-1){suivant(pox,poy+1,i+1)}
-  else if (!aMurNord(pox,poy) && poy==0){suivant(pox,poy-1,i+1)}
+  if  (!aMurOuest(x,y) && x!=0){suivant(x-1,y,i+1)}
+  else if (!aMurOuest(x+1,y) && pox!=getMondeLargeur()-1){suivant(x+1,y,i+1)}
+  else if (!aMurNord(x,y+1) && poy==getMondeHauteur()-1){suivant(x,y+1,i+1)}
+  else if (!aMurNord(x,y) && poy==0){suivant(x,y-1,i+1)}
 }
