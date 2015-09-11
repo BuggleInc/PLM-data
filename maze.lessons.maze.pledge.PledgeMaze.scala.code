@@ -1,6 +1,10 @@
 override def run(){
-  while(!estFaceMur()){
-    avance()
+  while(getY()!=0){
+    if(!estFaceMur()){avance()}
+    else{gauche()
+         if(!estFaceMur()){avance(); droite()}
+         else{retourne(); avance();gauche()}
+        }
   }
   gauche()
   
@@ -30,8 +34,11 @@ override def run(){
       avance()
       somme-=1
     }
-    if(somme==0){gauche();avance}
+    if(somme==0){setDirection(Direction.NORTH)}
     
+  }
+  
+
   }
   prendBiscuit()
 }
