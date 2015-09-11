@@ -1,8 +1,8 @@
 override def run() {
-  if(aMurNord(2,2)){
-    setIndication(2,2,42)
-  }
-  prop(5,5)
+  var y=trouverfin()
+  prop(getMondeLargeur()-1,y)
+  setIndication(5,5,45)
+  setIndication(5,5,46)
 }
 
 def prop(x:Int,y:Int){
@@ -27,4 +27,19 @@ def prop(x:Int,y:Int){
       setIndication(x,y+1,marquage+1)
     }
   }
+}
+
+def trouverfin(): Int={
+  var Y:Int=0
+  for (y<0 to getMondeHauteur()-1){
+    if(aBiscuit(getMondeLargeur()-1,y)){
+      Y=y
+    }
+  }
+  return Y
+}
+
+
+def elargirprop(x:Int,y:Int){
+  
 }
