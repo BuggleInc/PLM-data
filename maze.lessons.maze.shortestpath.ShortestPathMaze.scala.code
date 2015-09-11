@@ -15,24 +15,23 @@ def trouveLaSortie(): Array[Int] = {
 def marqueCase(x: Int, y: Int, poids: Int) {
   var xMax:Int = getMondeLargeur()
 	var yMax:Int = getMondeHauteur()
-  
-  setIndication(x, y, poids)
+ 
   
   // On teste les cases adjacentes.
   if (!aMurOuest(x, y) && getIndication((x - 1) % xMax, y) == 9999) {
-    marqueCase((x - 1) % xMax, y, poids + 1)
+		setIndication(x - 1) % xMax, y, poids + 1)
   }
   
   if (!aMurNord(x, y) && getIndication(x, (y - 1) % yMax) == 9999) {
-    marqueCase(x, (y - 1) % yMax, poids + 1)
+		setIndication(x, (y - 1) % yMax, poids + 1)
   }
   
   if (!aMurNord(x, (y + 1) % yMax) && getIndication(x, (y + 1) % yMax) == 9999) {
-    marqueCase(x, (y + 1) % yMax, poids + 1)
+		setIndication(x, (y + 1) % yMax), poids + 1)
   }
   
   if (!aMurOuest((x + 1) % xMax, y) && getIndication((x + 1) % xMax, y) == 9999) {
-    marqueCase((x + 1) % xMax, y, poids + 1)
+		setIndication((x + 1) % xMax, y, poids + 1)
   }
 }
 
