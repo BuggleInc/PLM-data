@@ -1,5 +1,9 @@
 override def run() {
   var dir:Direction = Direction.NORTH
+  
+  while(!testGauche())
+  	gauche()
+  
   while(!estSurBiscuit())
   {
     if(murNord() && dir!=Direction.SOUTH)
@@ -8,21 +12,21 @@ override def run() {
     	goNorth()
   }
   prendBiscuit()
-  positionFin()
 }
 
 def keepHandOnSideWall() {
-  if(estFaceMur())
-  	droite()
-  else if(testGauche() && !estFaceMur())
-   {
-     avance()
-   }
-  else
+  var gauch = testGauche()
+  if(gauch && !estFaceMur)
+  	{
+      avance()
+    }
+  else if(!gauch)
   {
     gauche()
     avance()
   }
+  else if(estFaceMur())
+  	droite()
 }
 
 def testGauche():Boolean = {
@@ -31,14 +35,6 @@ def testGauche():Boolean = {
   test = estFaceMur()
   droite()
   return test
-}
-
-def positionFin() {
-  droite()
-  if(!estFaceMur())
-  	retourne()
-  else
-  gauche()
 }
 
 def goNorth() {
