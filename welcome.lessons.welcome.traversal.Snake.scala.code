@@ -1,0 +1,50 @@
+override def run() {
+  baisseBrosse()
+  while (positionFinale != true) {
+    avanceSerpent()
+  }
+}
+
+
+
+def positionFinale() {
+  var Mur = false
+  var Nord = false
+  if (estFaceMur() == true) {
+    Mur = true
+  }
+  if (getDirection() == Direction.EST) {
+    gauche()
+    if (estFaceMur() == true) {
+    Nord = true
+  	}
+  }
+   else if (getDirection() == Direction.OUEST) {
+    	droite()
+    	if (estFaceMur() == true) {
+				Nord = true
+   		}
+   }
+  if (Mur == true && Nord == true) {
+    return true
+  }
+  return false
+ }
+
+def avanceSerpent() {
+  if (estFaceMur == false) {
+    avance()
+  }
+  else {
+    if (getDirection == Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    }
+    else if (getDirection == Direction.EST) {
+      gauche()
+      avance()
+      gauche()
+    }
+  }
+}
