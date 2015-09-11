@@ -1,5 +1,6 @@
 override def run() {
   var posfinale = false
+  cpt=0
   while((getX() != getMondeLargeur()-1)&&(getY() != getMondeHauteur()-1)){
     move()
   }
@@ -15,6 +16,9 @@ def move(){
     for(j <- 0 to getMondeHauteur()-2){
       setPos(getX(), getY()+1)
       raw=raw+1
+      ecritmessage(cpt)
+      cpt +=1
+      
     }
   }
 }
