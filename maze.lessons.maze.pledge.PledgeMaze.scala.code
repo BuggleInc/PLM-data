@@ -1,5 +1,7 @@
 override def run() {
   var dir:Direction = Direction.NORTH
+  
+  var somme = 0
 
   while(!estSurBiscuit())
   {
@@ -22,11 +24,19 @@ def keepHandOnSideWall() {
   }
   avance()
   gauche()
+  somme = somme+1
   
   while(!estFaceMur)
   {
     avance()
     gauche()
+    somme = somme+1
+    if(somme == 0)
+    {
+      droite()
+      while(!estFaceMur())
+      	avance()
+    }
   }
   droite()
 }
