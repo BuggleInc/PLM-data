@@ -27,15 +27,15 @@ def serpent(){
   if(!estFaceMur()){
     avance()
   } else{
-    gauche()
-    if(estFaceMur()){
-      gauche()
-      avance()
-      gauche()
-    } else{
-      retourne()
+    if(getDirection()==Direction.OUEST){
+      droite()
       avance()
       droite()
+    } else if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
     }
   }
 }
+  
