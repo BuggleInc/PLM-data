@@ -1,7 +1,7 @@
 override def run() {
   while(!estSurBiscuit())
   {
-    if(getDirection==Direction.NORTH && !estFaceMur() && testGauche())
+    if(murNord() && !estFaceMur() && testGauche())
     {
       while(!estFaceMur())
       {
@@ -46,4 +46,19 @@ def positionFin() {
   	retourne()
   else
   gauche()
+}
+
+def murNord() {
+  var save = getDirection()
+  var mur = false
+  while(getDirection()==Direction.NORTH)
+  {
+    droite()
+  }
+  mur = estFaceMur()
+  while(getDirection()==save)
+  {
+    droite()
+  }
+  return mur
 }
