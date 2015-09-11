@@ -2,14 +2,12 @@ override def run() {
   var largeur : Int = getMondeLargeur()
   var hauteur : Int = getMondeHauteur()
   var sortie : (Int, Int) = chercherSortie(largeur, hauteur)
-  var a : Int = hauteur * largeur
-  var Ttraite : Array[Boolean](a)
-  var Tvaleur : Array[Int](a)
+  var Ttraite = new Array[Boolean](hauteur * largeur)
+  var Tvaleur = new Array[Int](hauteur * largeur)
   var variableEnTraitement : Int = 0
   var min = 0
   var positionBuggleX = getX()
   var positionBuggleY = getY()
-  var b : Int = positionBuggleX + positionBuggleY
   setIndication(sortie(0), sortie(1), 0)
   do{
     if (min == 0){
@@ -22,7 +20,7 @@ override def run() {
       }
     }
     min = min + 1
-  }while{!Ttraite(b)}
+  }while{T(positionBuggleX + positionBuggleY)}
   var nb : Int = min - 1
   while (!estSurBuggle()){
     void setDirection(Direction.NORD)
