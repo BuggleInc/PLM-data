@@ -31,7 +31,9 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
    var t = isFree(x, y - 1)
    var b = isFree(x, y + 1)
 		
-   if (b)
+   if (l && !hasLeftWall(x, y))
+   	x = x - 1
+   else if (b)
    	y = y + 1
    else if (r)
    	x = x + 1
