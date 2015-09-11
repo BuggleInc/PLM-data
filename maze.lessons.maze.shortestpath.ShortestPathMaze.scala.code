@@ -36,10 +36,10 @@ def marqueCases(poidsCourant: Int):Int = {
   var xMax:Int = getMondeLargeur() - 1
 	var yMax:Int = getMondeHauteur() - 1
   
-  setIndication(xMax, yMax, 1)
   // On parcourt le labyrinthe à la recherche de cases marquées par 'poidsCourant'.
   for (x <- 0 to xMax) {
     for (y <- 0 to yMax) {
+      setIndication(xMax, yMax, xMax + yMax)
       /*! 
        * Pour chaque cases, on vérifie si elle est marquées de 'poidsCourant'.
        * Dans ce cas on cherche les cases adjacentes accessibles et si elles ne sont pas déjà
