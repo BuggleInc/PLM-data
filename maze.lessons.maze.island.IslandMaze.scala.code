@@ -12,6 +12,12 @@ override def run() {
       droite()
     }
     avance()
+    if (getDirection == Direction.OUEST) {
+      droite()
+      while (!estFaceMur()) {
+        avance()
+      }
+    }
     while (getDirection == Direction.NORD && !estFaceMur()) {
       avance()
     }
