@@ -64,6 +64,10 @@ def parcoursCeTruc() {
   
   if (y > 0 && getIndication(x, y) > getIndication(x, y - 1))
   	avance()
+  
+  if (x < xMax && getIndication(x, y) > getIndication(x + 1, y))
+  	droite(); avance(); gauche()
+  
 }
 
 override def run() {
