@@ -6,7 +6,9 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var colorToSet : Int = 0
   var move : Int = 0
   while (colors(indice) != color) {indice = indice +1}
-  (colorToSet, move, state) = (rule(state)(indice)(0), rule(state)(indice)(1), rule(state)(indice)(2))
+  colorToSet = rule(state)(indice)(0)
+  move = rule(state)(indice)(1)
+  state = rule(state)(indice)(2)
   marquer(colors(colorToSet))
   move match {
     case 1 => avance()
