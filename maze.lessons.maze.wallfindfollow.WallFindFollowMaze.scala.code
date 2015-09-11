@@ -9,11 +9,12 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if(testGauche() && !estFaceMur)
+  var gauch = testGauche()
+  if(gauch && !estFaceMur)
   	{
       avance()
     }
-  else if(!testGauche())
+  else if(!gauch)
   {
     gauche()
     avance()
@@ -28,12 +29,4 @@ def testGauche():Boolean = {
   test = estFaceMur()
   droite()
   return test
-}
-
-def positionFin() {
-  droite()
-  if(!estFaceMur())
-  	retourne()
-  else
-  gauche()
 }
