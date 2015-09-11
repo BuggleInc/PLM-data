@@ -35,16 +35,28 @@ override def run() {
       }
     }
   } while (changed)
-}
-
-
-def mondeTague():Boolean={
-  for (i<-0 to getMondeLargeur()-1){
-    for (j<-0 to getMondeHauteur()-1){
-      while (getIndication(i,j)==9999){
-        return false
+  while (!estSurBiscuit()){
+    for (i<-0 to getMondeLargeur()-1){
+      for (j<-0 to getMondeHauteur()-1){
+        if (getIndication(i+1,j)<getIndication(i,j)){
+          void setDirection(Direction.EST)
+          avance()
+        }
+        if (getIndication (i-1,j)<getIndication(i,j)){
+          void setDirection(Direction.OUEST)
+          avance()
+        }
+        if (getIndication(i,j+1)<getIndication(i,j)){
+          void setDirection(Direction.NORTH)
+          avance()
+        }
+        if (getIndication(i,j-1)<getIndication(i,j)){
+          void setDirection(Direction.SOUTH)
+          avance()
+        }
       }
     }
   }
-  return true
+  prendBiscuit()
 }
+
