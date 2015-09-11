@@ -24,10 +24,10 @@ def prop(x:Int,y:Int){
   if(y>0 && !aMurNord(x,y)){
     prop(x,y-1)
   }
-  if(x>0){
+  if(x>0 && !aMurOuest(x,y)){
     prop(x-1,y)
   }
-  if(x<getMondeLargeur()-1){
+  if(x<getMondeLargeur()-1 && !aMurOuest(x+1,y)){
     prop(x+1,y)
   }
   if(y<getMondeHauteur()-1){
