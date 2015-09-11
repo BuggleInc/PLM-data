@@ -2,42 +2,45 @@ override def run() {
   var posfinale=false
   setCouleurBrosse(Color.blue)
   baisseBrosse()
-  while(!estFaceMur())
-  	avance()
-  if(getDirection()==Direction.EST){
-    gauche()
-    avance()
-    gauche()
+  while(!posfinale){
+    movesnake()
   }
-  if(getDirection()==Direction.EST){
-  droite()
-  avance()
-  droite()
-  }
-  
 }
 
 
 
 
 def movesnake(){
-  while(!estFaceMur())
-  	avance()
-  if(getDirection()==Direction.OUEST){
-    droite()
-    avance()
+  while(!estFaceMur()){
+    avance()}
+ 
+  rep()
+ 
+  if(getDirection()==Direction.EST){
+    gauche()
+    if(!estFaceMur()){
+    	avance()
+    	gauche()
+    }
     droite()
   }
   
-}
+  if(getDirection()==Direction.OUEST){
+  	droite()
+    if(estFaceMur()){
+  		avance()
+  		droite()
+    }
+    gauche()
+  }
 
 
 
 
-//def rep(){
-//  if(estFaceMur()==true){
+def rep(){
+  if(estFaceMur()==true){
     
-//  	posfinale=true
-//  }
-//  return posfinale
-//}
+  	posfinale=true
+  }
+  return posfinale
+}
