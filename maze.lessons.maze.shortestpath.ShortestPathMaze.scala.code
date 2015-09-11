@@ -12,6 +12,15 @@ override def run() {
   var cpt:Int =0
   
   recurs (x,y,cpt)
+  while (estSurBiscuit==false){
+    test() match{
+      case 0 => setDirection(Direction.NORD);avance()
+      case 1 => setDirection(Direction.SUD);avance()
+      case 2 => setDirection(Direction.EST);avance()
+      case 3 => setDirection(Direction.OUEST);avance()
+    }
+  }
+
   
     // Your code here
 }
@@ -42,5 +51,14 @@ def recurs (x:Int,y:Int,num:Int){   // numerote tout
   } 
 
   
+
+}
+
+def test :Int ={
+  if (aMurNord(x,y)==false && getIndication(x,y-1)<getIndication(x,y){return 0}
+  if (aMurSud(x,y)==false && getIndication(x,y+1)<getIndication(x,y){return 1}
+  if (aMurEst(x,y)==false && getIndication(x+1,y)<getIndication(x,y){return 2}
+  if (aMurOuest(x,y)==false && getIndication(x-1,y)<getIndication(x,y){return 3}
+  if (estSurBiscuit==true){return 4}
 
 }
