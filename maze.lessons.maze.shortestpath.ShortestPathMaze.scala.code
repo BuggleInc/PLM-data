@@ -14,8 +14,6 @@ override def run() {
   do{
     if (min == 0){
       traiterLaCase(sortie, hauteur, largeur)
-      
-      
     }else{
       for (i <- 0 to Tvaleur.length - 1){
         if (Tvaleur(i) == min && !Ttraite(i)){
@@ -24,6 +22,7 @@ override def run() {
       }
     }
     min = min + 1
+    ecritMessage(min)
   }while(Ttraite(positionBuggleX + positionBuggleY))
   var nb : Int = min - 1
   while (!estSurBiscuit()){
@@ -89,7 +88,6 @@ def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
     Y = y + 1
     if (!aMurNord(X, Y)){
       modifierCase(X, Y, messageTraitement)
-      ecritMessage(messageTraitement)
     }
   }
 }
