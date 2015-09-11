@@ -23,6 +23,10 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   if (!aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
       setIndication(x, y - 1, poids)
   }
+  
+  // On récursivise...
+  if (getIndication(x - 1, y) == poids)
+  	marqueCase(x - 1, y, poids + 1)
 }
 
 def ecritIndications() {
