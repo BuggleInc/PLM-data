@@ -65,11 +65,25 @@ def enRoute(){
     var directionInt = iMin(cases)
 
     directionInt match{
-      case 0 => setDirection(Direction.EAST) ;forward();caseBuggle = cases(0);
-      case 1 => setDirection(Direction.WEST) ;forward();caseBuggle = cases(1);
-      case 2 => setDirection(Direction.SOUTH);forward();caseBuggle = cases(2);
-      case 3 => setDirection(Direction.NORTH);forward();caseBuggle = cases(3);
+      case 0 => 
+      	setDirection(Direction.EAST) ;
+    	  forward();
+      	caseBuggle = cases(0);
+      case 1 => 
+      	setDirection(Direction.WEST) ;
+     	 	forward();
+      	caseBuggle = cases(1);
+      case 2 => 
+      	setDirection(Direction.SOUTH);
+      	forward();
+      	caseBuggle = cases(2);
+      case 3 =>
+      	setDirection(Direction.NORTH);
+      	forward();
+      	caseBuggle = cases(3);
     }
+    xBuggle = getX()
+    yBuggle = getY()
 
 
   }
@@ -77,7 +91,7 @@ def enRoute(){
 
 
 def recursor(x:Int,y:Int,i:Int){
-  println("Dans recursor")
+  
   if(i==0) {
     setIndication(x,y,i)
     recursor(x, y, 1)
@@ -86,7 +100,7 @@ def recursor(x:Int,y:Int,i:Int){
     //on regarde chaque direction avec dirCase
     for (dirCase <- 0 to 3){
       if (caseAccessible(x,y,dirCase)){
-        println("Oui")
+        
         dirCase match{
           case 0 => 
           if (i<getIndication(x+1,y)) {
@@ -101,7 +115,7 @@ def recursor(x:Int,y:Int,i:Int){
           };
           
           case 2 => 
-          println("Bonjour")
+          
           if (i<getIndication(x,y+1)) {
             setIndication(x,y+1,i)
             recursor(x,y+1,i+1);
