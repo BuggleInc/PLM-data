@@ -1,0 +1,50 @@
+def finale(){
+  if (estFaceMur()){
+    
+    
+ 	 if (getDirection()==Direction.EST){
+      gauche()
+      if (estFaceMur()){
+        return true
+      }
+      else {
+        return false
+      }
+    }
+    else if (getDirection==Direction.OUEST){
+      droite()
+      if (estFaceMur()){
+        return true
+      }
+      else {
+        return false
+      }
+    }
+    
+  }
+  }
+
+def serpent (){
+  while (!estFaceMur()){
+    avance()
+  }
+  if (estFaceMur() && getDirection() == Direction.OUEST){
+    droite()
+    avance()
+  }
+  else if (estFaceMur() && getDirection()== Direction.EST){
+    gauche()
+    avance
+  }
+}
+
+
+
+
+override def run() {
+  baisseBrosse()
+  while (!finale()){
+    serpent()
+    
+  }
+}
