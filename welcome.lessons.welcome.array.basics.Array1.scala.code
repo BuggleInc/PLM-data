@@ -1,0 +1,29 @@
+override def run() {
+  remplir()
+  droite()
+  gauche()
+  for (i<-0 to z-1){
+    recopier()
+  }
+  
+}
+var z:Int=getMondeLargeur()
+var x:Int=getMondeHauteur()
+var T=new Array[Color](x)
+
+def remplir(){
+  for (i<- 0 to x-1){
+    getCouleurSol()=y
+    T(i)=y
+    avance()
+  }
+}
+
+def recopier(){
+  for (i<- 0 to T.length-1){
+    setCouleurBrosse(T(i))
+    avance()
+    baisseBrosse()
+    leveBrosse()
+  }
+}
