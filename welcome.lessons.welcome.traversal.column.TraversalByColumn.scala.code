@@ -15,11 +15,15 @@ override def run() {
   var ord:Int=getMondeHauteur()
   
   while (!estEnPosition()){
-      if (depY <6){
+    if (depY<6){
         ecritMessage(num)
         num=num+1
         depY=depY+1
-        setPos(depX,depY)   
-      }
-  } 
-}
+        setPos(depX,depY)
+    }
+    else{
+      depY=0
+      depX=depX+1
+      setPos(depX,depY)
+    }
+  }
