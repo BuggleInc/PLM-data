@@ -26,15 +26,14 @@ override def run() {
   var ord:Int=getMondeHauteur()-1
   var xBiscuit:Int=0
   var yBiscuit:Int=0
-  while (!aBiscuit(xBiscuit,yBiscuit)){
-    for (compt<-0 to abs){
-      for (compt<-0 to ord){
-        yBiscuit=yBiscuit+1
-      }
-      xBiscuit=xBiscuit+1
-      yBiscuit=0
+  for (x<-0 to abs){
+    for (y<-0 to ord){
+      if (aBiscuit(x,y)){
+          xBiscuit=x
+          yBiscuit=y
       }
     }
+  }
   setIndication(xBiscuit,yBiscuit,0)
   remplissageCase(xBiscuit,yBiscuit,0) 
   
