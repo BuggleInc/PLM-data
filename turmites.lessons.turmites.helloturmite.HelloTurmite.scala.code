@@ -20,16 +20,16 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   // on veut les info de la suite
   
   //1) mettre couleur au sol
-  var indcouleur : Int = rule(state)(couleurActuelle)(0)
+  var indcouleur : Int = rule(state)(ind)(0)
   setCouleurSol(colors(indcouleur))
   
   //2) actions a faire
-  if (rule(state)(couleurActuelle)(1) == DEVANT) {avance()}
-  if (rule(state)(couleurActuelle)(1) == GAUCHE) {gauche() ; avance()}
-  if (rule(state)(couleurActuelle)(1) == ARRIERE) {retourne() ; avance()}
-  if (rule(state)(couleurActuelle)(1) == DROITE) {droite() ; avance()}
+  if (rule(state)(ind)(1) == DEVANT) {avance()}
+  if (rule(state)(ind)(1) == GAUCHE) {gauche() ; avance()}
+  if (rule(state)(ind)(1) == ARRIERE) {retourne() ; avance()}
+  if (rule(state)(ind)(1) == DROITE) {droite() ; avance()}
   
   //3) etat
-  state = rule(state)(couleurActuelle)(2)
+  state = rule(state)(ind)(2)
   
 }
