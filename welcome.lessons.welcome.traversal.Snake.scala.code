@@ -25,6 +25,9 @@ def PositionFinale() : Boolean = {
 }  
   
 def avanceSerpent() {
+  while(!estFaceMur()) {
+    avance()
+  }
     if (estFaceMur == true && getDirection == Direction.OUEST) {
       droite()
       avance()
@@ -34,9 +37,5 @@ def avanceSerpent() {
       gauche()
       avance()
       gauche()
-    }
-  	else if(estFaceMur == false) {
-    avance()
-  }
-  
+    }  
 }
