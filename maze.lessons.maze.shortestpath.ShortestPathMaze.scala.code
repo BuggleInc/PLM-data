@@ -3,10 +3,12 @@ override def run() {
 }
 
 def trouveSortie() : (Int,Int) = {
+  var (sx,sy) :(Int,Int) = (0,0)
   for (x <- 0 to getMondeLargeur()-1){
   	for (y <- 0 to getMondeHauteur()-1){
       if (aBiscuit(x,y)) {
-        return (x,y)
+        (sx,sy) =(x,y)
+        return (sx,sy)
       }
     }
   }
