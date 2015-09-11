@@ -20,18 +20,12 @@ override def run() {
   
   def keepHandOnSideWall(){
     while (!estSurBiscuit){
-      if ((toucheMur())&&(!estFaceMur)){
+			if ((toucheMur())&&(!estFaceMur)){
         avance()
-      } else if (toucheMur()&&(estFaceMur())){
+      } else if ((toucheMur())&&(estFaceMur)){
         droite()
-        avance()
-      } else if ((!toucheMur())&&(estFaceMur())){
-
-        avance()
-      } else if ((!toucheMur())&&(!estFaceMur)){
-      avance()
-    	} else if ((toucheMur())&&(toucheMurDroite())&&(estFaceMur())){
-      droite(); droite()
+      } else if ((!toucheMur())&&(!estFaceMur())){
+      	gauche()
     	}
     }
     prendBiscuit()
