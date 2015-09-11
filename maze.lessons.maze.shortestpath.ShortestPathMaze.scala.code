@@ -41,6 +41,9 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   
   if (x < xMax && getIndication(x + 1, y) == poids)
   	marqueCase(x + 1, y, poids + 1)
+  
+  if (y < yMax && getIndication(x, y + 1) == poids)
+  	marqueCase(x, y + 1, poids + 1)
 }
 
 def ecritIndications() {
