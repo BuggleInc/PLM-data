@@ -4,6 +4,8 @@ override def run() {
   avance()
   droite()
   colonne(T)
+
+}
 }
 
 def  colonne(T:Array[Color]){
@@ -17,21 +19,21 @@ def  colonne(T:Array[Color]){
     baisseBrosse
     leveBrosse
   }
-  gauche()
-  droite()
-}
+  for(i<-0 to getWorldHeight){
+    recule()
+  }
 
 
-def remplir():Array[Color]={
-  var X:Int=getWorldHeight()
-  var T = new Array[Color](X)
-  T(0) = getCouleurSol()
-  for (i<-1 to X-1){
-    avance()
-    T(i)=getCouleurSol()
+  def remplir():Array[Color]={
+    var X:Int=getWorldHeight()
+    var T = new Array[Color](X)
+    T(0) = getCouleurSol()
+    for (i<-1 to X-1){
+      avance()
+      T(i)=getCouleurSol()
+    }
+    for (i<-0 to X-2){
+      recule
+    }
+    return T
   }
-  for (i<-0 to X-2){
-    recule
-  }
-  return T
-}
