@@ -10,16 +10,17 @@ def serpent(){
 }
 
 def posFinale():Boolean ={
-  var x:Boolean = false
   if(estFaceMur()){
-  	if(getDirection() == Direction.EST){
+    if(getDirection() == Direction.EST){
       gauche()
-      if(estFaceMur()){x = true}
+      if(estFaceMur()){return true}
+      else(return false)
     }
-  	if(getDirection() == Direction.OUEST){
-      droite
-      if(estFaceMur()){x = true}
+    if(getDirection() == Direction.OUEST){
+      droite()
+      if(estFaceMur){return true}
+      else(return false)
     }
   }
-  return(x)
+  else(return false)
 }
