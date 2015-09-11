@@ -2,33 +2,28 @@ override def run() {
   var Y=trouverfin()
   setIndication(getMondeLargeur()-1,Y,0)
   var y :Int=Y
-  prop(getMondeLargeur()-1,Y)
-  moreprop(getMondeLargeur-1,Y)
+  prop(getMondeLargeur()-1,Y,0)
 }
 
 
 
 def prop(x:Int,y:Int){
-  var marquage:Int=getIndication(x,y)
-  if(y>0){
-    if (!aMurNord(x,y) && !(getIndication(x,y-1)<=marquage)){
-      setIndication(x,y-1,marquage+1)
-    }
+  var marquage:Int= getIndication(x,y)
+	if(x>0 && (getIndication(x-1,y)>=marquage) && !aMurOuest()){
+    setIndication(x-1,y,marquage+1)
+    prop(x-1,y)
   }
-  if(x>0){
-    if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
-      setIndication(x-1,y,marquage+1)
-    }
+  if(y>0 && (getIndication(x,y-1)>=marquage) && !aMurNord()){
+    setIndication(x,y-1,marquage+1)
+    prop(x,y-1)
   }
-  if(x<getMondeLargeur()-1){
-    if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
-      setIndication(x+1,y,marquage+1)
-    }
+  if(x<getMondeLargeur()-1 && (getIndication(x+1,y)>=marquage) && !aMurNord(x+1,y)){
+    setIndication(x+1,y,marquage+1)
+    prop(x+1,y)
   }
-  if(y<getMondeHauteur()-1){
-    if (!aMurNord(x,y+1) && !(getIndication(x,y+1)<=marquage)){
-      setIndication(x,y+1,marquage+1)
-    }
+  if(y<getMondeHauteur()-1 && (getIndication(x,y+1)>=marquage) && !aMurOuest(x,y+1)){
+    setIndication(x,y+1,marquage+1)
+    prop(x,y+1)
   }
 }
 
@@ -40,39 +35,4 @@ def trouverfin(): Int={
     }
   }
   return Y
-}
-
-def moreprop(x:Int,y:Int){
-  if(x>0){
-    prop(x-1,y)
-    moreprop(x-1,y)
-    if(y<getMondeHauteur()-1){
-      prop(x-1,y+1)
-      moreprop(x-1,y+1)
-    }
-    if(y>0){
-      prop(x-1,y-1)
-      moreprop(x-1,y-1)
-    }
-  }
-  if(x<getMondeLargeur()-1){
-    prop(x+1,y)
-    moreprop(x+1,y)
-    if(y<getMondeHauteur()-1){
-      prop(x+1,y+1)
-      moreprop(x+1,y+1)
-    }
-    if(y>0){
-      prop(x+1,y-1)
-      moreprop(x+1,y-1)
-    }
-  }
-  if(y>0){
-    prop(x,y-1)
-    moreprop(x,y-1)
-  }
-  if(y<getMondeHauteur()-1){
-    prop(x,y+1)
-    moreprop(x,y+1)
-  }
 }
