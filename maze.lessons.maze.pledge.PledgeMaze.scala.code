@@ -6,7 +6,9 @@ override def run() {
     	}  
       droite()
       keepHandOnSideWall()
-    } else keepHandOnSideWall()
+    } else {
+      isDirectionFree();
+      keepHandOnSideWall();
   }
   prendBiscuit()
 }
@@ -32,4 +34,16 @@ def murGauche() {
   }
   droite
   return res
+	}
 }
+
+def isDirectionFree() {
+  var a = getDirection
+  if (!estFaceMur && !(a==Direction.NORTH)) {
+    setDirection(Direction.NORTH)
+    if (!estFaceMur()) {
+      avance();
+    }
+  }
+}
+   
