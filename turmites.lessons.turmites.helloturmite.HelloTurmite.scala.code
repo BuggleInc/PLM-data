@@ -1,0 +1,36 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  val c=getCouleurSol()
+  val ci=posi(c,colors)
+  if (ci==colors.length-1) {colorie(rule(state)(0)(0))} else {colorie (rule(state)(ci+1)(0))}
+  rule(state)(ci)(1) match {
+    case 0 =>()
+    case 1 =>avance()
+    case 2=>gauche();avance()
+    case 4=> gauche();gauche();avance()
+    case _=>droite();avance()
+  }
+  state=rule(state)(ci)(2)
+}
+}
+
+  val c=getCouleurSol()
+  val ci=posi(c,colors)
+  if (rule(ci)=='R') {droite()} else {left()}
+  if (ci==colors.length-1) {colorie(colors(0))} else {colorie (colors(ci+1))}
+  avance()
+}
+
+def colorie (c:Color):Unit={
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def posi(c:Color,tab:Array[Color]):Int={
+  for (i<-0 to tab.length-1){
+    if (tab(i)==c){return i}
+  }
+  return 0
+}
