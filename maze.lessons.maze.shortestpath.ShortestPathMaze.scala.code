@@ -9,46 +9,51 @@ override def run() {
     }
     y=y-1
   }
-        for (y<-Y to getMondeHauteur()-1){
-          for(x<-0 to getMondeLargeur()-1){
-            prop(getMondeLargeur()-1-x,y)
-          }
-        }
-        }
+  for (y<-Y to getMondeHauteur()-1){
+    for(x<-0 to getMondeLargeur()-1){
+      prop(getMondeLargeur()-1-x,y)
+    }
+  }
+  for (y<0 to getMondeHauteur()-1){
+    for(x<-0 to getMondeLargeur()-1){
+      prop(x,y)
+    }
+  }
+}
 
-        
 
-        def prop(x:Int,y:Int){
-          var marquage:Int=getIndication(x,y)
-          if(y>0){
-            if (!aMurNord(x,y) && !(getIndication(x,y-1)<=marquage)){
-              setIndication(x,y-1,marquage+1)
-            }
-          }
-          if(x>0){
-            if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
-              setIndication(x-1,y,marquage+1)
-            }
-          }
-          if(x<getMondeLargeur()-1){
-            if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
-              setIndication(x+1,y,marquage+1)
-            }
-          }
-          if(y<getMondeHauteur()-1){
-            if (!aMurNord(x,y+1) && !(getIndication(x,y+1)<=marquage)){
-              setIndication(x,y+1,marquage+1)
-            }
-          }
-        }
 
-        def trouverfin(): Int={
-          var Y:Int=0
-          for (y<-0 to getMondeHauteur()-1){
-            if(aBiscuit(getMondeLargeur()-1,y)){
-              Y=y
-            }
-          }
-          return Y
-        }
+def prop(x:Int,y:Int){
+  var marquage:Int=getIndication(x,y)
+  if(y>0){
+    if (!aMurNord(x,y) && !(getIndication(x,y-1)<=marquage)){
+      setIndication(x,y-1,marquage+1)
+    }
+  }
+  if(x>0){
+    if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
+      setIndication(x-1,y,marquage+1)
+    }
+  }
+  if(x<getMondeLargeur()-1){
+    if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
+      setIndication(x+1,y,marquage+1)
+    }
+  }
+  if(y<getMondeHauteur()-1){
+    if (!aMurNord(x,y+1) && !(getIndication(x,y+1)<=marquage)){
+      setIndication(x,y+1,marquage+1)
+    }
+  }
+}
+
+def trouverfin(): Int={
+  var Y:Int=0
+  for (y<-0 to getMondeHauteur()-1){
+    if(aBiscuit(getMondeLargeur()-1,y)){
+      Y=y
+    }
+  }
+  return Y
+}
 
