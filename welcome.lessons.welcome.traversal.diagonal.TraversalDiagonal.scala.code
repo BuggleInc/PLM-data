@@ -1,0 +1,41 @@
+var diag=0
+def test():Boolean= {
+  if ((getX()==getMondeHauteur()-1) & (getY()==getMondeLargeur()-1)) {
+    return true
+  }
+  return false
+}
+
+
+def exo() {
+  var w=0 
+  while (!test() & diag<11) {
+    if (getY() == 0 & diag<=5){
+      diag=diag+1
+      ecritMessage(w)
+      setPos(0,getX()+1)
+      w=w+1
+    }
+    if ((getX()==getMondeHauteur()-1) & diag>5) {
+      diag=diag+1
+      ecritMessage(w)
+      setPos(getY()+1,getMondeHauteur()-1)
+      w=w+1
+    }
+    ecritMessage(w)
+    setPos(getX()+1,getY()-1)
+    w=w+1
+  }
+  ecritMessage(47)
+  setPos( getMondeHauteur()-1 , getMondeHauteur()-1 ) ; ecritMessage(48)
+}
+
+
+
+
+
+
+
+override def run() { exo()
+
+}

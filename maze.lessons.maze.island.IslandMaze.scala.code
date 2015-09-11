@@ -1,0 +1,59 @@
+def nord() {
+  while (getX()!=10) {
+    while (!estFaceMur()) {
+      avance()
+    }
+    if (estFaceMur()) {
+      droite() ; avance() ; gauche()
+    }
+    while (!estFaceMur()) {
+      avance()
+    }
+    droite()
+  }
+}
+
+
+
+def nord2() {
+  while (getX()!=getMondeHauteur()-2) {
+    var x=0
+    while(!estFaceMur()) {
+      avance()
+    }    
+     while (estFaceMur()) {
+        x=x+1
+        droite() }
+   if (x==2) {
+     droite() ; droite() ;recule() ; droite()
+   }
+    if (estFaceMur()) {
+      gauche() ; avance()
+    }
+    }
+    avance() ;gauche() ; avance()
+  }  
+
+def keepHandOnSideWall() {
+gauche()
+  if (estFaceMur()) {
+    while(estFaceMur()) {
+      droite()
+    }
+    avance()
+  }
+  else {
+    avance()
+  }
+}
+
+
+
+
+override def run() {
+  droite()
+  nord()
+while (!estSurBiscuit()) {
+ keepHandOnSideWall()
+}
+  prendBiscuit() }
