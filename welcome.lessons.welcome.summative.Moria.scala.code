@@ -1,8 +1,9 @@
 def moria(){
 	var rep=false
-  while (!estFaceMur && !estSurBiscuit){
-    vasChercherBiscuitDucon()
-    rapporteBiscuitEnfoireDeNain()
+  while (!rep){
+    rep = vasChercherBiscuitDucon()
+    if(rep)
+    	rapporteBiscuitEnfoireDeNain()
   }
    
 }
@@ -15,15 +16,18 @@ def coursAsterisme(){
   avance()
 }
 
-def vasChercherBiscuitDucon(){
+def vasChercherBiscuitDucon():Boolean ={
   retourne
   while(!estSurBiscuit()&& !estFaceMur()){
       avance()
-    
   }
   if(estSurBiscuit){
     prendBiscuit()
+    return true
+  }else{
+    return false
   }
+  
   
 }
 
