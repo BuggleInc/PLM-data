@@ -1,16 +1,13 @@
 retourne()
 while(!estFaceMur() && !estSurBiscuit()){
-  if(!estSurBiscuit()){
-    avance()
+  if(!porteBiscuit()){
+    if(!estSurBiscuit()){avance()}
+    else(prendBiscuit();retourne())
   }
-  prendBiscuit()
-  retourne()
-  if(!estSurBiscuit()){
-    avance()
+  else{
+    if(!estSurBiscuit()){avance()}
+    else(recule();poseBiscuit();retourne)
   }
-  recule()
-  poseBiscuit()
-  retourne()
 }
 droite()
 avance()
