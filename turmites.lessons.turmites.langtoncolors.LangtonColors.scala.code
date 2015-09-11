@@ -19,14 +19,12 @@ def com(lettre:Char){
 
 
 def step(rule:Array[Char], colors:Array[Color]) {
+  var ind = 0
   for(i<-0 to rule.length-1){
     if(getCouleurSol()==colors(i)){
-      if(i+1==rule.length-1){
-        tag(colors(0))
-      }
-      else tag(colors(i+1))
+      ind = i
     }
-
   }
-    com(rule(i))
+  tag(colors((ind+1)%colors.length))
+  com(rule(i))
 }
