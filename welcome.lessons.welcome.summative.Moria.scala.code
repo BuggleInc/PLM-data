@@ -1,0 +1,41 @@
+def sortir(){
+  while (positionFinale==false){
+    deplacerBiscuit()
+  }
+  
+}
+
+def marcherVersEst(){
+  if (getDirection()!=Direction.EST){
+    droite()
+    droite()
+  }
+}
+
+def marcherVersOuest(){
+  if(getDirection()!=Direction.Ouest){
+    droite()
+    droite()
+  }
+}
+
+def deplacerBiscuit(){
+  marcherVersEst()
+  while (!estSurBiscuit()){
+    avance()
+  }
+  prendBiscuit()
+  marcherVersOuest()
+  while (!estSurBiscuit()){
+    avance()
+  }
+  recule()
+  poseBiscuit()
+}
+
+def positionFinale(){
+  if (getCouleurSol==Color.GREEN){
+    return true
+  }
+  return false
+}
