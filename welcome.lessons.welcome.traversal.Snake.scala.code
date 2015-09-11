@@ -3,23 +3,23 @@ override def run() {
   setCouleurBrosse(Color.blue)
   baisseBrosse()
   while(!posfinale){
-      while(!estFaceMur()){
-    		avance()}
+  	while(!estFaceMur()){
+    	avance()}
  
-  		if((estFaceMur()) && (getDirection()==Direction.EST)){
+  	if((estFaceMur()) && (getDirection()==Direction.EST)){
+    	gauche()
+    	if(!estFaceMur()){
+    		avance()
     		gauche()
-    		if(!estFaceMur()){
-    			avance()
-    			gauche()
-    		}else{posfinale=true}
-  		}
+    	}else{posfinale=true}
+  	}
   
-  		if((estFaceMur()) && (getDirection()==Direction.OUEST)){
+  	if((estFaceMur()) && (getDirection()==Direction.OUEST)){
+  		droite()
+    	if(!estFaceMur()){
+  			avance()
   			droite()
-    		if(!estFaceMur()){
-  				avance()
-  				droite()
-    		}else{posfinale=true}
-  		}
+    	}else{posfinale=true}
+  	}
   }
 }
