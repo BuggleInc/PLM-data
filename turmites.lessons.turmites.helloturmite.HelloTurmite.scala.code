@@ -15,8 +15,22 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   }
   var couleurSuivante=rule(state)(currentColor)(0)
   setCouleurBrosse(colors(couleurSuivante))
+  baisseBrosse()
+  leveBrosse()
   if (rule(state)(currentColor)(1)==gauche){
     gauche()
     avance()
   }
+  if (rule(state)(currentColor)(1)==pasDeVirage){
+    avance()
+  }
+  if (rule(state)(currentColor)(1)==droite{
+    droite()
+    avance()
+  }
+      if (rule(state)(currentColor)(1)==demiTour){
+        retourne()
+        avance()
+      }   
+      state=rule(state)(currentColor)(2)
 }
