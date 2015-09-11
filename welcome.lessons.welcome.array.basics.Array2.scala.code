@@ -1,8 +1,5 @@
 override def run() {
   var T=remplir 
-  gauche()
-  avance()
-  droite()
   for (i<- 0 to getMondeLargeur-3){
     colonne(T)
   }
@@ -11,6 +8,9 @@ override def run() {
 
 
 def  colonne(T:Array[Color])={
+  gauche()
+  avance()
+  droite()
   var decalage:Int =litMessage().toInt
   setCouleurBrosse(T(decalage))
   baisseBrosse
@@ -24,9 +24,7 @@ def  colonne(T:Array[Color])={
   for(i<-1 to getWorldHeight-1){
     recule()
   }
-  gauche()
-  avance()
-  droite()
+
 
 
 }
