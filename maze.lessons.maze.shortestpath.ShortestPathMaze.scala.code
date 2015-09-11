@@ -13,6 +13,7 @@ def reperage(){
     }
   }
   suivant(pox,poy,0)
+  deplacement()
 }
 
 def suivant(x:Int,y:Int,i:Int){
@@ -26,7 +27,8 @@ def deplacement(){
   var message=9999
   var message2 = 9999
   while (message !=0){
-     setIndication(x,y,i)
+    var x=getX()
+    var y=getY()
   if (x!=0){ if  ( getIndication(x-1,y)=message-1){void setDirection(Direction.Sud)}}
   if (x!=getMondeLargeur()-1){if (getIndication(x+1,y)=message-1){void setDirection(Direction.Nord)}}
   if (y!=getMondeHauteur()-1){if (getIndication(x,y+1)=message-1){void setDirection(Direction.Est)}}
