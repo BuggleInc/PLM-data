@@ -1,24 +1,26 @@
 Turmite:25: error: type mismatch;
  found   : java.awt.Color
  required: Int
-  setCouleurSol(colors(rule(state)(couleurActuelle)(0)))
-                                   ^Turmite:28: error: type mismatch;
+  var indcolouleur : Int = rule(state)(couleurActuelle)(0)
+                                       ^Turmite:26: error: not found: value indcouleur
+  setCouleurSol(colors(indcouleur))
+                       ^Turmite:29: error: type mismatch;
  found   : java.awt.Color
  required: Int
   if (rule(state)(couleurActuelle)(1) == DEVANT) {avance()}
-                  ^Turmite:29: error: type mismatch;
- found   : java.awt.Color
- required: Int
-  if (rule(state)(couleurActuelle)(1) == GAUCHE) {gauche() ; avance()}
                   ^Turmite:30: error: type mismatch;
  found   : java.awt.Color
  required: Int
-  if (rule(state)(couleurActuelle)(1) == ARRIERE) {retourne() ; avance()}
+  if (rule(state)(couleurActuelle)(1) == GAUCHE) {gauche() ; avance()}
                   ^Turmite:31: error: type mismatch;
  found   : java.awt.Color
  required: Int
+  if (rule(state)(couleurActuelle)(1) == ARRIERE) {retourne() ; avance()}
+                  ^Turmite:32: error: type mismatch;
+ found   : java.awt.Color
+ required: Int
   if (rule(state)(couleurActuelle)(1) == DROITE) {droite() ; avance()}
-                  ^Turmite:34: error: type mismatch;
+                  ^Turmite:35: error: type mismatch;
  found   : java.awt.Color
  required: Int
   state = rule(state)(couleurActuelle)(2)
