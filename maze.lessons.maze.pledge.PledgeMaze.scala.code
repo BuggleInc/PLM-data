@@ -1,0 +1,142 @@
+var virages=0
+override def run() {
+  
+  while (! estFaceMur()) {
+    avance();
+  }
+  droite();
+  virages=virages-1;
+  
+  while(!estSurBiscuit()){
+    if (virages==0 && isDirectionFree(Direction.NORTH)){
+      setDirection(Direction.NORTH)
+      avance()
+  }
+    else{
+    	keepHandOnSideWall()
+    }
+  }
+  prendBiscuit()
+}
+
+
+def keepHandOnSideWall(){  
+  while (! estFaceMur()) {
+    avance();
+    gauche();
+    virages=virages+1
+    
+  }
+  droite();
+  virages=virages-1
+}
+
+
+def isDirectionFree(dir:Direction):Boolean={
+  var n=getDirection()
+  setDirection(dir)
+  if (estFaceMur()){
+    setDirection(n)
+    return false
+  }
+  else{
+    setDirection(n)
+    return true
+  }
+}
+
+/*
+override def run() {
+  var nordTrouve=false
+  var virages=0
+  while(!estSurBiscuit()){
+    while (nordTrouve==false){
+      while(nordTrouve==false && virages>0){
+        virages=choix2(virages)
+        goNord()
+        if (getY()==0){
+          nordTrouve=true
+          droite()
+        }
+      }
+      while (nordTrouve==false && virages<4){
+        virages=choix1(virages)
+        goNord()     
+        if (getY()==0){
+          nordTrouve=true
+          droite()
+        }
+      }
+    }
+    virages=choix1(virages)
+  }
+  prendBiscuit()
+}
+
+
+
+
+def keepHandOnSideWall():Boolean={
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true
+  }
+  else{
+    droite()
+    return false
+  }
+}
+
+def goNord(){
+  setDirection(Direction.NORTH)
+  while(!estFaceMur()){
+    avance()
+  }
+}
+
+def choix1(virageIn:Int):Int={
+  var virages = virageIn
+  if (estFaceMur() && keepHandOnSideWall()){
+    droite()
+    avance()
+    virages=virages-1
+  }    
+  else if (!estFaceMur() && keepHandOnSideWall()){
+    avance()
+  }
+  else if (estFaceMur() && !keepHandOnSideWall()){
+    gauche()
+    avance()
+    virages=virages+1
+  }
+  else if (!estFaceMur && !keepHandOnSideWall()){
+    gauche()
+    avance()
+    virages=virages+1
+  }
+  return virages
+}
+
+def choix2(virageIn:Int): Int={
+  var virages = virageIn
+  if (estFaceMur() && keepHandOnSideWall()){
+    droite()
+    avance()
+    virages=virages-1
+  }    
+  else if (!estFaceMur() && keepHandOnSideWall()){
+    avance()
+  }
+  else if (estFaceMur() && !keepHandOnSideWall()){
+    droite()
+    avance()
+    virages=virages-1
+  }
+  else if (!estFaceMur && !keepHandOnSideWall()){
+    droite()
+    avance()
+    virages=virages-1
+  }
+  return virages
+}*/

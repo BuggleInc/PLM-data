@@ -1,0 +1,36 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  val stop=0
+  val pasDeVirage=1
+  val Gauche=2
+  val Droite=8
+  val demiTour=4
+  var couleur=getCouleurSol()
+  var currentColor=0
+  for (i<-0 to colors.length-1){
+    if (couleur==colors(i)){
+      currentColor=i
+    }
+  }
+  var couleurSuivante=rule(state)(currentColor)(0)
+  setCouleurBrosse(colors(couleurSuivante))
+  baisseBrosse()
+  leveBrosse()
+  if (rule(state)(currentColor)(1)==Gauche){
+    gauche()
+    avance()
+  }
+  if (rule(state)(currentColor)(1)==pasDeVirage){
+    avance()
+  }
+  if (rule(state)(currentColor)(1)==Droite){
+    droite()
+    avance()
+  }
+      if (rule(state)(currentColor)(1)==demiTour){
+        retourne()
+        avance()
+      }   
+      state=rule(state)(currentColor)(2)
+}

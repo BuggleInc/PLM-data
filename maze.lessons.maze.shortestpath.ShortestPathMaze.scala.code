@@ -1,0 +1,61 @@
+override def run() {
+  var changed:Boolean=false;
+  
+  do {
+    changed = false
+    for (i<-0 to getMondeLargeur()-1){
+      for (j<-0 to getMondeHauteur()-1){
+        if (aBiscuit(i,j) && getIndication(i,j) == 9999){
+          setIndication(i,j,0)
+          changed = true;
+        }
+        
+          var ind = getIndication(i,j);
+        
+          if (ind!=9999){
+            
+            if (i < (getMondeLargeur()-1) && getIndication(i+1,j)==9999 && ! aMurOuest(i+1,j)) {
+              setIndication(i+1,j, ind + 1);
+              changed = true;
+            } 
+            if (i > 0 && getIndication(i-1,j)==9999 && !aMurOuest(i,j)){
+              setIndication(i-1,j,ind+1)
+              changed = true;
+            } 
+            if (j < (getMondeHauteur()-1) && getIndication(i,j+1)==9999 && !aMurNord(i,j+1)){
+              setIndication(i,j+1,ind+1)
+              changed = true;
+            }
+            
+            if (j >0 && getIndication(i,j-1)==9999 && !aMurNord(i,j)){
+              setIndication(i,j-1,ind+1)
+              changed = true;
+            }         
+          }      
+      }
+    }
+  } while (changed)
+  while (!estSurBiscuit()){
+    var x=getX()
+    var y=getY()
+    var indication=getIndication(getX(),getY())
+        if (x< getMondeLargeur()-1 && getIndication(x+1,y)< indication && !aMurOuest(x+1,y)){
+          setDirection(Direction.EST)
+          avance()
+        }
+        if (x>0 && getIndication (x-1,y)< indication && !aMurOuest(x,y)){
+          setDirection(Direction.OUEST)
+          avance()
+        }
+        if (y>0 && getIndication(x,y-1)< indication && !aMurNord(x,y)){
+          setDirection(Direction.NORTH)
+          avance()
+        }
+        if (y< getMondeHauteur()-1 && getIndication(x,y+1)< indication && !aMurNord(x,y+1)){
+          setDirection(Direction.SOUTH)
+          avance()
+        }
+      }
+  prendBiscuit()
+}
+
