@@ -5,23 +5,27 @@ def chercherEtposer() {
    while (!estFaceMur){
 
     
-    while (!estSurBiscuit()){
+    while (!estSurBiscuit() && ! estFaceMur()){
       avance()
     }
-    prendBiscuit()
-    gauche()
-    gauche()
-    while (!estSurBiscuit()){
-      avance()
-    }
-    recule()
-    poseBiscuit()
+    if (estSurBiscuit()) { 
+      prendBiscuit()
+      gauche()
+      gauche()
+      while (!estSurBiscuit()){
+        avance()
+      }
+      recule()
+      poseBiscuit()
   
-    gauche()
-    gauche()
-   
+      gauche()
+      gauche()
+    }
+
+    /*
     if (!estFaceMur())
        avance();
+    */
   }
 
   droite()
