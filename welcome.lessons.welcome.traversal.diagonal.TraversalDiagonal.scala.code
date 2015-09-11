@@ -1,0 +1,35 @@
+var diag = 0;
+var abscisse = 0
+var ordonnee = 0
+var compteur = 0
+var decompte = 1
+override def run() 
+{
+  while (diag!=13) 
+  {
+    if (diag <= 6)
+    {
+      ordonnee = diag
+      for (i <- 0 to diag) 
+      {
+        setPos(abscisse+i, ordonnee-i)
+        ecritMessage(compteur)
+        compteur = compteur + 1
+      }
+      diag = diag + 1
+    } else 
+    {
+      ordonnee = diag - decompte
+      for (i <- 1 to diag - decompte) 
+      {
+        setPos(abscisse+i, ordonnee-(i-1))
+        ecritMessage(compteur)
+        compteur = compteur + 1
+        decompte = decompte + 2
+      }
+       diag = diag + 1
+    }
+  }
+}
+
+/* (0.0) / (0.1) (1.0) / (0.2) (1.1) (2.0) / (0.3) (1.2) (2.1) (3.0) */

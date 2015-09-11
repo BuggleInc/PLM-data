@@ -1,0 +1,85 @@
+override def run() 
+{
+  var positionFinale = false
+  baisseBrosse()
+  while (positionFinale == false) 
+  {
+    if (estFaceMur()) 
+    {
+      if (getDirection()==Direction.EAST) 
+      {
+        gauche()
+        if (estFaceMur()) 
+        {
+          positionFinale = true
+        } else 
+        {
+          droite()
+          avanceCommeSerpent()
+        }
+      } else 
+      {
+        droite()
+        if (estFaceMur()) 
+        {
+          positionFinale = true
+        } else 
+        {
+          gauche()
+          avanceCommeSerpent()
+        }
+      }
+    }
+  }
+}
+
+def avanceCommeSerpent() 
+{
+  if (!estFaceMur()) {
+    avance()
+  } else 
+  {
+    if (getDirection()==Direction.EAST) 
+    {
+      gauche()
+      avance()
+      gauche()
+    } else 
+    {
+      droite()
+      avance()
+      droite()
+    }
+  }
+}
+
+def positionFinale() : Boolean = 
+{
+  if (estFaceMur()) 
+  {
+    if (getDirection()==Direction.EAST) 
+    {
+      gauche()
+      if (estFaceMur()) 
+      {
+        return true
+      } else 
+      {
+        return false
+      }
+    } else 
+    {
+      droite()
+      if (estFaceMur()) 
+      {
+        return true
+      } else 
+      {
+        return false
+      }
+    }
+  } else 
+  {
+    return false
+  }
+}
