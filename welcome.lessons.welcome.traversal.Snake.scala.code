@@ -5,19 +5,16 @@ override def run() {
     if (!estFaceMur){
       avance;
     }else{
-      droite;
-      if (estFaceMur){
-        gauche;
-        gauche;
-        avance;
-        gauche;
-      }else{
-        avance;
-        droite;
+      if (getDirection==Direction.EST){
+        gauche;avance;gauche
+      }
+      if (getDirection==Direction.OUEST){
+        droite;avance;droite
       }
     }
   }
 }
+
 
 def finTest () :Boolean ={
   var a:Boolean=false
@@ -30,7 +27,7 @@ def finTest () :Boolean ={
       droite()
       return false
     }
-    
+
 
   }else{
     return false
