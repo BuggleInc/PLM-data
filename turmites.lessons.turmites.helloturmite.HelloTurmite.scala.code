@@ -1,0 +1,36 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var couleurTrouve=false
+  var i=0
+  while (couleurTrouve!=true){
+    if (getCouleurSol()==colors(i)){
+      couleurTrouve=true
+      if (rule(i)=='L'){
+        if (i>=colors.length-1){
+          setCouleurBrosse(colors(0))
+        }else{
+          setCouleurBrosse(colors(i+1))
+        }
+        gauche()
+        baisseBrosse()
+        leveBrosse()
+        avance()
+      	}else{
+        if (rule(i)=='R'){
+          if (i+1>=colors.length){
+          	setCouleurBrosse(colors(0))
+        	}else{
+          	setCouleurBrosse(colors(i+1))
+        	}
+          droite()
+        	baisseBrosse()
+        	leveBrosse()
+        	avance()
+        }
+      }
+    }else{
+      i+=1
+    }
+  }
+}
