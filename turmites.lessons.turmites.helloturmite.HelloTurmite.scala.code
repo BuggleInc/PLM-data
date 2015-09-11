@@ -1,36 +1,31 @@
-var state = 0;
+var state = 
+val mvmt_suivant=0
+val couleur_actuelle=0
+val etat=0
+val GAUCHE=2
+val stop=0
+val pas_de_virage=1
+val demi_tour=4
+val DROITE=8;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var couleurTrouve=false
   var i=0
-  while (couleurTrouve!=true){
-    if (getCouleurSol()==colors(i)){
-      couleurTrouve=true
-      if (rule(i)=='L'){
-        if (i>=colors.length-1){
-          setCouleurBrosse(colors(0))
-        }else{
-          setCouleurBrosse(colors(i+1))
-        }
-        gauche()
-        baisseBrosse()
-        leveBrosse()
-        avance()
-      	}else{
-        if (rule(i)=='R'){
-          if (i+1>=colors.length){
-          	setCouleurBrosse(colors(0))
-        	}else{
-          	setCouleurBrosse(colors(i+1))
-        	}
-          droite()
-        	baisseBrosse()
-        	leveBrosse()
-        	avance()
-        }
-      }
-    }else{
-      i+=1
-    }
+  while (getCouleurSol!=colors(i)){
+    i+=1
   }
+  setCouleurBrosse(colors(rule(etat)(couleur_actuelle)))
+  baisseBrosse()
+  leveBrosse()
+  mvmt_suivant=rule(etat)(couleur_actuelle)(mvmt_suivant)
+  mvmt_suivant match {
+    case GAUCHE => gauche(); avance()
+    case DROITE => droite(); avance()
+    case stop =>
+    case pas_de_virage => avance()
+    case demi_tour => droite();droite();avance()
+  }
+  mvt_suivant=rule(etat)(couleur_actuelle)(mvt_suivant)
+  couleur_actuelle=rule(etat)(couleur_actuelle)
+  etat=rule(etat)
 }
