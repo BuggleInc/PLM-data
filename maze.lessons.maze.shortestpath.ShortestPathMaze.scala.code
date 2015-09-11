@@ -60,7 +60,7 @@ override def run() {
   }
   while(getX()!=posX && getY()!=posY){
     var num = getIndication(getX(),getY())
-    var dir= 1
+    var dir= 0
     if(!aMurEst(posX,posY)){
       if(getIndication(posX+1,posY)<num){num=getIndication(posX+1,posY)}
     }
@@ -74,7 +74,7 @@ override def run() {
       if(getIndication(posX,posY+1)<num){num=getIndication(posX,posY+1);dir=4}
     }
     setDirection(Direction.EAST)
-    for(i<-1 to dir-1){gauche()}
+    for(i<-1 to dir){gauche()}
     avance()
   }
   prendBiscuit()
