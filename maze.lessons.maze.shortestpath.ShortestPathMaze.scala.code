@@ -7,15 +7,7 @@ override def run() {
   coordBiscuit(0) = trouveLeBiscuit()(0)
   coordBiscuit(1) = trouveLeBiscuit()(1)
 	setIndication(coordBiscuit(0),coordBiscuit(1),cpt)
-  while (!verifieCases()) {
-		for(y <- 0 to hauteurMonde-1) {
-      for(x <- 0 to largeurMonde-1) {
-        if (getIndication(x,y) != 9999) {
-          marqueCaseAutour(x,y)
-        }
-      }
-    }
-  }
+	marqueCase
   /*
   while (!estSurBiscuit) {
     prochaineCase()
@@ -51,26 +43,43 @@ def marqueCase (x : Int, y : Int) {
     	setIndication(x,y-1,cpt)
       marqueCase(x,y-1,cpt)
     }
-    else if (getIndication(x,y-1) > 
+    else if (getIndication(x,y-1) > cpt) {
+      setIndication(x,y-1,cpt)
+      marqueCase(x,y-1,cpt)
+    } 
   }
   if (!aMurOuest(x,y)) {
     if (getIndication(x-1,y) == 9999) {
     	setIndication(x-1,y,cpt)
-      
+      marqueCase(x-1,y,cpt)
+    }
+    else if (getIndication(x-1,y)) > cpt){
+      setIndication(x-1,y,cpt)
+      marqueCase(x-1,y,cpt)
     }
   }
   if (x != largeurMonde-1) {
     if (!aMurOuest(x+1,y)) {
     	if (getIndication(x+1,y) == 9999) {
     		setIndication(x+1,y,cpt)
+        marqueCase(x+1,y,cpt)
     	}
+      else if (getIndication(x+1,y) > cpt) {
+        setIndication(x+1,y,cpt)
+        marqueCase(x+1,y,cpt)
+      }
   	}
   }
   if (y != hauteurMonde-1) {
   	if (!aMurNord(x,y+1)) {
     	if (getIndication(x,y+1) == 9999) {
     		setIndication(x,y+1,cpt)
+        marqueCase(x,y+1,cpt)
     	}
+      else if (getIndication(x,y+1) > cpt) {
+        setIndication(x,y+1,cpt)
+        marqueCase(x,y+1,cpt)
+      }
   	}
 	}
 }
