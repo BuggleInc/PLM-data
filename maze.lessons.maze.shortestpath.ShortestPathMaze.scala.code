@@ -18,21 +18,13 @@ def casesAdjacentes(pos: Array[Int]): Array[Array[Int]] = {
   
   var result:Array[Array[Int]] = Array[Array[Int]]()
   
-  if (pos(0) > 0 && !aMurOuest(pos(0), pos(1))) {
-    result :+ Array[Int](pos(0) - 1, pos(1))
-  }
+  result :+ Array[Int](pos(0) - 1, pos(1))
   
-  if (pos(0) < xMax && !aMurOuest(pos(0) + 1, pos(1))) {
-    result :+ Array[Int](pos(0) + 1, pos(1))
-  }
+  result :+ Array[Int](pos(0) + 1, pos(1))
   
-  if (pos(0) > 0 && !aMurNord(pos(0), pos(1))) {
-    result :+ Array[Int](pos(0), pos(1) - 1)
-  }
+  result :+ Array[Int](pos(0), pos(1) - 1)
   
-  if (pos(1) < yMax && !aMurNord(pos(0), pos(1) + 1)) {
-    result :+ Array[Int](pos(0), pos(1) + 1)
-  }
+  result :+ Array[Int](pos(0), pos(1) + 1)
   
   return result
 }
@@ -72,14 +64,12 @@ def ecritIndications() {
   var posSortie:Array[Int] = trouveLaSortie()
   
   setIndication(posSortie(0), posSortie(1), 0)
-  
-  for (i <- casesAdjacentes(Array[Int](posSortie(0), posSortie(1)))) {
-    setIndication(i(0), i(1), 1)
-  }
-  
+
   // Maintenant on écrit les indications sur les cases adjacentes.
   var casesMarquees:Int = 1
   var poidsCourant:Int = 0
+  
+  marqueCases(0)
   
   while (casesMarquees != getMondeHauteur() * getMondeLargeur()) {
     casesMarquees += 1
