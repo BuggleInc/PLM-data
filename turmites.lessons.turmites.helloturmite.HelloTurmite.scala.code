@@ -20,21 +20,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
 
 
 
-def step(rule:Array[Char], colors:Array[Color]) {
-  
-  var indice : Int = 0
-  while (colors(indice) != color) {indice = indice +1}
-  if (rule(indice) == 'R'){
-    marquer(colors((indice+1)%colors.length))
-    droite()
-    avance()
-  }
-  if (rule(indice) == 'L'){
-    marquer(colors((indice+1)%colors.length))
-    gauche()
-    avance()
-  }
-}
+
 
 def marquer(c : Color) {
   setCouleurBrosse(c)
