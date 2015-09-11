@@ -1,19 +1,39 @@
-Turmite:53: error: not found: value Direction
-      setDirection(Direction.OUEST)
-                   ^Turmite:56: error: not found: value Direction
-      setDirection(Direction.EST)
-                   ^Turmite:62: error: not found: value Direction
-      setDirection(Direction.NORD)
-                   ^Turmite:65: error: not found: value Direction
-      setDirection(Direction.SUD)
-                   ^Turmite:70: error: not found: value newArray
+Turmite:-14: error: not found: value rule
+				setBrushColor(colors( rule(state)(currentColor)(NEXT_COLOR) ));
+                                                      ^Turmite:-10: error: not found: value rule
+				rule(state)(currentColor)(NEXT_MOVE) match {
+                                ^Turmite:-4: error: not found: value rule
+				case _      => getGame().getLogger().log("Unknown turn command associated to i="+currentColor+": "+rule(state)(currentColor)(NEXT_MOVE));
+                                                                                                                                   ^Turmite: error: not found: value rule
+				state = rule(state)(currentColor)(NEXT_STATE);
+                                        ^Turmite:21: error: not found: value rule
+    rule = new Array[Array[Array[Int]]] (1); /* one state only */
+    ^Turmite:22: error: not found: value rule
+    rule(0) = new Array[Array[Int]] (nbColors); /* As many colors as letters in the ant's name */
+    ^Turmite:24: error: not found: value rule
+        rule(0)(i) = new Array[Int] (3); /* every command set has 3 elements */ 
+        ^Turmite:26: error: not found: value rule
+        rule(0)(i)(NEXT_COLOR) = (i+1) % nbColors;
+        ^Turmite:29: error: not found: value rule
+            rule(0)(i)(NEXT_MOVE) = LEFT;            
+            ^Turmite:31: error: not found: value rule
+            rule(0)(i)(NEXT_MOVE) = RIGHT;
+            ^Turmite:36: error: not found: value rule
+        rule(0)(i)(NEXT_STATE) = 0; /* only one state */
+        ^Turmite:68: error: not found: value newArray
     rule(i) = newArray[Int](2); //2 couleurs par etat
-              ^Turmite:72: error: value update is not a member of Int
+              ^Turmite:70: error: value update is not a member of Int
   rule(0)(0) = Array(1, RIGHT, 0)
-      ^Turmite:73: error: value update is not a member of Int
+      ^Turmite:71: error: value update is not a member of Int
   rule(0)(1) = Array(1, RIGHT, 1)
-      ^Turmite:74: error: value update is not a member of Int
+      ^Turmite:72: error: value update is not a member of Int
   rule(1)(0) = Array(0, NOTURN, 0)
-      ^Turmite:75: error: value update is not a member of Int
+      ^Turmite:73: error: value update is not a member of Int
   rule(1)(1) = Array(0, NOTURN, 1)
-      ^
+      ^Turmite:80: error: not found: value rule
+		var colors = new Array[Color] (rule(0).length);
+                                               ^Turmite:81: error: not found: value rule
+		for (i <- 0 to rule(0).length-1) {
+                               ^Turmite:104: error: not found: value nbSteps
+		for (stepIt <- 1 to nbSteps) {
+                                    ^

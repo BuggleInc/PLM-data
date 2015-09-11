@@ -9,10 +9,6 @@ val NEXT_COLOR = 0;
 val NEXT_MOVE  = 1;
 val NEXT_STATE = 2;
 
-
-var rule:Array[Array[Array[Int]]] = null // Change this
-var nbSteps:Int = 0; // Change this
-
 /** init the rule array from a string defining a Langton's ant 
  * 
  *  You can use this method inside your init() method if you want 
@@ -49,20 +45,22 @@ def init() {
   
   while (posX != 8) {
     if (posX > 8) {
-      setDirection(Direction.OUEST)
+      gauche()
       avance()
+      droite()
     } else {
-      setDirection(Direction.EST)
+      droite()
       avance()
+      gauche()
     }
   }
   while (posY != 33) {
     if (posY > 33) {
-      setDirection(Direction.NORD)
       avance()
     } else {
-      setDirection(Direction.SUD)
+      retourne()
       avance()
+      retourne()
     }
   }
   for (i <- 0 to rule.length-1) { //Pour chaque etat
