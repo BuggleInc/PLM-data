@@ -4,8 +4,10 @@ override def run() {
   
   for (compteur <-0 to getMondeHauteur()-1){
   	T(compteur)=getCouleurSol()
-    if (estFaceMur()==false)
-    	avance()
+    if (estFaceMur()==false){
+      avance()
+    }
+    	
   	
   }
   for (compteur <-0 to getMondeHauteur()-2){
@@ -22,7 +24,7 @@ override def run() {
     leveBrosse()
     for (i<-1 to getMondeHauteur()-1){
 		 
-      setCouleurBrosse(T((i + decalage-1) % getMondeHauteur()))
+      setCouleurBrosse(T((i + decalage) % getMondeHauteur()))
       baisseBrosse()
       leveBrosse()
       avance()
