@@ -20,7 +20,7 @@ def isInFinalPosition() {
     gauche()
   }
   
-  if ((estFaceMur()) & (presenceMurHaut) & (!presenceMurBas) & (getDirection == Direction.EST)) {return true}
+  if ((estFaceMur()) & (presenceMurHaut) & (!presenceMurBas) & (getDirection() == Direction.EST)) {return true}
   
   else {return false}
   
@@ -28,16 +28,24 @@ def isInFinalPosition() {
 
 def deplacementSerpent() {
   
+  if ((getDirection() == Direction.EST) & (estFaceMur())) {
+    gauche()
+  	avance()
+    gauche()
+  }
   
+  else if ((getDirection() == Direction.OUEST) & (estFaceMur())) {
+    droite()
+    avance()
+    droite()
+  }
+  else {avance()}
   
 }
 
 override def run() {
   baisseBrosse()
   while (isInFinalPosition() == false) {
-    
-    
-    
+    deplacementSerpent()  
   }
-  
 }
