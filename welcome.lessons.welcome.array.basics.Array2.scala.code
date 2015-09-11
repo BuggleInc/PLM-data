@@ -13,23 +13,25 @@ override def run() {
   for (compteur <-0 to getMondeHauteur()-2){
     recule()
   }
-  for (compteur<-1 to getMondeLargeur()-1 ){
-    gauche()
-    avance()
-    droite()
-    var decalage = litMessage().toInt
-    //avance()
-    setCouleurBrosse(T((decalage-1) % getMondeHauteur()))
-    baisseBrosse()
-    leveBrosse()
-    for (i<-1 to getMondeHauteur()-1){
-		 
-      setCouleurBrosse(T((i + decalage) % getMondeHauteur()))
+  for (compteur<-1 to getMondeLargeur()){
+    if (estFaceMur()==false){
+    
+      gauche()
+      avance()
+      droite()
+      var decalage = litMessage().toInt
+      //avance()
+      setCouleurBrosse(T((decalage-1) % getMondeHauteur()))
       baisseBrosse()
       leveBrosse()
-      avance()
+      for (i<-1 to getMondeHauteur()-1){
+
+        setCouleurBrosse(T((i + decalage) % getMondeHauteur()))
+        baisseBrosse()
+        leveBrosse()
+        avance()
       
-      
+      }
     }
   }
 }
