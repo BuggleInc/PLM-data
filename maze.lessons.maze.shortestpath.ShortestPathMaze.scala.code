@@ -32,24 +32,24 @@ def deplacement(){
     var x=getX()
     var y=getY()
     message=getIndication(x,y)
-  if (x!=0 && !aMurOuest(x,y)){ 
-    if (getIndication(x-1,y)==message-1){
+  if (x!=0){ 
+    if (getIndication(x-1,y)==message-1 && !aMurOuest(x,y)){
       setDirection(Direction.WEST)
     }
   }
     
-  if (x!=getMondeLargeur()-1) && (!aMurOuest(x+1,y){
-    if (getIndication(x+1,y)==message-1){
+  if (x!=getMondeLargeur()-1) {
+    if (getIndication(x+1,y)==message-1 && (!aMurOuest(x+1,y)){
       setDirection(Direction.EAST)
     }
   }
-  if (y!=getMondeHauteur()-1 && !aMurNord(x,y+1)){
-    if (getIndication(x,y+1)==message-1){
+  if (y!=getMondeHauteur()-1){
+    if (getIndication(x,y+1)==message-1 && !aMurNord(x,y+1)){
       setDirection(Direction.SOUTH)
     }
   }
-  if (y!=0 && !aMurNord(x,y)){
-    if (getIndication(x,y-1)==message-1){
+  if (y!=0 ){
+    if (getIndication(x,y-1)==message-1 &&!aMurNord(x,y)){
       setDirection(Direction.NORTH)
     }
   }
