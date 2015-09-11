@@ -1,27 +1,35 @@
 override def run() {
-  while (mondeTague==false){
+  var changed:Boolean=false;
+  
+  do {
+    changed = false
     for (i<-0 to getMondeLargeur()-1){
       for (j<-0 to getMondeHauteur()-1){
         if (aBiscuit(i,j)){
           setIndication(i,j,0)
+          changed = true;
         }
         else{
           var ind = getIndication(i,j);
           if (ind!=9999){
             if (getIndication(i+1,j)==9999 && ! aMurOuest(i+1,j)) {
               setIndication(i+1,j, ind + 1);
+              changed = true;
             } else if (getIndication(i-1,j)==9999 && !aMurOuest(i-1,j)){
               setIndication(i-1,j,ind+1)
+              changed = true;
             }else if (getIndication(i,j+1)==9999 && !aMurNord(i,j+1)){
               setIndication(i,j+1,ind+1)
+              changed = true;
             }else if (getIndication(i,j-1)==9999 && !aMurNord(i,j)){
               setIndication(i,j-1,ind+1)
+              changed = true;
             }
           }
         }
       }
     }
-  }
+  } while (changed)
 }
 
 
