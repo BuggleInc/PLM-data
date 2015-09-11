@@ -7,21 +7,26 @@ override def run() {
 }
 
 def PositionFinale() {
-  
-  if (estFaceMur() && getDirection() == Direction.EST) {
-    gauche()
+  var Vrai = false
+  if (estFaceMur()) {
+    if (getDirection == Direction.EST) {
+      gauche()
+      if (estFaceMur()) {
+        Vrai = true
+      }
+    }
+    else if (getDirection == Direction.OUEST) {
+      droite()
+      if (estFaceMur()) {
+        Vrai = true
+      }
+    }
+  }
+  if (Vrai == true) {
     return true
-   }
-   else if (getDirection() == Direction.OUEST && estFaceMur()) {
-    	droite()
-			return true
-   		}
-   else {
-       return false
-   }
-}
-
-
+  }
+}  
+  
 def avanceSerpent() {
     if (estFaceMur == true && getDirection == Direction.OUEST) {
       droite()
