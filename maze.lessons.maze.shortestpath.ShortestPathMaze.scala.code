@@ -113,15 +113,15 @@ def prochaineCase() {
 	var v = 0
   var d = 0
   v = getIndication(getX(),getY()-1)
-  if (getIndication(getX(),getY()+1) < v) {
+  if (getIndication(getX(),getY()+1) < v && getY() != hauteurMonde-1 && !aMurNord(getX(),getY()+1)) {
     v = getIndication(getX(),getY()+1)
     d = 1
   }
-    if (getIndication(getX()-1,getY()) < v) {
+    if (getIndication(getX()-1,getY()) < v  && !aMurOuest(getX,getY) ) {
     v = getIndication(getX()-1,getY())
     d = 2
   }
-    if (getIndication(getX()+1,getY()) < v) {
+    if (getIndication(getX()+1,getY()) < v && getX() != largeurMonde-1 && !aMurOuest(getX()+1,getY())) {
     v = getIndication(getX()+1,getY())
     d = 3
   }
