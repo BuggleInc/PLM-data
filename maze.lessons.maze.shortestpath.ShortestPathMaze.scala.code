@@ -6,11 +6,11 @@ override def run() {
     changed = false
     for (i<-0 to getMondeLargeur()-1){
       for (j<-0 to getMondeHauteur()-1){
-        if (aBiscuit(i,j)){
+        if (aBiscuit(i,j) && getIndication(i,j) == 9999){
           setIndication(i,j,0)
           changed = true;
         }
-        else{
+        
           var ind = getIndication(i,j);
           if (ind!=9999){
             if (getIndication(i+1,j)==9999 && ! aMurOuest(i+1,j)) {
@@ -27,7 +27,7 @@ override def run() {
               changed = true;
             }
           }
-        }
+        
       }
     }
   } //while (changed)
