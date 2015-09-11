@@ -1,2 +1,65 @@
+var somme = 0
+
 override def run() {
+  var dir:Direction = Direction.NORTH
+  
+  
+
+  while(!estSurBiscuit())
+  {
+    if(!murNord() && getDirection()!=Direction.SOUTH)
+    {
+      goNord()
+    }
+    else
+    {
+      keepHandOnSideWall()
+    }
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall() {
+  while(estFaceMur())
+  {
+    droite()
+  }
+  avance()
+  gauche()
+  somme = somme+1
+  ecritMessage(somme)
+  while(!estFaceMur)
+  {
+    avance()
+    gauche()
+    somme = somme+1
+    
+    if(somme == 0)
+    {
+      droite()
+      while(!estFaceMur())
+      	avance()
+    }
+  }
+  droite()
+}
+
+def goNord() {
+  while(getDirection()!=Direction.NORTH)
+  {
+    droite()
+  }
+  while(!estFaceMur())
+  {
+    avance()
+  }
+}
+
+def murNord():Boolean = {
+  var res = false
+  var save:Direction = getDirection()
+  setDirection(Direction.NORTH)
+  res = estFaceMur()
+  setDirection(save)
+  return res
 }

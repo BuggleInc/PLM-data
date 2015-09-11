@@ -1,49 +1,56 @@
 override def run() {
   var dir:Direction = Direction.NORTH
+
   while(!estSurBiscuit())
   {
-    if(murNord() && dir!=Direction.SOUTH)
-    	keepHandOnSideWall()
+    if(!murNord() && getDirection()!=Direction.SOUTH)
+    {
+      goNord()
+    }
     else
-    	goNorth()
+    {
+      keepHandOnSideWall()
+    }
   }
   prendBiscuit()
-  positionFin()
 }
 
 def keepHandOnSideWall() {
-  while(testGauche() && !estFaceMur())
+  while(estFaceMur())
+  {
+    droite()
+  }
+  avance()
+  gauche()
+  
+  while(!estFaceMur)
   {
     avance()
+    gauche()
   }
-  gauche()
-  if(!estFaceMur())
-  	avance()
+  droite()
+
+
+  /*if(!estFaceMur)
+  {
+    avance()
+    gauche()
+    while(!estFaceMur)
+    {
+      avance()
+      gauche()
+    }
+    droite()
+  }
   else
   {
-    retourne()
-    if(!estFaceMur())
-    	avance()
+    droite()
   }
+  */
+
 }
 
-def testGauche():Boolean = {
-  var test = false
-  droite()
-  test = estFaceMur()
-  gauche()
-  return test
-}
-
-def positionFin() {
-  droite()
-  if(!estFaceMur())
-  	retourne()
-  else
-  gauche()
-}
-
-def goNorth() {
+def goNord() {
   while(getDirection()!=Direction.NORTH)
   {
     droite()
@@ -57,14 +64,8 @@ def goNorth() {
 def murNord():Boolean = {
   var res = false
   var save:Direction = getDirection()
-  while(getDirection()!=Direction.NORTH)
-  {
-    droite()
-  }
+  setDirection(Direction.NORTH)
   res = estFaceMur()
-  while(getDirection()!=save)
-  {
-    droite()
-  }
+  setDirection(save)
   return res
 }
