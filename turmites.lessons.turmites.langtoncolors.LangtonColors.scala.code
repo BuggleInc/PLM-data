@@ -1,0 +1,30 @@
+def tag(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def com(lettre:String){
+  if(lettre=="R"){
+    droite()
+    avance()
+  }
+  else{
+    gauche()
+    avance()
+  }
+}
+
+
+def step(rule:Array[Char], colors:Array[Color]) {
+  for(i<-0 to rule.length-1){
+    if(getCouleurSol()==colors(i)){
+      if(i+1==rule.length-1){
+        tag(colors(0))
+      }
+      else tag(colors(i))
+    }
+    com(rule(i))
+  }
+}
