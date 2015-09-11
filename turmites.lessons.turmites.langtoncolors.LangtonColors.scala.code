@@ -1,6 +1,6 @@
 def step(rule:Array[Char], colors:Array[Color]) {
   var i=0
-  while (getCouleurSol()!=colors(i)){i+=1;i=i%colors.length}
+  while (getCouleurSol()!=colors(i)){i+=1; if (i==colors.length) {i=0}}
   if (rule(i)=='R') {
     setCouleurBrosse(colors(i+1))
     baisseBrosse()
