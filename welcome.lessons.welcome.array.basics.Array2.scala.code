@@ -16,15 +16,15 @@ override def run() {
     setCouleurBrosse(T((0+dec)%t));
   	baisseBrosse();
   	leveBrosse();
-    recule(t-1);
-    gauche();
-    avance();
-    droite();
     for (i<-1 to t-1) {
       avance();
       setCouleurBrosse(T((i+dec)%t));
       baisseBrosse();
       leveBrosse();
+      recule(t-1);
+    	gauche();
+    	avance();
+    	droite();
     }
   }
 }
