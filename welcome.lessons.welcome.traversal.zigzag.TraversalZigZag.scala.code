@@ -15,25 +15,30 @@ def avance2()
 {
   var tourne:Boolean = false
   
+  if(compteur+1%getMondeLargeur()==0)
+  {
+    tourne = true
+  }
+  if(compteur%getMondeLargeur()==0)
+  {
+    tourne = true
+  }
+  
   if((getX()==getMondeLargeur()-1)&&(tourne))
   {
     setPos(getX(),getY()+1)
-    tourne = false
   }
   else if((getX()==0)&&(tourne))
   {
     setPos(0,getY()+1)
-    tourne = false
   }
   else if(getY()%2==0)
   {
     setPos(getX()+1,getY())
-    tourne = true
   }
   else
   {
     setPos(getX()-1,getY())
-    tourne = true
   }
 }
 
