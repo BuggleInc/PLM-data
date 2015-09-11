@@ -36,21 +36,22 @@ override def run() {
     }
   } while (changed)
   while (!estSurBiscuit()){
-    for (i<-0 to getMondeLargeur()-1){
-      for (j<-0 to getMondeHauteur()-1){
-        if (getIndication(i+1,j)< getIndication(i,j)){
+    var x=getX()
+    var y=getY()
+    var indication=getIndication(getX(),getY())
+        if (getIndication(x+1,y)< indication && !aMurOuest(x+1,y){
           setDirection(Direction.EST)
           avance()
         }
-        if (getIndication (i-1,j)< getIndication(i,j)){
+        if (getIndication (x-1,y)< indication && !aMurOuest(x,y)){
           setDirection(Direction.OUEST)
           avance()
         }
-        if (getIndication(i,j+1)< getIndication(i,j)){
+        if (getIndication(x,y+1)< indication && !aMurNord(x,y)){
           setDirection(Direction.NORTH)
           avance()
         }
-        if (getIndication(i,j-1)< getIndication(i,j)){
+        if (getIndication(x,y-1)< indication && !aMurNord(x,y-1)){
           setDirection(Direction.SOUTH)
           avance()
         }
