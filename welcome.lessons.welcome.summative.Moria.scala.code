@@ -1,11 +1,19 @@
+retourne()
 while (! boutDuTunel) {
-  retourne()
+  // Va prendre le prochain biscuit
   while (! estSurBiscuit()) {
     avance()
   }
   prendBiscuit()
   retourne()
-  while
+  // va d?poser le prochain biscuit
+  while (! estSurBiscuit()){
+    avance()    
+  }
+  retourne()
+  avance()
+  poseBiscuit()
+  avance()
   
   
   
@@ -21,5 +29,5 @@ avance()*/
 
 
 def boutDuTunel () : Boolean = {
-  return estFaceMur()
+  return estFaceMur() && !estSurBiscuit()
 }
