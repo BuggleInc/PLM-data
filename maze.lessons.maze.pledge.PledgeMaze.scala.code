@@ -2,7 +2,7 @@ override def run() {
   var somAng=0
 
   while(estSurBiscuit==false){
-  	ouAvance() match{
+  	ouAvance(somAng) match{
     	case 0 => avance()
     	case 1 => avance()
     	case 2 => avance()
@@ -15,7 +15,7 @@ override def run() {
   prendBiscuit
 }
 
-def ouAvance():Int ={
+def ouAvance(somAng:Int):Int ={
   if (getDirection()==Direction.NORD && estFaceMur==false){return 4}
   if (getDirection()==Direction.NORD && estFaceMur==true){return 5}
   gauche();somAng+=1
