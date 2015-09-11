@@ -4,7 +4,9 @@ override def run() {
   while (pos()!=true){
     serpent()
   }
+
 }
+
 
 
 
@@ -31,9 +33,11 @@ def serpent(){
 
 
 def pos(){
-  if (getDirection()==Direction.EST){
+  
+  if ( estFaceMur()==true){
+     if (getDirection()==Direction.EST){
     gauche()
-    if ( estFaceMur()==true ){
+    if ( estFaceMur()==true){
       return true
     }
   }else if(getDirection()==Direction.OUEST){
@@ -42,6 +46,8 @@ def pos(){
       return true
     }else{
       return false
+  }
+ 
     }
   }
 }
