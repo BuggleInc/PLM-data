@@ -17,12 +17,15 @@ def numerotation(){
       }
    }
   }
-  if (!aMurNord(x,y) && aMurOuest(x,y)){
-    cpt=cpt+1
-    setIndication(x-1,y,cpt)
-    setIndication(x,y-1,cpt)}
-  
-}
+  while (x!=0 && y!=0){
+  cpt=cpt+1
+  if (!aMurNord(x,y)){setIndication(x,y-1,cpt)}
+  if (!aMurOuest(x,y)){setIndication(x-1,y,cpt)}
+  if (!aMurSud(x,y)){setIndication(x,y+1,cpt)}
+  if (!aMurEst(x,y)){setIndication(x+1,y,cpt)}
+  x=x-1
+  y=y-1
+  }
 
 
 def aMurSud():Boolean={
