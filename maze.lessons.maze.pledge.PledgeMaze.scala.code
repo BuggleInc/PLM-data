@@ -1,2 +1,24 @@
 override def run() {
+  var dir:Direction = Direction.NORTH
+
+  while(!estSurBiscuit())
+  {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
 }
+
+def keepHandOnSideWall() {
+  while(estFaceMur())
+  {
+    droite()
+  }
+  avance()
+  gauche()
+  
+  while(!estFaceMur)
+  {
+    avance()
+    gauche()
+  }
+  droite()
