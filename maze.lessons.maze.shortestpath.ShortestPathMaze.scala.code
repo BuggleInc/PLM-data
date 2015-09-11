@@ -1,0 +1,104 @@
+override def run() {
+  var largeur : Int = getMondeLargeur()
+  var hauteur : Int = getMondeHauteur()
+  var sortie : Int = chercherSortie(largeur, hauteur)
+  var sorx : Int = sortie % largeur
+  var sory : Int = sortie / hauteur
+  var Ttraite = new Array[Boolean](hauteur * largeur)
+  var Tvaleur = new Array[Int](hauteur * largeur)
+  var variableEnTraitement : Int = 0
+  var min = 0
+  var positionBuggleX : Int = getX()
+  var positionBuggleY : Int = getY()
+  setIndication(sorx, sory, 0)
+  do{
+    if (min == 0){
+      traiterLaCase(sortie, hauteur, largeur)
+      Ttraite(sortie) = true
+    }else{
+      ecritMessage("la")
+      for (i <- 0 to Tvaleur.length - 1){
+        
+        if (Tvaleur(i) == min && !Ttraite(i)){
+          traiterLaCase(i, hauteur, largeur)
+          Ttraite(i) = true
+        }
+      }
+    }
+    min = min + 1
+  }while(!Ttraite(positionBuggleX + positionBuggleY))
+  ecritMessage("aaa")
+  var nb : Int = min - 1
+  while (!estSurBiscuit()){
+    var x : Int = getX()
+    var y : Int = getY()
+    setDirection(Direction.NORD)
+    if (!estFaceMur()){
+      if (getIndication(x, y - 1)== nb - 1){avance()}
+    }else{
+      setDirection(Direction.OUEST)
+    		if (!estFaceMur()){
+      		if (getIndication(x - 1, y)== nb - 1){avance()}
+    		}else{
+          setDirection(Direction.EST)
+    				if (!estFaceMur()){
+      				if (getIndication(x + 1, y)== nb - 1){avance()}
+        		}else{
+              setDirection(Direction.SUD)
+    						if (!estFaceMur()){
+      						if (getIndication(x, y + 1)== nb - 1){avance()}
+            		}
+            }
+        }
+    }
+  }
+}
+
+def chercherSortie(largeur : Int, hauteur : Int) : Int={
+  for (x <- 0 to largeur - 1){
+    for (y <- 0 to hauteur - 1){
+      var a : Int = 0
+      if (aBiscuit(x, y)){return y * largeur + x}
+    }
+  }
+  return (9999 + 9999)
+}
+
+def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
+  var x : Int = i % largeur
+  var y : Int = i / hauteur
+  var X : Int = 0
+  var Y : Int = 0
+  var messageTraitement : Int = getIndication(x, y)
+  if (!aMurNord(x, y)) {
+    X = x
+    Y = y - 1
+    modifierCase(X, Y, messageTraitement)
+  }
+  if (!aMurOuest(x, y)) {
+    X = x - 1
+    Y = y
+    modifierCase(X, Y, messageTraitement)
+  }
+  if (x < largeur - 1){
+    X = x + 1
+    Y = y
+    if (!aMurOuest(X, Y)){
+      modifierCase(X, Y, messageTraitement)
+    }
+  }
+  if (y < hauteur - 1){
+    X = x
+    Y = y + 1
+    if (!aMurNord(X, Y)){
+      modifierCase(X, Y, messageTraitement)
+    }
+  }
+}
+
+def modifierCase(X : Int, Y : Int, messageTraitement : Int) : Unit = {
+  var messageAdjacent : Int = getIndication(X, Y)
+  if (messageAdjacent == 9999 || messageAdjacent > messageTraitement + 1){
+    setIndication(X, Y, messageTraitement + 1)
+  }
+}
