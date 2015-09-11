@@ -1,0 +1,43 @@
+def isInFinalPosition() {
+  var presenceMurHaut:Boolean = false
+  var presenceMurBas:Boolean = false
+  
+  if (getDirection() == Direction.EST) {
+    gauche()
+    presenceMurHaut = estFaceMur()
+    droite()
+    droite()
+    presenceMurBas = estFaceMur()
+    gauche()
+  }
+  
+  if (getDirection() == Direction.OUEST) {
+    gauche()
+    presenceMurBas = estFaceMur()
+    droite()
+    droite()
+    presenceMurHaut = estFaceMur()
+    gauche()
+  }
+  
+  if ((estFaceMur()) & (presenceMurHaut) & (!presenceMurBas) & (getDirection == Direction.EST)) {return true}
+  
+  else {return false}
+  
+}
+
+def deplacementSerpent() {
+  
+  
+  
+}
+
+override def run() {
+  baisseBrosse()
+  while (isInFinalPosition() == false) {
+    
+    
+    
+  }
+  
+}
