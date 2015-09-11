@@ -39,24 +39,36 @@ def mark(X:Int,Y:Int){
   var yt = getMondeHauteur()
   var xt = getMondeLargeur()
   var a = getIndication(X,Y)
-  var n = getIndication(X,Y-1)
-  var o = getIndication(X-1,Y)
-  var e = getIndication(X+1,Y)
-  var s = getIndication(X,Y+1)
-  if (!aMurNord(X,Y) && n>a && Y>0){
-    setIndication(X,Y-1,a+1)
-    mark(X,Y-1)
+  
+  if (Y>0){
+    var n = getIndication(X,Y-1)
+    if (!aMurNord(X,Y) && n>a && Y>0){
+    	setIndication(X,Y-1,a+1)
+    	mark(X,Y-1)
+  	}
   }
-  if (!aMurOuest(X-1,Y) && o>a && X>0){
-    setIndication(X-1,Y,a+1)
-    mark(X-1,Y)
+  
+  if (X>0){
+    var o = getIndication(X-1,Y)
+    if (!aMurOuest(X-1,Y) && o>a && X>0){
+    	setIndication(X-1,Y,a+1)
+    	mark(X-1,Y)
+  	}
   }
-  if (!aMurNord(X,Y+1) && s>a && Y<yt-1){
-    setIndication(X,Y+1,a+1)
-    mark(X,Y+1)
+  
+  if (Y<yt-1){
+    var s = getIndication(X,Y+1)
+     if (!aMurNord(X,Y+1) && s>a && Y<yt-1){
+    	setIndication(X,Y+1,a+1)
+    	mark(X,Y+1)
+  	}
   }
-  if (!aMurOuest(X,Y) && e>a && X<xt-1){
-    setIndication(X+1,Y,a+1)
-    mark(X+1,Y)
+  
+  if (X<xt-1){
+    var e = getIndication(X+1,Y)
+     if (!aMurOuest(X,Y) && e>a && X<xt-1){
+    	setIndication(X+1,Y,a+1)
+   	 	mark(X+1,Y)
+  	}
   }
 }
