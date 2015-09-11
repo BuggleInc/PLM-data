@@ -1,22 +1,22 @@
 override def run() {
   var cpt=0
 	var i=0
-while (i!=getMondeLargeur()){
+while (i!=getMondeLargeur()&& cpt<=48){
   while(!estDosMur()){
     ecritMessage(cpt)
-    setPos(i,cpt+1)
+    setPos(i,(cpt+1)%getMondeHauteur())
     cpt=cpt+1
   }
  	ecritMessage(cpt)
+  if (i<=5){i=i+1
+            setPos(i,0)}
+  cpt=cpt+1
 }
 }
 
 
 
 
-def tpc(x:Int){
-  setPos(x,0)
-}
 
 /*
 cpt=0
