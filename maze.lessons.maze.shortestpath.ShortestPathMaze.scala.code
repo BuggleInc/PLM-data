@@ -33,6 +33,13 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   if (!aMurOuest((x + 1) % xMax, y) && getIndication((x + 1) % xMax, y) == 9999) {
 		setIndication((x + 1) % xMax, y, poids + 1)
   }
+  
+  for (nx <- 0 to xMax) {
+    for (ny <- 0 to yMax) {
+      if (getIndication(x, y) == poids)
+      	marqueCase(nx, ny, poids + 1)
+    }
+  }
 }
 
 def ecritIndications() {
