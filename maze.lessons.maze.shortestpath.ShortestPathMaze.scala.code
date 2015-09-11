@@ -1,24 +1,114 @@
+// Fonction principale
+
 override def run() {
-    // Your code here
   var H = getWorldHeight()
   var L = getWorldWidth()
+  
+  //On recupere les coordonnees de la sortie
   var coordSortie = findExit(H,L)
   var xSortie = coordSortie(0)
   var ySortie = coordSortie(1)
   
+  //On place les nombres
+  placeNombres(xSortie, ySortie)
   
+  //On bouge le buggle
+  enRoute()
+  
+  //On sort
+  pickupBaggle()
 }
+
+
+//Fonction intermediaires :
 
 def findExit(H:Int, L:Int):Array[Int] ={
   /* Renvoie la sortie d'un monde de taille (H,L) donnée */
   var coord = Array(0,0)
   for (x <- 0 to H-1){
     for (y <- 0 to  L-1){
-      if (isOverBaggle){
+      if (hasBaggle(x,y)){
         coord(0) = x
         coord(1) = y
       }
     }
   }
   return coord  
+}
+
+def iMin(T: Array): Int ={
+  l = T.length
+  indice = 0
+  for (j <- 0 to l){
+    if (T(indice) > T(j))
+    	indice = j
+  }
+  return indice
+}
+
+def enRoute(){
+	//On fait bouger le buggle tant qu'on est pas arrive
+  var xBuggle = getX()
+  var yBuggle = getY()
+  var caseBuggle = getIndication(xBuggle,yBuggle)
+  
+  while (caseBuggle > 0){
+    
+    var cases = Array(9999,9999,9999,9999)
+    if (xBuggle + 1 < L){Array(0)  = getIndication(xBuggle + 1,yBuggle)}//Droite
+    if (xBuggle - 1 >= 0){Array(1) = getIndication(xBuggle - 1,yBuggle)}//Gauche
+    if (yBuggle + 1 < H){Array(2)  = getIndication(xBuggle,yBuggle + 1)}//Bas
+    if (yBuggle - 1 >= 0){Array(3) = getIndication(xBuggle,yBuggle - 1)}//Haut
+    
+    directionInt = iMin(cases)
+    
+    directionInt match{
+      case 0 => setDirection(Direction.EAST) ;forward();caseBuggle = cases(0);
+      case 1 => setDirection(Direction.WEST) ;forward();caseBuggle = cases(1);
+      case 2 => setDirection(Direction.SOUTH);forward();caseBuggle = cases(2);
+      case 3 => setDirection(Direction.NORTH);forward();caseBuggle = cases(3);
+    }
+    
+    
+  }
+}
+
+def placeNombres(xSortie: Int, ySortie: Int){
+  //On place les indications tant que c'est possible
+  recursor(xSortie,ySortie,0)
+}
+
+def recursor(x,y,i){
+  if (i == 0){
+    setIndication(x,y,i)
+    recursor(x,y,i+1)
+  }else{
+    //on regarde chaque direction avec dirCase
+    for (dirCase <- 0 to 3){
+      if (caseAccessible(x,y,dirCase)){
+        dirCase match{
+          case 0 => if (i<getIndication(x+1,y)) {setIndication(x+1,y,i+1)};recursor(x+1,y,i+1);
+          case 1 => if (i<getIndication(x-1,y)) {setIndication(x-1,y,i+1)};recursor(x-1,y,i+1);
+          case 2 => if (i<getIndication(x,y+1)) {setIndication(x,y+1,i+1)};recursor(x,y+1,i+1);
+          case 3 => if (i<getIndication(x,y-1)) {setIndication(x,y-1,i+1)};recursor(x,y-1,i+1);
+        }
+      }
+    }
+  }
+}
+
+def caseAccessible(x : Int, y :Int; dir:Int): Boolean ={
+  /*Renvoie true si la case dans la direction indiquee est accessible*/
+  val DROITE = 0
+  val GAUCHE = 1
+  val BAS = 2 
+  val HAUT = 3
+  
+  dir match{
+    case DROITE => if (x+1 >= getWorldWidth()){return false}else if (hasLeftWall(x+1,y)){return false};
+    case GAUCHE => if (hasLeftWall(x,y)){return false};
+    case BAS =>if (y+1 >= getWorldHeight()){return false}else if (hasTopWall(x,y+1)){return false};
+    case HAUT => if (hasTopWall(x,y)){return false}
+  }
+  return true
 }
