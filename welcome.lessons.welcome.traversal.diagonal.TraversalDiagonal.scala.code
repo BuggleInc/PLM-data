@@ -1,0 +1,21 @@
+override def run() {
+  var compteur =0
+  for (diag <-0 to getMondeHauteur()-1){
+    for (i <- 0 to diag){
+      setPos(i,diag-i)
+      ecritMessage(compteur)
+      compteur +=1
+    }
+  }
+  var diag =getMondeHauteur()
+  while (diag!=0){
+    for (i <- 1 to diag-1){
+      setPos(i+getMondeHauteur()-diag,getMondeHauteur()-diag+diag-i)
+      ecritMessage(compteur)
+      compteur +=1
+		}
+    
+      diag=diag-1
+  }
+
+   }
