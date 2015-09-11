@@ -63,7 +63,7 @@ def parcoursCeTruc() {
   var y:Int = getY()
   
   while (!estSurBiscuit()) {
-    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y))
+    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y) && !aMurNord(x, y))
       gauche(); avance(); droite()
 
     if (y > 0 && getIndication(x, y) > getIndication(x, y - 1))
