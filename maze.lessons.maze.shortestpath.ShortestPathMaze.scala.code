@@ -7,13 +7,23 @@ override def run() {
 
 def prop(x:Int,y:Int){
   var marquage:Int=getIndication(x,y)
-	if (!aMurNord(x,y) && !(getIndication(x,y-1)<=marquage)){
-    setIndication(x,y-1,marquage+1)
+  if(y>0){
+    if (!aMurNord(x,y) && !(getIndication(x,y-1)<=marquage)){
+      setIndication(x,y-1,marquage+1)
+    }
   }
-  if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
-    setIndication(x-1,y,marquage+1)
+  if(x>0){
+    if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
+      setIndication(x-1,y,marquage+1)
+    }
   }
-  if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
-    setIndication(x+1,y,marquage+1)
+  if(x<MondeLargeur()-1){
+    if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
+      setIndication(x+1,y,marquage+1)
+    }
   }
-}
+  if(y<MondeHauteur()-1){
+    if (!aMurNord(x,y+1) && !(getIndication(x,y+1)<=marquage)){
+      setIndication(x,y+1,marquage+1)
+    }
+  }
