@@ -1,0 +1,44 @@
+def brosse(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def V(c:Color){
+	avance()
+  brosse(c)
+  avance()
+  gauche()
+  avance()
+  brosse(c)
+  recule()
+  droite()
+  avance()
+  brosse(c)
+  avance()
+  gauche()
+}
+    
+def cross(){
+  V(Color.YELLOW)
+  V(Color.RED)
+  V(Color.BLUE)
+  V(Color.GREEN)
+}
+
+
+override def run() {
+  for (i <- 0 to 8){
+    for (i <- 0 to 8){
+      cross()
+      for (i <- 0 to 4){
+        avance()
+      }
+    }
+    gauche()
+  for (i <- 0 to 4){
+    avance()
+  }
+  droite()
+  }
+}

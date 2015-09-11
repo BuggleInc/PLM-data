@@ -1,0 +1,38 @@
+def brosse(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def getMotif():Array[Color]={
+  var tab =new Array[Color](getMondeHauteur())
+  tab(0)=getCouleurSol()
+  for (i<-0 to tab.length-2){
+    avance()
+    tab(i+1)=getCouleurSol()
+  }
+  avance()
+  return tab
+}
+
+def repet(tab:Array[Color]){
+  avance()
+  gauche()
+  avance()
+  droite()
+  for (i<- 0 to tab.length-1){
+    brosse(tab(i))
+    avance()
+  }
+}
+
+
+
+override def run() {
+  var tab=getMotif()
+  var tic=1
+  while(tic<=getMondeLargeur()-1){
+  	repet(tab)
+    tic=tic+1
+  }
+}

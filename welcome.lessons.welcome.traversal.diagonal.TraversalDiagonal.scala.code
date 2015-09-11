@@ -1,0 +1,47 @@
+var diag = 0;
+var nb=0;
+var x=0;
+var y=0;
+
+
+def tag(){
+  ecritMessage(nb)
+  nb=nb+1
+}
+
+def eldiago(){
+    for(j<-0 to getMondeHauteur()-1){
+      setPos(0,j)
+      y=j
+      diag=diag+1
+      if(diag<=7){
+        for(i<-1 to diag){
+          setPos(i-1,diag-i)
+          tag()
+        }
+      }
+    }
+  diag=diag-1
+}
+
+def rediago(){
+  for(j<-1 to getMondeLargeur()-1){
+      setPos(j,getMondeHauteur()-1)
+      y=getMondeHauteur()-1
+    	tag()
+      diag=diag-1
+      if(diag>=0){
+        for(i<-1 to diag){
+          setPos(j+i,getMondeHauteur()-1-i)
+          tag()
+        }
+      }
+    }
+}
+
+
+
+override def run() {
+  eldiago()
+  rediago()
+}
