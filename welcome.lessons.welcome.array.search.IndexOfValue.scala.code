@@ -1,27 +1,7 @@
-override def run() {
-  var T= new Array[Color](getMondeHauteur())
-	T(0)=getCouleurSol()
-  
-  for (compteur <-0 to getMondeHauteur()-2){
-  	avance()
-    T(compteur)=getCouleurSol()
-  	
-  }
-  for (compteur <-0 to getMondeHauteur()-2){
-    recule()
-  }
-  for (compteur<-1 to getMondeLargeur()-1 ){
-    gauche()
-    avance()
-    droite()
-    var decalage = litMessage().toInt
-    //avance()
-    for (i<-0 to getMondeHauteur()){
-		 	setCouleurBrosse(T((i + decalage-) % getMondeHauteur()))
-      baisseBrosse()
-      leveBrosse()
-      avance()
-      
+def indexOfValue(nums:Array[Int] ,lookingFor:Int): Int = {
+  for(i<-0 to len(nums)){
+    if (nums(i)==lookingFor){
+      return i
     }
   }
 }
