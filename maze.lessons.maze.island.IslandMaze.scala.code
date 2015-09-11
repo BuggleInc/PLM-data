@@ -48,14 +48,8 @@ def goNord() {
 def murNord():Boolean = {
   var res = false
   var save:Direction = getDirection()
-  while(getDirection()!=Direction.NORTH)
-  {
-    droite()
-  }
+  setDirection(Direction.NORTH)
   res = estFaceMur()
-  while(getDirection()!=save)
-  {
-    droite()
-  }
+  setDirection(save)
   return res
 }
