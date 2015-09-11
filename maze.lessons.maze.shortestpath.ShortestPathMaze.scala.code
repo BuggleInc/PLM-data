@@ -67,20 +67,17 @@ def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
   var X : Int = 0
   var Y : Int = 0
   var messageTraitement : Int = getIndication(x, y)
-  
-  ecritMessage(" i")
   if (!aMurNord(x, y)) {
-    ecritMessage("oui")
     X = x
     Y = y - 1
     modifierCase(X, Y, messageTraitement)
   }
-  ecritMessage("nnn")
   if (!aMurOuest(x, y)) {
     X = x - 1
     Y = y
     modifierCase(X, Y, messageTraitement)
   }
+  ecritMessage("ouest")
   if (x < largeur){
     X = x + 1
     Y = y
