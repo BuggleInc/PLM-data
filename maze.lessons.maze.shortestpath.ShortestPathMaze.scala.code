@@ -26,12 +26,38 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
  var y = yStart
  
  for (i <- index to (width*height) - 1){
-   var l = isMarked(x - 1, y)
-   val r = isMarked(x + 1, y)
-   var t = isMarked(x, y - 1)
-   var b = isMarked(x, y + 1)
+   var l = isFree(x - 1, y)
+   val r = isFree(x + 1, y)
+   var t = isFree(x, y - 1)
+   var b = isFree(x, y + 1)
 		
-	 System.out.println(l,r,t,b)
+   if (l && r){
+     forkPath(x - 1, y, i+1)
+     x = x + 1
+   }else if (r && t){
+     forkPath(x + 1, y, i+1)
+     y = y - 1
+   }else if (t && b){
+     forkPath(x, y - 1, i+1)
+     y = y + 1
+   }else if (l && b){
+     forkPath(x - 1, y, i+1)
+     y = y + 1
+   }else if (l && t){
+     forkPath(x - 1, y, i+1)
+     y = y - 1
+   }else if (r && b){
+     forkPath(x + 1, y, i+1)
+     y = y + 1
+   }else if (l){
+     x = x - 1
+   }else if (r){
+     x = x + 1
+   }else if (t){
+     y = y - 1
+   }else if (b){
+     y = y + 1
+   }
    
    
  	 setIndication(x, y, i)
@@ -39,12 +65,12 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
  }
 }
 
-def isMarked(x:Int, y:Int):Boolean = {
+def isFree(x:Int, y:Int):Boolean = {
   if (x >= getWorldWidth() || 
       y >= getWorldHeight() || 
       x < 0 ||
       y < 0){
-    return true
+    return false
   }
-  return getIndication(x, y) != 9999
+  return getIndication(x, y) == 9999
 }
