@@ -1,0 +1,36 @@
+var state = 0;
+
+def tag(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def com(lettre:Char){
+  if(lettre=='R'){
+    droite()
+    avance()
+  }
+  else if(lettre=='L'){
+    gauche()
+    avance()
+  }
+  else return
+}
+
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	var ind = 0
+  for(i<-0 to rule.length-1){
+    if(getCouleurSol()==colors(i)){
+      ind = i
+    }
+  }
+  tag(colors((ind+1)%colors.length))
+  com(rule(ind))
+}
+
+
+
+
+
