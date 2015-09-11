@@ -1,4 +1,36 @@
 override def run() {
+  var cpt=0
+  var i=0
+  while(cpt<=48){
+    if (pair(i)){
+      setPos(0,i)
+      while(!isWallR()){
+        ecritMessage(cpt)
+        setPos((cpt+1)%getMondeHauteur(),i)
+        cpt=cpt+1
+      }
+    }
+    else {
+      setPos(6,i)
+      while(!isWallL()){
+        ecritMessage(cpt)
+        setPos(MondeLargeur-(cpt+1)%getMondeLargeur(),i)
+        cpt=cpt+1
+      }
+    }
+    i=i+1
+  }
+}
+
+
+def zag(){
+  f
+}
+
+
+
+
+override def run() {
  	var cpt=0
 	var i=0
   while (cpt<=48){
@@ -16,6 +48,11 @@ override def run() {
   }
 }
 
+def pair(x:Int): Boolean={
+  rep= false
+  if(x=0%2){rep=true}
+  return rep
+}
 
 def isWallR(): Boolean={
   var rep= false
@@ -32,3 +69,11 @@ def isWallL(): Boolean={
   droite()
   return rep
 }
+
+
+/*
+tanque cpt <48
+if pair -> fait ta ligne vers la droite normalement
+else -> fait ta ligne vers la gauche
+
+*/
