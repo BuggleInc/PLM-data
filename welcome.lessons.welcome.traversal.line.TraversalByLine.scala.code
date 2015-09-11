@@ -1,0 +1,27 @@
+def isInFinalPosition():Boolean = {
+  
+  if ((getX() == getMondeLargeur() -1) && getY() == getMondeHauteur()-1) {return true}
+  
+  else {return false}
+  
+}
+
+def allerProchainePosition() {
+  if (getX() == getMondeLargeur() -1) {
+    setPos(0, get(Y) +1)
+  }
+  else {setPos(getX() +1, getY())}
+}
+
+
+override def run() {
+  
+  var compteur:Int = 0
+  while (isInFinalPosition == false) {
+    ecritMessage("" +compteur)
+    allerProchainePosition()
+    compteur = compteur + 1
+  }
+  var dernierNum:Int = getMondeHauteur()*getMondeLargeur() -1
+  ecritMessage("" +dernierNum)
+}
