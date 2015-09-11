@@ -1,9 +1,12 @@
 override def run() {
   while (!estSurBiscuit()) {
 		if (!estFaceMur()) {
-    	while (getDirection == Direction.NORTH) {
+    	if (getDirection == Direction.NORTH) {
     		avance();
-    	} 
+    	} else {
+        avance()
+        gauche()
+      }
     } else {
       while (murGauche==false) {
         gauche()
