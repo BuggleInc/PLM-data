@@ -1,0 +1,26 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class countTeen extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = countTeen( t.getParameter(0).asInstanceOf[Integer], t.getParameter(1).asInstanceOf[Integer], t.getParameter(2).asInstanceOf[Integer], t.getParameter(3).asInstanceOf[Integer]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def countTeen(a:Int, b:Int,c:Int,d:Int): Int = {
+  var ret=0;
+  if (a>12&&a<20)
+	   ret+=1;
+  if (b>12&&b<20)
+	   ret+=1;
+  if (c>12&&c<20)
+	   ret+=1;
+  if (d>12&&d<20)
+	   ret+=1;
+  return ret
+} }

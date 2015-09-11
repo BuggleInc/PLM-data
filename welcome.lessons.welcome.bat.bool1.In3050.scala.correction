@@ -1,0 +1,17 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class in3050 extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = in3050( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def in3050(a:Int, b:Int):Boolean = {
+   return (a>29 && a<41 && b>29 && b<41) || (a>39 && a<51 && b>39 && b<51)
+} }
