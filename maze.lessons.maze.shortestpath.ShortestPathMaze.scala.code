@@ -11,26 +11,13 @@ override def run() {
   
   var cpt:Int =0
   
-  setIndication(x,y,cpt) // note "0" sur le finish
-  cpt=1
+  recurs (x,y,cpt)
   
-  
-  while (!arret){    // numérote 
-    if (!aMurNord())
-  }
 
-  
     // Your code here
 }
 
 
-
-def arret:Boolean={  // test si on a numeroté la case du buggle
-  if (getIndication(getX(),getY())==9999){
-    return false
-  }
-  return true 
-}
 
 def aMurSud(x:Int,y:Int):Boolean = {  // test mur au SUD
   if (aMurNord(x,y+1)==true){return true}
@@ -39,4 +26,15 @@ def aMurSud(x:Int,y:Int):Boolean = {  // test mur au SUD
 def aMurEst(x:Int,y:Int):Boolean = {   // test mur à l'EST
   if (aMurOuest(x+1,y)==true){return true}
   return false
+}
+
+def recurs (x:Int,y:Int,num){   // numerote tout
+  
+  if (getIndication(x,y)==9999){setIndication(x,y,num)}
+  else if(num<getIndication(x,y)){setIndication(x,y,num)} // on met le numero si c'est pertinent
+  
+  if (aMurNord(x,y)==false){recurs(x,y+1,nums+1)}
+  if (aMurSud(x,y)==false){recurs(x,y-1,nums+1)}
+  if (aMurEst(x,y)==false){recurs(x+1,y,nums+1)}
+  if (aMurOuest(x,y)==false){recurs(x-1,y,nums+1)}
 }
