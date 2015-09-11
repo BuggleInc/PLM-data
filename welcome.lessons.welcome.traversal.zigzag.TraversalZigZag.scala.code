@@ -3,28 +3,31 @@ override def run() {
   var cpt=0
   var raw=0
   var line=false
+  
   while((getX() != getMondeLargeur()-1)&&(getY() != getMondeHauteur()-1)){
   	for (i <- 0 to getMondeLargeur()-1){
-    droite()
-  	if((estFaceMur()) && (getDirection()==Direction.EST)){
+    	droite()
+  		if((estFaceMur()) && (getDirection()==Direction.EST)){
+    		gauche()
+      	line=true
+    		}else{gauche()}
+  		}
     	gauche()
-      line=true
-    	}else{gauche()}
-  	}
-    gauche()
-  	if((estFaceMur()) && (getDirection()==Direction.OUEST)){
-  		droite()
-      line=false
-    	}else{droite()}
-  	}
+  		if((estFaceMur()) && (getDirection()==Direction.OUEST)){
+  			droite()
+      	line=false
+    		}else{droite()}
+  		}
      
-    if (raw!=0){
+    	if (raw!=0){
     		setPos(getX(), getY()+1)
         cpt+=1
         ecritMessage(cpt)
-    }else{ecritMessage(cpt)}
-    for(j <- 0 to getMondeHauteur()-2){
-    	if(line==false){
+    	}else{ecritMessage(cpt)}
+    
+  		for(j <- 0 to getMondeHauteur()-2){
+    	
+    		if(line==false){
       		setPos(getX()+1, getY())
        		raw=raw+1
         	cpt +=1
@@ -35,9 +38,7 @@ override def run() {
         	cpt +=1
         	ecritMessage(cpt)
          
-        }
-        
-      
+        }      
     	}
   	}
   }
