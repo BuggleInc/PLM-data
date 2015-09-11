@@ -30,7 +30,8 @@ override def run() {
   setIndication(posX,posY,0)
 
   var chiffre =0
-  while(getIndication(getX(),getY())==9999){
+  var sommeCase=0
+  while(sommeCase!=getmondeHauteur()*getMondeLargeur()){
     for(x<- 0 to getMondeLargeur()-1){
       for(y<- 0 to getMondeHauteur()-1){
         if(getIndication(x,y)==chiffre){
@@ -51,6 +52,4 @@ override def run() {
     }
     chiffre+=1
   }
-
-
 }
