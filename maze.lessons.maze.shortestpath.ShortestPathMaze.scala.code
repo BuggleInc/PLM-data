@@ -28,7 +28,7 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
  for (i <- index to (width*height) - 1){
    
 	if (!hasTopWall(x, y) && !hasLeftWall(x, y)){
-    if (Marked(x, y+1)){
+    if (isMarked(x, y+1)){
     	forkPath(x - 1, y, i + 1) // forkleft
     	forkPath(x, y - 1, i + 1) // forktop
     }else{
