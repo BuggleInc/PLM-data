@@ -25,10 +25,10 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   }
   
   // On récursivise...
-  if (getIndication(x - 1, y) == poids)
+  if (x > 0 && getIndication(x - 1, y) == poids)
   	marqueCase(x - 1, y, poids + 1)
   
-  if (getIndication(x, y - 1) == poids)
+  if (y > 0 && getIndication(x, y - 1) == poids)
   	marqueCase(x, y - 1, poids + 1)
 }
 
