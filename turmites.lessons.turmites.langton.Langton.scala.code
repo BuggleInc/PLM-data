@@ -1,19 +1,15 @@
-def step() {
-  var C = getCouleurSol()
-  if (C==Color.WHITE){
-    setCouleurBrosse(Color.BLACK)
-    baisseBrosse()
-    leveBrosse()
-    droite()
-    avance()
-  } else {
-    setCouleurBrosse(Color.WHITE)
-    baisseBrosse()
-    leveBrosse()
-    gauche()
-   	avance()
-  }
-  
+def step() {SetCouleurSol(couleur)
 }
 
+def brosse(){
+  baisseBrosse()
+  leveBrosse()
+}
 
+def SetCouleurSol(couleur){
+  var couleur = getCouleurSol()
+  couleur match{
+    case Color.WHITE => setCouleurBrosse(Color.BLACK);brosse();droite();avance()
+    case Color.BLACK => setCouleurBrosse(Color.WHITE);brosse();gauche();avance()
+  }
+}
