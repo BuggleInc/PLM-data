@@ -26,12 +26,29 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
  var y = yStart
  
  for (i <- index to (width*height) - 1){
-   
-   val sibling = Iterator(isMarked(x - 1, y),
-                          isMarked(x + 1, y),
-                          isMarked(x, y - 1),
-                          isMarked(x, y + 1))
+   var l = isMarked(x - 1, y)
+   val r = isMarked(x + 1, y)
+   var t = isMarked(x, y - 1)
+   var b = isMarked(x, y + 1)
 		
+   if (l && r){
+     forkPath(x - 1, y, i)
+     x = x + 1
+   }else if (r && t){
+     forkPath(x + 1, y, i)
+     y = y - 1
+   }else if (t && b){
+     forkPath(x, y - 1, i)
+     y = y + 1
+   }else if (l && b){
+     forkPath(x - 1, y, i)
+     y = y + 1
+   }else if (l && t){
+     forkPath(x - 1, y, i)
+     y = y - 1
+   }else if (r && b){
+     forkPath(x + 1, y, i)
+   }
    
    
  	 setIndication(x, y, i)
