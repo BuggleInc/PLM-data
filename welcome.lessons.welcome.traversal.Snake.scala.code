@@ -1,44 +1,63 @@
 override def run() {
-	setCouleurCorps(Color.blue)
-  baisseBrosse()
+ baisseBrosse()
   while (pos()!=true){
     serpent()
   }
+
 }
+
 
 
 
 def serpent(){
-  while (!estFaceMur()){
-    avance()
-  }
-  if (getDirection()==Direction.EST){
-    gauche()
-    avance()
-    gauche()
+  
+  if (estFaceMur()==true){
+
+  	
+  	if (getDirection()==Direction.EST){
+    	gauche()
+    	avance()
+    	gauche()
     
-  }else if(getDirection()==Direction.OUEST){
-    droite()
+  	}else if(getDirection()==Direction.OUEST){
+    	droite()
+    	avance()
+    	droite()
+  }
+  }else{
     avance()
-    droite()
+    
   }
 }
 
 
 
 
-def pos(){
-  if (getDirection()==Direction.EST){
-    gauche()
-    if ( estFaceMur()==true ){
-      return true
-    }
-  }else if(getDirection()==Direction.OUEST){
+def pos():Boolean ={
+  
+	if ( estFaceMur()){
+  	if (getDirection()==Direction.EST){
+    	gauche()
+    	if (estFaceMur()){
+      	droite()
+      	return true
+    	}else{
+      droite()
+
+    
+  }
+  }else{
     droite()
-    if ( estFaceMur()==true){
-      return true
+    if (estFaceMur()){
+    	gauche()
+        return true
     }else{
-      return false
+      gauche()
+   }
+   
     }
-  }
 }
+  return false
+}
+ 
+   
