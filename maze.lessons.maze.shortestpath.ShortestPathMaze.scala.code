@@ -5,7 +5,7 @@ override def run() {
   
   //-------------------------------------------
   
-  def trouverSortie():Double = {
+  def trouverSortie():(Int,Int) = {
   	var x : Int = 0
     var y : Int = 0
     while (!aBiscuit(x,y)) { // tant qu'on a pas trouve, parcours en largeur
@@ -18,12 +18,12 @@ override def run() {
   
   //-------------------------------------------
   
-  def marquerCasesAdjacentes((x,y):Double) {
+  def marquerCasesAdjacentes(x:Int,y:Int) {
     var i : Int = getIndication(x,y)
     // on considere la case (x,y) numerotee i
-    // r?cursif : condition d'arret = plus de cases dispo
-    // booleen pour savoir quel appel r?cursif faire
-    // probleme d'ordre de priorit? dans la recursivitee
+    // recursif : condition d'arret = plus de cases dispo
+    // booleen pour savoir quel appel recursif faire
+    // probleme d'ordre de priorite dans la recursivitee
  		var booldessus : Boolean = false ;
     var booldroite : Boolean = false ;
     var booldessous : Boolean = false ;
@@ -86,7 +86,7 @@ override def run() {
   
   //-------------------------------------------
   
-  var pos : Double = trouverSortie()
+  var pos : (Int,Int) = trouverSortie()
   marquerCasesAdjacentes(pos)
   while (!estSurBiscuit) {
     directionPlusCourte(); avance()}
