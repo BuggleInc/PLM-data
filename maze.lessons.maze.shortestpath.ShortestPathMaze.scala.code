@@ -1,11 +1,41 @@
 override def run() {
-	for (i<-0 to getMondeLargeur()-1){
-    for (j<-0 to getMondeHauteur()-1){
-      if (aBiscuit(i,j)){
-        setIndication(i,j,0)
+  while (mondeTague==false){
+   for (i<-0 to getMondeLargeur()-1){
+    	for (j<-0 to getMondeHauteur()-1){
+        if (aBiscuit(i,j)){
+          setIndication(i,j,0)
+        }
+        else{
+          var ind = getIndication(i,j);
+          if (ind!=9999){
+            if (! getIndication(i+1,j) && ! aMurOuest(i+1,j)) {
+              setIndication(i+1,j, ind + 1);
+            } else if (!getIndication(i-1,j) && !aMurOuest(i-1,j)){
+              setIndication(i-1,j,ind+1)
+            }else if (!getIndication(i,j+1) && !aMurNord(i,j+1)){
+              setIndication(i,j+1,ind+1)
+            }else if (!getIndication(i,j-1) && !aMurNord(i,j)){
+              setIndication(i,j-1,ind+1)
+            }
+          }
+        }
+        
+
+
+
       }
-      
-      
+    }
+    }
+}
+
+
+def mondeTague():Boolean={
+  for (i<-0 to getMondeLargeur()-1){
+    for (j<-0 to getMondeHauteur()-1){
+      if (getIndication(i,j)!=9999){
+        return true
+      }
+      return false
     }
   }
 }
