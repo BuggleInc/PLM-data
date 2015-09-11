@@ -5,12 +5,12 @@ def step(rule:Array[Char], colors:Array[Color]) {
     if (getCouleurSol()==colors(i)){
       r=i
       j=i
-      if (r==colors.length-1){r=0}
+      if (r==colors.length-1){j=0}
     }  
   }
-  rule(j) match{
-    case 'R' => setCouleurBrosse(colors(r));baisseBrosse();leveBrosse();droite();avance()
-    case 'L' => setCouleurBrosse(colors(r));baisseBrosse();leveBrosse();gauche();avance() 
+  rule(r) match{
+    case 'R' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();droite();avance()
+    case 'L' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();gauche();avance() 
   }
   
   
