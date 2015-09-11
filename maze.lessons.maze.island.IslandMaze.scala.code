@@ -29,21 +29,22 @@ def keepHandOnSideWall(){
   
 def NORD(){
   setDirection(Direction.NORTH)
-  while (!estFaceMur()){
-    avance()
-  }
-  gauche()
-  if (!estFaceMur()){
-    avance()
-    droite()
-  } else {
-    droite()
-    droite()
+  while (getY()!=0){
     if (!estFaceMur()){
       avance()
-      gauche()}
+    } else {
+      gauche()
+      if (!estFaceMur()){
+        avance()
+        droite()
+      } else {
+        droite()
+        droite()
+        if (!estFaceMur()){
+          avance()
+          gauche()}
+      }
+    }
   }
-}
-         
-     
+}     
   
