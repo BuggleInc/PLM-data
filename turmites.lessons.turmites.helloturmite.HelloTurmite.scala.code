@@ -12,8 +12,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   setCouleurBrosse(colors((test+1)%(colors.length)))
  	baisseBrosse()
  	leveBrosse()
-  println(rule(state)(test))
-  mov= rule(state)(test)
+  mov= rule(state)(test)(mov)
   if (mov==1){
     avance()
   }
