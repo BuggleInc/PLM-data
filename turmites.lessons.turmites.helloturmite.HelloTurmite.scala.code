@@ -16,7 +16,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   setCouleurBrosse(colors(i))
   baisseBrosse()
   leveBrosse()
-  mvmt_suivant=rule(state)(couleur_actuelle)(2)
+  mvmt_suivant=rule(state)(couleur_actuelle)(1)
   mvmt_suivant match {
     case stop=>
     case pas_de_viarge=>avance
@@ -24,5 +24,5 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     case demi_tour=>droite();droite()
     case DROITE=> droite;avance()
   }
- state=rule(state)(couleur_actuelle)(0)
+ state=rule(state)(couleur_actuelle)(2)
 }
