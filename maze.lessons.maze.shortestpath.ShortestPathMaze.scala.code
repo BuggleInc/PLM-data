@@ -10,9 +10,26 @@ def trouveSortie(): Array[Int] = {
   return Array[Int](2)
 }
 
+def marqueCases(x: Int, y: Int, poids: Int) {
+  var xMax:Int = getMondeLargeur()
+  var yMax:Int = getMondeHauteur()
+  
+  // A gauche...
+  if (x > 0 && !aMurOuest(x, y) && poids < getIndication(x - 1, y))
+  	setIndication(x - 1, y, poids)
+  
+  // A droite...
+  
+  // En haut...
+  
+  // En bas...
+}
+
 override def run() {
   var laSortie:Array[Int] = trouveSortie()
   
   // On écrit 0 sur la case de la sortie. :D
   setIndication(laSortie(0), laSortie(1), 0)
+  
+  marqueCases(laSortie(0), laSortie(1), 1)
 }
