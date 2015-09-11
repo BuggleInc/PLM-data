@@ -59,12 +59,12 @@ def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
   var X : Int = 0
   var Y : Int = 0
   var messageTraitement : Int = getIndication(x, y)
-  if (!aMurNord()) {
+  if (!aMurNord(x, y)) {
     X = x
     Y = y - 1
     modifierCase(X, Y, messageTraitement)
   }
-  if (!aMurOuest()) {
+  if (!aMurOuest(x, y)) {
     X = x - 1
     Y = y
     modifierCase(X, Y, messageTraitement)
@@ -72,14 +72,14 @@ def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
   if (x < largeur){
     X = x + 1
     Y = y
-    if (!aMurOuest()){
+    if (!aMurOuest(X, Y)){
       modifierCase(X, Y, messageTraitement)
     }
   }
   if (y < hauteur){
     X = x
     Y = y + 1
-    if (!AMurNord){
+    if (!aMurNord(X, Y)){
       modifierCase(X, Y, messageTraitement)
     }
   }
