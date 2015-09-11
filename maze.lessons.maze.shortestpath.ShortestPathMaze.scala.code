@@ -27,16 +27,16 @@ def forkPath(x:Int, y:Int, i:Int){
 		
   setIndication(x, y, i)
   
-  if (t && !hasTopWall(x, y))
+  if (t && !hasTopWall(x, y) && getIndication(x, y-1) > i)
    forkPath(x, y - 1, i+1)
   
-  if (l && !hasLeftWall(x, y))
+  if (l && !hasLeftWall(x, y) && getIndication(x - 1, y) > i)
    forkPath(x - 1, y, i+1)
   
-  if (b && !hasTopWall(x, y + 1))
+  if (b && !hasTopWall(x, y + 1) && getIndication(x, y+1) > i)
    forkPath(x, y + 1, i+1)
   
-  if (r && !hasLeftWall(x + 1, y))
+  if (r && !hasLeftWall(x + 1, y) && getIndication(x + 1, y) > i)
    forkPath(x + 1, y, i+1)
  }
 
@@ -48,5 +48,5 @@ def isFree(x:Int, y:Int):Boolean = {
       y < 0){
     return false
   }
-  return getIndication(x, y) == 9999
+  return true
 }
