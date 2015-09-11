@@ -1,11 +1,7 @@
 override def run() {
- var (xStart, yStart):(Int, Int) = (0, 0)
- var x = xStart
- var y = yStart
- var width = getWorldWidth()
- var height = getWorldHeight()
+  var (xStart, yStart):(Int, Int) = (0, 0)
   
- for (i <- 0 to width  - 1){
+  for (i <- index to width  - 1){
    for (j <- 0 to height - 1){
      if (hasBaggle(i, j)){
       	xStart = i
@@ -14,39 +10,40 @@ override def run() {
    }
  }
   
- setIndication(xStart, yStart, 0)
+  setIndication(xStart, yStart, 0)
+  forkPath(xStart, yStart, 1)
+}      
+
+
+def forkPath(x:Int, y:Int, index:Int){
+ var x = xStart
+ var y = yStart
+ var width = getWorldWidth()
+ var height = getWorldHeight()
   
- for (i <- 1 to (width*height) - 1){
+
+ for (i <- index to (width*height) - 1){
    
-   //down or right
-   if (hasTopWall(x, y) &&  hasLeftWall(x,y) && !isMarked(x, y + 1)){
-     y = y + 1
-   }else{
-     x = x + 1
-   }
-   
-   //top or right
-   else if (!hasTopWall(x, y) && hasLeftWall(x,y) && !isMarked(x, y - 1)){
-     y = y - 1
-   }else{
-     x = x + 1
-   }
-   
-   //
-   if (!hasTopWall(x, y) && !hasLeftWall(x, y)){
-     if (isMarked(x, y - 1)){
-       x = x - 1
-     }else{
-       y = y - 1
-     }
-   }
-	
+	if (hasTopWall(x, y) && hasLeftWall(x, y)){
+    forkPath(x - 1, y, i + 1) // forkleft
+    forkPath(x, y - 1, i + 1) // forktop
+  }else if hasTopWall(x, y){
+    if (isMarked(x, y-1)){
+      x = x + 1 // right
+    }else{
+      y = y - 1 // top
+    }
+  }else if hasLeftWall(x, y){
+    if (isMarked(x-1, y)){
+      x = x + 1 //right
+    }else{
+      x = x - 1 // left
+    }
+  }
    
  	setIndication(x, y, i)
  }
-  
-}      
-
+}
 
 def isMarked(x:Int, y:Int):Boolean = {
   return getIndication(x, y) == 9999
