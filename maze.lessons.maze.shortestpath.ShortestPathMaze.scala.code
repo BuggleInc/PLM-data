@@ -39,8 +39,10 @@ def findExit(H:Int, L:Int):Array[Int] ={
 def iMin(T: Array[Int]): Int ={
   var long = T.length
   var indice = 0
+  var next = getIndication(getX(),getY())-1
+  
   for (j <- 0 to long-1){
-    if (T(indice) == getIndication(getX(),getY())-1){
+    if (T(indice) == next){
       indice = j
     }
   }
@@ -83,7 +85,9 @@ def enRoute(){
       	forward();
       	caseBuggle = cases(3);
     }
-    
+    xBuggle = getX()
+    yBuggle = getY()
+
 
   }
 }
