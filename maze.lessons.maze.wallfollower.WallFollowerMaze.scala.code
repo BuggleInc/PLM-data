@@ -1,12 +1,19 @@
 override def run() {
-    // Your code here 
-  while (!estSurBiscuit()){
-    var direction=random3()
-    direction match {
-      case 0 => if(!estFaceMur){avance()}
-      case 1 => droite()
-      case 2 => gauche()
+  while (!estSurBaggle){
+    if(estFaceMur()){droite()}
+    else {
+      if(isWallL()){avance()}
     }
-	}
-  prendBiscuit()
+  }
 }
+
+
+def isWallL(): Boolean={
+  var rep= false
+  gauche()
+  if (estFaceMur){rep=true}
+  droite()
+  return rep
+}
+
+
