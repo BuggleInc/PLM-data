@@ -6,6 +6,8 @@ def isDirectionFree(dir:Direction) {
 }
 
 override def run() {
+  
+  var sommeVirage : Int = 0
   while(getY() != 0){
     setDirection(Direction.NORTH)
     while (!estFaceMur()){
@@ -13,7 +15,7 @@ override def run() {
     }
     if (getY() != 0) {
       while( getDirection() != Direction.WEST) {
-      keepHandOnSideWall()
+      sommeVirage = keepHandOnSideWall(sommeVirage)
       }
     } else {
       setDirection(Direction.EAST)
@@ -29,16 +31,19 @@ override def run() {
 
 
 
-def keepHandOnSideWall() {
+def keepHandOnSideWall(som :Int) {
   gauche()
+  som = som-1
   if (!estFaceMur()){
     avance()
   }
   else {
     while (estFaceMur()){
       droite()
+      som= som+1
       }
     avance()
   }
+  return som
   
 }
