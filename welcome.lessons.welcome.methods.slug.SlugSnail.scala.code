@@ -10,16 +10,15 @@ def hunt(c:Color) {
 }
 
 
-def isFacingTrail("c": String):Boolean = {
-  while (!estFaceMur()) {
-    avance()
-   if (getCouleurSol() == "c") {
-    return true
-   }
-  else {
-    recule()
-		return false
+def isFacingTrail(c:Color):Boolean = {
+  if (estFaceMur()) {
+    return false 
   }
-  }
- return false
+  var estVert= false
+  avance()
+  if ( getCouleurSol() == c:Color ) {
+    estVert = true
+  } else estVert = false
+  recule()
+  return estVert 
 }
