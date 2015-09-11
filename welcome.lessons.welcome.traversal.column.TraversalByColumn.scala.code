@@ -1,7 +1,6 @@
 var n=0
-var i=1
+
 override def run() {
-  recule()
   while(getX()!=6 || getY()!=(-6)){
     ligne()
   }
@@ -10,13 +9,16 @@ override def run() {
 
 def ligne(){
   while(!estFaceMur()){
+   var i=1
     ecritMessage(n)
     n=n+1
-    avance()
+    setPos(0,0+i)
+    i=i+1
   }
   if (estFaceMur()){
-    setPos(0+i,0)
-    i=i+1}
+    var j=1
+    setPos(0+j,0)
+    j=j+1}
   
 
 
