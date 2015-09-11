@@ -50,10 +50,19 @@ override def run() {
         && getIndication(pos(0)-1,pos(1))==9999)
     			{setIndication(pos(0)-1,pos(1),i+1); boolgauche = true}
     
-    if (booldessus) {marquerCasesAdjacentes((pos(0), pos(1)-1)}
-    if (booldroite) {marquerCasesAdjacentes([pos(0)+1,pos(1)])}
-    if (booldessous) {marquerCasesAdjacentes([pos(0),pos(1)+1])}
-    if (boolgauche) {marquerCasesAdjacentes([pos(0)-1,pos(1)])}
+    var temp = new Array[Int](2)
+    if (booldessus) {
+      temp(0) = pos(0) ; temp(1) = pos(1)-1
+      marquerCasesAdjacentes(temp)}
+    if (booldroite) {
+      temp(0) = pos(0)+1 ; temp(1) = pos(1)
+      marquerCasesAdjacentes(temp)}
+    if (booldessous) {
+      temp(0) = pos(0) ; temp(1) = pos(1)+1
+      marquerCasesAdjacentes(temp)}
+    if (boolgauche) {
+      temp(0) = pos(0)-1 ; temp(1) = pos(1)
+      marquerCasesAdjacentes(temp)}
     
   }
   
