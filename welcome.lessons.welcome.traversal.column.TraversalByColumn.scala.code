@@ -1,6 +1,6 @@
-def testPos(){
-  var h: Int= getMondeHauteur
-  var l: Int = getMondeLargeur
+def testPos() : Boolean ={
+  var h: Int= getMondeHauteur()
+  var l: Int = getMondeLargeur()
   if (getX == h & getY == l) {
     return true
   }
@@ -12,7 +12,7 @@ def testPos(){
 def deplace(){
   var x : Int=0
   var y : Int=0
-  if (estFaceMur == false){
+  if (estFaceMur() == false){
     x= x+1
     setPos(x, y)
   }
@@ -26,11 +26,11 @@ def deplace(){
 
 
 override def run() {
+  ecritMessage(0)
   do {
     deplace();
-    var c : Int=0
+    var c : Int=1
     ecritMessage(c)
     c = c+1
   }
   while (!testPos)
-}
