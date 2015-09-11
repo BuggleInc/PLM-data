@@ -1,0 +1,27 @@
+var diag = 0
+var compteur:Int=0;
+override def run() {
+  ecritMessage(compteur)
+  compteur+=1
+  while(diag!=12) {
+    if (diag <6) {
+      if ( getY()==0) {
+        diag+=1
+        setPos(0,diag)
+      ecritMessage(compteur)
+      compteur+=1}
+      else {setPos(getX()+1,getY()-1)
+           ecritMessage(compteur)
+           compteur+=1}}
+    else {
+      if (getX()==6) {
+        diag+=1
+        setPos(diag-getX(),6)
+      ecritMessage(compteur)
+      compteur+=1}
+      else {setPos(getX()+1,getY()-1)
+           ecritMessage(compteur)
+           compteur+=1}
+      }
+    }
+}

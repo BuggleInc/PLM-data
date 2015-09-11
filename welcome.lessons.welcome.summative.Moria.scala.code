@@ -1,22 +1,17 @@
-override def run() {
-  var longueur:Int=2
-  var base:Color=getCouleurSol():Color
+def Moria () {
+  retourne()
+  while (!(estFaceMur())) {
+    avance()
+    if(estSurBiscuit()) {
+      prendBiscuit()
+      retourne()
+      while (!estSurBiscuit() || estFaceMur() ){
+        avance()}
+      recule()
+      poseBiscuit()}}
+  droite()
   avance()
-  while (getCouleurSol() !=base) {
-    avance()
-    longueur=longueur+1}
-  var T = new Array[Color](longueur)
-  for (i<-0 to longueur-1) {    
-    T(i)=getCouleurSol()
-    avance()}
-  for (j <-1 to 6) {
-    baisseBrosse()
-    for (k <- 0 to 5) {
-      setCouleurBrosse(T(k))
-      avance()}
-    droite()
-    avance()
-    gauche()
-    avance()
-  } 
+  gauche()
+  avance()
 }
+Moria()
