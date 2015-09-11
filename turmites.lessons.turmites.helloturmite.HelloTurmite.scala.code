@@ -1,0 +1,38 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	var c = getCouleurSol()
+  val Stop = 0
+  val Go = 1
+  val Gauche = 2
+  val Half = 4
+  val Droite = 8
+  var id = 0
+  var blub = new Array[Int](3)
+  	for (i<- 0 to colors.length-1){
+    	if (colors(i) == c){
+      	id = i
+    	}
+  	}
+  blub = rule(state)(id)
+  setCouleurBrosse(colors(blub(0)))
+  baisseBrosse()
+  leveBrosse()
+  state = blub(2)
+  blub(1) match{
+    case 0=>{}
+    case 1=>{avance()}
+    case 2=>{
+      gauche()
+      avance()
+    }
+    case 4=>{
+      retourne()
+      avance()
+    }
+    case 8=>{
+      droite()
+      avance()
+    }
+  }
+}
