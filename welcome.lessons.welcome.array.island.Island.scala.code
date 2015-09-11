@@ -1,18 +1,11 @@
 def island(num:Array[Int]): Int = {
-  var cpt = 0
-  for(i<-0 to num.length-1)
+	var res = 0
+  for(i <- 0 to num.length-2)
   {
-    if(isPresent(num:Array[Int] ,i:Int))
-    {cpt = i}
+    if(num(i)!=num(i+1))
+    {
+      res = res +1
+    }
   }
-  return cpt
-}
-
-def isPresent(nums:Array[Int] ,lookingFor:Int): Int = {
-  for (i<- 0 to nums.length-1)
-  {
-    if (nums(i) == lookingFor)
-    	return true
-  }
-  return false
+  return res
 }
