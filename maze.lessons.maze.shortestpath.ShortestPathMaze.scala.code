@@ -109,30 +109,36 @@ def prochaineCase() {
   val hauteurMonde = getMondeHauteur
 	val largeurMonde = getMondeLargeur
   var ind = getIndication(getX(),getY())
-  var direction = getDirection()
-  if (!estFaceMur) {
-    if (direction == Direction.NORD) {
-      if (getIndication(getX(),getY()-1) < ind ){
-        avance()
-      }
-    }
-  	if (direction == Direction.SUD) {
-      if (getIndication(getX(),getY()+1) < ind ){
-        avance()
-      }
-    }
-    if (direction == Direction.EST) {
-      if (getIndication(getX()+1,getY()) < ind ){
-        avance()
-      }
-    }
-    if (direction == Direction.OUEST) {
-      if (getIndication(getX()-1,getY()) < ind ){
-        avance()
-      }
-    }
+  setDirection(Direction.NORD)
+	var v = 0
+  var d = 0
+  v = getIndication(getX(),getY()-1)
+  if (getIndication(getX(),getY()+1) < v) {
+    v = getIndication(getX(),getY()+1)
+    d = 1
   }
-  else {
+    if (getIndication(getX()-1,getY()) < v) {
+    v = getIndication(getX()-1,getY())
+    d = 2
+  }
+    if (getIndication(getX()+1,getY()) < v) {
+    v = getIndication(getX()+1,getY())
+    d = 3
+  }
+  if (d == 0) {
+    avance()
+  }
+  if (d == 1) {
     gauche()
+    gauche()
+    avance()
+  }
+  if (d == 2) {
+    gauche()
+    avance()
+  }
+  if (d == 3) {
+  	droite()
+   	avance()
   }
 }
