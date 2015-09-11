@@ -4,11 +4,14 @@ def step(rule:Array[Char], colors:Array[Color]) {
   cou = getCouleurSol()
   for (i <- 0 to rule.length-1){
     if (cou==colors(i)){
-      dir = rule(i)
+      dir = i
     }
   }
-  if (dir=='L'){
-    gauche()
+  setCouleurBrosse(Color((i+1)%(rule.length-1))
+ 	baisseBrosse()
+ 	leveBrosse()
+  if (rule(i)=='L'){
+   	gauche()
     avance()
   }
   else {
