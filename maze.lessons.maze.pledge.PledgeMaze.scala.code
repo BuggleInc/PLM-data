@@ -1,5 +1,5 @@
-var a=1
-
+var a=0
+var b=0
 
 override def run() {
   
@@ -17,21 +17,26 @@ override def run() {
 def keepHandOnSideWall() {
   
   
-  if (a==6 && getDirection==Direction.NORD) {
+  if (a==0 && getDirection==Direction.NORD) {
     while(!estFaceMur) {
       avance()
     }
     droite()
-    a=1
+    a+=1
   }
   else {
+    if (estFaceMur) {
+      a-=1
+    }
     while (!estFaceMur) {
       avance() 
       gauche()
       if (!estFaceMur) {
-        a+=1
+        a-=1
       }
+     
     }
     droite()
+    
   }
 }
