@@ -1,58 +1,31 @@
 override def run() {
   while (!estSurBiscuit){
-    var obstacle=false
-    var obstacle2=false
-    if(estFaceMur){
-      obstacle=true
-      obstacle2=true
-      while(obstacle==true){
+    if(getDirection==Direction.NORTH){
+      droite()
+      if(estFaceMur){
         droite()
-        if(estFaceMur){
-          droite()
-          avance()
-          gauche()
-          if(estFaceMur){
-            droite()
-            if(!estFaceMur){
-              avance()
-          		gauche()
-            }else{
-              droite()
-              avance()
-              gauche()
-            }
-          	
-            if(!estFaceMur){
-              avance()
-            }
-            }else{
-            avance()
-            setDirection(Direction.NORTH)
-            droite()
-            if(!estFaceMur){
-              obstacle2=false
-            }
-            setDirection(Direction.NORTH)
-          }
-          }else{
-            avance()
-            setDirection(Direction.NORTH)
-            droite()
-            if(!estFaceMur){
-              obstacle2=false
-            }
-            setDirection(Direction.NORTH)
-          	if(!estFaceMur () && obstacle2==false){
-            	obstacle=false
-            }
-          }
+        avance()
+        setDirection(Direction.North)
+      }else{
+        gauche()
+        avance()
       }
     }else{
-      setDirection(Direction.NORTH)
-    	while(!estFaceMur){
-      	avance()
+      if (estFaceMur){
+  	droite()
+  	if(estFaceMur){
+      droite()
+      avance()
+      gauche()
+      if(estFaceMur){
+        droite()
+      }else{
+        avance()
       }
+    }else{
+      avance()
     }
-  }
-  prendBiscuit()
+	}
+    }
+  prendBiscuit() 
 }
