@@ -22,9 +22,9 @@ override def run() {
 def forkPath(xStart:Int, yStart:Int, index:Int){
  var x = xStart
  var y = yStart
-  
+ var start = index
 
- for (i <- index to (width*height) - 1){
+ for (i <- start to (width*height) - 1){
    
 	if (hasTopWall(x, y) && hasLeftWall(x, y)){
     forkPath(x - 1, y, i + 1) // forkleft
