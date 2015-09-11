@@ -18,6 +18,10 @@ def marqueCases(x: Int, y: Int, poids: Int) {
   if (x > 0 && !aMurOuest(x, y) && poids < getIndication(x - 1, y))
   	setIndication(x - 1, y, poids)
   
+  // A droite...
+  if (x < xMax & !aMurOuest(x + 1, y) && poids < getIndication(x + 1, y))
+  	setIndication(x + 1, y, poids)
+  
   
   
   // Récursivons...
