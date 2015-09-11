@@ -1,8 +1,10 @@
 override def run() {
   while (!estSurBiscuit){
     var obstacle=false
+    var obstacle2=false
     if(estFaceMur){
       obstacle=true
+      obstacle2=true
       while(obstacle==true){
         droite()
         if(estFaceMur){
@@ -14,13 +16,28 @@ override def run() {
           	avance()
           	gauche()
             setDirection(Direction.NORTH)
+            droite()
+            if(!estFaceMur){
+              obstacle2=false
+            }
+            setDirection(Direction.NORTH)
+            droite()
+            if(!estFaceMur){
+              obstacle2=false
+            }
+            setDirection(Direction.NORTH)
           	if(!estFaceMur()){
             	obstacle=false
             }
           }else{
             avance()
             setDirection(Direction.NORTH)
-          	if(!estFaceMur()){
+            droite()
+            if(!estFaceMur){
+              obstacle2=false
+            }
+            setDirection(Direction.NORTH)
+          	if(!estFaceMur () && obstacle2==false){
             	obstacle=false
             }
           }
