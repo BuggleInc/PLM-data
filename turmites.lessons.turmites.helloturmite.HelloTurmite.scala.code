@@ -1,9 +1,9 @@
 var state = 0;
-val gauche:Int = 2;
-val droite:Int = 8;
-val demiTour:Int = 4;
-val stop:Int = 0;
-val avance:Int = 1;
+val Gauche:Int = 2;
+val Droite:Int = 8;
+val DemiTour:Int = 4;
+val Stop:Int = 0;
+val Avance:Int = 1;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var c:Color = getCouleurSol()
@@ -17,18 +17,18 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   }
   action = rule(state)(indice)
   setCouleurSol(colors(action(0)))
-  if (action(1) == gauche) {
+  if (action(1) == Gauche) {
     gauche()
     avance()
-  } else if (action(1) == droite) {
+  } else if (action(1) == Droite) {
     droite()
     avance()
-  } else if (action(1) == demiTour) {
+  } else if (action(1) == DemiTour) {
     droite()
     droite()
     avance()
-  } else if (action(1) == stop) {
-  } else if (action(1) == avance) {
+  } else if (action(1) == Stop) {
+  } else if (action(1) == Avance) {
     avance()
   }
   state = action(2)
