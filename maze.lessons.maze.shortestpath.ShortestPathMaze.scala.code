@@ -34,8 +34,8 @@ def marqueCase(x: Int, y: Int, poids: Int) {
 		setIndication((x + 1) % xMax, y, poids + 1)
   }
   
-  for (nx <- 0 to xMax) {
-    for (ny <- 0 to yMax) {
+  for (nx <- 0 to xMax - 1) {
+    for (ny <- 0 to yMax - 1) {
       if (getIndication(nx, ny) == poids + 1)
       	marqueCase(nx, ny, poids + 1)
     }
@@ -45,6 +45,8 @@ def marqueCase(x: Int, y: Int, poids: Int) {
 def ecritIndications() {
   // Tout d'abord, il faut trouver la sortie ! :p
   var posSortie:Array[Int] = trouveLaSortie()
+  
+  setIndication(posSortie(0), posSortie(1), 0)
   
   marqueCase(posSortie(0), posSortie(1), 0)
 }
