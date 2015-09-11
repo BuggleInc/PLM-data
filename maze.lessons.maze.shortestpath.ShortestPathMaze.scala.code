@@ -1,14 +1,16 @@
 override def run() {
   var largeur : Int = getMondeLargeur()
   var hauteur : Int = getMondeHauteur()
-  var sortie : (Int, Int) = chercherSortie(largeur, hauteur)
+  var sortie : Int = chercherSortie(largeur, hauteur)
+  var sorx : Int = sortie % 7
+  var sory : Int = sortie / 7
   var Ttraite = new Array[Boolean](hauteur * largeur)
   var Tvaleur = new Array[Int](hauteur * largeur)
   var variableEnTraitement : Int = 0
   var min = 0
   var positionBuggleX : Int = getX()
   var positionBuggleY : Int = getY()
-  setIndication(sortie(0), sortie(1), 0)
+  setIndication(sorx, sory, 0)
   do{
     if (min == 0){
       traiterLaCase(0, hauteur, largeur)
@@ -50,10 +52,10 @@ override def run() {
 def chercherSortie(largeur : Int, hauteur : Int) : (Int, Int)={
   for (x <- 0 to largeur - 1){
     for (y <- 0 to hauteur - 1){
-      if (aBiscuit(x, y)){return (x, y)}
+      if (aBiscuit(x, y)){return (x + y)}
     }
   }
-  return (9999, 9999)
+  return (9999 + 9999)
 }
 
 def traiterLaCase(i : Int, hauteur : Int, largeur : Int) : Unit = {
