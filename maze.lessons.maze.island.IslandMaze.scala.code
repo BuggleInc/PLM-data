@@ -1,11 +1,9 @@
 override def run() {
   while (!estSurBiscuit()) {
-    murNord()
-    keepHandOnSideWall()
-    while (murGauche()==false) {
-      gauche();
+		while (!estFaceMur()) {
+    	avance();
     }
-    murNord()
+    keepHandOnSideWall()
   }
   prendBiscuit()
 }
@@ -33,8 +31,3 @@ def murGauche() {
   return res
 }
 
-def murNord() {
-	while (!estFaceMur()) {
-    	avance();
-  }
-}
