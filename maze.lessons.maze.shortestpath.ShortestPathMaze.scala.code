@@ -36,8 +36,10 @@ override def run() {
      
    }else if (getIndication(x, y-1) == 9999 && !hasTopWall(x,y)){
        y = y - 1
-   }else{
+   }else if (getIndication(x-1, y) == 9999) {
        x = x - 1
+   }else{
+     y = y + 1
    }
 
    setIndication(x, y, i)
