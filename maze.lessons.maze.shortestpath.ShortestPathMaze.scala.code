@@ -2,6 +2,7 @@ override def run() {
   var (sx, sy) = trouveSortie()
   setIndication(sx,sy,0)
   
+  
 }
 
 def trouveSortie() : (Int,Int) = {
@@ -15,4 +16,13 @@ def trouveSortie() : (Int,Int) = {
     }
   }
   return (0,0)
+}
+
+def ecrireCaseAdjacente(x:Int, y:Int, indice:Int){
+  if (!aMurNord(x,y)){ setIndication(x, y-1, indice+1)}
+  if (!aMurOuest(x,y)){ setIndication(x-1, y, indice+1)}
+  if (!aMurNord(x,y+1)){setIndication(x, y+1, indice+1)}
+  if (!aMurOuest(x+1,y)){ setIndication(x+1, y, indice+1)}
+    
+  }
 }
