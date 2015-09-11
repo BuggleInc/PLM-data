@@ -8,9 +8,27 @@ override def run() {
   tab(getMondeHauteur()-1) = getCouleurSol()
   // remplissage du tableau
   
-  for (i <- 1 to getMondeHauteur()) {recule()}
+  for (i <- 1 to getMondeHauteur()-1) {recule()}
+  //retour point de d?part
+ 
+  gauche()
+  avance()
+  droite()
+  val decalage = litMessage().toInt
   
+ 	setCouleurBrosse( tab((0+decalage)%getMondeHauteur()) );
+  baisseBrosse();
+  leveBrosse();
+	avance()
+  for (j <- 1 to getMondeHauteur()-1) {
+    
+    setCouleurBrosse( tab((j+decalage)%getMondeHauteur()) );
+    baisseBrosse();
+    leveBrosse();
+    if(j < getMondeHauteur -1){
+          avance();
+
+    }
+
+  }
   
-}
-
-
