@@ -11,28 +11,19 @@ def fin(compteur:Int):Boolean =
   }
 }
 
-def avance2(compteur:Int)
-{
-  var tourne:Boolean = false
-  
-  if(compteur+1%getMondeLargeur()==0)
-  {
-    tourne = true
-  }
-  if(compteur%getMondeLargeur()==0)
-  {
-    tourne = true
-  }
-  
-  if((getX()==getMondeLargeur()-1)&&(tourne))
+def avance2(droite:Boolean):Boolean =
+{ 
+  if((getX()==getMondeLargeur()-1)&&(droite))
   {
     setPos(getX(),getY()+1)
+    droite = false
   }
-  else if((getX()==0)&&(tourne))
+  else if((getX()==0)&&(doite!))
   {
     setPos(0,getY()+1)
+    droite = true
   }
-  else if(getY()%2==0)
+  else if(droite)
   {
     setPos(getX()+1,getY())
   }
@@ -40,16 +31,18 @@ def avance2(compteur:Int)
   {
     setPos(getX()-1,getY())
   }
+  return droite
 }
 
 override def run()
 {
   var compteur:Int = 0
+  var droite:Boolean = true
   
   do
   {
     ecritMessage(compteur)
-    avance2(compteur)
+    droite=avance2(droite)
     compteur = compteur + 1
   }
   while(!fin(compteur))
