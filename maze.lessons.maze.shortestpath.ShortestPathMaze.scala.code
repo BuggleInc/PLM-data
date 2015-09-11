@@ -1,0 +1,120 @@
+var cpt = 0
+
+override def run() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var coordBiscuit = new Array[Int](2)
+  coordBiscuit(0) = trouveLeBiscuit()(0)
+  coordBiscuit(1) = trouveLeBiscuit()(1)
+	setIndication(coordBiscuit(0),coordBiscuit(1),cpt)
+  while (!verifieCases()) {
+		for(y <- 0 to hauteurMonde-1) {
+      for(x <- 0 to largeurMonde-1) {
+        if (getIndication(x,y) != 9999) {
+          marqueCaseAutour(x,y)
+        }
+      }
+    }
+  }
+  /*
+  while (!estSurBiscuit) {
+    prochaineCase()
+  }
+  prendBiscuit()
+  */
+}
+
+def trouveLeBiscuit(): Array[Int] = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  /*var y = 0
+  var x = 0*/
+  var T = new Array[Int](2)
+  for (y <- 0 to hauteurMonde-1) {
+    for (x <- 0 to largeurMonde-1) {
+      if (aBiscuit(x,y)) {
+        T(0) = x
+        T(1) = y
+        return T 
+      }
+    }
+  }
+  return T
+}
+
+def marqueCaseAutour (x : Int, y : Int) {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  cpt =getIndication(x,y)+1
+  if (!aMurNord(x,y)) {
+    if (getIndication(x,y-1) == 9999) {
+    	setIndication(x,y-1,cpt)
+    }
+  }
+  if (!aMurOuest(x,y)) {
+    if (getIndication(x-1,y) == 9999) {
+    	setIndication(x-1,y,cpt)
+    }
+  }
+  /*if (!aMurEst) {
+    if (getIndication(x+1,y) == 9999) {
+    	setIndication(x+1,y,cpt)
+    }
+  }
+  if (!aMurSud) {
+    if (getIndication(x,y+1) == 9999) {
+    	setIndication(x,y+1,cpt)
+    }
+  }*/
+}
+
+def verifieCases (): Boolean = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var compteur = 0
+  for (y <- 0 to hauteurMonde-1) {
+    for (x <- 0 to largeurMonde-1) {
+      if (getIndication(x,y) != 9999) {
+        compteur = compteur+1
+      }
+    }
+  }
+  if (largeurMonde*hauteurMonde == compteur) {
+    return true
+  }
+  else{
+    return false
+  }
+}
+
+def prochaineCase() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var ind = getIndication(getX(),getY())
+  var direction = getDirection()
+  if (!estFaceMur) {
+    if (direction == Direction.NORD) {
+      if (getIndication(getX(),getY()-1) < ind ){
+        avance()
+      }
+    }
+  	if (direction == Direction.SUD) {
+      if (getIndication(getX(),getY()+1) < ind ){
+        avance()
+      }
+    }
+    if (direction == Direction.EST) {
+      if (getIndication(getX()+1,getY()) < ind ){
+        avance()
+      }
+    }
+    if (direction == Direction.OUEST) {
+      if (getIndication(getX()-1,getY()) < ind ){
+        avance()
+      }
+    }
+  }
+  else {
+    gauche()
+  }
+}
