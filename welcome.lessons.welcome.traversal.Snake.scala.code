@@ -1,14 +1,30 @@
 override def run() {
-  for(i<-1 to 7*4)
+  while(!posfinale())
   	serpent()
+}
+
+def posfinale():Boolean={
+  if(estFaceMur()){
+    droite()
+    if(getDirection()==Direction.EST){
+      gauche()
+      if(estFaceMur()){
+        return true
+      }
+    }
+    retourne()
+    if(getDirection()==Direction.OUEST){
+      droite()
+      if(estFaceMur()){
+        return true
+      }
+    }
+  }
+  return false
 }
 
 def serpent(){
   if(!estFaceMur()){
     avance()
-  } else{
-    droite()
-    avance()
-    droite()
   }
 }
