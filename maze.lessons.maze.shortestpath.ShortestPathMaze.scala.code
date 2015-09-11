@@ -120,11 +120,11 @@ def prochaineCase() {
     v = getIndication(getX(),getY()+1)
     d = 2
   }
-    if (getIndication(getX()-1,getY()) < v  && !aMurOuest(getX,getY) ) { //Ouest
+    if (!aMurOuest(getX,getY) && getIndication(getX()-1,getY()) < v) { //Ouest
     v = getIndication(getX()-1,getY()) 
     d = 3
   }
-    if (getIndication(getX()+1,getY()) < v && getX()!=largeurMonde-1 && !aMurOuest(getX()+1,getY())) { //Est
+    if (getX()!=largeurMonde-1 && !aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY()) < v) { //Est
     v = getIndication(getX()+1,getY())
     d = 4
   }
