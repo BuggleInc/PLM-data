@@ -1,5 +1,17 @@
 override def run() {
-  while(!estFaceMur){
+  setCouleurBrosse()
+  baisseBrosse()
+  if (estFaceMur & getDirection==Direction.EST) {
+    gauche()
     avance()
+    gauche()
+  } else if (estFaceMur & getDirection==Direction.OUEST)  {
+    droite()
+    avance()
+    droite()
+  } else if (!estFaceMur) {
+    avance()
+  }
+    
   }
 }
