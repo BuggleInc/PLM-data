@@ -1,5 +1,6 @@
 override def run() {
   while (!estSurBiscuit()) {
+    
     while (murGauche()==false) {
       gauche();
     }
@@ -29,4 +30,14 @@ def murGauche() {
   }
   droite
   return res
+}
+
+def murNord() {
+  setDirection = Direction.NORD
+  while (!estFaceMur()) {
+    avance();
+  }
+  while(estFaceMur()) {
+    keepHandOnSideWall()
+  }
 }
