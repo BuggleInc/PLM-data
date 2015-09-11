@@ -1,9 +1,39 @@
 override def run() {
-	while(!estSurBiscuit()){
-    var direction=plm.Univers.random3()
-    if( direction== 0 && !estFaceMur()){ avance()}
-    if (direction==1){droite()}
-    if(direction==2){gauche()}
+  while (!estSurBiscuit()){  
+    keepHandOnSideWall()
   }
   prendBiscuit()
+}
+var sommeAngle=0
+
+def keepHandOnSideWall(){
+  if (getDirection()==Direction.NORTH && !estFaceMur() && sommeAngle==0){
+    avance()
+  }
+  else if (getDirection()==Direction.NORTH && estFaceMur()){
+        droite()
+      sommeAngle = sommeAngle-1}
+  else {
+  gauche()
+  sommeAngle = sommeAngle+1
+  if (!estFaceMur()){
+    avance()
+  } else {
+    droite()
+    sommeAngle = sommeAngle-1
+    if (!estFaceMur()){
+      avance()
+    } else {
+      droite()
+      sommeAngle = sommeAngle-1
+      if (!estFaceMur()){
+        avance()
+      } else {
+        droite()
+        sommeAngle = sommeAngle-1
+        avance()
+      }
+    }
+  }
+}
 }
