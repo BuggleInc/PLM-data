@@ -1,0 +1,43 @@
+override def run() {
+  motif2()
+  avanceN(4)
+  motif2()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  motif2()
+  avanceN(4)
+  motif2()
+}
+
+def motif1(c1:Color,c2:Color){
+  avance()
+  setCouleurBrosse(c1)
+  baisseBrosse()
+  leveBrosse()
+  setCouleurBrosse(c2)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+}
+
+def motif2(){
+  motif1(Color.RED,Color.BLUE)
+  motif1(Color.BLUE,Color.GREEN)
+  motif1(Color.GREEN,Color.YELLOW)
+  motif1(Color.YELLOW,Color.RED)
+}
+
+def avanceN( n : Int){
+  for (i<-1 to n){
+    avance()
+  }
+}
+def reculeN( n : Int){
+  for (i<-1 to n){
+    recule()
+  }
+}

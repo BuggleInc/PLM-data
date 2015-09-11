@@ -1,0 +1,43 @@
+override def run() {
+  for (i<- 1 to 9){
+    for (i<-1 to 9){
+      carreVColor()
+      avance(5)
+    }
+    gauche()
+    avance(5)
+    droite()
+  }
+}
+
+def faireVolre(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+}
+
+def carreVColor(){
+  faireVolre(Color.YELLOW)
+  faireVolre(Color.RED)
+  faireVolre(Color.BLUE)
+  faireVolre(Color.GREEN)
+}
+
+def avanceN( n : Int){
+  for (i<-1 to n){
+    avance()
+  }
+}
