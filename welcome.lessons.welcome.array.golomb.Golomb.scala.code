@@ -9,10 +9,9 @@ def golomb(num:Int): Int = {
   if (num == 2) {return 2}
   var compteur:Int = 3
   var i:Int = 3
-  var k:Int = 3
   while (tableau(num) == 0) {
     
-    var nbCasesARemplir:Int = tableau(k)
+    var nbCasesARemplir:Int = tableau(i -1)
     var compteur2:Int = 0
     var j:Int = i
     while (compteur2 != nbCasesARemplir) {
@@ -22,7 +21,6 @@ def golomb(num:Int): Int = {
     }
     compteur = compteur + 1
     i = i + nbCasesARemplir
-    k = k + 1
   }
 	return tableau(num-1)
 
