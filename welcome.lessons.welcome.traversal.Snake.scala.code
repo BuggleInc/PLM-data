@@ -5,20 +5,11 @@ override def run() {
 }
 
 def posfinale():Boolean={
-  if(estFaceMur()){
-    if(getDirection()==Direction.EST){
-      gauche()
-      if(estFaceMur()){
-        return true
-      }
-    } else{ 
-      droite()
-      if(estFaceMur()){
-        return true
-      }
-      }
-    }
-  return false
+  if((estFaceMur && getDirection()==Direction.EST) || (estFaceMur && getDirection()==Direction.OUEST)){
+    return true
+  } else{
+    return false
+  }
 }
 
 def serpent(){
