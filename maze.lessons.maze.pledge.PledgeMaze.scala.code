@@ -1,9 +1,12 @@
 override def run() {
-  while(!estFaceMur()){
-    avance()
+  while(!estSurBiscuit()){
+    while(!estFaceMur()){
+      avance()
+    }
+    obstacle()
   }
-  obstacle()
 }
+
 
 def murgauche(): Boolean ={
   left()
@@ -44,6 +47,6 @@ def obstacle(){
       avance()
       angles = angles-1
     }
-  } while(!(angles==0))
-  
+  } while(!(angles==0) && !estSurBiscuit())
+
 }
