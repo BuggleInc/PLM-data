@@ -12,26 +12,28 @@ def fin(compteur:Int):Boolean =
 }
 
 def avance2()
-{ 
-  if(getX()==getMondeLargeur()-1)
+{
+  var tourne:Boolean = false
+  
+  if((getX()==getMondeLargeur()-1)&&(tourne))
   {
     setPos(getX(),getY()+1)
-    print("1")
+    tourne = false
   }
-  else if(getX()==0)
+  else if((getX()==0)&&(tourne))
   {
     setPos(0,getY()+1)
-    print("2")
+    tourne = false
   }
   else if(getY()%2==0)
   {
     setPos(getX()+1,getY())
-    print("3")
+    tourne = true
   }
   else
   {
     setPos(getX()-1,getY())
-    print("4")
+    tourne = true
   }
 }
 
