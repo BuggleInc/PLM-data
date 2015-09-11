@@ -79,7 +79,7 @@ override def run() {
     			{setDirection(Direction.NORD)}
     //case a droite
     if (posx < largeur-1 
-        && !aMurOuest(posx,posy)
+        && !aMurOuest(posx+1,posy)
         && getIndication(posx+1,posy)<ind)
     			{setDirection(Direction.EST)}
     //case au dessous
@@ -89,7 +89,7 @@ override def run() {
     			{setDirection(Direction.SUD)}
     //case a gauche
     if (posx > 0
-        && !aMurOuest(posx-1,posy)
+        && !aMurOuest(posx,posy)
         && getIndication(posx-1,posy)<ind)
     			{setDirection(Direction.OUEST)}
     }
