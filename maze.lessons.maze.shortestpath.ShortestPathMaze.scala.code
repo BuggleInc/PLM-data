@@ -17,14 +17,20 @@ override def run() {
   
   var posX=0
   var posY=0
-  while(!aBiscuit(posX,posY)){
-    posX+=1
-    posY+=1
+  
+  for(x<- 0 to getMondeLargeur()){
+    for(y<- 0 to getMondeHauteur()){
+  	   if (aBiscuit(x,y)) {
+         posX = x;
+         posY = y;
+       }      
+    }
   }
   
-
-  
   setIndication(posX,posY,0)
+
+  /*
+  
   var chiffre =0
   while(getIndication(getX(),getY())==9999){
     for(x<- 0 to getMondeLargeur()){
@@ -47,4 +53,5 @@ override def run() {
     }
     chiffre+=1
   }
+  */
 }
