@@ -1,13 +1,19 @@
 override def run() {
-var cpt = 0
-  ecritMessage(0)
+var cpt = -1
   for (h <- 0 to getMondeLargeur()-1) {
-    for (l <- 1 to getMondeHauteur()-1) {
-      setPos(h,l)
-      cpt = cpt +13
+    if (h%2 == 0) {
+    for (l <- 0 to getMondeHauteur()-1) {
+      setPos(l,h)
+      cpt = cpt +1
       ecritMessage(cpt)
     } 
-   	cpt = 1 
-	}    
+	}
+    else {
+      for (l <- getMondeHauteur()-1 to 0 by -1) {
+      setPos(l,h)
+      cpt = cpt +1
+     
+    }
+  }
   
 }
