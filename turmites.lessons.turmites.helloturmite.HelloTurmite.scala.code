@@ -9,10 +9,10 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
       test = i
     }
   }
-  setCouleurBrosse(colors((test+1)%(colors.length)))
+  setCouleurBrosse( mov = rule(state)(test)(0))
  	baisseBrosse()
  	leveBrosse()
-  mov= rule(state)(test)(mov)
+  mov = rule(state)(test)(1) // récupère le mouvement suivant
   if (mov==1){
     avance()
   }
@@ -28,6 +28,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     droite()
     avance()
   }
+  state =  rule(state)(test)(2) 
 }
 
   
