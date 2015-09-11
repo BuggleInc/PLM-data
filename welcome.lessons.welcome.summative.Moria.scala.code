@@ -20,7 +20,7 @@ def marcherVersOuest(){
 
 
 def deplacerBiscuit(){
-  while (!estSurBiscuit() && !estFaceMur()){
+  while (!estSurBiscuit()){
     avance()
   }
   prendBiscuit()
@@ -31,5 +31,7 @@ def deplacerBiscuit(){
   recule()
   poseBiscuit()
   retourne()
-  avance()
+  if(!estFaceMur()){
+    avance()
+  }
 }
