@@ -1,0 +1,19 @@
+override def run()
+{
+  while(!estSurBiscuit())
+  {
+    x=random3()
+    
+    x match
+   	{
+      case 0 => droite()
+      case 1 => gauche()
+    }
+    
+    if(!estFaceMur())
+    {
+      avance()
+    }
+  }
+  prendBiscuit()
+}
