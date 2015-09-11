@@ -6,10 +6,24 @@ override def run() {
 
 def setup() {
   setIndication(foundBaggle(true),foundBaggle(false),0)
+  while(!isSetupEnd)
+  {
+    for(x<-0 to getMondeLargeur()-1)
+    {
+      for(y<-0 to getMondeHauteur()-1)
+      {
+        if(getIndication(x,y)==9999)
+        {
+          fin = false
+        }	
+      }
+    }
+  }
 }
 
 def arround(x:Int,y:Int,cpt:Int) {
-  if(!aMurNord(x,y))
+  var autour = new Array[Int](4)
+  if(!aMurNord(x,y) && x!=getMondeLargeur() && )
   	setIndication(x-1,y,cpt+1)
   if(!aMurOuest(x,y))
   	setIndication(x,y-1,cpt+1)
@@ -48,4 +62,16 @@ def foundBaggle(b:Boolean):Int = {
   	return bx
   else
   	return by
+}
+
+def aMurSud(x:Int,y:Int):Boolean = {
+  if(y==getMondeHauteur()-1)
+  	return true
+  return aMurNord(x,y+1)
+}
+
+def aMurEst(x:Int,y:Int):Boolean = {
+  if(x==getMondeLargeur()-1)
+  	return true
+  return aMurOuest(x,y+1)
 }
