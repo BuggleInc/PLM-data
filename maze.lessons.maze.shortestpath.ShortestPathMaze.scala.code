@@ -13,10 +13,25 @@ def trouveLaSortie(): Array[Int] = {
 }
 
 def casesAdjacentes(pos: Array[Int]): Array[Array[Int]] = {
+  var xMax:Int = getMondeLargeur() - 1
+	var yMax:Int = getMondeHauteur() - 1
+  
   var result:Array[Array[Int]] = Array[Array[Int]]()
   
-  if(pos(0) > 0) {
+  if (pos(0) > 0) {
     result :+ Array[Int](pos(0) - 1, pos(1))
+  }
+  
+  if (pos(0) < xMax) {
+    result :+ Array[Int](pos(0) + 1, pos(1))
+  }
+  
+  if (pos(0) > 0) {
+    result :+ Array[Int](pos(0), pos(1) - 1)
+  }
+  
+  if (pos(1) < yMax) {
+    result :+ Array[Int](pos(0), pos(1) + 1)
   }
   
   return result
@@ -28,7 +43,12 @@ def ecritIndications() {
   
   setIndication(posSortie(0), posSortie(1), 0)
   
-  // Maintenant on écrit les indications sur les cases adjacentes de façon récursive.
+  // Maintenant on écrit les indications sur les cases adjacentes.
+  var casesMarquees:Int = 1
+  
+  while (casesMarquees != getMondeHauteur() * getMondeLargeur()) {
+    
+  }
 }
 
 override def run() {
