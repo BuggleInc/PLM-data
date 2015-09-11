@@ -1,18 +1,36 @@
 override def run() {
   setCouleurBrosse(Color.BLACK);
-  gauche;avance;baisseBrosse
-  for (i<- 1 to 4){
-    avance;
+  baisseBrosse;
+  while (!finTest){
+    if (!estFaceMur){
+      avance;
+    }else{
+      if (getDirection==Direction.EST){
+        gauche;avance;gauche
+      }
+      if (getDirection==Direction.OUEST){
+        droite;avance;droite
+      }
+    }
   }
-  droite;avance;avance;droite;avance;avance
-  droite;avance;avance;leveBrosse
-  recule;recule;recule;recule;
-  gauche;avance;avance;droite;droite;
-  baisseBrosse;avance;avance;avance;avance;
-  droite;avance;
-  avance;droite;avance;avance
-  baisseBrosse;avance;avance;droite;avance
 }
-  
-  
-  
+
+
+def finTest () :Boolean ={
+  var a:Boolean=false
+  if (getDirection==Direction.EST && estFaceMur){
+    gauche()
+    if(estFaceMur){
+      droite()
+      return true
+    }else{
+      droite()
+      return false
+    }
+
+
+  }else{
+    return false
+  }
+  return false
+}
