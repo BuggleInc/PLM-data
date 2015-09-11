@@ -13,10 +13,12 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     if (couleurActuelle == colors(i))
     	rgCouleur = i
   }
-  
-  
+  var rgNextColor = rule(state)(rgCouleur)(0)
+  var nextColor = colors(rgNextColor)
+    
+  }
   //Prochaine couleur ?
-  var nextColor = rule(state)(rgCouleur)(0)
+  
  	//Prochain mvt ?
   var mvtSuiv = rule(state)(rgCouleur)(1)
   
