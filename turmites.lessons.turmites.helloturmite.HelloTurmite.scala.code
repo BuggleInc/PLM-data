@@ -8,23 +8,23 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
         couleurSol=j
       }
     }
-    setCouleurBrosse(colors(rule(state)(colors(couleurSol))(0)))
-    if (rule(state)(colors(couleurSol))(1) == 1) {
+    setCouleurBrosse(colors(rule(state)(couleurSol)(0)))
+    if (rule(state)(couleurSol)(1) == 1) {
       avance()
     }
-    if (rule(state)(colors(couleurSol))(1) == 2) {
+    if (rule(state)(couleurSol)(1) == 2) {
       gauche()
       avance()
     }
-    if (rule(state)(colors(couleurSol))(1) == 4) {
+    if (rule(state)(couleurSol)(1) == 4) {
       gauche()
       gauche()
       avance()
     }
-    if (rule(state)(colors(couleurSol))(1) == 8) {
+    if (rule(state)(couleurSol)(1) == 8) {
       droite()
       avance()
     }
-    state = rule(state)(colors(couleurSol))(2)
+    state = rule(state)(couleurSol)(2)
   }
 }
