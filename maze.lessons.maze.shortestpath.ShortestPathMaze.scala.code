@@ -1,9 +1,11 @@
 override def run() {
-    // Your code here
+    distanceFin()
 }
 
 def distanceFin ():Unit={
-  
+  indiqueBiscuit()
+  indiqueLeReste(trouveBiscuit())
+  suivreLeChemin()
 }
 
 def trouveBiscuit():(Int,Int)={
@@ -17,25 +19,85 @@ def trouveBiscuit():(Int,Int)={
   return (9999,9999) //cas où il n'y a pas de biscuit
 }
 
+def min4(x:Int,y:Int,a:Int,b:Int):Int ={
+  return min((min(x,y),min(a,b))
+}
+
+def caseVoinsineLaPlusProche(x:Int,y:Int):(Direction)={
+  val haut=getIndication(x,y-1)
+  val gauche=getIndication (x-1,y)
+  val droite=getIndication (x+1,y)
+  val bas=getIndication (x,y+1)
+  var pluspetit=min4(haut,gauche,droite,bas)
+  pluspetit match {
+    case haut => Direction.NORD
+    case gauche => Direction.OUEST
+    case droite => Direction.EST
+    case _ => Direction.SUD
+  }
+  
+} 
+
+def suivreLeChemin():Unit={
+  var temp=(0,0)
+  var x=getX()
+  var y=getY()
+  while (!estSurBiscuit()){
+    temp=caseVoisineLaPlusProche(x,y)
+    void setDirection(temp)
+    temp match{
+      case Direction.NORD =>y=y-1
+      case Direction.OUEST =>x=x-1
+      case Direction.EST => x=x+1
+      case _ =>y=y+1
+    }
+    avance()
+  }
+}
+
 def indiqueBiscuit():Unit={
   var (x,y)=trouveBiscuit()
   setIndication(x,y,0)
 }
 
 def indiqueLeReste(x,y):Unit={
-  if (aBiscuit(x,y)){
-    (x,y) match {
-      //au dessus
+   val xmax=getMondeLargeur()
+  val ymax=getMondeHauteur()
+  if (trouveBiscuit()!=(9999,9999)){
+    /*(x,y) match {
+      au dessus
       //case _,0 => rien
       //case x,y if (y!=0)&&aMurNord(x,y) =>rien
-      case x,y if (y!=0)&&(!aMurNord(x,y))=> if (getIndication(x,y-1))!=9999 {indiqueLeReste(x,y-1)}
+      //case x,y if (y!=0)&&(!aMurNord(x,y))=> if (getIndication(x,y-1))!=9999 {indiqueLeReste(x,y-1)}
       //a gauche
       //case 0,_ => rien
-      case x,y if x!=0 => if (getIndication(x-1,y))!=9999 {indiqueLeReste(x-1,y)}
+      //case x,y if (x!=0)&&(aMurOuest(x,y))=> rien
+      //case x,y if (x!=0)&&(!aMurOuest(x,y)) => if (getIndication(x-1,y))!=9999 {indiqueLeReste(x-1,y)}
       //a droite
       //case 6,_ => rien
-      //case x,y
-      case _,_ =>in
-    }
-  }
-}
+      //case x,y if x!=6 =>if (getIndication(x-1,y))!=9999 {indiqueLeReste(x+1,y)}
+      
+      //case _,_ =>in
+      
+      //coin en haut à gauche
+      case 0,0 if (getIndication(1,0)!=9999)&&getIndication(0,1))!=9999 => indiqueLeReste(1,0);indiqueLeReste(0,1)
+      case 0,0 if (getIndication(1,0)!=9999)&&getIndication(0,1)==9999 => indiqueLeReste(1,0)
+      case 0,0 if (getIndication(1,0)==9999)&&getIndication(0,1)!=9999 => indiqueLeReste(0,1)
+      //coin en haut à droite
+      case xmax-1,0 if (getIndication(xmax-2,0)!=9999)&&(getIndication(xmax-1,1)!=9999)&&(!aMurOuest(xmax-1,0)) => indiqueLeReste (xmax-2,0);indiqueLeReste(xmax-1)
+      case xmax-1,0 if (getIndication(xmax-2,0)==9999)&&getIndication(xmax-1,1)!=9999 => indiqueLeReste(xmax-1,1)
+      case xmax-1,0 if (getIndication(xmax-2,0)!=9999)&&(getIndication(xmax-1,1)==9999)&&(!aMurOuest(xmax-1,0)) => indiqueLeReste (xmax-2,0)
+      //coin en bas à gauche
+      case 0,ymax-1 if (getIndication(0,ymax-2)!=9999)&&(getIndication(1,ymax-1)!=9999)&&(!aMurNord(0,ymax-1)) => indiqueLeReste (0,ymax-2);indiqueLeReste(1,ymax-1)
+      case 0,ymax-1 if (getIndication(0,ymax-2)==9999)&&getIndication(1,ymax-1)!=9999 => indiqueLeReste(1,ymax-1)
+      case 0,ymax-1 if (getIndication(0,ymax-2)!=9999)&&(getIndication(1,ymax-1)==9999)&&(!aMurNord(0,ymax-1)) => indiqueLeReste(0,ymax-2)
+      //coin en bas à droite
+      case xmax-1,ymax-1 if (getIndication(xmax-2,ymax-1)!=9999)&&(getIndication(xmax-1,ymax-2)!=9999)&& => if (!aMurOuest(xmax-1,ymax-1)) {indiqueLeReste(xmax-2,ymax-1)}; if (!aMurNord(xmax-1,0)) {indiqueLeReste(xmax-1,ymax-2)}
+      case xmax-1,ymax-1 if (getIndication(xmax-2,ymax-1)==9999)&&getIndication(xmax-1,ymax-2))!=9999 => if (!aMurNord(xmax-1,ymax-1)) {indiqueLeReste(xmax-1,ymax-2)}
+      case xmax-1,ymax-1 if (getIndication(xmax-2,ymax-1)!=9999)&&getIndication(xmax-1,ymax-2))==9999 => if (!aMurOuest(xmax-1,ymax-1)) {indiqueLeReste(xmax-2,ymax-1)}
+      //cas general */
+      if ((x!=0)&&(!aMurOuest(x,y))) {indiqueLeReste(x-1,y)}
+      if ((y!=0)&&(!aMurNord(x,y))) {indiqueLeReste(x,y-1)}
+    	if ((x!=xmax-1)&&(!aMurOuest(x+1,y))) {indiqueLeReste(x+1,y)}
+    	if ((y!=ymax-1)&&(!aMurNord(x,y+1))) {indiqueLeReste(x,y+1)}	
+    }}
