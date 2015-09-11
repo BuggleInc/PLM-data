@@ -1,21 +1,22 @@
 override def run() {
   
-  var posBaggle : Array[Int] = new Array[Int](2)
+  var x:Int = 0
+  var y:Int = 0
   
   for (i<- 0 to getMondeHauteur()){
     for (j<- 0 to getMondeLargeur()){
-      if (aBiscuit(j,i)==true){posBaggle(0)=j;posBaggle(1)=i}  // trouve le Baggle
+      if (aBiscuit(j,i)==true){x=j;y=i}  // trouve le Baggle
     }
   }
   
-  
   var cpt:Int =0
-  setIndication(posBaggle(0),posBaggle(1),cpt)  // note "0" sur le finish
+  
+  setIndication(x,y,cpt) // note "0" sur le finish
   cpt=1
   
   
   while (!arret){    // numérote 
-    
+    if (!aMurNord())
   }
 
   
@@ -31,11 +32,11 @@ def arret:Boolean={  // test si on a numeroté la case du buggle
   return true 
 }
 
-def aMurSud(x,y);Boolean = {  // test mur au SUD
+def aMurSud(x,y):Boolean = {  // test mur au SUD
   if (aMurNord(x,y+1)==true){return true}
   return false
 }
-def aMurEst(x,y);Boolean = {   // test mur à l'EST
+def aMurEst(x,y):Boolean = {   // test mur à l'EST
   if (aMurOuest(x+1,y)==true){return true}
   return false
 }
