@@ -1,13 +1,14 @@
 def noTriples(nums:Array[Int]): Boolean = {
   
-  var premierTriplet:Int = nums(0)
+  var premierTriplet:Int = 0
   var deuxiemeTriplet:Boolean = false
   var troisiemeTriplet:Boolean = false
   
-  for (i <- 1 to nums.length -2) {
+  for (i <- 0 to nums.length -3) {
     
-    if (nums(i) == premierTriplet) {deuxiemeTriplet = true}
-    if (nums(i+1) == premierTriplet) {troisiemeTriplet = true}
+    premierTriplet = nums(i)
+    if (nums(i+1) == premierTriplet) {deuxiemeTriplet = true}
+    if (nums(i+2) == premierTriplet) {troisiemeTriplet = true}
     
   }
   
