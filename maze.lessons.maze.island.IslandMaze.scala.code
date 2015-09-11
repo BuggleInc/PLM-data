@@ -4,7 +4,9 @@ override def run() {
    		avance()
   	} else if (!estFaceMur() && !(getDirection()==Direction.NORTH)) {
   		gauche()
-      avance()
+      if (!stFaceMur()) {
+        avance()
+      }
 		} else keepHandOnSideWall()
 }
   prendBiscuit()
