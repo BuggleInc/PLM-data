@@ -10,9 +10,9 @@ override def run() {
     //parcoursDiag(i);
   }
   
-  /*
+  
   for (i <- 0 to 6){    
-    parcoursDiag(i,cpt + 1)
+    parcoursDiag2(i,cpt + 1)
     cpt = cpt + 1;
   }*/
 }
@@ -25,6 +25,28 @@ def parcoursDiag(diag:Int,cpt:Int): Int={
   var cpt2=cpt
   
   setPos(0,diag)
+  ecritMessage(cpt2)
+  cpt2=cpt2+1
+  
+  while (y!=0){
+    x+=1
+    y-=1    
+    setPos(x,y)
+    ecritMessage(cpt2)
+    cpt2=cpt2+1
+  }
+  //cpt = cpt2
+  return cpt2
+}
+
+def parcoursDiag2(diag:Int,cpt:Int): Int={
+//def parcoursDiag(diag:Int): Int={
+  
+  var y=diag
+  var x=0
+  var cpt2=cpt
+  
+  setPos(diag,6)
   ecritMessage(cpt2)
   cpt2=cpt2+1
   
