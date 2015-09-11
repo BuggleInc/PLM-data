@@ -62,17 +62,19 @@ def parcoursCeTruc() {
   var x:Int = getX()
   var y:Int = getY()
   
-  if (x > 0 && getIndication(x, y) > getIndication(x - 1, y))
-    gauche(); avance(); droite()
-  
-  if (y > 0 && getIndication(x, y) > getIndication(x, y - 1))
-  	avance()
-  
-  if (x < xMax && getIndication(x, y) > getIndication(x + 1, y))
-  	droite(); avance(); gauche()
-  
-  if (y < yMax && getIndication(x, y) > getIndication(x, y + 1))
-  	retourne(); avance(); retourne()
+  while (!estSurBiscuit()) {
+    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y))
+      gauche(); avance(); droite()
+
+    if (y > 0 && getIndication(x, y) > getIndication(x, y - 1))
+      avance()
+
+    if (x < xMax && getIndication(x, y) > getIndication(x + 1, y))
+      droite(); avance(); gauche()
+
+    if (y < yMax && getIndication(x, y) > getIndication(x, y + 1))
+      retourne(); avance(); retourne()
+  }
 }
 
 override def run() {
