@@ -16,19 +16,19 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   var xMax:Int = getMondeLargeur() - 1
 	var yMax:Int = getMondeHauteur() - 1
  
-	if (x > 0 && !aMurOuest(x, y) && getIndication(x - 1, y) == 9999) {
+	if (x > 0 && !aMurOuest(x, y) && getIndication(x - 1, y) >= poids) {
     setIndication(x - 1, y, poids)
   }
   
-  if (y > 0 && !aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
+  if (y > 0 && !aMurNord(x, y) && getIndication(x, y - 1) >= poids) {
       setIndication(x, y - 1, poids)
   }
   
-  if (x < xMax && !aMurOuest(x + 1, y) && getIndication(x + 1, y) == 9999) {
+  if (x < xMax && !aMurOuest(x + 1, y) && getIndication(x + 1, y) >= poids) {
     setIndication(x + 1, y, poids)
   }
   
-  if (y < yMax && !aMurNord(x, y + 1) && getIndication(x, y + 1) == 9999) {
+  if (y < yMax && !aMurNord(x, y + 1) && getIndication(x, y + 1) >= poids) {
     setIndication(x, y + 1, poids)
   }
   
