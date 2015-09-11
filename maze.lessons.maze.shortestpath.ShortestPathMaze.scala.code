@@ -1,0 +1,33 @@
+override def run() {
+    while (estFaceMur==false){
+    avance()
+  }
+  droite()
+  
+  
+  while(estSurBiscuit==false){
+  	ouAvance() match{
+    	case 0 => avance()
+    	case 1 => avance()
+    	case 2 => avance()
+    	case 3 => droite();avance()
+  	}
+	}
+  
+  prendBiscuit
+}
+
+def ouAvance():Int ={
+  gauche()
+  if (estFaceMur==false){ return 0 }
+  else{
+    droite()
+    if(estFaceMur==false){ return 1 }
+    else {
+      droite()
+      if (estFaceMur==false){ return 2 }
+      else{return 3}
+    }
+  }
+    // Your code here
+}
