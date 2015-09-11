@@ -19,6 +19,44 @@ def remplissageCase(x:Int,y:Int,i:Int){
   }
 }
 
+def directionASuivre(){
+  var posx : Int = getX()
+  var posY : Int = getY() 
+  var indNord:Int = 9999
+  var indSud : Int = 9999
+  var indOuest: Int = 9999
+  var indEst:Int = 9999
+  void setDirection(Direction.NORD)
+  if (!estFaceMur){
+    indNord=getIndication(posx,posy+1)   
+  }
+  void setDirection(Direction.SUD)
+  if (!estFaceMur){
+    indSud=getIndication(posx,posy-1)   
+  }
+  void setDirection(Direction.OUEST)
+  if (!estFaceMur){
+    indOuest=getIndication(posx-1,posy)   
+  }
+  void setDirection(Direction.EST)
+  if (!estFaceMur){
+    indEst=getIndication(posx+1,posy)   
+  }
+  if (indSud<indNord && indSud<indOuest && indSud<indEst){
+    setDirection(Direction.SUD)
+  }
+  if (indNord<indSud && indNord<indOuest && indNord<indEst){
+    setDirection(Direction.NORD)
+  }
+  if (indOuest<indNord && indOuest<indSud && indOuest<indEst){
+    setDirection(Direction.OUEST)
+  }
+  if (indEst<indNord && indEst<indOuest && indEst<indSud){
+    setDirection(Direction.EST)
+    
+  } 
+  
+}
 
 override def run() {
     // Your code here
@@ -35,6 +73,10 @@ override def run() {
     }
   }
   setIndication(xBiscuit,yBiscuit,0)
-  remplissageCase(xBiscuit,yBiscuit,0) 
-  
+  remplissageCase(xBiscuit,yBiscuit,0)
+  while (!estSurBiscuit()){
+    directionASuivre()
+    avance()
+  }
+  prendBiscuit()
 }
