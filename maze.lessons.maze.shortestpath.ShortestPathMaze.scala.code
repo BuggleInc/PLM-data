@@ -31,7 +31,25 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
    var t = isMarked(x, y - 1)
    var b = isMarked(x, y + 1)
 		
-		System.out.println(l,r,t,b)
+   if (l && r){
+     forkPath(x - 1, y, i+1)
+     x = x + 1
+   }else if (r && t){
+     forkPath(x + 1, y, i+1)
+     y = y - 1
+   }else if (t && b){
+     forkPath(x, y - 1, i+1)
+     y = y + 1
+   }else if (l && b){
+     forkPath(x - 1, y, i+1)
+     y = y + 1
+   }else if (l && t){
+     forkPath(x - 1, y, i+1)
+     y = y - 1
+   }else if (r && b){
+     forkPath(x + 1, y, i+1)
+     y = y + 1
+   }
    
    
  	 setIndication(x, y, i)
@@ -46,5 +64,5 @@ def isMarked(x:Int, y:Int):Boolean = {
       y < 0){
     return true
   }
-  return getIndication(x, y) == 9999
+  return getIndication(x, y) != 9999
 }
