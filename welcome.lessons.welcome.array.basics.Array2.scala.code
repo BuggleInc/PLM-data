@@ -1,2 +1,42 @@
 override def run() {
+  
+  var Couleurs = new Array[Color](getWorldHeight())
+  
+  var nbCases = 0
+  
+  while (!estFaceMur){
+    	Couleurs(nbCases) = getCouleurSol()
+    	avance()
+    	nbCases = nbCases + 1
+  }
+  
+  Couleurs(nbCases) = getCouleurSol()
+  
+  for (i <- 1 to nbCases){
+    recule()
+  }
+  
+  def Motif(){
+    
+    var decalage = litMessage().toInt
+    
+    setCouleurBrosse(Couleurs(decalage%(Couleurs.length)))
+    baisseBrosse(); leveBrosse()
+    
+    for (i <- 1 to (nbCases)){
+      avance()
+      var clr : Color = Couleurs((i+decalage)%(Couleurs.length))
+      setCouleurBrosse(clr)
+      baisseBrosse(); leveBrosse()
+  	}
+    
+    for (i <- 1 to nbCases){
+      recule()
+    }
+  }
+  
+  for (i <- 0 to (nbCases - 1)){
+    gauche(); avance(); droite(); Motif()
+  }
+    
 }
