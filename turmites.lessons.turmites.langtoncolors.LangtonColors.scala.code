@@ -4,7 +4,11 @@ def step(rule:Array[Char], colors:Array[Color]) {
     if (getCouleurSol()==colors(i)){
       if (rule(i)=='L'){
         gauche()
-        setCouleurBrose((colors(i+1)%length-1))
+        if (i+1>=colors.length){
+          set.colorBrosse(colors(0))
+        }else{
+          setcolorBrosse(colors(i+1))
+        }
         baisseBrosse()
         leveBrose()
       }
