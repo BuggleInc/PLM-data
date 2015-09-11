@@ -1,14 +1,35 @@
 override def run() {
- var (x, y):(Int, Int) = (0, 0)
+ var (xStart, yStart):(Int, Int) = (0, 0)
+ var width = getWorldWidth()
+ var height = getWorldHeight()
   
- for (i <- 0 to getWorldWidth() - 1){
-   for (j <- 0 to getWorldHeight() - 1){
+ for (i <- 0 to width  - 1){
+   for (j <- 0 to height - 1){
      if (hasBaggle(i, j)){
-      	x = i
-       	y = j
+      	xStart = i
+       	yStart = j
      }
    }
  }
   
- setIndication(x, y, 0)
+ setIndication(xStart, yStart, 0)
+  
+ var x = xStart
+ var y = yStart
+  
+ for (i <- 1 to (width*height) - 1){
+   
+   if (hasTopWall(x, y)){
+     if (hasLeftWall(x, y)){
+       y = y - 1
+     }else{
+       x = x - 1
+     }
+   }else{
+     y = y + 1
+   }
+   
+   setIndication(x, y, i)
+ }
+       
 }
