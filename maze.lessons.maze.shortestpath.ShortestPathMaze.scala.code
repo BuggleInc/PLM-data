@@ -39,13 +39,13 @@ def marqueCases(poidsCourant: Int):Int = {
   // On parcourt le labyrinthe à la recherche de cases marquées par 'poidsCourant'.
   for (x <- 0 to xMax) {
     for (y <- 0 to yMax) {
+      println("yolo")
       /*! 
        * Pour chaque cases, on vérifie si elle est marquées de 'poidsCourant'.
        * Dans ce cas on cherche les cases adjacentes accessibles et si elles ne sont pas déjà
        * marquées, on écrit 'poidsCourant + 1'.
        */
       if (getIndication(x, y) == poidsCourant) {
-        println("found")
         for (i <- casesAdjacentes(Array[Int](x, y))) {
           if (getIndication(i(0), i(1)) == 9999) {
             setIndication(i(0), i(1), poidsCourant + 1)
