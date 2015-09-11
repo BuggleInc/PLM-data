@@ -43,7 +43,7 @@ def iMin(T: Array[Int], xBug :Int, yBug : Int): Int ={
   next = next -1
   
   for (j <- 0 to long-1){
-    if (T(indice) == next){
+    if (T(j) == next){
       indice = j
     }
   }
@@ -66,7 +66,7 @@ def enRoute(){
     if (yBuggle + 1 < H){cases(2)  = getIndication(xBuggle,yBuggle + 1)}//Bas
     if (yBuggle - 1 >= 0){cases(3) = getIndication(xBuggle,yBuggle - 1)}//Haut
 
-    var directionInt = iMin(cases,xBuggle,yBuggle)-1
+    var directionInt = iMin(cases,xBuggle,yBuggle)
 
     directionInt match{
       case 0 => 
