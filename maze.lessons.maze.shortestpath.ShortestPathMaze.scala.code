@@ -9,6 +9,7 @@ override def run() {
   var min = 0
   var positionBuggleX = getX()
   var positionBuggleY = getY()
+  var b : Int = positionBuggleX + positionBuggleY
   setIndication(sortie(0), sortie(1), 0)
   do{
     if (min == 0){
@@ -21,7 +22,7 @@ override def run() {
       }
     }
     min = min + 1
-  }while{!Ttraite(positionBuggleX + positionBuggleY)}
+  }while{!Ttraite(b)}
   var nb : Int = min - 1
   while (!estSurBuggle()){
     void setDirection(Direction.NORD)
