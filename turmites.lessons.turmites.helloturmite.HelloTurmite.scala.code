@@ -2,4 +2,33 @@ var state = 0;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     /* Your code comes here */
+  val c = getCouleurSol()
+  val ic = trouverColor(c)
+  val tr = rule(state)(ic)
+  state = tr(2)
+  tr(1) match {
+    case 0 => point(colors(tr(0)))
+    case 1 => point(colors(tr(0))); avance()
+    case 2 => point(colors(tr(0))); gauche(); avance()
+    case 4 => point(colors(tr(0))); gauche(); gauche(); avance()
+    case 8 => point(colors(tr(0))); droite(); avance()
+  }
+}
+
+
+
+def trouverColor(t:Array[Color], c:Color):Int = {
+  var n = t.length
+  for (i <- 0 to n-1) {
+    if (t(i) == c) {
+      return i
+    }
+  }
+  return 9999
+}
+
+def point(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
 }
