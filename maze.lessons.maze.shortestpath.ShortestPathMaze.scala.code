@@ -16,13 +16,14 @@ override def run() {
       traiterLaCase(sortie, hauteur, largeur)
     }else{
       for (i <- 0 to Tvaleur.length - 1){
+        
         if (Tvaleur(i) == min && !Ttraite(i)){
           traiterLaCase(i, hauteur, largeur)
         }
       }
     }
+    Ttraite(i) = true
     min = min + 1
-    ecritMessage(min)
   }while(Ttraite(positionBuggleX + positionBuggleY))
   var nb : Int = min - 1
   while (!estSurBiscuit()){
