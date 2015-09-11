@@ -1,3 +1,19 @@
+def remplissageCase(x,y,i){
+  if (!aMurNord(x,y+1)){
+    setIndication(x,y+1,i+1)
+  }
+  if (!aMurNord(x,y)){
+    setIndication(x,y-1,i+1)
+  }
+  if (!aMurOuest(x,y)){
+    setIndication(x-1,y,i+1)
+  }
+  if (!aMurOuest(x+1,y)){
+    setIndication(x+1,y,i+1)
+  }
+}
+
+
 override def run() {
     // Your code here
   var abs:Int=getMondeLargeur()-1
@@ -13,5 +29,5 @@ override def run() {
       yBiscuit=0
       }
     }setIndication(xBiscuit,yBiscuit,0)
-  }
+  remplissage(xBiscuit,yBiscuit)
 }
