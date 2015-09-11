@@ -53,19 +53,19 @@ def trouveLaPutainDeSortie() {
   
   while (!estSurBiscuit()) {
     // A gauche
-    if (x > 0 && getIndication(x - 1, y) < getIndication(x, y))
+    if (x > 0 && getIndication(x - 1, y) < getIndication(x, y) && !aMurOuest(x, y))
       gauche(); avance(); droite()
 
     // A droite
-    if (x < xMax && getIndication(x + 1, y) < getIndication(x, y))
+    if (x < xMax && getIndication(x + 1, y) < getIndication(x, y) && !aMurOuest(x + 1, y))
     	droite(); avance(); gauche()
     
     // En haut
-    if (y > 0 && getIndication(x, y - 1) < getIndication(x, y))
+    if (y > 0 && getIndication(x, y - 1) < getIndication(x, y) && !aMurNord(x, y))
     	avance()
     
     // En bas
-    if (y < yMax && getIndication(x, y + 1) < getIndication(x, y))
+    if (y < yMax && getIndication(x, y + 1) < getIndication(x, y) && !aMurNord(x + 1, y))
     	retourne(); avance(); retourne()
   }
 }
