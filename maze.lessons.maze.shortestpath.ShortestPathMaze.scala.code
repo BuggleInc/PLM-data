@@ -18,13 +18,13 @@ override def run() {
         if (getIndication(i,j)!=9999) {
           var ind = getIndication(i,j)
           if (!aMurNord(i,j) && (getIndication(i,j-1)==9999)) {
-            noterInd(i,j-1)}
+            setIndication(i,j-1,ind+1)}
           else if (!aMurOuest(i,j) && (getIndication(i-1,j)==9999)) {
-            noterInd(i-1,j)}
+            setIndication(i-1,j,ind+1)}
           else if ((j+1<ym) && !aMurNord(i,j+1) && (getIndication(i,j+1)==9999)) {
-            noterInd(i,j+1)}
+            setIndication(i,j+1,ind+1)}
           else if ((i+1<xm) && !aMurOuest(i+1,j) && (getIndication(i+1,j)==9999)) {
-            noterInd(i+1,j)}
+            setIndication(i+1,j,ind+1)}
         }
       }
     }
@@ -58,19 +58,4 @@ def chercheDir():Direction = {
     	min = getIndication(i+1,j)
       dir = Direction.EAST}
   return dir
-}
-
-def noterInd(i:Int,j:Int) = {
-  var xm = getMondeLargeur()
-  var ym = getMondeHauteur()
-  var min = 9999
-  if (!aMurNord(i,j) && (getIndication(i,j-1)<min)) {
-    min = getIndication(i,j-1)}
-  if (!aMurOuest(i,j) && (getIndication(i-1,j)<min)) {
-    min = getIndication(i-1,j)}
-  if ((j+1<ym) && !aMurNord(i,j+1) && (getIndication(i,j+1)<min)) {
-    min = getIndication(i,j+1)}
-  if ((i+1<xm) && !aMurOuest(i+1,j) && (getIndication(i+1,j)<min)) {
-    min = getIndication(i+1,j)}
-  setIndication(i,j,min+1)
 }
