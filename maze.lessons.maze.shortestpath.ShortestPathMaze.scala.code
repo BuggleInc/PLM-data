@@ -82,6 +82,76 @@ def num (x : Int, y: Int, n: Int){
         num(x-1,y,n+1)
       }
     }
+  }else {
+    if (y == 0 && x==0){
+      num(x+1,y,n+1)
+    	num(x,y+1,n+1)
+      
+  	}else if(x==11 && y==0){
+    	num(x-1,y,n+1)
+    	num(x,y+1,n+1)
+      
+  	}else if(x == 11 && y == 11){
+    	num(x,y-1,n+1)
+      num(x-1,y,n+1)      
+    }else if(x == 0 && y!= 0 && y!=11){
+      if (!aMurNord(x,y)){
+        num(x, y-1, n+1)
+      }
+      if (!aMurNord(x,y+1)){
+        num(x,y+1,n+1)
+      }
+      if (!aMurOuest(x+1,y)){
+        num(x+1,y,n+1)
+      }
+      
+    }else if (y==0 && x!=0 && x!=11){
+      if (!aMurOuest(x,y)){
+        num(x-1, y, n+1)
+      }
+      if (!aMurOuest(x+1,y)){
+        num(x+1,y,n+1)
+      }
+      if (!aMurNord(x,y+1)){
+        num(x,y+1,n+1)
+      }
+      
+    }else if (x == 11 && y!=0 && y!=11){
+      if (!aMurNord(x,y)){
+        num(x, y-1, n+1)
+      }
+      if (!aMurNord(x,y+1)){
+        num(x,y+1,n+1)
+      }
+      if (!aMurOuest(x,y)){
+        num(x-1,y,n+1)
+      }
+      
+    }else if (y==11 && x!=11 && x!=0){
+      if (!aMurNord(x,y)){
+        num(x, y-1, n+1)
+      }
+      if (!aMurOuest(x,y)){
+        num(x-1,y,n+1)
+      }
+      if (!aMurOuest(x+1,y)){
+        num(x+1,y,n+1)
+      }
+      
+    }else{      
+      if (!aMurNord(x,y)){
+        num(x, y-1, n+1)
+      }
+      if (!aMurNord(x,y+1)){
+        num(x,y+1,n+1)
+      }
+      if (!aMurOuest(x+1,y)){
+        num(x+1,y,n+1)
+      }
+      if (!aMurOuest(x,y)){
+        num(x-1,y,n+1)
+      }
+    }
   }
 }
 
