@@ -12,22 +12,26 @@ override def run() {
   //retour point de d?part
  
   for (k<- 1 to getMondeLargeur()-1) {  
-  gauche()
-  avance()
-  droite()
-  val decalage = litMessage().toInt
   
- 	setCouleurBrosse( tab((0+decalage)%getMondeHauteur()) );
-  baisseBrosse();
-  leveBrosse();
+  	gauche()
+  	avance()
+  	droite()
+ 		val decalage = litMessage().toInt
   
-  for (j <- 1 to getMondeHauteur()-1) {
-    avance();
-    setCouleurBrosse( tab((j+decalage)%getMondeHauteur()) );
-    baisseBrosse();
-    leveBrosse()
+    setCouleurBrosse( tab((0+decalage)%getMondeHauteur()) );
+  	baisseBrosse();
+  	leveBrosse();
+  
+ 		for (j <- 1 to getMondeHauteur()-1) {
+    	avance();
+    	setCouleurBrosse( tab((j+decalage)%getMondeHauteur()) );
+    	baisseBrosse();
+    	leveBrosse()
 
   }
+  
+  for (n<- 1 to getMondeHauteur()-1)  {recule()}
+  
   }
 }
   
