@@ -3,9 +3,10 @@ var cpt = 0
 override def run() {
   val hauteurMonde = getMondeHauteur
 	val largeurMonde = getMondeLargeur
-  var coordBiscuit = new Array[Int](3)
+  var coordBiscuit = new Array[Int](2)
   coordBiscuit(0) = trouveLeBiscuit()(0)
   coordBiscuit(1) = trouveLeBiscuit()(1)
+  /*
 	setIndication(coordBiscuit(0),coordBiscuit(1),cpt)
   while (!verifieCases()) {
 		for(y <- 0 to hauteurMonde-1) {
@@ -20,6 +21,7 @@ override def run() {
     prochaineCase()
   }
   prendBiscuit()
+  */
 }
 
 def trouveLeBiscuit(): Array[Int] = {
@@ -27,7 +29,7 @@ def trouveLeBiscuit(): Array[Int] = {
 	val largeurMonde = getMondeLargeur
   var y = 0
   var x = 0
-  var T = new Array[Int](3)
+  var T = new Array[Int](2)
   for (i <- 1 to hauteurMonde) {
     x = 0
     if (aBiscuit(x,y)) {
