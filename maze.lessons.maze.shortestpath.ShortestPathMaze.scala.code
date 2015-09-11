@@ -25,14 +25,14 @@ def suivant(x:Int,y:Int,i:Int){
   if (y!=0){if (!aMurNord(x,y) && getIndication(x,y-1)>i+1){suivant(x,y-1,i+1)}}
 }
 def deplacement(){
-  var message=9999
-  while (message !=0){
+  var message=999
+  while (!estSurBiscuit){
     var x=getX()
     var y=getY()
+    message=getIndication(x,y)
   if (x!=0){ if  ( getIndication(x-1,y)==message-1){setDirection(Direction.SOUTH)}}
   if (x!=getMondeLargeur()-1){if (getIndication(x+1,y)==message-1){setDirection(Direction.NORTH)}}
   if (y!=getMondeHauteur()-1){if (getIndication(x,y+1)==message-1){setDirection(Direction.EAST)}}
   if (y!=0){if (getIndication(x,y-1)==message-1){setDirection(Direction.WEST)}}}
-	message=message-1
   avance()
 }
