@@ -7,11 +7,19 @@ def positionSuivante() {
   var n : Int = 0
   for (j <- 0 to getMondeHauteur()-1){
     n=0
-    for (i <- 0 to getMondeLargeur()-1) {
-      n=n+1
-      cpt=cpt+1
-      setPos(i,j)
-      ecritMessage(cpt)
+    if (j%2==0){
+      for (i <- 0 to getMondeLargeur()-1) {
+        n=n+1
+        cpt=cpt+1
+        setPos(i,j)
+        ecritMessage(cpt)
+      }
+    } else {
+        for (i <- getMondeLargeur()-1 to 0 by -1){
+          cpt=cpt+1
+        	setPos(i,j)
+        	ecritMessage(cpt)
+        }
     }
   }
 }
