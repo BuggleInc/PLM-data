@@ -7,25 +7,31 @@ override def run() {
 
 
 def keepHandOnSideWall(){
-  if (getDirection()==Direction.NORTH && !estFaceMur()){
+  def sommeAngle = 0
+  if (getDirection()==Direction.NORTH && !estFaceMur() && sommeAngle==0){
     avance()
   } 
   else if (getDirection()==Direction.NORTH && estFaceMur()){
-		droite()}
+		droite()
+  	sommeAngle = sommeAngle-1}
   else {
   gauche()
+  sommeAngle = sommeAngle+1
   if (!estFaceMur()){
     avance()
   } else {
     droite()
+    sommeAngle = sommeAngle-1
     if (!estFaceMur()){
       avance()
     } else {
       droite()
+      sommeAngle = sommeAngle-1
       if (!estFaceMur()){
         avance()
       } else {
         droite()
+        sommeAngle = sommeAngle-1
         avance()
       }
     }
