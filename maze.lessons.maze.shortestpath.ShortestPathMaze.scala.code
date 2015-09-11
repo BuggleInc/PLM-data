@@ -45,8 +45,8 @@ def marqueCases(poidsCourant: Int):Int = {
        * marquées, on écrit 'poidsCourant + 1'.
        */
       if (getIndication(x, y) == poidsCourant) {
-        setIndication(xMax, yMax, xMax + yMax)
         for (i <- casesAdjacentes(Array[Int](x, y))) {
+          setIndication(xMax, yMax, xMax + yMax)
           if (getIndication(i(0), i(1)) == 9999) {
             setIndication(i(0), i(1), poidsCourant + 1)
             
