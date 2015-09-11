@@ -13,7 +13,7 @@ override def run() {
         
           var ind = getIndication(i,j);
           if (ind!=9999){
-            if (getX() <= (getMondeLargeur()-2) & getIndication(i+1,j)==9999 && ! aMurOuest(i+1,j)) {
+            if (getX() < (getMondeLargeur()-2) & getIndication(i+1,j)==9999 && ! aMurOuest(i+1,j)) {
               setIndication(i+1,j, ind + 1);
               changed = true;
             } else if (getX() >= 1 & getIndication(i-1,j)==9999 && !aMurOuest(i-1,j)){
@@ -22,7 +22,7 @@ override def run() {
             }else if (getY() <= (getMondeHauteur()-2) & getIndication(i,j+1)==9999 && !aMurNord(i,j+1)){
               setIndication(i,j+1,ind+1)
               changed = true;
-            }else if (getY() >= 1 & getIndication(i,j-1)==9999 && !aMurNord(i,j)){
+            }else if (getY() > 1 & getIndication(i,j-1)==9999 && !aMurNord(i,j)){
               setIndication(i,j-1,ind+1)
               changed = true;
             }
