@@ -32,25 +32,30 @@ override def run() {
   var chiffre =0
   var fin = false
   while(!fin){
+    var somme = 0
     for(x<- 0 to getMondeLargeur()-1){
       for(y<- 0 to getMondeHauteur()-1){
         if(getIndication(x,y)==chiffre){
           if(!aMurNord(x,y) && getIndication(x,y-1)==9999){
             setIndication(x,y-1,chiffre+1)
+            somme+=1
           }
           if(!aMurSud(x,y) && getIndication(x,y+1)==9999){
             setIndication(x,y+1,chiffre+1)
+            somme+=1
           }
           if(!aMurEst(x,y) && getIndication(x+1,y)==9999){
             setIndication(x+1,y,chiffre+1)
+            somme+=1
           }
           if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
             setIndication(x-1,y,chiffre+1)
+            somme+=1
           }
-          if((aMurNord(x,y) || getIndication(x,y-1)!=9999) && (aMurSud(x,y) || getIndication(x,y+1)!=9999) && (aMurEst(x,y) || getIndication(x+1,y)!=9999) && (aMurOuest(x,y) || getIndication(x-1,y)!=9999)){ fin=true}
         }
       }
     }
+    if(somme==0){fin = true }
     chiffre+=1
   }
 }
