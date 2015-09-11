@@ -13,14 +13,14 @@ def trouveLaSortie(): Array[Int] = {
 }
 
 def marqueCase(x: Int, y: Int, poids: Int) {
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
+  var xMax:Int = getMondeLargeur()
+	var yMax:Int = getMondeHauteur()
   
   setIndication(x, y, poids)
   
   // On teste les cases adjacentes.
-  if (!aMurOuest(x, y) && getIndication(x - 1, y) == 9999) {
-    marqueCase(x - 1, y, poids + 1)
+  if (!aMurOuest(x, y) && getIndication((x - 1) % xMax, y) == 9999) {
+    marqueCase((x - 1) % xMax, y, poids + 1)
   }
   
   if (!aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
