@@ -20,19 +20,19 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   
   // On teste les cases adjacentes.
   if (!aMurNord(x, y)) {
-    setIndication(x, (y - 1) % yMax, poids + 1)
+    marqueCase(x, (y - 1) % yMax, poids + 1)
   }
   
   if (!aMurNord(x, (y + 1) % yMax)) {
-    setIndication(x, (y + 1) % yMax, poids + 1)
+    marqueCase(x, (y + 1) % yMax, poids + 1)
   }
   
   if (!aMurOuest(x, y)) {
-    setIndication((x - 1) % xMax, y, poids + 1)
+    marqueCase((x - 1) % xMax, y, poids + 1)
   }
   
   if (!aMurOuest((x + 1) % xMax, y)) {
-    setIndication((x + 1) % xMax, y, poids + 1)
+    marqueCase((x + 1) % xMax, y, poids + 1)
   }
 }
 
