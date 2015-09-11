@@ -1,3 +1,41 @@
 override def run() {
     // Your code here
+  def aMurEst(x,y):Boolean ={
+    if(x==getMondeLargeur-1){return true}
+    else{
+      if(aMurOuest(x+1,y)){return true}
+      else{return false}
+    }
+  }
+  def aMurSud(x,y):Boolean ={
+    if(x==getMondeHauteur-1){return true}
+    else{
+      if(aMurNord(x,y+1)){return true}
+      else{return false}
+    }
+  }
+  
+  for(i<- 0 to getmondeLargeur()-1){
+    for(j<-0 to getmondeHauteur()-1){
+      if(aBiscuit(x,y)){
+        var posX = i
+        var posY = j
+      }
+    }
+  }
+  setIndication(posX,posY,0)
+  var chiffre =0
+  while(getIndication(getX(),getY())==9999){
+    for(x<- 0 to getMondeLargeur()){
+      for(y<- 0 t getMondeHauteur()){
+        if(getIndication(x,y)==chiffre){
+          if(!aMurNord(x,y) && getIndication(x,y-1)==9999){setIndication(x,y-1,chiffre+1)}
+          if(!aMurSud(x,y) && getIndication(x,y+1)==9999){setIndication(x,y+1,chiffre+1)}
+          if(!aMurEst(x,y) && getIndication(x+1,y)==9999){setIndication(x+1,y,chiffre+1)}
+          if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){setIndication(x-1,y,chiffre+1)}
+        }
+      }
+    }
+    chiffre+=1
+  }
 }
