@@ -42,10 +42,12 @@ def obstacle(){
       }
       avance()
     }
-    while (!murgauche() && !estFaceMur()){
+    while (!murgauche() ){
       left()
-      avance()
       angles = angles-1
+      if (!estFaceMur()){
+        avance()
+      }
     }
   } while(!(angles==0) && !estSurBiscuit())
 
