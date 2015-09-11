@@ -5,11 +5,28 @@ override def run() {
     ecritMessage(compteur)
     setPos(getX()+1,getY())
     compteur+=1
-    if (estFaceMur() && !(getY()==6) ){
+    if (estFaceMur() && !(getY()==7) ){
       ecritMessage(compteur)
       compteur+=1
       setPos(0,getY()+1)
     }   
   }
   ecritMessage(compteur)
+}
+
+override def run() {
+  retourne()
+  var compteur:Int=0
+  while (!(getX() ==(getMondeLargeur()-1) && getY() == getMondeHauteur()-1)) {
+    ecritMessage(compteur)
+    setPos(getX(),getY()+1)
+    compteur+=1
+    if (estFaceMur() && !(getX()==6) ){
+      ecritMessage(compteur)
+      compteur+=1
+      setPos(getX()+1,0)
+    }   
+  }
+  ecritMessage(compteur)
+  retourne()
 }
