@@ -3,7 +3,18 @@ override def run() {
     var obstacle=false
     if(estFaceMur){
       obstacle=true
-      
+      gauche()
+    	if (estFaceMur()){
+      	droite()
+      	if (estFaceMur){
+        	droite()
+      	}else{
+        	avance()
+      	}
+    	}else{
+      	avance()
+    	}
+  	}
     	}else{
     		setDirection(Direction.NORTH)
     		while(!estFaceMur){
