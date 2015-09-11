@@ -23,12 +23,25 @@ def marqueCases(x: Int, y: Int, poids: Int) {
   	setIndication(x + 1, y, poids)
   
   // En haut...
-  if (y > 0 && !aMurNord(x, y) && poids < getIndication(x - 1, y))
-  	setIndication(x - 1, y, poids)
+  if (y > 0 && !aMurNord(x, y) && poids < getIndication(x, y - 1))
+  	setIndication(x, y - 1, poids)
   
   // En bas...
-  if (y < yMax && !aMurNord(x + 1, y) && poids < getIndication(x + 1, y))
-  	setIndication(x + 1, y, poids)
+  if (y < yMax && !aMurNord(x + 1, y) && poids < getIndication(x, y + 1))
+  	setIndication(x, y + 1, poids)
+  
+  // Récursivons...
+  if (x > 0 && getIndication(x - 1, y) == poids)
+  	marqueCases(x - 1, y, poids + 1)
+  
+  if (x < xMax && getIndication(x + 1, y) == poids)
+  	marqueCases(x + 1, y, poids + 1)
+  
+  if (y > 0 && getIndication(x, y - 1) == poids)
+  	marqueCases(x, y - 1, poids + 1)
+  
+  if (y < yMax && getIndication(x, y + 1) == poids)
+  	marquesCases(x, y + 1, poids +1)
 }
 
 override def run() {
