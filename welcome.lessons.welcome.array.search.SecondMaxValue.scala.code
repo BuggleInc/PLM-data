@@ -1,9 +1,13 @@
 def max2Value(nums:Array[Int]): Int = {
-  for (i<- 1 to nums.length){
-    if (nums(i-1)>nums(i)){
-      nums(i)=nums(i-1)
+  var max:Int=nums(0)
+  var max2:Int=nums(0)
+  for (i<- 1 to nums.length-1){
+    if (max<nums(i)){
+      max=nums(i);nums()
     }
-    return (nums(1))
+    if (max2<max&&max2<nums(i)){
+      max2=nums(i)
+    }else{max2=nums(i-1)}
   }
-  return nums(1)
+  return max2
 }
