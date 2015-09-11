@@ -1,0 +1,21 @@
+
+def motif(c:Color){
+  setCouleurBrosse(c); baisseBrosse()
+  avance(); avance(); recule(); gauche(); recule(); avance(); avance(); recule
+  leveBrosse()
+  setCouleurBrosse(Color.yellow); baisseBrosse(); leveBrosse()
+  droite()
+}
+
+
+def growFlowers(){
+  motif(Color.red); avance(); avance(); avance(); motif(Color.cyan)
+  for (i <- 1 to 5){
+    recule()
+  }
+  droite(); avance(); avance(); gauche(); avance(); avance(); motif(Color.orange)
+  recule(); recule(); recule(); droite(); avance(); avance(); gauche(); motif(Color.pink); avance(); avance(); avance(); motif(Color.green)
+  for(i <- 1 to 5){
+    recule()
+  }
+}

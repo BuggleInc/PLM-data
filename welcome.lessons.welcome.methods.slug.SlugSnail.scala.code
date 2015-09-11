@@ -1,0 +1,37 @@
+var couleur = Color.white
+
+def hunt(c:Color) {
+  avance()
+  couleur = getCouleurSol()
+  recule()
+  while(!estSurBiscuit()){
+    if (isFacingTrail()){
+      avance()
+    	baisseBrosse()
+    	leveBrosse()
+    } else{
+      	gauche()
+       	if (!isFacingTrail()){
+        	droite()
+        	droite()
+     }
+     }
+  }
+  if (estSurBiscuit()){
+    prendBiscuit()
+  }
+}
+
+def isFacingTrail():Boolean = {
+  if (estFaceMur()){
+    return false
+  } else {
+  avance()
+  if (getCouleurSol()==couleur){
+    recule()
+    return true
+  }
+  recule()
+  return false
+  }
+}

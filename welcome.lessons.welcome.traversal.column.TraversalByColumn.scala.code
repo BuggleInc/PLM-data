@@ -1,0 +1,32 @@
+def posFinale():Boolean={
+	if ((getMondeHauteur()-1==getY())&&(getMondeLargeur()-1==getX())){
+  	return true
+  }
+  return false
+}
+
+override def run() {
+
+  ecritMessage(0)
+  setPos(getX(),getY()+1)
+	var compteur = 1
+
+	while (!posFinale()){
+    
+
+		ecritMessage(compteur)
+
+    if ((compteur+1)%(getMondeHauteur()) != 0){
+    	compteur += 1
+  	} else {
+    	setPos(getX()+1,0)
+      compteur += 1
+      ecritMessage(compteur)
+      compteur += 1
+  	}
+    setPos(getX(),getY()+1)
+  
+	}
+  ecritMessage(compteur)
+
+}

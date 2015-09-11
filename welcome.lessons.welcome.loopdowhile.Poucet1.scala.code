@@ -1,0 +1,18 @@
+var nbBaggles = 0
+
+do {
+  for (pas <- 1 to 5){
+    avance()
+    if (estSurBiscuit()){
+      nbBaggles = nbBaggles + 1
+    }
+  }
+  if (nbBaggles >= 3){
+    gauche()
+  } else if (nbBaggles < 3){
+    droite()
+  }
+  nbBaggles = 0
+} while (!sortieTrouvee())
+
+avance()
