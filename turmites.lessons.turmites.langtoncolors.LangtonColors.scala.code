@@ -6,19 +6,17 @@ def step(rule:Array[Char], colors:Array[Color]) {
       indice=i
     }
   }
-  avance()
-  if (rule(indice)=="R"){
+  if (rule(indice)=='R'){
     droite()
     setCouleurBrosse(colors((indice+1)%(colors.length-1)))
     baisseBrosse()
     leveBrosse()
     avance()
-  }else if (rule(indice)=="L"){
+  }else if (rule(indice)=='L'){
     setCouleurBrosse(colors((indice+1)%(colors.length-1)))
     gauche()
     baisseBrosse()
     leveBrosse()
     avance()
   }
-  avance()
 }
