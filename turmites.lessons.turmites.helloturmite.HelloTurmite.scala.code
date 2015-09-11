@@ -1,0 +1,22 @@
+var state = 0;
+var faire  = [0,0,0]
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  i = 0
+  for (col <- 0 to colors.length -1){
+    if (colors(col) == getCouleurSol()){
+      i = col
+    }
+  }
+  faire = rule(state)(i)
+  setCouleurBrosse(colors(faire(0)))
+  baisseBrosse()
+  leveBrosse()
+  faire(1) match {
+    case 0 => 
+    case 1 => avance()
+    case 2 => gauche()
+    case 4 => gauche(); gauche()
+    case 8 => droite()
+  }
+  state = faire(2)
+}
