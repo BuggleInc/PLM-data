@@ -1,6 +1,12 @@
 override def run() {
-    Position()
-
+var cpt = -1
+  for (h <- 0 to getMondeLargeur()-1) {
+    for (l <- 0 to getMondeHauteur()-1) {
+      setPos(h,l)
+      cpt = cpt +1
+      ecritMessage(cpt)
+    } 
+	}    
   
 }
 
@@ -18,14 +24,12 @@ def PositionFinale ():Boolean = {
 }
 
 def Position () {
-  ecritMessage(0)
-  var cpt = 0
-  var n = 0
-  for (l <- 1 to getMondeHauteur()-1) {
-    setPos(n,l)
-    cpt = cpt +1
-    ecritMessage(cpt)
-  }
-  n= n +1 
-  setPos(n , 1)
+  var cpt = -1
+  for (h <- 0 to getMondeLargeur()-1) {
+    for (l <- 0 to getMondeHauteur()-1) {
+      setPos(h,l)
+      cpt = cpt +1
+      ecritMessage(cpt)
+    } 
+	}
 }
