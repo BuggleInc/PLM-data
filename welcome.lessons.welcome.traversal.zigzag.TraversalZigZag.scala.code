@@ -1,0 +1,30 @@
+override def run() {
+  var posfinale = false
+  var cpt=0
+  var raw=0
+  var line=0
+  while((getX() != getMondeLargeur()-1)&&(getY() != getMondeHauteur()-1)){
+  	for (i <- 0 to getMondeLargeur()-1){
+     	if (raw!=0){
+       	setPos(getX(), getY()+1)
+        line=line+1
+      cpt+=1
+      ecritMessage(cpt)
+      }else{ecritMessage(cpt)}
+    	for(j <- 0 to getMondeHauteur()-2){
+        if(line=0){
+      		setPos(getX()+1, getY())
+       		raw=raw+1
+        	cpt +=1
+        	ecritMessage(cpt)
+        }else{
+          setPos(getX()-1, getY())
+       		raw=raw+1
+        	cpt +=1
+        	ecritMessage(cpt)}
+      	
+      
+    	}
+  	}
+  }
+}
