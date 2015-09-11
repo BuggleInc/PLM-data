@@ -15,14 +15,15 @@ override def run() {
     }
   }
   
-  for(i<- 0 to getMondeLargeur()-1){
-    for(j<-0 to getMondeHauteur()-1){
-      if(aBiscuit(i,j)){
-        var posX = i
-        var posY = j
-      }
-    }
+  var posX=0
+  var posY=0
+  while(!aBiscuit(posX,posY)){
+    posX+=1
+    posY+=1
   }
+  
+
+  
   setIndication(posX,posY,0)
   var chiffre =0
   while(getIndication(getX(),getY())==9999){
