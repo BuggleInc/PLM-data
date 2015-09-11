@@ -1,0 +1,24 @@
+override def run() {
+  positionSuivante()
+  /*while (positionFinale()==false){
+    positionSuivante()
+  }*/
+}
+
+def positionFinale(){
+  if (getX()==getMondeLargeur() && getY()==getMondeHauteur()){
+    return true
+  }
+  return false
+}
+
+def positionSuivante(){
+  var cpt : Int = -1
+  for (i <- 0 to getMondeLargeur()-1){
+    for (j <- 0 to getMondeHauteur()-1){
+      cpt=cpt+1
+      setPos(j,i)
+      ecritMessage(cpt)
+    }
+  }
+}
