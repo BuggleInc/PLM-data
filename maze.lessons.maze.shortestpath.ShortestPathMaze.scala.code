@@ -1,13 +1,13 @@
 override def run() {
   sx : Int = 0
   sy : Int = 0
-  (sx, sy) = sortie()
+  sx ; sy = sortie()
 }
 
-def sortie() : (Int, Int) = {
+def sortie() : Int ; Int = {
   for (x <- 0 to getMondeLargeur()){
   	for (y <- 0 to getMondeHauteur()){
-      if (aBiscuit(x,y)) {(x,y)}
+      if (aBiscuit(x,y)) {x,y}
     }
   }
 }
