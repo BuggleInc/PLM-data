@@ -61,17 +61,17 @@ override def run() {
   while(getX()!=posX && getY()!=posY){
     var num = getIndication(getX(),getY())
     var dir= 0
-    if(!aMurEst(posX,posY)){
-      if(getIndication(posX+1,posY)<num){num=getIndication(posX+1,posY);dir=3}
+    if(!aMurEst(getX(),getY()){
+      if(getIndication(getX()+1,getY())<num){num=getIndication(getX()+1,getY());dir=3}
     }
-    if(!aMurNord(posX,posY)){
-      if(getIndication(posX,posY-1)<num){num=getIndication(posX,posY-1);dir=0}
+    if(!aMurNord(getX(),getY()){
+      if(getIndication(getX(),getY()-1)<num){num=getIndication(getX(),getY()-1);dir=0}
     }
-     if(!aMurOuest(posX,posY)){
-       if(getIndication(posX,posY)<num){num=getIndication(posX-1,posY);dir=1}
+     if(!aMurOuest(getX(),getY()){
+       if(getIndication(getX()-1,getY())<num){num=getIndication(getX()-1,getY());dir=1}
     }
-    if(!aMurSud(posX,posY)){
-      if(getIndication(posX,posY+1)<num){num=getIndication(posX,posY+1);dir=2}
+    if(!aMurSud(getX(),getY()){
+      if(getIndication(getX(),getY()+1)<num){num=getIndication(getX(),getY()+1);dir=2}
     }
     setDirection(Direction.NORTH)
     for(i<-1 to dir-1){gauche()}
