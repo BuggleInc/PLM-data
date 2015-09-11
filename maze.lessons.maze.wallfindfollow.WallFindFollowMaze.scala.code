@@ -8,6 +8,26 @@ override def run() {
   prendBiscuit()
 }
 
+
+def keepHandOnSideWall() {
+  var gauch = testGauche()
+  if(gauch && !estFaceMur)
+  	{
+      avance()
+    }
+  else if(estFaceMur())
+  {
+    while(!testGauche())
+  		gauche()
+  }
+  else if(!gauch)
+  {
+    gauche()
+    avance()
+  }
+}
+
+/*
 def keepHandOnSideWall() {
   var gauch = testGauche()
   if(gauch && !estFaceMur)
@@ -22,6 +42,7 @@ def keepHandOnSideWall() {
   else if(estFaceMur())
   	droite()
 }
+*/
 
 def testGauche():Boolean = {
   var test = false
