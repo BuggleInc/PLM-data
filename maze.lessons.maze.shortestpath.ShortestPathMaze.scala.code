@@ -26,6 +26,10 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   if (!aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
     marqueCase(x, y - 1, poids + 1)
   }
+  
+  if (!aMurNord(x, y + 1) && getIndication(x, y + 1) == 9999) {
+    marqueCases(x, y + 1, poids + 1)
+  }
 }
 
 def ecritIndications() {
