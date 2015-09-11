@@ -36,26 +36,24 @@ def forkPath(xStart:Int, yStart:Int, index:Int){
     }
     
   }else if (hasTopWall(x, y)){
-    if (isMarked(x, y-1)){
+    if (!isMarked(x, y-1)){
       x = x + 1 // right
     }else{
       y = y - 1 // top
     }
   }else if (hasLeftWall(x, y)){
-    if (isMarked(x+1, y)){
+    if (!isMarked(x+1, y)){
       x = x + 1 //right
     }else{
       x = x - 1 // left
     }
   }
-   System.out.println(x, y)
  	 setIndication(x, y, i)
    
  }
 }
 
 def isMarked(x:Int, y:Int):Boolean = {
-  System.out.println(x, y)
   if (x >= getWorldWidth() || y >= getWorldHeight()){
     return true
   }
