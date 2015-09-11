@@ -5,21 +5,22 @@ override def run() {
   
   //-------------------------------------------
   
-  def trouverSortie():(Int,Int) = {
-  	var x : Int = 0
-    var y : Int = 0
-    while (!aBiscuit(x,y)) { // tant qu'on a pas trouve, parcours en largeur
-      if (x < largeur-1) {x+=1}
-      else {y+=1 ; x=0}
+  def trouverSortie():Array[Int] = {
+  	var pos = new Array[Int](2)
+    pos(0) = 0
+    pos(1) = 0
+    while (!aBiscuit(pos(0),pos(1))) { // tant qu'on a pas trouve, parcours en largeur
+      if (pos(0) < largeur-1) {pos(0)+=1}
+      else {pos(1)+=1 ; pos(0)=0}
     }
-    setIndication(x,y,0) 
-    return (x,y) // marque sortie + retourne la position de la sortie
+    setIndication(pos(0),pos(1),0) 
+    return pos // marque sortie + retourne la position de la sortie
   }
   
   //-------------------------------------------
   
-  def marquerCasesAdjacentes(x:Int,y:Int) {
-    var i : Int = getIndication(x,y)
+  def marquerCasesAdjacentes(pos:Array[Int]) {
+    var i : Int = getIndication(pos(0),pos(1))
     // on considere la case (x,y) numerotee i
     // recursif : condition d'arret = plus de cases dispo
     // booleen pour savoir quel appel recursif faire
@@ -29,30 +30,30 @@ override def run() {
     var booldessous : Boolean = false ;
     var boolgauche : Boolean = false ;
     //case au dessus
-    if (y >0
-        && !aMurNord(x,y)
-        && getIndication(x,y-1)==9999)
-    			{setIndication(x,y-1,i+1) ; booldessus = true}
+    if (pos(1) >0
+        && !aMurNord(pos(0),pos(1))
+        && getIndication(pos(0),pos(1)-1)==9999)
+    			{setIndication(pos(0),pos(1)-1,i+1) ; booldessus = true}
     //case a droite
-    if (x < largeur-1
-        && !aMurOuest(x,y)
-        && getIndication(x+1,y)==9999)
-      		{setIndication(x+1,y,i+1); booldroite = true}
+    if (pos(0) < largeur-1
+        && !aMurOuest(pos(0),pos(1))
+        && getIndication(pos(0)+1,pos(1))==9999)
+      		{setIndication(pos(0)+1,pos(1),i+1); booldroite = true}
     //case en dessous
-    if (y < hauteur-1
-        && !aMurNord(x,y+1)
-        && getIndication(x,y+1)==9999)
-    			{setIndication(x,y+1,i+1); booldessous = true}
+    if (pos(1) < hauteur-1
+        && !aMurNord(pos(0),pos(1)+1)
+        && getIndication(pos(0),pos(1)+1)==9999)
+    			{setIndication(pos(0),pos(1)+1,i+1); booldessous = true}
      //case a gauche
-    if (x > 0
-        && !aMurOuest(x-1,y)
-        && getIndication(x-1,y)==9999)
-    			{setIndication(x-1,y,i+1); boolgauche = true}
+    if (pos(0) > 0
+        && !aMurOuest(pos(0)-1,pos(1))
+        && getIndication(pos(0)-1,pos(1))==9999)
+    			{setIndication(pos(0)-1,pos(1),i+1); boolgauche = true}
     
-    if (booldessus) {marquerCasesAdjacentes((x,y-1))}
-    if (booldroite) {marquerCasesAdjacentes((x+1,y))}
-    if (booldessous) {marquerCasesAdjacentes((x,y+1))}
-    if (boolgauche) {marquerCasesAdjacentes((x-1,y))}
+    if (booldessus) {marquerCasesAdjacentes((pos(0),pos(1)-1))}
+    if (booldroite) {marquerCasesAdjacentes((pos(0)+1,pos(1)))}
+    if (booldessous) {marquerCasesAdjacentes((pos(0),pos(1)+1))}
+    if (boolgauche) {marquerCasesAdjacentes((pos(0)-1,pos(1)))}
     
   }
   
@@ -86,8 +87,9 @@ override def run() {
   
   //-------------------------------------------
   
-  var (x,y) : (Int,Int) = trouverSortie()
-  marquerCasesAdjacentes((x,y))
+  var pos = new Array[Int](2)
+  pos = trouverSortie()
+  marquerCasesAdjacentes(pos)
   while (!estSurBiscuit) {
     directionPlusCourte(); avance()}
 	prendBiscuit()
