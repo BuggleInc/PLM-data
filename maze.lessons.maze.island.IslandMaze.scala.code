@@ -4,6 +4,7 @@ override def run() {
   }
   
   while (!estSurBiscuit()) {
+    
     keepHandOnSideWall()
   }
   prendBiscuit()
@@ -14,5 +15,21 @@ override def run() {
       droite()
     }
     avance()
+  }
+}
+
+override def run () {
+  while (!estSurBiscuit()) {
+    getdirection() match {
+      case Direction.NORD => avance()
+      case Direction.OUEST =>
+      droite()
+      if (!estFaceMur()) {
+        avance()
+      } else {
+        gauche()
+        
+      }
+    }
   }
 }
