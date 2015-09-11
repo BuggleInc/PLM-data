@@ -1,45 +1,92 @@
-override def run() {numerotation()
+override def run() {
     // Your code here
-}
+  def aMurEst(x:Int,y:Int):Boolean ={
+    if(x==getMondeLargeur-1){return true}
+    else{
+      if(aMurOuest(x+1,y)){return true}
+      else{return false}
+    }
+  }
+  def aMurSud(x:Int,y:Int):Boolean ={
+    if(y==getMondeHauteur-1){return true}
+    else{
+      if(aMurNord(x,y+1)){return true}
+      else{return false}
+    }
+  }
+  var posX=0
+  var posY=0
+ 
+  for(x<- 0 to getMondeLargeur()-1){
+    for(y<- 0 to getMondeHauteur()-1){
+         if (aBiscuit(x,y)) {
+         posX = x;
+         posY = y;
+       }     
+    }
+  }
+ 
+  setIndication(posX,posY,0)
 
-def numerotation(){
-  var cpt = 0
-  var x=0
-  var y=0
-  var L=getMondeLargeur()
-  var H=getMondeHauteur()
-  for (i <- 0 to H-1){
-    for (j<- 0 to L-1){
-      if (aBiscuit(i,j)){
-        x=i
-        y=j
-  setIndication(x,y,cpt)  
+  var chiffre =0
+  var fin = false
+  while(!fin){
+    var somme = 0
+    for(x<- 0 to getMondeLargeur()-1){
+      for(y<- 0 to getMondeHauteur()-1){
+        if(getIndication(x,y)==chiffre){
+          if(!aMurNord(x,y) && getIndication(x,y-1)==9999){
+            setIndication(x,y-1,chiffre+1)
+            somme+=1
+          }
+          if(!aMurSud(x,y) && getIndication(x,y+1)==9999){
+            setIndication(x,y+1,chiffre+1)
+            somme+=1
+          }
+          if(!aMurEst(x,y) && getIndication(x+1,y)==9999){
+            setIndication(x+1,y,chiffre+1)
+            somme+=1
+          }
+          if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
+            setIndication(x-1,y,chiffre+1)
+            somme+=1
+          }
+        }
       }
-   }
+    }
+    if(somme==0){fin = true }
+    chiffre+=1
   }
-  while (getIndication(x,y)!=9999){
-  cpt=cpt+1
-  if (!aMurNord(x,y)){
-    setIndication(x,y-1,cpt)
+  while(!estSurBiscuit){
+    var num = getIndication(getX(),getY())
+    var dir= 0
+    if(!aMurEst(getX(),getY())){
+      if(getIndication(getX()+1,getY())<num){
+        num=getIndication(getX()+1,getY());
+        dir=3
+      }
+    }
+    if(!aMurNord(getX(),getY())){
+      if(getIndication(getX(),getY()-1)<num){
+        num=getIndication(getX(),getY()-1);
+        dir=0
+      }
+    }
+    if(!aMurOuest(getX(),getY())){
+       if(getIndication(getX()-1,getY())<num){
+         num=getIndication(getX()-1,getY());
+         dir=1
+       }
+    }
+    if(!aMurSud(getX(),getY())){
+      if(getIndication(getX(),getY()+1)<num){
+        num=getIndication(getX(),getY()+1);
+        dir=2
+      }
+    }
+    setDirection(Direction.NORTH)
+    for(i<-1 to dir){gauche()}
+    avance()
   }
-  if (!aMurOuest(x,y)){
-    setIndication(x-1,y,cpt)
-  }
-  if (!aMurSud()){
-    setIndication(x,y,cpt)
-  }
-  if (!aMurEst()){
-    setIndication(x,y,cpt)
-  }    
-  }}
-
-
-def aMurSud():Boolean={
-  var X=getX();var Y=getY() 
-  return aMurNord(X,Y+1)
-}
-
-def aMurEst():Boolean={
-  var X=getX();var Y=getY()
-  return aMurOuest(X+1,Y)
-}
+  prendBiscuit()
+ 
