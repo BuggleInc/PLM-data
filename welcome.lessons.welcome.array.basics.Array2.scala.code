@@ -3,13 +3,20 @@ override def run() {
   gauche()
   avance()
   droite()
-  for (i<-0 to getWorldHeight-1){
-    setCouleurBrosse(T((i+1)% T.length))
+  colonne()
+}
+}
+def  colonne(){
+  litMessage=decalage
+  setCouleurBrosse(T(decalage))
+  for (i<-1 to getWorldHeight-1){
+    avance()
+    setCouleurBrosse(T((i+decalage)% T.length))
     baisseBrosse
     leveBrosse
-    avance()
   }
 }
+
 
 def remplir():Array[Color]={
   var X:Int=getWorldHeight()
