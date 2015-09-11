@@ -15,42 +15,24 @@ def keepHandOnSideWall() {
   
   var a=0
   var b=0
-  if (a==0 && getDirection==Direction.EST) {
-    gauche()
-    while (!estFaceMur) {
-      avance() 
-    }
-  }
- 
-  if (estFaceMur()) {
-    gauche()
-    if(!estFaceMur) {
+  if (a==0 && getDirection==Direction.NORD) {
+    while(!estFaceMur) {
       avance()
-      droite()
-    }
-    else {
-      gauche()
-      if (!estFaceMur) {
-        avance()
-        a+=1
-        droite()
-      }
-      else {
-        gauche()
-        if (!estFaceMur) {
-          avance()
-          droite()
-        }
-      }
     }
   }
   else {
-    avance()
-    a-=1
+    while (!estFaceMur) {
+      avance() 
+      gauche()
+      if (!estFaceMur) {
+        a+=1
+      }
+    }
     droite()
+    if (b==0) {
+      a-=1
+      b=2
+    }
+    b-=1
   }
-  
-   
-  
-  
 }
