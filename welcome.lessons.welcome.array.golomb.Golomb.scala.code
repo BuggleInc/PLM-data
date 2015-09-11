@@ -2,18 +2,24 @@ def golomb(num:Int): Int = {
   var suite=new Array[Int](num)
   var crescendo=new Array[Int](num)
   var repetition:Int=0
-  suite(0)=1
-  suite(1)=2
+  
   if(num==1){
     return 1
+    
   } else{
+    
+    suite(0)=1
+  	suite(1)=2
+    
     for(i<-1 to num){
       crescendo(i) = i+1
     }
+    
     for(i <- crescendo){
       repetition=suite(i-1)
-      for(k<-i to repetition){
-        suite(k)=i
+      
+      for(k<-1 to repetition){
+        suite(i)=i
       }
     }
   }
