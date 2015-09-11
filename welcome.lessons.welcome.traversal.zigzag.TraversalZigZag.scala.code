@@ -1,16 +1,16 @@
 override def run() {
   var cpt=0
   var i=0
-  while(cpt<=48){
-    if (pair(i)){
+  while(cpt<=48){ 
+    if (pair(i)){						//si ligne paire
       setPos(0,i)
       while(!isWallR()){
         ecritMessage(cpt)
         setPos((cpt+1)%getMondeHauteur(),i)
         cpt=cpt+1
       }
-    }
-    else {
+    }   
+    else {									//si ligne impaire 
       setPos(6,i)
       while(!isWallL()){
         ecritMessage(cpt)
@@ -18,41 +18,22 @@ override def run() {
         cpt=cpt+1
       }
     }
-    ecritMessage(cpt)
+    ecritMessage(cpt)				// print dernière case de la ligne + change ligne
     i=i+1
     cpt=cpt+1
   }
 }
 
 
-
-/*
-
-override def run() {
- 	var cpt=0
-	var i=0
-  while (cpt<=48){
-    while(!isWallR()){
-      ecritMessage(cpt)
-      setPos((cpt+1)%getMondeHauteur(),i)
-      cpt=cpt+1
-    }
-    ecritMessage(cpt)
-    if (i<=5){
-      i=i+1
-      setPos(0,i)
-    }
-    cpt=cpt+1
-  }
-}
-*/
-
+//renvoie si x est pair
 def pair(x:Int): Boolean={
   var rep= false
   if(x%2==0){rep=true}
   return rep
 }
 
+
+//mur à droite ou pas 
 def isWallR(): Boolean={
   var rep= false
   droite()
@@ -61,6 +42,8 @@ def isWallR(): Boolean={
   return rep
 }
 
+
+//mur à gauche ou pas 
 def isWallL(): Boolean={
   var rep= false
   gauche()
@@ -69,10 +52,3 @@ def isWallL(): Boolean={
   return rep
 }
 
-
-/*
-tanque cpt <48
-if pair -> fait ta ligne vers la droite normalement
-else -> fait ta ligne vers la gauche
-
-*/
