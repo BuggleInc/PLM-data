@@ -23,14 +23,16 @@ def deplacerBiscuit(){
   while (!estSurBiscuit() && !estFaceMur()){
     avance()
   }
-  prendBiscuit()
-  retourne()
-  while (!estSurBiscuit()){
-    avance()
+  if (estSurBiscuit()) {
+    prendBiscuit()
+    retourne()
+    while (!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    retourne()
   }
-  recule()
-  poseBiscuit()
-  retourne()
   if(!estFaceMur()){
     avance()
   }
