@@ -6,11 +6,19 @@ val DROITE = 8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var couleurActuelle = getGroundColor()
+  var taille = colors.length
+  var rgCouleur = 0
+  
+  for (i <- 0 to taille-1){
+    if (couleurActuelle == colors(i))
+    	rgCouleur = i
+  }
+  
   
   //Prochaine couleur ?
-  var nextColor = rule(state)(couleurActuelle)(0)
+  var nextColor = rule(state)(rgCouleur)(0)
  	//Prochain mvt ?
-  var mvtSuiv = rule(state)(couleurActuelle)(1)
+  var mvtSuiv = rule(state)(rgCouleur)(1)
   
   //On peint
   paint(nextColor)
@@ -26,7 +34,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   
   
   
-  state = rule(state)(couleurActuelle)(2)
+  state = rule(state)(rgCouleur)(2)
 }
 
 def paint(c:Color){
