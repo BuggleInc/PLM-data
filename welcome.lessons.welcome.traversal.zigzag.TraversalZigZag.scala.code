@@ -13,17 +13,19 @@ def fin(compteur:Int):Boolean =
 
 def avance2(droite:Boolean):Boolean =
 { 
-  if((getX()==getMondeLargeur()-1)&&(droite))
+  var x:Boolean = droite
+  
+  if((getX()==getMondeLargeur()-1)&&(x))
   {
     setPos(getX(),getY()+1)
-    droite = false
+    x = false
   }
-  else if((getX()==0)&&(!droite))
+  else if((getX()==0)&&(!x))
   {
     setPos(0,getY()+1)
-    droite = true
+    x = true
   }
-  else if(droite)
+  else if(x)
   {
     setPos(getX()+1,getY())
   }
@@ -31,7 +33,7 @@ def avance2(droite:Boolean):Boolean =
   {
     setPos(getX()-1,getY())
   }
-  return droite
+  return x
 }
 
 override def run()
