@@ -1,5 +1,17 @@
 override def run() {
-  def remplir(){
+ var T=remplir 
+  gauche()
+  avance()
+  droite()
+  for (i<-0 to getWorldHeight-1){
+    setCouleurBrosse(T(i+1)% T.length)
+    baisseBrosse
+    leveBrosse
+    avance()
+  }
+}
+
+def remplir():Array[Color]{
     var X:Int=getWorldHeight()
     var T = new Array[Color](X)
     T(0)=getCouleurSol()
@@ -10,20 +22,5 @@ override def run() {
     for (i<-0 to X-2){
       recule
     }
+  return T
   }
-  remplir
-  gauche()
-  avance()
-  droite()
-  for (i<-0 to getWorldHeight-1){
-    setCouleurBrosse(T(i+1)% T.length)
-    baisseBrosse
-    leveBrosse
-    avance()
-  }
-
-  
-
-
-
-}
