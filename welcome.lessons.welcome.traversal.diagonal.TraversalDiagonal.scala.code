@@ -1,12 +1,15 @@
 var diag = 0;
+
+  var cpt = 0;
+
 override def run() {
   var y=0
     
-  var cpt = 0;
   
   
   for (i <- 0 to 6){    
-    cpt = parcoursDiag(i,cpt)    
+    cpt = parcoursDiag(i,cpt)
+    parcoursDiag(i);
   }
   
   /*
@@ -25,7 +28,8 @@ override def run() {
 04 13 22 31 40
 */
   
-def parcoursDiag(diag:Int,cpt:Int): Int={
+//def parcoursDiag(diag:Int,cpt:Int): Int={
+def parcoursDiag(diag:Int): Int={
   setPos(0,diag)
   var y=diag
   var x=0
