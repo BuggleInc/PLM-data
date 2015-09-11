@@ -19,11 +19,11 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   leveBrosse()
   mvmt_suivant=rule(etat)(couleur_actuelle)(1)
   mvmt_suivant match {
-    case GAUCHE => gauche()
-    case DROITE => droite()
+    case GAUCHE => gauche(); avance()
+    case DROITE => droite(); avance()
     case stop =>
     case pas_de_virage => avance()
-    case demi_tour => droite();droite()
+    case demi_tour => droite();droite(); avance()
   }
   state=rule(state)(couleur_actuelle)(2)
   couleur_actuelle=i
