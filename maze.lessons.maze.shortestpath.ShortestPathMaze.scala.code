@@ -63,16 +63,16 @@ def parcoursCeTruc() {
   var y:Int = getY()
   
   while (!estSurBiscuit()) {
-    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y) && !aMurNord(x, y))
+    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y) && !aMurOuest(x, y))
       gauche(); avance(); droite()
 
-    if (y > 0 && getIndication(x, y) > getIndication(x, y - 1) && !aMurOuest(x, y))
+    if (y > 0 && getIndication(x, y) > getIndication(x, y - 1) && !aMurNord(x, y))
       avance()
 
-    if (x < xMax && getIndication(x, y) > getIndication(x + 1, y))
+    if (x < xMax && getIndication(x, y) > getIndication(x + 1, y) && !aMurOuest(x + 1, y))
       droite(); avance(); gauche()
 
-    if (y < yMax && getIndication(x, y) > getIndication(x, y + 1))
+    if (y < yMax && getIndication(x, y) > getIndication(x, y + 1) && !aMurNord(x, y + 1))
       retourne(); avance(); retourne()
   }
 }
