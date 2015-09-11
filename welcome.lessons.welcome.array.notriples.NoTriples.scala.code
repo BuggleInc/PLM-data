@@ -1,1 +1,17 @@
 def noTriples(nums:Array[Int]): Boolean = {
+  for (el <- nums){
+    if (arrayCount(nums,el) == 3){ return true}
+  }
+  return false
+}
+
+
+def arrayCount(nums:Array[Int], a:Int): Int = {
+  var nb : Int = 0
+  for (el <- nums) {
+    if (el == a) {
+      nb = nb +1
+    }
+  }
+  return nb
+}
