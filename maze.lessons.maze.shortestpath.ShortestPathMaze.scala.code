@@ -3,7 +3,7 @@ override def run() {
   var hauteur : Int = getMondeHauteur()
   var largeur : Int = getMondeLargeur()
   
-  //-------------------------------------------
+  //------------------------------------------- OK
   
   def trouverSortie():Array[Int] = {
   	var pos = new Array[Int](2)
@@ -17,7 +17,7 @@ override def run() {
     return pos // marque sortie + retourne la position de la sortie
   }
   
-  //-------------------------------------------
+  //------------------------------------------- PB
   
   def marquerCasesAdjacentes(pos:Array[Int]) {
     var i : Int = getIndication(pos(0),pos(1))
@@ -32,22 +32,22 @@ override def run() {
     //case au dessus
     if (pos(1) >0
         && !aMurNord(pos(0),pos(1))
-        && getIndication(pos(0),pos(1)-1)==9999)
+        && getIndication(pos(0),pos(1)-1)>i+1)
     			{setIndication(pos(0),pos(1)-1,i+1) ; booldessus = true}
     //case a droite
     if (pos(0) < largeur-1
         && !aMurOuest(pos(0)+1,pos(1))
-        && getIndication(pos(0)+1,pos(1))==9999)
+        && getIndication(pos(0)+1,pos(1))>i+1)
       		{setIndication(pos(0)+1,pos(1),i+1); booldroite = true}
     //case en dessous
     if (pos(1) < hauteur-1
         && !aMurNord(pos(0),pos(1)+1)
-        && getIndication(pos(0),pos(1)+1)==9999)
+        && getIndication(pos(0),pos(1)+1)>i+1)
     			{setIndication(pos(0),pos(1)+1,i+1); booldessous = true}
      //case a gauche
     if (pos(0) > 0
         && !aMurOuest(pos(0),pos(1))
-        && getIndication(pos(0)-1,pos(1))==9999)
+        && getIndication(pos(0)-1,pos(1))>i+1)
     			{setIndication(pos(0)-1,pos(1),i+1); boolgauche = true}
     
     var temp = new Array[Int](2)
@@ -66,7 +66,7 @@ override def run() {
     
   }
   
-  //-------------------------------------------
+  //------------------------------------------- OK
   
   def directionPlusCourte() {
     var posx : Int = getX()
@@ -94,7 +94,7 @@ override def run() {
     			{setDirection(Direction.OUEST)}
     }
   
-  //-------------------------------------------
+  //------------------------------------------- OK
   
   var pos = new Array[Int](2)
   pos = trouverSortie()
