@@ -1,3 +1,5 @@
+var state =0
+
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     def colore(c:Color){
     setCouleurBrosse(c)
@@ -15,7 +17,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     if(m==4){retourne();avance()}
     if(m==8){droite();avance()}
   }
-  colore(rule(col)(0))
-  mouv(rule(col)(1))
-  col=rule(col)(2)
+  colore(rule(state)(col)(0))
+  mouv(rule(state)(col)(1))
+  state=rule(state)(col)(2)
 }
