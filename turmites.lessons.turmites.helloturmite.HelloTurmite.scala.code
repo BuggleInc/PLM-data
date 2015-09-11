@@ -4,9 +4,9 @@ var nbcolor = 0
 
 val stop = 0
 val novirage = 1
-val gauche = 2
+val left = 2
 val demi = 4
-val droite = 8
+val right = 8
 
 var newcolor = 0
 var mvt = 0
@@ -26,9 +26,9 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   mvt match {
     case stop => useless=0
     case novirage => avance()
-    case gauche => gauche()
+    case left => gauche()
     case demi => retourne()
-    case droite => droite()
+    case right => droite()
   }
   
   state = rule(state)(nbcolor)(2)
