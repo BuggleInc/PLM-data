@@ -1,7 +1,8 @@
 def step(rule:Array[Char], colors:Array[Color]) {
-  var couleurSol=getCouleurSol()
-  for (i<-0 to colors.length-1){
+  var couleurTrouve=false
+  while (couleurTrouve!=true){
     if (getCouleurSol()==colors(i)){
+      couleurTrouve=true
       if (rule(i)=='L'){
         if (i>=colors.length-1){
           setCouleurBrosse(colors(0))
@@ -14,7 +15,6 @@ def step(rule:Array[Char], colors:Array[Color]) {
         avance()
       	}else{
         if (rule(i)=='R'){
-          
           if (i+1>=colors.length){
           	setCouleurBrosse(colors(0))
         	}else{
