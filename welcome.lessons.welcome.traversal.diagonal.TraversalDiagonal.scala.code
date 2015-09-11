@@ -24,7 +24,7 @@ override def run()
     
     if(compteur<(getMondeLargeur()*(getMondeLargeur()+1)/2))
     {
-      setPos(getX()-diag,getY()+1+diag)
+      setPos(0,getY()+1+diag)
     
       for(i <- 0 to diag)
       {      
@@ -37,6 +37,8 @@ override def run()
     }
     else if(compteur>(getMondeLargeur()*(getMondeLargeur()+1)/2))
     {
+      diag = diag - 1
+      
       setPos(getX()-diag,getY()+1+diag)
     
       for(i <- 0 to diag-1)
@@ -47,15 +49,7 @@ override def run()
       }
       diag = diag - 1
     }
-    else
-    {
-      for(i <- 0 to diag)
-      {      
-        ecritMessage(compteur)
-        compteur = compteur + 1
-        setPos(getX()+1,getY()-1)
-      }
-    }
+
   }
   while(!fin(compteur))
 }
