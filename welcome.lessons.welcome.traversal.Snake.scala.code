@@ -5,8 +5,15 @@ override def run() {
 }
 
 def posfinale():Boolean={
-  if((estFaceMur && getDirection()==Direction.EST) || (estFaceMur && getDirection()==Direction.OUEST)){
-    return true
+  if(estFaceMur && getDirection()==Direction.EST){
+    gauche()
+    if (estFaceMur)
+    	return true
+  else if(estFaceMur && getDirection()==Direction.OUEST){
+    droite()
+    if (estFaceMur)
+    	return true
+  }
   } else{
     return false
   }
