@@ -14,7 +14,7 @@ override def run() {
     recule()
   }
   for (compteur<-1 to getMondeLargeur()){
-    if (estFaceMur()==false){
+    
     
       gauche()
       avance()
@@ -29,9 +29,15 @@ override def run() {
         setCouleurBrosse(T((i + decalage-1) % getMondeHauteur()))
         baisseBrosse()
         leveBrosse()
-        avance()
+        if (estFaceMur()==false){
+        	avance()
+        }else{
+          for (compteur <-0 to getMondeHauteur()-2){
+    				recule()
+          
+        }
       
       }
-    }
+    
   }
 }
