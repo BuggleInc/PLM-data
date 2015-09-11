@@ -19,15 +19,24 @@ override def run() {
   
  for (i <- 1 to (width*height) - 1){
    
-   if (hasLeftWall(x, y) && getIndication(x, y-1) == 9999){
-     if (hasTopWall(x, y)){
-       y = y + 1
+   if (hasLeftWall(x, y){
+     if (getIndication(x, y-1) == 9999){
+       if (hasTopWall(x, y)){
+         y = y + 1
+       }else{
+         y = y - 1
+       }
      }else{
-       y = y - 1
+       y = y + 1
      }
    }else{
-     x = x - 1
+     if (getIndication(x, y-1) == 9999){
+       y = y - 1
+     }else{
+       x = x - 1
+     }
    }
+
    
    
    setIndication(x, y, i)
