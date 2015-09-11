@@ -1,0 +1,49 @@
+override def run() {
+  
+  def toucheMur():Boolean={
+    gauche()
+    if (estFaceMur){
+      droite()
+      return true
+    }
+    avance()
+    return false
+  }
+  
+  def toucheMurDroite():Boolean={
+    droite()
+    if (estFaceMur){
+      gauche()
+      return true
+    }
+    return false
+  }
+  
+  def keepHandOnSideWall(){
+			if ((toucheMur())&&(!estFaceMur)){
+        avance()
+      } else if ((toucheMur())&&(estFaceMur)){
+        droite()
+      } else if ((!toucheMur())&&(!estFaceMur())){
+      	gauche()
+    	} else if ((!toucheMur())&&(estFaceMur())){
+        gauche()
+        avance()
+        if ((!toucheMur())&&(!estFaceMur())){
+          avance()
+        }
+      }
+    }
+	}
+  
+  while (!estSurBiscuit()){
+    if (!estFaceMur()){
+      avance()
+    } else {
+      keepHandOnSideWall()
+    }
+  }
+	prendBiscuit()
+  
+
+}
