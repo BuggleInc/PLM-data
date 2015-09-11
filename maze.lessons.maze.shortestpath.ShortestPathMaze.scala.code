@@ -1,0 +1,45 @@
+override def run() {
+ 
+var a=0
+var b=0
+for (c <- 1 to getMondeHauteur()){
+  for (i <- 1 to getMondeLargeur()){
+    if (aBiscuit(i,c)){
+        a=i
+        b=c
+      }
+    }
+}
+
+setIndication(a,b,0)
+
+
+def ecriture(x:Int ,y:Int) = {
+		var v=getIndication(x,y)
+  
+    if (y>0 && !aMurNord(x,y) && v!=9999 && getIndication(x,y-1)>=v && getIndication(x,y-1)<9999) { 
+      setIndication(x,y-1,v+1)
+    }
+		if (x > 0 && !aMurOuest(x,y) && v!=9999 && getIndication(x-1,y)>=v && getIndication(x-1,y)<9999) {
+      setIndication(x-1,y,v+1)
+    }
+  	if (y<=getMondeHauteur()-1 && aMurNord(x,y+1) && v!=9999 && getIndication(x,y+1)>=v && getIndication(x,y+1)<9999) {
+      setIndication(x,y+1,v+1)
+		}
+		if (x<=getMondeLargeur() -1 && aMurOuest(x+1,y) &&  v!=9999 && getIndication(x+1,y)>=v && getIndication(x+1,y)<9999) {
+      setIndication(x+1,y,v+1)
+		}
+}
+  
+for (p <- 1 to 95){  
+	for (l <- 1 to getMondeLargeur()){
+  	for (c <- 1 to getMondeHauteur()){
+      if (getIndication(l,c)!=9999){
+      ecriture(l,c)
+      }
+    }
+}
+}
+var f=getX()
+var g=getY()
+}
