@@ -14,6 +14,7 @@ def reperage(){
   }
   suivant(pox,poy,0)
   deplacement()
+  prendBiscuit()
 }
 
 def suivant(x:Int,y:Int,i:Int){
@@ -29,10 +30,10 @@ def deplacement(){
   while (message !=0){
     var x=getX()
     var y=getY()
-  if (x!=0){ if  ( getIndication(x-1,y)=message-1){void setDirection(Direction.SOUTH)}}
-  if (x!=getMondeLargeur()-1){if (getIndication(x+1,y)=message-1){void setDirection(Direction.NORTH)}}
-  if (y!=getMondeHauteur()-1){if (getIndication(x,y+1)=message-1){void setDirection(Direction.EAST)}}
-  if (y!=0){if (!aMurNord(x,y) && getIndication(x,y-1)>i+1){void setDirection(Direction.WEST)}}}
+  if (x!=0){ if  ( getIndication(x-1,y)==message-1){void setDirection(Direction.SOUTH)}}
+  if (x!=getMondeLargeur()-1){if (getIndication(x+1,y)==message-1){void setDirection(Direction.NORTH)}}
+  if (y!=getMondeHauteur()-1){if (getIndication(x,y+1)==message-1){void setDirection(Direction.EAST)}}
+  if (y!=0){if (!aMurNord(x,y) && getIndication(x,y-1)==message-1){void setDirection(Direction.WEST)}}}
 	message=message-1
   avance()
 }
