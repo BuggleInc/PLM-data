@@ -16,15 +16,10 @@ def casesAdjacentes(pos: Array[Int]): Array[Array[Int]] = {
   var xMax:Int = getMondeLargeur() - 1
 	var yMax:Int = getMondeHauteur() - 1
   
-  var result:Array[Array[Int]] = Array[Array[Int]]()
-  
-  result :+ Array[Int](pos(0) - 1, pos(1))
-  
-  result :+ Array[Int](pos(0) + 1, pos(1))
-  
-  result :+ Array[Int](pos(0), pos(1) - 1)
-  
-  result :+ Array[Int](pos(0), pos(1) + 1)
+  var result:Array[Array[Int]] = Array[Array[Int]](Array[Int](pos(0) - 1, pos(1)),
+                                                   Array[Int](pos(0) + 1, pos(1)),
+                                                   Array[Int](pos(0), pos(1) - 1),
+                                                   Array[Int](pos(0), pos(1) + 1))
   
   return result
 }
@@ -46,7 +41,6 @@ def marqueCases(poidsCourant: Int):Int = {
        */
       if (getIndication(x, y) == poidsCourant) {
         for (i <- casesAdjacentes(Array[Int](x, y))) {
-          setIndication(xMax, yMax, xMax + yMax)
           if (getIndication(i(0), i(1)) == 9999) {
             setIndication(i(0), i(1), poidsCourant + 1)
             
