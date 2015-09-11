@@ -7,7 +7,9 @@ override def run() {
   
 }
 
-
+def setup() {
+  setIndication(foundBaggle(true),foundBaggle(false),0)
+}
 
 def arround(x:Int,y:Int,cpt:Int) {
   if(!aMurNord(x,y))
@@ -31,57 +33,22 @@ def isSetupEnd():Boolean = {
   return fin
 }
 
-def foundBaggle():Array[Int] = {
-  var res = new Array[Int](2)
+def foundBaggle(b:Boolean):Array[Int] = {
+  var bx = -1
+  var by = -1
   for(x<-0 to l-1)
   {
     for(y<-0 to h-1)
     {
       if(aBiscuit(x,y))
       {
-        res(0)=x
-        res(1)=y
-        return res
+        bx=x
+        by=y
       }
     }
   }
-  return res
-}
-
-def setup() {
-  var autour = new Array[Int](4)
-  
-  var bagglePos = new Array[int](2)
-  
-  bagglePos = foundBaggle()
-  
-  setIndication(bagglePos()(0),bagglePos()(1),0)
-  while(!isSetupEnd())
-  {
-    for(x<-0 to l-1)
-    {
-      for(y<-0 to h-1)
-      {
-        if(getIndication(x,y)==9999)
-        {
-          autour(0) = getIndication(x+1,y)
-          autour(1) = getIndication(x-1,y)
-          autour(2) = getIndication(x,y+1)
-          autour(3) = getIndication(x,y-1)
-        }
-        if(min(autour)!=9999)
-        	setIndication(x,y,min(autour)-1)
-      }
-    }
-  }
-}
-
-def min(nums:Array[Int]): Int = {
-  var min = nums(0)
-  for(i<-nums)
-  {
-    if (i<min)
-    	min = i
-  }
-  return min
+  if(b)
+  	return bx
+  else
+  	return by
 }
