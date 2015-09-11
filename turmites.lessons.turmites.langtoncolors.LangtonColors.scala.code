@@ -4,16 +4,19 @@ def step(rule:Array[Char], colors:Array[Color]) {
   var taille = rule.length;
   for (i <- 0 to taille-1) {
     if (colors(i)==a) {
-      if (rule(i)=="L") {
-        gauche();
-        pos = i
-      } else {
-        droite();
-        pos = i }
-    }  
+      pos = i}
   }
-  setCouleurBrosse(colors((pos+1)%taille));
-  baisseBrosse();
-  leveBrosse();
-  avance();
+
+  if (rule(pos)=="L") {
+    gauche();
+
+  } else {
+    droite();
+  }
+}  
+}
+setCouleurBrosse(colors((pos+1)%taille));
+baisseBrosse();
+leveBrosse();
+avance();
 }
