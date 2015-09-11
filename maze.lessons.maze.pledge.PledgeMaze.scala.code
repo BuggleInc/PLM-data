@@ -1,3 +1,6 @@
+var a=1
+
+
 override def run() {
   
   
@@ -13,44 +16,22 @@ override def run() {
 
 def keepHandOnSideWall() {
   
-  var a=0
-  var b=0
-  if (a==0 && getDirection==Direction.EST) {
-    gauche()
-    while (!estFaceMur) {
-      avance() 
-    }
-  }
- 
-  if (estFaceMur()) {
-    gauche()
-    if(!estFaceMur) {
+  
+  if (a==6 && getDirection==Direction.NORD) {
+    while(!estFaceMur) {
       avance()
-      droite()
     }
-    else {
-      gauche()
-      if (!estFaceMur) {
-        avance()
-        a+=1
-        droite()
-      }
-      else {
-        gauche()
-        if (!estFaceMur) {
-          avance()
-          droite()
-        }
-      }
-    }
+    droite()
+    a=1
   }
   else {
-    avance()
-    a-=1
+    while (!estFaceMur) {
+      avance() 
+      gauche()
+      if (!estFaceMur) {
+        a+=1
+      }
+    }
     droite()
   }
-  
-   
-  
-  
 }
