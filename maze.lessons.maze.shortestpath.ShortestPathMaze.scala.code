@@ -29,6 +29,13 @@ override def run() {
       }
     }
   }
+  var dir = Direction.NORTH
+  while (!estSurBiscuit()) {
+    dir = chercheDir()
+    void setDirection(dir)
+    avance()
+  }
+  prendBiscuit()
 }
 
 def chercheDir():Direction = {
