@@ -1,5 +1,23 @@
-override def run() {
+override def run() { while(getY() != 0){
+    setDirection(Direction.NORTH)
+    while (!estFaceMur()){
+      avance()
+    }
+    if (getY() != 0) {
+      while( getDirection() != Direction.WEST) {
+      keepHandOnSideWall()
+      }
+    } else {
+      setDirection(Direction.EAST)
+    }
+    
+  }
+  while(!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
 }
+
 
 def run() {
   while(getY() != 0){
