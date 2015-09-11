@@ -9,12 +9,16 @@ override def run() {
 def  colonne(T:Array[Color]){
   var decalage:Int =litMessage().toInt
   setCouleurBrosse(T(decalage))
+  baisseBrosse
+  leveBrosse
   for (i<-1 to getWorldHeight-1){
     avance()
     setCouleurBrosse(T((i+decalage)% T.length))
     baisseBrosse
     leveBrosse
   }
+  gauche()
+  droite()
 }
 
 
