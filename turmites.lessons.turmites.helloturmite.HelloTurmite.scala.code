@@ -1,7 +1,7 @@
 var state = 0;
-val pasDeVirage = 1
+val PDV = 1
 val GAUCHE = 2
-val demiTour = 4
+val DT = 4
 val DROITE = 8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
@@ -16,8 +16,8 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   leveBrosse()
   (rule(state)(idc)(1)) match{
     case GAUCHE => gauche(); avance()
-    case pasDeVirage => avance()
-    case demiTour => droite(); droite() ; avance()
+    case PDV => avance()
+    case DT => droite(); droite() // ; avance()
     case DROITE => droite(); avance()
     //case _ => droite(); gauche()
   }
