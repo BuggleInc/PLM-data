@@ -5,7 +5,7 @@ var height = getWorldHeight()
 override def run() {
   var (xStart, yStart):(Int, Int) = (0, 0)
   
-  for (i <- index to width  - 1){
+  for (i <- 0 to width  - 1){
    for (j <- 0 to height - 1){
      if (hasBaggle(i, j)){
       	xStart = i
@@ -22,9 +22,9 @@ override def run() {
 def forkPath(xStart:Int, yStart:Int, index:Int){
  var x = xStart
  var y = yStart
- var start = index
+  
 
- for (i <- start to (width*height) - 1){
+ for (i <- index to (width*height) - 1){
    
 	if (hasTopWall(x, y) && hasLeftWall(x, y)){
     forkPath(x - 1, y, i + 1) // forkleft
