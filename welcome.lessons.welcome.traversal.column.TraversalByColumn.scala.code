@@ -1,17 +1,13 @@
 override def run() {
   var posfinale = false
   while(!posfinale){
-    rep(posfinale)
+    if (setPos(getX(),getY()) == setPos(getMondeLargeur()-1, getMondeHauteur()-1)){
+      posfinale=true}
     move()
   }
 }
 
 
-def rep(posfinale : Boolean) : Boolean={
-  if (setPos(getX(),getY()) == setPos(getMondeLargeur()-1, getMondeHauteur()-1)){
-    return posfinale=true
-  }else{return posfinale=false}
-}
 
 def move(){
   for (i <- 0 to getMondeLargeur()-1){
