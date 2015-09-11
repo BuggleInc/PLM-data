@@ -1,0 +1,42 @@
+var state = 0;
+val Gauche:Int = 2;
+val Droite:Int = 8;
+val DemiTour:Int = 4;
+val Stop:Int = 0;
+val Avance:Int = 1;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var c:Color = getCouleurSol()
+  var indice:Int = 0
+  var action = new Array[Int](3)
+  
+  for (i <- 0 to colors.length-1) {
+    if (colors(i) == c) {
+      indice = i
+    }
+  }
+  action = rule(state)(indice)
+  setCouleurSol(colors(action(0)))
+  if (action(1) == Gauche) {
+    gauche()
+    avance()
+  } else if (action(1) == Droite) {
+    droite()
+    avance()
+  } else if (action(1) == DemiTour) {
+    droite()
+    droite()
+    avance()
+  } else if (action(1) == Stop) {
+  } else if (action(1) == Avance) {
+    avance()
+  }
+  state = action(2)
+}
+
+
+def setCouleurSol(c:Color) = {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
