@@ -1,9 +1,13 @@
 override def run() {
-  while(!estSurBiscuit()){keepHandOnSideWall()}
+  while(!estSurBiscuit()){
+    while(!estFaceMur()){
+      avance()
+      gauche()
+    }
+  	if(estFaceMur()){
+      droite()
+      avance()
+      gauche()}
+  }
   
-}
-
-keepHandOnSideWall(){
-  while(!estFaceMur()){avance();gauche()}
-  if(estFaceMur()){droite();avance();gauche()}
 }
