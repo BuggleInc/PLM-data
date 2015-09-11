@@ -23,7 +23,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
       ind = i
     }
   }
-  tag(colors((ind+1)%colors.length))
-  move(state)
-  state=rule(state)(ind)
+  tag(colors(rule(state)(ind)(0)))
+  move(rule(state)(ind)(1))
+  state=rule(state)(ind)(2)
 }
