@@ -3,18 +3,18 @@
 override def run() {
   var H = getWorldHeight()
   var L = getWorldWidth()
-  
+
   //On recupere les coordonnees de la sortie
   var coordSortie = findExit(H,L)
   var xSortie = coordSortie(0)
   var ySortie = coordSortie(1)
-  
+
   //On place les nombres
   recursor(xSortie,ySortie,0)
-  
+
   //On bouge le buggle
   enRoute()
-  
+
   //On sort
   pickupBaggle()
 }
@@ -41,54 +41,74 @@ def iMin(T: Array[Int]): Int ={
   var indice = 0
   for (j <- 0 to long){
     if (T(indice) > T(j))
-    	indice = j
+    indice = j
   }
   return indice
 }
 
 def enRoute(){
-	//On fait bouger le buggle tant qu'on est pas arrive
+  //On fait bouger le buggle tant qu'on est pas arrive
   var xBuggle = getX()
   var yBuggle = getY()
   var H = getWorldHeight()
   var L = getWorldWidth()
   var caseBuggle = getIndication(xBuggle,yBuggle)
-  
+
   while (caseBuggle > 0){
-    
+
     var cases = Array(9999,9999,9999,9999)
     if (xBuggle + 1 < L){cases(0)  = getIndication(xBuggle + 1,yBuggle)}//Droite
     if (xBuggle - 1 >= 0){cases(1) = getIndication(xBuggle - 1,yBuggle)}//Gauche
     if (yBuggle + 1 < H){cases(2)  = getIndication(xBuggle,yBuggle + 1)}//Bas
     if (yBuggle - 1 >= 0){cases(3) = getIndication(xBuggle,yBuggle - 1)}//Haut
-    
+
     var directionInt = iMin(cases)
-    
+
     directionInt match{
       case 0 => setDirection(Direction.EAST) ;forward();caseBuggle = cases(0);
       case 1 => setDirection(Direction.WEST) ;forward();caseBuggle = cases(1);
       case 2 => setDirection(Direction.SOUTH);forward();caseBuggle = cases(2);
       case 3 => setDirection(Direction.NORTH);forward();caseBuggle = cases(3);
     }
-    
-    
+
+
   }
 }
 
 
 def recursor(x:Int,y:Int,i:Int){
-  if (i == 0){
+  if(i==0) {
     setIndication(x,y,i)
-    recursor(x,y,i+1)
-  }else{
+  }
+  else {
     //on regarde chaque direction avec dirCase
     for (dirCase <- 0 to 3){
       if (caseAccessible(x,y,dirCase)){
         dirCase match{
-          case 0 => if (i<getIndication(x+1,y)) {setIndication(x+1,y,i)};recursor(x+1,y,i+1);
-          case 1 => if (i<getIndication(x-1,y)) {setIndication(x-1,y,i)};recursor(x-1,y,i+1);
-          case 2 => if (i<getIndication(x,y+1)) {setIndication(x,y+1,i)};recursor(x,y+1,i+1);
-          case 3 => if (i<getIndication(x,y-1)) {setIndication(x,y-1,i)};recursor(x,y-1,i+1);
+          case 0 => 
+          if (i<getIndication(x+1,y)) {
+            setIndication(x+1,y,i)
+            recursor(x+1,y,i+1);
+          };
+          
+          case 1 => 
+          if (i<getIndication(x-1,y)) {
+            setIndication(x-1,y,i)
+            recursor(x-1,y,i+1);
+          };
+          
+          case 2 => 
+          if (i<getIndication(x,y+1)) {
+            setIndication(x,y+1,i)
+            recursor(x,y+1,i+1);
+          };
+          
+          case 3 =>
+          if (i<getIndication(x,y-1)) {
+            setIndication(x,y-1,i)
+            recursor(x,y-1,i+1);
+          };
+          
         }
       }
     }
@@ -101,7 +121,7 @@ def caseAccessible(x : Int, y :Int, dir:Int): Boolean ={
   val GAUCHE = 1
   val BAS = 2 
   val HAUT = 3
-  
+
   dir match{
     case DROITE => if (x+1 >= getWorldWidth()){return false}else if (hasLeftWall(x+1,y)){return false};
     case GAUCHE => if (hasLeftWall(x,y)){return false};
