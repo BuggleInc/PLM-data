@@ -11,7 +11,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   while ( colors(indiceCouleur) != couleurActuelle ){
     indiceCouleur+=1;
   }
-  setCouleurSol(colors(rule(state)(indiceCouleur)(0)));
   if ( rule(state)(indiceCouleur)(1) == Avance ){
     avance();
   } else if ( rule(state)(indiceCouleur)(1) == Gauche ){
@@ -22,6 +21,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     droite();
   } else if ( rule(state)(indiceCouleur)(1) ==  Stop ){
   }
+  setCouleurSol(colors(rule(state)(indiceCouleur)(0)));
   state = rule(state)(indiceCouleur)(2);
 }
 
