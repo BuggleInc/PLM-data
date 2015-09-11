@@ -31,10 +31,24 @@ override def run() {
   }
 }
 
-/*def chercheDir() = {
+def chercheDir() = {
   var xm = getMondeLargeur()
   var ym = getMondeHauteur()
-  var min = -1
+  var min = 9999
   var dir = Direction.NORTH
-  
-}*/
+  var i = getX()
+  var j = getY()
+  if (!aMurNord(i,j) && (getIndication(i,j-1)<min)) {
+     	min = getIndication(i,j-1)
+  		dir = Direction.NORTH}
+  else if (!aMurOuest(i,j) && (getIndication(i-1,j)<min)) {
+     	min = getIndication(i-1,j)
+     	dir = Direction.WEST}
+  else if ((j+1<ym) && !aMurNord(i,j+1) && (getIndication(i,j+1)<min)) {
+     	min = getIndication(i,j+1)
+  		dir = Direction.SOUTH}
+  else if ((i+1<xm) && !aMurOuest(i+1,j) && (getIndication(i+1,j)<min)) {
+    	min = getIndication(i+1,j)
+      dir = Direction.EAST}
+  return dir
+}
