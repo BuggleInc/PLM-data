@@ -85,10 +85,10 @@ def recursor(x:Int,y:Int,i:Int){
     for (dirCase <- 0 to 3){
       if (caseAccessible(x,y,dirCase)){
         dirCase match{
-          case 0 => if (i<getIndication(x+1,y) || getIndication(x+1,y) == "") {setIndication(x+1,y,i)};recursor(x+1,y,i+1);
-          case 1 => if (i<getIndication(x-1,y) || getIndication(x-1,y) == "") {setIndication(x-1,y,i)};recursor(x-1,y,i+1);
-          case 2 => if (i<getIndication(x,y+1) || getIndication(x,y+1) == "") {setIndication(x,y+1,i)};recursor(x,y+1,i+1);
-          case 3 => if (i<getIndication(x,y-1) || getIndication(x,y-1) == "") {setIndication(x,y-1,i)};recursor(x,y-1,i+1);
+          case 0 => if (i<getIndication(x+1,y)) {setIndication(x+1,y,i)};recursor(x+1,y,i+1);
+          case 1 => if (i<getIndication(x-1,y)) {setIndication(x-1,y,i)};recursor(x-1,y,i+1);
+          case 2 => if (i<getIndication(x,y+1)) {setIndication(x,y+1,i)};recursor(x,y+1,i+1);
+          case 3 => if (i<getIndication(x,y-1)) {setIndication(x,y-1,i)};recursor(x,y-1,i+1);
         }
       }
     }
