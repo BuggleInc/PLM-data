@@ -6,11 +6,12 @@ def golomb(num:Int): Int = {
   
   while (i!=num-1){  
     for (j<- 1 to cpt){
-      if(i==num-1){return T(i)}
       i+=1
+      if(i==num-1){return T(i)}
+      
       T(i-1)=cpt  
     }
-    cpt+=1 
+    cpt=i
   } 
 	return T(i)
 }
