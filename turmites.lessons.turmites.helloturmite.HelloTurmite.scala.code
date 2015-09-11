@@ -3,11 +3,9 @@ var state = 0;
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   val c=getCouleurSol()
   val ci=posi(c,colors)
-  if (ci==colors.length-1) {
-    colorie(colors(rule(state)(0)(0)))
-  } else {
-    colorie (colors(rule(state)(ci+1)(0)))
-  }
+
+    colorie(colors(rule(state)(ci)(0)))
+
   val Mov = rule(state)(ci)(1)
    Mov match {
     case 0 =>()
