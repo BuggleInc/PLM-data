@@ -1,5 +1,29 @@
 override def run() {
-  while(!estSurBiscuit){
+
+  
+  
+  while (! estSurBiscuit()) {
+  
+    avanceVersNord();
+	  droite();
+  
+    while (getDirection() != Direction.NORTH && ! estFaceMur()) {
+      longerMurGauche();
+    }
+  
+  }
+  prendBiscuit()
+}
+
+def avancerVersNord() {
+  setDirection(Direction.NORD);
+  while (! estFaceMur()) {
+    avance();    
+  }
+}
+
+
+def longerMurGauche() {  
     gauche()
     if(estFaceMur){
       droite()
@@ -20,7 +44,5 @@ override def run() {
     }
     else{
       avance()
-    }
-  }
-  prendBiscuit()
+    }  
 }
