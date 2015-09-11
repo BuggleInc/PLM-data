@@ -11,7 +11,7 @@ val NEXT_STATE = 2;
 
 //Pour les couleurs : 0 = blanc, 1 = jaune
 
-var rule:Array[Array[Array[Int]]] = Array(Array(Array(1, RIGHT, 0),Array(1, RIGHT, 1)), Array(Array(0, NOTURN, 0), Array(0, NOTURN, 1))) // Change this
+var rule:Array[Array[Array[Int]]] = Array(Array(Array(1, LEFT, 0),Array(1, LEFT, 1)), Array(Array(0, NOTURN, 0), Array(0, NOTURN, 1))) // Change this
 var nbSteps:Int = 8342; // Change this
 
 /** init the rule array from a string defining a Langton's ant 
@@ -21,29 +21,29 @@ var nbSteps:Int = 8342; // Change this
  */
 
 
-//def initLangton(name:String) {
-//    val nbColors = name.length(); /* As many colors as letters in the ant's name */
+def initLangton(name:String) {
+    val nbColors = name.length(); /* As many colors as letters in the ant's name */
  
-//    rule = new Array[Array[Array[Int]]](1); /* one state only */
-//    rule(0) = new Array[Array[Int]](nbColors); /* As many colors as letters in the ant's name */
-//    for (i <- 0 to nbColors-1) {
-//        rule(0)(i) = new Array[Int](3); /* every command set has 3 elements */ 
+    rule = new Array[Array[Array[Int]]](1); /* one state only */
+    rule(0) = new Array[Array[Int]](nbColors); /* As many colors as letters in the ant's name */
+    for (i <- 0 to nbColors-1) {
+        rule(0)(i) = new Array[Int](3); /* every command set has 3 elements */ 
 
-//        rule(0)(i)(NEXT_COLOR) = (i+1) % nbColors;
+        rule(0)(i)(NEXT_COLOR) = (i+1) % nbColors;
 
-//        if (name.charAt(i) == 'L') {
-//            rule(0)(i)(NEXT_MOVE) = LEFT;            
-//        } else if (name.charAt(i) == 'R') {
-//            rule(0)(i)(NEXT_MOVE) = RIGHT;
-//        } else {
-//            getGame().getLogger().log("Unknown command in your ant's name: "+name.charAt(i));
-//        }
+        if (name.charAt(i) == 'L') {
+            rule(0)(i)(NEXT_MOVE) = LEFT;            
+        } else if (name.charAt(i) == 'R') {
+            rule(0)(i)(NEXT_MOVE) = RIGHT;
+        } else {
+            getGame().getLogger().log("Unknown command in your ant's name: "+name.charAt(i));
+        }
 
-//        rule(0)(i)(NEXT_STATE) = 0; /* only one state */
+        rule(0)(i)(NEXT_STATE) = 0; /* only one state */
 
         // println("{"+rule(0)(i)(NEXT_COLOR)+","+rule(0)(i)(NEXT_MOVE)+","+rule(0)(i)(NEXT_STATE)+"}");
-//    }
-//}
+    }
+}
 
 
 
@@ -54,7 +54,7 @@ def init() {
   var c:Int = 0
   
   //On place la turmite en (8, 33)
-  if (posX != 8) { //while normalement
+  while (posX != 8) {
     if (posX > 8) {
       gauche()
       avance()
@@ -66,7 +66,7 @@ def init() {
     }
     posX = getX()
   }
-  if (posY != 33) { //while normalement
+  while (posY != 33) {
     if (posY > 33) {
       avance()
     } else {
@@ -79,7 +79,7 @@ def init() {
   
   //On appelle maintenant la boucle
   /*for (pas <- 0 to nbSteps-1) {*/
-    /*if (getCouleurSol() == Color.WHITE) {
+    if (getCouleurSol() == Color.WHITE) {
       c = 0
     } else if (getCouleurSol() == Color.YELLOW) {
       c = 1
@@ -92,7 +92,7 @@ def init() {
     } else if (action(1) == NOTURN) {
       avance()
     }
-    state = action(2)*/
+    state = action(2)
   /*}*/
 }
 
