@@ -1,0 +1,66 @@
+def positionfinale():Boolean={
+  if (estFaceMur()){
+ 	 if (getDirection()==Direction.EST){
+      gauche()
+      if (estFaceMur()){
+        return true
+      }
+      else {
+        return false
+      }
+    }
+    else if (getDirection()==Direction.OUEST){
+      droite()
+      if (estFaceMur()){
+        return true
+      }
+      else {
+        return false
+      }
+    }
+    
+  }
+    return false
+}
+
+def serpent (){
+  while (!estFaceMur()){
+    avance()
+  }
+  if (estFaceMur() && getDirection() == Direction.OUEST){
+    droite()
+    if (!estFaceMur){
+      avance()
+      droite()
+    }
+    else {
+      gauche()
+    }
+    
+  }
+  else if (estFaceMur() && getDirection()== Direction.EST){
+    gauche()
+     if (!estFaceMur){
+   	 	 avance()
+   		 gauche()
+  }
+    else{
+      droite()
+    }
+}
+}
+
+
+
+
+override def run() {
+  
+  baisseBrosse()
+
+  while (positionfinale()==false){
+
+    serpent()
+    
+  }
+  droite()
+}
