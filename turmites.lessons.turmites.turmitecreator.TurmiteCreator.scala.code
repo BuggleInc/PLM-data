@@ -9,6 +9,8 @@ val NEXT_COLOR = 0;
 val NEXT_MOVE  = 1;
 val NEXT_STATE = 2;
 
+//Pour les couleurs : 0 = blanc, 1 = noir
+
 var rule:Array[Array[Array[Int]]] = Array(Array(Array(1, RIGHT, 0),Array(1, RIGHT, 1)), Array(Array(0, NOTURN, 0), Array(0, NOTURN, 1))) // Change this
 var nbSteps:Int = 8342; // Change this
 
@@ -47,7 +49,10 @@ def initLangton(name:String) {
 def init() {
   var posX:Int = getX()
   var posY:Int = getY()
+  var state:Int = 0
+  var c:Int = 0
   
+  //On place la turmite en (8, 33)
   while (posX != 8) {
     if (posX > 8) {
       gauche()
@@ -58,6 +63,7 @@ def init() {
       avance()
       gauche()
     }
+    posX = getX()
   }
   while (posY != 33) {
     if (posY > 33) {
@@ -67,5 +73,34 @@ def init() {
       avance()
       retourne()
     }
+    posY = getY()
   }
+  
+  //On appelle maintenant la boucle
+  for (pas <- 0 to nbSteps-1) {
+    if (getCouleurSol() == Color.WHITE) {
+      c = 0
+    } else if (getCouleurSol() == Color.WHITE) {
+      c = 1
+    }
+    var action = rule(state)(c)
+    setCouleurSol(action(0))
+    if (action(1) == RIGHT) {
+      droite()
+      avance()
+    } else if (action(1) == NOTURN) {
+      avance()
+    }
+    state = action(2)
+  }
+}
+
+def setCouleurSol(c:Int) {
+  if (c == 0) {
+    setCouleurBrosse(Color.WHITE)
+  } else if (c == 1) {
+    setCouleurBrosse(Color.BLACK)
+  }
+  baisseBrosse()
+  leveBrosse()
 }
