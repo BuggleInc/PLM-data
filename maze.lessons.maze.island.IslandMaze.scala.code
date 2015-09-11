@@ -2,11 +2,20 @@ override def run() {
   while (!estSurBiscuit){
     setDirection(Direction.NORTH)
     if (estFaceMur){
-      gauche()
+      droite()
     	if (estFaceMur()){
       	droite()
+        avance()
+        gauche()
       	if (estFaceMur){
         	droite()
+          if (estFaceMur){
+            droite()
+            avance()
+            gauche()
+            droite() 
+            avance()
+          }
       	}else{
         avance()
       	}
@@ -19,5 +28,3 @@ override def run() {
   }
   prendBiscuit()
 }
-  
-
