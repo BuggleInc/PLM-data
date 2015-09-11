@@ -3,16 +3,18 @@ def step(rule:Array[Char], colors:Array[Color]) {
   
   for (i<- 0 to colors.length-1){
     if (getCouleurSol()==colors(i)){   // Recherche de l'indice de la couleur du sol dans le tableau
-      r=i
-      
+      r=i     
     }  
   }
   rule(r) match{  // en fonction de l'indice de la couleur de la case dans le tableau
     case 'R' => droite()    // gère le cas droite
     case 'L' => gauche()    // gère le cas gauche
   }
-  if (r==colors.length-1){r=0}  // gère si la prochaine valeur est or range
-  
-  setCouleurBrosse(colors(r));baisseBrosse();leveBrosse();avance()
+  if (r==colors.length-1){
+    setCouleurBrosse(colors(0));baisseBrosse();leveBrosse();avance()
+  }  // gère si la prochaine valeur est or range
+  else {
+    setCouleurBrosse(colors(r+1));baisseBrosse();leveBrosse();avance()
+  }
   
 }
