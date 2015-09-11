@@ -1,0 +1,50 @@
+override def run() {
+ 
+    snake()
+  
+  
+}
+
+
+def estFin() :Boolean ={
+  if (estFaceMur() ) {
+    if(getDirection()==Direction.EST) {
+      gauche()
+      if (estFaceMur()) {
+        return true
+      }
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      if (estFaceMur) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
+def snake() {
+  
+  //setCouleurBrosse(Color.GREEN)
+  baisseBrosse()
+  for (cpt1 <-1 to 6) {
+    
+  	avance(6)
+  	
+  	if (getDirection()==Direction.EST ) {
+      gauche()
+      avance()
+      gauche()
+    }
+    else if (getDirection()==Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    }
+    
+  }
+  avance(6)
+  
+  
+}

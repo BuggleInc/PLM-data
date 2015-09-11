@@ -1,0 +1,62 @@
+override def run() {
+  faireLigne()
+  gauche()
+  avance(4)
+  droite()
+  faireLigne()
+  avance(4)
+}
+
+def petitDessinRG(c: Color) {
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse
+  leveBrosse
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse
+  leveBrosse
+  gauche()
+  avance()
+  gauche()
+  avance()
+}
+
+def petitDessinYB(c: Color) {
+  
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+}
+
+def faireMotif() {
+  petitDessinRG(Color.RED)
+  avance()
+  petitDessinYB(Color.BLUE)
+  recule(3)
+  gauche()
+  avance(2)
+  droite()
+  petitDessinYB(Color.YELLOW)
+  avance()
+  petitDessinRG(Color.GREEN)
+  droite()
+  avance(2)
+  gauche()
+}
+
+def faireLigne() {
+  faireMotif()
+  avance()
+  faireMotif()
+  recule(7)
+}

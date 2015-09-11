@@ -1,0 +1,47 @@
+var diag = 0;
+var a=0
+var b=0
+var cpt =0
+var d=1
+
+override def run() {
+   
+    for( cpt1<-1 to 26) {
+      ecritMessage(cpt)
+      d-=1
+      cpt+=1
+      if (d==0) {
+        diag+=1
+        b=diag
+        a=0
+        d=diag+1
+        setPos(a,b)
+        
+      }
+      else {
+        a+=1
+        b-=1
+        setPos(a,b)
+      }
+    }
+    for(cpt2<-1 to 22) {
+      ecritMessage(cpt)
+      d-=1
+      cpt+=1
+      if (d==0) {
+        diag+=1
+        b=6
+        a=diag-6
+        d=13-diag
+        setPos(a,b)
+      }
+      else {
+        a+=1
+        b-=1
+        setPos(a,b)
+      }
+    }
+  ecritMessage(cpt)
+  
+  
+}

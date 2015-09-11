@@ -1,0 +1,32 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  var a=0
+  for (cpt1<-0 to colors.length-1) {
+    if (getCouleurSol()==colors(cpt1)) {
+      a=cpt1
+    }
+  }
+  
+  if (a<colors.length-1) {
+    
+  
+  setCouleurSol(colors(a+1))
+  }
+  else {
+    setCouleurSol(colors(0))
+  }
+  if (rule(a)=='R') {
+    droite()
+    avance()
+  }
+  else {
+    gauche()
+    avance()
+  }
+  
+}
+
+def setCouleurSol(a:Color) {
+  setCouleurBrosse(a)
+  baisseBrosse()
+  leveBrosse()
+}

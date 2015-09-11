@@ -1,0 +1,58 @@
+override def run() {
+  
+  var T = memo()
+  gauche()
+  avance()
+  droite()
+  for (cpt2 <-1 to getMondeLargeur) {
+    
+  	
+      
+    
+  	
+  	var decalage = litMessage().toInt
+  	var b =0
+    
+    for (cpt3 <-0 to T.length -1) {
+     	setCouleurBrosse(T((cpt3 + decalage) % T.length))
+      baisseBrosse()
+      leveBrosse()
+      b+=1
+      if (!estFaceMur()) {
+        avance()
+      }
+      else {
+        recule(b-1)
+        
+      }
+      
+    }
+    gauche()
+    if(!estFaceMur) {
+    	avance()
+    	droite()
+    }
+    else {
+      droite()
+    }
+  }
+    
+}
+
+
+
+
+  
+  
+def memo() : Array[Color] =  {
+  var T = new Array [Color] (getMondeHauteur)
+  var a = 0
+  for (cpt1 <- 0 to getMondeHauteur - 2) {
+    T(cpt1) = getCouleurSol()
+    avance()
+    a+=1
+  }
+  T(getMondeHauteur() - 1) = getCouleurSol()
+  recule(a)
+  return T
+}
