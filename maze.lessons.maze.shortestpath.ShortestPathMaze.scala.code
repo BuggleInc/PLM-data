@@ -30,27 +30,24 @@ override def run() {
   setIndication(posX,posY,0)
 
   var chiffre =0
-  var sommeCase=0
-  while(sommeCase!=getMondeHauteur()*getMondeLargeur()){
+  var fin = false
+  while(!fin){
     for(x<- 0 to getMondeLargeur()-1){
       for(y<- 0 to getMondeHauteur()-1){
         if(getIndication(x,y)==chiffre){
           if(!aMurNord(x,y) && getIndication(x,y-1)==9999){
             setIndication(x,y-1,chiffre+1)
-            sommeCase+=1
           }
           if(!aMurSud(x,y) && getIndication(x,y+1)==9999){
             setIndication(x,y+1,chiffre+1)
-            sommeCase+=1
           }
           if(!aMurEst(x,y) && getIndication(x+1,y)==9999){
             setIndication(x+1,y,chiffre+1)
-            sommeCase+=1
           }
           if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
             setIndication(x-1,y,chiffre+1)
-            sommeCase+=1
           }
+          else{return false}
         }
       }
     }
