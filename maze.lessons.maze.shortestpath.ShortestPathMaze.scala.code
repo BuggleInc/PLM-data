@@ -10,7 +10,7 @@ override def run() {
   var ySortie = coordSortie(1)
   
   //On place les nombres
-  placeNombres(xSortie, ySortie)
+  recursor(xSortie,ySortie,0)
   
   //On bouge le buggle
   enRoute()
@@ -75,12 +75,12 @@ def enRoute(){
   }
 }
 
-def placeNombres(xSortie: Int, ySortie: Int){
-  //On place les indications tant que c'est possible
-  recursor(xSortie,ySortie,0)
-}
 
 def recursor(x:Int,y:Int,i:Int){
+  if (i == 0){
+    setIndication(x,y,i)
+    recursor(x,y,i+1)
+  }else{
     //on regarde chaque direction avec dirCase
     for (dirCase <- 0 to 3){
       if (caseAccessible(x,y,dirCase)){
@@ -92,7 +92,7 @@ def recursor(x:Int,y:Int,i:Int){
         }
       }
     }
-  
+  }
 }
 
 def caseAccessible(x : Int, y :Int, dir:Int): Boolean ={
