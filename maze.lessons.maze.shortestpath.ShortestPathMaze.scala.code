@@ -10,18 +10,15 @@ override def run() {
 }
 
 def findExit(H:Int, L:Int):Array[Int] ={
-  /* Renvoie la sortie d'un monde de taille (x,y) donnée */
-  var x = 0
-  var y = 0
-  while (!hasBaggle(x,y) && x<= L-1){
-    x = x+1
-    y=0
-    while (!hasBaggle(x,y) && y<= H-1){
-      y = y + 1 
+  /* Renvoie la sortie d'un monde de taille (H,L) donnée */
+  var coord = Array(0,0)
+  for (x <- 0 to H-1){
+    for (y <- 0 L-1){
+      if (isOverBaggle){
+        coord(0) = x
+        coord(1) = y
+      }
     }
   }
-  var coord = Array(x,y)
-  
-  return coord
-  
+  return coord  
 }
