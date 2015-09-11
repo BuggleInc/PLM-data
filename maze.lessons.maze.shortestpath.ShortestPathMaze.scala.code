@@ -2,15 +2,6 @@ override def run() {
     distanceFin()
 }
 
-def distanceFin ():Unit={
-  indiqueBiscuit()
-  val origine=trouveBiscuit()
-  if (origine!=(9999,9999)) {
-  indiqueLeReste(origine,0)
-  suivreLeChemin()
-  }
-}
-
 def trouveBiscuit():(Int,Int)={
   val xmax=getMondeLargeur()
   val ymax=getMondeHauteur()
@@ -21,6 +12,17 @@ def trouveBiscuit():(Int,Int)={
   }
   return (9999,9999) //cas où il n'y a pas de biscuit
 }
+
+def indiqueLeReste(x:Int,y:Int,cmpt:Int):Unit={
+  val xmax=getMondeLargeur()
+  val ymax=getMondeHauteur()
+  setIndication(x,y,cmpt)
+  if (trouveBiscuit()!=(9999,9999)){
+      if ((x!=0)&&(!aMurOuest(x,y))) {indiqueLeReste(x-1,y,cmpt+1)}
+      if ((y!=0)&&(!aMurNord(x,y))) {indiqueLeReste(x,y-1,cmpt+1)}
+    	if ((x!=xmax-1)&&(!aMurOuest(x+1,y))) {indiqueLeReste(x+1,y,cmpt+1)}
+    	if ((y!=ymax-1)&&(!aMurNord(x,y+1))) {indiqueLeReste(x,y+1,cmpt+1)}	
+    }}
 
 def min (a:Int,b:Int):Int={
   if (a<b) {return a} else {return b}
@@ -61,16 +63,15 @@ def suivreLeChemin():Unit={
   }
 }
 
-def indiqueLeReste(x:Int,y:Int,cmpt:Int):Unit={
-  val xmax=getMondeLargeur()
-  val ymax=getMondeHauteur()
-  setIndication(x,y,cmpt)
-  if (trouveBiscuit()!=(9999,9999)){
-      if ((x!=0)&&(!aMurOuest(x,y))) {indiqueLeReste(x-1,y,cmpt+1)}
-      if ((y!=0)&&(!aMurNord(x,y))) {indiqueLeReste(x,y-1,cmpt+1)}
-    	if ((x!=xmax-1)&&(!aMurOuest(x+1,y))) {indiqueLeReste(x+1,y,cmpt+1)}
-    	if ((y!=ymax-1)&&(!aMurNord(x,y+1))) {indiqueLeReste(x,y+1,cmpt+1)}	
-    }}
+def distanceFin ():Unit={
+  val origine=trouveBiscuit()
+  if (origine!=(9999,9999)) {
+  indiqueLeReste(origine,0)
+  suivreLeChemin()
+  }
+}
+
+
              
              /*(x,y) match {
       au dessus
