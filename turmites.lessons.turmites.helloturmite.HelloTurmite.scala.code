@@ -3,7 +3,7 @@ var state = 0;
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   val c=getCouleurSol()
   val ci=posi(c,colors)
-  if (ci==colors.length-1) {colorie(rule(state)(0)(0))} else {colorie (rule(state)(ci+1)(0))}
+  if (ci==colors.length-1) {colorie(colors(rule(state)(0)(0)))} else {colorie (colors(rule(state)(ci+1)(0)))}
   rule(state)(ci)(1) match {
     case 0 =>()
     case 1 =>avance()
