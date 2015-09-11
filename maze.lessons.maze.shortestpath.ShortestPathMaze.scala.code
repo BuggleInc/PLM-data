@@ -112,34 +112,35 @@ def prochaineCase() {
   setDirection(Direction.NORD)
 	var v = 0
   var d = 0
-  if (!aMurNord(getX(),getY())) {
+  if (!aMurNord(getX(),getY())) { //Nord
   	v = getIndication(getX(),getY()-1)
+    d = 1
   }
   if (getIndication(getX(),getY()+1) < v && getY()!= hauteurMonde-1 && !aMurNord(getX(),getY()+1)) { //Sud
     v = getIndication(getX(),getY()+1)
-    d = 1
+    d = 2
   }
     if (getIndication(getX()-1,getY()) < v  && !aMurOuest(getX,getY) ) { //Ouest
     v = getIndication(getX()-1,getY()) 
-    d = 2
+    d = 3
   }
     if (getIndication(getX()+1,getY()) < v && getX()!=largeurMonde-1 && !aMurOuest(getX()+1,getY())) { //Est
     v = getIndication(getX()+1,getY())
-    d = 3
+    d = 4
   }
-  if (d == 0) { //Nord
+  if (d == 1) { //Nord
     avance()
   }
-  if (d == 1) { //Sud
+  if (d == 2) { //Sud
     gauche()
     gauche()
     avance()
   }
-  if (d == 2) { //Ouest
+  if (d == 3) { //Ouest
     gauche()
     avance()
   }
-  if (d == 3) { //Est
+  if (d == 4) { //Est
   	droite()
    	avance()
   }
