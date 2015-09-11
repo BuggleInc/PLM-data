@@ -37,15 +37,19 @@ override def run() {
         if(getIndication(x,y)==chiffre){
           if(!aMurNord(x,y) && getIndication(x,y-1)==9999){
             setIndication(x,y-1,chiffre+1)
+            sommeCase+=1
           }
           if(!aMurSud(x,y) && getIndication(x,y+1)==9999){
             setIndication(x,y+1,chiffre+1)
+            sommeCase+=1
           }
           if(!aMurEst(x,y) && getIndication(x+1,y)==9999){
             setIndication(x+1,y,chiffre+1)
+            sommeCase+=1
           }
           if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
             setIndication(x-1,y,chiffre+1)
+            sommeCase+=1
           }
         }
       }
