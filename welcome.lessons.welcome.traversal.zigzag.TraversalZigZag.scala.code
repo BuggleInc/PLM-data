@@ -1,0 +1,69 @@
+override def run() {
+  def MurAGauche():Boolean={
+    gauche()
+    if (estFaceMur){
+      droite()
+      return true
+    }
+    else{
+      droite()
+      return false
+    }       
+  }
+  
+  def MurDroite():Boolean={
+    droite()
+    if (estFaceMur){
+      gauche()
+      return true
+    }
+    else{
+      gauche()
+      return false
+    }       
+  }
+  
+  def estEnPosition():Boolean ={
+    var abs:Int=getMondeLargeur();
+    var ord:Int=getMondeHauteur();
+    if (getX() ==  abs-1){
+      if (getY()==ord-1){
+        return true
+      }else return false
+    }else return false
+  }
+  
+  var num : Int = 0
+  var depX : Int = 0
+  var depY : Int = 0
+  var abs:Int=getMondeLargeur()
+  var ord:Int=getMondeHauteur()
+  
+  while (!estEnPosition()){
+    if (MurAGauche){
+      if (depX<6){
+        ecritMessage(num)
+        num=num+1
+        depX=depX+1
+        setPos(depX,depY)
+      }else{
+        ecritMessage(num)
+        num=num+1
+        depY=depY+1
+        setPos(depX,depY)
+      }
+    }else (MurDroite()){
+      if (depX<6){
+        ecritMessage(num)
+        num=num+1
+        depX=depX-1
+        setPos(depX,depY)
+      }else{
+        ecritMessage(num)
+        num=num+1
+        depY=depY+1
+        setPos(depX,depY)
+    }
+  }
+  ecritMessage(num)
+}
