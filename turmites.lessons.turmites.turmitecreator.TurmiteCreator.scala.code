@@ -1,23 +1,6 @@
-/* Do not change these definitions */
-val STOP   = 0;
-val NOTURN = 1;
-val LEFT   = 2;
-val BACK   = 4;
-val RIGHT  = 8;
-
-val NEXT_COLOR = 0;
-val NEXT_MOVE  = 1;
-val NEXT_STATE = 2;
-
-
-var rule:Array[Array[Array[Int]]] = Array(Array(Array(1,8,0),Array(0,1,0),Array(Array(1,8,1),Array(0,1,1) // Change this
-val nbSteps:Int = 8342; // Change this
-
-/** init the rule array from a string defining a Langton's ant 
- * 
- *  You can use this method inside your init() method if you want 
- *  to test langton's ant instead of full turmites.
- */
+var rule:Array[Array[Array[Int]]] = Array(Array(Array(1,8,0),Array(0,1,0),Array(Array(1,8,1),Array(0,1,1) 
+val nbSteps:Int = 8342; 
+                                                                             
 def initLangton(name:String) {
     val nbColors = name.length(); /* As many colors as letters in the ant's name */
 
@@ -38,28 +21,30 @@ def initLangton(name:String) {
 
         rule(0)(i)(NEXT_STATE) = 0; /* only one state */
 
-        // println("{"+rule(0)(i)(NEXT_COLOR)+","+rule(0)(i)(NEXT_MOVE)+","+rule(0)(i)(NEXT_STATE)+"}");
+def step(){
+  var state =0
+
+  def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+      def colore(c:Color){
+      setCouleurBrosse(c)
+      baisseBrosse()
+      leveBrosse()
     }
-}
-def init() {
-    /* Your code comes here. */
-  setPos(8,33)
-  var count=0
-  while(count<8342){
-    initLangton(name)
+    var col =0
+    while(getCouleurSol!=colors(col)){
+      col+=1
+    }
+    def mouv(m:Int){
+      if(m==0){}
+      if(m==1){avance()}
+      if(m==2){gauche();avance()}
+      if(m==4){retourne();avance()}
+      if(m==8){droite();avance()}
+    }
+    colore(colors(rule(state)(col)(0)))
+    mouv(rule(state)(col)(1))
+    state=rule(state)(col)(2)
   }
-
-    /* Something like 
-     *   nbSteps = 42;
-     *   rule = Array( Array( Array(0,NOTURN,0), Array(0, NOTURN, 0) ) ); 
-     * but with possibly more states (ie, bigger second dimension), and more color (ie bigger third -- internal -- dimension) 
-     * and naturally, less boring than this turmite doing absolutely nothing (runs forward endlessly).
-     */
-
-    /* It can also be something like
-     *   nbSteps = 42;
-     *   initLangton("RL");
-     */
-
-    /* remember to send your best creations for inclusion in the gallery */
 }
+      
+      
