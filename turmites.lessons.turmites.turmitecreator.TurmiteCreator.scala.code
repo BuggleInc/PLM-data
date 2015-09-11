@@ -9,7 +9,7 @@ val NEXT_COLOR = 0;
 val NEXT_MOVE  = 1;
 val NEXT_STATE = 2;
 
-//Pour les couleurs : 0 = blanc, 1 = noir
+//Pour les couleurs : 0 = blanc, 1 = jaune
 
 var rule:Array[Array[Array[Int]]] = Array(Array(Array(1, RIGHT, 0),Array(1, RIGHT, 1)), Array(Array(0, NOTURN, 0), Array(0, NOTURN, 1))) // Change this
 var nbSteps:Int = 8342; // Change this
@@ -80,7 +80,7 @@ def init() {
   for (pas <- 0 to nbSteps-1) {
     if (getCouleurSol() == Color.WHITE) {
       c = 0
-    } else if (getCouleurSol() == Color.WHITE) {
+    } else if (getCouleurSol() == Color.YELLOW) {
       c = 1
     }
     var action = rule(state)(c)
@@ -99,7 +99,7 @@ def setCouleurSol(c:Int) {
   if (c == 0) {
     setCouleurBrosse(Color.WHITE)
   } else if (c == 1) {
-    setCouleurBrosse(Color.BLACK)
+    setCouleurBrosse(Color.YELLOW)
   }
   baisseBrosse()
   leveBrosse()
