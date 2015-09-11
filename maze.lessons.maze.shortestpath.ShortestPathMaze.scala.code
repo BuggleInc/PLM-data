@@ -1,17 +1,27 @@
 override def run() {
     // Your code here
 }
-
-def trouverbaggle {
-  var a=0
-  var y=0
-  for (c <- 1 to getMondeHauteur()){
-    for (i <- 1 to getMondeLargeur()){
-      if (aBiscuit(i,c)){
+var a=0
+var y=0
+for (c <- 1 to getMondeHauteur()){
+  for (i <- 1 to getMondeLargeur()){
+    if (aBiscuit(i,c)){
         x=i
         y=c
       }
     }
-  }
-  return x;y
 }
+
+setIndication(x,y,0)
+
+var MurEst:Boolean
+var MurSud:Boolean
+
+if (aMurNord(n,m+1) && m<=getMondeHauteur-1){
+  MurSud=false
+}
+if (aMurOuest(n+1,m)) && n<-getMondeLargeur -1){
+  MurEst=false
+}
+
+
