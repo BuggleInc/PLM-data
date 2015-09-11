@@ -1,12 +1,12 @@
 while (!estFaceMur){
-  setDirection(Direction.EAST)
-  while (!estSurBiscuit){
-    avance()
-  }
-  prendBiscuit()
-  setDirection(Direction.WEST)
-  while (!estSurBiscuit){
-    avance()
+  retourne()
+  avance()
+  if (estSurBiscuit){
+    prendBiscuit()
+    retourne()
+    while (!estSurBiscuit){
+      avance()
+    }
   }
   recule()
   poseBiscuit()
