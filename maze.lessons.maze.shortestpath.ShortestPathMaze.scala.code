@@ -112,32 +112,34 @@ def prochaineCase() {
   setDirection(Direction.NORD)
 	var v = 0
   var d = 0
-  v = getIndication(getX(),getY()-1)
-  if (getIndication(getX(),getY()+1) < v && getY()!= hauteurMonde-1 && !aMurNord(getX(),getY()+1)) {
+  if (!aMurNord) {
+  	v = getIndication(getX(),getY()-1)
+  }
+  if (getIndication(getX(),getY()+1) < v && getY()!= hauteurMonde-1 && !aMurNord(getX(),getY()+1)) { //Sud
     v = getIndication(getX(),getY()+1)
     d = 1
   }
-    if (getIndication(getX()-1,getY()) < v  && !aMurOuest(getX,getY) ) {
-    v = getIndication(getX()-1,getY())
+    if (getIndication(getX()-1,getY()) < v  && !aMurOuest(getX,getY) ) { //Ouest
+    v = getIndication(getX()-1,getY()) 
     d = 2
   }
-    if (getIndication(getX()+1,getY()) < v && getX() != largeurMonde-1 && !aMurOuest(getX()+1,getY())) {
+    if (getIndication(getX()+1,getY()) < v && getX()!=largeurMonde-1 && !aMurOuest(getX()+1,getY())) { //Est
     v = getIndication(getX()+1,getY())
     d = 3
   }
-  if (d == 0) {
+  if (d == 0) { //Nord
     avance()
   }
-  if (d == 1) {
+  if (d == 1) { //Sud
     gauche()
     gauche()
     avance()
   }
-  if (d == 2) {
+  if (d == 2) { //Ouest
     gauche()
     avance()
   }
-  if (d == 3) {
+  if (d == 3) { //Est
   	droite()
    	avance()
   }
