@@ -7,7 +7,7 @@ def letsDoThis(rule:Array[Char], colors:Array[Color]) {
   val couleur:Color = getCouleurSol()
   for (i <- 0 to colors.length - 1) {
     if (colors(i) == couleur) {
-      setCouleurSol(colors(i+1))
+      setCouleurSol(colors((i+1) % colors.length))
       if (rule(i) == 'R') {
       	droite()
       } else {
