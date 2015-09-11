@@ -16,14 +16,15 @@ override def run() {
     for (i <- 0 to xm-1) {
       for (j <- 0 to ym-1) {
         if (getIndication(i,j)!=9999) {
+          var ind = getIndication(i,j)
           if (!aMurNord(i,j) && (getIndication(i,j-1)==9999)) {
-            setIndication(i,j-1,c)}
+            setIndication(i,j-1,ind+1)}
           else if (!aMurOuest(i,j) && (getIndication(i-1,j)==9999)) {
-            setIndication(i-1,j,c)}
+            setIndication(i-1,j,ind+1)}
           else if ((j+1<ym) && !aMurNord(i,j+1) && (getIndication(i,j+1)==9999)) {
-            setIndication(i,j+1,c)}
+            setIndication(i,j+1,ind+1)}
           else if ((i+1<xm) && !aMurOuest(i+1,j) && (getIndication(i+1,j)==9999)) {
-            setIndication(i+1,j,c)}
+            setIndication(i+1,j,ind+1)}
         }
       }
     }
