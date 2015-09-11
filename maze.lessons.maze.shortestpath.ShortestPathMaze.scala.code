@@ -37,6 +37,28 @@ def casesAdjacentes(pos: Array[Int]): Array[Array[Int]] = {
   return result
 }
 
+def marqueCases(poidsCourant: Int) {
+  var xMax:Int = getMondeLargeur() - 1
+	var yMax:Int = getMondeHauteur() - 1
+  
+  // On parcourt le labyrinthe à la recherche de cases marquées par 'poidsCourant'.
+ 	for (x <- 0 to xMax) {
+    for (y <- 0 to yMax) {
+      if (getIndication(x, y) == poidsCourant) {
+        // On cherche les cases adjacentes...
+        var casesAMarquer:Array[Array[Int]] = casesAdjacentes(Array[Int](x, y))
+        
+        for (i <- casesAMarquer) {
+          if (getIndcation(i(0), i(1)) == 9999) {
+            // On peut marquer cette case ! :D
+            setIndication(i(0), i(1), poidsCourant + 1)
+          }
+        }
+      }
+    }
+  } 
+}
+
 def ecritIndications() {
   // Tout d'abord, il faut trouver la sortie ! :p
   var posSortie:Array[Int] = trouveLaSortie()
@@ -45,9 +67,12 @@ def ecritIndications() {
   
   // Maintenant on écrit les indications sur les cases adjacentes.
   var casesMarquees:Int = 1
+  var poidsCourant:Int = 0
   
   while (casesMarquees != getMondeHauteur() * getMondeLargeur()) {
+    marqueCases(poidsCourant)
     
+    poidsCourant += 1
   }
 }
 
