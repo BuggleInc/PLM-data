@@ -1,0 +1,18 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  var cou=Color.white
+ 	var dir = ""
+  cou = getCouleurSol()
+  for (i <- 0 to rule.lenght){
+    if (cou==colors(i)){
+      dir = rule(i)
+    }
+  }
+  if (dir=='L'){
+    gauche()
+    avance()
+  }
+  else {
+    droite()
+    avance()
+  }
+}
