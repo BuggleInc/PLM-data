@@ -7,22 +7,7 @@ override def run() {
   
 }
 
-def foundBaggle():Array[Int] = {
-  def res:Array[int] = (-1,1)
-  for(x<-0 to l-1)
-  {
-    for(y<-0 to h-1)
-    {
-      if(aBiscuit(x,y))
-      {
-        res(0)=x
-        res(1)=y
-        return res
-      }
-    }
-  }
-  return res
-}
+
 
 def arround(x:Int,y:Int,cpt:Int) {
   if(!aMurNord(x,y))
@@ -50,10 +35,27 @@ def isSetupEnd():Boolean = {
   return fin
 }
 
+def foundBaggle():Array[Int] = {
+  def res:Array[int] = (-1,1)
+  for(x<-0 to l-1)
+  {
+    for(y<-0 to h-1)
+    {
+      if(aBiscuit(x,y))
+      {
+        res(0)=x
+        res(1)=y
+        return res
+      }
+    }
+  }
+  return res
+}
+
 def setup() {
   var autour[int](4)
   
-  T = new int[2]
+  def bagglePos:Array[int] = (0,0)
   
   bagglePos = foundBaggle()
   
