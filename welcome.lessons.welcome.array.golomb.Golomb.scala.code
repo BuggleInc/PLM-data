@@ -1,0 +1,68 @@
+def golomb(num:Int): Int = {
+/*  var compteur : Int = 1
+  var valeur = 1
+  var plusun : Boolean = false
+  var T = new Array[Int](0)
+  while (compteur != num) {
+    T = newTableau(T)
+    T(compteur) = valeur
+    var n = T.length
+    for (k <- 1 to valeur) {
+      if (valeur != T(n-k)) {
+        plusun = true
+      }
+    }
+    if (plusun == true) {
+      valeur = valeur+1
+      compteur = compteur+1
+      plusun = false
+    }
+   	else {
+      compteur = compteur+1
+      plusun = false
+    }
+  }
+}
+
+def newTableau(tableau : Array[Int]): Array[Int] = {
+  val n = tableau.length
+  var T = new Array[Int](n+1)
+  for (i<- 0 to n) {
+    T(i) = tableau(i)
+  }
+  return T
+}
+*/
+/*	var compteur : Int = 1
+  var nbValeur : Int = 1
+  while (compteur < num) {
+    for (k <- 1 to nbValeur+1) {
+      compteur = compteur +1
+    }
+    nbValeur = nbValeur +1
+  }
+  return nbValeur
+}
+*/
+  var N = new Array[Int](1000)
+  var V = new Array[Int](1000)
+  V(0) = 1
+  var compteur = 1
+  var valeur = 1
+  var nbValeur = 0
+  for (k <- 1 to num) {
+    N(k-1) = k
+  }
+  while (compteur < num) {
+    nbValeur = V(valeur-1)
+    for (l <- 1 to nbValeur) {
+      V(compteur) = valeur
+      compteur = compteur +1
+    }
+    valeur = valeur+1 
+  }
+  V(1) = 2
+  return V(num-1)
+}
+  
+  

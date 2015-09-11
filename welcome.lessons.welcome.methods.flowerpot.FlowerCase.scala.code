@@ -1,0 +1,93 @@
+def growFlowers() {
+  growFlowersLigne()
+  gauche()
+  avance()
+  avance()
+  gauche()
+  for (k<- 0 to 7) {
+    avance()
+  }
+  gauche()
+  for (l <- 0 to 5) {
+    avance()
+  }
+  gauche()
+  growFlowersLigne()
+}
+
+def growFlowersLigne() {
+  growFlowers2()
+  for(i<- 0 to 5) {
+    avance()
+  }
+  gauche()
+  avance()
+  avance()
+  droite()
+  faireFleur(Color.BLUE)
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  droite()
+  growFlowers2()
+}
+
+def growFlowers2() {
+  faireFleur(Color.RED)
+  for(i <- 1 to 4) {
+    avance()
+  }
+  faireFleur(Color.CYAN)
+  for(k <- 1 to 4) {
+    recule()
+  }
+  droite()
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  faireFleur(Color.ORANGE)
+  recule()
+  recule()
+  droite()
+  avance()
+  avance()
+  gauche()
+  faireFleur(Color.PINK)
+  for(i <- 1 to 4) {
+    avance()
+  }
+  faireFleur(Color.GREEN)
+    for(k <- 1 to 4) {
+    recule()
+  }
+}
+
+def faireFleur(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  recule()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  droite()
+  recule()
+}

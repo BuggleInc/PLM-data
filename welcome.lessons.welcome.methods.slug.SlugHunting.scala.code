@@ -1,0 +1,62 @@
+def hunt() {
+  var pisteFinie = false
+  while (pisteFinie == false) {
+	if (isFacingTrail() == true) {
+    avance()
+    baisseBrosse()
+    leveBrosse()
+        if (estSurBiscuit == true) {
+    			prendBiscuit()
+          pisteFinie = true
+        }
+  }
+  else {
+    gauche()
+    if (isFacingTrail() == true) {
+     avance()
+     baisseBrosse()
+     leveBrosse()
+     if (estSurBiscuit == true) {
+ 			prendBiscuit()
+      pisteFinie = true
+     }
+    }
+    else {
+      gauche()
+      gauche()
+      if (isFacingTrail() == true) {
+        avance()
+    		baisseBrosse()
+    		leveBrosse()
+        if (estSurBiscuit == true) {
+    			prendBiscuit()
+          pisteFinie = true
+        }
+      }
+      else{
+        pisteFinie = true
+      }
+      
+    }
+  }
+  }
+}
+
+
+def isFacingTrail():Boolean = {
+	var faceBave = false
+	if (estFaceMur == true) {
+    return faceBave
+  }
+  else{
+    avance()
+    if (getCouleurSol == Color.green) {
+      faceBave = true
+      recule()
+    }
+    else {
+      recule()
+    }
+  }
+return faceBave
+}

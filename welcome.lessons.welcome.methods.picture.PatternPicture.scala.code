@@ -1,0 +1,64 @@
+override def run() {
+	for ( i <- 0 to 1) {
+    faireLigne(2)
+    gauche()
+    for (k <- 0 to 3) {
+      if (estFaceMur() == false) {        
+      avance()
+      }
+      else {
+        for (l <- 0 to 2) {
+          recule()
+        }
+      }
+    }
+    droite()
+  }
+for (m <- 1 to 4) {
+  avance()
+} 
+}
+
+def faireCoin(c:Color) {
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  for (i <- 1 to 3) {
+    avance()
+  }
+  gauche()
+}
+
+def faireMotif() {
+  faireCoin(Color.red)
+  faireCoin(Color.blue)
+  faireCoin(Color.green)
+  faireCoin(Color.yellow)
+}
+
+def faireLigne(nbColonne : Int) {
+  for (i <- 1 to nbColonne) {
+    faireMotif()
+    for (k <- 1 to 4) {
+      if (estFaceMur() == true) {
+        for (s <- 1 to 7) {
+          recule()
+        }
+      }
+      else {
+        avance()
+      }
+      
+    }
+  }
+}

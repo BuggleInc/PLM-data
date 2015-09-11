@@ -1,0 +1,41 @@
+def run() {
+  gauche()
+  gauche()
+  while (!estFaceMur()) {
+    deplacerBiscuit()
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+def deplacerBiscuit () {
+  var biscuit : Boolean = false
+  var mur : Boolean = false
+  while (!biscuit && !mur) {
+    if (!estFaceMur) {
+      avance()
+      biscuit = estSurBiscuit()
+    }
+    else{
+      biscuit = false
+      mur = true
+    }
+  }
+  if (biscuit) {
+  	prendBiscuit()
+  	gauche()
+  	gauche()
+  	while (!estSurBiscuit) {
+  	  avance()
+  	}
+  	recule()
+  	poseBiscuit()
+  	gauche()
+  	gauche()
+  	avance()
+  }
+}
+
+run()
