@@ -2,19 +2,25 @@ override def run() {
   while (!estSurBiscuit){
     setDirection(Direction.NORTH)
     if (estFaceMur){
+      
+    }else{
+      avance()
+    }
+  }
+  prendBiscuit()
+}
+
+def contourne objet(){
+  if (estFaceMur()){
+    droite()
+    if (festFaceMur()){
       droite()
-      if (estFaceMur){
+      avance()
+      gauche()
+      if (estFaceMur()){
         droite()
-        avance()
-        gauche()
-        if (estFaceMur()){
-          droite()
-          droite()
-          avance()
-        }else{
-          avance()
-          gauche()
-        }
+      	avance()
+      	gauche()
       }else{
         avance()
       }
@@ -22,5 +28,4 @@ override def run() {
       avance()
     }
   }
-  prendBiscuit()
 }
