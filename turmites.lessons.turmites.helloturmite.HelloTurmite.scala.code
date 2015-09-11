@@ -3,7 +3,7 @@ var state = 0;
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     /* Your code comes here */
   val c = getCouleurSol()
-  val ic:Int = trouverColor(c)
+  val ic:Int = trouverColor(colors, c)
   val tr = rule(state)(ic)
   state = tr(2)
   tr(1) match {
