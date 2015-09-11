@@ -1,11 +1,15 @@
 def step(rule:Array[Char], colors:Array[Color]) {
   var a = getCouleurSol();
+  var pos =0;
   var taille = rule.length;
   for (i <- 0 to taille-1) {
     if (colors(i)==a) {
       if (rule(i)=="L") {
         gauche();
-      } else droite();
+        pos = i
+      } else {
+        droite();
+        pos = i }
     }  
   }
   setCouleurBrosse(colors(i+1));
