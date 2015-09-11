@@ -1,21 +1,48 @@
 override def run() {
   var l=getMondeLargeur
   var L=getMondeHauteur
-  
-  
-  
-  
-}
-
-def findBiscuit():Array[Int] = {
+  var xBiscuit=0
+  var yBiscuit=0
   for (i <- 0 to l) {
     for (j <- 0 to L) {
       if (aBiscuit(i,j)) {
-        return t=Array(i,j)
-        
+        xBiscuit=i
+        yBiscuit=j       
       }
     }
   }
+  setIndication(xBiscuit,yBiscuit,0)
   
+}
+
+def a(x:Int,y:Int) {
   
+    
+    
+}
+
+
+def ecrireGauche(x,y):Boolean {
+  if (x>0 && !aMurOuest(x,y)) {
+    return true
+  } else return false
+}
+
+def ecrireHaut(x,y):Boolean {
+  if (y>0 && !aMurNord(x,y)) {
+    return true
+  } else return false
+}
+
+
+def ecrireDroit(x,y):Boolean {
+  if (x<getMondeLargeur()-1 && !aMurOuest(x+1,y)) {
+    return true
+  } else return false
+}
+
+def ecrireBas(x,y):Boolean {
+  if (y<getMondeHauteur()-1 && !aMurNord(x,y+1)) {
+    return true
+  } else return false
 }
