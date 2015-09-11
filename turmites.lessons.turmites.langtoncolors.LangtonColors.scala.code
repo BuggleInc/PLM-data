@@ -1,0 +1,20 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  val c=getCouleurSol()
+  val ci=posi(c,colors)
+  if (rule(ci)=='R') {droite()} else {left()}
+  if (ci==colors.length) {colorie(0)} else {colorie (ci+1)}
+  avance()
+}
+
+def colorie (c:Color):Unit={
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def posi(c:Color,tab:Array[Color]):Int={
+  for (i<-0 to tab.length-1){
+    if (tab(i)==c){return i}
+  }
+  return 0
+}
