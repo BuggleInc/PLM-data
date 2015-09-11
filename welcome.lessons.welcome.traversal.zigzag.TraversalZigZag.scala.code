@@ -9,27 +9,26 @@ def isInFinalPosition():Boolean = {
 def allerProchainePosition(memoire:Int) {
   
   // descendre quand bloqu? ? droite
-  if ((getX() == getMondeLargeur() -1) && (memoire == 0)) {
+  if ((getX() == getMondeLargeur() -1) && (memoire == 1)) {
     setPos(getMondeLargeur() -1, getY() +1)
-    memoire = memoire + 1
+    memoire = -1
   }
   // descendre quand bloqu? ? gauche
-  else if ((getX() == 0) && (memoire ==1)) {
+  else if ((getX() == 0) && (memoire == -1)) {
     setPos(0, getY() +1)
-    memoire = memoire -1
+    memoire = 1
   }
   
-  // continuer vers la droite
-  else if {setPos(getX() +1, getY())}
-  // continuer vers la gauche
-  else {setPos(getX() -1, getY())}
+  // continuer vers la droite ou vers la gauche
+  else {setPos(getX() + memoire, getY())}
+
 }
 
 
 override def run() {
   
   var compteur:Int = 0
-  var memoire:Int = 0
+  var memoire:Int = 1
   while (isInFinalPosition == false) {
     ecritMessage("" +compteur)
     allerProchainePosition(memoire)
