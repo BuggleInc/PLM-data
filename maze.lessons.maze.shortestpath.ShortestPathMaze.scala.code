@@ -3,21 +3,83 @@ val h=getMondeHauteur()
 
 override def run() {
   
+  setup()
+  
 }
 
 def foundBaggle():Array[Int] {
   def res:Array[int] = (-1,1)
-  for(i->0 to l-1)
+  for(x->0 to l-1)
   {
-    for(j->0 to h-1)
+    for(y->0 to h-1)
     {
-      if(aBiscuit(i,j))
+      if(aBiscuit(x,y))
       {
-        res(0)=i
-        res(1)=j
+        res(0)=x
+        res(1)=y
         return res
       }	
     }
   }
   return res
+}
+
+def arround(x,y,cpt) {
+  if(!aMurNord(x,y))
+  	setIndication(x-1,y,cpt+1)
+  if(!aMurSud(x,y))
+  	setIndication(x+1,y,cpt+1)
+  if(!aMurOuest(x,y))
+  	setIndication(x,y-1,cpt+1)
+  if(!aMurEst(x,y))
+  	setIndication(x,y+1,cpt+1)
+}
+
+def isSetupEnd():Boolean = {
+  var fin = true
+  for(x->0 to l-1)
+  {
+    for(y->0 to h-1)
+    {
+      if(getIndication(x,y)==9999)
+      {
+        fin = false
+      }	
+    }
+  }
+  return fin
+}
+
+def setup() {
+  var autour[int](4)
+  
+  setIndication(foundBaggle()(0),foundBaggle()(1))
+  while(!isSetupEnd())
+  {
+    for(x->0 to l-1)
+    {
+      for(y->0 to h-1)
+      {
+        if(getIndication(x,y)==9999)
+        {
+          autour(0) = getIndication(x+1,y)
+          autour(1) = getIndication(x-1,y)
+          autour(2) = getIndication(x,y+1)
+          autour(3) = getIndication(x,y-1)
+        }
+        if(min(autour)!=9999)
+        	setIndication(x,y,min(autour)-1)
+      }
+    }
+  }
+}
+
+def min(nums:Array[Int]): Int = {
+  var min = nums(0)
+  for(i<-nums)
+  {
+    if (i<min)
+    	min = i
+  }
+  return min
 }
