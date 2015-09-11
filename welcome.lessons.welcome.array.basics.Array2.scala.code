@@ -1,0 +1,32 @@
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+override def run() {
+  var longueurTableau: Int = getWorldHeight()
+  var res = new Array[Color] (longueurTableau)
+  res(0) = getCouleurSol()
+  for (i <- 1 to longueurTableau -1) {
+    avance()
+    res(i) = getCouleurSol()
+  }
+  for (l <- 1 to longueurTableau -1) {
+    recule()
+  }
+  
+  
+  
+  for (j <- 0 to longueurTableau -2) {
+  gauche()
+  avance()
+  droite()
+  val decalage = litMessage().toInt
+  setCouleurBrosse(res((decalage)%longueurTableau))
+  marquerSol()
+  	for (k <- 0 to longueurTableau -2){
+      avance()
+      setCouleurBrosse(res((k + decalage + 1)%longueurTableau))
+      marquerSol()
+    }
+    for (m <- 1 to longueurTableau -1) {recule()}
+
+  }
+}

@@ -1,0 +1,105 @@
+def marquerSol() {baisseBrosse();leveBrosse()}
+
+def faireFleur(c:Color) {
+  
+  setCouleurBrosse(c:Color)
+  marquerSol()
+  avance()
+  marquerSol()
+  avance()
+  marquerSol()
+  recule()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  recule()
+  marquerSol()
+  avance()
+  setCouleurBrosse(Color.yellow)
+  marquerSol()
+  droite()
+  avance()
+  
+}
+
+def transition1() {avance();avance()}
+  
+def transition2() {
+  
+  var compteur:Int = 0
+  for (compteur <- 1 to 6) {recule()}
+  droite()
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+  
+}
+  
+def transition3() {
+  
+  var compteur2:Int = 0
+  for (compteur2 <- 1 to 4) {recule()}
+	droite()
+  avance()
+  avance()
+  gauche()
+  
+}
+
+def growFlowers1() {
+  
+  faireFleur(Color.red)
+  transition1()
+  faireFleur(Color.cyan)
+  transition2()
+  faireFleur(Color.orange)
+  transition3()
+  faireFleur(Color.pink)
+  transition1()
+  faireFleur(Color.green)
+  var compteur3:Int = 0
+  for (compteur3 <- 1 to 6) {recule()}
+  
+}
+
+def motif1() {
+  
+  growFlowers1()
+  gauche()
+  avance()
+  avance()
+  droite()
+  var compteur4:Int = 0
+  for (compteur4 <- 1 to 6) {avance()}
+  faireFleur(Color.BLUE)
+  gauche()
+  avance()
+  avance()
+  droite()
+  growFlowers1()
+
+}
+
+def transition4() {
+  
+  gauche()
+  avance()
+  droite()
+  var compteur6:Int = 0
+  for (compteur6 <- 1 to 8) {recule()}
+  droite()
+  var compteur7:Int = 0
+  for (compteur7 <- 1 to 5) {avance()}
+  gauche()
+  
+}
+
+def growFlowers() {
+  
+  motif1()
+  transition4()
+  motif1()
+}
