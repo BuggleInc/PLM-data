@@ -1,0 +1,47 @@
+def isInFinalPosition():Boolean = {
+  
+  if ((getX() == getMondeLargeur() -1) && getY() == getMondeHauteur()-1) {return true}
+  
+  else {return false}
+  
+}
+
+def allerProchainePosition(memoire:Int) {
+  
+  // descendre quand bloqu? ? droite
+  if ((getX() == getMondeLargeur() -1) && (memoire == 0)) {
+    setPos(getMondeLargeur() -1, getY() +1)
+    memoire = memoire + 1
+  }
+  // descendre quand bloqu? ? gauche
+  else if ((getX() == 0) && (memoire ==1)) {
+    setPos(0, getY() +1)
+    memoire = memoire -1
+  }
+  
+  // continuer vers la droite
+  else if {setPos(getX() +1, getY())}
+  // continuer vers la gauche
+  else {setPos(getX() -1, getY())}
+}
+
+
+override def run() {
+  
+  var compteur:Int = 0
+  var memoire:Int = 0
+  while (isInFinalPosition == false) {
+    ecritMessage("" +compteur)
+    allerProchainePosition(memoire)
+    compteur = compteur + 1
+  }
+  var dernierNum:Int = getMondeHauteur()*getMondeLargeur() -1
+  ecritMessage("" +dernierNum)
+}
+
+
+
+
+
+override def run() {
+}
