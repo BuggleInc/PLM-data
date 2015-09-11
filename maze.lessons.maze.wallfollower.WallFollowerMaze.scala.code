@@ -6,12 +6,13 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if (!estFaceMur()){
+  while (estFaceMur()){
     droite()
-    if (estFaceMur()){
-      gauche()
-    } else {
-      avance()
-    }
+  }
+  avance()
+  droite()
+  if (estFaceMur()){
+    gauche()
+    avance()
   }
 }
