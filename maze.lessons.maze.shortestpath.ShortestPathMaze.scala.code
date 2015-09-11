@@ -18,11 +18,11 @@ def marqueCase(x: Int, y: Int, poids: Int) {
  
   
   // On teste les cases adjacentes.
-  if (!aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
+  if (y < 0 && !aMurNord(x, y) && getIndication(x, y - 1) == 9999) {
     setIndication(x, y - 1, poids + 1)
   }
   
-  if (!aMurOuest(x, y) && getIndication(x - 1, y) == 9999) {
+  if (x < 0 && !aMurOuest(x, y) && getIndication(x - 1, y) == 9999) {
     setIndication(x - 1, y, poids + 1)
   }
   
