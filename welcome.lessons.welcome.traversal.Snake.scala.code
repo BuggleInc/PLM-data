@@ -1,27 +1,21 @@
 override def run() {
-  baisseBrosse()
-  while(!posFinale()){serpent()}
-}
-
-def serpent(){
-  if(!estFaceMur()){avance()}
-  else if(estFaceMur() && getDirection() == Direction.EST){gauche();avance();gauche()}
-  else if(estFaceMur() && getDirection() == Direction.OUEST){droite();avance();droite()}
+  while(!posFinale()){posSuivante()}
 }
 
 def posFinale():Boolean ={
-	var x:Boolean = false
-  if(estFaceMur()){
-    if(getDirection() == Direction.EST){
-      gauche()
-      if(estFaceMur()){x = true}
-      droite()
-    }
-    if(getDirection() == Direction.OUEST){
-      droite()
-      if(estFaceMur){x = true}
-      gauche()
-    }
+  var z:Boolean = false
+  if(getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1){z = true}
+  return(z)
+}
+
+def posSuivante(){
+  var i:Int = 0
+  val y:Int = getMondeHauteur()
+  ecritMessage(i)
+	while(getY() <= y-1){
+    i += 1
+    if(getY() < y-1){setY(getY()+1)}
+    else if(getY() == y-1){setPos(getX()+1,0)}
+    ecritMessage(i)
   }
-  return(x)
 }
