@@ -8,6 +8,14 @@ override def run() {
 
 
 def keepHandOnSideWall(){
+  droite()
+  var d = estFaceMur()
+  gauche()
+  var f = estFaceMur()
+  if (!d && !f){
+    droite()
+    avance()
+  }
   gauche()
   if (!estFaceMur()){
     avance()
