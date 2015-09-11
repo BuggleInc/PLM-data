@@ -1,2 +1,44 @@
 override def run() {
 }
+
+def murgauche(): Boolean ={
+  left()
+  if(estFaceMur()){
+    right()
+    return true
+  }
+  right()
+  return false
+}
+
+
+
+def murdroite(): Boolean ={
+  right()
+  if(estFaceMur()){
+    left()
+    return true
+  }
+  left()
+  return false
+}
+
+def obstacle(){
+  var angles:Int = 0
+  right()
+  angles=angles+1
+  do{
+    while(murgauche()){
+      if(estFaceMur()){
+        right()
+        angles = angles+1
+      }
+      avance()
+    }
+    while (!murgauche() && !estFaceMur()){
+      left()
+      avance()
+    }
+  } while(!angles==0)
+  
+}
