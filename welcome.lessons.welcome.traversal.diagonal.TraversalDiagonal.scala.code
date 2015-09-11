@@ -1,7 +1,7 @@
 var diag = 0;
 override def run() {
   setPos(0,4)
-  parcoursDiag(4)
+  parcoursDiag(4,1)
 }
 
   
@@ -13,12 +13,15 @@ override def run() {
 04 13 22 31 40
 */
   
-def parcoursDiag(diag:Int){
+def parcoursDiag(diag:Int,cpt:Int): Int={
   var y=diag
   var x=0
   while (y!=0){
     x+=1
     y-=1
     setPos(x,y)
+    ecritMessage(cpt)
+    cpt=cpt+1
   }
+  return cpt
 }
