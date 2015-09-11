@@ -14,9 +14,24 @@ override def run() {
      }
    }
   
+  def MainGaucheMur(): Boolean ={
+    gauche()
+    if (estFaceMur()){
+      droite()
+      return true
+    }
+    else {
+      droite()
+      return false
+    }
+  }
+  
   while (!estSurBiscuit){
     if (getDirection==Direction.NORTH){
       if(estFaceMur){
+        while (!MainGaucheMur){
+          gauche()
+        }
         keepHandOnSideWall
       }
       else{
