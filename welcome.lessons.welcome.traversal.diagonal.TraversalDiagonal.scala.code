@@ -1,9 +1,12 @@
 var diag = 0;
 override def run() {
   var y=0
-  setPos(0,4)
-  var cpt=parcoursDiag(4,1)
-  //for (i <- 0 to 6){parcoursDiag(i,0)}
+    
+  var cpt = 0;
+  for (i <- 0 to 6){    
+    parcoursDiag(i,cpt)
+    cpt = cpt + 1;
+  }
 }
 
   
@@ -16,6 +19,7 @@ override def run() {
 */
   
 def parcoursDiag(diag:Int,cpt:Int): Int={
+  setPos(0,diag)
   var y=diag
   var x=0
   var cpt2=cpt
