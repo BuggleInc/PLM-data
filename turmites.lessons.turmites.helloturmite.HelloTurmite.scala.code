@@ -1,0 +1,31 @@
+var state = 0;
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  val color : Color = getCouleurSol()
+  var indice : Int = 0
+  while (colors(indice) != color) {indice = indice +1}
+  val colorToSet : Int = rule(state)(indice)(0)
+  val move : Int = rule(state)(indice)(1)
+  state = rule(state)(indice)(2)
+  marquer(colors(colorToSet))
+  move match {
+    case 1 => avance()
+    case 2 => gauche() ; avance()
+    case 4 => retourne(); avance()
+    case 8 => droite(); avance()    
+  }
+  
+}
+
+
+
+
+
+
+def marquer(c : Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  gauche()
+  droite()
+  leveBrosse()
+}
