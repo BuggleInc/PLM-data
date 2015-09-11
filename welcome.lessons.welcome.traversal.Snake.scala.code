@@ -4,14 +4,17 @@ override def run() {
 }
 
 def avancer(){
-  for (i<-0 to 5)
+  while(!estFaceMur() )
   avance()
-  gauche()
-  avance()
-  gauche()
-  for (i<-0 to 5)
-  avance()
-  droite()
-  avance()
-  droite()
+  if (estFaceMur()){
+    if (getDirection()== Direction.EST){
+      gauche()
+      avance()
+      gauche()}
+    if (getDirection()==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+  }
 }
