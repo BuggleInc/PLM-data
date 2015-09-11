@@ -1,5 +1,56 @@
 var state = 0;
+val STOP : Int = 0
+val DEVANT : Int = 1
+val GAUCHE : Int 2
+val ARRIERE : Int = 4
+val DROITE : Int = 8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    /* Your code comes here */
+  
+  //---
+  def setCouleurSol(c:Color)
+  		{setCouleurBrosse(c); baisseBrosse() ; leveBrosse()}
+  
+  
+  //---
+  var ind : Int = 0
+  var couleurActuelle : Color = getCouleurSol() // on a la couleur du sol
+  while (colors(ind)!=couleurActuelle) {ind+=1} // on a indice de la couleur
+  //on a deja l'etat  'state'
+  
+  // on veut les info de la suite
+  
+  //1) mettre couleur au sol
+  setCouleurSol(rule(state)(couleurActuelle)(0))
+  
+  //2) actions a faire
+  rule(state)(couleurActuelle) match {
+    case rule(state)(couleurActuelle)(1) == STOP    => 
+    case rule(state)(couleurActuelle)(1) == DEVANT  => avance()
+    case rule(state)(couleurActuelle)(1) == GAUCHE  => gauche() ; avance()
+    case rule(state)(couleurActuelle)(1) == ARRIERE => retourne() ; avance()
+    case rule(state)(couleurActuelle)(1) == DROITE  => droite() ; avance()
+  }
+  
+  //3) etat
+  state = rule(state)(couleurActuelle)(2)
+  
 }
+
+/*
+  //---
+  def setCouleurSol(c:Color)
+  		{setCouleurBrosse(c); baisseBrosse() ; leveBrosse()}
+  
+  //---
+  def direction(ind:Int) {
+    if (rule(ind) == 'R') {droite(); avance()}
+    else {gauche(); avance()}
+  }
+  
+  //---
+  
+  // on a ind
+  if (ind==colors.length-1) {setCouleurSol(colors(0))}
+  else {setCouleurSol(colors(ind+1))}
+  direction(ind)
