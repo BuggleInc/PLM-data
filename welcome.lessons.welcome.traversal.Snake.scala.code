@@ -22,7 +22,16 @@ override def run() {
 def finTest () :Boolean ={
   var a:Boolean=false
   if (getDirection==Direction.EST && estFaceMur){
-    return true
+    gauche()
+    if(estFaceMur){
+      droite()
+      return true
+    }else{
+      droite()
+      return false
+    }
+    
+
   }else{
     return false
   }
