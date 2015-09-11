@@ -18,23 +18,26 @@ override def run() {
 }      
 
 
-def forkPath(x:Int, y:Int, index:Int){
+def forkPath(x:Int, y:Int, i:Int){
 
   var l = isFree(x - 1, y)
   val r = isFree(x + 1, y)
   var t = isFree(x, y - 1)
   var b = isFree(x, y + 1)
 		
-  setIndication(x, y, index)
+  setIndication(x, y, i)
   
   if (t && !hasTopWall(x, y))
-   y = y - 1
+   forkPath(x, y - 1, i + 1)
+  
   if (l && !hasLeftWall(x, y))
-   x = x - 1
+   forkPath(x - 1, y, i + 1)
+  
   if (b && !hasTopWall(x, y + 1))
-   y = y + 1
+   forkPath(x, y + 1, i+ 1)
+  
   if (r && !hasLeftWall(x + 1, y))
-   x = x + 1
+   forkPath(x + 1, y, i+1)
  }
 
 
