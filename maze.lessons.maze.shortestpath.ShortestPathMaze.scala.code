@@ -16,7 +16,9 @@ def marqueCase(x: Int, y: Int, poids: Int) {
   var xMax:Int = getMondeLargeur() - 1
 	var yMax:Int = getMondeHauteur() - 1
  
-	
+	if (!aMurOuest(x, y) && getIndication(x - 1, y) == 9999) {
+    setIndication(x - 1, y, poids)
+  }
 }
 
 def ecritIndications() {
@@ -25,7 +27,7 @@ def ecritIndications() {
   
   setIndication(posSortie(0), posSortie(1), 0)
   
-  marqueCase(posSortie(0), posSortie(1), 0)
+  marqueCase(posSortie(0), posSortie(1), 1)
 }
 
 override def run() {
