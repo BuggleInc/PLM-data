@@ -9,8 +9,9 @@ val NEXT_COLOR = 0;
 val NEXT_MOVE  = 1;
 val NEXT_STATE = 2;
 
-var rule:Array[Array[Array[Int]]] = null // Change this
-var nbSteps:Int = 0; // Change this
+var rule:Array[Array[Array[Int]]] = (((1, RIGHT, 0),(1, RIGHt, 1)), ((0, NOTURN, 0), (0, NOTURN, 1))) // Change this
+var nbSteps:Int = 8342; // Change this
+
 /** init the rule array from a string defining a Langton's ant 
  * 
  *  You can use this method inside your init() method if you want 
@@ -42,10 +43,8 @@ def initLangton(name:String) {
     }
 }
 
-/*
+
 def init() {
-  var nbSteps = 8342;
-  var rule = new Array[Int](2); //Les 2 etats
   var posX:Int = getX()
   var posY:Int = getY()
   
@@ -69,11 +68,4 @@ def init() {
       retourne()
     }
   }
-  for (i <- 0 to rule.length-1) { //Pour chaque etat
-    rule(i) = newArray[Int](2); //2 couleurs par etat
-  }
-  rule(0)(0) = Array(1, RIGHT, 0)
-  rule(0)(1) = Array(1, RIGHT, 1)
-  rule(1)(0) = Array(0, NOTURN, 0)
-  rule(1)(1) = Array(0, NOTURN, 1)
-} */
+}
