@@ -19,8 +19,17 @@ def keepHandOnSideWall(){
   }
   
 }
-
-override def run() {
+override def run(){
+  while (getY()!=0){
+    if (estFaceMur()){
+      droite()
+      avance()
+      gauche()
+    }
+    else{
+      avance()
+    }
+  }
   gauche()
   if (estFaceMur()){
     while (!estSurBiscuit()){
