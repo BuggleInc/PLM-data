@@ -35,8 +35,8 @@ override def run() {
         && getIndication(pos(0),pos(1)-1)==9999)
     			{setIndication(pos(0),pos(1)-1,i+1) ; booldessus = true}
     //case a droite
-    if (pos(0) < largeur-1
-        && !aMurOuest(pos(0),pos(1))
+    if (pos(0) >0
+        && !aMurOuest(pos(0)-1,pos(1))
         && getIndication(pos(0)+1,pos(1))==9999)
       		{setIndication(pos(0)+1,pos(1),i+1); booldroite = true}
     //case en dessous
@@ -45,8 +45,8 @@ override def run() {
         && getIndication(pos(0),pos(1)+1)==9999)
     			{setIndication(pos(0),pos(1)+1,i+1); booldessous = true}
      //case a gauche
-    if (pos(0) > 0
-        && !aMurOuest(pos(0)-1,pos(1))
+    if (pos(0) < largeur-1
+        && !aMurOuest(pos(0),pos(1))
         && getIndication(pos(0)-1,pos(1))==9999)
     			{setIndication(pos(0)-1,pos(1),i+1); boolgauche = true}
     
