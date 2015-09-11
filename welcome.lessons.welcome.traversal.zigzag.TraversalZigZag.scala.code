@@ -1,32 +1,22 @@
+var diag = 0;
 override def run() {
-  var Xfinal=getMondeLargeur()-1
-  var yfinal=getMondeHauteur()-1
-  var c=0
-  var ligne=0
-  ecritMessage(c)
-  
-  while (getX!=Xfinal || getY()!=yfinal){
-    c=c+1
-    if (ligne==0){
-      if (getX()==Xfinal){
-      setPos(getX(),getY()+1)
-        ligne =1
-        
-    }else{
-        setPos(getX()+1,getY())
-    
+  var abscisseFinale = getMondeLargeur()-1
+  var ordonneeFinale = getMondeHauteur()-1
+  var compteur=0
+  ecritMessage(compteur)
+  while (getX()!=abscisseFinale || getY()!=ordonneeFinale) {
+    compteur = compteur +1
+    if(getY()==0&&getX()!=abscisseFinale){
+      diag = diag+1
+      setPos(0,diag)
+    } else if (getX()==abscisseFinale&&getY()<ordonneeFinale-1){
+      diag=diag+1
+      setPos(diag%abscisseFinale,ordonneeFinale)
+    } else if (getX()==abscisseFinale&&getY()==ordonneeFinale-1){
+      setPos(abscisseFinale,ordonneeFinale)
+    } else{
+      setPos(getX()+1,getY()-1)
     }
-    }else{
-        if (getX()==0){
-          setPos(getX(),getY()+1)
-          ligne=0
-      
-    }else{
-        setPos(getX()-1,getY())
-   }
-    }
-      ecritMessage(c)
-
-
+  ecritMessage(compteur)
   }
 }
