@@ -11,18 +11,6 @@ override def run() {
     }       
   }
   
-  def MurDroite():Boolean={
-    droite()
-    if (estFaceMur){
-      gauche()
-      return true
-    }
-    else{
-      gauche()
-      return false
-    }       
-  }
-  
   def estEnPosition():Boolean ={
     var abs:Int=getMondeLargeur();
     var ord:Int=getMondeHauteur();
@@ -52,7 +40,7 @@ override def run() {
         depY=depY+1
         setPos(depX,depY)
       }
-    }else (MurDroite()){
+    }else {
       if (depX<6){
         ecritMessage(num)
         num=num+1
