@@ -19,10 +19,16 @@ def marqueCases(x: Int, y: Int, poids: Int) {
   	setIndication(x - 1, y, poids)
   
   // A droite...
+  if (x < xMax & !aMurOuest(x + 1, y) && poids < getIndication(x + 1, y))
+  	setIndication(x + 1, y, poids)
   
   // En haut...
+  if (y > 0 && !aMurNord(x, y) && poids < getIndication(x - 1, y))
+  	setIndication(x - 1, y, poids)
   
   // En bas...
+  if (y < yMax && !aMurNord(x + 1, y) && poids < getIndication(x + 1, y))
+  	setIndication(x + 1, y, poids)
 }
 
 override def run() {
