@@ -2,15 +2,12 @@ override def run() {
 
   
   
-  while (! estSurBiscuit()) {
-  
-    avanceVersNord();
-	  droite();
-  
-    while (getDirection() != Direction.NORTH || ! estFaceMur()) {
-      longerMurGauche();
+  while (! estSurBiscuit()) {  
+    if (getDirection() == Direction.NORTH && ! estFaceMur()) {
+      avanceVersNord();      
+      droite();
     }
-  
+    longerMurGauche();
   }
   prendBiscuit()
 }
