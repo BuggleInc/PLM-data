@@ -5,10 +5,16 @@ def step(rule:Array[Char], colors:Array[Color]) {
     compteur = compteur+1
   }
   if (rule(compteur) == 'R') {
+    setCouleurBrosse(Colors((compteur+1)%Colors.length))
+    baisseBrosse()
+    leveBrosse()
     droite()
     avance()
   }
   else {
+    setCouleurBrosse(Colors((compteur+1)%Colors.length))
+    baisseBrosse()
+    leveBrosse()
     gauche()
     avance()
   }
