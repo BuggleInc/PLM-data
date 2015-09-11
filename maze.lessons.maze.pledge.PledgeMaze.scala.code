@@ -1,6 +1,6 @@
 override def run() {
   var orientation=0
-  
+
   while (!estSurBiscuit) {
     if (isDirectionFree(Direction.NORD) && orientation==0) {
       while (!estFaceMur) {
@@ -10,19 +10,22 @@ override def run() {
       orientation=orientation+1
     } 
     else 
-    	orientation=orientation+keepHandOnSideWall()
+    orientation=orientation+keepHandOnSideWall()
   }
   prendBiscuit()
 }
 def keepHandOnSideWall():Int = {
   var tourne=0
-  avance()
-  gauche()
-  tourne=tourne+1
-  while (!estFaceMur) {
+  if (!estFaceMur) {
     avance()
     gauche()
     tourne=tourne+1
+    while (!estFaceMur) {
+      avance()
+      gauche()
+      tourne=tourne+1
+    }
+
   } 
   droite()
   tourne=tourne-1
