@@ -1,2 +1,53 @@
 override def run() {
+   def keepHandOnSideWall(){
+     var SommeAngle=0
+     gauche()
+     if (estFaceMur){
+       droite()
+       if (!estFaceMur){
+         avance()
+         }
+         else{
+           droite()
+           SommeAngle=SommeAngle-1
+         }
+     }else{
+       avance()
+       SommeAngle=SommeAngle+1
+     }
+   }
+  
+  def MainGaucheMur(): Boolean ={
+    gauche()
+    if (estFaceMur()){
+      droite()
+      return true
+    }
+    else {
+      droite()
+      return false
+    }
+  }
+  
+  while (!estSurBiscuit){
+    if (getDirection==Direction.NORTH){
+      if(estFaceMur){
+        while (!MainGaucheMur){
+          droite()
+        }
+        keepHandOnSideWall
+      }
+      else{
+        if (SommeAngle!=0){
+          keepHandOnSideWall
+        }
+        else{
+          avance()
+      }
+    }
+    else{
+        keepHandOnSideWall
+      }
+    }
+    prendBiscuit()
 }
