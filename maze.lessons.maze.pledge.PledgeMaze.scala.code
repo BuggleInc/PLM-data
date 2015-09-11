@@ -13,15 +13,24 @@ override def run(){
       gauche()
       return false}
   }
-  
+  var somme=0
   while(!estSurBiscuit()){
+
     if(keepHandOnSideWall()){
-      if(!estFaceMur()){avance()}
-      else{gauche()}
+      if(!estFaceMur()){
+        avance()
+      }
+      else{
+        gauche()
+        somme+=1
+      }
     }
-    else{droite()
-         avance()
-        }
+    else{
+      droite()
+      avance()
+      somme-=1
+    }
+    if(somme%4==0 && somme!=0){avance()}
     
   }
   prendBiscuit()
