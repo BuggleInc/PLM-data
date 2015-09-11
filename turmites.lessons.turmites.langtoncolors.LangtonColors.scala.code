@@ -14,8 +14,8 @@ def step(rule:Array[Char], colors:Array[Color]) {
   var ind : Int = 0
   while (colors(ind)!=getCouleurSol()) {ind+=1}
   // on a ind
-  if (ind==0) {setCouleurSol(colors(colors.length-1))}
-  else {setCouleurSol(colors(ind-1))}
+  if (ind==colors.length-1) {setCouleurSol(colors(0))}
+  else {setCouleurSol(colors(ind+1))}
   direction(ind)
   
 }
