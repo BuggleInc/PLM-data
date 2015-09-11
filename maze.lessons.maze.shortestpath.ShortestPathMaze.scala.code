@@ -53,16 +53,16 @@ def trouveLaPutainDeSortie() {
   	var y:Int = getY()
     
     if (x > 0 && getIndication(x - 1, y) < getIndication(x, y) && !aMurOuest(x, y)) {
-      gauche(); avance(); droite()
+      setDirection(Direction.OUEST); avance()
   	}
     else if (x < xMax && getIndication(x + 1, y) < getIndication(x, y) && !aMurOuest(x + 1, y)) {
-    	droite(); avance(); gauche()
+    	setDirection(Direction.EST); avance()
     }
     else if (y > 0 && getIndication(x, y - 1) < getIndication(x, y) && !aMurNord(x, y)) {
-    	avance()
+    	setDirection(Direction.NORD); avance()
   	}
     else if (y < yMax && getIndication(x, y + 1) < getIndication(x, y) && !aMurNord(x, y + 1)) {
-    	retourne(); avance(); retourne()
+    	setDirection(Direction.SUD); ; avance()
     }
   }
 }
