@@ -1,8 +1,8 @@
 override def run() {
  	var cpt=0
 	var i=0
-  while (i!=getMondeLargeur()-1 && cpt<=48){
-    while(!estDosMur()){
+  while (cpt<=48){
+    while(!isWallR()){
       ecritMessage(cpt)
       setPos((cpt+1)%getMondeHauteur(),i)
       cpt=cpt+1
@@ -17,3 +17,10 @@ override def run() {
 }
 
 
+def isWallR(): Boolean={
+  var rep= false
+  droite()
+  if (estFaceMur){rep=true}
+  gauche()
+  return rep
+}
