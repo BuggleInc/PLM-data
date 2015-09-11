@@ -1,0 +1,19 @@
+override def run() {
+  
+  // part du principe qu'on a un mur a gauche
+  def keepHandOnSideWall() {
+    
+    gauche()
+    if (!estFaceMur()) {avance()}
+       // pas mur a gauche ?
+    else {droite() ; if (!estFaceMur()) {avance()}
+         					  // pas mur en face ?
+        						else {droite() ; if (!estFaceMur()) {avance()}
+                           						// pas mur a droite ?
+           													  else {droite()}
+                           						// va en arriere
+}}}
+  
+  while (!estSurBiscuit) {keepHandOnSideWall()}
+  prendBiscuit()
+}

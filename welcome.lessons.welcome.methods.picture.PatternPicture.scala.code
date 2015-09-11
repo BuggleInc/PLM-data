@@ -1,0 +1,47 @@
+override def run() {
+  for (ligne <- 1 to 1) {faireMotifGauche(); faireMotifDroite(); repositionLigne()};
+  faireMotifGauche(); faireMotifDroite();
+}
+
+//
+// pour faireMotif
+def marqueSol(c:Color) 
+	{setCouleurBrosse(c); baisseBrosse(); leveBrosse();}
+
+def faireForme1(c:Color) 
+	{avance(); marqueSol(c);
+   gauche(); avance(); gauche(); avance(); marqueSol(c);
+   gauche(); avance(); gauche();
+   }
+
+def faireForme2(c:Color)
+   {marqueSol(c); avance();
+   gauche(); avance(); marqueSol(c); gauche(); avance();
+   gauche(); avance(); gauche();
+   }
+
+def repositionHaut()
+				{recule(2); gauche(); avance(2); droite();}
+
+def repositionBas()
+				{recule(2); gauche(); recule(2); droite();}
+// pour faireMotif
+//
+
+def faireMotifGauche()
+				{faireForme1(Color.RED); avance(2);
+         faireForme2 (Color.BLUE); repositionHaut();
+         faireForme2(Color.YELLOW); avance(2);
+         faireForme1(Color.GREEN); repositionBas();
+         }
+
+def faireMotifDroite()
+				{avance(4)
+         faireForme1(Color.RED); avance(2);
+         faireForme2 (Color.BLUE); repositionHaut();
+         faireForme2(Color.YELLOW); avance(2);
+         faireForme1(Color.GREEN); repositionBas();
+         }
+
+def repositionLigne()
+				{recule(4); gauche(); avance(4); droite();}

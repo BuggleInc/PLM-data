@@ -1,0 +1,105 @@
+override def run() {
+  // variables
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  
+  //------------------------------------------- OK
+  
+  def trouverSortie():Array[Int] = {
+  	var pos = new Array[Int](2)
+    pos(0) = 0
+    pos(1) = 0
+    while (!aBiscuit(pos(0),pos(1))) { // tant qu'on a pas trouve, parcours en largeur
+      if (pos(0) < largeur-1) {pos(0)+=1}
+      else {pos(1)+=1 ; pos(0)=0}
+    }
+    setIndication(pos(0),pos(1),0) 
+    return pos // marque sortie + retourne la position de la sortie
+  }
+  
+  //------------------------------------------- PB
+  
+  def marquerCasesAdjacentes(pos:Array[Int]) {
+    var i : Int = getIndication(pos(0),pos(1))
+    // on considere la case (pos(0),pos(1)) numerotee par i
+    // recursif : condition d'arret = plus de cases dispo
+    // booleen pour savoir quel appel recursif faire
+    // probleme d'ordre de priorite dans la recursivitee
+ 		var booldessus : Boolean = false ;
+    var booldroite : Boolean = false ;
+    var booldessous : Boolean = false ;
+    var boolgauche : Boolean = false ;
+    //case au dessus
+    if (pos(1) >0
+        && !aMurNord(pos(0),pos(1))
+        && getIndication(pos(0),pos(1)-1)>i+1)
+    			{setIndication(pos(0),pos(1)-1,i+1) ; booldessus = true}
+    //case a droite
+    if (pos(0) < largeur-1
+        && !aMurOuest(pos(0)+1,pos(1))
+        && getIndication(pos(0)+1,pos(1))>i+1)
+      		{setIndication(pos(0)+1,pos(1),i+1); booldroite = true}
+    //case en dessous
+    if (pos(1) < hauteur-1
+        && !aMurNord(pos(0),pos(1)+1)
+        && getIndication(pos(0),pos(1)+1)>i+1)
+    			{setIndication(pos(0),pos(1)+1,i+1); booldessous = true}
+     //case a gauche
+    if (pos(0) > 0
+        && !aMurOuest(pos(0),pos(1))
+        && getIndication(pos(0)-1,pos(1))>i+1)
+    			{setIndication(pos(0)-1,pos(1),i+1); boolgauche = true}
+    
+    var temp = new Array[Int](2)
+    if (booldessus) {
+      temp(0) = pos(0) ; temp(1) = pos(1)-1
+      marquerCasesAdjacentes(temp)}
+    if (booldroite) {
+      temp(0) = pos(0)+1 ; temp(1) = pos(1)
+      marquerCasesAdjacentes(temp)}
+    if (booldessous) {
+      temp(0) = pos(0) ; temp(1) = pos(1)+1
+      marquerCasesAdjacentes(temp)}
+    if (boolgauche) {
+      temp(0) = pos(0)-1 ; temp(1) = pos(1)
+      marquerCasesAdjacentes(temp)}
+    
+  }
+  
+  //------------------------------------------- OK
+  
+  def directionPlusCourte() {
+    var posx : Int = getX()
+    var posy : Int = getY()
+    var ind : Int = getIndication(posx,posy)
+    //case au dessus
+    if (posy > 0
+        && !aMurNord(posx,posy)
+        && getIndication(posx,posy-1)<ind)
+    			{setDirection(Direction.NORD)}
+    //case a droite
+    if (posx < largeur-1 
+        && !aMurOuest(posx+1,posy)
+        && getIndication(posx+1,posy)<ind)
+    			{setDirection(Direction.EST)}
+    //case au dessous
+    if (posy < hauteur-1
+        && !aMurNord(posx,posy+1) 
+        && getIndication(posx,posy+1)<ind)
+    			{setDirection(Direction.SUD)}
+    //case a gauche
+    if (posx > 0
+        && !aMurOuest(posx,posy)
+        && getIndication(posx-1,posy)<ind)
+    			{setDirection(Direction.OUEST)}
+    }
+  
+  //------------------------------------------- OK
+  
+  var pos = new Array[Int](2)
+  pos = trouverSortie()
+  marquerCasesAdjacentes(pos)
+  while (!estSurBiscuit) {
+    directionPlusCourte(); avance()}
+	prendBiscuit()
+  }

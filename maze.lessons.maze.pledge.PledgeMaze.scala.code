@@ -1,0 +1,40 @@
+override def run() {
+  var sommeAngle : Int = 0
+  
+  // part du principe qu'on a un mur a gauche
+  def keepHandOnSideWall() {
+    gauche()
+    if (!estFaceMur())
+    		 {avance(); sommeAngle = sommeAngle+1}
+       // pas mur a gauche ? go
+    else {droite() ; if (!estFaceMur())
+          							 {avance()}
+         					  // pas mur en face ? go
+        						else {droite() ; if (!estFaceMur())
+                          							   {avance(); sommeAngle = sommeAngle-1}
+                           						// pas mur a droite ?
+           													  else {droite()}
+                           						// va en arriere
+}}}
+  
+  //---
+  def isDirectionFree(dir:Direction):Boolean = {
+    var directionBuggle : Direction = getDirection()
+    var bool : Boolean = true
+    setDirection(dir)
+    bool = (!estFaceMur)
+    setDirection(directionBuggle)
+    return bool
+  }
+  
+  //---
+  while (!estSurBiscuit) {
+    while (getDirection()==Direction.NORTH && !estFaceMur() && !estSurBiscuit) 
+    			{avance()}
+    droite() // pour commencer avec un mur ? gauche
+  	sommeAngle = -1 // cf 1er virage ligne au dessus
+  	while (sommeAngle!=0 && !estSurBiscuit)
+    			{keepHandOnSideWall()}
+  }
+  prendBiscuit()
+}

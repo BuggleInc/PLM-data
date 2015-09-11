@@ -1,0 +1,27 @@
+def growFlowers()
+		{faireLigne(); reposition(); faireLigne();}
+
+def faireLigne()
+		{faireJardin();
+     gauche(); avance(2); droite(); avance(6); faireFleur(Color.BLUE);
+     avance(); gauche(); avance(2); droite();
+     faireJardin()
+    }
+
+def faireJardin()
+    {faireFleur(Color.RED); avance(3); faireFleur(Color.CYAN);
+    recule(5); droite(); avance(2); gauche(); avance(2);
+    faireFleur(Color.ORANGE);
+    recule(3); droite(); avance(2); gauche();
+    faireFleur(Color.PINK); avance(3); faireFleur(Color.GREEN);
+    recule(5);
+    }
+
+def faireFleur(c:Color)
+		{setCouleurBrosse(c); baisseBrosse();
+     avance(2); recule(); gauche(); avance(); recule(2); avance();
+     setCouleurBrosse(Color.yellow); leveBrosse(); droite();
+    }
+
+def reposition()
+		{droite(); avance(); droite(); avance(8); gauche(); avance(3); gauche();}
