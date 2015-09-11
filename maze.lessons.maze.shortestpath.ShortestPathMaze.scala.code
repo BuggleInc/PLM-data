@@ -21,7 +21,7 @@ def prop(x:Int,y:Int){
   if(y<getMondeHauteur()-1 && (getIndication(x,y+1)>marquage) && !aMurOuest(x,y+1)){
     setIndication(x,y+1,marquage+1)
   }
-  if(y>0){
+  if(y>0 && !aMurNord(x,y)){
     prop(x,y-1)
   }
   if(x>0){
