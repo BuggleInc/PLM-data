@@ -1,28 +1,42 @@
 def passeObstacle() {
-  while(estFaceMur()){
-    droite()
-    if(estFaceMur){
-      gauche()
-      if(!estFaceMur){
+  while(getDirection != Direction.NORTH){
+  	if (estFaceMur){
+			droite()
+      if(!estFaceMur)
+      {
         avance()
       }
       else{
-        gauche()
+        droite()
         if(!estFaceMur){
           avance()
-          
         }
         else{
-          gauche()
+          droite()
+        }
+        if(!estFaceMur){
+          avance()
+        }
+        else{
+          droite()
           avance()
         }
       }
     }
     else{
-      avance()
+      gauche()
+      if(!estFaceMur()){
+        avance()
+      }
+      else{
+        droite()
+        avance()
+      }
     }
+    
   }
 }
+     
 
 override def run() {
   while(!estSurBiscuit){
