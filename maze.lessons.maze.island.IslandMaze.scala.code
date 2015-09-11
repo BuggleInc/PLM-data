@@ -1,0 +1,52 @@
+override def run() {
+}
+
+def avancen(){
+  setDirection(Direction.NORD)
+  while(!estFaceMur()){
+    avance()
+  }
+  while(estFaceMur()){
+    left()
+  }
+  while(murgauche()){
+    avance()
+  }
+  }
+	
+}
+
+def murgauche(): Boolean ={
+  left()()
+  if(estFaceMur()){
+    right()()
+    return true
+  }
+  right()()
+  return false
+}
+
+
+
+def murdroite(): Boolean ={
+  right()
+  if(estFaceMur()){
+    left()
+    return true
+  }
+  left()
+  return false
+}
+
+def av(){
+  if(murdroite() && !estFaceMur()){
+    avance()
+  }
+  if(murdroite() && estFaceMur()){
+    left()
+  }
+  if (!murdroite){
+    right()
+    avance()
+  }
+}
