@@ -1,51 +1,47 @@
-def chercherEtposer() {
+def resoudre() {
    gauche()
    gauche()
-
-   while (!estFaceMur){
-
-    if (estSurBiscuit()) { 
-      prendBiscuit()
-      gauche()
-      gauche()
-      while (!estSurBiscuit()){
-        avance()
-      }
-      recule()
-      poseBiscuit()
   
-      gauche()
-      gauche()
-    }
-    if (! estFaceMur) {
-      avance();
-    }
-  }
-
-      if (estSurBiscuit()) { 
-      prendBiscuit()
-      gauche()
-      gauche()
-      while (!estSurBiscuit()){
-        avance()
-      }
-      recule()
-      poseBiscuit()
+   while (allerChercher()) {
+     gauche();
+     gauche();
+     allerPoser();
+     gauche();
+     gauche();
+     avance();
+   }
   
-      gauche()
-      gauche()
-    }
-
-  
-  
+  /*
   droite()
   avance()
   gauche()
   avance()
-
-  
+  */
 }
 
 
-chercherEtposer()
+def allerChercher():Boolean = {
+  while (!estSurBiscuit() && !estFaceMur()) {
+    avance();
+  }
+  if (estSurBiscuit() {
+    prendreBiscuit();
+    return true;
+  } else {
+    return false
+  }
+  
+}
+  
+def allerPoser() {
+  while (! estSurBiscuit()) {
+    avance();
+  }
+  recule();
+  poseBiscuit();
+}
+  
+  
+
+resoudre()
 
