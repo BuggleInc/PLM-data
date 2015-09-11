@@ -18,8 +18,10 @@ def golomb(num:Int): Int = {
     for(i <- crescendo){
       repetition=suite(i-1)
       
-      for(k<-1 to repetition){
-        suite(i)=i
+      while(var k:Int=0<repetition){
+        suite(i+k)=crescendo(i-1)
+        k = k+1
+      }
       }
     }
   }
