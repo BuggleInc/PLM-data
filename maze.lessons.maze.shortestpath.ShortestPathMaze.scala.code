@@ -110,9 +110,9 @@ def prochaineCase() {
 	val largeurMonde = getMondeLargeur
   var ind = getIndication(getX(),getY())
   setDirection(Direction.NORD)
-	var v = 0
+	var v = getIndication(getX(),getY())
   var d = 0
-  if (!aMurNord(getX(),getY())) { //Nord
+  if (!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1) < v) { //Nord
   	v = getIndication(getX(),getY()-1)
     d = 1
   }
