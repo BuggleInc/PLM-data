@@ -1,9 +1,7 @@
-def trouveLaSortie(): Array[Int] = {
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
-  
-  for (x <- 0 to xMax) {
-    for (y <- 0 to yMax) {
+// On détermine la position de la sortie.
+def trouveSortie(): Array[Int] = {
+  for (x <- 0 to getMondeLargeur() - 1) {
+    for (y <- 0 to getMondeHauteur() - 1) {
       if (aBiscuit(x, y))
       	return Array[Int](x, y)
     }
@@ -12,74 +10,9 @@ def trouveLaSortie(): Array[Int] = {
   return Array[Int](2)
 }
 
-def marqueCase(x: Int, y: Int, poids: Int) {
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
- 
-	if (x > 0 && !aMurOuest(x, y) && getIndication(x - 1, y) >= poids) {
-    setIndication(x - 1, y, poids)
-  }
-  
-  if (y > 0 && !aMurNord(x, y) && getIndication(x, y - 1) >= poids) {
-      setIndication(x, y - 1, poids)
-  }
-  
-  if (x < xMax && !aMurOuest(x + 1, y) && getIndication(x + 1, y) >= poids) {
-    setIndication(x + 1, y, poids)
-  }
-  
-  if (y < yMax && !aMurNord(x, y + 1) && getIndication(x, y + 1) >= poids) {
-    setIndication(x, y + 1, poids)
-  }
-  
-  // On récursivise...
-  if (x > 0 && getIndication(x - 1, y) >= poids)
-  	marqueCase(x - 1, y, poids + 1)
-  
-  if (y > 0 && getIndication(x, y - 1) >= poids)
-  	marqueCase(x, y - 1, poids + 1)
-  
-  if (x < xMax && getIndication(x + 1, y) >= poids)
-  	marqueCase(x + 1, y, poids + 1)
-  
-  if (y < yMax && getIndication(x, y + 1) >= poids)
-  	marqueCase(x, y + 1, poids + 1)
-}
-
-def ecritIndications() {
-  // Tout d'abord, il faut trouver la sortie ! :p
-  var posSortie:Array[Int] = trouveLaSortie()
-  
-  setIndication(posSortie(0), posSortie(1), 0)
-  
-  marqueCase(posSortie(0), posSortie(1), 1)
-}
-
-def parcoursCeTruc() {
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
-  
-  var x:Int = getX()
-  var y:Int = getY()
-  
-  while (!estSurBiscuit()) {
-    if (x > 0 && getIndication(x, y) > getIndication(x - 1, y) && !aMurOuest(x, y))
-      gauche(); avance(); droite()
-
-    if (y > 0 && getIndication(x, y) > getIndication(x, y - 1) && !aMurNord(x, y))
-      avance()
-
-    if (x < xMax && getIndication(x, y) > getIndication(x + 1, y) && !aMurOuest(x + 1, y))
-      droite(); avance(); gauche()
-
-    if (y < yMax && getIndication(x, y) > getIndication(x, y + 1) && !aMurNord(x, y + 1))
-      retourne(); avance(); retourne()
-  }
-}
-
 override def run() {
-  // On commence par écrire les indications sur les cases.
-  ecritIndications()
+  var laSortie:Array[Int] = trouveSortie()
   
-  parcoursCeTruc()
+  // On écrit 0 sur la case de la sortie. :D
+  setIndication(laSortie(0), laSortie(1), 0)
 }
