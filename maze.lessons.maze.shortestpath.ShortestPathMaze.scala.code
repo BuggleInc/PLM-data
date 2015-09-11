@@ -1,5 +1,9 @@
+var cpt = 0
+
 
 override def run() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
   var coordBiscuit = new Array[Int](2)
   coordBiscuit = trouveLeBiscuit
 	setIndication(coordBiscuit(0),coordBiscuit(1),cpt)
@@ -19,6 +23,8 @@ override def run() {
 }
 
 def trouveLeBiscuit(): Array[Int] = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
   var y = 0
   var x = 0
   var T = new Array[Int](2)
@@ -43,6 +49,8 @@ def trouveLeBiscuit(): Array[Int] = {
 }
 
 def marqueCaseAutour (x : Int, y : Int) {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
   var coordIni = (x,y)
   cpt =getIndication(x,y)+1
   if (!aMurNord(x,y)) {
@@ -68,6 +76,8 @@ def marqueCaseAutour (x : Int, y : Int) {
 }
 
 def verifieCases (): Boolean = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
   var compteur = 0
   for (y <- 0 to hauteurMonde-1) {
     for (x <- 0 to largeurMonde-1) {
@@ -85,6 +95,8 @@ def verifieCases (): Boolean = {
 }
 
 def prochaineCase() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
   var Pos = (getX(),getY())
   var ind = getIndication(getX(),getY())
   var direction = getDirection()
