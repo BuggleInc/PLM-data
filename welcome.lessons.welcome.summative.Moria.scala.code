@@ -1,0 +1,26 @@
+def trouverSortie () 
+{
+  while (!(estFaceMur() && !estSurBiscuit()))
+  {
+    setDirection(Direction.EAST)
+    while(!estSurBiscuit()) 
+    {
+      avance()
+    }
+    if (estsurBiscuit()) 
+    {
+      prendBiscuit()
+      while(!estSurBiscuit()) 
+      {
+        recule()
+      }
+      avance()
+      poseBiscuit()
+      avance()
+    }
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
