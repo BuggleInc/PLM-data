@@ -14,10 +14,10 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   while (getCouleurSol!=colors(i)){
     i+=1
   }
-  setCouleurBrosse(colors(rule(state)(couleur_actuelle)(mvmt_suivant)))
+  setCouleurBrosse(colors(rule(state)(i)(0)))
   baisseBrosse()
   leveBrosse()
-  mvmt_suivant=rule(etat)(couleur_actuelle)(0)
+  mvmt_suivant=rule(etat)(couleur_actuelle)(1)
   mvmt_suivant match {
     case GAUCHE => gauche(); avance()
     case DROITE => droite(); avance()
@@ -25,4 +25,6 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
     case pas_de_virage => avance()
     case demi_tour => droite();droite();avance()
   }
+  state=rule(state)(couleur_actuelle)(2)
+  couleur_actuelle=i
 }
