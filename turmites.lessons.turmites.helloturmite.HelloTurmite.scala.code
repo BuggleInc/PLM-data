@@ -1,12 +1,28 @@
 var state = 0;
 val Stop = 0;
-val Rien = 1;
+val Avance = 1;
 val Gauche = 2;
 val Retourne = 4;
 val Droite = 8;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-  
+  var couleurActuelle = getCouleurSol();
+  var i = 0;
+  while ( colors(i) != c ){
+    i+=1;
+  }
+  setCouleurSol(rule(state)(couleurActuelle)(0));
+  if ( rule(state)(couleurActuelle)(1) == Rien ){
+    avance();
+  } else if ( rule(state)(couleurActuelle)(1) == Gauche ){
+    gauche();
+  } else if ( rule(state)(couleurActuelle)(1) == Retourne ){
+    retourne();
+  } else if ( if ( rule(state)(couleurActuelle)(1) ==  Droite ){
+    droite();
+  } else {
+  }
+  state = rule(state)(couleurActuelle)(2);
 }
 
 def setCouleurSol(c:Color) {
