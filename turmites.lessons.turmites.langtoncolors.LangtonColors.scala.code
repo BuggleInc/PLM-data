@@ -3,7 +3,7 @@ def step(rule:Array[Char], colors:Array[Color]) {
   var nbc = colors.length
   ind = trouverColor(colors, c)
   nc = (ind+1)%nbc
-  r = rule(ind)
+  var r = rule(ind)
   r match {
     case 'R' => point(colors(nc)); droite(); avance()
     case 'L' => point(colors(nc)); gauche(); avance()
