@@ -1,0 +1,33 @@
+override def run() {
+  while (!PositionFinale()) {
+    Position()
+  }
+  
+}
+
+
+
+def PositionFinale ():Boolean = {
+  var Y = getMondeHauteur()
+  var X = getMondeLargeur()
+  if (getX == X && getY == Y){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+def Position () {
+  ecritMessage(0)
+  var cpt = 0
+  var n = 0
+  
+  for (l <- 1 to getMondeHauteur()-1) {
+    avance()
+    cpt = cpt +1
+    ecrit Message(cpt)
+  }
+  n= n +1 
+  setPos(n , 1)
+}
