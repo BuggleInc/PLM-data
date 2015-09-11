@@ -1,0 +1,17 @@
+def step() {
+  bouge()
+}
+
+def colorie (c:Color):Unit={
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def bouge ():Unit={
+  val c=getCouleurSol()
+  c match {
+    case Color.white =>colorie(Color.black);droite();avance()
+    case _ =>colorie(Color.white);gauche();avance()
+  }
+}
