@@ -2,6 +2,7 @@ override def run() {
   if(aMurNord(2,2)){
     setIndication(2,2,42)
   }
+  prop(2,2)
 }
 
 def prop(x:Int,y:Int){
@@ -11,5 +12,8 @@ def prop(x:Int,y:Int){
   }
   if(!aMurOuest(x,y) && !(getIndication(x-1,y)<=marquage)){
     setIndication(x-1,y,marquage+1)
+  }
+  if(!aMurOuest(x+1,y) && !(getIndication(x+1,y)<=marquage)){
+    setIndication(x+1,y,marquage+1)
   }
 }
