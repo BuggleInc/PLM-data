@@ -56,16 +56,20 @@ def marqueCaseAutour (x : Int, y : Int) {
     	setIndication(x-1,y,cpt)
     }
   }
-  /*if (!aMurEst) {
-    if (getIndication(x+1,y) == 9999) {
-    	setIndication(x+1,y,cpt)
-    }
+  if (x+1 != largeurMonde-1) {
+    if (!aMurOuest(x+1,y)) {
+    	if (getIndication(x+1,y) == 9999) {
+    		setIndication(x+1,y,cpt)
+    	}
+  	}
   }
+  if (y+1 != hauteurMonde-1) {
+  if (!aMurNord(x,y+1)) {
   if (!aMurSud) {
     if (getIndication(x,y+1) == 9999) {
     	setIndication(x,y+1,cpt)
     }
-  }*/
+  }
 }
 
 def verifieCases (): Boolean = {
