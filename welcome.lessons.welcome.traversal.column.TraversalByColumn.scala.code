@@ -1,31 +1,16 @@
-def positionfinale():Boolean={
-  if (getX()==getMondeLargeur() && getY()==getMondeHauteur()){
-    return true
-  }
-  else{
-    return false
-  }
-}
-def parcours(){
-  
-  var cpt:Int=0
+
+override def run() {
+   var cpt=-1
   
   ecritMessage(0)
   setPos(0,1)
+  
   for (i<- 0 to getMondeLargeur()-1){
     for (j<-0 to getMondeHauteur()-1){
       setPos(i,j)
       cpt=cpt+1
       ecritMessage(cpt)
       
-    }
-    
-    setPos(0,i+1)
-  }
 }
-
-override def run() {
-  while (positionfinale == false){
-    parcours()
   }
 }
