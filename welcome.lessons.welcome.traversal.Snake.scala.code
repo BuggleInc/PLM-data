@@ -8,26 +8,17 @@ override def run() {
 
 def PositionFinale() {
   
-  if (estFaceMur()) {
-  	if (getDirection() == Direction.EST) {
+  if (estFaceMur() && getDirection() == Direction.EST) {
     gauche()
-    	if (estFaceMur()) {
-    		return true
-  		}
-      else {
-        return false
-      }
+    return true
    }
-   else if (getDirection() == Direction.OUEST) {
+   else if (getDirection() == Direction.OUEST && estFaceMur()) {
     	droite()
-    	if (estFaceMur()) {
-				return true
+			return true
    		}
-     else {
+   else {
        return false
-     }
    }
-	}
 }
 
 
