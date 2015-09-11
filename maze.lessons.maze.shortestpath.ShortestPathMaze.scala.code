@@ -1,40 +1,23 @@
+val l=getMondeLargeur()
+val h=getMondeHauteur()
+
 override def run() {
-  while(!estSurBiscuit())
-  {
-		keepHandOnSideWall()
-  }
-  prendBiscuit()
-  positionFin()
+  
 }
 
-def keepHandOnSideWall() {
-  while(testGauche() && !estFaceMur())
+def foundBaggle():Array[Int] {
+  def res:Array[int] = (-1,1)
+  for(i->0 to l-1)
   {
-    avance()
+    for(j->0 to h-1)
+    {
+      if(aBiscuit(i,j))
+      {
+        res(0)=i
+        res(1)=j
+        return res
+      }	
+    }
   }
-  droite()
-  if(!estFaceMur())
-  	avance()
-  else
-  {
-    retourne()
-    if(!estFaceMur())
-    	avance()
-  }
-}
-
-def testGauche():Boolean = {
-  var test = false
-  gauche()
-  test = estFaceMur()
-  droite()
-  return test
-}
-
-def positionFin() {
-  droite()
-  if(!estFaceMur())
-  	retourne()
-  else
-  gauche()
+  return res
 }
