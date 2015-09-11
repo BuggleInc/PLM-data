@@ -1,0 +1,43 @@
+retourne()
+while (!estFaceMur()){
+  deplacerBiscuit()
+  }
+droite()
+avance()
+gauche()
+avance()
+
+
+/*def marcherVersEst(){
+  if (getDirection()!=Direction.EST){
+    droite()
+    droite()
+  }
+}
+
+def marcherVersOuest(){
+  if(getDirection()!=Direction.Ouest){
+    droite()
+    droite()
+  }
+}*/
+
+
+def deplacerBiscuit(){
+  while (!estSurBiscuit() && !estFaceMur()){
+    avance()
+  }
+  if (estSurBiscuit()) {
+    prendBiscuit()
+    retourne()
+    while (!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    retourne()
+  }
+  if(!estFaceMur()){
+    avance()
+  }
+}
