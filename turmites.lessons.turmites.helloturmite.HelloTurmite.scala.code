@@ -21,12 +21,13 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   baisseBrosse()
   leveBrosse()    
   MVT_SUIV match {
-    case NOVIRAGE => avance()
+    case NOVIRAGE => retourne();retourne()
     case GAUCHE => gauche()
     case DEMITOUR => retourne()
     case DROITE => droite()
     case stop => step(colors,rule)
   }
+ 		avance() 
     state = STATE_SUIV
     /* Your code comes here */
 }
