@@ -19,11 +19,15 @@ override def run() {
 
 
 def aMurSud(x:Int,y:Int):Boolean = {  // test mur au SUD
-  if (aMurNord(x,y+1)==true){return true}
+  if (y!=getMondeHauteur){
+    if (aMurNord(x,y-1)==true){return true}
+  }
   return false
 }
 def aMurEst(x:Int,y:Int):Boolean = {   // test mur à l'EST
-  if (aMurOuest(x+1,y)==true){return true}
+  if (x!=getMondeLargeur){
+    if (aMurOuest(x+1,y)==true){return true}
+  }
   return false
 }
 
