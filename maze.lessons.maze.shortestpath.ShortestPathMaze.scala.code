@@ -4,8 +4,10 @@ override def run() {
 
 def prop(x:Int,y:Int){
   var marquage:Int=getIndication(x,y)
-	if ((!aMurNord())&& !getIndication(x,y-1)<marquage){
+	if ((!aMurNord())&& !getIndication(x,y-1)<=marquage){
     setIndication(x,y-1,marquage+1)
   }
-  if(!aMurOuest && !)
+  if(!aMurOuest && !getIndication(x-1,y)<=marquage){
+    setIndication(x-1,y,marquage+1)
+  }
 }
