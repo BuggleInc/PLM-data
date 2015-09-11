@@ -45,13 +45,13 @@ def marqueCases(x: Int, y: Int, poids: Int) {
 }
 
 def trouveLaPutainDeSortie() {
-  var x:Int = getX()
-  var y:Int = getY()
-  
   var xMax:Int = getMondeLargeur() - 1
   var yMax:Int = getMondeHauteur() - 1
   
   while (!estSurBiscuit()) {
+    var x:Int = getX()
+  	var y:Int = getY()
+    
     if (x > 0 && getIndication(x - 1, y) < getIndication(x, y) && !aMurOuest(x, y)) {
       gauche(); avance(); droite()
   	}
