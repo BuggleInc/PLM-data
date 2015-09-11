@@ -5,7 +5,46 @@ override def run() {
         num(i,j,0)
       }
     }
-  }  
+  }
+  var nord =0
+  var sud =0
+  var est = 0
+  var ouest = 0
+  while (!estSurBiscuit()){
+    nord = 999
+    sud = 999
+    est = 999
+    ouest = 999
+    x = getX()
+    y = getY()
+    if (y!=0 && !aMurNord(x,y)){
+      nord = getIndication(x,y-1)
+    }
+    if(x!=0 && !aMurOuest(x,y)){
+      ouest = getIndication(x-1,y)
+    }
+    if(y!=getMondeHauteur()-1 && !aMurNord(x,y+1)){
+      sud = getIndication(x,y+1)
+    }
+    if(x!=getMondeLargeur()-1 && !aMurOuest(x+1,y)){
+      est = getIndication(x+1,y)
+    }
+    if (nord == Math.min(nord,sud,est,ouest)){
+      setDirection(Direction.Nord)
+      avance()
+    }else if (sud == Math.min(sud,est,ouest)){
+      setDirection(Direction.Sud)
+      avance()
+    }else if(est == Math.min(est,ouest)){
+      setDirection(Direction.Est)
+      avance()
+    }else{
+      setDirection(Direction.Ouest)
+      avance()
+    }
+    
+  }
+  prendBiscuit()
 }
 
 
