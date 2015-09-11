@@ -8,14 +8,22 @@ def step(rule:Array[Char], colors:Array[Color]) {
   }
   if (rule(id)=='R'){
     droite()
-    setCouleurBrosse(colors(id))
+    if (id!=colors.length-1){
+      setCouleurBrosse(colors(id+1))
+    }else{
+      setCouleurBrosse(0)
+    }
     baisseBrosse()
     leveBrosse()
     avance()
   }
   if (rule(id)=='L'){
     gauche()
-    setCouleurBrosse(colors(id))
+    if (id!=colors.length-1){
+      setCouleurBrosse(colors(id+1))
+    }else{
+      setCouleurBrosse(0)
+    }
     baisseBrosse()
     leveBrosse()
     avance()
