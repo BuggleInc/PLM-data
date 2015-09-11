@@ -1,16 +1,17 @@
 def step(rule:Array[Char], colors:Array[Color]) {
   var r:Int =0
   var j:Int=0
+  
   for (i<- 0 to colors.length-1){
-    if (getCouleurSol()==colors(i)){
+    if (getCouleurSol()==colors(i)){   // Recherche de l'indice de la couleur du sol dans le tableau
       r=i
       j=i
-      if (r==colors.length-1){j=0}
+      if (j==colors.length-1){j=0}  // gère si la prochaine valeur est or range
     }  
   }
-  rule(r) match{
-    case 'R' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();droite();avance()
-    case 'L' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();gauche();avance() 
+  rule(r) match{  // en fonction de l'indice de la couleur de la case dans le tableau
+    case 'R' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();droite();avance()    // gère le cas droite
+    case 'L' => setCouleurBrosse(colors(j));baisseBrosse();leveBrosse();gauche();avance()    // gère le cas gauche
   }
   
   
