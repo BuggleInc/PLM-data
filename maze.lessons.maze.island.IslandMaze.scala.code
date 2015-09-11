@@ -4,9 +4,11 @@ override def run() {
     while (!estFaceMur()){
       avance()
     }
-    while( getDirection() != Direction.WEST) {
-    keepHandOnSideWall()
-  	}
+    if (getY() != 0) {
+      while( getDirection() != Direction.WEST) {
+      keepHandOnSideWall()
+      }
+    }
   }
   while(!estSurBiscuit()) {
     keepHandOnSideWall()
