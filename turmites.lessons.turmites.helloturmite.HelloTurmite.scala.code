@@ -25,7 +25,7 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   
   //2) actions a faire
   rule(state)(couleurActuelle) match {
-    case (rule(state)(couleurActuelle)(1) == STOP)    => 
+    case (rule(state)(couleurActuelle)(1) == STOP)    => droite() ; gauche() //ne rien faire
     case (rule(state)(couleurActuelle)(1) == DEVANT)  => avance()
     case (rule(state)(couleurActuelle)(1) == GAUCHE)  => gauche() ; avance()
     case (rule(state)(couleurActuelle)(1) == ARRIERE) => retourne() ; avance()
