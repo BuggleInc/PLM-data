@@ -78,6 +78,7 @@ def init() {
   }
   
   //On appelle maintenant la boucle
+  while(nbSteps > 0) {
   /*for (pas <- 0 to nbSteps-1) {*/
     if (getCouleurSol() == Color.WHITE) {
       c = 0
@@ -93,7 +94,9 @@ def init() {
       avance()
     }
     state = action(2)
-  /*}*/
+    nbSteps -= 1
+  }
+  
 }
 
 def setCouleurSol(c:Int) {
