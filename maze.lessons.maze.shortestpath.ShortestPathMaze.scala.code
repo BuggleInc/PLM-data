@@ -1,13 +1,11 @@
 override def run() {
-  sx : Int = 0
-  sy : Int = 0
-  (sx ; sy) = sortie()
+  var sortie = new Tuple2 trouveSortie()
 }
 
-def sortie() : Int ; Int = {
+def trouveSortie() : Tuple2 = {
   for (x <- 0 to getMondeLargeur()){
   	for (y <- 0 to getMondeHauteur()){
-      if (aBiscuit(x,y)) {(x;y)}
+      if (aBiscuit(x,y)) {(x,y)}
     }
   }
 }
