@@ -12,45 +12,17 @@ def trouveLaSortie(): Array[Int] = {
   return Array[Int](2)
 }
 
-def casesAdjacentes(pos: Array[Int]): Array[Array[Int]] = {
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
+def marqueCase(x: Int, y: Int, poids, Int) {
+  setIndication(x, y, poids)
   
-  var result:Array[Array[Int]] = Array[Array[Int]]()
-  
-  result :+ Array[Int](xMax, yMax)
-  
-  return result
-}
-
-// Retourne le nombre de cases marquées.
-def marqueCases(poidsCourant: Int):Int = {
-  var result:Int = 0
-  
-  var xMax:Int = getMondeLargeur() - 1
-	var yMax:Int = getMondeHauteur() - 1
-  
-  // On parcourt le labyrinthe à la recherche de cases marquées par 'poidsCourant'.
-  for (x <- 0 to xMax) {
-    for (y <- 0 to yMax) {
-      /*! 
-       * Pour chaque cases, on vérifie si elle est marquées de 'poidsCourant'.
-       * Dans ce cas on cherche les cases adjacentes accessibles et si elles ne sont pas déjà
-       * marquées, on écrit 'poidsCourant + 1'.
-       */
-      if (getIndication(x, y) == poidsCourant) {
-        for (i <- casesAdjacentes(Array[Int](x, y))) {
-          if (getIndication(i(0), i(1)) == 9999) {
-            setIndication(i(0), i(1), poidsCourant + 1)
-            
-            result += 1
-          }
-        }
-      }
-    }
+  // On teste les cases adjacentes.
+  if (!aMurNord(x, y)) {
+    setIndication(x, y, poids + 1)
   }
   
-  return result
+  if (!aMurNord(x, y + 1)) {
+    setIndication(x, y + 1, poids + 1)
+  }
 }
 
 def ecritIndications() {
@@ -58,12 +30,6 @@ def ecritIndications() {
   var posSortie:Array[Int] = trouveLaSortie()
   
   setIndication(posSortie(0), posSortie(1), 0)
-  
-  marqueCases(0)
-
-  // Maintenant on écrit les indications sur les cases adjacentes.
-  var casesMarquees:Int = 1
-  var poidsCourant:Int = 0
 }
 
 override def run() {
