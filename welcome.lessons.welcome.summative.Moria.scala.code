@@ -1,0 +1,41 @@
+override def run() {
+  while (!fin()){
+    gauche(2)
+    while (!estSurBiscuit()){
+      avance()
+    }
+    prendBiscuit()
+    gauche(2)
+    while (!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    poseBiscuit()
+  }
+  if (estSurBiscuit()){
+    prendBiscuit()
+    gauche(2)
+    while(!estSurBiscuit()){
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    gauche(2)
+    while (!fin()){
+      avance()
+    }
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+
+def fin(){
+  if (getDirection()==Direction.est){
+    if (estFaceMur()){
+      return true
+    } else return false
+  } else return false
+}
