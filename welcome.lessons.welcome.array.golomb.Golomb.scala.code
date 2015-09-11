@@ -1,12 +1,22 @@
 def golomb(num:Int): Int = {
   
-  var tableau = new Array[Int] (num)
+  var tableau = new Array[Int] (3*num)
   tableau(0) = 1
   tableau(1) = 2
   tableau(2) = 2
-  var compteur:Int = 0
-  for (i <- 2 to num -1) {
+  var compteur:Int = 3
+  for (i <- 3 to num) {
     
-    
-    
+    var nbCasesARemplir:Int = tableau(i -1)
+    var compteur2:Int = 0
+    while (compteur2 != nbCasesARemplir) {
+      
+      tableau(i) = compteur
+      i = i + 1
+      compteur2 = compteur2 + 1 
+    }
+    compteur = compteur + 1
   }
+	return tableau(num)
+
+}  
