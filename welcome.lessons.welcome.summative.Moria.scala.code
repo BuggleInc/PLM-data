@@ -1,17 +1,14 @@
 def rechercheObstacle() {
   retourne()
-  if (estFaceMur) {
-      droite();avance();droite();avance()
-    }
   while (!estFaceMur) {
     while (!estSurBiscuit) {
       avance()
-    }
-    if (estSurBiscuit) {
-      prendBiscuit(); retourne(); deposeBaggleLoin()
+      if (estSurBiscuit) {
+        prendBiscuit(); retourne(); deposeBaggleLoin()
+      }
     } 
   }
-  droite();avance();droite();retourne();avance()
+  droite();avance();gauche();avance()
 }
 
 
