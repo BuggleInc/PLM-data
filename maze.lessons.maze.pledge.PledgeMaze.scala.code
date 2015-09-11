@@ -1,20 +1,27 @@
 override def run() {
+  var orientation=0
+  
   while (!estSurBiscuit) {
     if (getDirection()==Direction.NORD) {
       while (!estFaceMur) {
         avance()
       }
-      droite()
+      droite();orientaion=orientaion+1
     }  
-    keepHandOnSideWall()
+    orientaion=orientaion+keepHandOnSideWall()
     
   }
   prendBiscuit()
 }
 def keepHandOnSideWall() {
+  var tourne=0
   gauche()
+  tourne = tourne-1
   while (estFaceMur) {
-    droite()
+    droite();tourne = tourne+1
   }
   avance()
+}
+def isDirectionFree(dir):Boolean = {
+  
 }
