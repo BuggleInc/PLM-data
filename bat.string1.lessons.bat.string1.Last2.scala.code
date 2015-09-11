@@ -1,13 +1,13 @@
-def dDC(str:String):String = {
-  val n = str.length
-  return (str.charAt(n-2).toString+str.charAt(n-1).toString)
-}
-
 def last2(str:String):Int = {
   val n = str.length
+  if (n < 2) {return 0} else {
   val dD = dDC(str)
   var b1 = false
   var b2 = false
   var c = 0
-  
-  return c}
+  for (i <- 0 to n-3) {
+    b2 = b1 && str.charAt(i) == str.charAt(n-1)
+    b1 = str.charAt(i) == str.charAt(n-2)
+    if (b2) {c=c+1}
+  }
+    return c}}
