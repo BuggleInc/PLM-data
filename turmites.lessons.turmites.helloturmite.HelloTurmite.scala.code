@@ -17,9 +17,9 @@ def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   (rule(state)(idc)(1)) match{
     case GAUCHE => gauche(); avance()
     case pasDeVirage => avance()
-    case demiTour => droite(); droite()
+    case demiTour => droite(); droite() ; avance()
     case DROITE => droite(); avance()
-    case _ => droite(); gauche()
+    //case _ => droite(); gauche()
   }
   state=rule(state)(idc)(2)
 }
