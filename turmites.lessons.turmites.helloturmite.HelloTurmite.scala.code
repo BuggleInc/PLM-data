@@ -1,0 +1,27 @@
+var state = 0;
+val STOP = 0
+val PASVIRAGE = 1
+val GAUCHE = 2
+val UTURN = 4
+val DROITE = 8
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var couleurActuelle = getGroundColor()
+  
+  //Prochaine couleur ?
+  var nextColor = rule(state)(couleurActuelle)(0)
+ 	//Prochain mvt ?
+  var mvtSuiv = rule(state)(couleurActuelle)(1)
+  
+  mvtSuiv match{
+    case GAUCHE => left();forward()
+    case DROITE => right();forward()
+    case UTURN => right();right();forward()
+    case PASVIRAGE => forward();
+    case STOP => ;
+  }
+  
+  
+  
+  state = rule(state)(couleurActuelle)(2)
+}
