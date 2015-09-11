@@ -10,8 +10,7 @@ val NEXT_MOVE  = 1;
 val NEXT_STATE = 2;
 
 
-var rule:Array[Array[Array[Int]]] = Array( Array( Array(1,LEFT,0), Array(0, NOTURN, 0) ),         
-                Array( Array(1,LEFT,1) ,Array(0,NOTURN,1)) ); 
+var rule:Array[Array[Array[Int]]] = null;
 var nbSteps:Int = 8342; // Change this
 
 /** init the rule array from a string defining a Langton's ant 
@@ -44,6 +43,8 @@ def initLangton(name:String) {
 }
 def init() {
   setPos(8,33)
+  rule = Array( Array( Array(1,LEFT,0), Array(1,LEFT,1)),         
+                Array( Array(0, NOTURN, 0)  ,Array(0,NOTURN,1)) ); 
 }
 
 
