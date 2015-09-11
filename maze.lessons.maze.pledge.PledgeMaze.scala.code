@@ -29,12 +29,14 @@ def keepHandOnSideWall() {
 
 
 def isDirectionFree() {
+  var res = false
   var a = getDirection
   if (!estFaceMur && !(a==Direction.NORTH)) {
     setDirection(Direction.NORTH)
     if (!estFaceMur()) {
-      avance();
+      res=true
     }
   }
+  return res
 }
    
