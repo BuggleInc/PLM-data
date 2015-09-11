@@ -1,30 +1,25 @@
-var state = 0
-var mvt=0
+var state=0
 var mvmt_suivant=0
 var couleur_actuelle=0
-var etat=0
-val GAUCHE=2
 val stop=0
 val pas_de_virage=1
+val GAUCHE=2
 val demi_tour=4
-val DROITE=8;
+val DROITE=8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var i=0
   while (getCouleurSol!=colors(i)){
     i+=1
   }
-  mvt=rule(state)(i)(2)
-  setCouleurBrosse(colors(i))
-  mvt match {
-    case GAUCHE => gauche();avance
-    case stop=>
-    case pas_de_virage=>avance()
-    case demi_tour=>droite();droite();avance()
-    case DROITE=> droite();avance()
-  }
-  state=rule(state)(couleur_actuelle)(0)
-  mvmt_suivant=rule(state)(couleur_actuelle)(2)
   couleur_actuelle=i
-  
+  mvmt_suivant=rule(state)(couleur_actuelle)(2)
+  mvmt_suivant match {
+    case stop=>
+    case pas_de_viarge=>avance
+    case GAUCHE=>gauche();avance()
+    case demi_tour=>droite();droite()
+    case DROITE=> droite;avance()
+  }
+ state=rule(state)(couleur_actuelle)(0)
 }
