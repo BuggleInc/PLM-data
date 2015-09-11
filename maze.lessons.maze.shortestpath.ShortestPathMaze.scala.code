@@ -62,16 +62,28 @@ override def run() {
     var num = getIndication(getX(),getY())
     var dir= 0
     if(!aMurEst(getX(),getY()){
-      if(getIndication(getX()+1,getY())<num){num=getIndication(getX()+1,getY());dir=3}
+      if(getIndication(getX()+1,getY())<num){
+        num=getIndication(getX()+1,getY());
+        dir=3
+      }
     }
     if(!aMurNord(getX(),getY()){
-      if(getIndication(getX(),getY()-1)<num){num=getIndication(getX(),getY()-1);dir=0}
+      if(getIndication(getX(),getY()-1)<num){
+        num=getIndication(getX(),getY()-1);
+        dir=0
+      }
     }
      if(!aMurOuest(getX(),getY()){
-       if(getIndication(getX()-1,getY())<num){num=getIndication(getX()-1,getY());dir=1}
+       if(getIndication(getX()-1,getY())<num){
+         num=getIndication(getX()-1,getY());
+         dir=1
+       }
     }
     if(!aMurSud(getX(),getY()){
-      if(getIndication(getX(),getY()+1)<num){num=getIndication(getX(),getY()+1);dir=2}
+      if(getIndication(getX(),getY()+1)<num){
+        num=getIndication(getX(),getY()+1);
+        dir=2
+      }
     }
     setDirection(Direction.NORTH)
     for(i<-1 to dir-1){gauche()}
