@@ -52,7 +52,7 @@ def caseVoisineLaPlusProche(x:Int,y:Int):Direction={
 	if (x!=xmax-1) {droite=getIndication (x+1,y)}
 	if (y!=ymax-1) {bas=getIndication (x,y+1)}
   var resultat=Direction.NORD
-  //if (y!=0){  if (!aMurNord(x,y)){resultat=Direction.NORD}}
+  if (aMurNord(x,y)){haut=9999}
   if (min(haut,gauche)==gauche){if (!aMurOuest(x,y)){resultat=Direction.OUEST;haut=gauche}}
   if (min(haut,droite)==droite){if (!aMurOuest(x+1,y)){resultat=Direction.EST;haut=droite}}
   if (min(haut,bas)==bas){if (!aMurNord(x,y+1)){resultat=Direction.SUD}}
