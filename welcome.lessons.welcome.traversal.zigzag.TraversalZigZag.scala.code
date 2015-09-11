@@ -9,23 +9,24 @@ def testPose() : Boolean = {
 }
 
 
+def position(){
+  if (getX < getMondeLargeur-1){
+    setPos(getX+1, getY)
+  }
+  else{
+    setPos(0, getY+1)
+  }
+}
 
 
 override def run() {
   ecritMessage(0)
   var c : Int=1
+  
   do{
-  	do{
-    	setPos(getX+1, getY)
-    	ecritMessage(c)
-    	c = c+1
-  	} while (getX != getMondeLargeur-1)
-  	setPos(getX+1, getY)
-  	do{
-    	setPos(getX, getY-1) 
-    	ecritMessage(c)
-     	c = c+1
-  	} while (getX != 0)
- 		setPos(getX+1, getY)   
+     position()
+     ecritMessage(c)
+     c = c+1
+    
   } while ( !testPose)
 }
