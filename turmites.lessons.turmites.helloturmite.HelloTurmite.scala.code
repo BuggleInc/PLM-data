@@ -7,21 +7,21 @@ val Droite = 8;
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   var couleurActuelle = getCouleurSol();
-  var i = 0;
+  var indiceCouleur = 0;
   while ( colors(i) != couleurActuelle ){
     i+=1;
   }
-  setCouleurSol(rule(state)(couleurActuelle)(0));
-  if ( rule(state)(couleurActuelle)(1) == Avance ){
+  setCouleurSol(rule(state)(indiceCouleur)(0));
+  if ( rule(state)(indiceCouleur)(1) == Avance ){
     avance();
-  } else if ( rule(state)(couleurActuelle)(1) == Gauche ){
+  } else if ( rule(state)(indiceCouleur)(1) == Gauche ){
     gauche();
-  } else if ( rule(state)(couleurActuelle)(1) == Retourne ){
+  } else if ( rule(state)(indiceCouleur)(1) == Retourne ){
     retourne();
-  } else if ( rule(state)(couleurActuelle)(1) ==  Droite ){
+  } else if ( rule(state)(indiceCouleur)(1) ==  Droite ){
     droite();
   }
-  state = rule(state)(couleurActuelle)(2);
+  state = rule(state)(indiceCouleur)(2);
 }
 
 def setCouleurSol(c:Color) {
