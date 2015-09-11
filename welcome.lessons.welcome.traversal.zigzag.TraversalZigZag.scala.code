@@ -10,6 +10,17 @@ override def run() {
       return false
     }       
   }
+  def MurADroite():Boolean={
+    droite()
+    if (estFaceMur){
+      gauche()
+      return true
+    }
+    else{
+      droite()
+      return false
+    }       
+  }
   
   def estEnPosition():Boolean ={
     var abs:Int=getMondeLargeur();
@@ -40,7 +51,7 @@ override def run() {
         depY=depY+1
         setPos(depX,depY)
       }
-    }else {
+    }else if (MurADroite) {
       if (depX<6){
         ecritMessage(num)
         num=num+1
