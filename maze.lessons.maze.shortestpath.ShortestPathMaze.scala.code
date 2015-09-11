@@ -23,7 +23,7 @@ def min4(x:Int,y:Int,a:Int,b:Int):Int ={
   return min((min(x,y),min(a,b))
 }
 
-def caseVoinsineLaPlusProche(x:Int,y:Int):(Direction)={
+def caseVoinsineLaPlusProche(x:Int,y:Int):Direction={
   val haut=getIndication(x,y-1)
   val gauche=getIndication (x-1,y)
   val droite=getIndication (x+1,y)
@@ -34,8 +34,7 @@ def caseVoinsineLaPlusProche(x:Int,y:Int):(Direction)={
     case gauche => Direction.OUEST
     case droite => Direction.EST
     case _ => Direction.SUD
-  }
-  
+  }  
 } 
 
 def suivreLeChemin():Unit={
