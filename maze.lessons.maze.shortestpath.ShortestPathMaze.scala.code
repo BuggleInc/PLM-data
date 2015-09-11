@@ -39,7 +39,7 @@ override def run() {
     var x=getX()
     var y=getY()
     var indication=getIndication(getX(),getY())
-        if (getIndication(x+1,y)< indication && !aMurOuest(x+1,y)){
+        if (x< getMondeLargeur()-1 && getIndication(x+1,y)< indication && !aMurOuest(x+1,y)){
           setDirection(Direction.EST)
           avance()
         }
@@ -51,7 +51,7 @@ override def run() {
           setDirection(Direction.NORTH)
           avance()
         }
-        if (getIndication(x,y+1)< indication && !aMurNord(x,y+1)){
+        if (y< getMondeHauteur()-1 && getIndication(x,y+1)< indication && !aMurNord(x,y+1)){
           setDirection(Direction.SOUTH)
           avance()
         }
