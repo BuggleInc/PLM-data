@@ -1,0 +1,22 @@
+def isInFinalPosition():Boolean = {
+  
+  if ((getX() == getMondeLargeur()) && getY() == getMondeHauteur()) {return true}
+  
+  else {return false}
+  
+}
+
+def allerProchainePosition() {
+  if (getY() == getMondeHauteur()) {
+    setPos(getX() +1, 0)
+  }
+  else {setPos(getX(), getY() +1)}
+}
+
+
+override def run() {
+  
+  while (isInFinalPosition == false) {
+    allerProchainePosition()   
+  }
+}
