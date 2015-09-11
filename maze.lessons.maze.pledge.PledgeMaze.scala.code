@@ -1,29 +1,45 @@
 override def run() {
+  var sommeAngle = 0
+  var depart=true
   while(!estSurBiscuit()){
-    if(!estFaceMur()){
+    if(isDirectionFree(Direction.NORTH)&&sommeAngle==0){
       avance()
     } else {
-      droite()
-      eviteMur()
-    }
+        sommeAngle = KeepHandOnSideWall(sommeAngle)
+        depart=false
+  }
   }
   droite()
   prendBiscuit()
 }
+
     
     
     
-def eviteMur(){
-  while(getDirection()!=Direction.NORTH){
-    	KeepHandOnSideWall()
+// def eviteMur(i:Int){
+//  while(getDirection()!=Direction.NORTH){
+//    KeepHandOnSideWall(i)
+//}
+//} 
+
+def isDirectionFree(dir:Direction): Boolean = {
+  var pastDirection=getDirection()
+  setDirection(dir)
+  if(estFaceMur()){
+    setDirection(pastDirection)
+    return false
+  } else {
+    return true
   }
 }
 
-def KeepHandOnSideWall(){
-  if (!estFaceMur()){
+def KeepHandOnSideWall(i:Int):Int={
+  if(estFaceMur()==false){
     avance()
     gauche()
+    return i+1
   } else{
     droite()
+    return  i-1
   }
 }
