@@ -3,11 +3,9 @@ var state = 0;
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
   val color : Color = getCouleurSol()
   var indice : Int = 0
-  var colorToSet : Int = 0
-  var move : Int = 0
   while (colors(indice) != color) {indice = indice +1}
-  colorToSet = rule(state)(indice)(0)
-  move = rule(state)(indice)(1)
+  val colorToSet : Int = rule(state)(indice)(0)
+  val move : Int = rule(state)(indice)(1)
   state = rule(state)(indice)(2)
   marquer(colors(colorToSet))
   move match {
