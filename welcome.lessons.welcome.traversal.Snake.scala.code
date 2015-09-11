@@ -1,6 +1,6 @@
 override def run() {
   baisseBrosse;
-  while (!finTest){
+  while (!finTest()){
     if (!estFaceMur){
       avance;
     }else{droite;
@@ -11,7 +11,7 @@ override def run() {
   }
 }
 
-def finTest{
+def finTest(){
   if (getDirection==Direction.OUEST&&estFaceMur){
     return true
   }else{return false}
