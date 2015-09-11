@@ -1,5 +1,60 @@
 var state = 0;
+val Stop: Int = 0
+val PASDEVIRAGE: Int = 1
+val GAUCHE: Int = 2
+val DEMITOUR: Int = 4
+val DROITE: Int = 8
 
 def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
-    /* Your code comes here */
+  var ind : Int=0
+  var ind2 : Int=0
+  for (i<-0 to colors.length-1) {
+    if (colors(i)==getCouleurSol()) {
+      ind=i
+    }
+  }
+ 
+  if (rule(state)(ind)(1) == Stop) {   
+    ind2=rule(state)(ind)(0)
+    setCouleurBrosse(colors(ind2))
+    peinture()
+    state=rule(state)(ind)(2)
+  } else if (rule(state)(ind)(1) == PASDEVIRAGE) {
+    ind2=rule(state)(ind)(0)
+    setCouleurBrosse(colors(ind2))
+    peinture()
+    state=rule(state)(ind)(2)
+    avance()
+  }  else if (rule(state)(ind)(1)==GAUCHE) {
+    ind2=rule(state)(ind)(0)
+    setCouleurBrosse(colors(ind2))
+    peinture()
+    state=rule(state)(ind)(2)
+    gauche()
+    avance()
+  } else if (rule(state)(ind)(1)==DEMITOUR) {
+    ind2=rule(state)(ind)(0)
+       setCouleurBrosse(colors(ind2))
+    peinture()
+    state=rule(state)(ind)(2)
+    gauche()
+    gauche()
+    avance()
+  } else if (rule(state)(ind)(1)==DROITE) {
+    ind2=rule(state)(ind)(0)
+    setCouleurBrosse(colors(ind2))
+    peinture()
+    state=rule(state)(ind)(2)
+    droite()
+    avance()
+  }
+}
+
+
+ 
+ 
+
+def peinture() {
+  baisseBrosse()
+  leveBrosse()
 }
