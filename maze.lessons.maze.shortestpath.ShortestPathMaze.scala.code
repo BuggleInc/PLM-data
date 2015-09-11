@@ -1,7 +1,7 @@
 override def run() {
   while (mondeTague==false){
-   for (i<-0 to getMondeLargeur()-1){
-    	for (j<-0 to getMondeHauteur()-1){
+    for (i<-0 to getMondeLargeur()-1){
+      for (j<-0 to getMondeHauteur()-1){
         if (aBiscuit(i,j)){
           setIndication(i,j,0)
         }
@@ -19,23 +19,19 @@ override def run() {
             }
           }
         }
-        
-
-
-
       }
     }
-    }
+  }
 }
 
 
 def mondeTague():Boolean={
   for (i<-0 to getMondeLargeur()-1){
     for (j<-0 to getMondeHauteur()-1){
-      if (getIndication(i,j)!=9999){
-        return true
+      while (getIndication(i,j)=9999){
+        return false
       }
     }
   }
-  return false
+  return true
 }
