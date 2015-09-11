@@ -1,19 +1,19 @@
 def remplissageCase(x:Int,y:Int,i:Int){
   
-  if (!aMurNord(x,y+1) && getIndication(x,y+1)>i+1 && y+1<=getMondeHauteur()-1){
+  if (!aMurNord(x,y+1) && getIndication(x,y+1)>i+1 && (y+1)<=(getMondeHauteur()-1)){
     setIndication(x,y+1,i+1)
     remplissageCase(x,y+1,i+1)
     
   }
-  if (!aMurNord(x,y) && getIndication(x,y-1)>i+1 && y+1>=0){
+  if (!aMurNord(x,y) && getIndication(x,y-1)>i+1 && (y+1)>=0){
     setIndication(x,y-1,i+1)
     remplissageCase(x,y-1,i+1)
   }
-  if (!aMurOuest(x,y) && getIndication(x-1,y)>i+1 && x-1>=0){
+  if (!aMurOuest(x,y) && getIndication(x-1,y)>i+1 && (x-1)>=0){
     setIndication(x-1,y,i+1)
     remplissageCase(x-1,y+1,i+1)
   }
-  if (!aMurOuest(x+1,y) && getIndication(x+1,y)>i+1 && x+1 <=getMondeLargeur()-1) {
+  if (!aMurOuest(x+1,y) && getIndication(x+1,y)>i+1 && (x+1)<=(getMondeLargeur()-1)) {
     setIndication(x+1,y,i+1)
     remplissageCase(x+1,y,i+1)
   }
