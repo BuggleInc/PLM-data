@@ -1,12 +1,22 @@
 override def run() {
+  var droite: Boolean==false
+  var gauche: Boolean==false
+  
   for (k <-0 to 5){
     for (i<-0 to 5){
       baisseBrosse()
       avance()
     
     }
-    gauche()
-    avance()
-    gauche()
+  	if (getDirection ()== Direction.OUEST){
+      gauche()
+      avance()
+      gauche()
+    }
+    else {
+      droite()
+      avance()
+      droite()
+    }
   }
 }
