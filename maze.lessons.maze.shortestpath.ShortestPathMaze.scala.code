@@ -14,39 +14,30 @@ override def run() {
    }
  }
   
-  setIndication(xStart, yStart, 0)
-  forkPath(xStart, yStart, 1)
+  forkPath(xStart, yStart, 0)
 }      
 
 
-def forkPath(xStart:Int, yStart:Int, index:Int){
- var width = getWorldWidth()
- var height = getWorldHeight()
- var x = xStart
- var y = yStart
- 
- for (i <- index to (width*height) - 1){
-   var l = isFree(x - 1, y)
-   val r = isFree(x + 1, y)
-   var t = isFree(x, y - 1)
-   var b = isFree(x, y + 1)
+def forkPath(x:Int, y:Int, index:Int){
+ 	var x = xStart
+	var y = yStart
+  var l = isFree(x - 1, y)
+  val r = isFree(x + 1, y)
+  var t = isFree(x, y - 1)
+  var b = isFree(x, y + 1)
 		
-   if (t && !hasTopWall(x, y))
-   	y = y - 1
-   else if (l && !hasLeftWall(x, y))
-   	x = x - 1
-   else if (b && !hasTopWall(x, y + 1))
-   	y = y + 1
-   else if (r && !hasLeftWall(x + 1, y))
-   	x = x + 1
-   else
-   	return
-   	
-
- 	 setIndication(x, y, i)
-   
+  setIndication(x, y, i)
+  
+  if (t && !hasTopWall(x, y))
+   y = y - 1
+  if (l && !hasLeftWall(x, y))
+   x = x - 1
+  if (b && !hasTopWall(x, y + 1))
+   y = y + 1
+  if (r && !hasLeftWall(x + 1, y))
+   x = x + 1
  }
-}
+
 
 def isFree(x:Int, y:Int):Boolean = {
   if (x >= getWorldWidth() || 
