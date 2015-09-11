@@ -64,7 +64,13 @@ def indiqueLeReste(x,y):Unit={
    val xmax=getMondeLargeur()
   val ymax=getMondeHauteur()
   if (trouveBiscuit()!=(9999,9999)){
-    /*(x,y) match {
+      if ((x!=0)&&(!aMurOuest(x,y))) {indiqueLeReste(x-1,y)}
+      if ((y!=0)&&(!aMurNord(x,y))) {indiqueLeReste(x,y-1)}
+    	if ((x!=xmax-1)&&(!aMurOuest(x+1,y))) {indiqueLeReste(x+1,y)}
+    	if ((y!=ymax-1)&&(!aMurNord(x,y+1))) {indiqueLeReste(x,y+1)}	
+    }}
+             
+             /*(x,y) match {
       au dessus
       //case _,0 => rien
       //case x,y if (y!=0)&&aMurNord(x,y) =>rien
@@ -96,8 +102,3 @@ def indiqueLeReste(x,y):Unit={
       case xmax-1,ymax-1 if (getIndication(xmax-2,ymax-1)==9999)&&getIndication(xmax-1,ymax-2))!=9999 => if (!aMurNord(xmax-1,ymax-1)) {indiqueLeReste(xmax-1,ymax-2)}
       case xmax-1,ymax-1 if (getIndication(xmax-2,ymax-1)!=9999)&&getIndication(xmax-1,ymax-2))==9999 => if (!aMurOuest(xmax-1,ymax-1)) {indiqueLeReste(xmax-2,ymax-1)}
       //cas general */
-      if ((x!=0)&&(!aMurOuest(x,y))) {indiqueLeReste(x-1,y)}
-      if ((y!=0)&&(!aMurNord(x,y))) {indiqueLeReste(x,y-1)}
-    	if ((x!=xmax-1)&&(!aMurOuest(x+1,y))) {indiqueLeReste(x+1,y)}
-    	if ((y!=ymax-1)&&(!aMurNord(x,y+1))) {indiqueLeReste(x,y+1)}	
-    }}
