@@ -1,10 +1,8 @@
 var diag = 0;
 override def run() {
-  var y=0
   var cpt=0
-  ecritMessage(cpt)
   for(i <- 1 to 6){
-    parcoursdiag(i,0)}
+    cpt = parcoursdiag(i,cpt)
     
   }
 
@@ -12,9 +10,17 @@ override def run() {
 def parcoursdiag(diag : Int, cpt : Int){
   var x=0
   var y=diag
+  var cpt2=cpt
+  setPos(0,diag)
+  ecritMessage(cpt2)
+  cpt2+=1
+  
   while(y!=0){
-    y+=1
+    y-=1
     x+=1
     setPos(x,y)
+    ecritMessage(cpt2)
+    cpt2+=1
   }
+  return cpt2
 }
