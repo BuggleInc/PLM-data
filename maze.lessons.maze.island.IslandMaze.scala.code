@@ -1,0 +1,47 @@
+override def run() {
+  var r = 0
+  while ((getY()!=0)&&(getX()!=12)) {
+    avN()
+    }
+  gauche()
+  run1()
+}
+
+def run1() {
+  
+  while (!(estSurBiscuit)) {
+    keepHandOnSideWall()
+    avance1()
+  }
+  prendBiscuit()
+  
+}
+
+def keepHandOnSideWall() {
+  droite()
+  if (estFaceMur()) {
+   gauche()
+  }
+}
+
+def avance1() {
+  if (estFaceMur()) {
+    gauche()
+    
+  } else {avance()}
+}
+
+def avN() {
+  if ((getDirection==Direction.NORTH)&&(estFaceMur==false)) {
+        avance()
+    } else {gauche()
+           if (estFaceMur==false) {
+             avance()
+           } else {
+             retourne()
+             if (estFaceMur==false) {
+               avance()
+             }
+           }
+    }
+} 
