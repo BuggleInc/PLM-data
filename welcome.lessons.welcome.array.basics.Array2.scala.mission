@@ -1,0 +1,33 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Tableaux, tricot et modulo</h1>
+
+<p>Cet exercice ressemble au pr?c?dent : il faut reproduire le motif de
+couleurs de la premi?re colonne dans les colonnes suivantes.</p>
+
+<p>La premi?re diff?rence est que le monde est entour? d'un mur : il faut donc
+modifier l?g?rement les parcours pour s'assurer que la buggle ne se cogne
+pas sur les bords. Le plus simple est de traiter la premi?re case de la
+colonne en dehors de la boucle <code>for</code> (avant la boucle), et faire
+seulement <code>getWorldHeight()-1</code> pas dans la boucle.</p>
+
+<p>La seconde diff?rence est que le d?calage ? effectuer entre les colonnes
+n'est pas fixe, mais ?crit sur la premi?re case de chaque colonne. Pour
+obtenir l'information sous forme d'un entier, on peut utiliser:</p>
+
+<pre>val decalage = litMessage().toInt</pre>
+
+<p><code>litMessage()</code> lit l'indication au sol sous forme d'une cha?ne de
+caract?res,
+tandis que
+<code>ch.toInt</code>
+
+transforme la cha?ne <code>ch</code> en un entier en la <i>lisant</i>.</p>
+
+<p>Ensuite, pour trouver la bonne couleur ? utiliser, le plus simple est
+d'utiliser l'op?rateur <code>%</code> (modulo). Par exemple, <code>(i + 5) %
+taille</code> permet de trouver la <code>i</code>ieme case d'un tableau de
+taille <code>taille</code> quand on applique un d?calage de <code>5</code>
+cases.</p>
+
+<p>? vous de jouer.</p>
