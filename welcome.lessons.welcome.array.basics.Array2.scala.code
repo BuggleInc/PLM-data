@@ -1,9 +1,13 @@
 def captureCouleur:Array[Color] = {
     var tab = new Array[Color] (getMondeHauteur())
-    for (i <- 0 to getMondeHauteur() - 1) {
+    for (i <- 0 to getMondeHauteur() - 2) {
       tab(i)=getCouleurSol()
       avance()
     }
+    tab(getMondeHauteur()-1)=getCouleurSol()
+  for (i <- 1 to getMondeHauteur()) {
+         recule()
+       }
     return tab
   }
 
@@ -22,7 +26,7 @@ def colorie(c:Color) {
     for (i <- 1 to getMondeLargeur()-1) {
       zigZag
       message = litMessage().toInt
-      for (j <- 0 to getMondeHauteur()-3) {
+      for (j <- 0 to getMondeHauteur()-2) {
         colorie(tabCouleur((j+message)%getMondeHauteur()))
         avance()
       }
