@@ -12,7 +12,6 @@ def captureCouleur:Array[Color] = {
 def zigZag (positionH:Int) {
       for (i <- 1 to positionH-1) recule();
       gauche();avance();droite()
-      for (i <- 1 to litMessage().toInt) avance();
 }
 
 def colorie(c:Color) {
@@ -24,8 +23,12 @@ def colorie(c:Color) {
     val tabCouleur = captureCouleur
     var positionH = 1
     for (i <- 1 to getMondeLargeur()-1) {
+      for (i <- 1 to litMessage().toInt) {
+        avance()
+        positionH+=1
+      }
       zigZag(positionH)
-      positionH=0
+      positionH=1
       for (j <- 0 to getMondeHauteur()-1) {
         colorie(tabCouleur(j))
         if (estFaceMur()) {
