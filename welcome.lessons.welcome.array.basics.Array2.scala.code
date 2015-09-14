@@ -24,14 +24,13 @@ def colorie(c:Color) {
     val tabCouleur = captureCouleur
     var positionH = 1
     for (i <- 1 to getMondeLargeur()-1) {
-      zigZag(positionH)
+      zigZag(positionH%getMondeHauteur())
       positionH=1
       for (j <- 0 to getMondeHauteur()-1) {
         colorie(tabCouleur(j))
         if (estFaceMur()) {
           for (i <- 1 to getMondeHauteur() - 1 ) {
             recule()
-            positionH-=1
           }
         }else {
           avance()
