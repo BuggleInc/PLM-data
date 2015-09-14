@@ -1,17 +1,14 @@
 def captureCouleur:Array[Color] = {
     var tab = new Array[Color] (getMondeHauteur())
-    for (i <- 0 to getMondeHauteur() - 2) {
+    for (i <- 0 to getMondeHauteur() - 1) {
       tab(i)=getCouleurSol()
       avance()
     }
-    tab(getMondeHauteur()-1)=getCouleurSol()
-    for (i <- 1 to getMondeHauteur() - 1 ) recule();
     return tab
   }
 
-def zigZag (positionH:Int) {
-      for (i <- 1 to positionH-1) recule();
-      gauche();avance();droite()
+def zigZag {
+      gauche();avance();droite();
 }
 
 def colorie(c:Color) {
@@ -21,30 +18,17 @@ def colorie(c:Color) {
 
   def colorierMonde {
     val tabCouleur = captureCouleur
-    var positionH = 1
     var message = 0
     for (i <- 1 to getMondeLargeur()-1) {
-      zigZag(positionH)
+      zigZag
       message = litMessage().toInt
-      for (i <- 1 to message) {
-        avance()
-        positionH+=1
-      }
-      positionH=1
       for (j <- 0 to getMondeHauteur()-1) {
-        colorie(tabCouleur(j))
-        if (estFaceMur()) {
-          for (i <- 1 to getMondeHauteur() - 1 ) {
-            recule()
-            positionH-=1
-          }
-        }else {
-          avance()
-          positionH+=1
-        }
+        colorie(tabCouleur((j+message)%getMondeHauteur()))
+        avance()
+      }
     }
   }
-  }
+
 override def run() {
 colorierMonde
 }
