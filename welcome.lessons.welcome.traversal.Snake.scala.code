@@ -1,0 +1,68 @@
+override def run() {
+  baisseBrosse()
+  while (!fonctionTest())
+  {
+    avanceSerpent()
+  }
+}
+
+
+
+def fonctionTest() : Boolean = 
+{
+  var murNord = false
+  var faceMur = false
+  if (getDirection() == Direction.EST)
+  {
+    gauche()
+    if (estFaceMur())
+    {
+      murNord = true
+    }
+    droite()
+  }
+  if (getDirection() == Direction.OUEST)
+  {
+    droite()
+    if (estFaceMur())
+    {
+      murNord = true
+    }
+    gauche()
+  }
+  if (estFaceMur())
+  {
+    faceMur = true
+  }
+  if (murNord && faceMur)
+  {
+    return true
+  }
+  else
+  {
+    return false
+  }
+}
+
+def avanceSerpent()
+{
+  if (!estFaceMur())
+  {
+    avance()
+  }
+  else
+  {
+    if (getDirection() == Direction.OUEST)
+    {
+      droite()
+      avance()
+      droite()
+    }
+    else if (getDirection() == Direction.EST)
+    {
+      gauche()
+      avance()
+      gauche()
+    }
+  }
+}

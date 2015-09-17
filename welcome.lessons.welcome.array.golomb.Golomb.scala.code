@@ -11,18 +11,18 @@ def golomb(num:Int): Int = {
   {
     return 2
   }
-  var compteur1 = 2
-  var compteur2 = 2
+  var compteur1 = 3
+  var compteur2 = 3
   var valeur = 0
   var tableau = new Array[Int](num*num)
-  tableau(0) = 1
-  tableau(1) = 2
+  tableau(1) = 1
   tableau(2) = 2
+  tableau(3) = 2
   while (compteur2<num)
   {
     for (i<-1 to tableau(compteur1))
          {
-           tableau(compteur2+i) = compteur1+1
+           tableau(compteur2+i) = compteur1
          }
   compteur2 = compteur2 + tableau(compteur1)
   compteur1 +=1
@@ -30,16 +30,16 @@ def golomb(num:Int): Int = {
   return tableau(num)
 }
 
-/* Le compteur 1 est l? pour d?signer les cases du tableau en tant qu'indice (on trouvera num ici).
-Le compteur 2 est l? pour d?signer la position lors du remplissage du tableau (les valeurs de retour).
+/* Le compteur 1 est là pour désigner les cases du tableau en tant qu'indice (on trouvera num ici).
+Le compteur 2 est là pour désigner la position lors du remplissage du tableau (les valeurs de retour).
 Il faut donc pour remplir une partie du tableau :
   -Prendre la valeur de tableau(compteur1) = val
-  -Ajouter val fois cette valeur ? la suite du tableau
-  -Incr?menter et continuer jusqu'? ce qu'on ait une valeur affich?e dans le tableau pour num
+  -Ajouter val fois cette valeur à la suite du tableau
+  -Incrémenter et continuer jusqu'à ce qu'on ait une valeur affichée dans le tableau pour num
 
-Attention ? bien enlever 1 aux compteurs ? chaque fois !!!
+Attention à bien enlever 1 aux compteurs à chaque fois !!!
 
-d?part : tableau = 2:2
+départ : tableau = 2:2
 on prend : 2+1
 On l'ajoute tableau(2) fois a partir de la position 2+1
 

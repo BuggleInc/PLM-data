@@ -1,0 +1,77 @@
+override def run() {
+  while (!estSurBiscuit())
+  {
+    if (isDirectionFree(Direction.NORD))
+    {
+      setDirection(Direction.NORD)
+      avance()
+    }
+    else
+    {
+      droite()
+      keepHandOnSideWall()
+    }
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall()
+{ 
+  var sortieBoucle = false
+  if(!estSurBiscuit())
+  {
+    var SommedesVirages = -1
+    do{
+      if(estSurBiscuit())
+      {
+        sortieBoucle = true
+      }
+      var murGauche = testMurGauche()
+      if (!murGauche && !sortieBoucle)
+      {
+        gauche()
+        avance()
+        SommedesVirages += 1
+      }
+      if (murGauche && estFaceMur() && !sortieBoucle)
+      {
+        droite()
+        SommedesVirages += -1
+      }
+      if (murGauche && !estFaceMur() && !sortieBoucle)
+      {
+        avance()
+      }
+    }while (SommedesVirages != 0 && !sortieBoucle) 
+  }
+}
+
+
+
+def isDirectionFree(dir : Direction) : Boolean =
+{
+  var direction = getDirection()
+  setDirection(dir)
+  if (estFaceMur())
+  {
+    setDirection(direction)
+    return false
+  }
+  else
+  {
+    setDirection(direction)
+    return true
+  }
+}
+
+def testMurGauche() : Boolean =
+{
+  gauche()
+  if (estFaceMur())
+  {
+    droite()
+    return true
+  }
+  droite()
+  return false
+}

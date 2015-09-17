@@ -1,0 +1,45 @@
+def bougerUnCooky()
+{
+  // A utiliser sur un biscuit !
+  prendBiscuit()
+  droite()
+  droite()
+  while(!estSurBiscuit())
+  {
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  droite()
+  droite()
+  avance()
+}
+
+def sortieLaby()
+{
+  //A utiliser face à un mur !
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+var laby = true
+droite()
+droite()
+while(laby)
+{
+  while(!estSurBiscuit() && !estFaceMur() && laby)
+  {
+    avance()
+  }
+  if (estSurBiscuit())
+  {
+    bougerUnCooky()
+  }
+  if (estFaceMur())
+  {
+    sortieLaby()
+    laby = false
+  }
+}

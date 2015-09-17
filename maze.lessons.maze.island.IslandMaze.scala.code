@@ -1,0 +1,84 @@
+override def run() {
+  capAuNord()
+  while (!testMurGauche() && !estFaceMur)
+  {
+    avance()
+  }
+  droite()
+  while (!estSurBiscuit())
+  {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+
+def keepHandOnSideWall()
+{  
+  var murGauche = testMurGauche()
+  var sortieBoucle = false
+  if (!estFaceMur() && murGauche)
+  {
+    avance()
+    sortieBoucle = true
+  }
+  if (!murGauche && !sortieBoucle)
+  {
+    gauche()
+    avance()
+  }
+  if (murGauche && estFaceMur() && !sortieBoucle)
+  {
+    droite()
+  }
+  if (murGauche && !estFaceMur() && !sortieBoucle)
+  {
+    avance()
+  }
+}
+
+
+def testMurGauche() : Boolean =
+{
+  gauche()
+  if (estFaceMur())
+  {
+    droite()
+    return true
+  }
+  droite()
+  return false
+}
+
+def capAuNord()
+{
+  setDirection(Direction.NORD)
+  while (getY()!=0)
+  {
+    if (!estFaceMur())
+    {
+      avance()
+    }
+    else
+    {
+      contourne()
+    }
+    setDirection(Direction.NORD)
+  }
+}
+ def contourne()
+{
+  droite()
+  if (estFaceMur())
+  {
+    gauche()
+    gauche()
+    if (estFaceMur())
+    {
+      gauche()
+      avance()
+    }
+    else avance()
+  }
+  else avance()
+}

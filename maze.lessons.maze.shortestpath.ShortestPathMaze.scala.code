@@ -1,0 +1,150 @@
+override def run() {
+  var X = trouverXBiscuit()
+  var Y = trouverYBiscuit()
+  setIndication(X,Y,0)
+  numeroterLesCases(X,Y,0)
+  while(!estSurBiscuit())
+  {
+    PokeBallGO()
+  }
+  prendBiscuit()
+    // Your code here
+}
+
+def trouverXBiscuit():Int=
+{
+  var X = 0
+  var Y = 0
+  while ((X,Y)!=(getMondeLargeur()-1,getMondeHauteur()-1) && !aBiscuit(X,Y))
+         {
+           if (X<getMondeLargeur()-1)
+           {
+             X+=1
+           }
+           else
+           {
+             X=0
+             Y+=1
+           }
+         }
+  return X
+}
+
+def trouverYBiscuit():Int=
+{
+  var X = 0
+  var Y = 0
+  while ((X,Y)!=(getMondeLargeur()-1,getMondeHauteur()-1) && !aBiscuit(X,Y))
+         {
+           if (X<getMondeLargeur()-1)
+           {
+             X+=1
+           }
+           else
+           {
+             X=0
+             Y+=1
+           }
+         }
+  return Y
+}
+
+def numeroterLesCases(X:Int, Y:Int, cpt : Int)
+{ 
+  if (cpt < getMondeHauteur()*getMondeLargeur())
+  {
+    //Vérifie, si possible, dans les quatre directions et se relance si la case est accessible avec cpt incrémenté.
+    if (!aMurNord(X,Y) && Y>0 && getIndication(X,Y-1)>cpt)
+    //Si la voie est libre au Nord, blablabla
+    {
+      setIndication(X,Y-1,cpt+1)
+      numeroterLesCases(X,Y-1,cpt+1)
+    }
+    if (!aMurOuest(X,Y) && X>0 && getIndication(X-1,Y)>cpt)
+    {
+      setIndication(X-1,Y,cpt+1)
+      numeroterLesCases(X-1,Y,cpt+1)
+    }
+    if (X+1<getMondeLargeur() && !aMurOuest(X+1,Y) && getIndication(X+1,Y)>cpt)
+    {
+      setIndication(X+1,Y,cpt+1)
+      numeroterLesCases(X+1,Y,cpt+1)
+    }
+    if (Y+1<getMondeHauteur() && !aMurNord(X,Y+1) && getIndication(X,Y+1)>cpt)
+    {
+      setIndication(X,Y+1,cpt+1)
+      numeroterLesCases(X,Y+1,cpt+1)
+    }
+  }
+}
+
+def PokeBallGO()
+{
+  var sortieBoucle = false
+  var X = getX()
+  var Y = getY()
+  var cpt = getIndication(X,Y)
+  var nord = 9999
+  var sud = 9999
+  var ouest = 9999
+  var est = 9999
+  var choix = 99999
+  if (X+1<getMondeLargeur())
+  {
+    est=getIndication(X+1,Y)
+  }
+  if (X>0)
+  {
+    ouest = getIndication(X-1,Y)
+  }
+  if (Y+1<getMondeHauteur())
+  {
+    sud=getIndication(X,Y+1)
+  }
+  if (Y>0)
+  {
+    nord=getIndication(X,Y-1)
+  }
+  
+  if (!aMurNord(X,Y))
+  {
+    choix = nord
+  }
+  if (sud < choix && Y+1<getMondeHauteur() && !aMurNord(X,Y+1))
+  {
+    choix = sud
+  }
+  if (ouest < choix && !aMurOuest(X,Y))
+  {
+    choix = ouest
+  }
+  if (est<choix && X+1<getMondeLargeur() && !aMurOuest(X+1,Y))
+  {
+    choix = est
+  }
+  
+  if (choix == nord && !aMurNord(X,Y) && !sortieBoucle)
+  {
+    setDirection(Direction.NORD)
+    avance()
+    sortieBoucle = true
+  }
+  if (choix == sud && !sortieBoucle && Y+1<getMondeHauteur() && !aMurNord(X,Y+1))
+  {
+    sortieBoucle = true
+    setDirection(Direction.SUD)
+    avance()
+  }
+  if (choix == ouest && !sortieBoucle)
+  {
+    sortieBoucle = true
+    setDirection(Direction.OUEST)
+    avance()
+  }
+  if (choix == est && !sortieBoucle)
+  {
+    sortieBoucle = true
+    setDirection(Direction.EST)
+    avance()
+  }
+}
