@@ -2,12 +2,13 @@ def cocktailSort() {
   var taille = getNombreValeurs()
   var parcours = true
   while(parcours)
-  	{
+  	{parcours = false
       for (i <-1 to taille-1)
       	{
           if(getValeur(i)<getValeur(i-1))
           	{
               echange(i,i-1)
+              parcours = true
             }
         }
       for(i<-taille-1 to 1)
@@ -15,6 +16,7 @@ def cocktailSort() {
           if(getValeur(i)<getValeur(i-1))
           {
               echange(i,i-1)
+            parcours = true
             }
         }
     }
