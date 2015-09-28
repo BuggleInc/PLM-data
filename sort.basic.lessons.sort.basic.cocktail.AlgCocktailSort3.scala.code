@@ -1,22 +1,14 @@
-def cocktailSort2() {
+def cocktailSort3() {
   var a: Boolean=true;
+  var b: Boolean=true;
   var n: Int=getNombreValeurs();
   var deb: Int=0;
   var fin: Int=n-2;
-  while(fin==true)
+  while(a==true & b==true)
   {
-    fin==true;
+    a=false;
+    b=false;
     for(i <- deb to fin)
-    {
-      if(getValeur(i)>getValeur(i+1))
-      {
-        echange(i,i+1);
-        fin=false;
-      }
-    }
-    fin -=1;
-
-    for(i <- fin to deb by -1)
     {
       if(getValeur(i)>getValeur(i+1))
       {
@@ -24,6 +16,22 @@ def cocktailSort2() {
         a=true;
       }
     }
-    deb +=1;
+    if(a==true)
+    {
+        fin -=1;
+    
+        for(i <- fin to deb by -1)
+        {
+          if(getValeur(i)>getValeur(i+1))
+          {
+            echange(i,i+1);
+            a=true;
+          b=true;
+          }
+        }
+        deb +=1;
+    }
   }
+
 }
+
