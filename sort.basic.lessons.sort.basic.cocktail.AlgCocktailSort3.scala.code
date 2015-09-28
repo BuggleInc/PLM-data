@@ -2,19 +2,26 @@ def cocktailSort3() {
   var a=true;
   var c=getValueCount()-2
   var cmin=2
-  while(true){
+  while(a){
+  	a=false;
   	for (i<- 0 to c){
     	if (isSmaller(i+1, i)){
       	swap(i, i+1);
-        return
+        a=true;
     	}
+    }
+    if (a==false){
+      return
     }
     c-=1
     for (i<- 0 to c-cmin){
       if (isSmaller(c-i+1, c-i)){
         swap(c-i, c-i+1);
-        return
+        a=true
       }
+    }
+    if (a==false){
+      return
     }
     cmin+=1
   }
