@@ -3,21 +3,26 @@ def cocktailSort3() {
   var fin = n
   var debut = 0
   var swap = false
+  var c = 0
   do {
     swap = false
-    for (i <- debut to (fin-2)) {
-    	if (plusPetit(i+1,i)) {
-     		echange(i,i+1);
-     		swap = true
-      }
-    };
-    fin = fin - 1
-    for (i <- (fin-1) to debut+1 by -1) {
-    	if (plusPetit(i,i-1)) {
-     		echange(i,i-1);
-     		swap = true
-      }
-    };
-    debut = debut + 1
+    if (c%2 == 0) {
+      for (i <- debut to (fin-2)) {
+    		if (plusPetit(i+1,i)) {
+     			echange(i,i+1);
+     			swap = true
+      	}
+    	};
+    	fin = fin - 1;
+    } else {
+      for (i <- (fin-1) to debut+1 by -1) {
+    		if (plusPetit(i,i-1)) {
+     			echange(i,i-1);
+     			swap = true
+      	}
+    	};
+    	debut = debut + 1
+    }
+    c = c + 1
   } while (swap)
 }
