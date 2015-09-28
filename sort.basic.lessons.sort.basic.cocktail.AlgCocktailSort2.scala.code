@@ -1,0 +1,32 @@
+def cocktailSort2()
+{
+  var max = getNombreValeurs() - 2
+ 
+  for (l <- 0 to getNombreValeurs() - 1)
+  {
+    var inversion = false
+    
+    for (i <- 0 to max)
+    {
+      if (plusPetit(i + 1, i))
+      {
+    		echange(i, i + 1)
+        inversion = true
+      }
+    }
+    
+    for (i <- max to 0 by -1)
+    {
+      if (plusPetit(i + 1, i))
+      {
+    		echange(i, i + 1)
+        inversion = true
+      }
+    }
+    
+    if (!inversion)
+    	return
+    
+    max -= 1
+  }
+}
