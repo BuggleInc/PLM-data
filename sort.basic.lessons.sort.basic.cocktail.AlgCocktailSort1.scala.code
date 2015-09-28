@@ -1,22 +1,22 @@
 def cocktailSort() {
-  var chgt1 = false
-  var chgt2 = false
+  var chgt1 = true
+  var chgt2 = true
   do{
-    chgt1 = false
+    chgt1 = true
     for (i <- 0 to getNombreValeurs()-2){
       if (!plusPetit(i,i+1)){
         echange(i,i+1)
-        chgt1 = true
+        chgt1 = false
       }
-      chgt2 = false
+    chgt2 = true
     for (i <- getNombreValeurs()-2 to 0 by -1){
       if (!plusPetit(i+1,i)){
         echange(i+1,i)
-        chgt2 = true
+        chgt2 = false
       }
     }
     }
   }
-  while (!chgt1 || !chgt2)
+  while (chgt1 || chgt2)
 }
   
