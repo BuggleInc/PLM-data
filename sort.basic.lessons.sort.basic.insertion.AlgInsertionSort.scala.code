@@ -2,13 +2,12 @@ def insertionSort() {
   var v = 0
   var a = 0
   var ecritV=false
-  for (i<-2 to getNombreValeurs()-1){
+  for (i<-1 to getNombreValeurs()-1){
     v = getValeur(i)
     ecritV=false
     for(j<-i-1 to 0 by -1){  
       if (!plusPetitQue(j,v) && !ecritV){
-        a = getValeur(j)
-        setValeur(j+1,a)
+        copie(j-1,j)
       } else if (!ecritV){
         setValeur(j,v)
         ecritV=true
