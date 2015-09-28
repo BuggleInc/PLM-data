@@ -1,0 +1,23 @@
+def cocktailSort2() {
+  var n = getNombreValeurs()
+  var debut = 0
+  var est_triee = false
+  while (est_triee == false){
+    est_triee = true
+    for (i<-debut to n-2){
+      if (plusPetit(i+1,i)){
+        echange(i, i+1)
+        est_triee = false
+      }
+    }
+    n=n-1
+    for (i<-n-2 to debut by -1){
+      if (plusPetit(i+1,i)){
+        echange(i, i+1)
+        est_triee = false
+      }
+    }
+    debut = debut+1
+    
+  }
+}
