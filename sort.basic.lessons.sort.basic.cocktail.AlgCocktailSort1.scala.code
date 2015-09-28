@@ -1,2 +1,18 @@
 def cocktailSort() {
+  var tri = 0
+  while(tri == 0){
+    tri = 1
+    for (i <- 0 to getNombreValeurs() - 2){
+      if(plusPetit(i+1:Int,i:Int)){
+        echange(i:Int,i+1:Int)
+        tri = 0
+      }
+    }
+    for (i <- 0 to getNombreValeurs() - 2){
+      if(plusPetit(getNombreValeurs()-i+1:Int,getNombreValeurs()-i:Int)){
+        echange(getNombreValeurs()-i+1:Int,getNombreValeurs()-i:Int)
+        tri = 0
+      }
+    }
+  }
 }
