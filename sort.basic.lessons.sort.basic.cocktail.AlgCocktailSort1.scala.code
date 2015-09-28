@@ -1,0 +1,13 @@
+def cocktailSort() {
+  var switch=false
+  for (i <- 1 to (getNombreValeurs()+1) by 2) {
+    switch=false
+    for (k <- 0 to getNombreValeurs()-(i+1)) {
+      if (plusPetit(k+1,k)) {echange(k,k+1);switch=true}
+    }
+    if (!switch) {return}
+    for (k <- getNombreValeurs()-(i+2) to (i-1) by -1) {
+      if (plusPetit(k+1,k)) {echange(k,k+1);switch=true}
+    }
+  }
+}
