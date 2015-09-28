@@ -7,8 +7,7 @@ def cocktailSort2() {
   while(test)
   {
     test=false;
-    
-     for(i<-debut to fin)
+    for(i<-debut to fin)
     {
         if(plusPetit(i+1,i))
         {
@@ -17,17 +16,16 @@ def cocktailSort2() {
           test=true;
         }
 
-      }
+    }
 
-      for(i<-fin to debut by -1)
+    for(i<-fin to debut by -1)
+    {
+      if(plusPetit(i+1,i))
       {
-        if(plusPetit(i+1,i))
-        {
-          echange(i+1,i);
-          debut+=1;
-          test=true;
-        }
-
+        echange(i+1,i);
+        debut+=1;
+        test=true;
       }
+    }
   }
 }
