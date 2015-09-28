@@ -6,15 +6,7 @@ def cocktailSort()
   {
     var inversion = false
     
-    for (i <- max to 0)
-    {
-      if (plusPetit(i + 1, i))
-      {
-    		echange(i, i + 1)
-        inversion = true
-      }
-    }
-    for (i <- 0 to max)
+    for (i <- 0 to getNombreValeurs() - 2)
     {
       if (plusPetit(i + 1, i))
       {
@@ -23,7 +15,14 @@ def cocktailSort()
       }
     }
     
-    
+    for (i <- getNombreValeurs() - 2 to 0)
+    {
+      if (plusPetit(i, i + 1))
+      {
+    		echange(i, i + 1)
+        inversion = true
+      }
+    }
     
     if (!inversion)
     	return
