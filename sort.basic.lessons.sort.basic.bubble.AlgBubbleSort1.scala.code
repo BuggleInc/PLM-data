@@ -1,13 +1,12 @@
 def bubbleSort()  {
   val n = getNombreValeurs()
-  var swap:Boolean = false
-  while (not swap) {
-    swap = false
-    for (i <- 0 to n-2) {
-    	if (plusPetitQue(i+1,i)) {
+  var swap = false
+  do {
+    for (i <- 0 to (n-2)) {
+    	if (plusPetit(i+1,i)) {
      		echange(i,i+1);
      		swap = true
-    	}
-  	}
-  }
+      }
+    }
+  } while (swap)
 }
