@@ -1,9 +1,11 @@
 def cocktailSort3() {
   var chg = true;
+  var chgInv = true;
   var debut = 0;
   var fin = getNombreValeurs()-2;
-  while(chg){
+  while(chg && chgInv){
     chg=false;
+    chgInv=false;
     for(i <- debut to fin){
       if(plusPetit(i+1,i)){
         echange(i+1,i);
@@ -15,7 +17,7 @@ def cocktailSort3() {
       for(j <- fin to debut by -1){
         if(plusPetit(j+1,j)){
           echange(j+1,j);
-          chg=true;
+          chgInv=true;
         }
       }
     }
