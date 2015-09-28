@@ -1,0 +1,22 @@
+override def run() {
+  baisseBrosse()
+  for(i<- 1 to 7*7-1){
+    serpent()
+  }
+}
+
+def serpent(){
+  if(!estFaceMur()){
+    avance()
+  } else{
+    if(getDirection()==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    } else if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }
+  }
+}

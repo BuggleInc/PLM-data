@@ -1,14 +1,28 @@
 override def run() {
-  lire()
+  var couleurs=new Array[Color](getMondeHauteur())
+  lireCol1(couleurs)
+  for(j<- 1 to getMondeLargeur()-1){
+    gauche()
+    avance()
+    droite()
+    avance()
+    avanceCol(couleurs)
+  }
 }
 
-var n:Int=getMondeHauteur()
-var couleurs:Array[Color](n)
-
-def lire(){
-  for (i<-1 to n-1){
-    couleurs(i)=getCouleurSol()
+def lireCol1(c:Array[Color]){
+  c(1)=getCouleurSol()
+  for (i <- 0 to getMondeHauteur()-1){
+    c(i)=getCouleurSol()
     avance()
   }
-  couleurs(n)=getCouleurSol()
+}
+
+def avanceCol(c:Array[Color]){
+  for (k<- 0 to getMondeHauteur()-1){
+    setCouleurBrosse(c(k))
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
 }
