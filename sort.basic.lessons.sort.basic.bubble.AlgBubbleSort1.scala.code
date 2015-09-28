@@ -1,7 +1,9 @@
 def bubbleSort()  {
-  for (i<- 1 to getNombreValeurs()) {
-    for (k <- 0 to getNombreValeurs()-(i+1)) {
-      if (plusPetit(k+1,k)) {echange(k,k+1)}
+  var switch=True
+  while(switch) {
+    switch=False
+    for (k <- 0 to getNombreValeurs()-1) {
+      if (plusPetit(k+1,k)) {echange(k,k+1);switch=True}
     }
   }
   
