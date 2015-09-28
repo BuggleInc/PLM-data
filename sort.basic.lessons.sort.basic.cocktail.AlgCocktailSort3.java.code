@@ -10,9 +10,10 @@ public void cocktailSort3() {
         swap(i+1,i);
       }
     }
-    //if(swap){
-    	fin--;
-    //}else break;
+    if(!swap){
+      break;
+    }
+    fin--;
     for(int j = fin ; j >= debut; j--){
       if(isSmaller(j+1,j)){
         swap = true;
@@ -20,8 +21,9 @@ public void cocktailSort3() {
       }
       
     }
-    if(swap){
-    	debut++;
-    }else break;
+    if(!swap){
+      break;
+    }
+    debut++;
   }while(swap);
 }
