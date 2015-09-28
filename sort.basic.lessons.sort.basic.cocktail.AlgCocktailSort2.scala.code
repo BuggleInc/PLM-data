@@ -1,8 +1,9 @@
 def cocktailSort2() {
   var debut:Int = 0
   var fin:Int = getNombreValeurs()-2 
+  var l:Int = 0
   for (k <- 0 to getNombreValeurs()-1) {
-    for (i <- debut to fin) {
+    for (i <- (debut + l) to (fin-l)) {
       
      if (plusPetit(i, i+1) == false) {
        
@@ -10,7 +11,7 @@ def cocktailSort2() {
        fin = fin - 1
      }  
     }
-    for (j <- fin to debut by -1) {
+    for (j <- (fin-l) to (debut+1) by -1) {
       
       if (plusPetit(j, j+1) == false) {
         
@@ -18,6 +19,5 @@ def cocktailSort2() {
         debut = debut + 1
       }  
     }
-    k = k + 1
 	}
 }
