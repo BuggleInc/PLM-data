@@ -1,0 +1,63 @@
+override def run() {
+  for (j <- 1 to 8) {
+    faireLigne();
+    for(l <- 1 to 40) {
+      recule()
+    };
+    gauche();
+    for( m <- 1 to 5) {
+      avance()
+    };
+    droite()
+  }
+  faireLigne()
+  for(n <- 1 to 40) {
+      recule()
+    };
+  droite()
+  for( c <- 1 to 40) {
+      avance()
+    };
+  gauche()
+}
+
+
+
+def faireV(c: Color) {
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  
+  gauche()
+}
+
+def faireCarre() {
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+}
+
+def faireLigne() {
+  for (i <- 1 to 8) {
+    faireCarre()
+    for (k <- 1 to 5) {
+      avance()
+    }
+  }
+  faireCarre()
+}

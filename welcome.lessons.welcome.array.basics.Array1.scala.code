@@ -1,0 +1,26 @@
+override def run() {
+  
+	var tab = new Array[Color](getMondeHauteur()) 
+  
+	for (i <- 0 to getMondeHauteur()-1) {
+ 	 tab(i) = getCouleurSol();
+ 	 avance()
+	} //remplissage du tableau
+  
+  
+  for (j <- 1 to getMondeLargeur()-1) {
+    avance()
+  	gauche()
+  	avance()
+  	droite()
+  
+ 		for (n <- tab) {
+   		setCouleurBrosse(n);
+   		baisseBrosse();
+   		leveBrosse();
+   		avance()
+ 		}
+  }
+ 
+}
+

@@ -1,0 +1,53 @@
+override def run() {
+  for (n <- 1 to 9) {
+    faireLigneCarre();
+  } 
+}
+
+def faireV() {
+  avance()
+  
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  
+  avance()
+  avance()
+}
+
+def faireCarreV() {
+  for (i <- 1 to 4) {
+    faireV();
+    gauche;
+  }
+}
+
+def faireLigneCarre() {
+  for (k <- 1 to 8) {
+    faireCarreV();
+    for (j <- 1 to 7) {
+      avance()
+    };
+  }
+  faireCarreV()
+  for (m <- 1 to 56) {
+    recule()
+  } 
+  gauche()
+  for (a <- 1 to 7) {
+    avance();
+  }
+  droite()
+}

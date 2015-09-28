@@ -1,0 +1,37 @@
+override def run() {
+  var tab = new Array[Color](getMondeHauteur()) 
+  
+	for (i <- 0 to getMondeHauteur()-2) {
+ 	 tab(i) = getCouleurSol();
+ 	 avance()
+  } 
+  tab(getMondeHauteur()-1) = getCouleurSol()
+  // remplissage du tableau
+  
+  for (i <- 1 to getMondeHauteur()-1) {recule()}
+  //retour point de d?part
+ 
+  for (k<- 1 to getMondeLargeur()-1) {  
+  
+  	gauche()
+  	avance()
+  	droite()
+ 		val decalage = litMessage().toInt
+  
+    setCouleurBrosse( tab((0+decalage)%getMondeHauteur()) );
+  	baisseBrosse();
+  	leveBrosse();
+  
+ 		for (j <- 1 to getMondeHauteur()-1) {
+    	avance();
+    	setCouleurBrosse( tab((j+decalage)%getMondeHauteur()) );
+    	baisseBrosse();
+    	leveBrosse()
+
+  }
+  
+  for (n<- 1 to getMondeHauteur()-1)  {recule()}
+  
+  }
+}
+  
