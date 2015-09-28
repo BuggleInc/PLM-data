@@ -10,7 +10,9 @@ def cocktailSort3() {
         echanges = true
       }
     }
-    fin = fin - 1
+    if(fin>=debut) {
+      fin = fin - 1
+    }
     if(echanges) {
       for(i<-fin to debut by -1) {
         if(plusPetit(i+1,i)) {
@@ -18,8 +20,10 @@ def cocktailSort3() {
           echanges = true
         }
       }
-      debut = debut + 1
+      if(fin>=debut) {
+        debut = debut + 1
+      }
     }   
   }
-  while(echanges && debut<=fin)
+  while(echanges)
 }
