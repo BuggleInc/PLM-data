@@ -1,12 +1,15 @@
 def bubbleSort3() {
   var end:Boolean = false
   for (j <- 1 to getNombreValeurs()) {
+    end = false
     for (i <- 0 to getNombreValeurs() - 1 - j) {
       if (getValeur(i) > getValeur(i+1)) {
         echange(i,i+1)
         end = true
       }
     }
-    if (!end)
+    if (!end) {
+      return
+    }
   }
 }
