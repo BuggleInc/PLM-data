@@ -2,14 +2,18 @@ def bubbleSort()  {
   for(j <- 0 to getNombreValeurs()-1){
     var fin=false
     while(fin==false){
+      var count=0
       for(i <- 0 to getNombreValeurs()-2){
         var a=getValeur(i)
         var b=getValeur(i+1)
         if(!plusPetitQue(a,b)){
           echange(i,i+1)
-          fin==false
+          count=1
         }
-        else fin=true
+        
+      }
+      if(count==0){
+        fin=true
       }
     }
   }
