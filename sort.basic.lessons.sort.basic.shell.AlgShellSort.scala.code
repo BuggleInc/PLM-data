@@ -1,0 +1,14 @@
+def shellSort()  {
+  var gap:Int = getValueCount() / 2
+  while(gap > 0){
+    for(i <- gap to getValueCount() - 1){
+      var temp:Int = getValue(i)
+      for(j <- i to gap by -gap){
+        if(getValue(j - gap) > temp)
+        	swap(j, j - gap)
+      }
+      setValue(j, temp)
+    }
+    gap /= 2
+  }
+}
