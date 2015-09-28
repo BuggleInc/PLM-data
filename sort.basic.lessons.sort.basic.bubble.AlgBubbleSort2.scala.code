@@ -1,20 +1,19 @@
 def bubbleSort2()
 {
   var stop = false
+  var max = getNombreValeurs() - 2
  
-  for (l <- 1 to getNombreValeurs())
+  while (!stop)
   {
-    if (!stop)
+    stop = true
+    for (i <- 0 to max)
     {
-      stop = true
-      for (i <- 0 to getNombreValeurs() - 2)
+      if (plusPetit(i + 1, i))
       {
-        if (plusPetit(i + 1, i))
-        {
-          echange(i, i + 1)
-          stop = false
-        }
+    		echange(i, i + 1)
+        stop = false
       }
     }
+    max -= 1
   }
 }
