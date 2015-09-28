@@ -1,0 +1,33 @@
+def cocktailSort3() {
+  
+  var length : Int = getValueCount();
+  var tri : Boolean = true;  
+  var triU : Boolean = true;
+  var triD : Boolean = true;
+  var beg : Int = 0;
+  var end : Int = length -2;
+  while(tri and triU and triD)
+	{
+  	tri = false;
+    for(i<-beg to end)
+    {
+      if(isSmaller(i+1,i))
+      {
+        swap(i,i+1);
+        tri=true; 
+        triU=true;
+      }
+    }
+    end-=1;
+    for(i<-end to beg by -1)
+    {
+      if(isSmaller(i+1,i))
+      {
+        swap(i+1,i);        
+        tri=true;      
+        triD=true;
+      }      
+    }
+    beg+=1;
+  }
+}
