@@ -1,20 +1,18 @@
 def cocktailSort() {
-	while(true){
-    var count=0
+  var tri= true 
+	while(tri){
+    tri= false
     for(i<- 0 to getNombreValeurs()-2){
       if(!plusPetit(i,i+1)){
         echange(i,i+1)
-        count+=1
+        tri = true
       }
     }
     for(i<-getNombreValeurs()-2 to 1 by -1){
       if(!plusPetit(i,i-1)){
         echange(i,i-1)
-        count+=1
+        tri= true 
       }
-    }
-    if(count<1){
-      return 
     }
   }
 }
