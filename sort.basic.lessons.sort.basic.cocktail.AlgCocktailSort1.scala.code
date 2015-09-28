@@ -1,0 +1,22 @@
+def cocktailSort() {
+  var compteur = 0
+  var triMontant : Boolean = true
+  var triDescendant : Boolean = true
+  while (triMontant || triDescendant) {
+    triMontant = false
+    triDescendant = false
+    for (i <- 0 to getNombreValeurs() - compteur - 2) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1)
+        triMontant = true
+      }
+    }
+    for (i <- getNombreValeurs() - compteur - 2 to 0) {
+      if (!plusPetit(i-1,i)) {
+        echange(i-1,i)
+        triDescendant = true
+      }
+    }
+    compteur += 1
+  }
+}
