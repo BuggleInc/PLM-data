@@ -1,8 +1,14 @@
 def bubbleSort2() {
-    for (i <- getNombreValeurs()-2 to 0 by -1; j <- 0 to i-1) {
-      if (!plusPetit(i,i+1)) {
+  var estTrie = true
+  while (estTrie) {
+    estTrie = false
+    for (i <- getNombreValeurs()-2 to 0 by -1) {
+      for (j <- 0 to i-1){
+        if (!plusPetit(i,i+1)) {
         echange(i,i+1)
+        estTrie = true
       }
     }
+  }
+  }
 }
-  
