@@ -1,5 +1,6 @@
 def cocktailSort2() {
-  
+  var debut:Int = 0
+  var fin:Int = getNombreValeurs()-2 
   var swapped1:Boolean = true
   var swapped2:Boolean = true
   while (swapped1 || swapped2) {
@@ -10,7 +11,8 @@ def cocktailSort2() {
      if (plusPetit(i, i+1) == false) {
        
        echange(i, i+1)
-       swapped1 = true      
+       swapped1 = true
+       fin = fin - 1
      }  
     }
     for (j <- getNombreValeurs()-2 to 0 by -1) {
@@ -18,7 +20,8 @@ def cocktailSort2() {
       if (plusPetit(j, j+1) == false) {
         
         echange(j, j+1)
-        swapped2 = true  
+        swapped2 = true
+        debut = debut + 1
       }  
     } 
   } 
