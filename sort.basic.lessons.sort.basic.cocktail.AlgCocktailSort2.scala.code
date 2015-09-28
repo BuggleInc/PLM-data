@@ -1,20 +1,22 @@
 def cocktailSort2() {
   var echanges = true
-  var etapes = 0
+  var etapesd = 0
+  var etapesf = 0
   while (echanges){
     echanges = false
-    for (k <- 0 to getNombreValeurs() -2 - etapes ){
+    for (k <- 0 to getNombreValeurs() -2 - etapesf ){
       if (getValeur(k) > getValeur(k+1)){
         echange(k, k+1);
         echanges = true;
       }
     }
-    for (k <- getNombreValeurs() -1 to 1 + etapes by -1){
+    etapesf += 1
+    for (k <- getNombreValeurs() -1 to 1 + etapesd by -1){
       if (getValeur(k) < getValeur(k-1)){
         echange(k, k-1);
         echanges = true;
       }
     }
-    etapes += 1;
+    etapesd += 1;
   }
 }
