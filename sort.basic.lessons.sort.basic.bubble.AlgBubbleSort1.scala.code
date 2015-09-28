@@ -1,21 +1,16 @@
 def bubbleSort()  {
   sorting = true
   while (sorting == true) {
-    notChanged:Int = 0;
+    sorting = true;
     
   	for (i <- 0 to getValueCount()-1 ) {
       
       if (isSmaller(i, i+1)) {
-        swap(i, i+1)
-        
-      } else {
-        notChanged += 1; 
+        swap(i, i+1);
+        sorting = false
       }
     }
-    
-    if (notChanged < getValueCount() ) {
-      sorting = false;
-    }
+
   }
   
 }
