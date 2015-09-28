@@ -1,18 +1,20 @@
 def bubbleSort()  {
-  var trier = false
-  var longueur = getNombreValeurs()
-  var nbTris=0
-  while(trier) {
-    nbTris=0
-    for (i <- 0 to longueur-1){
-      if(plusPetitQue(i,i+1)){       
-        echange(i,i+1)
-        nbTris = nbTris+1
+  var n: Int=getNombreValeurs();
+  var a: Int=1;
+  while(a==1)
+  {
+    a=0;
+    var i: Int=0;
+    while(i<n-1)
+    {
+      if(getValeur(i)>getValeur(i+1))
+      {
+        echange(i,i+1);
+        a=1;
       }
-    }
-    if(nbTris == 0){
-      trier= false
+      i=i+1;
     }
 
   }
-}
+
+
