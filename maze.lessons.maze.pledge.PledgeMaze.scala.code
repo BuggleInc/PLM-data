@@ -2,13 +2,14 @@ override def run() {
   var virage : Int = 0
   while(!estSurBiscuit())
   {
-    while(!estFaceMur())
+    while((!estFaceMur()))
     {
       avance()
     }
-		
-    virage = keepGoing(virage)
-    
+		do
+    {
+      virage = suivreG(virage)
+    }while(virage!=0)
   }
   prendBiscuit()
   
@@ -28,22 +29,55 @@ def mD() : Boolean = /*Verifie s'il y a un mur a droite*/{
 
 def keepHandsOnSideWall(vir : Int) : Int = {
   var virage : Int = vir
-  if(!mG())
+	if(estFaceMur())
   {
-    gauche();avance();virage = virage + 1
+    if(virage<0)
+    {
+      if(!mG())
+      {
+        gauche();virage=virage+1
+      }
+      else if(!mD())
+      {
+        droite();virage=virage-1
+      }
+      else
+      {
+        gauche();gauche();virage=virage+2
+      }
+    }
+    else
+    {
+      if(!mD())
+      {
+        droite();virage=virage-1
+      }
+      else if(!mG())
+      {
+        gauche();virage=virage+1
+      }
+      else
+      {
+        gauche();gauche();virage=virage+2
+      }
+    }
+
   }
-  else if(!estFaceMur())
+  if(virage<0)
   {
-    avance()
-  }
-  else if(!mD())
-  {
-    droite();avance();virage = virage - 1
+    if(!mG())
+    {
+      gauche();virage=virage+1
+    }
   }
   else
   {
-    gauche;gauche();avance();virage = virage + 2
+  	if(!mD())
+    {
+      droite();virage=virage-1
+    }
   }
+  avance()
   return virage
 }
 
@@ -60,45 +94,23 @@ def isDirectionFree(dir : Direction) : Boolean = {
   }
 }
 
-def keepGoing(vir : Int) : Int = {
+def suivreG(vir : Int) : Int = {
   var virage = vir
-  if(virage<0)
+  if(mG()&&(!estFaceMur()))
   {
-    if(!mD())
-    {
-      droite();avance(); virage = virage + 1
-    }
-    else if(!mG())
-    {
-      gauche();avance(); virage = virage - 1
-    }
-    else if(!estFaceMur())
-    {
-      avance()
-    }
-    else
-    {
-      gauche();gauche(); virage = virage + 2
-    }
+    avance()
   }
-  else
+  else if(mG()&&estFaceMur())
   {
-    if(!mG())
-    {
-      gauche();avance(); virage = virage - 1
-    }
-    else if(!mD())
-    {
-      droite();avance(); virage = virage + 1
-    }
-    else if(!estFaceMur())
-    {
-      avance()
-    }
-    else
-    {
-      gauche();gauche(); virage = virage + 2
-    }
+    droite();virage=virage-1;avance()
+  }
+  else if((!mG())&&(!estFaceMur()))
+  {
+    gauche();virage=virage+1;avance()
+  }
+  else if((!mG())&&estFaceMur())
+  {
+    
   }
   return virage
 }

@@ -1,9 +1,10 @@
 var diag = 0;
 override def run() {
   var cpt : Int = 0
-  //ecritMessage(cpt)
-  //cpt += 1
-  for(i<-1 to 13){
+  ecritMessage(cpt)
+  setPos(0,1)
+  diag = 1
+  for(i<-1 to 12){
   	cpt = diagonale(cpt)  
   }
   
@@ -11,18 +12,34 @@ override def run() {
 
 def diagonale(cpt : Int) : Int = {
   var compteur = cpt +1
-  for(i<-1 to (diag%(getMondeHauteur()-1))){
-    ecritMessage(compteur)
-    setPos(getX()+1,getY()-1)
-    compteur = compteur + 1
-  }
-  ecritMessage(compteur)
-  diag = diag + 1
-  if(diag < getMondeHauteur()){
+  var h = 0
+  if(diag < getMondeHauteur()-1){
+    for(i<-1 to diag){
+    	ecritMessage(compteur)
+   		setPos(getX()+1,getY()-1)
+   		compteur = compteur + 1
+  	}
+  	ecritMessage(compteur)
+  	diag = diag + 1
     setPos(0,diag)
   }
   else{
-    setPos(diag%(getMondeHauteur()-1),getMondeHauteur()-1)
+    h = getX()
+    //ecritMessage(diag)
+    //ecritMessage("POULET")
+    for(i<-1 to (12-diag)){
+  	  ecritMessage(compteur)
+  	  setPos(getX()+1,getY()-1)
+ 	  	compteur = compteur + 1
+  	}
+  	ecritMessage(compteur)
+  	diag = diag + 1
+    if (diag<12){
+    	setPos(diag%(getMondeHauteur()-1),getMondeHauteur()-1)  
+    }
+    else{
+      setPos(getMondeHauteur()-1,getMondeHauteur()-1)
+    }
   }
   return compteur
 }
