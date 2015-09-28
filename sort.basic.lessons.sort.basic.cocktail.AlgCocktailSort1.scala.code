@@ -1,0 +1,35 @@
+def cocktailSort() {
+  var end:Boolean = false
+  var compteur:Int = 1
+  while (!end) {
+    for (i <- compteur - 1 to getNombreValeurs() - 1 - compteur) {
+      end = false
+      if (getValeur(i) > getValeur(i+1)) {
+        echange(i,i+1)
+        end = true
+      }
+    if (!end) 
+    	return
+    }
+    for (j <- 0 to getNombreValeurs() - 2 - compteur) {
+      if (getValeur(getNombreValeurs()-1-compteur-j) < getValeur(getNombreValeurs()-1-compteur-(j+1))) { // c'est mooooooooche //
+        echange(getNombreValeurs()-1-compteur-j,getNombreValeurs()-1-compteur-(j+1))
+        end = true
+      }
+    }
+  }
+}
+
+  
+  for (j <- 1 to getNombreValeurs()) {
+    end = false
+    for (i <- 0 to getNombreValeurs() - 1 - j) {
+      if (getValeur(i) > getValeur(i+1)) {
+        echange(i,i+1)
+        end = true
+      }
+    }
+    if (!end) {
+      return
+    }
+  }
