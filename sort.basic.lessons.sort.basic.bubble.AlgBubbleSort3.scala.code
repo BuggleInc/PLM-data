@@ -1,13 +1,11 @@
 def bubbleSort3() {
-  var fin=true
-  val taille=getNombreValeurs()
-  for (i<- taille-1 to 0 by -1){
+	for (i<- getNombreValeurs()-1 to 0 by -1){
+    var swapped=false;
     for (j<- 0 to i-1){
-    	if (!plusPetit(i,i+1)) {
-      	echange (i,i+1)
-      	fin=true
-    	}
+      if (!plusPetit(j,j+1)){
+        echange(j,j+1)
+        swapped=true
+      }
     }
-    if (!fin) {return}
+    if (!swapped){return}
   }
-}
