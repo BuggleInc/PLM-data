@@ -3,7 +3,10 @@ def gnomeSort() {
   while(position != getValueCount() - 1){
   	if(getValue(position) > getValue(position + 1)){
       swap(position, position + 1)
-    	position -= 1
+      if(position == 0)
+    		position += 1
+      else
+       position -= 1
     }
     else
     	position += 1
