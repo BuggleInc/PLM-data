@@ -1,0 +1,18 @@
+def cocktailSort() {
+  var echanges = true
+  while (echanges){
+    echanges = false
+    for (k <- 0 to getNombreValeurs() -2 ){
+      if (getValeur(k) > getValeur(k+1)){
+        echange(k, k+1);
+        echanges = true;
+      }
+    }
+    for (k <- getNombreValeurs() -1 to 1){
+      if (getValeur(k) < getValeur(k-1)){
+        echange(k, k-1);
+        echanges = true;
+      }
+    }
+  }
+}
