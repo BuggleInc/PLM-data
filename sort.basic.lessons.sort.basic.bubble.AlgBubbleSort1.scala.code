@@ -1,12 +1,15 @@
 def bubbleSort()  {
-  var trier = true
+  var trier = true ;
   var longueur = getNombreValeurs()
   
   while(trier) {
     var trier = false
     
     for (i <- 0 to longueur-2 ){
-      if (plusPetitQue(i,i+1)){
+      
+      //si c'est mal trie
+      if (plusPetitQue(i+1,i)){
+        //on echange et on continue jusqu'a une traverse sans echange
         echange(i,i+1)
         trier = true
       }
