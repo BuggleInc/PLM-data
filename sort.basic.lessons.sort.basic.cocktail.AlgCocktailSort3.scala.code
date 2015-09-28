@@ -1,0 +1,32 @@
+def cocktailSort3() 
+{
+  var swap=true
+  var deb=0
+  var fin=getNombreValeurs()-2
+  do
+  {
+    swap=false
+    for(i<-deb to fin)
+    {
+      if(plusPetit(i+1,i))
+      {
+        echange(i,i+1)
+        swap=true
+      }
+    }
+    fin-=1
+    if(!swap)
+    {
+      for(i<-fin to deb by -1)
+      {
+        if(plusPetit(i+1,i))
+        {
+          echange(i,i+1)
+          swap=true
+        }
+      }
+      deb+=1
+    }
+  }
+  while(swap)
+}
