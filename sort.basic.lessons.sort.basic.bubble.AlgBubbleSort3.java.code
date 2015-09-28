@@ -1,13 +1,14 @@
-public void bubbleSort3()  {
- boolean estEnOrdre = true ;
-for(int j = 1; j<=getNombreValeurs();j++){
-  estEnOrdre = false;
-    for(int i = 0; i<getNombreValeurs()-j;i++){
+public void bubbleSort()  {
+  boolean estEnOrdre = true ;
+    while(estEnOrdre){
+    estEnOrdre = false ;
+    for(int i = 0; i<getNombreValeurs()-1;i++){
       if(plusPetit(i+1,i)){
-        echange(i,i+1); 
+        echange(i,i+1);
         estEnOrdre = true ;
-      	}else{
-        break ;}
-    }      
+      }
+      
+      if(!estEnOrdre) break ;
+    }
   }
 }
