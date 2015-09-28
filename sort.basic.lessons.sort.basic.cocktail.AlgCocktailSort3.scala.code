@@ -5,20 +5,9 @@ def cocktailSort3() {
   
   do{
     ech=false
-    
-    for(i<-d to f)
+    if(d<f)
     {
-      if(plusPetit(i+1,i))
-      {
-        echange(i,i+1)
-        ech=true
-      }
-    }
-    f-=1
-    
-    if(ech)
-    {
-      for(i<-f to d by -1)
+      for(i<-d to f)
       {
         if(plusPetit(i+1,i))
         {
@@ -26,8 +15,22 @@ def cocktailSort3() {
           ech=true
         }
       }
-      d+=1
+      f-=1
+
+      if(ech)
+      {
+        for(i<-f to d by -1)
+        {
+          if(plusPetit(i+1,i))
+          {
+            echange(i,i+1)
+            ech=true
+          }
+        }
+        d+=1
+      }
     }
+    
     
   }while(ech)
   
