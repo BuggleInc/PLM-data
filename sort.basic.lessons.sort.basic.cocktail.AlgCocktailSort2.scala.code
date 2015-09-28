@@ -1,7 +1,9 @@
-def cocktailSort() {
+def cocktailSort2() {
   val n=getNombreValeurs()
   var change1 =true
   var change2=true
+  var fin=n-2
+  var debut=0
   
   while (change1 || change2){
     
@@ -11,12 +13,14 @@ def cocktailSort() {
     if (getValeur(i)>getValeur(i+1)){
       echange(i,i+1)
       change1=true
+      fin = fin-1
     }
   }
   for (j<- n-2 to 0 by -1){
     if (getValeur(j)>getValeur(j+1)){
       echange(j,j+1)
       change2=true
+      debut = debut +1
     }
   }
 }
