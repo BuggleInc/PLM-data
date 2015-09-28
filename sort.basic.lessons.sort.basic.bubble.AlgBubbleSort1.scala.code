@@ -1,17 +1,19 @@
 def bubbleSort()  {
   var length : Int = getValueCount();
   var i : Int = 0;
-  var j : Int = 0;
+  var tri : Bool = true;
   
-  for(i <- 0 to length)
-  {
-  	for(j <- i to length)
+  while(tri)
+	{
+  	tri = false;
+    for(i<-0 to length-2)
     {
-      if(isSmaller(i,j))
+      if(getValue(i)<getValue(i+1))
       {
         swap(i,j);
+        tri=true;
       }
-    }    
+    }
   }
     
 }
