@@ -5,6 +5,7 @@ def cocktailSort3() {
   while(tri){
     tri=false
     var test=0
+    var test2=0
     for (i<-debut to fin){
       if (plusPetit(i+1,i)){
         echange(i,i+1)
@@ -13,14 +14,18 @@ def cocktailSort3() {
       }
     }
     fin=fin-1
-    if (test==0){
-      for (j<-fin+1 to debut+1 by -1){
-        if (plusPetit(j,j-1)){
-          echange(j-1,j)
-          tri=true
-        }
+    if(test==0){
+      return
+    }
+    for (j<-fin+1 to debut+1 by -1){
+      if (plusPetit(j,j-1)){
+        echange(j-1,j)
+        tri=true
       }
-      debut=debut+1
+    }
+    debut=debut+1
+    if (test2==0){
+      return
     }
   }
 }
