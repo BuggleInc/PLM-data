@@ -2,8 +2,10 @@ def insertionSort() {
   var position:Int = 0
   var indexSorted:Int = 0
   while(position != getValueCount() - 1){
-    while(getValue(position) > getValue(position + 1))
+    while(position != -1 && getValue(position) > getValue(position + 1)){
     	swap(position, position + 1)
+      position -= 1
+    }
     indexSorted += 1
     position = indexSorted
   }
