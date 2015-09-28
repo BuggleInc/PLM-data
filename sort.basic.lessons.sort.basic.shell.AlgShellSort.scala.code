@@ -1,0 +1,26 @@
+def shellSort()  {
+  var lgr:Int = getNombreValeurs()
+  var ecart:Int = lgr/2
+  while (ecart>0) {
+    for (i <- 1 to lgr-1) {
+      var valeur:Int = getValeur(i)
+      var k:Int = i
+      while (k>ecart-1 && getValeur(k-ecart)>valeur) {
+        copie(k-ecart,k)
+      }
+    }
+  }
+}
+
+def insertionSort() {
+  var lgr:Int = getNombreValeurs()
+  for (i <- 1 to lgr-1) {
+    var valeur:Int = getValeur(i)
+    var k:Int = i
+    while (k>0 && getValeur(k-1)>valeur) {
+      copie(k-1,k)
+      k -= 1
+    }
+    setValeur(k, valeur)
+  }
+}
