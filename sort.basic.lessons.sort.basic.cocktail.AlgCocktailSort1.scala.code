@@ -1,17 +1,17 @@
 def cocktailSort() {
   var lgr:Int=getNombreValeurs()
-  var c:Int=1
-  while (c!=0) {
-    c=0
+  var c:Int=0
+  while (c==0) {
+    c=1
     for (i <- 0 to lgr-2) {
       if (plusPetit(i:Int,(i+1):Int)){
-        c=1
+        c=0
         echange(i:Int, (i+1):Int)
       }
     }
     for (i <- 0 to lgr-2) {
       if (plusPetit(lgr-1-i:Int, lgr-1-i-1)) {
-        c=1
+        c=0
         echange((lgr-1-i):Int, (lgr-1-i-1):Int)
       }
     }
