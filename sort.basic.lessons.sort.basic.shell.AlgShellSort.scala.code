@@ -1,0 +1,15 @@
+def shellSort() {
+  var ecart = getNobreValeurs() / 2
+  while (ecart >= 1){
+    for (i <- 1 to getNombreValeurs() - 1){
+      var v = getValeur(i);
+      var j = i - ecart;
+      while (j >= 0 && getValeur(j) > v){
+        copie(j, j+ecart);
+        j -= ecart;
+      }
+      setValeur(j+ecart, v);
+    }
+    ecart /= 2;
+  }
+}
