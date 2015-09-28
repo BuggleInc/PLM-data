@@ -1,11 +1,12 @@
 def bubbleSort2() {
-  var N:Int = getNombreValeurs();
-  while (N > 0) {
-    for (k <- 0 to getNombreValeurs()-2) {
+  var nbValeurs:Int = getNombreValeurs();
+  var nbParcours:Int = 0;
+  while (nbParcours != nbValeurs) {
+    for (k <- 0 to nbValeurs-(nbParcours+2)) {
       if (plusPetit(k+1, k)) {
         echange(k, k+1);
       }
     }
-    N = N-1;
+    nbParcours = nbParcours + 1;
   }
 }
