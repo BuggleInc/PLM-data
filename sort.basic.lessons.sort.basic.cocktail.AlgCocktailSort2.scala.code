@@ -1,0 +1,26 @@
+def cocktailSort2() {
+  var sorting:Boolean = true;
+  var a=2
+  
+  while (sorting == true) {
+    sorting = false;
+    
+  	for (i <- 0 to getValueCount()-a ) {
+      
+      if (! (isSmaller(i, i+1)))  {
+        swap(i, i+1);
+        sorting = true;
+      }
+    }
+    
+  	for (i <-getValueCount()-a to 0 by -1) {
+      
+      if (isSmaller(i+1, i))  {
+        swap(i+1, i);
+        sorting = true;
+      }
+    }
+    
+    a+=1
+  }
+}
