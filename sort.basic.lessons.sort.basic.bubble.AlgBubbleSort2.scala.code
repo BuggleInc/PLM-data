@@ -1,17 +1,12 @@
 def bubbleSort2() {
-  var trie : Boolean = false
-  var c=0
-  while (!trie){
-    var compt= 0
-    for (k<-0 to getNombreValeurs()-c-2){
-      if (!plusPetit(k,k+1)){
-        echange(k,k+1)
-        compt=compt+1
+  var c = 0
+  while (c!=get(NombreValeurs())){
+    for (k<-getNombreValeurs()-1 to 0){
+      for (j<-0 to getNombreValeur()-1){
+        if (!plusPetit(k,j))
+          echange(k,j)
+        }
       }
-    }
-    if (compt==0){
-      trie=true
-    }
-    c=c+1
+  c=c+1
   }
 }
