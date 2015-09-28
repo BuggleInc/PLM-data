@@ -1,0 +1,22 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  var couleur = getCouleurSol()
+  var compteur = 0
+  while (couleur != colors(compteur)) {
+    compteur = compteur+1
+  }
+  if (rule(compteur) == 'R') {
+    setCouleurBrosse(colors((compteur+1)%colors.length))
+    baisseBrosse()
+    leveBrosse()
+    droite()
+    avance()
+  }
+  else {
+    setCouleurBrosse(colors((compteur+1)%colors.length))
+    baisseBrosse()
+    leveBrosse()
+    gauche()
+    avance()
+  }
+}
+

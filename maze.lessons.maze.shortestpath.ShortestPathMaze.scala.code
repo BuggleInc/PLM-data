@@ -1,0 +1,145 @@
+override def run() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var coordBiscuit = new Array[Int](2)
+  coordBiscuit = trouveLeBiscuit()
+	setIndication(coordBiscuit(0),coordBiscuit(1),0)
+	marqueCase(coordBiscuit(0),coordBiscuit(1))
+  while (!estSurBiscuit) {
+    prochaineCase()
+  }
+  prendBiscuit()
+}
+
+def trouveLeBiscuit(): Array[Int] = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var T = new Array[Int](2)
+  for (y <- 0 to hauteurMonde-1) {
+    for (x <- 0 to largeurMonde-1) {
+      if (aBiscuit(x,y)) {
+        T(0) = x
+        T(1) = y
+        return T 
+      }
+    }
+  }
+  return T
+}
+
+def marqueCase (x : Int, y : Int) {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var cpt =getIndication(x,y)+1
+  if (!aMurNord(x,y)) {
+    if (getIndication(x,y-1) == 9999) {
+    	setIndication(x,y-1,cpt)
+      marqueCase(x,y-1)
+    }
+    if (getIndication(x,y-1) > cpt) {
+      setIndication(x,y-1,cpt)
+      marqueCase(x,y-1)
+    } 
+  }
+  if (!aMurOuest(x,y)) {
+    if (getIndication(x-1,y) == 9999) {
+    	setIndication(x-1,y,cpt)
+      marqueCase(x-1,y)
+    }
+    if (getIndication(x-1,y) > cpt){
+      setIndication(x-1,y,cpt)
+      marqueCase(x-1,y)
+    }
+  }
+  if (x != largeurMonde-1) {
+    if (!aMurOuest(x+1,y)) {
+    	if (getIndication(x+1,y) == 9999) {
+    		setIndication(x+1,y,cpt)
+        marqueCase(x+1,y)
+    	}
+      if (getIndication(x+1,y) > cpt) {
+        setIndication(x+1,y,cpt)
+        marqueCase(x+1,y)
+      }
+  	}
+  }
+  if (y != hauteurMonde-1) {
+  	if (!aMurNord(x,y+1)) {
+    	if (getIndication(x,y+1) == 9999) {
+    		setIndication(x,y+1,cpt)
+        marqueCase(x,y+1)
+    	}
+      if (getIndication(x,y+1) > cpt) {
+        setIndication(x,y+1,cpt)
+        marqueCase(x,y+1)
+      }
+  	}
+	}
+  /*if (!aMurNord(x,y)) {marqueCase(x,y-1)}
+  if (!aMurOuest(x,y)) {marqueCase(x-1,y)}
+  if (x != largeurMonde-1) {
+    if (!aMurOuest(x+1,y)) {marqueCase(x+1,y)}}
+  if (y != hauteurMonde-1) {
+    if (!aMurNord(x,y+1)) {marqueCase(x,y+1)}}*/
+  
+}
+
+/*def verifieCases (): Boolean = {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var compteur = 0
+  for (y <- 0 to hauteurMonde-1) {
+    for (x <- 0 to largeurMonde-1) {
+      if (getIndication(x,y) != 9999) {
+        compteur = compteur+1
+      }
+    }
+  }
+  if (largeurMonde*hauteurMonde == compteur) {
+    return true
+  }
+  else{
+    return false
+  }
+}*/
+
+def prochaineCase() {
+  val hauteurMonde = getMondeHauteur
+	val largeurMonde = getMondeLargeur
+  var ind = getIndication(getX(),getY())
+  setDirection(Direction.NORD)
+	var v = getIndication(getX(),getY())
+  var d = 0
+  if (!aMurNord(getX(),getY()) && getIndication(getX(),getY()-1) < v) { //Nord
+  	v = getIndication(getX(),getY()-1)
+    d = 1
+  }
+  if (getY()!= hauteurMonde-1 && !aMurNord(getX(),getY()+1) && getIndication(getX(),getY()+1) < v) { //Sud
+    v = getIndication(getX(),getY()+1)
+    d = 2
+  }
+    if (!aMurOuest(getX,getY) && getIndication(getX()-1,getY()) < v) { //Ouest
+    v = getIndication(getX()-1,getY()) 
+    d = 3
+  }
+    if (getX()!=largeurMonde-1 && !aMurOuest(getX()+1,getY()) && getIndication(getX()+1,getY()) < v) { //Est
+    v = getIndication(getX()+1,getY())
+    d = 4
+  }
+  if (d == 1) { //Nord
+    avance()
+  }
+  if (d == 2) { //Sud
+    gauche()
+    gauche()
+    avance()
+  }
+  if (d == 3) { //Ouest
+    gauche()
+    avance()
+  }
+  if (d == 4) { //Est
+  	droite()
+   	avance()
+  }
+}
