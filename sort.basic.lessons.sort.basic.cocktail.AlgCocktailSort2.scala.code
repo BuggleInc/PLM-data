@@ -1,0 +1,24 @@
+def cocktailSort2() {
+  var tri1 : Boolean = true
+  var tri2 : Boolean = true
+  var debut = 0
+  var fin = getNombreValeurs() - 2
+  while (tri1 || tri2) {
+    tri1 = false
+    tri2 = false
+    for (i <- debut to fin) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1)
+        tri1 = true
+      }
+    }
+    fin -= 1
+    for (i <- fin to debut by -1) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1)
+        tri2 = true
+      }
+    }
+    debut +=1
+  }
+}
