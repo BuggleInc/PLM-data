@@ -1,18 +1,16 @@
 def bubbleSort3() {
   var tri = false
   var n = getNombreValeurs()
-  while(!tri)
-  { 
-    tri = true
-    for(i<-(n-2) to 0 by -1)
+
+  tri = true
+  for(i<-(n-2) to 0 by -1)
+  {
+    for(j<-0 to i)
     {
-      for(j<-0 to i)
+      if(!plusPetit(j,j+1))
       {
-        if(!plusPetit(j,j+1))
-        {
-          echange(j,j+1)
-          tri = false
-        }
+        echange(j,j+1)
+        tri = false
       }
     }
   }
