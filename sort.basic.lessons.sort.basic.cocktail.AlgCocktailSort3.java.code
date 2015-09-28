@@ -1,29 +1,26 @@
 public void cocktailSort3() {
+  boolean swap = true;
   int debut = 0;
   int fin = getValueCount()-2;
-  boolean swap = true;
   do{
     swap = false;
-    for(int i = debut; i < fin+1; i++){
+    for(int i = debut; i < fin+1;i++){
       if(isSmaller(i+1,i)){
-        swap = true;
-        swap(i+1,i);
+        swap=true;
+				swap(i+1,i);
       }
     }
-    if(!swap){
-      break;
-    }
+    if(!swap) break;
     fin--;
-    for(int j = fin ; j >= debut; j--){
+    for(int j = fin ; j >= debut; j-- ){
       if(isSmaller(j+1,j)){
-        swap = true;
+        swap =true;
         swap(j+1,j);
+        
       }
-      
     }
-    if(!swap){
-      break;
-    }
+    if(!swap)break;
     debut++;
   }while(swap);
+  
 }
