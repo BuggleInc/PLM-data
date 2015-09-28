@@ -1,5 +1,5 @@
 def cocktailSort3() {
-    var swap = true
+  var swap = true
   do{
     swap=false
     for (i <- 0 to getNombreValeurs()-2) {
@@ -8,10 +8,12 @@ def cocktailSort3() {
         swap=true
       }
     }
-    for (i <- getNombreValeurs()-2 to 0 by -1) {
-      if (!plusPetit(i,i+1)) {
-        echange(i, i+1)
-        swap=true
+    if (!swap){
+      for (i <- getNombreValeurs()-2 to 0 by -1) {
+        if (!plusPetit(i,i+1)) {
+          echange(i, i+1)
+          swap=true
+        }
       }
     }
   } while (swap)
