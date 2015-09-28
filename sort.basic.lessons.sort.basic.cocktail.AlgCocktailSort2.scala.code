@@ -1,0 +1,30 @@
+def cocktailSort2() {
+  
+  
+  var length : Int = getValueCount();
+  var tri : Boolean = true;
+  var beg : Int = 0;
+  var end : Int = length -2;
+  while(tri)
+	{
+  	tri = false;
+    for(i<-beg to end)
+    {
+      if(isSmaller(i+1,i))
+      {
+        swap(i,i+1);
+        tri=true;   
+        end-=1;
+      }
+    }
+    for(i<-end to beg by -1)
+    {
+      if(isSmaller(i+1,i))
+      {
+        swap(i+1,i);
+        beg+=1;
+        tri=true;        
+      }
+    }
+  }
+}
