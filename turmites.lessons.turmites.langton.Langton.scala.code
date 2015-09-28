@@ -1,0 +1,20 @@
+def setCouleurSol(c: Color) {
+  setCouleurBrosse(c)
+  
+  baisseBrosse()
+  leveBrosse()
+}
+
+def step() {
+  var couleurSol:Color = getCouleurSol()
+  
+  if (couleurSol == Color.white) {
+    setCouleurSol(Color.black)
+    
+    droite(); avance()
+  } else {
+    setCouleurSol(Color.white)
+    
+    gauche(); avance()
+  }
+}
