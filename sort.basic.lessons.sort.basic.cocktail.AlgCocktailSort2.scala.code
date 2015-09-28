@@ -1,0 +1,27 @@
+def cocktailSort2() {
+  var longueur = getNombreValeurs()
+  var trier = true
+  var n = 0
+  
+  while(trier){
+    trier = false
+    
+    //1ere boucle
+    for (i <- 0 to longueur -(2+n)){
+      if (plusPetit(i+1,i)){
+        echange(i,i+1)
+        trier = true
+      }
+    }
+    
+    //2e boucle
+    for (j <- longueur -2 to n by -1){
+      if (plusPetit(j+1,j)){
+        echange(j,j+1)
+        trier = true
+      }
+    }
+      
+  }
+  
+}
