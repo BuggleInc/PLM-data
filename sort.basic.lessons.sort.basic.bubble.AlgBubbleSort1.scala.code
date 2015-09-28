@@ -1,9 +1,12 @@
 def bubbleSort ()  {
-  val n = getNombreValeurs
-  for (k <- 0 to n-1) {
-    var i = k
-    while (!plusPetit(i,i+1)){
-      echange(i,i+1)
+  val n = getNombreValeurs()
+  var swapped = false
+  do {
+  for (k <- 0 to n-2) {
+		if (!plusPetit(k,k+1)){
+      echange(k,k+1)
+      swpped = true
     }
-  }
+    }
+  } while(swapped)
 }
