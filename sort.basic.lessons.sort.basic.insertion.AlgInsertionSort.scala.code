@@ -4,7 +4,8 @@ def insertionSort() {
   for(i<-1 to getNombreValeurs()-1){
     v = getValeur(i)
     k=i
-    while(getValeur(k-1)>v && k>1){setValeur(k,getValeur(k-1));k+= -1;}    
-    setValeur(k,v)
+    while(getValeur(k-1)>v && k>1){setValeur(k,getValeur(k-1));k+= -1;}
+    if(k==0 && getValeur(0)>v){setValeur(1,getValeur(0));setValeur(0,v);}
+    else{setValeur(k,v);}
   }
 }
