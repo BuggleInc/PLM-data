@@ -1,17 +1,19 @@
 def bubbleSort3() {
 	var nbValeurs:Int = getNombreValeurs();
   var nbParcours:Int = 0;
-  var n:Int = 0;
-  do {
-    n = 0;
-  	while (nbParcours != nbValeurs) {
+  var nbOps:Int = 0;
+  while (nbParcours != nbValeurs) {
+    if (nbOps != 0) {
+    	nbOps = 0;
     	for (k <- 0 to nbValeurs-(nbParcours+2)) {
       	if (plusPetit(k+1, k)) {
         	echange(k, k+1);
-          n = n+1;
-      	}
-    	}
-    	nbParcours = nbParcours + 1;
-  	}
-  } while (n > 0)
+        	nbOps = nbOps + 1;
+        }
+      }
+    } else {
+      return
+    }
+    nbParcours = nbParcours + 1;
+  }
 }
