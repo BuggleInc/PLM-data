@@ -1,0 +1,28 @@
+override def run() {
+  def fonctionTest() : Boolean = {
+    while (getDirection()!=Direction.NORD){
+      droite()
+    }
+    if (estFaceMur()){
+      return true
+    }else return false
+  }
+  
+  def snake() = {
+    while (!estDosMur()){
+      droite()
+    }
+    while (!estFaceMur()){
+      avance()
+    }
+  }
+  setCouleurBrosse(Color.RED)
+  baisseBrosse()
+  snake()
+  while (!fonctionTest()){
+    avance()
+    gauche()
+    snake()
+  }
+  droite()
+}

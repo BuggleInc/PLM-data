@@ -1,0 +1,23 @@
+override def run() {
+  def positionFinal() : Boolean = {
+    if (getMondeLargeur()-1==getX() & getMondeHauteur()-1==getY()){
+      return true
+    }else return false
+  }
+  
+  def positionSuivante() = {
+    if (getY() != getMondeHauteur()-1){
+     setPos(getX(),getY()+1)
+   }
+    else setPos(getX()+1,0)
+  }
+  
+  var cpt =  1
+  ecritMessage(0)
+  while (!positionFinal()){
+    positionSuivante()
+    ecritMessage(cpt)
+    cpt+=1
+  }
+  
+}
