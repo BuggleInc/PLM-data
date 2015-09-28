@@ -1,12 +1,13 @@
 def cocktailSort2()
 {
-  var max = getNombreValeurs() - 2
+  var fin = getNombreValeurs() - 2
+  var debut = 0
  
   for (l <- 0 to getNombreValeurs() - 1)
   {
     var inversion = false
     
-    for (i <- 0 to max)
+    for (i <- debut to fin)
     {
       if (plusPetit(i + 1, i))
       {
@@ -15,9 +16,9 @@ def cocktailSort2()
       }
     }
     
-    max -= 1
+    fin -= 1
     
-    for (i <- max to 0 by -1)
+    for (i <- fin to debut by -1)
     {
       if (plusPetit(i + 1, i))
       {
@@ -29,6 +30,6 @@ def cocktailSort2()
     if (!inversion)
     	return
     
-    max -= 1
+    debut -= 1
   }
 }
