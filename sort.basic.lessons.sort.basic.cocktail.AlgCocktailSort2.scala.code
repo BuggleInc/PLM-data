@@ -1,13 +1,17 @@
 def cocktailSort2() {
   var switch=false
-  for(i<- 1 to getNombreValeurs()-1 by 2) {
+  deb=0
+  fin=getNombreValeurs()-2
+  while(switch) {
     switch=false
-    for (k <- i/2 to getNombreValeurs()-(i/2+2)) {
+    for (k <- deb to fin) {
       if (plusPetit(k+1,k)) {echange(k,k+1);switch=true}
+      fin-=1
     }
     
-    for (k <- getNombreValeurs()-(i/2+3) to i/2+1 by -1) {
+    for (k <- fin to deb by -1) {
       if (plusPetit(k+1,k)) {echange(k,k+1);switch=true}
+      deb+=1
     }
     if (!switch) {return}
   }
