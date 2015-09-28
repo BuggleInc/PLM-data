@@ -3,8 +3,10 @@ def cocktailSort3() {
   var fin = getNombreValeurs()-2
   var change1 = true
   var change2 = true
-  for (i <- debut to fin){
+  while (change1 == true || change2== true){
+    change2= false
     change1 = false
+  for (i <- debut to fin){
     if (getValeur(i)> getValeur(i+1)){
       echange(i,i+1)
       change1 = true
@@ -15,15 +17,14 @@ def cocktailSort3() {
     return
   }
   for (j<- fin to debut by -1){
-   change2 = false
     if (getValeur(j)> getValeur(j+1)){
       echange(j,j+1)
       change2 = true
       }
   }
     debut = debut +1
-  
-  if (change2== false){
-    return
+    if (change2 == false){
+      return
+    }
   }
-  }
+}
