@@ -1,8 +1,15 @@
 def bubbleSort3() {
+  var c:Int=1
   for (j <- 0 to getNombreValeurs()-2) {
-    for (i <- 0 to getNombreValeurs()-2-j) {
-      if (getValeur(i:Int)>getValeur((i+1):Int)){
-        echange(i:Int, (i+1):Int)
+    if (c==0) {
+      return
+    } else {
+      c=0
+      for (i <- 0 to getNombreValeurs()-2-j) {
+        if (getValeur(i:Int)>getValeur((i+1):Int)){
+          echange(i:Int, (i+1):Int)
+          c=1
+         }
       }
     }
   }
