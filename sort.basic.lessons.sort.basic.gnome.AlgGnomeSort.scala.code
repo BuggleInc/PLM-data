@@ -2,12 +2,15 @@ def gnomeSort() {
   for (i<- 0 to getValueCount()-2){
     if (isSmaller(i+1, i)){
       swap(i+1, i);
+      var a=false;
       var j=i;
-      while (j!=0) {
+      while (!a && j!=0) {
         if (isSmaller(j, j-1)){
           swap(j-1, j);
-          }
-        j-=1
+          j-=1;
+        } else {
+          a=true;
+        }
       }
     }
   }
