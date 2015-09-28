@@ -1,15 +1,7 @@
 def bubbleSort2() {
-	var boole=false
-  var compteur = -1
-  do{
-    boole=false
-    compteur = compteur + 1
-  	for (i <- 0 to getValueCount()-2-compteur){
-    	if(isSmaller(i+1,i)){
-      	swap(i,i+1)
-      	boole=true
-      }
+  for (i <- getValueCount()-1 to 0 by -1; j <- 0 to i-1) {
+    if (!isSmaller(j,j+1)) {
+      swap(j,j+1)
     }
-   }
-  while(boole)
+  }
 }
