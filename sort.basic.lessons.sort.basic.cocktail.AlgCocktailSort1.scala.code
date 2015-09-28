@@ -1,0 +1,24 @@
+def cocktailSort() {
+  var tri : Boolean = true
+  var taille = getNombreValeurs()
+  while (tri)
+  {
+    tri= false 
+    for (i <- 0 to taille-2)
+    {
+      if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        tri=true
+      }
+    }
+    for (i <- (taille-2) to 0)
+    {
+      if(plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        tri=true
+      }
+    }
+  }
+}
