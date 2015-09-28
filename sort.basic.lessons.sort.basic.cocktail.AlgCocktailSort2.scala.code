@@ -1,10 +1,10 @@
 def cocktailSort2() {
     var taille = getNombreValeurs()
   var parcours = true
-  var k = 0
+  var deb = 0
   while(parcours)
   	{parcours = false
-      for (i <-1+k to taille-1-k)
+      for (i <-1+deb to taille-1)
       	{
           if(getValeur(i)<getValeur(i-1))
           	{
@@ -12,9 +12,9 @@ def cocktailSort2() {
               parcours = true
             }
         }
-     k = k+ 1
+     taille = taille - 1
     		
-      for(i<-taille-1-k to 1+k by -1)
+      for(i<-taille-1 to 1+deb by -1)
       	{
           if(getValeur(i)<getValeur(i-1))
           {
@@ -23,6 +23,6 @@ def cocktailSort2() {
             }
       
         }
-      k = k+ 1
+      deb +=1
     }
 }
