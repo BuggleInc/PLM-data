@@ -1,11 +1,12 @@
 def cocktailSort2() {
   var sorting:Boolean = true;
-  var a=2
+  var end:Int = getValueCount()-2
+  var beg=0
   
   while (sorting == true) {
     sorting = false;
     
-  	for (i <- 0 to getValueCount()-a ) {
+  	for (i <- beg to end ) {
       
       if (! (isSmaller(i, i+1)))  {
         swap(i, i+1);
@@ -13,7 +14,7 @@ def cocktailSort2() {
       }
     }
     
-  	for (i <-getValueCount()-a to 0 by -1) {
+  	for (i <-end to beg by -1) {
       
       if (isSmaller(i+1, i))  {
         swap(i+1, i);
@@ -21,6 +22,7 @@ def cocktailSort2() {
       }
     }
     
-    a+=1
+    beg += 1
+    end -= 1
   }
 }
