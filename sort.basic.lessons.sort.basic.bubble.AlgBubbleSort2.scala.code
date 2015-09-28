@@ -1,15 +1,18 @@
 def bubbleSort2() {
   var swapped= false
-  var c:Int=getValueCount()
+  var c:Int=getValueCount()-1
   do {
     swapped=false;
-    for (i<-0 to c-1){
+    for (i<-0 to c){
       if (!isSmaller(i,i+1)) {
         swap(i,i+1);
         swapped= true
         
       }
       c=c-1
+      if (c==0) {
+        return {}
+      }
     }
     
   }while (swapped);
