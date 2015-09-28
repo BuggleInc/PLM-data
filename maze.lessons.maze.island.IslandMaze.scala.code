@@ -13,17 +13,34 @@ override def run() {
          avance()
      }
    }
-  while (!estSurBiscuit){
-    if (getDirection!=Direction.NORTH){
-      keepHandOnSideWall
+  
+  def MainGaucheMur(): Boolean ={
+    gauche()
+    if (estFaceMur()){
+      droite()
+      return true
     }
     else {
-      if (!estFaceMur){
+      droite()
+      return false
+    }
+  }
+  
+  while (!estSurBiscuit){
+    if (getDirection==Direction.NORTH){
+      if(estFaceMur){
+        while (!MainGaucheMur){
+          gauche()
+        }
+        keepHandOnSideWall
+      }
+      else{
         avance()
-      }else{
+      }
+    }
+    else{
         keepHandOnSideWall
       }
     }
-  }
     prendBiscuit()
 }

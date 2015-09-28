@@ -1,0 +1,82 @@
+def remplissageCase(x:Int,y:Int,i:Int){
+  
+  if ((y+1)<=(getMondeHauteur()-1) && !aMurNord(x,y+1) && getIndication(x,y+1)>i+1){
+    setIndication(x,y+1,i+1)
+    remplissageCase(x,y+1,i+1)
+    
+  }
+  if ((y-1)>=0 && !aMurNord(x,y) && getIndication(x,y-1)>i+1 ){
+    setIndication(x,y-1,i+1)
+    remplissageCase(x,y-1,i+1)
+  }
+  if ((x-1)>=0 && !aMurOuest(x,y) && getIndication(x-1,y)>i+1){
+    setIndication(x-1,y,i+1)
+    remplissageCase(x-1,y,i+1)
+  }
+  if ((x+1)<=(getMondeLargeur()-1) && !aMurOuest(x+1,y) && getIndication(x+1,y)>i+1) {
+    setIndication(x+1,y,i+1)
+    remplissageCase(x+1,y,i+1)
+  }
+}
+
+def directionASuivre(){
+  var posx : Int = getX()
+  var posy : Int = getY() 
+  var indNord:Int = 9999
+  var indSud : Int = 9999
+  var indOuest: Int = 9999
+  var indEst:Int = 9999
+  setDirection(Direction.NORD)
+  if (!estFaceMur()){
+    indNord=getIndication(posx,posy-1)   
+  }
+  setDirection(Direction.SUD)
+  if (!estFaceMur()){
+    indSud=getIndication(posx,posy+1)   
+  }
+  setDirection(Direction.OUEST)
+  if (!estFaceMur()){
+    indOuest=getIndication(posx-1,posy)   
+  }
+  setDirection(Direction.EST)
+  if (!estFaceMur()){
+    indEst=getIndication(posx+1,posy)   
+  }
+  if (indSud<=indNord && indSud<=indOuest && indSud<=indEst){
+    setDirection(Direction.SUD)
+  }
+  if (indNord<=indSud && indNord<=indOuest && indNord<=indEst){
+    setDirection(Direction.NORD)
+  }
+  if (indOuest<=indNord && indOuest<=indSud && indOuest<=indEst){
+    setDirection(Direction.OUEST)
+  }
+  if (indEst<=indNord && indEst<=indOuest && indEst<=indSud){
+    setDirection(Direction.EST)
+    
+  } 
+  
+}
+
+override def run() {
+    // Your code here
+  var abs:Int=getMondeLargeur()-1
+  var ord:Int=getMondeHauteur()-1
+  var xBiscuit:Int=0
+  var yBiscuit:Int=0
+  for (x<-0 to abs){
+    for (y<-0 to ord){
+      if (aBiscuit(x,y)){
+          xBiscuit=x
+          yBiscuit=y
+      }
+    }
+  }
+  setIndication(xBiscuit,yBiscuit,0)
+  remplissageCase(xBiscuit,yBiscuit,0)
+  while (!estSurBiscuit()){
+    directionASuivre()
+    avance()
+  }
+  prendBiscuit()
+}
