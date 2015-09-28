@@ -1,30 +1,31 @@
 def cocktailSort3() {
   var debut = 0
   var fin = getNombreValeurs()-2
-  var compt = 0
+  var inverse = true
   
   do{
+    inverse = false
     compt==0
     for (k<-debut to fin){
       if (!plusPetit(k,k+1)){
         echange(k,k+1)
-        compt=compt+1
+        inverse=true
       }
     }
-    if (compt==0){
-        return
-    }    
+    if (!inverse){
+      return
+    }
     fin-=1
-    compt==0
+    inverse=false
     for (k<-fin to debut by -1){
       if (!plusPetit(k,k+1)){
         echange(k,k+1)
-        compt=compt+1
+        inverse=true
       }
     }
-    if (compt==0){
+    if (!inverse){
       return
     }
     debut+=1
-  }while (compt!=0)
+  }while (inverse)
 }
