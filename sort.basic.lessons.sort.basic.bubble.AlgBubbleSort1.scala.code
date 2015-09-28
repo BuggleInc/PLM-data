@@ -1,9 +1,3 @@
-def deplacerCase(i:Int)
-{
-  if (plusPetit(i + 1, i))
-    echange(i, i + 1)
-}
-
 def listeTriee():Boolean =
 {
   for (i <- 0 to getNombreValeurs() - 2)
@@ -18,6 +12,9 @@ def bubbleSort()
   while (!listeTriee())
   {    
     for (i <- 0 to getNombreValeurs() - 2)
-      deplacerCase(i)
+    {
+      if (plusPetit(i + 1, i))
+    		echange(i, i + 1)
+    }
   }
 }
