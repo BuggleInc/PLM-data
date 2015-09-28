@@ -1,0 +1,19 @@
+def combSort() {
+  var lgr = getNombreValeurs()
+  var ecart = lgr
+  swap = false
+  do {
+    swap = false
+    if (ecart>1) {
+      ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+    }
+    var i = 0
+    while (i+ecart < lgr) {
+      if (plusPetit(i+ecart, i)) {
+        echange(i+ecart,i);
+        swap = true
+      }
+      i += 1
+    }
+  } while ((ecart>1)||(swap))
+}
