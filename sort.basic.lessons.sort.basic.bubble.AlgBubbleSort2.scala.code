@@ -2,10 +2,9 @@ def bubbleSort2() {
   var temp:Int =0;
   var incr:Int =0;
   var nbDeTour:Int =0;
-  do{
-    incr=0;
+	for(i <- 0 to (getNombreValeurs()-2)){
     nbDeTour=nbDeTour+1;
-  	for(i <- 0 to (getNombreValeurs()-(1+nbDeTour))){
+  	for(i <- getNombreValeurs() to 0 by -1){
   	  	if(getValeur(i)>getValeur(i+1)){
         	temp=getValeur(i);
       	  setValeur(i,getValeur(i+1));
@@ -13,5 +12,6 @@ def bubbleSort2() {
       	  incr=incr+1;
     	  }
   	}
-  }while(incr!=0);
+  }
+
 }
