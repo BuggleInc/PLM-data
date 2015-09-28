@@ -1,9 +1,19 @@
 def bubbleSort()  {
-  var n = getNombreValeurs();
-  for (var i=0, i<n, i++)
+  var n = getValueCount();
+  var swapped = false;
+	
+  do
   {
-    if(plusPetit(i, i+1) )
-    	echange(i, i+1);
-  }
+    swapped = false;
+    for( i <- 0 to n-2)
+    {
+      if (isSmaller(i,i+1))
+      {
+        swap(i,i+1);
+        swapped = true;        
+      }
+      
+    }
+  }while(swapped);
   
 }
