@@ -1,15 +1,18 @@
 def cocktailSort3() {
   var debut=1
   var fin=getNombreValeurs()-1
-  var test=false
-  while (!test){
+  var test1=false
+  var test2=false
+  while (!test1){
     test = true
     for (i <- debut to fin){
       if(plusPetit(i,i-1)){
-        test = false
+        test1 = false
         echange(i-1,i)
       }
     }
+  }
+  while (!test2){
     fin -=1
     for (i <- fin to debut by -1) {
         if (plusPetit(i,i-1)){
