@@ -3,21 +3,28 @@ def cocktailSort2() {
   var fin = false;
   var beg = 0;
   var end = n-2;
+  var swap = false;
   while(!fin) {
     fin = true;
     
+    swap = false;
     for(i <- beg to end) {
       if(getValue(i) > getValue(i+1)){
         swap(i,i+1);
         fin = false;
+        swap = true;
       }
     }
-    end -= 1;
+    if(swap){
+      end -= 1;
+    }
     
+    swap = false;
     for(i <- end to beg by -1){
       if(getValue(i) > getValue(i+1)){
         swap(i , i+1);
         fin = false;
+        swap = true;
       }
     }
     beg -= 1;
