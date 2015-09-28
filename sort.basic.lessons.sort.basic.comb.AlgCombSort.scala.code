@@ -1,0 +1,17 @@
+def combSort() {
+  var tri:Boolean=true
+  var ecart=getNombreValeurs()
+  while (ecart>1 || tri){
+    if (ecart>1){
+      ecart=(ecart.asInstanceOf[Double]/1.3).asInstanceOf[Int]
+    }
+    var i=0
+    while (i+ecart<getNombreValeurs()){
+      if (plusPetit(i+ecart,i)){
+        echange(i,i+ecart)
+        i=i+1
+        tri=false
+      }
+    }
+  }
+}
