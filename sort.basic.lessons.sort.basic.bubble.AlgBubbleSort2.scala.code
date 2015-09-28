@@ -1,21 +1,16 @@
 def bubbleSort2() {
   var n = getValueCount();
-  var swapped = false;
 	
-  do
-  {
-    swapped = false;
-    for( i <- n-2 to 0 by -1)
-    {
-      for (j <- 0 to i)
+  for(i <- 0 to n-1){
+    for(j<-0 to n-1){
+      if (isSmallerThan(j+1,j))
       {
-      	if (!isSmaller(i,i+1))
-      	{
-       	 swap(i,i+1);
-        	swapped = true;        
-      	}
+        swap(j,j+1)
       }
+      
     }
-  }while(swapped);
+    n=n-1
+  }
+  
   
 }
