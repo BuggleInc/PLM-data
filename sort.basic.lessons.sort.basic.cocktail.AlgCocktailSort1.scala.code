@@ -5,23 +5,19 @@ def cocktailSort() {
   while(!fin) {
     fin = true;
     
-    var i = 0;
-    while(i < nb-1){
+    for(i <- 0 to n-2) {
       if(getValue(i) > getValue(i+1)){
         swap(i,i+1);
         fin = false;
       }
-      i = i+1;
     }
     
-    var j = nb;
-    while(j > 1){
-      if(getValue(j) < getValue(j-1)){
-        swap(j, j-1);
+    for(i <- n-2 to 0){
+      if(getValue(i) > getValue(i+1)){
+        swap(j, j+1);
         fin = false;
       }
-      j = j + 1;
     }
-  }
+  }  
   
 }
