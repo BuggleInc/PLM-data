@@ -1,9 +1,11 @@
 def cocktailSort2() {
-
+	var m=0
+  var n=2
   var sorted=false
-  while (sorted!=true){ 
+  while (m!=getNombreValeurs()){ 
+    m=m+1
     sorted = true
-    for (i<-0 to getNombreValeurs()-2){
+    for (i<-0 to getNombreValeurs()-n){
 
       if (!plusPetit(i,i+1)){
         sorted=false
@@ -11,7 +13,7 @@ def cocktailSort2() {
       }
 
     }
-    for (i<- getNombreValeurs()-2 to 0 by -1){
+    for (i<- getNombreValeurs()-n to 0 by -1){
 
       if (!plusPetit(i,i+1)){
         sorted=false
@@ -19,6 +21,7 @@ def cocktailSort2() {
       }
 
     }
+    n=n+1
   }
 
 
