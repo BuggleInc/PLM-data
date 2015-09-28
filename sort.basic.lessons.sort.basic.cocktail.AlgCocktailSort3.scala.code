@@ -1,0 +1,33 @@
+def cocktailSort() {
+  var n = getNombreValeurs()
+  var endup = true
+  var enddown = true
+  var tour = 0
+	
+  var debut = 0
+  var fin = n
+  
+  while(endup && enddown)
+  {
+    endup = false
+    enddown = false
+    for(i<- debut to fin-2)
+    {
+      if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        endup = true
+      }
+    }
+    fin = fin-1
+    for(k<- fin-2 to debut by -1)
+    {
+      if (!plusPetit(k,k+1))
+      {
+        echange(k,k+1)
+        enddown = true
+      }  
+    }
+    debut = debut+1
+  }
+}
