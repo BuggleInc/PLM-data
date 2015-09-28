@@ -1,7 +1,8 @@
 def cocktailSort2() {
   var a=true;
   var c=getValueCount()-2
-  while(c>1){
+  var cmin = 0
+  while(c-cmin>1){
   	a=false;
   	for (i<- 0 to c){
     	if (isSmaller(i+1, i)){
@@ -10,12 +11,12 @@ def cocktailSort2() {
     	}
     }
     c-=1
-    for (i<- 0 to c){
+    for (i<- 0 to c-cmin){
       if (isSmaller(c-i+1, c-i)){
         swap(c-i, c-i+1);
         a=true
       }
     }
-    c-=1
+    cmin+=1
   }
 }
