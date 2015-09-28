@@ -1,9 +1,9 @@
 def cocktailSort3() {
-	var m=0
+  var m=0
   var n=2
   var sorted=false
   while (sorted!=true){ 
-    
+
     sorted = true
     for (i<-m to getNombreValeurs()-n){
 
@@ -14,15 +14,17 @@ def cocktailSort3() {
 
     }
     n=n+1
-    for (i<- getNombreValeurs()-n to m by -1){
+    if (sorted=true){
+      for (i<- getNombreValeurs()-n to m by -1){
 
-      if (!plusPetit(i,i+1)){
-        sorted=false
-        echange(i,i+1)
+        if (!plusPetit(i,i+1)){
+          sorted=false
+          echange(i,i+1)
+        }
+
       }
-
     }
-    
+
     m=m+1
   }
 
