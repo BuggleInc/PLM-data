@@ -1,0 +1,25 @@
+def cocktailSort2() {
+  
+  var swapped1:Boolean = true
+  var swapped2:Boolean = true
+  while (swapped1 || swapped2) {
+    swapped1 = false
+    swapped2 = false
+    for (i <- 0 to getNombreValeurs()-2) {
+      
+     if (plusPetit(i, i+1) == false) {
+       
+       echange(i, i+1)
+       swapped1 = true      
+     }  
+    }
+    for (j <- getNombreValeurs()-2 to 0 by -1) {
+      
+      if (plusPetit(j, j+1) == false) {
+        
+        echange(j, j+1)
+        swapped2 = true  
+      }  
+    } 
+  } 
+}
