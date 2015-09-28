@@ -1,0 +1,18 @@
+def cocktailSort() {
+  var trie = false
+  while(!trie){
+  	trie = true
+    for (i <- 0 to getNombreValeurs()-2){
+      if (! plusPetit(i,i+1)) {
+        echange(i,i+1)
+        trie = false
+      }
+    }
+    if (trie) return
+    for (i <- getNombreValeurs()-2 to 0 by -1 ){
+      if (! plusPetit(i,i+1)) {
+        echange(i,i+1)
+        trie = false
+      }
+    }
+}
