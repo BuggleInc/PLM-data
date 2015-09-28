@@ -1,0 +1,37 @@
+def cocktailSort3() 
+{
+  var taille = getNombreValeurs()
+  var permute = true
+  var debut = 0
+  var fin = taille-1
+  do 
+  {
+    permute = false
+    for (i<-debut to fin-1)
+    {
+      if (!plusPetit(i,i+1)) 
+      {
+        echange(i,i+1)
+        permute = true
+      }
+    }
+    if (!permute) 
+    {
+      return
+    }
+    fin-=1
+    for (i<-fin to debut+1 by -1)
+    {
+      if (!plusPetit(i-1,i)) 
+      {
+        echange(i,i-1)
+        permute = true
+      }
+    }
+    if (!permute) 
+    {
+      return
+    }
+    debut+=1
+  } while (permute)
+}
