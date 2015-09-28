@@ -1,0 +1,22 @@
+override def run() {
+  for (j <- 1 to getMondeHauteur()) {
+    recopiage()
+    avance()
+  }
+  avance(getMondeHauteur()-1)
+  gauche()
+  avance(getMondeHauteur()-1)
+  droite()
+}
+def recopiage() {
+  var c:Color = getCouleurSol()
+  for (i <- 1 to getMondeLargeur()) {
+    setCouleurBrosse(c)
+    gauche()
+    avance()
+    droite()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+  }
+} 

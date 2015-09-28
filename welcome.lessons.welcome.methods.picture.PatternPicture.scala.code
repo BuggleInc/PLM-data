@@ -1,0 +1,65 @@
+override def run() {
+  motif()
+  avance(4)
+  motif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  motif()
+  avance(4)
+  motif()
+}
+
+def motif() {
+  fairem(Color.RED)
+  avance(2)
+  gauche()
+  avance(2)
+  droite()
+  fairem(Color.GREEN)
+  
+  recule(2)
+  gauche()
+  avance(1)
+  droite()
+  fairen(Color.YELLOW)
+  avance(2)
+  droite()
+  avance(2)
+  gauche()
+  fairen(Color.BLUE)
+  
+  recule(2)
+  droite()
+  avance()
+  gauche()
+}
+
+def fairem(c:Color) {
+  gauche()
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+}
+
+def fairen(c:Color) {
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  gauche()
+}

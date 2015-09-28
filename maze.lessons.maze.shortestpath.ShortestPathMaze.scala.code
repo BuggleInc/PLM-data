@@ -1,0 +1,96 @@
+override def run() {
+  var xB = 0
+  var yB = 0
+  for (x<-0 to getMondeLargeur()-1) {
+    for (y<-0 to getMondeHauteur()-1) {
+      if (aBiscuit(x,y)) {
+        xB=x
+        yB=y
+      }
+    }
+  }
+  setIndication(xB,yB,0)
+  remplir(xB,yB)
+  //while(!estSurBiscuit()) {
+    //setDirection(meilleurDirection(getX(),getY()))
+    //avance()
+  //}
+  //prendBiscuit()
+}
+
+def min(a:Int,b:Int):Int = {
+  if (a>=b) {
+    return a
+  }
+  else {
+    return b
+  }
+}
+
+def remplir(x:Int,y:Int) {
+  if(!aMurNord(x,y) && y-1>=0) {
+    setIndication(x,y-1,min(getIndication(x,y-1),getIndication(x,y)+1))
+    //remplir(x,y-1)
+  }
+  if(!aMurOuest(x,y) && x-1>=0) {
+    setIndication(x-1,y,min(getIndication(x-1,y),getIndication(x,y)+1))
+    //remplir(x-1,y)
+  }
+  if(!aMurNord(x,y+1) && y+1<getMondeHauteur()) {
+    setIndication(x,y+1,min(getIndication(x,y+1),getIndication(x,y)+1))
+    //remplir(x,y+1)
+  }
+  if(!aMurOuest(x+1,y) && x+1<getMondeLargeur()) {
+    setIndication(x+1,y,min(getIndication(x+1,y),getIndication(x,y)+1))
+    //remplir(x+1,y)
+  }
+}
+
+def meilleurDirection(x:Int,y:Int):Direction = {
+  var n:Int = 9999
+  var o:Int = 9999
+  var e:Int = 9999
+  var s:Int = 9999
+	var d:Direction = getDirection()
+  setDirection(Direction.NORD)
+  if (!estFaceMur() && y-1>=0) {
+    n=getIndication(x,y-1)
+  }
+  setDirection(Direction.SUD)
+  if (!estFaceMur() && y+1<getMondeHauteur()) {
+    s=getIndication(x,y+1)
+  }
+  setDirection(Direction.EST)
+  if (!estFaceMur() && x-1>=0) {
+    e=getIndication(x-1,y)
+  }
+  setDirection(Direction.OUEST)
+  if (!estFaceMur() && x+1<getMondeLargeur()) {
+    o=getIndication(x+1,y)
+  }
+  setDirection(d)
+  return min4(n,o,e,s)
+}
+
+def min4(n:Int,o:Int,e:Int,s:Int):Direction = {
+  var min = n
+  if (o<min) {
+    min = o
+  }
+  if (e<min) {
+    min = e
+  }
+  if (s<min) {
+    min = s
+  }
+  if (min==n) {
+    return Direction.NORD
+  }
+  if (min==s) {
+    return Direction.SUD
+  }
+  if (min==o) {
+    return Direction.OUEST
+  }
+  return Direction.EST
+}

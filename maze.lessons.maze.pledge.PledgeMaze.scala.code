@@ -1,0 +1,74 @@
+override def run() {
+  var nbVir:Int = 0
+  vaToutDroit()
+  while (!murADroite()) {
+    gauche()
+  }
+  while (!estSurBiscuit()) {
+    do {
+    	nbVir += keepHandOnSideWall()
+  } while (nbVir%4!=0)
+    vaToutDroit()
+	}
+  prendBiscuit()
+}
+  
+def keepHandOnSideWall():Int = {
+  var nbVir:Int = 0
+  if (estFaceMur()) {
+    gauche()
+    nbVir+=1
+  }
+  else {
+    avance()
+    if (!murADroite()) {
+      droite()
+      nbVir-=1
+      avance()
+      if (!murADroite()) {
+        droite()
+        nbVir-=1
+        avance()
+      }
+    }
+  }
+  return nbVir
+}
+
+def murADroite():Boolean = {
+  droite()
+  if (estFaceMur()) {
+    gauche()
+    return true
+  }
+  else {
+    gauche()
+    return false
+  }
+}
+
+def goNorth() {
+  while (getY()!=0) {
+    if (estFaceMur()) {
+      if (murADroite()) {
+        gauche()
+        avance()
+        droite()
+      }
+      else {
+        droite()
+        avance()
+        gauche()
+      }
+    }
+    else {
+      avance()
+    }
+  }
+}
+
+def vaToutDroit() {
+  while (!estFaceMur()) {
+    avance()
+  }
+}

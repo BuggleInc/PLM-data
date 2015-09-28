@@ -1,0 +1,58 @@
+override def run() {
+  goNorth()
+  droite()
+  while (!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall() {
+  if (estFaceMur()) {
+    gauche()
+  }
+  else {
+    avance()
+    if (!murADroite()) {
+      droite()
+      avance()
+      if (!murADroite()) {
+        droite()
+        avance()
+      }
+    }
+  }
+}
+
+def murADroite():Boolean = {
+  droite()
+  if (estFaceMur()) {
+    gauche()
+    return true
+  }
+  else {
+    gauche()
+    return false
+  }
+}
+
+def goNorth() {
+  while (getY()!=0) {
+    if (estFaceMur()) {
+      if (murADroite()) {
+        gauche()
+        avance()
+        droite()
+      }
+      else {
+        droite()
+        avance()
+        gauche()
+      }
+    }
+    else {
+      avance()
+    }
+  }
+}
+    

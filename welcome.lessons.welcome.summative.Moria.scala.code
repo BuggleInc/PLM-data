@@ -1,0 +1,24 @@
+var b:Boolean = true
+  droite()
+  droite()
+  while (b) {
+    if (estSurBiscuit()) {
+      prendBiscuit()
+      while(!estSurBiscuit()) {
+        recule()
+      }
+      avance()
+      poseBiscuit()
+      avance()
+    }
+    if (estFaceMur() && !estSurBiscuit()) {
+      b=false
+    }
+    if (!estFaceMur()) {
+      avance()
+    }
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
