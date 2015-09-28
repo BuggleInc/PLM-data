@@ -1,2 +1,25 @@
 def cocktailSort2() {
+  var debut = 0
+  var fin = getNombreValeurs()-2
+  var estTrie = false
+  while (!estTrie){
+    var compt= 0
+    for (k<-debut to fin){
+      if (!plusPetit(k,k+1)){
+        echange(k,k+1)
+        compt=compt+1
+      }
+      fin = fin - 1
+    }
+    for (k<-fin to debut by -1){
+      if (!plusPetit(k,k+1)){
+        echange(k,k+1)
+        compt=compt+1
+      }
+      debut = debut +1
+    }
+    if (compt==0){
+      estTrie=true
+    }
+  }
 }
