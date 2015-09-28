@@ -1,0 +1,29 @@
+def cocktailSort3() {
+  
+  var n = getValueCount();
+  var fin = false;
+  var beg = 0;
+  var end = n-2;
+  while(!fin) {
+    fin = true;
+    
+    for(i <- beg to end) {
+      if(getValue(i) > getValue(i+1)){
+        swap(i,i+1);
+        fin = false;
+      }
+    }
+    end -= 1;
+    if(fin = true){
+      return;
+    }
+    
+    for(i <- end to beg by -1){
+      if(getValue(i) > getValue(i+1)){
+        swap(i , i+1);
+        fin = false;
+      }
+    }
+    beg += 1;
+  }  
+}
