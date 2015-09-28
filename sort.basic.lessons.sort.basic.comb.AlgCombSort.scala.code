@@ -3,17 +3,22 @@ var lgr = getNombreValeurs()
 var ecart = lgr
 var est_triee = false
 while (ecart > 1 && !est_triee){
+  
   if(ecart >1){
   	ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
   }
+  
   var i=0
+  
   while (i+ecart < lgr ){
     est_triee = true
+   
     if (plusPetitQue(i+ecart,ecart)){
       echange(i+ecart,ecart)
       est_triee = false
-    	}
+    }
+    
     i=i+1
-  	}
+  }
 	}
 }
