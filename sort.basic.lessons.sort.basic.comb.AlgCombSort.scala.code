@@ -1,0 +1,29 @@
+def combSort()
+{
+  var sortie:Boolean = false
+  var ecart:Int = getNombreValeurs()
+  
+  do
+  {
+    sortie = true
+    
+    if(ecart>1)
+    {
+      ecart = ecart/1.3
+    }
+    
+    i=0
+    
+    while(i+ecart < getNombreValeurs())
+    {
+      if(PlusPetitQue(i,i+ecart))
+      {
+        echange(i,i+ecart)
+        sortie = false
+      }
+      
+      i=i+1
+    }
+    
+  }while((ecart>1)||(!sortie))
+}
