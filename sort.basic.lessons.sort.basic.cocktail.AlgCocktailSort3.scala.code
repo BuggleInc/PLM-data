@@ -1,0 +1,37 @@
+def cocktailSort2() {
+    var taille = getNombreValeurs()
+  var parcours_gauche = true
+  var parcours_droite = true
+  var deb = 0
+  while(parcours_gauche || parcours_droite)
+  	{parcours_droite = false
+      for (i <-1+deb to taille-1)
+      	{
+          if(getValeur(i)<getValeur(i-1))
+          	{
+              echange(i,i-1)
+              parcours_droite = true
+            }
+          if (!parcours_droite)
+          {
+            return
+          }
+        }
+     taille = taille - 1
+    		
+      for(i<-taille-1 to 1+deb by -1)
+      	{
+          if(getValeur(i)<getValeur(i-1))
+          {
+              echange(i,i-1)
+            parcours_gauche = true
+            }
+      
+        }
+     			if(!parcours_gauche)
+     			{
+            return
+          }
+      deb +=1
+    }
+}
