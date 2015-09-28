@@ -4,14 +4,14 @@ def cocktailSort() {
 	var swapped = false
   
   do
-  {
-    swapped = false    
+  { 
+    swapped = true
     for( i <- 0 to n-2)
     {
       if (!isSmaller(i,i+1))
       {
         swap(i,i+1);
-        swapped = true;        
+        swapped = false;        
       }
     }
       
@@ -20,9 +20,11 @@ def cocktailSort() {
       if (!isSmaller(i,i-1))
       {
         swap(i,i-1);
-        swapped = true;        
+        swapped = false;        
       }
     }
-  }while(swapped)
+    
+    
+  }while(!swapped)
 
 }
