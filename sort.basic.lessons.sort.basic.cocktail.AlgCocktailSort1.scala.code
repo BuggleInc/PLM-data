@@ -6,14 +6,12 @@ def cocktailSort()
   
   while(!sortie)
   {
-    sortie = true
     
     for(i <- 0 to getNombreValeurs()-2-compteur)
     {
       if(plusPetit(i+1,i))
       {
         echange(i,i+1)
-        sortie = false
       }
     }
     
@@ -24,10 +22,14 @@ def cocktailSort()
       if(plusPetit(m+1,m))
       {
         echange(m,m+1)
-        sortie = false
       }
     }
     
-    compteur = compteur + 1    
+    compteur = compteur + 1
+    
+    if(compteur == getNombreValeurs()-1)
+    {
+      sortie = true
+    }
   }
 }
