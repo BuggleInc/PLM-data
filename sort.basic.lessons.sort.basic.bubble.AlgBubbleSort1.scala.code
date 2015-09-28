@@ -1,13 +1,19 @@
 def bubbleSort()  {
   
-  for(i<- 0 to getNombreValeurs()-1)
+  var test=false;
+  var i=0;
+  while(!test && i< getNombreValeurs())
   {
+    test=false; 
     for(j<-0 to getNombreValeurs()-2-i)
     {
       if(plusPetit(j+1,j))
       {
         echange(j+1,j)
+        test=true;
       }
     }
+    i+=1;
+    
   }
 }
