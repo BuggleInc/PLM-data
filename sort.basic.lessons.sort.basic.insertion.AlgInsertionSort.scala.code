@@ -1,11 +1,14 @@
 def insertionSort() {
   var position:Int = 0
   var indexSorted:Int = 0
-  while(position != getValueCount() - 1){
-    while(position != 0 && getValue(position - 1) < getValue(position))
+  var v:Int = 0
+  for(i <- 1 to getValueCount() - 1){
+    v = getValue(i)
+    position = i
+    while(getValue(position - 1) > getValue(position)){
+    	copy(position - 1, position)
       position -= 1
-    swap(position, indexSorted)
-    indexSorted += 1
-    position = indexSorted
+    }
+    setValue(position, v)
   }
 }
