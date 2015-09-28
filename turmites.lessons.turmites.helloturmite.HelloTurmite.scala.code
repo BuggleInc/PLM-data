@@ -1,0 +1,32 @@
+var state = 0;
+val GAUCHE = 2;
+val DROITE = 8;
+val NOMOVE = 0;
+val DEMI= 4;
+val PASVIRAGE = 1;
+
+def setCouleurSol(couleur:Color) {
+  setCouleurBrosse(couleur);
+  baisseBrosse();
+  leveBrosse()
+}
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var j =0
+  for (i<- 0 to colors.length-1) {
+    if (getCouleurSol() == colors(i)) {
+      j = i;
+    }
+  }
+  var x=rule(state)(j)(0)
+  var y=rule(state)(j)(1)
+  var z=rule(state)(j)(2)
+  (x,y,z) match {
+    case (_,GAUCHE,_) => setCouleurSol(colors(x)) ; gauche(); avance(); state=z
+    case (_,DROITE,_) => setCouleurSol(colors(x)) ; droite(); avance(); state=z
+    case (_,NOMOVE,_) => setCouleurSol(colors(x)) ; state= z
+    case (_,DEMI,_) => setCouleurSol(colors(x)) ; gauche(); gauche(); avance() ;state=z
+    case (_,PASVIRAGE,_)=> setCouleurSol(colors(x)) ; avance(); state = z
+  }
+    
+}
