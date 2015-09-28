@@ -1,4 +1,28 @@
+def deplacerCase(i:Int):Boolean =
+{
+  if (plusPetit(i, i + 1))
+  {
+    echange(i, i + 1)
+    return true
+  }
+  
+  return false
+}
+
 def bubbleSort()
 {
+  var i = getNombreValeurs() - 1
   
+  while (i >= 0)
+  {
+    var ancienI = i
+    
+    while(deplacerCase(i) && i < getNombreValeurs() - 1)
+    	i += 1
+    
+    if (i == ancienI)
+    	i -= 1
+    else
+    	i = ancienI
+  }
 }
