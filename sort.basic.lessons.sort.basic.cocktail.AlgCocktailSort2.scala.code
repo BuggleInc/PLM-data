@@ -1,2 +1,23 @@
 def cocktailSort2() {
+  var inverse:Boolean = false
+  var fini:Boolean = false
+  var deb:Int =0
+  var fin:Int =0
+  while (fini!=true){
+    fini=true
+    for (i<- deb to getNombreValeurs()-2-fin){
+      if (plusPetit(i+1,i)==true){
+        echange(i,i+1)
+        fini=false
+      }
+    }
+    fin-=1
+    for (j<- getNombreValeurs()-2-fin to deb by -1){
+      if (plusPetit(j+1,j)==true){
+        echange(j,j+1)
+        fini=false
+      }
+    }
+    deb-=1
+  }
 }
