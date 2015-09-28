@@ -1,9 +1,13 @@
 def gnomeSort() {
-  var pos:Int = 1
+  var pos:Int = 0
   while (pos < getNombreValeurs()-1) {
     if (getValeur(pos)>getValeur(pos+1)) {
       echange(pos,pos+1)
-      pos -= 1
+      if (pos > 0) {
+        pos -= 1
+      } else {
+        pos += 1
+      }
     } else {
       pos += 1
     }
