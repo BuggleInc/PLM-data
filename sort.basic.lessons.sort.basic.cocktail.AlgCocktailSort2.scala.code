@@ -1,0 +1,27 @@
+def cocktailSort2() {
+  var echangeCount:Int = -1
+  var d:Int = 0
+  var f:Int = getNombreValeurs() - 2
+  
+  while (echangeCount != 0) {
+    echangeCount = 0
+    
+    for (i <- d to f) {
+      if (plusPetit(i + 1, i)) {
+        echange(i + 1, i)
+        echangeCount += 1
+      }
+    }
+
+    f -= 1
+
+    for (i <- d to f) {
+      if (plusPetit(i + 1, i)) {
+        echange(i + 1, i)
+        echangeCount += 1
+      }
+    }
+
+    d += 1
+  }
+}
