@@ -2,8 +2,37 @@ def cocktailSort2() {
   var n = getNombreValeurs()
   var end = true
   var tour = 0
+	
+  var debut = 0
+  var fin = n
   
-  while(end)
+  while(!end)
+  {
+    end = false
+    for(i<- debut to fin)
+    {
+      if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        end = true
+      }
+    }
+    fin -= 1
+    for(i<- debut to fin)
+    {
+      j = n - i
+      if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        end = true
+      }  
+    }
+    debut += 1
+  }
+}
+
+/*
+while(end)
   {
     end = false
     for(i<- 0+tour to n-2-tour)
@@ -25,4 +54,4 @@ def cocktailSort2() {
     }
     tour = tour + 1
   }
-}
+*/
