@@ -1,8 +1,11 @@
 override def run() {
   while (getY != 0) {
-	  headNorth()
-    keepWallOnRight()
+    if (isDirectionFree(Direction.NORTH)) {
+	  	headNorth()
+    	keepWallOnRight()
+    }
   }
+  
   while(! isOverBaggle())
   	keepWallOnRight()
   
@@ -38,4 +41,13 @@ def headNorth() {
   while (! isFacingWall()) {
     forward()
   }
+}
+
+def isDirectionFree(dir:Direction):Boolean = {
+  var originalDirection = getDirection();
+  setDirection(dir);
+  var free = isFacingWall();
+  setDirection(originalDirection);
+  
+  return free
 }
