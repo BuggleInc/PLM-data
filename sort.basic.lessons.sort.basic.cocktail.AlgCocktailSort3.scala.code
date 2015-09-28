@@ -1,0 +1,30 @@
+def cocktailSort3() {
+  
+  var swapped= false
+  var c:Int=getValueCount()-2
+  var beg:Int=0
+  do {
+    swapped=false;
+    for (i<-beg to c){
+      if (!isSmaller(i,i+1)) {
+        swap(i,i+1);
+        swapped= true      
+      }      
+    }
+    if (!swapped) {return {}}
+    c-=1
+    for (i<-c to beg by (-1)){
+       if (!isSmaller(i,i+1)) {
+      swap(i+1,i)
+      swapped= true      
+      }
+    }
+    if (!swapped) {return {}}
+    beg+=1
+    
+    
+    
+    
+  }while (swapped);
+  
+}
