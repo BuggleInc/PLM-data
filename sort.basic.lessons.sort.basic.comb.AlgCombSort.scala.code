@@ -1,12 +1,28 @@
 def combSort() 
 {
+  var taille = getNombreValeurs()
   var ecart = getNombreValeurs()
+  var permute = true
   do 
-  {
+  { 
+    if (ecart>1)
+    {
+      ecart=ecart/1.3
+    }
+    var i = 0
+    while (i+ecart<taille) 
+    {
+      permute = false
+      if (plusPetit(i,i+ecart)) 
+      {
+        echange(i,i+ecart)
+        permute = true
+      }
+      i+=1
+    }
     
     
-    
-  } while (false)
+  } while (ecart>1 || permute)
   
   
   
