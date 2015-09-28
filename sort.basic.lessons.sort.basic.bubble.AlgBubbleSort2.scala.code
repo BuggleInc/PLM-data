@@ -1,9 +1,14 @@
 def bubbleSort2() {
-  for (i <- 1 to getNombreValeurs()-5){
-    for (i <- 0 to getNombreValeurs()-2){
+  var tri = 0
+  var n = 2
+  while(tri == 0){
+    tri = 1
+    for (i <- 0 to getNombreValeurs() - n){
       if(plusPetit(i+1:Int,i:Int)){
         echange(i:Int,i+1:Int)
+        tri = 0
       }
     }
+    n = n+1
   }
 }
