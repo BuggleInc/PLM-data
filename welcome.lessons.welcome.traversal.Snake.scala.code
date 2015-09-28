@@ -1,0 +1,35 @@
+override def run() {
+  var fini : Boolean =false
+  while (fini==false){
+    while(estFaceMur==false){
+      avance()
+    }
+    if (getDirection==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }
+    else{
+      gauche()
+      avance()
+      gauche()
+    }
+  }
+    
+  
+  if (getDirection==Direction.EST){
+      gauche()
+      if(estFaceMur==true){
+        fini==true
+      }
+
+    }
+     if (getDirection==Direction.OUEST){
+      droite()
+      if(estFaceMur==true){
+        fini==true
+      }
+
+    }
+  
+}
