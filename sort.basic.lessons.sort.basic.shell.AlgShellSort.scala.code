@@ -1,2 +1,39 @@
 def shellSort()  {
+  
+  
+  
+  var nbVal = getNombreValeurs()
+
+  var ecart= nbVal/2
+  
+  while(ecart>0){
+      for(i<-ecart to nbVal-1 by 1){
+      var copier = true
+
+      var tmp = getValeur(i)
+
+      var n=1
+
+      while((copier)&&(i-n*ecart>=0)){
+      //  println("i-n-1 : "+(i-(n+1))+"	i:"+i+"	n:"+n)
+        if(!plusPetitQue(i-n*ecart,tmp)){
+          copie(i-n*ecart,i-n*ecart+1)
+          n+=1
+        }else{
+          copier=false
+        }
+      }
+
+      setValeur(i-n*ecart+1,tmp)  
+    }
+		ecart=ecart/2
+  }
+  
+  
 }
+
+
+
+
+
+  
