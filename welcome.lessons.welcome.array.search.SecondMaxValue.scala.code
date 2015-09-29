@@ -1,20 +1,21 @@
 def max2Value(nums:Array[Int]): Int = {
-  var max:Int=nums(0)
-  var max2:Int=nums(0)
-  var max_inter=nums(0)
-  for (i<- 1 to nums.length-1){
+  var max:Int= nums(0)
+  for (i<-1 to nums.length-1){
     if (max<nums(i)){
-      max=nums(i)
-    }
-    else if (max2<nums(i)){
-      if (max2<max){
-        max2=nums(i)
-        max2=max_inter
-      }else{
-        max2=max_inter
+      if (max<maxValue(nums)){
+        max=nums(i)
       }
-    }else{
-      return
     }
   }
+}
+  
+  
+def maxValue(nums:Array[Int]): Int = {
+  var comparateur:Int=nums(0)
+  for (i<- 1 to nums.length-1){
+    if (comparateur<nums(i)){
+      comparateur=nums(i)
+    }
+  }
+  return comparateur
 }
