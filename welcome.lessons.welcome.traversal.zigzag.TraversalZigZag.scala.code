@@ -1,0 +1,27 @@
+def estPositionFinale() : Boolean = {
+  return getX()==getMondeLargeur()-1 & getY()==getMondeHauteur()-1
+}
+override def run() {
+  var compteur=0
+  var direction=1
+  ecritMessage(compteur.toString)
+  setPos(getX()+1,getY())
+  compteur+=1
+  while (!estPositionFinale()) {
+    ecritMessage(compteur.toString)
+    if (getX()==getMondeLargeur()-1) {
+      setPos(getX(),getY()+1)
+      compteur+=1
+      ecritMessage(compteur.toString)
+      direction-=2
+    }else if (getX()==0) {
+      setPos(getX(),getY()+1)
+      compteur+=1
+      ecritMessage(compteur.toString)
+      direction+=2
+    }
+    setPos(getX()+direction,getY())
+    compteur+=1
+    }
+   ecritMessage(compteur.toString)
+  }
