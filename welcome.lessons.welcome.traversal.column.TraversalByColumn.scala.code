@@ -1,6 +1,16 @@
-def positionFinale() : Boolean = {
-  return getX()==getMondeHauteur
+def estPositionFinale() : Boolean = {
+  return getX()==getMondeLargeur()-1 & getY()==getMondeHauteur()-1
 }
 override def run() {
-  setPos(2,3)
+  var compteur=0
+  while (!estPositionFinale()) {
+    ecritMessage(compteur.toString)
+    if (getY()<getMondeHauteur()-1) {
+      setPos(getX(),getY()+1)
+    }else{
+      setPos(getX()+1,0)
+    }
+    compteur+=1
+  }
+  ecritMessage(compteur.toString)
 }
