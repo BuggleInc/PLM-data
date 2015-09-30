@@ -1,2 +1,24 @@
+def fonctionTest() {
+ var bool = false
+ if (getDirection()==Direction.EST) {
+   gauche()
+   if (estFaceMur()) bool=true
+   droite()
+ }else if (getDirection()==Direction.OUEST) {
+   droite()
+   if (estFaceMur()) bool=true
+   gauche()
+ }
+  return estFaceMur() & bool
+}
+
 override def run() {
+  baisseBrosse()
+  while (!fonctionTest()) {
+     if (!estFaceMur()) {
+       avance()
+     }else{
+       gauche();avance();gauche()
+     }
+   }
 }
