@@ -1,0 +1,20 @@
+var diag = 0;
+
+def estPositionFinale() : Boolean = {
+  return getX()==getMondeLargeur()-1 & getY()==getMondeHauteur()-1
+}
+
+override def run() {
+  var compteur = 0
+  while (!estPositionFinale()) {
+    ecritMessage(compteur.toString)
+    if (estFaceMur()) {
+      diag+=1
+      setPos(0,diag)
+    }else {
+      setPos(getX()+1,getY()+1)
+    }
+   compteur+=1 
+  }
+  ecritMessage(compteur.toString)
+}
