@@ -9,7 +9,7 @@ def fonctionTest() {
    if (estFaceMur()) bool=true
    gauche()
  }
-  return estFaceMur() & bool
+  return (estFaceMur() & bool)
 }
 
 override def run() {
@@ -17,8 +17,10 @@ override def run() {
   while (!fonctionTest()) {
      if (!estFaceMur()) {
        avance()
-     }else{
+     }else if (getDirection()==Direction.EST) {
        gauche();avance();gauche()
+     }else{
+       droite();avance()droite()
      }
    }
 }
