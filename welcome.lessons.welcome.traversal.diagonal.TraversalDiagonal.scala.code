@@ -6,13 +6,15 @@ def estPositionFinale() : Boolean = {
 
 override def run() {
   var compteur = 0
+  var top = 1
   while (!estPositionFinale()) {
     ecritMessage(compteur.toString)
+    if (diag==6) top-=2
     if (estFaceMur()) {
-      diag+=1
+      diag+=top
       setPos(0,diag)
     }else {
-      setPos(getX()+1,getY()+1)
+      setPos(getX()+1,getY()-1)
     }
    compteur+=1 
   }
