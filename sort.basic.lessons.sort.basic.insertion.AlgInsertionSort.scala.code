@@ -6,18 +6,18 @@ def insertionSort() {
  	for(i <- 1 to len-1){
     
     var v = getValue(i);
-    
-    for(j <- i-1 to 1 by -1){
-      
-      if(v < j){
-        copy(j, j+1);
+   
+    var j = i;
+    var fin = false;
+    while(j > 0 && !fin){
+      if( getValue(j-1) > getValue(j)){
+        copy(j-1, j);
       }
-      else{
-        setValue(j,v);
+      else {
+        setValue(j, v);
+        fin = true;
       }
     }
-    
-    
     
   } 
   
