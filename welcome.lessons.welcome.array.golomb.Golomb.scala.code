@@ -1,0 +1,17 @@
+def golomb(num:Int): Int = {
+  var cpt = 0
+  var som = 0
+  if(num==1)
+  	return 1
+  else if(num==2 || num==3)
+  	return 2
+  else
+  {
+    while(som<num)
+    {
+      cpt = cpt+1
+      som = som + golomb(cpt)
+    }
+    return cpt
+  }
+}

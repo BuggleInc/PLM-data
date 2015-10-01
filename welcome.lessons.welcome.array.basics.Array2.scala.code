@@ -1,0 +1,55 @@
+override def run() {
+  
+  var C = new Array[Color](getMondeHauteur())
+  var i = 0
+  do 
+  {
+    C(i) = getCouleurSol()
+    i=i+1
+    avance()
+  } while(!estFaceMur())
+  C(i) = getCouleurSol()
+  
+  for(i<-1 to getMondeLargeur()-1)
+  {
+    init()
+    write(C)
+  }
+  
+  retourne()
+  while(!estFaceMur())
+  {
+    avance()
+  }
+  retourne()
+  
+}
+
+def paint() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def write(C:Array[Color]) = {
+  val dec = litMessage().toInt
+  setCouleurBrosse(C(dec))
+  paint()
+  for (i<-dec+1 to dec+getMondeLargeur()-1)
+  {
+    avance()
+    setCouleurBrosse(C(i%getMondeLargeur()))
+    paint()
+  }
+  paint()
+}
+
+def init() {
+  retourne()
+  while(!estFaceMur())
+  {
+    avance()
+  }
+  droite()
+  avance()
+  droite()
+}

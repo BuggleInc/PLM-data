@@ -1,0 +1,53 @@
+override def run() {
+  while(!testGauche())
+  	gauche()
+  while(!estSurBiscuit())
+  {
+		keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+
+def keepHandOnSideWall() {
+  var gauch = testGauche()
+  if(gauch && !estFaceMur)
+  	{
+      avance()
+    }
+  
+  else if(!gauch)
+  {
+    gauche()
+    avance()
+  }
+  else if(estFaceMur())
+  {
+    droite()
+  }
+}
+
+/*
+def keepHandOnSideWall() {
+  var gauch = testGauche()
+  if(gauch && !estFaceMur)
+  	{
+      avance()
+    }
+  else if(!gauch)
+  {
+    gauche()
+    avance()
+  }
+  else if(estFaceMur())
+  	droite()
+}
+*/
+
+def testGauche():Boolean = {
+  var test = false
+  gauche()
+  test = estFaceMur()
+  droite()
+  return test
+}

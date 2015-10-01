@@ -1,0 +1,44 @@
+var state = 0
+var color:Color = Color.white
+var nbcolor = 0
+
+val stop = 0
+val novirage = 1
+val gauch = 2
+val demi = 4
+val droit = 8
+
+var newcolor = 0
+var mvt = 0
+
+var useless = 0
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+	color = getCouleurSol()
+  for(i<-0 to colors.length-1)
+  {
+    if(colors(i)==color)
+    	nbcolor = i
+  }
+  paint(colors(rule(state)(nbcolor)(0)))
+  
+  mvt = rule(state)(nbcolor)(1)
+  mvt match {
+    
+    case `novirage` => avance()
+    case `gauch` => gauche()
+    case `demi` => retourne()
+    case `droit` => droite()
+    case `stop` => useless=0
+    case _ => useless = 0
+  }
+  
+  state = rule(state)(nbcolor)(2)
+  
+}
+
+def paint(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}

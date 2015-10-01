@@ -1,0 +1,60 @@
+override def run() 
+{
+	def paint()
+  {
+    baisseBrosse()
+    leveBrosse()
+  }
+
+  def faireV()
+  {
+    avance()
+    avance()
+    paint()
+    avance()
+    gauche()
+    avance()
+    paint()
+    recule()
+    droite()
+    avance()
+    paint()
+    avance()
+    avance()
+    gauche()
+  }
+	
+  def faireMotif()
+  {
+    for (i<-1 to 4)
+    {
+      faireV
+    }
+	}
+  
+  def pos()
+  {
+    for (p <- 1 to 7)
+      {
+        avance()
+      }
+  }
+  
+  def faireLigne()
+  {
+    for (i <- 1 to 9)
+    {
+      faireMotif()
+      pos()
+    }
+  }
+  
+  for (a <- 1 to 9)
+  {
+    faireLigne()
+    gauche()
+    pos()
+    droite()
+  }
+      
+}
