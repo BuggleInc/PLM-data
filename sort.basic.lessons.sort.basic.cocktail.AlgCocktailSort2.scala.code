@@ -1,24 +1,24 @@
-def cocktailSort2() {
- var lgr=getNombreValeurs()
- var Inverse=false
- var debut=0
- var fin= lgr-2
-  while (Inverse==false) {
-    Inverse=true
-  for (i<-debut to fin) {
-  if (!plusPetit(i, i+1)) {
-    echange (i,i+1)
-    fin= fin-1
-    Inverse=false
-  }
-  }
-    for (i<-debut to fin) {
-      if (!plusPetit(lgr-i-2,lgr-i-2+1)) {
-        echange (lgr-i-2,lgr-i-2+1)
-        debut=debut+1
-        Inverse=false
-        
+def cocktailSort2(){
+  var test = 1
+  var lgr = getNombreValeurs()
+  var debut = 0
+  var fin = lgr-2
+  
+  while (test!=0){
+    test = 0
+    for (i <- debut to fin){
+      if (!plusPetit(i,i+1)){
+        echange(i,i+1)
+        fin -= 1
+        test = 1
       }
     }
-}
+    for (i <- debut to fin by -1){
+      if (!plusPetit(i,i+1)){
+        echange(i,i+1)
+        debut += 1
+        test = 1
+      }
+    }
+  }
 }
