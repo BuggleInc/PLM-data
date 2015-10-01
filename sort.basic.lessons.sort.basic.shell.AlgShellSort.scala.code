@@ -1,2 +1,20 @@
-def shellSort()  {
+def ShellSort() {
+  var len = getValueCount();
+  var ecart = len/2;
+  
+  while(ecart > 1){
+   
+    for(i <- 1 to len-1) {
+      var diff = 1;
+      var v = getValue(i);
+
+      while(i - diff >= 0 && v < getValue(i - diff)) {
+        setValue(i-diff+1, getValue(i-diff));
+        diff = diff+1;
+      }
+
+      setValue(i-diff+1, v);
+    }   
+    ecart = ecart/2;
+  }
 }
