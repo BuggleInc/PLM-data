@@ -7,15 +7,22 @@ def insertionSort() {
     var placeTrouvee = false
     var bonnePlace = i
     var increment = 1
+    var posCurseur = i-increment
     
     while(!placeTrouvee){
-      var posCurseur = i-increment
+      
       var aComparer = getValeur(posCurseur)
       
       if (aComparer > stock){
         copie(posCurseur,posCurseur +1)
         increment +=1
       }else{
+        placeTrouvee = true
+        bonnePlace = posCurseur+1
+      }
+      
+      posCurseur = i-increment
+      if (posCurseur <0){
         placeTrouvee = true
         bonnePlace = posCurseur+1
       }
