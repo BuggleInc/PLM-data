@@ -1,15 +1,15 @@
 def insertionSort() 
 {
-  var taille = getNombreValeurs()
-  for (i <- 1 to taille-1)
+  var n = getNombreValeurs()
+  for (i <- 1 to n-1)
   {
-    var v = i
-    for (j <- 1 to i)
+    var x = getValeur(i)
+    var j = i
+    while (j>0 && getValeur(j-1)>x)
     {
-      if (!plusPetit(i-j,i-j-1))
-      {
-        echange(i-j,i-j-1)
-      }
+      echange(j,j-1)
+      j = j-1
     }
+   echange(j,i)
   }  
 }
