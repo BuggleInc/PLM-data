@@ -1,2 +1,31 @@
 def cocktailSort3() {
+  var debut = 0;
+  var fin = getNombreValeurs() -2;
+  var nbOpsAller = 1;
+  var nbOpsRetour = 1;
+  while (nbOpsAller + nbOpsRetour > 0) {
+    nbOpsAller = 0;
+  	nbOpsRetour = 0;
+    for (i<- debut to fin) {
+      if (plusPetit(i+1, i)) {
+        echange(i, i+1);
+        nbOpsAller += 1;
+      }
+    }
+    fin -= 1;
+    if (nbOpsAller == 0) {
+      return
+    } else {
+    	for (i<- fin to debut by -1) {
+      	if (plusPetit(i+1, i)) {
+        	echange(i, i+1);
+        	nbOpsRetour += 1;
+      	}
+      }
+      debut += 1;
+    }
+    if (nbOpsRetour == 0) {
+      return
+    }
+  }
 }
