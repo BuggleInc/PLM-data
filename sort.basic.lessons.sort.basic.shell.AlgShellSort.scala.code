@@ -5,18 +5,16 @@ def shellSort() {
   while (ecart>0){
     ecart=(ecart.toDouble / 2).toInt
     for (i<-1 to getNombreValeurs()-1){
-      if (i-k*ecart>=0){
-        v = getValeur(i-k*ecart)
-      }
+    	v = getValeur(i-k*ecart)
     	var j = i-(k+1)*ecart
       if (j>=0){
         while(!plusPetitQue(j,v)){
-      		copie(j,j+1)
-      		j-=1
+      	copie(j,j+1)
+      	j-=1
     		}
     		j+=1
     		setValeur(j,v)
-      	k+=1
+      k+=1
     	}
   	}
   }
