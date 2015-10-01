@@ -6,13 +6,15 @@ def insertionSort() {
   for (i <- 1 to (n-1)) {
     v = getValeur(i)
     j=i
-    while (j!=1) {
+    marqueur=false
+    while (j!=1)||(marqueur) {
        if (getValeur(j)>v) {
          copie(j-1,j)
          j=j-1
        } else {
          setValeur(j+1,v)
          j=1
+         marqueur=true
        }    
     }
   }
