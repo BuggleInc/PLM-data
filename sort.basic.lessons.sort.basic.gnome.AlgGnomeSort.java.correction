@@ -1,0 +1,29 @@
+$package 
+
+import plm.universe.sort.SortingEntity;
+
+public class AlgGnomeSort extends SortingEntity {
+
+	public void run() {
+		this.gnomeSort();
+	}
+
+	/* BEGIN TEMPLATE */
+	public void gnomeSort() {
+		/* BEGIN SOLUTION */
+		int i=0;
+		while (i<getValueCount()-1) {
+			if (isSmaller(i,i+1))
+				i++;
+			else {
+				swap(i,i+1);
+				i--;
+			}
+			if (i==-1)
+				i=1; 
+		}
+		/* END SOLUTION */
+	}
+	/* END TEMPLATE */
+
+}
