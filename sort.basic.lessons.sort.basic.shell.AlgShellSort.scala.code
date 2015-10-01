@@ -8,15 +8,24 @@ def insertionSort(e:Int) {
     v = getValeur(i)
     var b = false
     var j = i-e
-    while (j>= 0 && !b){if (getValeur(j) > v) {setValeur(j+e,getValeur(j));k = j} else {b = true};j-=e
+    while (j>= 0 && !b) {
+      if (getValeur(j) > v) {
+        setValeur(j+e,getValeur(j))
+        k = j
+      } 
+      else {
+        b = true
+      }
+      j-=e
   }
    setValeur(k,v)
-  }}
+  }
+}
 def shellSort()  {
   var ecart = getNombreValeurs()/2
   while (ecart > 0) {
     insertionSort(ecart)
-    ecart/=2
+    ecart=ecart/2
     
   }
 }
