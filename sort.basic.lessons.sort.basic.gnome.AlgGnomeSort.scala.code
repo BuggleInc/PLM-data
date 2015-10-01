@@ -3,14 +3,22 @@ def gnomeSort() {
   var avance = 0
   while (avance != taille-1)
   {
-    if (!plusPetit(avance,avance+1))
+    if (avance != 0)
     {
-      echange(avance,avance+1)
-      avance = avance-1
+      if (!plusPetit(avance,avance+1))
+      {
+        echange(avance,avance+1)
+        avance = avance-1
+      }
+      else
+      {
+        avance = avance + 1
+      }
+
     }
-    else
+    else 
     {
-      avance = avance + 1
+      avance = avance +1
     }
   }
 }
