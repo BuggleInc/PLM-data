@@ -1,5 +1,37 @@
 def solve() {
-  var lgr:Int = getTaille()
+  var taille:Int = getTaille()
+  var color:Color = getCouleur(0)
+  var apresBleu:Int = 0 // Entre 0 et apresBleu : que des bleus ;
+  var avantBlanc:Int = taille-1 // Entre avantBlanc et blancRouge : que des blancs ;
+  var blancRouge:Int = taille-1 // Apres blancRouge : que des rouges ;
+  // cellules non tri?es : entre apresBleu et avantBlanc.
+  // regardez la couleur de la case apresBleu et effectuez les ?changes.
+  // La boucle stop quand apresBleu > avantBlanc
+
+  while (apresBleu > avantBlanc) {
+    if (getCouleur(apresBleu)==Color.red) {
+      echange(apresBleu,avantBlanc)
+      avantBlanc-=1
+      blancRouge-=1
+    }
+    
+    if (getCouleur(apresBleu)==Color.white) {
+      echange(apresBleu,avantBlanc)
+      avantBlanc-=1
+    }
+    
+    for (k <- avantBlanc to apresBleu by -1) {
+       if (getCouleur(k)==Color.blue) {
+          echange(apresBleu,k)
+      }
+    }
+    
+  }
   
-  while (!estTrie())
 }
+
+/*
+echange(x,y) 
+getCouleur(ligne) : Int
+
+*/
