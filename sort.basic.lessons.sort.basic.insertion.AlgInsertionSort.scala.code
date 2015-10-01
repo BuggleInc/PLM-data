@@ -2,11 +2,14 @@ def insertionSort() {
   for(i<- 1 to getNombreValeurs()-1){
     val v = getValeur(i)
     var x = i
-    for(j<- i-1 to 0 by -1){
+    var y:Boolean = false
+    var j = i 
+    while(!y && j > 0){
       if(!plusPetitQue(j,v)){
         copie(j,j+1)
         x = j
       }
+      j -= 1
     }
     setValeur(x,v)
   }
