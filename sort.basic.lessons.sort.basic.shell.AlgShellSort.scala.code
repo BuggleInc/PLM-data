@@ -10,13 +10,37 @@ def shellSort()
     {
       var differenceCases = i
       var derniereCase = getValeur(i)
+      while (i - differenceCases >= 0 && getValeur(i - differenceCases) > derniereCase)
+      {
+        setValeur(i - differenceCases + ecart, getValeur(i - differenceCases))
+        differenceCases += ecart
+      }
+      
+      //if (i - (differenceCases - 1) * ecart >= 0)
+      	setValeur(i - differenceCases + ecart, derniereCase)
+    }
+  }
+}
+
+def shellSort2() 
+{
+  var ecart = getNombreValeurs()
+  
+  while (ecart > 0)
+  {
+    ecart /= 2
+    
+    for (i <- 1 to getNombreValeurs() - 1)
+    {
+      var differenceCases = 1
+      var derniereCase = getValeur(i)
       while (i - differenceCases * ecart >= 0 && getValeur(i - differenceCases * ecart) > derniereCase)
       {
         setValeur(i - (differenceCases - 1) * ecart, getValeur(i - differenceCases * ecart))
         differenceCases += 1
       }
       
-      if (i - (differenceCases - 1) * ecart >= 0)
+      //if (i - (differenceCases - 1) * ecart >= 0)
       	setValeur(i - (differenceCases - 1) * ecart, derniereCase)
     }
   }
