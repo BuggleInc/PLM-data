@@ -1,6 +1,7 @@
 def shellSort()  {
   val lgr:Int = getNombreValeurs()
   var ecart:Int = lgr/2
+  var cpt:Int = 0
   while (ecart>0) {
     for (i <- ecart to lgr-1) {
       var valeur:Int = getValeur(i)
@@ -8,6 +9,7 @@ def shellSort()  {
       while (k>ecart-1 && getValeur(k-ecart)>valeur) {
         copie(k-ecart,k)
         k -= ecart
+        cpt += 1
       }
       setValeur(k, valeur)
     }
