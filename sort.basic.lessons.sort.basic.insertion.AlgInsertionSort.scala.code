@@ -5,13 +5,12 @@ def insertionSort() {
   for (i <- 1 to L-1){
     var I = i-1
     v = getValeur(i)
-    while (plusPetit(i,I)) {
-      setValeur(i,getValeur(I))
-      cpt = cpt +1
+    while (plusPetit(i,I) && I>0) {
+      setValeur(I,getValeur(I+1))
       if (I!=0){
         I =I-1
       }
     }
-    setValeur(i-cpt,v)
+    setValeur(I,v)
   }
 }
