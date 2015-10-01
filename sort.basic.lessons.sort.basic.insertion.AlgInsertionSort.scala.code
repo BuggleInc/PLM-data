@@ -1,18 +1,17 @@
 def insertionSort() {
   var n = getNombreValeurs()
   var v = 8
-  var marqueur = false
   var j=0
   for (i <- 1 to (n-1)) {
     v = getValeur(i)
-    j=i
-    while (j!=1) {
-       if (getValeur(j-1)>v) {
-         copie(j-1,j)
+    j=i-1
+    while (j>=0) {
+       if (getValeur(j)>v) {
+         copie(j+1,j)
          j=j-1
        } else {
-         setValeur(j,v)
-         j=1
+         setValeur(j+1,v)
+         j=-5
        }    
     }
   }
