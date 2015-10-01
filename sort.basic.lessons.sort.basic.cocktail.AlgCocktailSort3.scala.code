@@ -1,2 +1,29 @@
 def cocktailSort3() {
+  var a = true
+  var b = true
+  var beg = 0
+  var end = getValueCount()-2
+  
+  while(a && b){
+    
+  a = false
+  b = false
+    
+  for (i <- beg to end){
+    if (isSmaller(i+1, i)){
+      swap(i+1, i)
+      a = true
+    }
+  }
+  end -= 1
+    
+  for (i <- end to beg by -1){
+    if (isSmaller(i+1, i)){
+      swap(i+1, i)
+      b = true
+    }
+  }
+  beg += 1
+    
+  }
 }
