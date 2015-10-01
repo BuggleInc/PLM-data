@@ -4,9 +4,11 @@ def insertionSort() {
   for (i<-1 to getNombreValeurs()-2){
     v = getValeur(i)
     j=i
-    while(!plusPetitQue(j-1,v)&&j>0){
+    while(j>0){
       j=j-1
-      copie(j,j+1)
+      if(!plusPetitQue(j,v)){
+        copie(j,j+1)
+      }
     }
     setValeur(j,v)
   }
