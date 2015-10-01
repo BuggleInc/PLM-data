@@ -8,10 +8,12 @@ def combSort() {
     var i=0
     inverse=false
     while(i+ecart<getNombreValeurs()){
-      i=i+ecart
-      inverse=true
-      i=i+1
+      if(!plusPetit(i,i+ecart)){
+        echange(i,i+ecart)
+      	inverse=true
     }
+    i=i+1
+  }
   }
   while(ecart > 1 || inverse == true)
-  }
+}
