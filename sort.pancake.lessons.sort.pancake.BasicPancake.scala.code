@@ -1,0 +1,16 @@
+def solve() {
+  for (i<-0 until getStackSize()){
+    if (getPancakeRadius(getStackSize()-i-1)!=getStackSize()-i-1){
+      var k = false;
+      var j=i;
+      while(k == false){
+        if (getPancakeRadius(getStackSize()-j-1)!=getStackSize()-i-1){
+          j+=1
+        } else {
+          k = true
+        }
+      }
+      flip (getStackSize()-j-1)
+    }
+  }
+}
