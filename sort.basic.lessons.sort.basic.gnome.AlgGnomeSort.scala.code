@@ -6,10 +6,11 @@ def gnomeSort() {
     if (position_gnome + 2 > n) {condition_limite = true}
     else {
     	(plusPetit(position_gnome + 2, position_gnome + 1))match{
-      	case true if (position_gnome == -1) => echange(position_gnome + 2, position_gnome + 1); position_gnome = position_gnome + 2
+      	case true if (position_gnome == -1) => echange(position_gnome + 2, position_gnome + 1); position_gnome = position_gnome + 1
       	case true => echange(position_gnome + 2, position_gnome + 1); position_gnome = position_gnome - 1
     		case false => position_gnome = position_gnome + 1
     	}
   	}
+    if (position_gnome == -1) {position_gnome = 1}
 	}
 }
