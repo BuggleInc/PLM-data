@@ -2,13 +2,17 @@ def insertionSort() {
   var valeur=0
   var last=0
   for (i<-1 to getNombreValeurs()-1){
+    var test=false
     valeur = getValeur(i)
     var n=i-1
     while (plusPetit(i,n) && n>0){
         copie(n,n+1)
         n-=1
       last=n
+      test=true
       }
+    if (test){
     setValeur(last, valeur)
+    }
   }
 }
