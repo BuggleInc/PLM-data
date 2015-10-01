@@ -2,9 +2,9 @@ def shellSort()  {
   var gap:Int = getValueCount() / 2
   var position:Int = 0
   var v:Int = 0
-  for(i <- 1 to getValueCount() - 1){
-    v = getValue(i)
-    position = i
+  while(gap >= 1){
+    v = getValue(getValueCount() - 1)
+    position = getValueCount() - 1
     while(position - gap >= 0 && getValue(position - gap) > v){
     	copy(position - gap, position)
       position -= gap
