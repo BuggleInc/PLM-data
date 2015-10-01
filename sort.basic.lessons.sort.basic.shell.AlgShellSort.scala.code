@@ -2,10 +2,10 @@ def shellSort() {
   var n = getNombreValeurs();
   var ecart = n/2;
   while ( ecart > 0 ){
-    for ( i <- 1 to n-1 ){
+    for ( i <- ecart-1 to n-1 ){
       var v = getValeur(i);
       var j = 1;
-      while ( i-j*ecart>=0 && !plusPetitQue(i-j*ecart,v+1) ){
+      while ( i-j*ecart>=0 && !plusPetitQue(i-j*ecart,v) ){
         copie(i-j*ecart,i-(j-1)*ecart);
         j += 1;
       }
