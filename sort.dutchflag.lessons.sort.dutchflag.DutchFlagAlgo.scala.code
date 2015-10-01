@@ -1,7 +1,7 @@
 def solve() {
   var ap_bleu:Int = 0;
   var en_blanc_rouge:Int = getTaille()-1;
-  var ap_rouge:Int = getTaille()-1;
+  var av_rouge:Int = getTaille()-1;
   var av_blanc:Int = getTaille()-1;
   var coul:Int = 0
  	while(ap_bleu<=av_blanc){
@@ -10,11 +10,11 @@ def solve() {
       ap_bleu+=1;
     }
     else if(coul == 1){
-      echange(ap_bleu,av_blanc)
+      echange(ap_bleu,av_blanc-1)
       av_blanc += -1;
     }
     else {
-      echange(ap_rouge,ap_bleu);
+      echange(ap_bleu,av_rouge);
       ap_rouge += -1;
     }
   } 
