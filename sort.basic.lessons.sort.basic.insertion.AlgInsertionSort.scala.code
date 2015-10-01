@@ -6,10 +6,16 @@ def insertionSort() {
   while (i<N){
     v=getValeur(i)
     j=i-1
-    while(!plusPetitQue(j,v) && j>=1){
-      setValeur(j+1,getValeur(j))
-      j=j-1
+    while(!plusPetitQue(j,v)){
+      if(!plusPetitQue(j,v)){
+        setValeurs(j+1,getValeur(j))
+        j=j-1
+      }
+      
     }
+    setValeur(j+1,v)
     i=i+1
   }
 }
+
+
