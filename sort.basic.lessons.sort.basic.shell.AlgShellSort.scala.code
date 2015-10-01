@@ -1,9 +1,8 @@
 def shellSort()  {
-  var ecart = getNombreValeurs()
+  ecart = getNombreValeurs()/2
   while(ecart>0){
   var v = 0
-  for (i<- getNombreValeurs()/2 to getNombreValeurs()-1){
-    ecart = ecart/2
+  for (i<- 1 to getNombreValeurs()-1){
     v = getValeur(i)
     var j = i-ecart
     while(j>=0 && !plusPetitQue(j,v)){
@@ -12,7 +11,9 @@ def shellSort()  {
     }
     
     setValeur(j+1,v)
+    ecart = ecart/2
     
   }
   }
+
 }
