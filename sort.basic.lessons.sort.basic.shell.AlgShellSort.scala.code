@@ -5,16 +5,15 @@ def shellSort() {
   var ecart = n/2
   var k=1
   while (ecart>0) {
-      for (i <- 1 to (n-1)) {
+      for (i <- ecart-1 to (n-1)) {
         v = getValeur(i)
         j=i-1
         k=1
-        while ((j>=0)&&((getValeur(j-ecart*k)>v))) {
-           setValeur(j+(k+1)*ecart,getValeur(j+k*ecart))
+        while ((j>=0)&&((getValeur(j)>v))) {
+           setValeur(j+ecart,getValeur(j))
            j=j-1
-           k=k+1
         }
-        setValeur(j+(k+1)*ecart,v)
+        setValeur(j+ecart,v)
       }
     ecart = ecart/2
     }
