@@ -1,14 +1,13 @@
 def insertionSort() {
   var v = 0
-  var lastCase = 0
-  for (i <- 0 to getNombreValeurs()-1) {
+  var j = 0
+  for (i <- 1 to getNombreValeurs()-1) {
     v=getValeur(i)
-    for (j <- i-1 to 0 by -1 ) {
-      if (!plusPetitQue(j,v)) {
-        lastCase=j
-        copie(j,j+1)
-      }
-      setValeur(v,lastCase)
+    j=i
+    while (j!=0 && !plusPetitQue(j-1,v)) {
+      copie(j-1,j)
+      j-=1
     }
+    setValeur(j,v)
   }
 }
