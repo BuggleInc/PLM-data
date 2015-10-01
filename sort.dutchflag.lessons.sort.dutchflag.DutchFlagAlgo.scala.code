@@ -1,18 +1,18 @@
 def solve() {
-  var beforeRed:Int = 0
-  var afterBlue:Int = getSize() - 1
+  var afterRed:Int = getSize() - 1
+  var beforeBlue:Int = 0
   var white:Int = getSize() - 1
-  while(beforeRed < white){
-    if(getColor(beforeRed) == RED)
-      beforeRed += 1
-    if(getColor(beforeRed) == BLUE){
-      swap(white, afterBlue)
-      swap(beforeRed, afterBlue)
-      afterBlue -= 1
+  while(beforeBlue < white){
+    if(getColor(beforeBlue) == BLUE)
+      beforeBlue += 1
+    if(getColor(beforeBlue) == RED){
+      swap(white, afterRed)
+      swap(beforeBlue, afterRed)
+      afterRed -= 1
       white -= 1
     }
-    if(getColor(beforeRed) == WHITE){
-      swap(white, beforeRed)
+    if(getColor(beforeBlue) == WHITE){
+      swap(white, beforeBlue)
       white -= 1
     }
   }
