@@ -1,8 +1,15 @@
 def gnomeSort() {
-  
-  for (i<-0 to getNombreValeurs()-1){
-    if (!plusPetit(i,i+1)){
+  var i=0  
+  do{
+    if !plusPetit(i,i+1){
       echange(i,i+1)
+      if i=0{
+        i=1
+      }else{
+        i=i-1
+      }
     }
-  }
+    else i=i+1
+    
+  }while i+1<getNombreValeurs
 }
