@@ -4,17 +4,16 @@ def gnomeSort()
   
   while (idCaseTraitee < getNombreValeurs() - 1)
   {
-    if (idCaseTraitee == 0)
-    	idCaseTraitee += 1
-    else
+    if (plusPetit(idCaseTraitee + 1, idCaseTraitee))
     {
-      if (plusPetit(idCaseTraitee + 1, idCaseTraitee))
-      {
-        echange(idCaseTraitee, idCaseTraitee + 1)
-        idCaseTraitee -= 1
-      }
+      echange(idCaseTraitee, idCaseTraitee + 1)
+      
+      if (idCaseTraitee == 0)
+      	idCaseTraitee += 1
       else
-        idCaseTraitee += 1
+      	idCaseTraitee -= 1
     }
+    else
+    idCaseTraitee += 1
   }
 }
