@@ -1,12 +1,12 @@
 def selectionSort() {
   var indice = 0
   while (indice < getNombreValeurs()) {
-    var min = getValeur(indice)
+    var indiceMin = indice
     for (i <- indice to getNombreValeurs()-1) {
-      if (getValeur(i)<min)
-      	min = getValeur(i)
+      if (getValeur(i)<getValeur(indiceMin))
+      	indiceMin = i
     }
-    echange(getValeur(indice),min)
+    echange(indice,indiceMin)
     indice += 1
   }
 }
