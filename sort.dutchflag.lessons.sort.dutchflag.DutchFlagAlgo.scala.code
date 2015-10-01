@@ -3,14 +3,14 @@ def solve() {
   var whiteRed:Int = getSize() -1;
   var beforeWhite:Int = getSize() -1;
   
-  while (!isSorted()) {
+  while (afterBlue <= beforeWhite) {
     if (getColor(afterBlue) == BLUE) {
       afterBlue += 1
     } else if (getColor(afterBlue) == RED) {
       swap(afterBlue, whiteRed);
-      swap(afterBlue, beforeWhite);
       whiteRed -= 1;
       beforeWhite -= 1;
+      swap(afterBlue, beforeWhite);
     } else {
       swap(afterBlue, beforeWhite);
       beforeWhite -= 1
