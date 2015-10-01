@@ -1,15 +1,13 @@
 def insertionSort() {
-  var lgr:Int=getNombreValeurs()
-  var i:Int=0
-  var j:Int=0
-  var v:Int=0
+  var lgr = getNombreValeurs()
+  var diffcase = 1
   for (i <- 1 to lgr-1){
-    j=i
-    while(j>0 && j<j+1){
-      echange(j,j+1)
-      j=j-1
+    var diffcase = 1
+    var v = getValeur(i)
+    while(i-diffcase >= 0 && v<getValeur(i-diffcase)){  
+      setValeur(i-diffcase+1,getValeur(i-diffcase))
+      diffcase=diffcase+1
     }
-
+    setValeur(i-diffcase+1,v)
   }
 }
-
