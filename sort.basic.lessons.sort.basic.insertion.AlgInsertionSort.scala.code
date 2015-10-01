@@ -1,0 +1,14 @@
+def insertionSort()
+{
+  for (i <- 1 to getNombreValeurs() - 1)
+  {
+    var differenceCases = 1
+    var derniereCase = getValeur(i)
+    while (plusPetit(i, i - differenceCases))
+    {
+      setValeur(i - differenceCases + 1, getValeur(i - differenceCases))
+      differenceCases += 1
+    }
+    setValeur(i - differenceCases, derniereCase)
+  }
+}
