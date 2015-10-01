@@ -1,2 +1,8 @@
 override def run() {
+  while(getHoleBase() != getPlayerColor((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 0) || getHoleBase() != getPlayerColor((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 1)){
+    if(getHoleBase() == getPlayerColor((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 0))
+    	move((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 0)
+    else if(getHoleBase() == getPlayerColor((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 1))
+    	move((getHoleBase() + getBasesAmount() - 1) % getBasesAmount(), 1)
+  }
 }
