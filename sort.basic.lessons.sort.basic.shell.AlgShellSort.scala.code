@@ -1,10 +1,9 @@
 def shellSort()  {
-  var ecart:Int = getNombreValeurs()  // largeur du peigne //
+  var ecart:Int = getNombreValeurs() / 2  // largeur du peigne //
   var v:Int = 0  // pour m?moriser la valeur //
   var j:Int = 0  // i - k * ecart //
   while (ecart > 0) {
-    ecart = (ecart.toDouble / 2).toInt
-    for (i <- 1 to getNombreValeurs() - 1) {
+    for (i <- ecart to getNombreValeurs() - 1) {
       v = getValeur(i)
       j = i - ecart
       while (j >= 0 && getValeur(j) > v) {
@@ -13,5 +12,6 @@ def shellSort()  {
       }
       setValeur(j + ecart,v)
     }
+    ecart = ecart / 2
   }
 }
