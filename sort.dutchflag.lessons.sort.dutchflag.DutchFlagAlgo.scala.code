@@ -5,12 +5,12 @@ def solve() {
   while ( avantBlanc >= apresBleu ){
     if ( getCouleur(apresBleu) == BLEU ){
       apresBleu += 1;
-    } else if ( getCouleur(apresBleu) == ROUGE ){
-      echange(apresBleu,blancRouge);
-      blancRouge -= 1;
+    } else if ( getCouleur(apresBleu) == BLANC){
+      echange(apresBleu,avantBlanc);
       avantBlanc -= 1;
     } else {
-      echange(avantBlanc,apresBleu);
+      echange(blancRouge,apresBleu);
+      blancRouge -= 1;
       avantBlanc -= 1;
     }
   }
