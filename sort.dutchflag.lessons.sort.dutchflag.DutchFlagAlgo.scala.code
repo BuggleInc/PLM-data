@@ -4,9 +4,10 @@ def solve() {
   var blancRouge=getTaille()-1
   while(!estTrie){
       if (getCouleur(apresBleu)==Color.red){
-        echange(apresBleu,blancRouge)
+        echange(apresBleu,avantBlanc)
+        echange(blancRouge,avantBlanc)
         blancRouge=blancRouge-1
-        apresBleu=apresBleu+1
+        avantBlanc=avantBlanc-1
       }
     if (getCouleur(apresBleu)==Color.blue){
       apresBleu=apresBleu+1
@@ -14,7 +15,6 @@ def solve() {
     if (getCouleur(apresBleu)==Color.white){
       echange(apresBleu,avantBlanc)
       avantBlanc=avantBlanc-1
-      apresBleu=apresBleu+1
     }
   }
 }
