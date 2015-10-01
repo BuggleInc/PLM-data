@@ -1,13 +1,17 @@
 def shellSort()  {
   var valeur = 0;
   var test = 0;
-  for (i <- 1 to getNombreValeurs-1){
-   	valeur = getValeur(i);
-    test = i-1;
-   	while (test>=0 && getValeur(test)>valeur){
-      	setValeur(test+1,getValeur(test));
-      	test=test-1;
-    }
-    setValeur(test+1,valeur)
-  }
-}
+  var ecart = getNombreValeur()  
+ 	while (ecart>0) {
+    ecart = (ecart.toDouble / 2).toInt;
+  	for (i <- 1 to getNombreValeurs-1){
+    	valeur = getValeur(i);
+    	test = i-ecart;
+   		while (test>=0 && getValeur(test)>valeur){
+      		setValeur(test+ecart,getValeur(test));
+      		test=test-ecart;
+    	}
+    	setValeur(test+ecart,valeur)
+  	}
+	}
+}  
