@@ -2,17 +2,15 @@ def solve() {
   
   for(i<-0 to getTaillePile()-2)
   {
-    var max=getRayonCrepe(i)
-    var ind=i
+    var max=i
     for(j<- 0 to getTaillePile()-i-1)
     {
-      if(max<getRayonCrepe(j))
+      if(getRayonCrepe(max)<getRayonCrepe(j))
       {
-        ind=i
-        max=getRayonCrepe(j)
+        max=j
       }
     }
-    retourne(ind+1)
+    retourne(max+1)
     retourne(getTaillePile()-i)
     
   }
