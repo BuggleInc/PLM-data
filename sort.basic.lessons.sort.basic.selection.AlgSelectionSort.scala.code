@@ -5,15 +5,13 @@ def selectionSort() {
   //Pour toutes les caes du tableau sauf la derni?re
   for(i<-0 to getNombreValeurs()-2){
     
-    min = -1;
-    cell = 0;
+    cell = i;
     
     // Pour toutes les valeurs du tableau pas d?j? tri?es
-    for(j<-i to getNombreValeurs()-1){
+    for(j<-i+1 to getNombreValeurs()-1){
       
       //Si plus petit on stoque dans la variable min et cell
-      if(plusPetitQue(j,min) || min==(-1)){
-        min = getValeur(j);
+      if(getValue(j)<getValue(cell)){
         cell = j;
       }
       
