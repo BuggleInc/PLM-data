@@ -4,14 +4,17 @@ def shellSort()
   
   while (ecart > 0)
   {
-    var differenceCases = 1
-    var derniereCase = getValeur(i)
-    while (i - differenceCases * ecart >= 0 && getValeur(i - differenceCases * ecart) > derniereCase)
+    for (i <- 1 to getNombreValeurs() - 1)
     {
-      setValeur(i - (differenceCases + 1) * ecart, getValeur(i - differenceCases * ecart))
-      differenceCases += 1
+      var differenceCases = 1
+      var derniereCase = getValeur(i)
+      while (i - differenceCases * ecart >= 0 && getValeur(i - differenceCases * ecart) > derniereCase)
+      {
+        setValeur(i - (differenceCases + 1) * ecart, getValeur(i - differenceCases * ecart))
+        differenceCases += 1
+      }
+      setValeur(i - (differenceCases + 1) * ecart, derniereCase)
     }
-    setValeur(i - (differenceCases + 1) * ecart, derniereCase)
   }
 }
 
