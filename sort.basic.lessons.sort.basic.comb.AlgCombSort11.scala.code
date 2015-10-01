@@ -1,0 +1,32 @@
+def combSort11() {
+
+  var lgr : Int=getNombreValeurs();
+  var ecart : Int=lgr;
+  var i:Int=0;
+  var inv:Int=0;
+
+  do
+  {
+    inv=0;
+    if (ecart>1)
+    {
+      ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int];
+      if (ecart==9 || ecart ==10){
+        ecart==11
+      }
+    }
+    i=0;
+    while(i+ecart<lgr)
+    {
+      if (plusPetit(i+ecart,i))
+      {         
+        echange(i,i+ecart);         
+        inv=1;
+      }
+      i =i+1;
+    }
+
+  }while(ecart>1 || inv==1)
+}
+
+
