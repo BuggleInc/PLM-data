@@ -1,8 +1,6 @@
 def combSort() {
   var i : Int = 0
   var a : Int = getNombreValeurs()
-  var start : Int = 0
-  var end : Int = a-2
   var trie : Boolean = false
   var ecart : Double = a
   while (ecart>1 || trie ==false){
@@ -11,10 +9,10 @@ def combSort() {
     trie= true
     while (i+ecart < a){
       if (plusPetit(i+ecart,i)==true){
-        echange(i+Int(ecart),i)
-        i=i+1
+        echange(i+ecart,i)
         trie =false
       }
+      i=i+1
     }
   }
 }
