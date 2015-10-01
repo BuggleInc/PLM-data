@@ -1,2 +1,18 @@
 def solve() {
+  
+  for(i<-0 to getTaillePile()-2)
+  {
+    var max=i
+    for(j<- 0 to getTaillePile()-i-1)
+    {
+      if(getRayonCrepe(max)<getRayonCrepe(j))
+      {
+        max=j
+      }
+    }
+    retourne(max+1)
+    retourne(getTaillePile()-i)
+    
+  }
+  
 }
