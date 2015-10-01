@@ -1,12 +1,17 @@
 def insertionSort() {
   var v:Int = 0
   var j:Int = 0
+  var out:Boolean = false
   for (i <- 1 to getNombreValeurs() - 1) {
     v = getValeur(i)
     j = i - 1
-    while (getValeur(j) > v && j != 0) {
+    while (getValeur(j) > v && !out) {
       setValeur(i,getValeur(j))
-      j -= 1
+      if (j != 0) {
+        j -= 1
+      } else {
+        out = true
+      }
     }
     setValeur(j+1,v)
   }
