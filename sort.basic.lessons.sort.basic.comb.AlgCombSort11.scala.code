@@ -1,0 +1,31 @@
+def combSort() {
+  
+  val l = getNombreValeurs()
+  var ecart = getNombreValeurs()
+  var i = 0
+  var continue = false
+  
+  do{
+    
+    continue = false
+    
+  	if (ecart>1){
+      ecart = (ecart.toDouble/1.3).toInt
+    }
+    if (ecart == 9 || ecart == 10){
+      ecart = 11
+    }
+    i = 0
+    
+  	while (i+ecart < l){
+    	if (plusPetit(i+ecart,i)){
+      	echange(i,i+ecart)
+        continue = true
+      
+    	}
+    	i += 1
+  	}
+    
+  }while(ecart > 1  || continue)
+  
+}
