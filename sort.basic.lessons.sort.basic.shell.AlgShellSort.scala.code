@@ -1,0 +1,20 @@
+def shellSort() {
+  var n = getNombreValeurs()
+  var v = 8
+  var j=0
+  var ecart = n/2
+  var k=1
+  while (ecart>0) {
+      for (i <- 1 to (n-1)) {
+        v = getValeur(i)
+        j=i-1
+        k=1
+        while ((j>=0)&&((getValeur(j-ecart*k)>v))) {
+           setValeur(j+(k+1)*ecart,getValeur(j+k*ecart))
+           j=j-1
+           k=k+1
+        }
+        setValeur(j+(k+1)*ecart,v)
+      }
+    }
+}
