@@ -3,11 +3,11 @@ def insertionSort() {
   for (i <- 1 to getNombreValeurs()-1) {
     
     var v:Int = getValeur(i)
-    for (j <- 1 to v) {
+    for (j <- i to 0 by -1) {
       
-      if (plusPetit(v,v-j)) {
+      if (plusPetitQue(j-1,v) == false) {
         
-        copie(v-j, v-j+1)
+        copie(j-1, j)
         
       }
       
