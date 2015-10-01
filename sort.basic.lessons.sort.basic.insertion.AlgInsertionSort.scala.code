@@ -8,10 +8,14 @@ def insertionSort() {
     v=getValeur(i:Int)
     j=1
     while (!fini){
-      if (!plusPetitQue(i-j:Int, v:Int)){
-        setValeur((i-j+1):Int, getValeur(i-j:Int):Int)
-        c=i-j
-        j=j+1
+      if (j>i){
+        if (!plusPetitQue(i-j:Int, v:Int)){
+          setValeur((i-j+1):Int, getValeur(i-j:Int):Int)
+          c=i-j
+          j=j+1
+        } else {
+          fini=true
+        }
       } else {
         fini=true
       }
