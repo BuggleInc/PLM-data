@@ -1,28 +1,20 @@
-def inverser(a:Int,b:Int){
-  retourne(a+1);
-  retourne(b+1);
-  retourne(a+1);
-}
-
 def solve() {
   
-  var trie = false;
+  var max = 0;
   
-  while(!trie){
+  for(j<- 0 to getTaillePile()-1){
     
-    trie = true;
-    
-    for(i<- 0 to getTaillePile()-2){
+    max = 0;
+    for(i<- 0 to getTaillePile()-1-j){
       
-      if(getRayonCrepe(i)>getRayonCrepe(i+1)){
-        //Le plus petit ? gauche !
-        inverser(i,i+1);
-        trie = false;
+      if(getRayonCrepe(i)>getRayonCrepe(max)){
+        max = i;
       }
       
     }
     
-
+    retourne(max+1);
+    retourne(getTaillePile()-j);
     
   }
   
