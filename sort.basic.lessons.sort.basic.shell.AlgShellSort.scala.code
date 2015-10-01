@@ -1,34 +1,17 @@
 def shellSort()  {
-}
-
-
-  var v:Int = 0
-  var j:Int = 0
-  for (i <- 1 to getNombreValeurs() - 1) {
-    v = getValeur(i)
-    j = i - 1
-    while (j >= 0 && getValeur(j) > v) {
-      setValeur(j+1,getValeur(j))
-      j -= 1
-    }
-    setValeur(j+1,v)
-  }
-
-
-	var ecart:Int = getNombreValeurs()
-  var i:Int = 0
-  var end:Boolean = false
-  while (ecart > 1 || !end) {
-    end = true
-    if (ecart > 1) {
-      ecart = (ecart.toDouble / 1.3).toInt
-    }
-    i = 0
-    while (i+ecart < getNombreValeurs()) {
-      if (getValeur(i) > getValeur(i+ecart)) {
-        echange(i,i+ecart)
-        end = false
+  var ecart:Int = getNombreValeurs()  // largeur du peigne //
+  var v:Int = 0  // pour m?moriser la valeur //
+  var j:Int = 0  // i - k * ecart //
+  while (ecart > 0) {
+    ecart = (ecart.toDouble / 2).toInt
+    for (i <- ecart to getNombreValeurs() - 1) {
+      v = getValeur(i)
+      j = i - ecart
+      while (j >= 0 && getValeur(j) > v) {
+        setValeur(j + ecart, getValeur(j))
+        j -= ecart
       }
-      i += 1
+      setValeur(j + ecart,v)
     }
   }
+}
