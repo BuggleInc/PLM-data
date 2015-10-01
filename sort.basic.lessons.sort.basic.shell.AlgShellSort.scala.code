@@ -1,0 +1,19 @@
+def shellSort()  {
+  var length : Int = getValueCount();
+  var i : Int = 0;
+  var j : Int = 0;
+  var v : Int = 0;
+  var gap : Int = length/2;
+  
+  for(i<-1 to length-1)
+  {
+    v = getValue(i);
+    j=i;
+    while(j>0 && !isSmallerThan(j-gap,v))
+    {
+      copy(j-gap,j);
+      j-=gap;
+    }
+    setValue(j,v);
+  }
+}
