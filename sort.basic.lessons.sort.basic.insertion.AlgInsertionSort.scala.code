@@ -1,19 +1,17 @@
 def insertionSort() {
   var temp = 0
   var k = 0
-  var vk = 0
+
   
   for(i<- 1 to getValueCount()-1)
   {
 		temp = getValue(i)
     k = i-1
-    vk = getValue(k)
-    while(k>0 && temp<vk)
+    while(k>0 && temp<getValue(k))
     {
       copy(k,k+1)
-      
       k-=1
-      vk = getValue(k)
+
     }
     setValue(k+1,temp)
   }
