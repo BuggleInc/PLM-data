@@ -3,10 +3,11 @@ def shellSort()  {
   var ecart:Int = getNombreValeurs()/2;
   
   while(ecart>0){
+    incr=0;
   	for(i <- 1 to getNombreValeurs()-1){
     	v=getValeur(i);
-    	var j=i*ecart;
-    		while(j>0 && !plusPetitQue(j-1,v)){
+    	var j=i;
+    		while(j>0 && !plusPetitQue(j-i*ecart,v)){
         	copie(j-1,j);
     			j=j-1;
   			}
