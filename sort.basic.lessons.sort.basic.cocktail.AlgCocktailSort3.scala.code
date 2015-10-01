@@ -1,29 +1,27 @@
 def cocktailSort3() {
   var Change1: Boolean=true
-  var F =getNombreValeurs()-2
-  var D = 0
+  var Change2: Boolean= true
+  var L =getNombreValeurs()
   
-  while (Change1==true){
+  while (Change1==true || Change2==true){
     Change1=false
-
- 	  for (k<- F to D by -1 ){
+    Change2=false
+ 	  for (k<- L-2 to 0 by -1 ){
    
    		 if (getValeur(k) > getValeur(k+1)){
-     		 echange(k,k+1)
-         F=F-1
-      	 Change1=true
+     		  echange(k,k+1)
+      		Change1=true
   	} 	     
   }     
-  	 for (l<-D to F){
+  	for (l<-0 to L-2){
     		if (getValeur(l) > getValeur(l+1)){
-      		echange(l,l+1)
-          D=D+1
-       		
-          
+      		 echange(l,l+1)
+       		 Change2=true
     
   		}
   }
   
   
+}
 }
 }
