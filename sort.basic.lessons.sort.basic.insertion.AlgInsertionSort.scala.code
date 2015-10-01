@@ -2,14 +2,12 @@ def insertionSort() {
   var L = getNombreValeurs()
   var v = 0
   var cpt = -1
-  for (i <- L-1 to 1 by -1){
-    var I = i-1
+  for (i <- 1 to L-1){
+    var k = i-1
     v = getValeur(i)
-    while (plusPetit(i,i-1) && I>0) {
-      echange(i-1,i)
-      if (i!=0){
-        i=i-1
-      }
+    while (plusPetit(k+1,k) && I>0) {
+      echange(k,k+1)
+        k=k-1
     }
     setValeur(I,v)
   }
