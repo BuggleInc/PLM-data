@@ -2,20 +2,18 @@ def cocktailSort3() {
   var compteur:Int=0
   var debut:Int=0
   var fin:Int= ( getNombreValeurs() -2)
-  do {
-    compteur=0
-    for (i <- debut to fin) {
-      if (plusPetit(i+1, i)) {
+  compteur=0
+  for (i <- debut to fin) {
+    if (plusPetit(i+1, i)) {
+      echange(i,i+1)
+      compteur+=1}}
+  fin -=1
+  if(compteur==0) {debut=fin}
+  
+    for (i<- fin to debut by (-1)) {
+      if (plusPetit(i+1,i)) {
         echange(i,i+1)
         compteur+=1}}
-    fin -=1
-    if(compteur==0) {debut=fin}
-    
-    for (i<- fin to debut by (-1)) {
-        if (plusPetit(i+1,i)) {
-          echange(i,i+1)
-          compteur+=1}}
-    debut+=1
+  debut+=1
   if(compteur==0) {debut=fin}
-  }
 }
