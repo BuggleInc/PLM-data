@@ -7,19 +7,11 @@ def insertionSort() {
   for (i<-1 to lgr-1) {
     v=getValeur(i:Int)
     j=1
-    while (!fini){
-      if (j>i){
-        if (!plusPetitQue(i-j:Int, v:Int)){
-          setValeur((i-j+1):Int, getValeur(i-j:Int):Int)
-          c=i-j
-          j=j+1
-        } else {
-          fini=true
-        }
-      } else {
-        fini=true
+    while (i-j>=0 && v<getValeur(i-j)){
+      setValeur((i-j+1):Int, getValeur(i-j:Int):Int)
+      j=j+1
       }
-    setValeur(c,v)
+    setValeur(c+1,v)
     }
   }
 }
