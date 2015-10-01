@@ -1,0 +1,23 @@
+def combSort11() {
+  var a : Int = getNombreValeurs()
+  var trie =false
+  var ecart = a
+  var i = 0
+  while (ecart>1 || trie==false){
+    if (ecart>1){
+      ecart =(ecart.toDouble/1.3).toInt
+    }
+    if(ecart==9 || ecart==10){
+      ecart=11
+    }
+    i=0
+    trie = true
+    while(i+ecart < a){
+      if (plusPetit(i+ecart,i)==true){
+        echange(i+ecart,i)
+        trie = false
+      }
+      i=i+1
+    }
+  }
+}
