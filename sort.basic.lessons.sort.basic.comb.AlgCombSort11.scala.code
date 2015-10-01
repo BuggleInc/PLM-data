@@ -1,6 +1,5 @@
 def combSort11() {
-
-  var ecart : Int = getNombreValeurs()-1
+  var ecart : Int = getNombreValeurs()
   var inverse = true
   do{
     if (ecart>1){
@@ -10,15 +9,14 @@ def combSort11() {
       ecart=11
     }
     inverse = false
-    var i=0
-    while (i+ecart<getNombreValeurs()-1){
+    var i = 0
+    while (i+ecart < getNombreValeurs()){
       if (!plusPetit(i,i+ecart)){
         echange(i,i+ecart)
         inverse=true
-        i=i+1
       }
+      i=i+1
     }
     
-  }while (ecart>1 || !inverse )
-
+  }while (ecart>1 || inverse )
 }
