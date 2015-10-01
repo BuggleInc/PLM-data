@@ -4,9 +4,13 @@ def insertionSort() {
     
     for(i <- 1 to len-1){
       var v = i;
-      if(getValue(i-1) > getValue(i)){
-        copy(i-1, i);
-        setValue(i-1,v);
+      
+      for(j <- i to 1 by -1){
+        if(getValue(j) > getValue(j-1)){
+          copy(j-1,j);
+        }else{
+          setValue(j,v);
+        }
       }
     }
   
