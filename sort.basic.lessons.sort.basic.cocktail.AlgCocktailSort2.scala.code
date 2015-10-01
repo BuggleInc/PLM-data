@@ -1,16 +1,18 @@
 def cocktailSort2() {
-  var continue = true
+  var a = true
+  var b = true
   var beg = 0
   var end = getValueCount()-2
   
-  while(continue){
+  while(a && b){
     
-  continue=false
+  a = false
+  b = false
     
   for (i <- beg to end){
     if (isSmaller(i+1, i)){
       swap(i+1, i)
-      continue = true
+      a = true
     }
   }
   end -= 1
@@ -18,7 +20,7 @@ def cocktailSort2() {
   for (i <- end to beg by -1){
     if (isSmaller(i+1, i)){
       swap(i+1, i)
-      continue = true
+      b = true
     }
   }
   beg += 1
