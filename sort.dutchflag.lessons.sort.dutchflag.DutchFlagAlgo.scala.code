@@ -1,20 +1,20 @@
 def solve() {
   var apresBleu=0
-  var avantBlanc=0
+  var avantBlanc=getTaille()-1
   var blancRouge=getTaille()-1
-  while(apresBleu>avantBlanc){
+  while(apresBleu<avantBlanc){
       if (getCouleur(apresBleu)==Color.red){
         echange(apresBleu,avantBlanc)
         echange(blancRouge,avantBlanc)
         blancRouge=blancRouge-1
-        avantBlanc=avantBlanc+1
+        avantBlanc=avantBlanc-1
       }
     if (getCouleur(apresBleu)==Color.blue){
       apresBleu=apresBleu+1
     }
     if (getCouleur(apresBleu)==Color.white){
       echange(apresBleu,avantBlanc)
-      avantBlanc=avantBlanc+1
+      avantBlanc=avantBlanc-1
     }
   }
 }
