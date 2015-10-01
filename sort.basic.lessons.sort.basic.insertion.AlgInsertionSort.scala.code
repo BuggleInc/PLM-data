@@ -12,13 +12,13 @@ def insertionSort() {
       if( !plusPetitQue(j,v)&& j!=0 ){
         changement = true
         copie(j,j+1)
-      } else if(changement){
+      } else if(changement&&j!=0){
         setValeur(j,v)
         fini=true
-      } else {
+      } else if(changement){
         copie(j,j+1)
         setValeur(j,v)
-        fini=true
+        fini=true        
       }
       j=j-1
     }
