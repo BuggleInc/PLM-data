@@ -1,0 +1,35 @@
+def cocktailSort2()
+{
+  var cpt =0
+  var chgt = true
+  do
+  {
+  if (cpt%2==0 && chgt == true)
+  {
+  	chgt = false
+  	for (k <-0 to getNombreValeurs()-2-cpt/2)
+  	{
+  		if (!plusPetit(k,k+1))
+  		{
+  			echange(k,k+1)
+  			chgt = true
+  		}
+  	}
+    cpt+=1
+  }
+  if (cpt%2 == 1 && chgt == true)
+  {
+  	chgt = false
+  	for (k <-getNombreValeurs()-2 to (cpt-1)/2 by -1)
+  	{
+  		if (!plusPetit(k,k+1))
+  		{
+  			echange(k,k+1)
+  			chgt = true
+  		}
+  	}
+  	cpt+=1
+  }
+  }while (chgt == true)
+  return
+}
