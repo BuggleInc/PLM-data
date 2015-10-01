@@ -3,11 +3,11 @@ def shellSort()  {
   var position:Int = 0
   var v:Int = 0
   while(gap >= 1){
-    v = getValue(getValueCount() - 1)
-    position = getValueCount() - 1
-    while(position - gap >= 0 && getValue(position - gap) > v){
-    	copy(position - gap, position)
-      position -= gap
+    v = getValue(0)
+    position = 0
+    while(position + gap < getValueCount() && getValue(position + gap) < v){
+    	copy(position + gap, position)
+      position += gap
     }
     setValue(position, v)
     gap /= 2
