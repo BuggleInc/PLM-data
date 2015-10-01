@@ -1,31 +1,16 @@
-AlgCombSort:12: error: type mismatch;
+AlgCombSort:8: error: type mismatch;
  found   : Int
- required: ?{def +(x$1: ? >: Double): ?}
+ required: ?{def /(x$1: ? >: Double(1.3)): ?}
 Note that implicit conversions are not applicable because they are ambiguous:
  both method int2long in object Int of type (x: Int)Long
  and method int2float in object Int of type (x: Int)Float
- are possible conversion functions from Int to ?{def +(x$1: ? >: Double): ?}
-      if (plusPetit(i+ecart,i)==true){
-                    ^AlgCombSort:12: error: overloaded method value + with alternatives:
+ are possible conversion functions from Int to ?{def /(x$1: ? >: Double(1.3)): ?}
+    ecart = ecart/1.3
+            ^AlgCombSort:8: error: overloaded method value / with alternatives:
   (x: Int)Int <and>
   (x: Char)Int <and>
   (x: Short)Int <and>
   (x: Byte)Int
  cannot be applied to (Double)
-      if (plusPetit(i+ecart,i)==true){
-                     ^AlgCombSort:13: error: type mismatch;
- found   : Int
- required: ?{def +(x$1: ? >: Double): ?}
-Note that implicit conversions are not applicable because they are ambiguous:
- both method int2long in object Int of type (x: Int)Long
- and method int2float in object Int of type (x: Int)Float
- are possible conversion functions from Int to ?{def +(x$1: ? >: Double): ?}
-        echange(i+ecart,i)
-                ^AlgCombSort:13: error: overloaded method value + with alternatives:
-  (x: Int)Int <and>
-  (x: Char)Int <and>
-  (x: Short)Int <and>
-  (x: Byte)Int
- cannot be applied to (Double)
-        echange(i+ecart,i)
+    ecart = ecart/1.3
                  ^
