@@ -1,8 +1,8 @@
 def insertionSort() {
   var v = 0
-  var c = 0
+  var c = -1
     for (i <- 1 to getNombreValeurs()-1) {
-      c = 0
+      c = -1
       v = getValeur(i)
       for (k <- 1 to i-1) {
         if (plusPetit(v, i-k)) {
@@ -10,6 +10,8 @@ def insertionSort() {
           c = i-k
         }
       }
-      setValeur(c, v)
+      if (c != -1) {
+        setValeur(c, v)
+      }
     }
 }
