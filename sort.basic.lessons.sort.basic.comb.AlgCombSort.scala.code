@@ -7,9 +7,10 @@ def combSort() {
     if (ecart>1) {
       ecart = ecart/(1.3)
     }
+    ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
     i = 0
     while ((i+ecart)<getNombreValeurs()) {
-      if (!(plusPetit(floor(i),floor(i+ecart)))) {
+      if (!(plusPetit(i,(i+ecart)))) {
         echange(i,(i+ecart))
         i = i+1
         inv = true
