@@ -1,21 +1,24 @@
 def cocktailSort2() {
   var i : Int = 0
   var a : Int = getNombreValeurs()
-  var j : Int = 0
+  var start : Int = 0
+  var end : Int = a-2
   var trie : Boolean = false
   while (trie==false){
     trie = true
-    for (i<- 0+i to a-2-i){
+    for (i<- start to end){
       if (plusPetit(i+1,i)== true) {
         echange(i+1,i)
         trie=false
       }
     }
-    for (i<- a-2-i to 0+i by -1){
+    end = end-1
+    for (i<- end to start by -1){
       if(plusPetit(i+1,i)==true){
         echange(i+1,i)
         trie=false
       }
     }
+    start = start +1
   }
 }
