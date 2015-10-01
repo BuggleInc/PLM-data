@@ -2,7 +2,7 @@ def solve() {
   var apresBleu=0
   var avantBlanc=getTaille()-1
   var blancRouge=getTaille()-1
-  while(apresBleu<avantBlanc){
+  while(apresBleu<=avantBlanc){
       if (getCouleur(apresBleu)==Color.red){
         echange(apresBleu,avantBlanc)
         echange(blancRouge,avantBlanc)
@@ -13,7 +13,7 @@ def solve() {
       apresBleu=apresBleu+1
     }
     if (getCouleur(apresBleu)==Color.white){
-      echange(blancRouge,avantBlanc)
+      echange(apresBleu,avantBlanc)
       avantBlanc=avantBlanc-1
     }
   }
