@@ -2,14 +2,16 @@ def shellSort()  {
   var gap:Int = getValueCount() / 2
   var position:Int = 0
   var v:Int = 0
-  while(gap >= 1){
-    v = getValue(0)
-    position = 0
-    while(position + gap < getValueCount() && getValue(position + gap) < v){
-    	copy(position + gap, position)
-      position += gap
+  for(k <- 0 to 16){
+    for(i <- gap to getValueCount() - 1){
+       v = getValue(i)
+       j = i
+       while(j >= h && getValue(j - gap) > v){
+         getValue(j) = getValue(j - gap)
+         j = j - gap
+       }
+       getValue(j) = v
     }
-    setValue(position, v)
     gap /= 2
   }
 }
