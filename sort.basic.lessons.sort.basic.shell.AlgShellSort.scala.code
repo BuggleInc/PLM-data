@@ -8,17 +8,19 @@ def shellSort()  {
     v = getValue(i)
     lastCopied = i
     copied = true
-    h = 1
+    gap = (getValueCount/2).toInt
     
-    while (i-h >= 0) {
-      if (getValue(i-h) > v) {
-      	copy(i-h, i-h+1);
-      	lastCopied = i-h
-    	} else {
-        copied = false
+    while (gap > 0 && copied) {
+      if (i-gap >= 0) {
+        if (getValue(i-gap) > v) {
+          copy(i-gap, i-gap+1);
+          lastCopied = i-gap
+        } else {
+          copied = false
+        }
       }
       
-      h+=1;
+      gap = (gap/2).toInt;
     }
     setValue(lastCopied, v)
   }
