@@ -1,15 +1,15 @@
 def solve() {
 var b=0
-var w=0
+var w=getTaille()-1
 var r=getTaille()-1
   while (w<=r) {
     if (getCouleur(w)==Color.white) {
-      w=w+1
+      w=w-1
     }
     else if (getCouleur(w)==Color.blue) {
       echange(b,w)
       b+=1
-      w+=1
+      w-=1
     }
     else if (getCouleur(w)==Color.red) {
       echange(w,r)
