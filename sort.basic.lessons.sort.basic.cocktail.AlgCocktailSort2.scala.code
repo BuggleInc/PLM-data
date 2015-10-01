@@ -1,16 +1,20 @@
 def cocktailSort2() {
  var lgr=getNombreValeurs()
  var Inverse=false
+ var debut=0
+ var fin= lgr-2
   while (Inverse==true) {
-  for (i<-0 to lgr-2) {
+  for (i<-debut to fin) {
   if (!plusPetit(i, i+1)) {
     echange (i,i+1)
+    fin= fin-1
     
   }
   }
-    for (i<-0 to lgr-2) {
+    for (i<-debut to fin) {
       if (!plusPetit(lgr-i-2,lgr-i-2+1)) {
         echange (lgr-i-2,lgr-i-2+1)
+        debut=debut+1
         
       }
     }
