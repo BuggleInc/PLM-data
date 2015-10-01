@@ -1,3 +1,17 @@
 def solve() {
-  echange(2,5);
+  var apresBleu = 0;
+  var blancRouge = getTaille()-1;
+  var avantBlanc = getTaille()-1;
+  while ( avantBlanc >= apresBleu ){
+    if ( getCouleur(apresBleu) == BLEU ){
+      apresBleu += 1;
+    } else if ( getCouleur(apresBleu) == ROUGE ){
+      echange(apresBleu,blancRouge);
+      blancRouge -= 1;
+      avantBlanc -= 1;
+    } else {
+      echange(avantBlanc,apresBleu);
+      avantBlanc -= 1;
+    }
+  }
 }
