@@ -1,12 +1,14 @@
 def gnomeSort() {
-  var swap=true
+  var pos=0
   do {
-    swap=false
-    for (i <- 0 to getNombreValeurs()){
-      if (!plusPetit(i,i+1)) {
-        echange(i,i+1)
-        swap=true
-      }
+    if (!plusPetit(i,i+1)) {
+      echange(i,i+1)
+      if (pos==0) {
+        pos=pos+1
+      } else {
+        pos=pos-1}
+    } else {
+      pos=pos+1
     }
-  } while (swap==false)
-}
+  }
+} while (pos!=getValeurNombre()-1)
