@@ -4,6 +4,24 @@ def gnomeSort() {
   var condition_limite:Boolean = false
   while (!condition_limite){
     if (position_gnome + 2 > n) {condition_limite = true}
+    else if(plusPetit(position_gnome + 2, position_gnome + 1)){
+      echange(position_gnome + 2, position_gnome + 1)
+      position_gnome = position_gnome - 1
+    }
+    else {position_gnome = position_gnome + 1}
+    if (position_gnome == -1) {position_gnome = 1}
+  }
+}
+
+
+
+/*
+def gnomeSort() {
+  var n:Int = getNombreValeurs() - 1
+  var position_gnome:Int = 0
+  var condition_limite:Boolean = false
+  while (!condition_limite){
+    if (position_gnome + 2 > n) {condition_limite = true}
     else {
     	(plusPetit(position_gnome + 2, position_gnome + 1))match{
       	case true if (position_gnome == -1) => echange(position_gnome + 2, position_gnome + 1); position_gnome = position_gnome + 1
@@ -14,3 +32,4 @@ def gnomeSort() {
     if (position_gnome == -1) {position_gnome = 1}
 	}
 }
+*/
