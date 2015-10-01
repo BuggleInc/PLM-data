@@ -1,5 +1,29 @@
 def insertionSort() {
   
+  lgr = getNombreValeurs()
+  
+  for (i <- 1 to lgr -1){
+    var stock = getValeur(i)
+    var placeTrouvee = false
+    var bonnePlace = i
+    var increment = 1
+    
+    while(!placeTrouvee){
+      var posCurseur = i-increment
+      var aComparer = getValeur(posCurseur)
+      
+      if (aComparer > stock){
+        copie(posCurseur,posCurseur +1)
+        increment +=1
+      }else{
+        placeTrouvee = true
+        bonnePlace = posCurseur+1
+      }
+    }
+    
+    setValeur(bonnePlace,stock)
+  }
+  
 }
   
   
