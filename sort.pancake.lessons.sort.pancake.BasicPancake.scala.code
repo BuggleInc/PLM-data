@@ -1,2 +1,13 @@
 def solve() {
+  var n:Int = getTaillePile()
+  for (i <- 0 to n-1) {
+    var max:Int = i
+    for (j <- 0 to n-i-1) {
+      if (getRayonCrepe(max) < getRayonCrepe(j)) {
+        max = j
+      }
+    }
+    retourne(max)
+    retourne (n-1)
+  }
 }
