@@ -1,15 +1,14 @@
 def cocktailSort2(){
-  var count = 0
+  var rep = false
   var debut = 0
   var fin = getNombreValeurs()-2
   
   do {
-  	count = 0
     
     for (i <- debut to fin){
       if (getValeur(i)>getValeur(i+1)){
         echange(i,i+1)
-        count+=1
+        rep=true
       }     
     }
     fin-=1
@@ -18,13 +17,13 @@ def cocktailSort2(){
     for (j<- fin to debut){
       if (getValeur(j)>getValeur(j+1)){
         echange(j, j+1)
-        count+=1
+        rep= true
       }
     }
     debut +=1
     
   
-  } while(count!=0)
+  } while( rep )
   
 }
 
