@@ -1,18 +1,12 @@
 def insertionSort() {
   var temp = 0
   for (i <- 1 to getNombreValeurs() - 1) {
-  	var placement : Boolean = false
     temp = getValeur(i)
-    while (placement == false) {
-      var j = i
-      if (getValeur(j-1) > temp) {
-      	copie(j-1,j)
-        j -= 1
-      }
-      else {
-        setValeur(j,temp)
-        placement = true
-      }
+    var j = i
+    while (getValeur(j-1) > temp) {
+    	copie(j-1,j)
+      j -= 1
     }
+    setValeur(j,temp)      
   }
 }
