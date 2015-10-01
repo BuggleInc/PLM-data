@@ -1,13 +1,17 @@
 def gnomeSort() {
+  var swapped = true;
   var i :Int = 0;
   val j : Int = getNombreValeurs
-	while(i != j-1){
-    if(i == 0){
-      i = i+1;
+  while(swapped){
+    swapped = false;
+    for(i<- 0 to j-2){
+      if(i == 0){
+        i = i+1;
+      }
+      if(!plusPetit(i-1,i+1)){
+        echange(i-1,i+1);
+        swapped = true;
+      }
     }
-    if(!plusPetit(i-1,i+1)){
-    	echange(i-1,i+1);
-  	}
-  	i = i+1;
- 	}
+  }
 }
