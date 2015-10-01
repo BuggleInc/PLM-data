@@ -1,20 +1,21 @@
 def combSort() {
   var taille=getNombreValeurs()
-  var trier=false
+  var trier=true
   var ecart=getNombreValeurs()
   
-  while (ecart>1){
-    trier=true
-    cart=(ecart.asInstanceOf[Double]/1.3).asInstanceOf[Int]
+  while (ecart>1 || trier){
     if(ecart<1){
-      ecart=(ecart.asInstanceOf[Double]+1).asInstanceOf[Int])
+		  cart=(ecart.asInstanceOf[Double]/1.3).asInstanceOf[Int]      
     }
+    trier=false
+    
+    
     var i =0
    
-    while (i<= taille - ecart){
+    while (i+ecart< taille ){
       if (plusPetit(i+ecart,i)==true){
         echange(i+ecart,i)
-        trier=false
+        trier=true
       }
     i=i+1
     }
