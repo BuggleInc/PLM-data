@@ -1,16 +1,21 @@
 def solve() {
   var l=0
-  var bleu=0
-  var rouge=0
-  var blanc=0
-  return (getCouleur(0))
+  var apresbleu=0
+  var blancrouge=getTaille()-1
+  var avantblanc=getTaille()-1
 while(!estTrie()) {
   var c=getCouleur(l)
   if (c==Color.blue) {
-    echange(l,getTaille()-bleu)
+    apresbleu+=1
+    echange(l,apresbleu)
   }
   if (c==Color.red) {
-    echange(l,getTaille())
+    blancrouge-=1
+    echange(l,blancrouge)
+  }
+  if (c==Color.white) {
+    avantblanc-=1
+    echange(l,avantblanc)
   }
   l=l+1
 }
