@@ -2,19 +2,24 @@ def selectionSort() {
   var min = 0;
   var cel = 0;
   
+  %Pour toutes les caes du tableau sauf la derni?re
   for(i<-0 to getNombreValeurs()-2){
+    
     min = -1;
-    cel = 0;
+    cell = 0;
+    
     for(j<-i to getNombreValeurs()-1){
       
+      %Si plus petit on stoque dans la variable min et cell
       if(getValeur(j)<min || min==(-1)){
         min = getValeur(j);
-        cel = j;
+        cell = j;
       }
       
     }
     
-    echange(i,cel);
+    %On ?change la case actuelle i avec la case du minimum rencontr?
+    echange(i,cell);
     
   }
 }
