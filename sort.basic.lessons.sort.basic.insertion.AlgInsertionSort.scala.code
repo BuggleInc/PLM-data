@@ -5,11 +5,17 @@ def insertionSort() {
   for(i<- 1 to getValueCount()-1)
   {
   	temp = getValue(i)
-		while((i-k>0)&&(getValue(i-k)>temp))
+    
+		while(i-k>0)
     {
-			setValue(i-k+1,getValue(i-k))
-      k+=1
+      if(getValue(i-k)>temp)
+      {
+        setValue(i-k+1,getValue(i-k))
+      	k+=1
+      }
+			
     }
+    
     setValue(i-k,temp)
     k=0
   }
