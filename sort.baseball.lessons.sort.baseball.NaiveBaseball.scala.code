@@ -3,6 +3,8 @@ override def run() {
   var nbBase = getNombreBases()
   var nbPos =	getNombrePositions()
   
+  println("Cible actuel dist")
+  
   while(!estTrie()){
     var trouBase = getTrouBase()
     var trouPos = getTrouPosition()
@@ -15,12 +17,12 @@ override def run() {
     var dist=0
     
     for(i<-0 to nbPos-1){
-			println("test "+baseBouger+" "+i)
-      var tmpDist=getCouleurJoueur(baseBouger,i) -  baseBouger
-      println("test2")
+      var tmpDist=baseBouger - getCouleurJoueur(baseBouger,i)
+      
       if(tmpDist<0){
         tmpDist+=nbBase
       }
+      println(getCouleurJoueur(baseBouger,i) +" "+  baseBouger + " " + tmpDist)
       if(tmpDist>dist){
         posBouger=i
         dist=tmpDist
