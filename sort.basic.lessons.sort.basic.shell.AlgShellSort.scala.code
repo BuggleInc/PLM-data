@@ -3,12 +3,13 @@ def shellSort()  {
   var gap:Int = 0
   var lastCopied:Int = 1
   var copied = true
+  gap = (getValueCount/2).toInt
+
   
   for (i <- 1 to getValueCount()-1) {
     v = getValue(i)
     lastCopied = i
     copied = true
-    gap = (getValueCount/2).toInt
     
     while (gap > 0 && copied) {
       if (i-gap >= 0) {
@@ -20,8 +21,9 @@ def shellSort()  {
         }
       }
       
-      gap = (gap/2).toInt;
+      
     }
+    gap = (gap/2).toInt;
     setValue(lastCopied, v)
   }
 }
