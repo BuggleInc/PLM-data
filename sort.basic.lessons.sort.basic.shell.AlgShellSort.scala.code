@@ -7,10 +7,12 @@ def shellSort() {
     for (i<-1 to getNombreValeurs()-1){
     	v = getValeur(i-k*ecart)
     	var j = i-(k+1)*ecart
-    	while(j>=0 && !plusPetitQue(j,v)){
+      if (j>=0){
+        while(!plusPetitQue(j,v)){
       	copie(j,j+1)
       	j-=1
-    	}
+    		}
+      }
     	j+=1
     	setValeur(j,v)
       k+=1
