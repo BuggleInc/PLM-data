@@ -3,13 +3,14 @@ def insertionSort() {
   for(i<-0 to getNombreValeurs()-1)
   {
     var v=i;
-    while(v>0 && plusPetit(i,v-1))
+    var valeur=getValeur(i);
+    while(v>0 && getValeur(v-1)>valeur)
     {
       
       copie(v-1,v);
       v-=1;
     }
-    echange(v,i);
+    setValeur(v,valeur)
     
   }
 }
