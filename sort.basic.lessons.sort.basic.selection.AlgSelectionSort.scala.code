@@ -1,10 +1,14 @@
 def selectionSort() {
   for (i<-1 to getNombreValeurs()-1) {
     var mini=getValeur(i)
+    var compt=0
     for(j<-i to getNombreValeurs()-1) {
+      compt=compt+1
       if (getValeur(j)<mini) {
         mini=getValeur(j)
+        val bon=compt
       }
-    } 
+    }
+    echange(bon,i)
   }
 }
