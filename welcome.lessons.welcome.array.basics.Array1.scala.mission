@@ -1,0 +1,231 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Tableaux et tricot</h1>
+
+L'objectif de cet exercice est de reproduire le motif de la premi?re colonne
+en le d?calant d'une case (voir l'onglet ?Objectif? pour plus de
+d?tails). La grande diff?rence entre cet exercice et les pr?c?dents sur les
+motifs, c'est qu'il faut maintenant lire (sur la premi?re colonne) le motif
+souhait?, puis le reproduire ensuite. Il est impossible de faire autrement
+car votre programme sera ex?cut? par trois buggles dans trois mondes
+diff?rents, chacune ayant un motif propre ? reproduire.
+
+<p>Une possibilit? est de lire la prochaine case, puis d'aller la recopier en
+position, avant de revenir lire la case suivante, etc. Mais comme vous
+n'avez pas le droit d'utiliser les m?thodes permettant de t?l?porter la
+buggle ? une case particuli?re (<code>setPos()</code> et autres), cette
+fa?on de faire va ?tre tr?s p?nible ? mettre en place. </p>
+ 
+<p>Le plus simple est de stocker l?encha?nement de couleurs constituant le
+motif dans
+un <b>tableau</b>.
+Mais avant de pouvoir faire cela, nous devons en apprendre un peu plus sur
+les tableau.</p>
+
+<h2>Les tableaux</h2> 
+
+<p>Un tableau est une s?quence ordonn?e
+de variables qui marchent ensemble.
+C'est un peu similaire ? une commode dont les diff?rents tiroirs peuvent
+stocker des valeurs diff?rentes.
+Chaque variable de la s?quence est identifi?e par sa position et peut
+stocker une valeur sp?cifique.
+Toutes les cellules d'un tableau doivent stocker des valeurs du
+m?me type de donn?es parce que les tableaux sont homog?nes en Scala.
+Il est cependant possible de contourner cette restriction en utilisant le
+type de donn?es <code>Any</code> qui peut
+contenir  tous les autres type de donn?es (?any?
+veut dire ?n'importe? en anglais).
+
+Il est cependant raisonnable de rendre ses tableaux aussi sp?cifiques que
+possible. Si vous avez l'intention de stocker des entiers, faites en un
+tableau de Int, pas de
+Any.
+</p>
+
+<div style="text-align:center"><img src="lessons/welcome/array/array.png"/></div>
+
+<p>T est le nom du tableau,
+T(0) est le nom de la premi?re case,
+T(1) de la deuxi?me case,
+T(2) de la troisi?me case, etc...
+Et oui, la premi?re case est T(0) et la
+derni?re case
+d'un tableau de taille N est
+T(N-1).
+Cela peut sembler ?trange de commencer ? compter ? partir de 0 et non de 1,
+mais c'est ainsi (et cela s'explique par des raisons historiques obscures).</p>
+
+<h3>Usage de base</h3>
+
+<p>On peut utiliser une variable enti?re <i>i</i> pour acc?der avec
+T(i) aux cases.
+Quand <i>i</i> vaut 0 alors T(i) d?note la
+case T(0);
+lorsque <i>i</i> vaut 10,  T(i) d?note
+T(10).
+On dit alors que <i>i</i> est un <b>indice</b> dans le
+tableau T.
+<code>T(i)</code> peut ?tre utilis? comme
+n'importe quelle variable.
+On peut lui affecter une nouvelle valeur:</p> 
+<pre>T(i) = 78</pre>
+
+<p>On peut r?utiliser et tester cette valeur : </p>
+<pre>x = T(i)</pre>
+
+<p>On peut tester cette valeur :</p>
+<pre>if (T(i) > 0) {
+    // instructions...
+}</pre>
+
+<p>Il est ?galement tr?s simple de parcourir tout le
+tableau, par exemple pour initialiser chaque
+cellule.</p>
+
+<pre>for (i &lt;- 0 to T.length-1) {
+   T(i) = 3
+}</pre>
+
+<p>La notation <code>T.length</code> permet d'acc?der ? la taille
+(?length? en anglais) du tableau T,
+
+ce qui permet de construire facilement la boucle.
+
+N'oubliez pas de commencer ? <code>0</code> pour terminer ?
+<code>T.length-1</code> au lieu de <code>1</code> to
+<code>T.length</code>!</p>
+
+<p>Si vous souhaitez simplement parcourir les valeurs de T sans avoir besoin de
+l'index de chaque valeur, vous pouvez ?crire simplement :</p>
+<pre>for (i &lt;- T) {
+  action()
+}</pre>
+<p>
+Cette ?criture est finalement tr?s semblable ? la
+pr?c?dente.
+Simplement, <code>i to j</code> retourne un
+ensemble d'entiers sur lequel la boucle <code>for</code> it?re.
+En fait, Scala offre d'autres moyens tr?s ?l?gants de traverser des
+tableaux
+et d'autres collections de donn?es. Mais cela devrait ?tre le sujet
+d'exercices sp?cifiques (qui restent ? ?crire dans PLM).</p>
+
+
+<h3>D?clarer un tableau</h3>
+
+ 
+<p>Pour cr?er une variable nomm?e <b>T</b> pouvant contenir un tableau
+d'entiers, on ?crira :</p>
+<pre>var T:Array[Int]</pre>
+
+<p>
+La notation <code>[Int]</code> sp?cialise le type <code>Array</code>
+(?tableau? en anglais), qui est g?n?rique. Cela sp?cifie que chaque case du
+tableau est un entier. Le type d'un tableau de bool?ens s'?crirait
+simplement <code>Array[Boolean]</code>.
+</p>
+
+<h3>Allocation d'un tableau</h3>
+
+<p>D?clarer un tableau <code>T</code> nous r?serve juste le nom <code>T</code>
+pour l'utiliser plus tard, mais pas la place en m?moire pour stocker les
+cases. Le tableau n'est pas initialis? : il n'a pas de valeur. Que voudrait
+dire <code>T[4]</code> si nous n'avons pas encore dit que <code>T</code> est
+un tableau de 5 ?l?ments ?</p>
+
+<p>Avant tout, il faut donc lui affecter une valeur ? <code>T</code>:</p>
+<pre>var T = new Array[Int](10)</pre>
+
+<p><code>new</code> indique qu'il faut cr?er quelque chose, et
+<code>Array[Int](10)</code> indique qu'il
+s'agit d'un tableau de 10 valeur enti?res. En r?ponse, un tableau d'entiers
+de longueur 10 est cr?e en m?moire, et la variable <code>T</code>
+<b>r?f?rence</b> ce tableau.</p>
+
+<p>La taille d'un tableau est fix?e et ne peut plus ?tre chang?e apr?s la
+cr?ation du tableau. Pour conna?tre la taille d'un tableau <code>T</code>,
+on peut consulter la variable <code>T.length</code>.</p>
+
+<p>Lors de l'allocation, vous pouvez sp?cifier la taille ? utiliser avec une
+variable:
+<code>var T = new
+Array[Int](i);</code>
+Dans ce cas, la taille du tableau est fix?e ? la valeur de <code>i</code>
+<i>quand <code>new</code> a ?t? appel?</i>.
+La taille du tableau ne peut toujours pas ?tre modifi?e. M?me si la valeur
+de <code>i</code> est modifi?e ensuite, la taille reste la m?me.
+</p>
+
+<h4>D?claration et initialisation</h4>
+<p>Si vous connaissez le contenu de votre tableau ? l'avance, vous pouvez le
+d?clarer, l'allouer et l'initialiser en un coup:</p>
+<pre>var T = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</pre>
+
+<p>Pour conna?tre la taille du tableau ? allouer, le compilateur compte les
+valeurs donn?es.  Ce code est ?quivalent ? :</p>
+<pre>var T = new Array[Int](10);
+T(0) = 1
+T(1) = 2
+...
+T(9) = 10</pre>
+
+<p>C'est aussi ?quivalent au code :</p>
+<pre>var T = new Array[Int](10);
+for (i &lt;- 0 to T.length-1) {
+  T(i) = i+1
+}</pre>
+
+
+<!-- end of java|scala. python comes back -->
+
+
+<h3>Les tableaux et les param?tres de
+m?thodes</h3>
+<p>On peut tout ? fait passer un tableau
+en param?tre d'une m?thode. La m?thode peut alors l'utiliser comme si la
+variable avait ?t? d?finie localement:</p>
+<pre>def a42Premier(tableau:Array[Int]):Boolean = {
+  return tableau(0) == 42
+}</pre>
+
+<p>Cot? appelant, c'est aussi simple :</p>
+<pre>var tab = new Array[Int] (10)
+<span class="comment">// Initialisation des valeurs omise</span>
+if (a42Premier(tab)) {
+   <span class="comment">// faire des choses</span>
+}</pre>
+
+
+
+<p>Les m?thodes peuvent ?galement retourner des
+tableaux comme r?sultat sans aucun
+probl?me.
+Voici une m?thode retournant un tableau de la taille demand?e apr?s avoir initialis? toutes les cases ? la
+valeur 42.</p>
+
+<pre>def remplir42(taille:Int):Array[Int] = {
+    var res = new Array[int] (taille)
+    for (i &lt;- 0 to taille -1) {
+        res(i) = 42;
+    }
+    return res;
+}</pre>
+
+<h2>Objectif de l'exercice</h2>
+
+<p>Enfin ! Apr?s toutes ces explications, nous pouvons revenir ? l'exercice.</p>
+<p>Votre mission est plut?t simple au fond. Votre code doit sauvegarder le
+motif de couleurs observ? sur la premi?re colonne. Il faut bien entendu
+sauvegarder ces valeurs dans un tableau.
+
+Pour cela, il faut d?clarer et cr?er un tableau de variables de
+type <code>Color</code>. Attention, les diff?rents mondes ne sont pas tous
+de la m?me taille et il faut utiliser <code>getMondeHauteur()</code> pour
+trouver la taille du monde courant. Une fois cr??, remplissez le tableau en
+lisant les couleurs au sol de la premi?re colonne (avec
+<code>getCouleurSol()</code>).</p>  
+
+<p>Une fois le motif de la premi?re colonne lu et sauvegard?, il faut le
+r?pliquer sur toutes les colonnes, par exemple en ex?cutant
+<code>getMondeLargeur()</code> fois une m?thode ?crite tout expr?s.</p> 

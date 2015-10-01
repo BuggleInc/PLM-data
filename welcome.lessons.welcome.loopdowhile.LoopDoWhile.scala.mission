@@ -1,0 +1,46 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Boucles jusqu'?<tt> (do ... while)</tt></h2>
+
+<p>Certaines cases du monde sont jaunes, mais les buggles ne supportent pas de
+s'y trouver. ?crivez le code n?cessaire pour avancer jusqu'? ce que le sol
+devienne blanc. Vous pourrez utiliser la m?thode <code>estSurBlanc()</code>
+qui retourne vrai si le sol est blanc..</p>
+
+<p>Le truc est que la plupart des buggles de ce monde se trouvent actuellement
+sur ce sol jaune qui les ?nerve tant. Cela explique sans doute leur ?tat de
+panique, et le fait que toutes les buggles se ruent vers l'avant au d?but,
+m?me la buggle qui ne se trouve pas sur du jaune. En d'autres mots, m?me si
+le sol est blanc le premier coup, il faut quand m?me avancer d'un pas.</p>    
+
+<p>L'id?e g?n?rale est donc de faire: </p>
+<pre>avancer jusqu'? se trouver sur une case blanche</pre>
+
+<p>La principale difficult? est que nous voulons ex?cuter le corps de boucle au
+moins une fois, m?me si la buggle se trouve d?j? sur une case blanche. Il
+serait facile de dupliquer le corps de la boucle avant la boucle pour cela,
+mais  ?a serait une <b>tr?s mauvaise id?e</b>. Dupliquer du code est une
+<b>tr?s mauvaise habitude</b> et il faut toujours ?viter de le faire.</p>
+
+<p>Quand on duplique le code, sa maintenance tourne facilement au cauchemar :
+la lecture du code est tr?s p?nible puisque le lecteur doit s'assurer qu'il
+n'y a effectivement aucune diff?rence, m?me minime, entre les versions du
+m?me code. Debugger le code devient plus long, puisqu'il faut corriger
+toutes les versions. En fait, toutes les modifications deviennent
+p?nibles. Alors, vraiment, vous devrez <b>toujours</b> vous efforcer
+d'?viter la duplication du code quand c'est possible. Et la bonne nouvelle
+est que c'est toujours possible...</p>
+
+<h3>Ex?cuter le corps de boucle au moins une fois</h3>
+ 
+<p>Dans une boucle <tt>while</tt>, la condition est ?valu?e avant toute chose,
+et si elle est fausse, le corps de la boucle n'est jamais ex?cut?. Il arrive
+parfois que l'on veuille que le corps de la boucle soit ?valu? au moins une
+fois, m?me si la condition est initialement fausse. On utilise pour cela une
+variante de la boucle <tt>while</tt>, dont la syntaxe est la suivante en
+Scala.
+
+<pre>do {
+    <b>action()</b>
+} while (<b>condition</b>)</pre></p>
+
