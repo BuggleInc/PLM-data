@@ -6,12 +6,13 @@ def insertionSort()
   for(i <- 1 to getNombreValeurs()-1)
   {
     v = getValeur(i)
+    copie(i-1,i)
     
     for(j <- i to 1 by -1)
     {
       if(!plusPetitQue(j-1,v))
       {
-        copie(j-1,j)
+        copie(j-2,j-1)
         r=j-1
       }
     }
