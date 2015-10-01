@@ -2,20 +2,20 @@
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
 <h2>Tri Shell</h2>
  
-Cet algorithme porte le nom de son auteur, Donald Shell, qui l'a publi? en
-1959. Son principe peut ?tre vu comme une application de l'id?e du CombSort
-(faire prendre des raccourcis aux ?l?ments ayant beaucoup de chemin ? faire)
-au tri par insertion (le CombSort est une variante du tri ? bulle).  Au lieu
+Cet algorithme porte le nom de son auteur, Donald Shell, qui l'a publié en
+1959. Son principe peut être vu comme une application de l'idée du CombSort
+(faire prendre des raccourcis aux éléments ayant beaucoup de chemin à faire)
+au tri par insertion (le CombSort est une variante du tri à bulle).  Au lieu
 de comparer les valeurs adjacentes lors du tri par insertion, on compare des
-valeurs s?par?es par un <i>?cart</i> plus grand. Plus l'?cart est grand et
-plus les ?l?ments sont d?plac?s rapidement vers leur position finale, mais
-aussi plus le d?placement est impr?cis. Il faut donc appliquer l'algorithme
-avec une s?quence d'?carts d?croissante vers un. Ainsi, ? la derni?re ?tape
-quand l'?cart vaut un, on applique l'algorithme de tri par insertion de
-base, mais sur un tableau d?j? presque tri? par les ?tapes pr?c?dentes.
+valeurs séparées par un <i>écart</i> plus grand. Plus l'écart est grand et
+plus les éléments sont déplacés rapidement vers leur position finale, mais
+aussi plus le déplacement est imprécis. Il faut donc appliquer l'algorithme
+avec une séquence d'écarts décroissante vers un. Ainsi, à la dernière étape
+quand l'écart vaut un, on applique l'algorithme de tri par insertion de
+base, mais sur un tableau déjà presque trié par les étapes précédentes.
 
-<p>Donald Shell propose d'utiliser <code>lgr/2</code> comme premi?re valeur de
-l'?cartement, puis de le diviser par deux ? chaque ?tape.  Le pseudo-code
+<p>Donald Shell propose d'utiliser <code>lgr/2</code> comme première valeur de
+l'écartement, puis de le diviser par deux à chaque étape.  Le pseudo-code
 est donc le suivant:
 <pre>
 ecart=lgr/2
@@ -23,27 +23,27 @@ tant que ecart>0:
   appliquer l'algorithme de tri par insertion en comparant i-ecart et i, puis i-2ecart et i-ecart, puis i-3ecart et i-2ecart, etc.
 </pre>
 
-<p>Comme dans le cas du CombSort, la s?quence des valeurs prises par l'?cart se
-r?v?le ?tre d'une importance capitale pour les performances du tri de
-Shell. Il existe des cas pathologiques qui font que la s?quence que nous
-avons utilis?e ici pr?sente une complexit? en O(n^2) dans le pire des
-cas. D'autres s?quences ont ?t? propos?: la s?quence des incr?ments de
-Hibbard (2^k ? 1) permet une complexit? dans le pire des cas de O(n^(3/2)),
-les incr?ments de Pratt (2^i*3^j) permettent un pire cas en O(n
-log(n)log(n)).  Ces r?sultats font du tri de Shell un candidat tout ? fait
+<p>Comme dans le cas du CombSort, la séquence des valeurs prises par l'écart se
+révèle être d'une importance capitale pour les performances du tri de
+Shell. Il existe des cas pathologiques qui font que la séquence que nous
+avons utilisée ici présente une complexité en O(n^2) dans le pire des
+cas. D'autres séquences ont été proposé: la séquence des incréments de
+Hibbard (2^k − 1) permet une complexité dans le pire des cas de O(n^(3/2)),
+les incréments de Pratt (2^i*3^j) permettent un pire cas en O(n
+log(n)log(n)).  Ces résultats font du tri de Shell un candidat tout à fait
 valide pour des instances de tableau de quelques centaines de milliers
-d'?l?ments quand il est correctement impl?ment?.</p>
+d'éléments quand il est correctement implémenté.</p>
 
 <p>Dans notre cas, les instances de tableaux que nous utilisons sont trop
-petites pour que ces optimisations pr?sentent un r?el avantage. Si on
-voulait le faire, il faudrait prendre en valeur initiale de l'?cart la plus
-grande valeur de la suite utilis?e, puis prendre les valeurs successives en
+petites pour que ces optimisations présentent un réel avantage. Si on
+voulait le faire, il faudrait prendre en valeur initiale de l'écart la plus
+grande valeur de la suite utilisée, puis prendre les valeurs successives en
 descendant ensuite.</p>
 
-<p>De fa?on int?ressante, d?terminer la meilleure s?quence d'?cart pour le
-shell sort s'av?re ?tre un probl?me de recherche de notre si?cle en
-informatique. Par exemple, un article publi? en 2001 propose la suite
+<p>De façon intéressante, déterminer la meilleure séquence d'écart pour le
+shell sort s'avère être un problème de recherche de notre siècle en
+informatique. Par exemple, un article publié en 2001 propose la suite
 suivante, qui semble optimale en pratique pour des tailles de tableau allant
-jusqu'? 10^5: {1, 4, 10, 23, 57, 132, 301, 701, 1750} (Marcin Ciura, Best
+jusqu'à 10^5: {1, 4, 10, 23, 57, 132, 301, 701, 1750} (Marcin Ciura, Best
 Increments for the Average Case of Shellsort, 13th International Symposium
 on Fundamentals of Computation Theory, LNCS 2001; Vol. 2138).</p> 
