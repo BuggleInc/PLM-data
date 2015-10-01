@@ -3,8 +3,12 @@ def cocktailSort3() {
   var d = 0
   var ech = false
   
+  var montee = false
+  var descente = false
+  
   do{
-    ech=false
+    montee=false
+    descente=false
     
     if(d<f)
     {
@@ -13,19 +17,19 @@ def cocktailSort3() {
         if(plusPetit(i+1,i))
         {
           echange(i,i+1)
-          ech=true
+          montee=true
         }
       }
       f-=1
 
-      if(ech)
+      if(montee)
       {
         for(i<-f to d by -1)
         {
           if(plusPetit(i+1,i))
           {
             echange(i,i+1)
-            ech=true
+            descente=true
           }
         }
         d+=1
@@ -33,5 +37,5 @@ def cocktailSort3() {
       
     }
     
-  }while(ech)
+  }while(montee&&descente)
 }
