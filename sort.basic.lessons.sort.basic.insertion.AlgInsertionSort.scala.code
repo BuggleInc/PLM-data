@@ -6,14 +6,14 @@ def insertionSort()
   for(i <- 1 to getNombreValeurs()-1)
   {
     v = getValeur(i)
-    compteur =1
+    compteur = 0
    	
     while((compteur<i)&&(!plusPetitQue(i-compteur,v)))
     {
-      copie(i-compteur,i-compteur+1)
+      copie(i-compteur-1,i-compteur)
       compteur = compteur + 1
     }
     
-    setValeur(i-compteur,v)
+    setValeur(i-compteur+1,v)
   }
 }
