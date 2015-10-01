@@ -2,5 +2,14 @@ def shellSort()  {
   var l = getNombreValeurs()
   while(l>1){
     l = (l.asInstanceOf[Double] / 2).asInstanceOf[Int]
+    for(i <- l-1 to getNombreValeurs()-1){
+    	var n = getValeur(i:Int)
+      var v = l
+    	while(i>=1 && getValeur(i-v*l)>n){
+      	copie(i-v*l:Int,i:Int)
+        v = 2*v
+    	}
+    	setValeur(i:Int, n:Int)
+  }
   }
 }
