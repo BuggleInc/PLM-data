@@ -3,6 +3,7 @@ def combSort() {
   var ecart:Int = getNombreValeurs()
   var swapped:Boolean = true
   while (ecart > 1 || swapped) {
+    swapped = false
     if (ecart > 1) {
       
       ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
@@ -14,9 +15,10 @@ def combSort() {
       if (plusPetit(i, i + ecart) == false) {
         
         echange(i, i + ecart)
+        swapped = true
       }
       i = i + 1
-      swapped = true
+      
     }
   }
 }
