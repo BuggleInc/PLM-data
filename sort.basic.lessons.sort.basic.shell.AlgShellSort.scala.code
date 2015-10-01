@@ -1,2 +1,19 @@
 def shellSort()  {
+var ecart = getNombreValeur()
+ecart = (ecart.asInstanceOf[Double] / 2).asInstanceOf[Int]
+while (ecart>0) {
+  var v = 0
+  var k = 1
+    for (i <- 1 to getNombreValeurs()-1) {
+      v = getValeur(i);
+      k = i
+      while ( (k>ecart)&&(!plusPetitQue((k-ecart), v)) ) {
+        setValeur(k, getValeur(k-ecart));
+        k=k-1
+      }
+      setValeur(k,v)
+    }
+  ecart = (ecart.asInstanceOf[Double] / 2).asInstanceOf[Int]
 }
+}
+
