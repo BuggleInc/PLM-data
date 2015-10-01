@@ -1,0 +1,39 @@
+override def run() {
+  
+  var nbBase = getNombreBases()
+  var nbPos =	getNombrePositions()
+  
+  while(!estTrie()){
+    var trouBase = getTrouBase()
+    var trouPos = getTrouPosition()
+    
+    var baseBouger=trouBase+1
+    
+    if(baseBouger==nbBase) baseBouger=0
+    
+    var posBouger=troupos
+    var dist=0
+    
+    for(i<-0 to nbPos){
+      if(i!=trouPos){
+      	var tmpDist=getCouleurBase(baseBouger,i) -  baseBouger
+        if(tmpDist<0){
+          tmpDist+=nbBase
+        }
+        if(tmpDist>dist){
+          posBouger=i
+          dist=tmpDist
+        }
+      }
+      
+    }
+    
+    deplace(baseBouger,posBouger)
+    
+    
+  }
+  
+  
+  
+  
+}
