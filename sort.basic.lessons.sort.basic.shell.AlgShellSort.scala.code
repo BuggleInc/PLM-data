@@ -1,0 +1,17 @@
+def shellSort() {
+  var v : Int =0
+  var cpt:Int =0
+  var ecart:Int=getNombreValeurs()/2
+  while (ecart>0){
+    for (i<- 1 to getNombreValeurs()-1){
+      v=getValeur(i)
+      cpt=0
+      while (i-cpt*ecart>0 && plusPetitQue(i-cpt*ecart-1,v)==false){
+        copie(i-cpt*ecart-1,i-cpt*ecart)
+        cpt+=1
+      }
+      setValeur(i-cpt*ecart,v)
+      ecart=ecart/2
+    }
+  }
+}
