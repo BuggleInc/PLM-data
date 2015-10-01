@@ -4,9 +4,10 @@ def insertionSort() {
   for (i<- 1 to getNombreValeurs()-1) {
     stockage=getValeur(i)
     k=i-1
-    while(plusPetit(k,i)) {
+    while(plusPetit(k,i) && k>1) {
       copie(k,i)
       k-=1
     }
+    setValeur(k,stockage)
   }
 }
