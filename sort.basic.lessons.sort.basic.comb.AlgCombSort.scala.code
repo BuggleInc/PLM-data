@@ -5,19 +5,20 @@ def combSort() {
   
   while (ecart>1){
     trier=true
-    
-      ecart=(ecart.asInstanceOf[Double]/1.3).asInstanceOf[Int]
+    cart=(ecart.asInstanceOf[Double]/1.3).asInstanceOf[Int]
+    if(ecart<1){
+      ecart=(ecart.asInstanceOf[Double]+1).asInstanceOf[Int])
+    }
+    var i =0
    
-    
-    var i=0
-    while (i+ecart<taille){
+    while (i<= taille - ecart){
       if (plusPetit(i+ecart,i)==true){
         echange(i+ecart,i)
         trier=false
       }
-    
-    }
     i=i+1
+    }
+    
   }
   
 }
