@@ -1,15 +1,13 @@
 def selectionSort() {
   for (i <- 0 to getNombreValeurs()-1){
-    var v = getValeur(i)
+    var v = i
     var c = i
-    var r = i
     while(c < getNombreValeurs()){
-      if (getValeur(c) < v){
-        v = getValeur(c)
-        r = c
+      if (getValeur(c) < getValeur(v)){
+        v = c
       }
       c = c+1
     }
-    echange(r,i)
+    echange(v,i)
   }
 }
