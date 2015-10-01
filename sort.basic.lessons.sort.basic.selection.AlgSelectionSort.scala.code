@@ -5,8 +5,9 @@ def selectionSort() {
   var minimum:Int = 0
   for (i <- 0 to lgr-2) {
     min = i
+    minimum = getValeur(i)
     for (j <- i to lgr-1) {
-      if (getValeur(j) < getValeur(min)) {min = j}
+      if (getValeur(j) < minimum) {min = j; minimum = getValeur(j)}
     }
     echange(i,min)
   }
