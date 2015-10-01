@@ -1,0 +1,62 @@
+def cocktailSort3() {
+  var rep1=false
+  var rep2=false
+  var debut=0
+  var fin = getNombreValeurs()-2
+  
+  do {
+    rep1=false 
+    for (i <- debut to fin){
+      if (getValeur(i)>getValeur(i+1)){
+        echange(i,i+1)
+        rep1=true
+      }     
+    }
+    fin-=1
+ 
+    rep2=false
+    for (j<- fin to debut by -1){
+      if (getValeur(j)>getValeur(j+1)){
+        echange(j, j+1)
+        rep2= true
+      }
+    }
+    debut +=1
+    
+  
+  } while( rep1 && rep2 )
+  
+}
+
+
+/*
+def cocktailSort2(){
+  var rep = false
+  var debut = 0
+  var fin = getNombreValeurs()-2
+  
+  do {
+    rep=false 
+    for (i <- debut to fin){
+      if (getValeur(i)>getValeur(i+1)){
+        echange(i,i+1)
+        rep=true
+      }     
+    }
+    fin-=1
+ 
+    
+    for (j<- fin to debut by -1){
+      if (getValeur(j)>getValeur(j+1)){
+        echange(j, j+1)
+        rep= true
+      }
+    }
+    debut +=1
+    
+  
+  } while( rep )
+  
+}
+
+*/
