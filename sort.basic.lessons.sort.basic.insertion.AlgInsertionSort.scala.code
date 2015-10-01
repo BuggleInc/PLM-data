@@ -2,15 +2,20 @@ def insertionSort() {
   var v:Int = 0
   var h:Int = 1
   var lastCopied:Int = 1
+  var copied = true
   
   for (i <- 1 to getValueCount()-1) {
     v = getValue(i)
     lastCopied = i
-    while (i-h >= 0) {
+    copied = true
+    
+    while (i-h >= 0 && copied) {
       if (getValue(i-h) > v) {
       	copy(i-h, i-h+1);
       	lastCopied = i-h
-    	}
+    	} else {
+        copied = false
+      }
       
       h+=1;
     }
