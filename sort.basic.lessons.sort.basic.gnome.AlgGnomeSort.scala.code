@@ -3,12 +3,16 @@ def gnomeSort() {
   var nain = 0;
   
   while(nain < len){
-    if(getValue(nain) > getValue(nain+1)){
+    if(getValue(nain) < getValue(nain+1)){
+      nain = nain + 1;
+    }
+    else {
       swap(nain, nain+1);
-      if(nain > 0){
-        nain-1;
-      } else {
-        nain +1;
+      if(nain < 1){
+        nain = nain + 1;
+      }
+      else {
+      	nain = nain - 1;
       }
     }
   }
