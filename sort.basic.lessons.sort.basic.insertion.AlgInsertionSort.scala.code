@@ -1,21 +1,15 @@
 def insertionSort() {
-  var tampon:Int =0
-  var fini:Boolean =false
-  var j:Int=0
-  for (i <- 1 to getNombreValeurs()-1){
-    tampon = getValeur(i)
-    j=i-1
-    while (fini==false){
-      fini==true
-      if (plusPetit(i,j)==true){
+  var v : Int =0
+  var cpt:Int =0
+  for (i<- 1 to getValeurNombre()){
+    v=getValeur(i)
+    cpt=i
+    for (j<- i-1 to 0){
+      if (plusPetit(j,j+1)==true){
         copie(j,j+1)
-        fini ==false
+        cpt-=1
       }
-      else {
-        setValeur(j+1,tampon)
-      }
-      j-=1
     }
-    
+    setValeur(v,cpt)
   }
 }
