@@ -1,13 +1,13 @@
 def shellSort()  {
   var valeur = 0;
   var test = 0;
-  var ecart = getNombreValeurs()  
+  var ecart = getNombreValeurs()  //on donne sa premiere valeur ? ecart
  	while (ecart>0) {
-    ecart = (ecart.toDouble / 2).toInt;
-  	for (i <- 1 to getNombreValeurs-1){
-    	valeur = getValeur(i);
-    	test = i-ecart;
-   		while (test>=0 && getValeur(test)>valeur){
+    ecart = (ecart.toDouble / 2).toInt; //on change la valeur de ecart
+  	for (i <- 1 to getNombreValeurs-1){ // parcours du tableau
+    	valeur = getValeur(i); // on recupere la valeur ? comparer
+    	test = i-ecart; //premier indice ? comparer
+   		while (test>=ecart && getValeur(test)>valeur){ //comparaison
       		setValeur(test+ecart,getValeur(test));
       		test=test-ecart;
     	}
