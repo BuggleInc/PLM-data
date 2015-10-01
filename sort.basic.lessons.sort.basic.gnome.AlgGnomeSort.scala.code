@@ -1,20 +1,20 @@
 def gnomeSort() {
-  var n: Int=getNombreValeurs();
-  var a: Int=1;
-  var pass: Int=0;
-  while(pass!=n)
-  {
-    var i: Int=0;
-    while(i<n-1-pass)
-    {
-      if(getValeur(i)>getValeur(i+1))
-      {
-        echange(i,i+1);
-      }
-      i=i+1;
+  var len = getValueCount();   //nombre de valeurs dans le tableau
+  var nain = 0;
+
+  while(nain < len-1){   //tant que le nain est valeur -1
+    if(getValue(nain) < getValue(nain+1)){  //si la valeur de la case inf est inf ? la case sup
+      nain = nain + 1;   // le nain avance
     }
-    pass=pass+1;
+    else {   // sinon on ?change les 2 nains
+      swap(nain, nain+1);
+      if(nain < 1){  // on positionne le nain
+        nain = nain + 1;
+      }
+      else {
+        nain = nain - 1;
+      }
+    }
   }
 }
-
 
