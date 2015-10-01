@@ -5,7 +5,6 @@ def cocktailSort3() {
   var test2=false
   while (!test1 && !test2){
     test1 = true
-    test2 = true
     for (i <- debut to fin){
       if(plusPetit(i,i-1)){
         test1 = false
@@ -14,6 +13,8 @@ def cocktailSort3() {
     }
   
     fin -=1
+     while (!test1 && !test2){
+    test2 = true
     for (i <- fin to debut by -1) {
         if (plusPetit(i,i-1)){
         test2 = false
@@ -21,6 +22,8 @@ def cocktailSort3() {
     }
     
   }
+     }
     debut+=1
   }
+    
 }
