@@ -1,8 +1,8 @@
 def solve() {
   var n:Int = getTaillePile()
-  for (i <- 0 to n-1) {
-    var max:Int = i
-    for (j <- 0 to n-i-1) {
+  for (i <- 0 to n-2) {
+    var max:Int = i  //crepe de rayon max
+    for (j <- 0 to n-i-1) {   //on cherche la plus grosse crepe
       if (getRayonCrepe(max) < getRayonCrepe(j)) {
         max = j
       }
