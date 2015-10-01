@@ -1,25 +1,24 @@
 def insertionSort() {
   
   val lgr = getNombreValeurs()
-  var continue = true
   var a = 1
   
   for (i <- 1 to lgr-1){
     var stockeur = getValeur(i)
-    a = 1
+    var continue = true
     
-    while(stockeur < getValeur(i-a) && continue){
+    do{
+      var posCurseur = i-a
+      var curseur = getValeur(posCurseur)
       
- 			continue = true
-      copie(i-a,i-a+1)
-      a+=1
-      
-      if (i-a <0){
+      if (stockeur < curseur){
+       copie(posCurseur,posCurseur+1) 
+       a += 1
+      }else{
         continue = false
-        a -=1
       }
-      
-    }
-    setValeur(i-a, stockeur)
+    }while(continue) 
+    
+ 
   }
 }
