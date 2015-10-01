@@ -3,12 +3,13 @@ def insertionSort() {
   var cpt:Int =0
   for (i<- 1 to getNombreValeurs()-1){
     v=getValeur(i)
-    cpt=i
-    for (j<- i-1 to 0 by -1){
-      if (plusPetitQue(v,j)==true){
-        copie(j,j+1)
-        cpt-=1
+    cpt=0
+    while( v>getValeur(i-cpt-1)){
+      if (plusPetitQue(v,i-cpt-1)==true){
+        copie (i-cpt-1,i-cpt)
+        cpt+=1
       }
+      
     }
     setValeur(v,cpt)
   }
