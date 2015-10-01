@@ -3,10 +3,11 @@ def insertionSort() {
   
   for (i<-1 to getNombreValeurs()-1) {
     v=getValeur(i)
-    while(i>0 && !plusPetitQue(i-1,v)) {
-      copie(i-1,i)
-      i-=1
+    var place = i
+    while(place>0 && !plusPetitQue(place-1,v)) {
+      copie(place-1,place)
+      place-=1
     }
-    setValeur(i,v)
+    setValeur(place,v)
   }
 }
