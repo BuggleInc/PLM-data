@@ -1,18 +1,13 @@
 def selectionSort() {
   var smallestValueIndex:Int = 0
-  var sorted:Boolean = false
   var i:Int = 0
-  while(!sorted && i < getValueCount() - 2){
+  while(i < getValueCount() - 2){
     smallestValueIndex = i
     for(j <- i to getValueCount() - 1)
     	if(getValue(smallestValueIndex) > getValue(j))
     		smallestValueIndex = j
     if(smallestValueIndex != i)
     	swap(i, smallestValueIndex)
-    /*
-    else
-    	sorted = true
-    */
     i += 1
   }
 }
