@@ -1,14 +1,14 @@
 def solve() {
   val lgr:Int = getTaillePile()
-  var i:Int = 0
-  while(!estTriee()) {
-    var largeur:Int = getRayonCrepe(i)
-    var k:Int = 0
-    while(getRayonCrepe(k)<largeur) {
-      k += 1
+  while (!estTriee()) {
+    for (i <- 0 to lgr-2) {
+      if (getRayonCrepe(i)>getRayonCrepe(i+1)) {
+        retourne(i+1)
+        if (!estCrepeRetournee(0)) {
+          retourne(1)
+        }
+        retourne(i+2)
+      }
     }
-    retourne(1)
-    retourne(k+1)
-    i += 1
   }
 }
