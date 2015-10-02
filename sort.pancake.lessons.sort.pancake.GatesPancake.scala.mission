@@ -1,0 +1,98 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Tri rapide de cr?pes</h1>
+
+<p>Contrairement aux probl?mes classiques de tri, l'op?ration co?teuse ?
+?conomiser n'est pas la comparaison des valeurs, mais le retournement des
+cr?pes. Dans cet exercice, nous allons explorer un autre algorithme
+permettant de r?duire le nombre de retournements n?cessaires pour trier la
+pile. Fait amusant, cet algorithme a ?t? propos? pour la premi?re fois par
+Bill Gates, avant qu'il n'invente Windows.</p>
+
+<p>L'id?e de base est de faire grandir des s?quences de cr?pes tri?es, pas
+forc?ment en commen?ant du bas de la pile. On dira qu'un ensemble de cr?pes
+dans l'ordre constitue un <b>block</b> tandis qu'une cr?pe qui n'est pas
+dans un bloc est dite <b>libre</b>. L'algorithme consid?re la cr?pe tout en
+haut de la pile, dont la taille est not?e <code>t</code>, et cherche les
+deux cr?pes de taille <code>t-1</code> et <code>t+1</code> (le voisin ainsi
+consid?r? est not? <code>t+o</code>). Huit cas sont possibles alors&nbsp;:</p>
+
+<ul>
+<li><b>Cas a</b>: <code>t</code> et <code>t+o</code> sont tous les deux
+libres. Ils sont alors fusionn?s en un retournement.<br/>
+<div align="center"><img src="img/gates-a.png"/></div>
+</li></ul>
+
+<ul><li><b>Cas b</b>: <code>t</code> est libre, et <code>t+o</code> est le premier
+?l?ment d'un bloc. Ils sont fusionn?s en un bloc.<br/>
+<div align="center"><img src="img/gates-b.png"/></div>
+</li></ul>
+
+<ul>
+<li><b>Cas c</b>: <code>t</code> est libre, mais <code>t-1</code> et
+<code>t+1</code> sont tous les deux les derniers ?l?ments de blocs. Ces deux
+blocs ainsi que <code>t</code> sont tous fusionn?s en 4
+retournements. Prenez garde, si <code>t-1</code> ou <code>t+1</code>
+n'existe pas (parce que <code>t</code> est 0 ou max), seulement deux de ces
+retournements sont n?cessaires.
+<br/>
+<div align="center"><img src="img/gates-c.png"/></div>
+</li></ul>
+
+<ul>
+<li><b>Cas d</b>: <code>t</code> est dans un bloc, mais <code>t+o</code> est
+libre. Ils sont fusionn?s en un retournement.<br/>
+<div align="center"><img src="img/gates-d.png"/></div>
+</li></ul>
+
+<ul>
+<li><b>Cas e</b>: <code>t</code> est dans un bloc, et <code>t+o</code> est le
+premier ?l?ment d'un bloc. Ils sont fusionn?s en un retournement.<br/>
+<div align="center"><img src="img/gates-e.png"/></div>
+</li></ul>
+
+<ul><li><b>Cas f</b>: <code>t</code> est dans un bloc, et <code>t+o</code> est le
+dernier ?l?ment d'un autre bloc. Ils sont fusionn?s en trois retournements
+comme suit.<br/>
+<div align="center"><img src="img/gates-f.png"/></div></li></ul>
+
+<ul><li><b>Cas g</b>: <code>t</code> est dans un bloc de taille k+1 (le dernier
+?l?ment est <code>t+ko</code>), <code>t+(k+1)o</code> est soit libre soit le
+dernier ?l?ment d'un autre bloc. Les deux blocs sont fusionn?s en deux
+retournements:<br/>
+<div align="center"><img src="img/gates-g.png"/></div><br/></li></ul>
+
+<ul><li><b>Cas h</b>: <code>t</code> est dans un bloc de taille k+1 (le dernier
+?l?ment est <code>t+ko</code>), <code>t+(k+1)o</code> est le premier ?l?ment
+d'un autre bloc (la diff?rence avec le cas g est que <code>t+(k+1)o</code>
+est maintenant le <i>premier</i> ?l?ment de son bloc). Les deux blocs sont
+fusionn?s en deux retournements:<br/>
+<div align="center"><img src="img/gates-h.png"/></div>
+</li></ul>
+
+<ul><li><b>Cas i</b>: <code>t</code> est dans un bloc de taille <code>n</code>, qui
+contient donc toutes les cr?pes. Si <code>t</code> n'est pas 1, toute la
+pile est retourn?e. Ensuite, l'algorithme s'arr?te.</li></ul>    
+
+<p>Chaque it?ration augmente la taille des blocs, donc la terminaison de
+l'algorithme est certaine. Une analyse plus fine montre qu'il prend au plus
+<code>(5n+5)/3</code> ?tapes pour trier la pile. C'est mieux que
+l'algorithme na?f, qui n?cessite <code>2n-3</code> ?tapes pour cela.</p>
+
+<h2>? vous de jouer</h2>
+<p>Vous avez maintenant quasi assez d'informations pour impl?menter cet
+algorithme par vous-m?me. Il faut juste lever les derni?res ambigu?t?s pour
+que vous impl?mentiez exactement le m?me algorithme que la correction. Si
+plusieurs cas s'appliquent ? la situation courante, appliquez le
+premier. Par exemple, si les cas a et b s'appliquent (avec <code>t-1</code>
+pour le cas a et <code>t+1</code> pour le cas b), vous devez appliquer les
+instructions du cas <b>a</b>. Si un cas donn? s'applique ? la fois pour
+<code>t+1</code> et <code>t-1</code>, appliquez le pour <code>t+1</code>.</p>
+
+<p>Cet exercice est plus difficile que ceux que nous avons fait jusque l?, et
+il ne serait pas choquant que vous ayez besoin d'un peu plus de temps que
+les autres pour le r?soudre. Mais n'abandonnez pas, vous pouvez le faire !</p>
+
+<p><a href="#tip-1">Heu, j'ai besoin d'un peu d'aide pour commencer.</a></p>
+
+<p><a href="#tip-2">Mon code ne fonctionne pas, et je ne sais pas comment le d?bugger</a></p>
