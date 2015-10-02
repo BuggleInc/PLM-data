@@ -1,0 +1,25 @@
+def combSort() {
+  
+  var ecart = getNombreValeurs();
+  var n = getNombreValeurs();
+  var trie = false;
+  
+  do
+  {
+  	if(ecart > 1)
+    {
+      ecart=ecart/1.3;
+    }
+    i=0;
+    while((i+ecart)<n)
+    {
+      if(plusPetit(i,i+ecart))
+      {
+        echange(i,i+ecart);
+        trie = true;
+      }
+      i+=1;
+    }
+  }while((ecart>1)||(trie))
+  
+}
