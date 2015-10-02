@@ -1,5 +1,6 @@
 public void combSort() {
   double gap = getValueCount();
+  int ecart = getValueCount();;
   boolean swap;
  	int i = 0;
   do{
@@ -8,9 +9,10 @@ public void combSort() {
       gap = gap / 1.3;
     }
     i = 0;
+    ecart = (int)gap;
     while(i+gap < getValueCount()){
-      if(isSmaller(i+gap,i)){
-        swap(i,i+gap);
+      if(isSmaller(i+ecart,i)){
+        swap(i,i+ecart);
         swap=false;
         i++;
       }
