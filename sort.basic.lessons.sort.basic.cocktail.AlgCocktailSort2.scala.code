@@ -1,6 +1,7 @@
 def cocktailSort2() {
   var swapped= false
   var j=getValueCount()-2
+  var k=getValueCount()-2
   do {
     swapped=false
     for (i <- 0 to j)
@@ -10,13 +11,13 @@ def cocktailSort2() {
         
     }
     j=j-1
-    for (i<- j to 0 by -1)
+    for (i<- k to 0 by -1)
       if (! isSmaller(i,i+1)){
         swap(i,i+1)
         swapped=true;
        
       }
-   j=j+1 
+   k=k+1 
    
   }  while (swapped);
 }
