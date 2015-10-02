@@ -1,16 +1,17 @@
 def shellSort()  {
   val n = getNombreValeurs()
-  var ecart = n/2
-  while(ecart>0) {
-    for ( k <- 1 to n-1){
+	for (k<- 1 to n-1) {
+    var ecart = n/2
     var v = getValeur(k)
     var i = k
-    while(i>0 && getValeur(i-ecart)>v) {
-      setValeur(i,getValeur(i-ecart))
-      i -= 1
+    while(ecart>0){
+      if(getValeur(i-ecart)>v) {
+        setValeur(i-ecart,v)
+      }
+      else{
+        ecart = ecart/2
+      }
+
     }
-    setValeur(i,v)
-  }
   }
 }
-
