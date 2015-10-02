@@ -1,5 +1,5 @@
 def combSort() {
-  var ecart = getValueCount()
+  var ecart = getValueCount()-1
   var swapped = false
   do {
     if (ecart>1) {
@@ -7,12 +7,12 @@ def combSort() {
     }
     var i = 0
     swapped=false
-    while (i+ecart<getValueCount()-1) {
+    while (i+ecart<getValueCount()) {
       if (getValue(i)>getValue(i+ecart)) {
         swap(i,i+ecart)
         swapped = true
       }
       i+=1
     }
-  } while (ecart>=1 || !swapped)
+  } while (ecart>1 || !swapped)
 }
