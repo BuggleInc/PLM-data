@@ -2,5 +2,17 @@ def combSort() {
   var lgr = getNombreValeurs()
   var ecart = lgr
   var est_triee = false
-	do{}while(ecart>1 || est_triee)
+	do{
+    if (ecart>1){
+      ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+    }
+    var i=0
+    while(i+ecart<lgr){
+      if (plusPetitQue(i+ecart,ecart)){
+        echange(i+ecart,ecart)
+        est_triee = true
+      }
+      i=i+1
+    }
+  }while(ecart>1 || est_triee)
 }
