@@ -2,15 +2,17 @@ def shellSort()  {
   val taille=getNombreValeurs()
   var temp=0
   var j=0
+  var ecart=taille/2
   for (i<-1 to taille-1){
     temp=getValeur(i)
-    j=i
-    if (i==1) {j=taille/2}
+    j=ecart
     while ((j>0)&&(getValeur(j/2)>temp)){
       setValeur(j,getValeur(j/2))
       j=j/2
       }
-     	setValeur(j,temp) }
+     	setValeur(j,temp)
+  		ecart=ecart/2
+  		}
 }
 
 def insertionSort() {
