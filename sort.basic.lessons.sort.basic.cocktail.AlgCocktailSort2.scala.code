@@ -6,18 +6,16 @@ def cocktailSort2() {
     for (i<- debut to fin) {
       if (plusPetit(i+1,i)) {
         echange(i,i+1);
+        inversion = true;
       }
     fin = fin - 1;
-    inversion = true;
     }
-    var j =0;
-    for (i<- fin to debut+j by -1) {
-      if (plusPetit(j,j+1)) {
+    for (i<- fin to debut by -1) {
+      if (plusPetit(i,i+1)) {
         echange(i,i+1);
-        j=j+1
+        invresion = true;
       }
     debut = debut + 1;
-    inversion = true;
     }
   } while (!inversion);
 }
