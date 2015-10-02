@@ -1,0 +1,58 @@
+def step(rule:Array[Char], colors:Array[Color]) {
+  var position = 0
+  // Cherche position couleur sol
+  for (i <- 0 to colors.length-1)
+  {
+    if (getCouleurSol() == colors(i)) 
+    {
+      position = i
+    }
+  }
+  // tourner gauche ou droite
+  if (rule(position) == 'R') 
+  {
+    droite()
+  } else 
+  {
+    gauche()
+  }
+  // marque sol prochaine couleur sequence
+  if (position < colors.length-1) 
+  {
+    setCouleurBrosse(colors(position+1))
+    peindre()
+  } else 
+  {
+    setCouleurBrosse(colors(0))
+    peindre()
+  }
+  // avance
+  avance()
+}
+
+/*def step() 
+{
+  if (getCouleurSol() == Color.black) 
+  {
+    peindreBlanc()
+    gauche()
+    avance()
+  } else 
+  {
+    peindreNoir()
+    droite()
+    avance()
+  }
+}*/
+
+def peindre() 
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+/*def peindreCouleur() 
+{
+  setCouleurBrosse(getCouleurSol)
+  peindre()
+}*/

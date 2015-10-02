@@ -1,0 +1,35 @@
+def trouverSortie () 
+{
+  var boucle = true
+  droite()
+  droite()
+  while ((!estFaceMur()))
+  {
+    while(!estSurBiscuit() && boucle == true) 
+    {
+      if (estFaceMur()) 
+      {
+        boucle = false
+      } else 
+      {
+        avance()
+      }
+    }
+    if (estSurBiscuit()) 
+    {
+      prendBiscuit()
+      while(!estSurBiscuit()) 
+      {
+        recule()
+      }
+      avance()
+      poseBiscuit()
+      avance()
+    }
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+trouverSortie()
