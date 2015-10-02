@@ -1,10 +1,13 @@
 def insertionSort() {
   val taille=getNombreValeurs
-  for (j<-1 to taille-4){
+  val echange_pos=false
+	while (echange_pos=true){
+    echange_pos=false
     for ( i <- 1 to taille -1 ){
       var v=getValeur(i)
       if (getValeur(i-1)>v){
         echange(i-1, i)
+        echange_pos=true
       }
     }
   }
