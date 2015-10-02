@@ -2,14 +2,14 @@ public void combSort() {
   double ecart = getValueCount(); 
   boolean swap = true;
   do{
-    //if(ecart >1){
+    if(ecart >1){
       ecart = (ecart/1.3);
-    //}
+    }
     int gap = (int)ecart;
     int i = 0 ;
     swap = false;
-    while(i+gap < getValueCount()){
-      if(isSmaller(i+gap,i)){
+    for(int i = 0; i< getValueCOunt()-gap){
+      if(!isSmaller(i,i+gap)){
         swap(i+gap,i);
         swap = true;
       }
