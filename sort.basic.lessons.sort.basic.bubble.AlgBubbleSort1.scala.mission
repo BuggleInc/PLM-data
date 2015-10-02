@@ -1,46 +1,40 @@
-
 <!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
-<h1>Tri ? bulle</h1>
+<h1>BubbleSort</h1>
 
-<p>Bienvenue dans l'univers des tris. Il permet d'exp?rimenter avec les
-algorithmes de tri existants. La liste des primitives que vous pouvez
-utiliser dans vos programmes est disponible dans la documentation de
-r?f?rence du monde (Aide / ? propos de cet univers).</p>
+<p>Welcome to the sorting universe. It allows you to experiment with the existing
+sorting algorithms. The list of buildins that you can use in your algorithms 
+is available in the world reference documentation ("Help"-&gt;"About this world").</p>
 
-<p>Il ne suffit pas de trier le tableau pour passer les exercices. Votre
-solution doit suivre scrupuleusement le comportement attendu de chaque
-exercice. Ceci est v?rifi? en comptant le nombre d'op?rations de lecture et
-d'?criture sur le tableau effectu?es lors de ce tri. </p>
+<p>It is not enough to sort the array to pass the exercises. Your solution 
+must strictly follow the expected behavior of each exercise. This is
+enforced by checking that your algorithm needs the same amount of read
+and write operations to sort the array. </p>
 
-<p>Quand votre algorithme diverge de l'attendu, il peut ?tre difficile de
-comprendre la diff?rence de comportement. Pour cela, il est possible
-d'explorer graphiquement l'historique de n'importe quel monde de tri. Passez
-par exemple au monde Objectif et utilisez son menu contextuel (clic droit)
-pour choisir entre la vue de l'?tat courant du monde et la vue de son
-histoire.</p>
+<p>When your algorithm diverges from the expectation, understanding the difference 
+between your code and the expected solution can reveal very difficult. To help in 
+this process, it is posible to graphically explore the history of your sorting 
+algorithm. Switch to the Objective view and use the contextual menu (right click) 
+to switch from the the view of the current state to the view of its history.</p>
 
-<p>La vue de l'historique n'est pas aussi complexe qu'elle en a l'air ?
-premi?re vue. Le temps s'?coule de gauche ? droite, et les cases du tableau
-sont repr?sent?e de haut en bas. Les lignes de diff?rentes couleurs qui
-serpentent repr?sentent les diff?rentes valeurs contenues dans le
-tableau. Quand deux lignes se croisent, cela signifie que les valeurs du
-tableau ont ?t? ?chang?es ? ce moment de l'historique; un embranchement
-signifie que la valeur a ?t? copi?e; une valeur en violet suivie d'un point
-d'interrogation a ?t? lue avec getValeur() et une valeur en rouge suivie
-d'un point d'exclamation a ?t? ?crite avec setValeur().</p> 
+<p>The history view is a bit hairly at the first glance, but actually rather
+simple: The time flows from left to right on this graph, and each row
+is a cell of your array. The curved lines that go navigate between
+rows represent a given data value. When two lines cross, this means
+that two values were swapped at this time stamp; A line fork represent a 
+value copy; When a value is magenta and followed by an interrogation 
+mark (?), it was read using getValue(); If the value is red and followed with 
+an exclamation point (!), it was written using setValue().</p> 
 
-<h2>Premi?re tentative pour le tri ? bulle</h2>
+<h2>First attempt at BubbleSort</h2>
 
-<p>Le premier algorithme de tri est le plus simple existant : le tri ? bulles
-ou tri par propagation consiste ? faire remonter progressivement les plus
-petits ?l?ments d'une liste, comme les bulles d'air remontent ? la surface
-d'un liquide. L'algorithme parcourt la liste, et compare les couples
-d'?l?ments successifs. Lorsque deux ?l?ments successifs ne sont pas dans
-l'ordre croissant, ils sont ?chang?s. Apr?s chaque parcours complet de la
-liste, l'algorithme recommence l'op?ration. Lorsque aucun ?change n'a lieu
-pendant un parcours, cela signifie que la liste est tri?e : l'algorithme
-peut s'arr?ter.  La simplicit? de cet algorithme justifie son ?tude, mais
-ses pi?tres performances (O(n^2) en moyenne) font qu'il n'est quasiment
-jamais utilis? en pratique.</p>
+<p>This first sorting algorithm is the most simple one: Bubble sort consists in 
+progressively moving up the smaller elements of the array, as if they were air 
+bubbles moving up to the surface of a liquid. The algorithm traverse the array, 
+and compare any pair of adjacent elements. If two adjacent elements are wrongly 
+sorted, they are swapped. Once the array was completely traversed, the operation 
+starts again from the beginning. When no elements were sorted after a full 
+traversal, it means that the array is completely sorted: the algorithm can stop. 
+Bubble sort is studied because of its simplicity, but it is almost never used in 
+practice because of its bad performance (O(n^2) on average).</p>
 
-<a href="#tip-1">Montrer l'indice (le pseudo-code)</a>
+<a href="#tip-1">Show Tip (Pseudo-code)</a>
