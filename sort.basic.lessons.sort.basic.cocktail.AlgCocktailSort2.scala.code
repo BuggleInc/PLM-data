@@ -7,27 +7,27 @@ def cocktailSort2() {
   {    
   	for(i <- 0 to fin)
   	{
-      trie = true;
+      trie = false;
 			if(!plusPetit(i,i+1))
    	 	{
    			echange(i,i+1);
-        trie = false;
+        trie = true;
      	}
       fin-=1;
   	}
   
   	for(i <- getNombreValeurs()-2 to debut by -1)
   	{
-      trie = true;
+      trie = false;
     	if(!plusPetit(i,i+1))
     	{
       	echange(i,i+1);
  
-        trie = false;
+        trie = true;
     	}
       debut+=1;
   	}
     
-  }while(!trie)
+  }while(trie)
   
 }
