@@ -1,24 +1,22 @@
 public void combSort() {
-  double ecart = getNombreValeurs(); 
-  int gap = 0 ;
+  int ecart = getNombreValeurs(); 
   int i = 0;
   boolean swap = true;
   do{
     if(ecart >1){
-      ecart = ecart / 1.3;
+      ecart = ((int)ecart / 1.3);
     }
     i = 0 ;
-    gap = ecart;
     swap = false;
-    while(i+gap < getNombreValeurs()){
-      if(plusPetit(i+gap,i)){
+    while(i+ecart < getNombreValeurs()){
+      if(plusPetit(i+ecart,i)){
         i++;
-        echange(i+gap,i);
+        echange(i+ecart,i);
         swap = true;
       }
         
     }
     
     
-  }while((ecart > 1)|| (swap == true));
+  }while((ecart > 1)||(swap == true));
 }
