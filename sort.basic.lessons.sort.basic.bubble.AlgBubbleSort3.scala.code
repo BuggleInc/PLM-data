@@ -1,14 +1,22 @@
-def bubbleSort3() {
-  for (i<- getValueCount()-1 to 0 by -1) {
-    var swapped= false ;
-    for (j<- 0 to i-1) {
-      if (isSmaller(j+1,j)) {
-        swap(j,j+1);
-        swapped = true;
+def cocktailSort3() {
+  var inversion = true;
+  var debut = 0 ; 
+  var fin = getNombreValeurs() - 2;
+  do {
+    inversion = false;
+    for (i<- debut to fin) {
+      if (plusPetit(i+1,i)) {
+        echange(i,i+1);
+        inversion = true;
+      } else return;
+    }
+    fin = fin - 1;
+    for (i<- fin to debut by -1) {
+      if (plusPetit(i+1,i)) {
+        echange(i,i+1);
+        inversion = true;
       }
     }
-    if (!swapped) {
-      return;
-    }
-  }
+    debut = debut + 1;
+  } while (inversion);
 }
