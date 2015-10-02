@@ -8,12 +8,11 @@ def combSort() {
     ecart = (ecart.toDouble / 1.25).toInt
   }
     a=false
-  while (i+ecart<getNombreValeurs()){
+  for (i <- 0 to getNombreValeurs()-ecart-1){
     if (!plusPetit(i,i+ecart)){
       echange(i,i+ecart)
       a=true
     }
-    i=i+1
     }
 } while (ecart>1 || a==false)
 }
