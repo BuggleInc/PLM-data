@@ -1,14 +1,16 @@
 def insertionSort() {
   lgr = getNombreValeurs()
-  
+  for (i<-0 to lgr-1){
+    insert(i)
+  }
 }
 
 
 
 def insert(n:Int){
-  for (i<-n-1 to 0 by -1){
-    if (plusPetit(i,n)){
-      echange(i,n)
-    }
+  i=n-1
+  while(plusPetitQue(n,i)){
+    echange(i,n)
+    i=i-1
   }
 }
