@@ -5,9 +5,9 @@ def insertionSort() {
   for( i <- 1 to getValueCount()-1){
     temp = getValue(i)
     j = i
-    while( j+1 > 1 & getValue(j+1) > temp){
-      copy(j, j+1)
-      j = j+1
+    while( j > 1 & getValue(j - 1) > temp){
+      copy(j-1, j)
+      j = j - 1
   	}
     setValue(j, temp)
   }
