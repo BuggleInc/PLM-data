@@ -3,12 +3,15 @@ def insertionSort() {
   var echange_pos=false
 	while (echange_pos==true){
     echange_pos=false
-    for ( i <- taille-1 to 1 by -1 ){
+    for ( i <- 1 to taille-1 ){
       var v=getValeur(i)
       if (getValeur(i-1)>v){
         echange(i-1, i)
         echange_pos=true
       }
+     if (i!=0){
+       i=i-1
+     } 
     }
   }
 }
