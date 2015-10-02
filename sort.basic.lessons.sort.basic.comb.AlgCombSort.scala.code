@@ -2,19 +2,17 @@ def combSort() {
   var ecart: Int = getNombreValeurs
   var i=0
   var echange_pos:Boolean=true
-
-  echange_pos=false
-  if (ecart>1){
-    ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
-  }
-  while (i+ecart<getNombreValeurs){
-    if (!plusPetit(i,i+ecart)){
-      echange(i,i+ecart)
-      echange_pos=true
-    }
-    i=i+1
-  }
   while (ecart>1||echange_pos==true){
-
+    echange_pos=false
+    if (ecart>1){
+      ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+    }
+    while (i+ecart<getNombreValeurs){
+      if (!plusPetit(i,i+ecart)){
+        echange(i,i+ecart)
+        echange_pos=true
+      }
+      i=i+1
+    }
   }
 }
