@@ -7,11 +7,11 @@ def insertionSort() {
 
 
 
-def insert(n:Int){
-  var i=n
-  var v=getValeur(n)
-	while(plusPetit(v,getValeur(i-1))){
-    copie(i-1,i)
-    i=i-1
+def insert(i:Int){
+  var v = getValeur(i)
+  for (k<-i to 1 by -1){
+    if(plusPetit(v,getValeur(k-1))){
+      copie(k,k-1)
+    }
   }
 }
