@@ -1,21 +1,14 @@
-def cocktailSort() {
-var a=true
-var b=true
-    if (a==false && b==false){
-      return
+def combSort() {
+  var x=getNombreValeurs()
+  var i=0
+  
+  if (x>1){
+    x = (x.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+  }
+  while (i+x<getNombreValeurs()){
+    if (!plusPetit(i,i+x)){
+      echange(i,i+x)
     }
-a=false
-b=false
-  for (j <- 0 to getValueCount()-2){
-    if (!isSmaller(j,j+1)){
-      swap(j,j+1)
-      a=true
-		}
-}
-	for (j <- getValueCount()-2 to 0 by -1){
-    if (!isSmaller(j,j+1)){
-      swap(j,j+1)
-      b=true
-		}
-}    
-}
+      i=i+1
+    }
+  }
