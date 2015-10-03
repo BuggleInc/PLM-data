@@ -2,11 +2,11 @@ def solve() {
   var positionBleu = 0
   var positionRouge=getTaille()-1
   for (i <- 0 to getTaille()-1) {
-    if (getCouleur(i)==ROUGE && i<positionRouge) {
+    if (getCouleur(i)==ROUGE && i<positionRouge-1) {
       echange(i,positionRouge)
       positionRouge-=1
     }
-    if (getCouleur(i)==BLEU && i>positionBleu) {
+    if (getCouleur(i)==BLEU && i>positionBleu+1) {
       echange(i,positionBleu)
       positionBleu+=1
     }
