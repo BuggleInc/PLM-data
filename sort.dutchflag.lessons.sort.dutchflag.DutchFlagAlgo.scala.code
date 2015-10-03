@@ -1,19 +1,20 @@
 def solve() {
   var apresBleu = 0
   var avantRouge=getTaille()-1
-  var BlancRouge=getTaille()-1
+  var avantBlanc=getTaille()-1
   for (i <- 0 to getTaille()-1) {
     if (getCouleur(i)==ROUGE && i<avantRouge) {
       echange(i,avantRouge)
       avantRouge-=1
-      BlancRouge-=1
+      avantBlanc-=1
     }
     if (getCouleur(i)==BLEU && i>apresBleu) {
       echange(i,apresBleu)
       apresBleu+=1
     }
-    if (getCouleur(i)==BLANC && i<BlancRouge) {
+    if (getCouleur(i)==BLANC && i<avantBlanc) {
       echange(i,BlancRouge)
+      avantBlanc-=1
     }
   }
 }
