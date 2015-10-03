@@ -4,10 +4,10 @@ def positionFinale : Boolean = {
 
 def moria = {
   while ((!positionFinale) && (!estSurBiscuit())) {
-    setDirection(dir:Direction.EAST)
+    setDirection(Direction.EAST:Direction)
     while ((!estSurBiscuit()) && (!positionFinale)) avance()
     prendBiscuit()
-    setDirection(dir:Direction.WEST)
+    setDirection(Direction.WEST:Direction)
     while ((!estSurBiscuit()) && (!getX()==0)) avance()
     recule()
     poseBiscuit()
