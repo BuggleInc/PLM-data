@@ -1,8 +1,5 @@
 def goAndGet() {
-  if(porteBiscuit){
-    poseBiscuit()
-    avance()
-  }
+  
   while(!estSurBiscuit()){
     avance()
   }
@@ -10,7 +7,11 @@ def goAndGet() {
 }
 
 for (i <- 1 to 7) {
-    goAndGet();
+  if(porteBiscuit){
+    poseBiscuit()
+    avance()
+  }  
+  goAndGet();
     right();
     forward();
     left();
