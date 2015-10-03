@@ -1,16 +1,15 @@
 def insertionSort() 
 {
-  var v = 0
-  for(i <- getNombreValeurs() -2 to 1 by -1)
+  var v, cpt
+  for(i <-1 to getNombreValeurs() -2)
   {
     copie(getValeur(i),v)
-    for(j <- 1 to i)
+    cpt = i - 1
+    while(cpt >=0 && getValeur(cpt) > v)
     {
-      if(plusPetit(i-j+1,i-j))
-      {
-        v = getValeur(i-j)
-      }
+      setValeur(cpt+1,getValeur(cpt))
+      cpt -= 1
     }
-    setValeur(i,v)
+    setValeur(cpt+1,v)
   }
 }
