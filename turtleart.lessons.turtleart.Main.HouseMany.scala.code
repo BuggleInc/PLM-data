@@ -1,0 +1,39 @@
+def faireMaison(taille:Int) = {
+   baisseCrayon()
+  avance(taille)
+  droite(30)
+  avance(taille)
+  for (i<- 1 to 2 ) {
+  droite(120)
+  avance(taille)
+  }
+  droite(180)
+  for (i <- 1 to 3) {
+    avance(taille)
+    droite(90)
+  }
+  leveCrayon()
+}
+
+def faireQuatreMaisons {
+  for (i <- 1 to 4) {
+    faireMaison(30)
+    droite(90)
+    avance(50)
+    gauche(90)
+  }
+}
+
+override def run() {
+  val X=getX()
+  val Y=getY()
+  faireQuatreMaisons
+  setPos(X,Y)
+  avance(75)
+  faireMaison(30)
+  droite(90);avance(150);gauche(90)
+  faireMaison(30)
+  setPos(X,getY())
+  avance(75)
+  faireQuatreMaisons
+}
