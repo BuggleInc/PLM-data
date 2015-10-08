@@ -9,11 +9,11 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     droite(angle)
     if(steps < 3 && steps >=0){
       current(steps)
-      avance(shrink*length.asInstanceOf[Double])
+      avance((shrink*length).asInstanceOf[Double])
       droite(angle)
       return tree(steps+1,length,angle,shrink+shrink)
     }else{
-      recule(shrink.length.asInstanceOf[Double])
+      recule((shrink.length).asInstanceOf[Double])
       gauche(2*angle)
       return tree(steps-1,length,angle,shrink-shrink)
     }
