@@ -1,0 +1,29 @@
+def cocktailSort3() {
+  var nb : Int = getNombreValeurs()
+  var bool1 : Boolean = true
+  var bool2 : Boolean = true
+  var debut : Int = 0
+  var fin : Int = nb-2
+  
+  while (bool1==true && bool2==true) {
+    bool1 = false
+    bool2 = false
+    
+    for (i<- debut to fin) {
+     	if (plusPetit(i+1,i)) {
+        echange(i,i+1)
+        bool1 = true
+      }
+    }
+    fin-=1
+    
+    for (i<- fin to debut by -1) {
+     	if (plusPetit(i+1,i)) {
+        echange(i,i+1)
+        bool2 = true
+      }
+    }
+    debut+=1
+    
+  }
+}
