@@ -9,7 +9,9 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     gauche(2*angle)
     tree(nb-1, l*shrink, -angle, shrink)
     droite(angle)
-    recule(l)
-    current(nb+1)
+    if (nb < steps) {
+      recule(l)
+      current(nb+1)
+    }
 	}
 }
