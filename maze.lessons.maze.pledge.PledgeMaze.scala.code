@@ -1,0 +1,52 @@
+var sommeAngle = 0
+
+def keepHandOnSideWall = {
+  gauche();
+  sommeAngle+=1;
+  if (!estFaceMur) {
+    avance()}
+  else {
+    while(estFaceMur()) {
+      droite();
+      sommeAngle-=1
+    };
+        avance()
+  }
+}
+
+def isDirectionFree(dir:Direction):Boolean = {
+  var dirAct = getDirection();
+    setDirection(dir);
+  var mur = estFaceMur();
+  setDirection(dirAct);
+  return (!mur && sommeAngle == 0)
+}
+
+
+override def run() {
+ 
+ 
+ 
+  while(getY!=0) {
+    if (isDirectionFree(Direction.NORTH)) {
+      setDirection(Direction.NORTH);
+      while (!estFaceMur()) {
+        avance()
+      }
+      setDirection(Direction.EAST);
+        sommeAngle-=1;
+    }
+    else {
+      keepHandOnSideWall
+     
+    }
+  }
+   
+  
+ 
+  setDirection(Direction.EAST);
+     while (!estSurBiscuit()) {
+       keepHandOnSideWall
+     };
+  prendBiscuit()
+}

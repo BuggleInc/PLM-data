@@ -1,0 +1,18 @@
+def step(rule:Array[Char] , colors:Array[Color]) {
+  var col:Boolean=false
+  for (i<-0 to colors.length-1) {
+    if (getCouleurSol() == colors(i) && !col) {
+      var i2=i+1
+      if (i2>colors.length-1) {
+        i2=0
+      }
+      setCouleurBrosse(colors(i2)) ; baisseBrosse() ; leveBrosse()
+      if (rule(i) == 'L') {
+        gauche() ; avance() ; col=true
+      }
+      else {
+        droite() ; avance() ; col=true
+      }
+    }
+  }
+} 

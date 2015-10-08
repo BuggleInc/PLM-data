@@ -1,0 +1,25 @@
+var state = 0
+val GAUCHE = 2
+val ST=0
+val PDV=1
+val DT=4
+val DROITE=8
+
+def step(colors:Array[Color], rule:Array[Array[Array[Int]]] ) {
+  var idc=0
+  for (i<-0 to colors.length-1) {
+  if (getCouleurSol()==colors(i)) {
+   idc=i
+    }
+  }
+  
+  setCouleurBrosse(colors(rule(state)(idc)(0))) ; baisseBrosse() ; leveBrosse() 
+   (rule(state)(idc)(1)) match {
+    case GAUCHE => gauche() ; avance()
+    case PDV => avance()
+    case DT => droite() ; droite()
+    case DROITE => droite() ; avance()
+   }
+  state=rule(state)(idc)(2)
+} 
+  
