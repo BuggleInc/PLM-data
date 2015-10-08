@@ -1,0 +1,45 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Arbres</h2>
+
+<p>Nous allons maintenant dessiner des arbres. Pour cela, nous allons ?crire
+une fonction doublement r?cursive de prototype</p> 
+<pre>tree(nbPas:Int, longueur:Double, angle:Double, multiplicateur:Double)</pre>
+
+<p>Pour dessiner un arbre ? quatre ?tages, il faut dessiner un tronc de la
+taille indiqu?e, tourner ? droite de l'angle indiqu?, faire un arbre ? 3
+?tages, tourner ? gauche de deux fois l'angle indiqu?, faire un autre arbre
+? 3 ?tages, puis revenir ? sa position initiale. N'oubliez pas de revenir ?
+la position initiale !<p>
+
+<p>Si le tronc d'un arbre mesure length ? l'?tage N, il mesure shrink*length ?
+l'?tage N+1.<p>
+
+<p>Au final, voici le pseudo-code du cas g?n?ral de la r?cursivit? (il manque
+bien s?r le cas de base, laiss? en exercice).</p>
+<pre>
+Avancer de la longueur d?sir?e
+Dessiner (r?cursivement) le sous-arbre de droite
+Dessiner (r?cursivement) le sous-arbre de gauche
+Reculer de la longueur d?sir?e pour retourner au point de d?part
+</pre> 
+<p>N'oubliez pas d'ajouter le cas de base dans votre code, ou la buggle va
+entrer en boucle infinie. De plus, dessiner le sous-arbre droit revient ?
+tourner ? droite puis dessiner un sous-arbre.</p>
+
+<p>Comme vous pouvez le voir, chaque ?tage de la r?cursion est repr?sent? par
+une couleur distinctive. Pour cela, appelez la fonction
+<code>current(step)</code> en lui passant en param?tre l'?tage actuel de la
+r?cursion. Elle se chargera de choisir la couleur ad?quate. N'effacez pas
+vos couleurs quand vous retournez ? votre position initiale.</p>
+
+<p>Si vous vous trompez dans votre fonction, il peut facilement devenir tr?s
+compliqu? de debugger votre code. Vos erreurs se produisant ? tous les
+?tages de la r?cursion, le dessin peut vite devenir illisible. Pour vous
+aider ? debugger, vous pouvez utiliser la fonction <code>subtree()</code>
+qui dessine un sous-arbre correct. Cette fonction est tr?s (tr?s) semblable
+par ailleurs ? la fonction que vous tentez d'?crire. La seule diff?rence est
+que <code>subtree()</code> ne dessine qu'en noir. Vous pouvez donc
+l'utiliser ? la place de vos appels r?cursifs pendant le debug, mais vous
+devez changer pour des appels r?cursifs ? votre propre code (quand il
+marche) pour avoir les couleurs justes, et donc pour passer l'exercice.</p>  
