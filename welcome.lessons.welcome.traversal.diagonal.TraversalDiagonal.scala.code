@@ -1,0 +1,54 @@
+var diag = 0;
+
+def fin(compteur:Int):Boolean =
+{
+  if(getMondeHauteur()*getMondeLargeur()==compteur+1)
+  {
+    ecritMessage(compteur)
+    return true
+  }
+  else
+  {
+    return false
+  }
+}
+
+override def run()
+{
+  var compteur:Int = 0
+  
+  do
+  {
+    ecritMessage(compteur)
+    compteur = compteur + 1
+    
+    if(compteur<(getMondeLargeur()*(getMondeLargeur()+1)/2)-1)
+    {
+      setPos(0,getY()+1+diag)
+    
+      for(i <- 0 to diag)
+      {      
+        ecritMessage(compteur)
+        compteur = compteur + 1
+        setPos(getX()+1,getY()-1)
+      }
+      
+      diag = diag + 1
+    }
+    else if(compteur>(getMondeLargeur()*(getMondeLargeur()+1)/2)-1)
+    {
+      diag = diag - 1
+      
+      setPos(getX()-diag,getMondeHauteur()-1)
+    
+      for(i <- 0 to diag-1)
+      {      
+        ecritMessage(compteur)
+        compteur = compteur + 1
+        setPos(getX()+1,getY()-1)
+      }
+    }
+
+  }
+  while(!fin(compteur))
+}

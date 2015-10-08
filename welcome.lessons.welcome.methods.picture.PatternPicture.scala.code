@@ -1,0 +1,50 @@
+def brosse()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireDiag(c:Color)
+{
+  setCouleurBrosse(c)
+  avance()
+  brosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  brosse()
+  gauche()
+  avance()
+  gauche()
+}
+
+def motif()
+{
+  faireDiag(Color.red)
+  avance(3)
+  gauche()
+  faireDiag(Color.blue)
+  avance(3)
+  gauche()
+  faireDiag(Color.green)
+  avance(3)
+  gauche()
+  faireDiag(Color.yellow)
+  avance(3)
+  gauche()
+}
+
+override def run()
+{
+	motif()
+  avance(4)
+  motif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  motif()
+  avance(4)
+  motif()
+}

@@ -1,0 +1,33 @@
+def cocktailSort2()
+{
+  var sortie:Boolean = false
+  var debut:Int = 0
+  var fin:Int = getNombreValeurs()
+  
+  while(!sortie)
+  {
+    sortie = true
+    
+    for(i <- debut to fin-2)
+    {
+      if(plusPetit(i+1,i))
+      {
+        echange(i,i+1)
+        sortie = false
+      }
+    }
+    
+    fin = fin -1
+    
+    for(m <- fin-2 to debut by -1 )
+    {  
+      if(plusPetit(m+1,m))
+      {
+        echange(m,m+1)
+        sortie = false
+      }
+    }
+    
+    debut = debut + 1
+  }
+}

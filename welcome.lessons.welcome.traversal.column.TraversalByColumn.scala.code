@@ -1,0 +1,37 @@
+def fin(compteur:Int):Boolean =
+{
+  if(getMondeHauteur()*getMondeLargeur()==compteur+1)
+  {
+    ecritMessage(""+compteur)
+    return true
+  }
+  else
+  {
+    return false
+  }
+}
+
+def avance2()
+{ 
+  if(getY()==getMondeHauteur()-1)
+  {
+    setPos(getX()+1,0)
+  }
+  else
+  {
+    setPos(getX(),getY()+1)
+  }
+}
+
+override def run()
+{
+  var compteur:Int = 0
+  
+  do
+  {
+    ecritMessage(compteur)
+    avance2()
+    compteur = compteur + 1
+  }
+  while(!fin(compteur))
+}

@@ -1,0 +1,51 @@
+var fin:Boolean = false
+
+while(!fin)
+{
+  droite()
+  droite()
+  avance()
+ 
+  while((!estSurBiscuit())&&(!fin))
+  {
+    avance()
+    
+    if(estFaceMur())
+    {
+      fin = true
+    }
+  }
+  
+  if(estSurBiscuit)
+  {
+    prendBiscuit()
+  }
+  
+  gauche()
+  gauche()
+  
+  while(!estSurBiscuit())
+  {
+    avance()
+  }
+  
+  recule()
+  
+  if(porteBiscuit())
+  {
+    poseBiscuit()
+  }
+}
+
+droite()
+droite()
+
+while(!estFaceMur())
+{
+   avance()
+}
+
+droite()
+avance()
+gauche()
+avance()

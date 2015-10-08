@@ -1,0 +1,50 @@
+def marqueSol()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV()
+{
+  avance(2)
+  marqueSol()
+  avance()
+  gauche()
+  avance()
+  marqueSol()
+  recule()
+  droite()
+  avance()
+  marqueSol()
+  avance(2)
+  gauche()
+}
+
+def faireMotif()
+{
+  for(i <- 1 to 4)
+  { 
+    faireV()
+  }
+  avance(7)
+}
+
+def faireLigne()
+{
+  for(i <- 1 to 3)
+  {
+    faireMotif()
+  }
+  recule(21)
+  gauche()
+  avance(7)
+  droite()
+}
+
+override def run() {
+  setCouleurBrosse(Color.lightGray)
+  for(j <- 1 to 3)
+  {
+    faireLigne()
+  }
+}

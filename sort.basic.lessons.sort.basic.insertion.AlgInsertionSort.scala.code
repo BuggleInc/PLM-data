@@ -1,0 +1,19 @@
+def insertionSort()
+{
+  var v:Int = 0
+  var compteur:Int = 0
+  
+  for(i <- 1 to getNombreValeurs()-1)
+  {
+    v = getValeur(i)
+    compteur = 0
+   	
+    while((compteur<i)&&(!plusPetitQue(i-compteur-1,v)))
+    {
+      copie(i-compteur-1,i-compteur)
+      compteur = compteur + 1
+    }
+    
+    setValeur(i-compteur,v)
+  }
+}
