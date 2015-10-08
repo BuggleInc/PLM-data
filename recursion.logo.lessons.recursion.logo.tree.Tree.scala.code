@@ -1,14 +1,14 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   var i=0
   avance(length)
-  if (steps!=0){
+  if (steps!=1){
   	droite(angle)
   	tree(steps-1,length*shrink,angle,shrink)
   	gauche(angle)
   	tree(steps-1,length*shrink,angle,shrink)
   	i=i+1
   }
-  if (steps==0){
+  if (steps==1){
     for (k<-0 to i){
      	recule(length)
       gauche(angle)
