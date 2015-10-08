@@ -1,16 +1,13 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-  val x = getX()
-  val y = getY()
+  current(steps)
   avance(length.asInstanceOf[Double])
-  if(getX() == x && getY() == y){
-    return
-  }
-  else{
-    droite(angle)
-    if(steps < 3 && steps >=0){
+  if(steps == 1){
+    recule(length.asInstanceOf[Double])
+  }else{
+    if(steps < 3){
       current(steps)
-      avance((shrink*length).asInstanceOf[Double])
       droite(angle)
+      avance((shrink*length).asInstanceOf[Double])
       return tree(steps+1,length,angle,shrink+shrink)
     }else{
       recule((shrink*length).asInstanceOf[Double])
