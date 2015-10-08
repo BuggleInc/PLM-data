@@ -3,7 +3,6 @@ def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
     setCouleur(Color.RED);
     allerVers(z,t);
   } else {
-    dragon(order-1,x,y,(x+z)/2 + (t-y)/2,(y + t)/2 - (z - x)/2);
     dragonInverse(order-1,z,t,(x+z)/2 + (t-y)/2,(y + t)/2 - (z - x)/2);
   }
 }
@@ -13,7 +12,6 @@ def dragonInverse(order:Int, x:Double, y:Double, z:Double, t:Double) {
     setCouleur(Color.BLUE);
     allerVers(x,y);
   } else {
-    dragonInverse(order-1,x,y,(x+z)/2 + (t-y)/2,(y + t)/2 - (z - x)/2);
-    dragon(order-1,x,y,(x+z)/2 + (t-y)/2,(y + t)/2 - (z - x)/2);
+    dragon(order-1,z,t,(x+z)/2 + (t-y)/2,(y + t)/2 - (z - x)/2);
   }
 }
