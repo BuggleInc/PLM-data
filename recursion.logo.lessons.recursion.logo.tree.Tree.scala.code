@@ -1,17 +1,18 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   if(steps<1){
+    return
 
   }else{
     current(steps)
     avance(length)
     droite(angle)
-    return(tree(steps-1,shrink*length,angle,shrink))
+    (tree(steps-1,shrink*length,angle,shrink))
     if(steps<1){
       recule(length)
-      droite(angle)
+      gauche(angle)
       current(steps)
       
-      gauche(angle*2)
+    
       return (tree(steps-1, length*shrink, angle, shrink))
     }
 
