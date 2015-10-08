@@ -6,9 +6,11 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     avance(length)
     droite(angle)
     tree(steps-1,length*shrink,angle,shrink)
+    gauche(angle)
     recule(length*shrink)
-    gauche(2*angle)
+    gauche(angle)
     tree(steps-1,length*shrink,angle,shrink)
+    droite(angle)
     recule(length*shrink)
     recule(length)
   }
