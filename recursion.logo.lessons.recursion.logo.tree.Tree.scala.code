@@ -5,9 +5,11 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     return
     
   }
-  else{
+  else {
+    droite(angle)
     current(steps)
-    return subtree()
+    return tree (steps-1,length*shrink,angle, shrink)
+    recule(length)
   }
   
   gauche(2*angle)
