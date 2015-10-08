@@ -11,5 +11,19 @@ def snowSquare (levels:Int, length:Double) {
     squareSide(levels, length);
     right(90);
 }
+
 def squareSide(levels:Int, length:Double) {
+  if(levels==0){
+    baisseCrayon()
+    avance(length)
+    return
+  }
+  snowSide(levels-1,length/3)
+  left(60)
+  snowSide(levels-1,length/3)
+  right(120)
+  snowSide(levels-1,length/3)
+  left(60)
+  snowSide(levels-1,length/3)
+  
 }
