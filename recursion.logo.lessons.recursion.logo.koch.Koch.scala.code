@@ -13,14 +13,18 @@ def snowFlake (levels:Int, length:Double) {
 
 def snowSide(levels:Int, length:Double) {
   if(levels > 0){
-    forward(length/3);
+    var nlvl = levels-1;
+    var nlength = length/3;
+    
+    snowSide(nlvl, nlength);
     left(60);
-    snowSide(levels-1,length/3);
+    snowSide(nlvl, nlength);
     right(120);
-    forward(length/3);
+    snowSide(nlvl, nlength);
     left(60);
+    snowSide(nlvl, nlength);
   }
   else{
-    
+    forward(length);
   }
 }
