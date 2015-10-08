@@ -1,0 +1,24 @@
+def cocktailSort3() {
+  var tri1 = true
+  var tri2 = true
+  var deb = 0
+  var fin = getNombreValeurs()-1
+  while (tri1 && tri2) {
+    tri1 = false
+    tri2 = false
+    for (i<-deb to fin-1) {
+      if (!(plusPetit(i,i+1))) {
+        echange(i,i+1)
+        tri1 = true
+      }
+    }
+    fin = fin - 1
+    for (j <- fin to deb+1 by -1) {
+     	if (plusPetit(j,j-1)) {
+       	echange(j,j-1)
+       	tri2 = true
+     	}
+    }  
+    deb = deb +1
+  }
+}
