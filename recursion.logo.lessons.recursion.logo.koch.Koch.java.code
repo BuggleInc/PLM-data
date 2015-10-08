@@ -9,11 +9,15 @@ void snowFlake (int levels, double length) {
     right(120);
 }
 void snowSide(int levels, double length) {
-  forward(length);
-  left(60);
-  forward(length);
-  right(120);
-  forward(length);
-  left(60);
-  forward(length);
+  if(levels<=1){
+    forward(length);
+  }else{
+    snowSide(levels-1,length);
+    left(60);
+    snowSide(levels-1,length);
+    right(120);
+    snowSide(levels-1,length);
+    left(60);
+    snowSide(levels-1,length);
+  }
 }
