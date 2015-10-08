@@ -1,0 +1,31 @@
+Tree:5: error: type mismatch;
+ found   : steps.type (with underlying type Int)
+ required: ?{def *(x$1: ? >: Double): ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method int2long in object Int of type (x: Int)Long
+ and method int2float in object Int of type (x: Int)Float
+ are possible conversion functions from steps.type to ?{def *(x$1: ? >: Double): ?}
+  tree(steps*shrink, length, angle, shrink);
+       ^Tree:5: error: overloaded method value * with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Double)
+  tree(steps*shrink, length, angle, shrink);
+            ^Tree:7: error: type mismatch;
+ found   : steps.type (with underlying type Int)
+ required: ?{def *(x$1: ? >: Double): ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method int2long in object Int of type (x: Int)Long
+ and method int2float in object Int of type (x: Int)Float
+ are possible conversion functions from steps.type to ?{def *(x$1: ? >: Double): ?}
+  tree(steps*shrink, length, angle, shrink);
+       ^Tree:7: error: overloaded method value * with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Double)
+  tree(steps*shrink, length, angle, shrink);
+            ^
