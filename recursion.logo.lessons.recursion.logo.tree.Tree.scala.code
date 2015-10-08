@@ -1,3 +1,15 @@
-override def run() {
-    spiral(110,91,1,2);
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+  
+  if(steps!=0)
+  {
+    avance(length)
+    droite(angle)
+    current(step)
+    tree(steps-1,length,angle,shrink)
+    
+    gauche(angle)
+    current(step)
+    tree(steps-1,length,angle,shrink)
+    
+  }
 }
