@@ -1,8 +1,9 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
-  while (steps != 0) {
+  if (steps == 0) {
+    return
+  } else {
     avance(length)
     gauche(angle)
-    steps = steps - 1
-    spiral(steps, angle, length + increment, increment)
+    return spiral(steps - 1, angle, length + increment, increment)
   }
 }
