@@ -5,7 +5,7 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   } else{
     current(steps)
     avance(length)
-    
+    leveCrayon()
     droite(angle)
     tree(steps-1, length*shrink, angle, shrink)
     droite(-angle)
@@ -13,8 +13,6 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     gauche(2.0*angle)
     tree(steps-1, length*shrink, angle, shrink)
     gauche(-2.0*angle)
-    
-    leveCrayon()
     recule(length)
   }
   
