@@ -1,0 +1,27 @@
+override def run() {
+  nord()
+  while(!estSurBiscuit()) {
+    keepHandOnSideWall()
+  }
+  def keepHandOnSideWall() {
+    while(estFaceMur()) {droite()}
+    avance()
+    gauche()
+  }
+  def nord() {
+    while (getY()!=0) {
+      var posa=getY()
+      setDirection(Direction.NORTH)
+    	while (!estFaceMur()) {avance()}
+      while (getY()>=posa) {
+        keepHandOnSideWall()
+      }
+      setDirection(Direction.NORTH)
+    	while (!estFaceMur()) {avance()}
+    }
+  }
+  
+	droite()
+  prendBiscuit()
+
+}

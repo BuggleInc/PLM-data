@@ -1,0 +1,35 @@
+def growFlowers() {
+  
+  def Flower(c:Color) {
+    setCouleurBrosse(c)
+    baisseBrosse()
+    avance(2)
+    recule()
+    gauche()
+    avance()
+    recule(2)
+    avance()
+    setCouleurBrosse(Color.yellow)
+    leveBrosse()
+    droite()
+    recule()
+  }
+  
+  def Motif (i:Int) {
+    i match {
+      case 1 => Flower(Color.red);avance(4);Flower(Color.cyan);recule(4)
+      case 2 => avance(2);Flower(Color.orange);recule(2)
+      case 3 => Flower(Color.pink);avance(4);Flower(Color.green);recule(4)
+    }
+  } 
+  
+  for (i<- 1 to 3) {
+    Motif(i)
+    if (i!=3) {
+      droite()
+      avance(2)
+      gauche()
+    }
+  }
+
+}
