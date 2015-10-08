@@ -1,0 +1,16 @@
+def shellSort()  {
+  var lgr:Int= getNombreValeurs()
+  var ecart = lgr
+  while (ecart>1){
+    ecart = ecart/2
+    for (i<-ecart-1 to lgr-1) {
+      var v=getValeur(i:Int)
+      var j:Int=1
+      while (i-j*ecart>=0 && v<getValeur(i-(j*ecart))){
+        setValeur(i-j*ecart+ecart, getValeur(i-j*ecart))
+        j=j+1
+      }
+      setValeur(i-j*ecart+ecart,v)
+    }
+  }
+}
