@@ -1,0 +1,23 @@
+def solve() {
+  
+  var nbBande = getTaille()
+  
+  var apresBleu=0
+  var avantBlanc=nbBande-1
+  var blancRouge=nbBande-1
+  
+  
+  while(apresBleu<=avantBlanc){
+    getCouleur(apresBleu) match{
+      case BLEU => apresBleu+=1
+      case BLANC => echange(apresBleu,avantBlanc);avantBlanc-=1
+      case ROUGE =>{echange(apresBleu,avantBlanc)
+                    echange(avantBlanc,blancRouge)
+                    avantBlanc-=1
+                    blancRouge-=1}
+  									
+    }
+  }
+  
+  
+}
