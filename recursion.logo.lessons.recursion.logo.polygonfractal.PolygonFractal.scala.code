@@ -5,11 +5,15 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
     gauche(360/sides)
     droite(360/sides)
     droite(360/sides)
-    }
-    
+    }  
   }
   else{
-    polygonFractal(levels-1,sides,length*shrink,shrink)
+    for (i<-0 to sides-1){
+      avance(length)
+      polygonFractal(levels-1,sides,length*shrink,shrink)
+    }
+    
+    
     
   }
 }
