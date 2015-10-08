@@ -1,0 +1,26 @@
+def snowFlake (levels:Int, length:Double) {
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.blue);
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.orange);
+    snowSide(levels, length);
+    right(120);
+}
+def snowSide(levels:Int, length:Double) {
+  if(levels>0){
+    var newLength = length/3.0
+    var nL = levels-1		// newLevel
+    
+    snowSide(nL,newLength)
+    left(60.0)
+    snowSide(nL,newLength)
+    right(120.0)
+    snowSide(nL,newLength)
+    left(60.0)
+    snowSide(nL,newLength)
+  }else if(levels==0){
+    avance(length)
+  }
+}
