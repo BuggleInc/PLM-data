@@ -1,14 +1,16 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-  if (steps <= 0){
-    return
-  }
-  current(steps)
-  avance(length)
-  droite(angle)
-  tree(steps-1, shrink * length, angle, shrink)
-  gauche(2*angle)
-  tree(steps-1, shrink * length, angle, shrink)
-  droite(angle)
-  recule(length)
-  
+  def treet(steps:Int, length:Double, angle:Double, shrink:Double, i:Int) {
+    if (steps <= 0){
+      return
+    }
+    current(i)
+    avance(length)
+    droite(angle)
+    treet(steps-1, shrink * length, angle, shrink,i+1)
+    gauche(2*angle)
+    treet(steps-1, shrink * length, angle, shrink, i+1)
+    droite(angle)
+  	recule(length)
+}
+  return treet(steps, length, angle, shrink, 0)
 }
