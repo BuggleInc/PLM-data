@@ -1,0 +1,15 @@
+def combSort() {
+  var ecart:Int = getNombreValeurs()
+  var inv:Boolean = false
+  do{
+    if (ecart>1){
+      ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
+    }
+    var i:Int =0
+    inv=false
+    while (i + ecart < getNombreValeurs()){
+      if (plusPetit(i + ecart,i)){echange(i+ecart,i);inv=true}
+      i+=1
+    }
+  }while(ecart > 1 || inv)
+}
