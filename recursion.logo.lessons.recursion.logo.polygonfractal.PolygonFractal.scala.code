@@ -1,0 +1,11 @@
+def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
+  if (levels > 0) {
+    for (k <- 1 to sides) {
+      avance(length) ;
+      var angle : Double = 180-(sides-2)*180/sides
+      gauche(180-(sides-2)*180/sides) ;
+      polygonFractal (levels-1, sides, length*shrink, shrink)
+      droite(2*angle)
+    }
+  }
+}
