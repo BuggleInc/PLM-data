@@ -3,43 +3,43 @@
 <h2>Flocons de neige</h2>
 
 Nous allons maintenant dessiner des flocons de neige en utilisant la
-fractale de Koch.  Une fractale est un dessin g?om?trique dont le motif se
-reproduit ? n'importe quelle ?chelle.
+fractale de Koch.  Une fractale est un dessin géométrique dont le motif se
+reproduit à n'importe quelle échelle.
 
-<p>La forme g?n?rale est une sorte de triangle, dont chaque cot? est g?n?r? par
-des appels r?cursifs.
-Vous ne devez dessiner qu'un cot? de ce triangle dans la fonction
+<p>La forme générale est une sorte de triangle, dont chaque coté est généré par
+des appels récursifs.
+Vous ne devez dessiner qu'un coté de ce triangle dans la fonction
 <code>snowSide</code>.
-Pour simplifier les choses, chaque cot? a une couleur
-particuli?re. Contentez vous de dessiner les choses en rouge (sans changer
-votre couleur), et les autres couleurs seront dessin?es automatiquement. </p>
+Pour simplifier les choses, chaque coté a une couleur
+particulière. Contentez vous de dessiner les choses en rouge (sans changer
+votre couleur), et les autres couleurs seront dessinées automatiquement. </p>
 
-<p>Observez l'objectif de chaque monde pour comprendre la logique du motif ?
+<p>Observez l'objectif de chaque monde pour comprendre la logique du motif à
 dessiner, puis reproduisez-le.
 Au niveau 0, la courbe de Koch est une simple ligne droite.
-Au niveau 1, elle est divis?e en trois tiers, et la partie du milieu est
-remplac?e par deux cot?s d'un triangle ?quilat?ral de m?me longueur que le
-segment supprim?.
-Au niveau 2, le processus est r?p?t? avec le tiers central de chaque segment
-remplac? par un petit triangle ?quilat?ral.</p>
+Au niveau 1, elle est divisée en trois tiers, et la partie du milieu est
+remplacée par deux cotés d'un triangle équilatéral de même longueur que le
+segment supprimé.
+Au niveau 2, le processus est répété avec le tiers central de chaque segment
+remplacé par un petit triangle équilatéral.</p>
 
-<p>Le pseudo-code du cas g?n?ral est le suivant :</p>
+<p>Le pseudo-code du cas général est le suivant :</p>
 <pre>
-Dessiner r?cursivement un segment plus petit
-Tourner ? 60 degr?s vers la gauche
-Dessiner r?cursivement un segment plus petit
-Tourner ? 120 degr?s vers la droite
-Dessiner r?cursivement un segment plus petit
-Tourner ? 60 degr?s vers la gauche
-Dessiner r?cursivement un segment plus petit
+Dessiner récursivement un segment plus petit
+Tourner à 60 degrés vers la gauche
+Dessiner récursivement un segment plus petit
+Tourner à 120 degrés vers la droite
+Dessiner récursivement un segment plus petit
+Tourner à 60 degrés vers la gauche
+Dessiner récursivement un segment plus petit
 </pre>
-<p>Comme vous pouvez le constater, la fonction avance() n'est pas appel?e dans
-le cas r?cursif, mais seulement dans le cas de base, quand il n'y a plus
-d'appel r?cursif.</p>
+<p>Comme vous pouvez le constater, la fonction avance() n'est pas appelée dans
+le cas récursif, mais seulement dans le cas de base, quand il n'y a plus
+d'appel récursif.</p>
 
 
-<p><a href="#tip-1">TL;DR. Vous pouvez me dessiner tout ?a ?</a></p>
+<p><a href="#tip-1">TL;DR. Vous pouvez me dessiner tout ça ?</a></p>
 
-<p>Vous devez ?crire la fonction snowSide, qui est r?cursive. Mais <b>n'appelez
-pas snowFlake depuis snowSide</b>, car sinon le r?sultat sera vraiment
-?trange et inattendu.</p>
+<p>Vous devez écrire la fonction snowSide, qui est récursive. Mais <b>n'appelez
+pas snowFlake depuis snowSide</b>, car sinon le résultat sera vraiment
+étrange et inattendu.</p>
