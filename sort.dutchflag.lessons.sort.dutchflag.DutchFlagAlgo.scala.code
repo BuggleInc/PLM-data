@@ -1,0 +1,11 @@
+def solve() {
+  val lgr:Int = getTaille()
+  for (i <- 1 to lgr-1) {
+    var c:Int = getCouleur(i)
+    var k:Int = i
+    while (k>0 && getCouleur(k-1)>c) {
+      echange(k-1,k)
+      k -= 1
+    }
+  }
+}
