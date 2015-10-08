@@ -4,13 +4,19 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   if (steps!=1){
   	droite(angle)
   	tree(steps-1,length*shrink,angle,shrink)
-  	gauche(2*angle)
+  	gauche(angle)
   	tree(steps-1,length*shrink,angle,shrink)
   	i=i+1
   }
   if (steps==1){
-    for (k<-0 to i){
-     	recule(length)
+    if i==0{
+      recule(lenght)
+    }
+    else{
+      for (k<-0 to i){
+        recule(lenght*(shrink**k))
+        droite(angle)
+      }
     }
     i=0
   }
