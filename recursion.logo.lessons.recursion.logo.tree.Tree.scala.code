@@ -3,10 +3,10 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     avance(length);
     droite(angle);
     tree(steps-1,length*shrink,angle,shrink);
-    gauche(angle);
+    gauche(angle*2);
     recule(length);
-    tree(steps-1,length*shrink,360-angle,shrink);
-    gauche(angle);
+    tree(steps-1,length*shrink,angle,shrink);
+    droite(angle);
     recule(length);
     
   }else{
