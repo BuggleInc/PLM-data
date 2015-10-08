@@ -1,17 +1,34 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)
 {
-  if (steps > 0)
-  {
-    current(steps)
-    avance(length)
-    droite(angle)
-    tree(steps - 1, shrink * length, angle, shrink)
-    recule(length)
-    gauche(angle)
-    
-    gauche(angle)
-    tree(steps - 1, shrink * length, angle, shrink)
-    recule(length)
-    droite(angle)
-  }
+	if (steps > 0)
+	{
+		current(steps)
+		baisseCrayon()
+		avance(length)
+		leveCrayon()
+
+		dessinerSousArbre(false, steps - 1, shrink * length, angle, shrink)
+		dessinerSousArbre(true, steps - 1, shrink * length, angle, shrink)
+
+		recule(length)
+	}
+}
+
+def dessinerSousArbre(aGauche:Boolean, steps:Int, length:Double, angle:Double, shrink:Double)
+{
+	baisseCrayon()
+
+	if (aGauche)
+		gauche(angle)
+	else
+		droite(angle)
+
+	tree(steps, length, angle, shrink)
+
+	if (aGauche)
+		droite(angle)
+	else
+		gauche(angle)
+
+	leveCrayon()
 }
