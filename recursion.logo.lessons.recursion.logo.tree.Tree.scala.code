@@ -1,13 +1,12 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   if (steps!=0){
-    setColor(current(steps))
+    setColor(current(steps));
   	forward(length);
   	right(angle);
   	tree(steps-1, length*shrink, angle, shrink)
-    Console.err.println(current(steps))
   	left(angle*2);
   	tree(steps-1, length*shrink, angle, shrink)
-    setColor(current(steps))
+    setColor(current(steps));
     right(angle);
     backward(length)
   }
