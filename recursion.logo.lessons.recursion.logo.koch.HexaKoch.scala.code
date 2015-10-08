@@ -1,0 +1,29 @@
+def drawCurve(levels:Int, length:Double) {
+    hexaKoch(levels, length);
+}
+def hexaKoch(levels:Int, length:Double) {
+  pentaKoch(levels,length)
+}
+
+def pentaKoch(levels:Int, length:Double) {
+  if(levels>0){
+    var newLength = length*0.4
+    var nL = levels-1		// newLevel
+    
+    pentaKoch(nL,newLength)
+    left(120.0)
+    pentaKoch(nL,newLength)
+    right(60.0)
+    pentaKoch(nL,newLength)
+    right(60.0)
+    pentaKoch(nL,newLength)
+    right(60.0)
+    pentaKoch(nL,newLength)
+    right(60.0)
+    pentaKoch(nL,newLength)
+    left(120.0)
+    pentaKoch(nL,newLength)
+  }else if(levels==0){
+    avance(length)
+  }
+}
