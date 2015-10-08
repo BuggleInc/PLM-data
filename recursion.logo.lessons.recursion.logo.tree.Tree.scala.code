@@ -1,9 +1,12 @@
+var a=0
+
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	if (steps!=0){
+	if (a!=18){
     avance(length)
  	  droite(angle)
   	current(steps)
   	tree(steps-1, length*shrink, angle, shrink)   
+    gauche(angle)
     recule(length)
   	gauche(angle*2)
   	avance(length)
@@ -11,6 +14,8 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     recule(length*shrink)
     droite(angle)
     recule(length)
+    a=a+1
+    
     
   
   }
