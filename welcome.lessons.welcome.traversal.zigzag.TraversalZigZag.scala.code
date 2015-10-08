@@ -11,21 +11,87 @@ def testPose() : Boolean = {
 
 
 
+
 override def run() {
   ecritMessage(0)
   var c : Int=1
-  do{
-  	do{
-    	setPos(getX, getY+1)
-    	ecritMessage(c)
-    	c = c+1
-  	} while (getX != getMondeLargeur-1)
-  	setPos(getX+1, getY)
-  	do{
-    	setPos(getX, getY-1) 
-    	ecritMessage(c)
-     	c = c+1
-  	} while (getX != 0)
- 		setPos(getX+1, getY)   
-  } while ( !testPose)
-}
+  for (i <- 1 to 6){
+    setPos(getX+1, getY)
+    ecritMessage(c)
+    c = c+1
+  }
+  setPos(6, getY+1)
+  for (i <- 7 to 12){
+    ecritMessage(c)
+    setPos(getX-1, getY)
+    
+    c = c+1
+  }
+  setPos(0, getY+1)
+  for (i <- 1 to 6){
+    ecritMessage(c)
+    setPos(getX+1, getY)
+    
+    c = c+1
+  }
+  setPos(6, getY+1)
+  for (i <- 7 to 12){
+    ecritMessage(c)
+    setPos(getX-1, getY)
+    
+    c = c+1
+  }
+  setPos(0, getY+1)
+  
+  for (i <- 1 to 6){
+    
+    setPos(getX+1, getY)
+    ecritMessage(c)
+    c = c+1
+  }
+  setPos(6, getY+1)
+  for (i <- 7 to 12){
+    ecritMessage(c)
+    setPos(getX-1, getY)
+    
+    c = c+1
+  }
+  setPos(0, getY+1)
+  
+  
+  for (i <- 1 to 6){
+    
+    setPos(getX+1, getY)
+    ecritMessage(c)
+    c = c+1
+  }
+  setPos(6, getY+1)
+}   
+    
+    
+     
+  
+//  do{
+//    if (c%2 != 0){
+//      if (getX < getMondeLargeur-1){
+//        setPos(getX-1, getY)
+ //     }
+//  		else{
+//    		setPos(getMondeLargeur-1, getY+1)
+//  		} 
+//   	}
+//    else{
+//      if (getX < getMondeLargeur-1){
+//    	setPos(getX+1, getY)
+ //     }
+//      else{
+///        setPos(0, getY+1)
+ //     }
+//      
+//    }
+   
+//    ecritMessage(c)
+ //   c = c+1
+    
+ // } while (!testPose)
+//}
