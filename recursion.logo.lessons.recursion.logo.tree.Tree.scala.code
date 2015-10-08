@@ -10,11 +10,14 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
       gauche(2*angle)
       avance(l)
       recule(l)
+      
     }
     current(steps-s)
     droite(angle)
     avance(l)
     s-=1
     l=l*shrink
+    tree(s,l,angle,shrink)
+    gauche(2*angle)
     tree(s,l,angle,shrink)
     }}
