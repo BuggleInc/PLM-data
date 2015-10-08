@@ -1,22 +1,27 @@
-def snowFlake (levels:Int, length:Double) {
-    snowSide(levels, length);
-    right(120);
+def snowSquare (levels:Int, length:Double) {
+    squareSide(levels, length);
+    right(90);
     setColor(Color.blue);
-    snowSide(levels, length);
-    right(120);
+    squareSide(levels, length);
+    right(90);
     setColor(Color.orange);
-    snowSide(levels, length);
-    right(120);
+    squareSide(levels, length);
+    right(90);
+    setColor(Color.magenta);
+    squareSide(levels, length);
+    right(90);
 }
-def snowSide(levels:Int, length:Double) {
-	levels match{
+def squareSide(levels:Int, length:Double) {
+  levels match{
 		case 0 => avance(length);
-		case _ => snowSide(levels-1,length/3);
-				gauche(60);
-				snowSide(levels-1,length/3);
-				droite(120);
-				snowSide(levels-1,length/3);
-				gauche(60);
-				snowSide(levels-1,length/3);		
+		case _ => squareSide(levels-1,length/4);
+							gauche(90);
+							squareSide(levels-1,length/4);
+							droite(90);
+							squareSide(levels-1,length/4);
+							droite(90);
+							squareSide(levels-1,length/4);
+    					gauche(90)
+    
 		}
 }
