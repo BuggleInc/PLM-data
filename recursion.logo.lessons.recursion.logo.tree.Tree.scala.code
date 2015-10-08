@@ -1,9 +1,17 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+  var stepsf : Integer = steps;
+  var stepsb : Integer = steps;
+  current(steps);
   if(steps!=0)
-  {
-    current(steps);
+  {    
     forward(length);
     right(angle);
     tree((steps-1),length*shrink,angle,shrink);
+  }
+  else
+  {
+    backward(length);
+    left(angle);
+    tree((steps+1),length/shrink,angle,shrink);
   }
 }
