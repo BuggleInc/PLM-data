@@ -1,0 +1,18 @@
+def solve() {
+  val stackSize = getStackSize();
+    var swapped=false;
+    
+    do {
+      swapped = false; 
+      
+      for(rank <- 0 to getStackSize()-2) {
+        
+        if(getPancakeRadius(rank) > getPancakeRadius(rank + 1)) {
+          swapped = true; 
+          flip(rank + 2); 
+          flip(2); 
+          flip(rank + 2); 
+        }
+      }
+    } while (swapped)
+}
