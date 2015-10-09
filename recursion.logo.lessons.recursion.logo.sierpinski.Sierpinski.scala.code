@@ -1,19 +1,21 @@
 def sierpinski(level:Int, length:Double) {
   for(i<-0 to 2) {
+		motif(level,length)
+  	droite(120)
+  }
+}
+
+def motif(level:Int, length:Double) {
     if (level == 0) {
     avance(length)
   	}
   	else{
-  	  sierpinski(level-1,length/2)
+  	  motif(level-1,length/2)
  		  droite(120)
-    	sierpinski(level-1,length/2)
+    	motif(level-1,length/2)
     	droite(120)
-    	sierpinski(level-1,length/2)
+    	motif(level-1,length/2)
     	droite(120)
-    	sierpinski(level-1,length)
+    	motif(level-1,length)
   }
-  droite(120)
-  }
-
-  
 }
