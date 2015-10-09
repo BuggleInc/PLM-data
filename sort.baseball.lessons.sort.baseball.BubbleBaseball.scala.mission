@@ -1,0 +1,44 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Baseball ? bulle</h1>
+
+<p>Zut, nous avions adapt? le tri par insertion parce que notre tri par
+s?lection n?cessitait trop de d?placements pour mener les joueurs
+s?lectionn?s ? leur position, mais le tri par insertion impose une quantit?
+d?raisonnable de d?placements pour d?placer les joueurs de la fronti?re
+jusqu'? leur place dans la section tri?e. Au final, notre variante par
+s?lection ?tait plus efficace, avec au pire <code>3*nombre de bases</code>
+d?placement par ?l?ment ? trier (1 pour apporter le trou jusqu'au joueur ?
+bouger, et 2 pour amener le joueur et le trou jusqu'? leur position
+finale).  De son cot?, notre variante par insertion n?cessite au pire
+<code>3*nombre de joueurs</code> d?placements pour trier un ?l?ment (2 pour
+descendre le joueur et le trou ? leur place, et 1 pour remonter le
+trou). C'est deux fois pire puisqu'il y a deux joueurs par base. Il serait
+probablement possible d'am?liorer un peu notre variante par insertion en
+descendant plus vite le trou et le joueur, mais cela semble assez difficile
+(il ne faut pas m?langer les ?l?ments d?j? tri?s pendant la descente), et
+cela ne permettrait que de rendre cette variante aussi efficace que celle
+par s?lection, pas de faire vraiment mieux.</p>
+
+<p>Si nous ne pouvons pas rendre ce tri plus rapide, au moins nous pouvons le
+faire plus simplement. Quand on y pense, il semble assez naturel d'adapter
+le tri ? bulle ? ce probl?me : le trou devient la bulle qui monte et qui
+descend, en sortant peu ? peu le tableau. Les grandes lignes de l'algorithme
+sont tr?s simples : ?tant que ce n'est pas trier, d?placer le trou vers le
+bas puis vers le haut. ? chaque pas, c'est le plus petit des deux joueurs de
+la base qui descend, et le plus grand des deux qui monte (en fonction du
+sens de d?placement).?. Apr?s un moment, <code>estTrie()</code> devient
+vrai, et votre algorithme s'arr?te.</p>
+
+<p>C'est tellement simple que nous pouvons nous payer le luxe d'une autre
+variante du probl?me, avec plus de deux joueurs par base. Mais cela ne va
+pas vous ralentir longtemps, n'est ce pas?</p>
+
+<p>De mani?re ?tonnante, la variante ? bulle semble n?cessiter beaucoup moins
+de d?placements que les autres variantes. C'est assez surprenant car
+habituellement, le tri ? bulle est la pire des variantes possibles, mais
+cela s'explique sans peine par les analogies entre cet algorithme et le
+probl?me du baseball multicolore. Il est relativement courant qu'un
+algorithme ?crit simplement et naturellement se comporte bien en
+pratique. Il ne s'agit cependant pas d'une r?gle absolue, comme prouv? par
+l'algorithme simple et faux du premier exercice !</p>
