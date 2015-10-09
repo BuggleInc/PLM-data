@@ -1,0 +1,69 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>Baseball par insertion</h1>
+
+<p>Le cot? positif d'adapter le tri par s?lection ? notre probl?me est que nous
+savons que cela fonctionne (? condition que notre adaptation soit
+correcte). C'est bien mieux que notre premier algorithme na?f, qui ?tait
+incapable de converger vers la solution dans certains cas. Cependant, le tri
+par s?lection n'est pas parfait non plus, puisqu'il requiert beaucoup
+d'?changes : il faut amener le trou jusqu'au joueur s?lectionn? puis amener
+le joueur ET le trou vers la bonne base. On doit pouvoir faire mieux.</p>
+
+<p>Par exemple, chaque joueur peut avoir ? parcourir un chemin relativement
+long pour arriver ? sa position finale. Au lieu de cela, il serait peut-?tre
+int?ressant de couper le terrain en deux parties : l'une ? gauche o? tous
+les joueurs sont tri?s relativement les uns aux autres, et une autre ?
+droite o? les joueurs n'ont pas encore boug? de leur position de
+d?part. Ensuite, ? chaque it?ration, on prend le joueur ? la fronti?re entre
+les deux zones (c'est ? dire, le joueur le plus ? gauche de la zone non
+tri?e) et on le d?place vers la gauche jusqu'? sa position dans la zone
+tri?e (c'est ? dire, jusqu'? ce qu'il soit plus grand que son voisin de
+gauche). Cela r?duirait au moins la distance que les joueurs doivent
+parcourir pour rentrer dans la zone tri?e, puisqu'on prend syst?matiquement
+le joueur ? la fronti?re.</p>
+
+<p>En fait, c'est exactement ce qu'un tri par insertion ferait: maintenir une
+zone tri?e ? gauche, et y ins?rer ? chaque it?ration l'?l?ment qui se trouve
+? la fronti?re en le d?calant vers la gauche jusqu'? sa position dans la
+zone tri?e. C'est une bonne chose, car cela veut dire que notre algorithme
+n'est pas fondamentalement faux, puisqu'il s'agit d'une adaptation d'un
+algorithme connu.</p>     
+
+<p>Le plus simple pour adapter le tri par insertion au probl?me du baseball est
+de consid?rer toutes les positions comme adjacentes sans tenir compte des
+diff?rentes bases. Pour cela, il faut d?finir les m?thodes
+<code>couleurJoueur(pos)</code>,
+<code>deplace(pos)</code> et
+<code>trouveTrou()</code> qui utilisent un seul entier pour
+d?signer une position donn?e et appellent les fonctions de base de cet
+univers pour faire leur travail. Pour convertir une position encod?e sur un
+seul entier <code>index</code> en une position encod?e sur deux entiers
+<code>base,pos</code>, il faut appliquer les formules suivantes:
+<code>base=index/2</code> et <code>pos=index%2</code>. Pour faire le calcul
+inverse, il faut utiliser <code>index=base*2+pos</code> (qui fonctionne car
+il y a deux positions par base).</p> 
+
+<p>Pour l'algorithme lui-m?me, vous devriez tout d'abord bouger le trou en
+position 1. On consid?re alors que la zone tri?e se limite pour l'instant ?
+la position 0 (elle est alors de taille 1) tandis que la zone non tri?e
+commence ? partir de la position 2. Ensuite, on fait une it?ration par
+?l?ment ? trier. Comme le corps de cet it?ration est un peu plus compliqu?
+que ce que nous avons ?crit jusque l?, vous devriez r?fl?chir ? l'invariant
+de cette boucle, c'est ? dire ? la condition qui est vraie avant et apr?s un
+passage dans la boucle, et qui fait que la boucle fait son travail. Ici,
+l'invariant a deux parties : tout d'abord, l'emplacement vide se trouve
+entre les parties tri?es et non tri?es, et ensuite, la zone tri?e est
+... tri?e, c'est ? dire que tous les ?l?ments de cette zone sont bien tri?s
+par rapport ? leurs voisins.</p>
+
+<p>Ensuite, le corps de la boucle devrait trier un ?l?ment en descendant cet
+?l?ment et le trou dans la zone tri?e jusqu'au point o? l'?l?ment est ? sa
+place dans la zone tri?e (cela demande deux d?placements par case ?
+parcourir), avant de remonter le trou ? sa place ? la fronti?re (un
+d?placement par case ? parcourir).</p> 
+
+<p>Une fois que vous avez ins?r? le dernier ?l?ment dans la zone tri?e, tout
+votre ensemble est tri? et vous avez fini. Je vous laisse la surprise des
+cas limites n?cessitant de petits ajustements ? votre algorithme pour lui
+permettre de fonctionner dans tous les cas :)</p>

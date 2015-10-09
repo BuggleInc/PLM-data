@@ -1,0 +1,20 @@
+override def run() {
+  if (getHole() == 0) 
+			move(1);
+		while (getHole() > 1)
+			move(getHole()-1);
+		
+		for (player <- 2 to getBasesAmount()*getPositionsAmount()-1) {
+			
+			
+		
+			while (getHole()>0 && getPlayerColor(getHole()+1) < getPlayerColor(getHole()-1)) {  
+				val center = getHole();
+				move(center+1);        
+				move(center-1);    
+			}
+			while (getHole() != player) 
+				move(getHole()+1);
+		}
+		world.asInstanceOf[BaseballWorld].assertSorted("insertion sort");
+}
