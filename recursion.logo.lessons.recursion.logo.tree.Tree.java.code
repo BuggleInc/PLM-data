@@ -1,4 +1,15 @@
 public void tree(int steps, double length, double angle, double shrink)    {
-  current(steps);
-  avance(length);
+  if(steps!=0){  
+  	current(steps);
+  	avance(length);
+  	droite(angle);
+  	tree(steps--,length*shrink,angle,shrink);
+		gauche(2*angle);
+  	tree(steps--,length*shrink,angle,shrink);
+    droite(angle);
+    droite(angle*2);
+    avance(length);
+    droite(angle*2)
+  }
 }
+  
