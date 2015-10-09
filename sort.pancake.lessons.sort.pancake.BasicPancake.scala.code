@@ -1,0 +1,17 @@
+def solve() {
+  for (rank <- getStackSize()-1 to 0 by -1) {
+			if (isSorted()) 
+				return;
+			if ( getPancakeRadius(rank) != rank+1 ) { 
+				var indexBigPancake = -1
+				for (currentPancake <- 0 to rank)
+					if ( getPancakeRadius(currentPancake) == rank+1) 
+						indexBigPancake = currentPancake;	
+
+				if ( indexBigPancake != 0 )
+					flip(indexBigPancake+1);	
+				if ( rank != 0 )
+					flip(getPancakeRadius(0));
+			}	
+		}
+}
