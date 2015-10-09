@@ -5,29 +5,9 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   else{
     avance(length);
     droite(angle);
-    treedroit(steps, length, angle,shrink);
+    tree(steps, length, angle,shrink);
     gauche(2*angle);
-    treegauche(steps, length, angle,shrink);
+    tree(steps, length, angle,shrink);
     recule(length);
-  }
-}
-
-def treedroit(steps:Int, length:Double, angle:Double, shrink:Double){
-  if (steps==0){
-    return
-  }
-  else{
-    droite(angle);
-    return tree(steps-1,length,angle,shrink);
-  }
-}
-
-def treegauche(steps:Int, length:Double, angle:Double, shrink:Double){
-  if (steps==0){
-    return
-  }
-  else{
-    gauche(angle);
-    return tree(steps-1,length,angle,shrink);
   }
 }
