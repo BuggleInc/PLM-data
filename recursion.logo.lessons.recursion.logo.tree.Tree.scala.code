@@ -1,9 +1,16 @@
-var a=getCap()
+var a=getAngle
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-  if (steps!=0){
-  avance(20.0)
-  droite(20.0)
-	recule(20.0)
-  tree(0, length, angle, shrink)
-  }
+  
+  if (steps==0) {recule(length)}
+  else{
+   
+    avance(length)
+  droite(angle)
+    tree(steps-1,length*shrink,angle,shrink)
+  gauche(2*angle)
+    tree(steps-1,length*shrink,angle,shrink)
+  
+  
+  recule(length)
+  
 }
