@@ -4,12 +4,14 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double){
   }
   else {
   current(steps)
+  penDown() 
   forward(length)
   right(angle)
   tree(steps-1,length*shrink,angle,shrink)
   left(2*angle)
   tree(steps-1,length*shrink,angle,shrink)
-  right(angle)  
+  right(angle)
+  penUp()  
   backward(length)
 }
 }
