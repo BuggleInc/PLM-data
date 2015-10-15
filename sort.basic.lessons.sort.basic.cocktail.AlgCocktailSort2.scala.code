@@ -1,0 +1,56 @@
+def cocktailSort2() {
+  var n = getNombreValeurs()
+  var end = true
+  var tour = 0
+	
+  var debut = 0
+  var fin = n
+  
+  while(end)
+  {
+    end = false
+    for(i<- debut to fin-2)
+    {
+      if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        end = true
+      }
+    }
+    fin = fin-1
+    for(k<- fin-2 to debut by -1)
+    {
+      if (!plusPetit(k,k+1))
+      {
+        echange(k,k+1)
+        end = true
+      }  
+    }
+    debut = debut+1
+  }
+}
+
+/*
+while(end)
+  {
+    end = false
+    for(i<- 0+tour to n-2-tour)
+    {
+     	if (!plusPetit(i,i+1))
+      {
+        echange(i,i+1)
+        end = true
+      }
+    }
+    for(i<-2+tour to n-tour)
+    {
+      var j = n - i 
+      if (!plusPetit(j,j+1))
+      {
+        echange(j,j+1)
+        end = true
+      }
+    }
+    tour = tour + 1
+  }
+*/
