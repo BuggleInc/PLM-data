@@ -6,12 +6,16 @@ def golomb(num:Int): Int = {
   var z:Int = 1
   var v:Int = 2
   while(t(num-1) == 0){
-    for(i<- x to x+y){
-      t(i)=v
-      z += 1
+    if(x+y<num){  
+      for(i<- x to x+y){
+        t(i)=v
+        z += 1
+      }
+      x = z
+      y = t(y+1)
+    }else{
+      for(i<- x to num-1){
+        t(i)=v
     }
-    x = z
-    y = t(y+1)
-  }
   return(t(num-1))
 }
