@@ -1,20 +1,9 @@
 def island(num:Array[Int]): Int = {
-  val n = num.length-1
-  var i:Int = 0
-  var max:Int = 0
-  var niv:Int = 0
-  for(i<- 0 to n){
-    if(num(i)>max){
-      max = num(i)
+  val n = num.length -1
+  val niv:Int=0
+  for(i<- 0 to n-1){
+    if(num(i) < num(i+1)){
+      niv+=1
     }
   }
-  for(i<-0 to max){
-    for(j<- 0 to n){
-      if(num(j) == i){
-        niv += 1
-      }
-    }
-    niv -=1
-  }
-  return(niv)
 }
