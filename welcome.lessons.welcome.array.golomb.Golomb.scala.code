@@ -1,25 +1,22 @@
 def golomb(num:Int): Int = {	
   var t = new Array[Int](num)
   t(0)=1
-  var x:Int = 1
-  var y:Int = 2
-  var z:Int = 1
-  var v:Int = 2
-  while(t(num-1) == 0){
-    if(x+y-1<num){  
-      for(i<- x to x+y-1){
+  var compteur = 1
+  var valeur = 2
+  var repetition = 0
+  while(compteur < num){
+    repetition = t(valeur)
+    if(compteur + repetition - 1 < num -1){
+      for(i<- compteur to compteur + repetition -1){
         t(i)=v
-        z += 1
+        compteur += 1
       }
-      x = z
-      y += 1
-      y = t(y-1)
-      v += 1
+      valeur += 1
     }else{
-      for(i<- x to num-1){
+      for(j<- compteur to num -1){
         t(i)=v
+        compteur += 1
       }
     }
   }
-  return(t(num-1))
 }
