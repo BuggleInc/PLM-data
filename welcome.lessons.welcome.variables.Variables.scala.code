@@ -1,14 +1,17 @@
 var nbPas:Int=0
-for (i<- 0 to 4){
-  if (!estSurBiscuit){
-    avance;
-    nbPas=nbPas+1
-  }else{prendBiscuit}
-
-  var dejaFait:Int=0
-  if (dejaFait!=nbPas){
-    recule;
-    nbPas=nbPas-1
+val enCours:Boolean = false
+var dejaFait=0
+enCours=true
+if (!estSurBiscuit){
+  if (enCours){
+    avance;nbPas=nbPas+1
   }
-  poseBiscuit
 }
+if (estSurBiscuit&&!enCours){
+  prendBiscuit
+}
+if (dejaFait!=nbPas){
+  recule;
+  nbPas=nbPas-1
+}
+enCours=false
