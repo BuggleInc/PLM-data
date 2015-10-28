@@ -6,8 +6,14 @@ def solve() {
     if(getCouleur(apresBleu)==BLEU){
       apresBleu += 1;
     }else{
-      echange(apresBleu,avantBlanc);
+      echange(apresBleu,blancRouge);
+      blancRouge -= 1;
+    }
+    if(getCouleur(avantBlanc)==BLANC){
       avantBlanc -= 1;
+    }else{
+      echange(avantBlanc, blancRouge);
+      blancRouge -= 1;
     }
   }
 }
