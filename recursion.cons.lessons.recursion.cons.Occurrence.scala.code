@@ -1,8 +1,7 @@
 def occurences(l:List[Int], v:Int): Int = {
-  var c:Int=0
   if (l==Nil) {
-    return c
+    return 0
   } else if (l.head==v) {
-    c=c+1
-  } else occurences(l.tail,v)
+    return 1+occurences(l.tail,v)
+  } else return 0+occurences(l.tail,v)
 }
