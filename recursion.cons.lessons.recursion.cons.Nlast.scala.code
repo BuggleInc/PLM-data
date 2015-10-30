@@ -1,4 +1,6 @@
 def nlast(l:List[Int], n:Int): List[Int] = {
+  
+  
 	def last(l:List[Int]): Int = {
   	if (l==Nil) {
     	return 0
@@ -6,14 +8,16 @@ def nlast(l:List[Int], n:Int): List[Int] = {
     	return l.head
   	} else last(l.tail)
 	}
+  
+  
   def butLast(l:List[Int]): List[Int] = {
   	if (l==Nil || l.tail==Nil) {
     	return Nil
   	} else return l.head::butLast(l.tail)
 	}
+  
+  
   if (n==0) {
     return Nil
-  } else if (n==1) {
-    return l
   } else return nlast(butLast(l),n-1):::(last(l)::Nil)
 }
