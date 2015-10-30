@@ -1,5 +1,19 @@
 def insertionSort() {
+  var memory=0
   for (i<-1 to getNombreValeurs()-1){
+    var stop=false
+    var j=i
+    memory=getValeur(i)
+    while (stop==false && j>=1){
+      if (plusPetit(j, j-1)){
+      	echange(j, j-1)
+      }
+      else{
+        setValeur(i, memory)
+        stop=true
+      }
+      j=j-1
     
+    }
   }
 }
