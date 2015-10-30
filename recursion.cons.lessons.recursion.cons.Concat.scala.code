@@ -10,5 +10,15 @@ def concat(l1:List[Int],  l2:List[Int]): List[Int] = {
   } else return l.head::butLast(l.tail)
   }
   
+  def last(l:List[Int]): Int = {
+  if (l==Nil) {
+    return 0
+  } else if (l.tail==Nil) {
+    return l.head
+  } else last(l.tail)
+}
   
+  if (l1==Nil) {
+    return l2
+  } else return concat(butLast(l1),last::l2)
 }
