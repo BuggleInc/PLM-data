@@ -6,7 +6,12 @@ def reverse(l:List[Int]): List[Int] = {
     return l.head
   } else last(l.tail)
 }
+  def butLast(l:List[Int]): List[Int] = {
+  if (l==Nil || l.tail==Nil) {
+    return Nil
+  } else return l.head::butLast(l.tail)
+}
   if (l==Nil) {
     return l
-  } else return last(l)::reverse()
+  } else return last(l)::reverse(butLast(l))
 }
