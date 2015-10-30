@@ -1,4 +1,9 @@
 def butNlast(l:List[Int], n:Int): List[Int] = {
+  def butLast(l:List[Int]): List[Int] = {
+  if (l==Nil || l.tail==Nil) {
+    return Nil
+  } else return l.head::butLast(l.tail)
+}
   if (l==Nil || n==0) {
     return l
   } else return butNlast(butLast(l),n-1)
