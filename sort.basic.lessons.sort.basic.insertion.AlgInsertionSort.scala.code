@@ -1,12 +1,18 @@
 def insertionSort() {
   for (i<-1 to getNombreValeurs()-1){
+    var stop=false
     var j=i
     var memory=getValeur(i)
-    while (!plusPetitQue(j-1, memory) && j>=1){
-      copie(j-1, j)
+    while (stop==false && j>=1){
+      if (!plusPetitQue(j-1, memory)){
+      	copie(j-1, j)
+      }
+      else{
+        setValeur(j, memory)
+        stop=true
+      }
       j=j-1
-    }
-    setValeur(j, memory)
     
+    }
   }
 }
