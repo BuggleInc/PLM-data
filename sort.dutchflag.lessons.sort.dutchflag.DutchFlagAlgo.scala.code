@@ -2,12 +2,16 @@ def solve() {
   var i:Int =0;
   while(!estTrie()){
     if(getCouleur(i)==ROUGE){
-      for(j <- i to 1){
-        echange(j,j-1)
+      if(i != 0){
+      	for(j <- i to 0){
+        	echange(j,j-1)
+      	}
       }
     }else if(getCouleur(i)==BLEU){
-      for(j <- i to getTaille()-2){
-        echange(j,j+1)
+      if(i != getTaille()-1){	
+      	for(j <- i to getTaille()-2){
+        	echange(j,j+1)
+      	}
       }
     }    
     i=i+1;
