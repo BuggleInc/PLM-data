@@ -6,18 +6,18 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
   }
 }
 
-def hanoiPair(height:Int, src:Int, other:Int, dst1:Int, dst2:Int){
+def hanoiPair(height:Int, src:Int, other:Int, dst:Int){
   if(height != 0){
-    hanoiPair(height-1, src, dst1, other, dst2)
-    deplace(src, dst1)
-    deplace(src, dst1)
-    hanoiPair(height-1, other, src, dst2, dst1)
+    hanoiPair(height-1, src, dst, other)
+    deplace(src, dst)
+    deplace(src, dst)
+    hanoiPair(height-1, other, src, dst)
   }
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(height != 0){
-    hanoiPair(height-1, src, dst2, other, dst1)
+    hanoiPair(height-1, src, dst2, other)
     deplace(src, dst2)
     deplace(src, dst1)
     splitHanoi(height -1, other, src, dst1, dst2)
