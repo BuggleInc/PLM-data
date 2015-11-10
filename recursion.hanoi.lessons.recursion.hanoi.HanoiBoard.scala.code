@@ -1,5 +1,9 @@
 def hanoi(height:Int, src:Int, other:Int, dst:Int) 
 {
-  if hanoi(height = 0) 
-  	
+  if (height = 1) 
+  	move(src, dst)
+  else
+  	hanoi(height-1, src, dst, other)
+  	move(src, dst)
+  	hanoi(height-1, other, src, dst)
 }
