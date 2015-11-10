@@ -19,11 +19,11 @@ def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
     case 0 => {()}
     
     case n => {
-      splitHanoi((n - 1), src, dst2, dst1, other)
-      move(src, dst2)
-      hanoi((n - 1), dst1, src, dst2)
+      splitHanoi((n - 1), src, dst1, dst2, other)
       move(src, dst1)
-      hanoi((n - 1), other, src, dst1)
+      hanoi((n - 1), dst2, src, dst1)
+      move(src, dst2)
+      hanoi((n - 1), other, src, dst2)
     }
   }
   }
