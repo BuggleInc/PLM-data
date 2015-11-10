@@ -1,0 +1,15 @@
+def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+  
+  height match {
+    
+    case 0 => {()}
+    
+    case n => {
+      splitHanoi((n - 1), src, dst2, dst1, other)
+      move src dst2
+      hanoi (n - 1) dst1 src dst2
+      move src dst1
+      hanoi (n - 1) other src dst1
+    }
+  }
+  }
