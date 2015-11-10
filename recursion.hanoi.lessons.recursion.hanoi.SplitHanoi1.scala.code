@@ -9,9 +9,8 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
 def hanoiPair(height:Int, src:Int, other:Int, dst:Int){
   if(height != 0){
     hanoiPair(height-1, src, dst, other)
-    deplace(src, other)
     deplace(src, dst)
-    deplace(other, dst)
+    deplace(src, dst)
     hanoiPair(height-1, other, src, dst)
   }
 }
