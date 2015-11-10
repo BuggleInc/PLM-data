@@ -9,10 +9,22 @@ def moveInter(height:Int, src:Int, other1:Int, other2:Int, dst:Int) {
      	move(src, other2)
       move(src, dst)
       move(other2, dst)
-      
+      moveInter((n - 1), other1, src, other2, dst)
     }
   }
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+  
+  height match {
+    
+    case 0 -> { () }
+    
+    case n => {
+      moveInter((n - 1), src, dst1, dst2, other)
+      move(src, dst1)
+      move(src, dst2)
+      splitHanoi((n - 1), other, dst1, dst2)
+    }
+  } 
   }
