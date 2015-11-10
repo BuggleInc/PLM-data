@@ -18,9 +18,9 @@ def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
     if (height > 1)
   		aux(height-1, p+1, src, dst1, dst2, other)
   	move(src, dst1)
-  	hanoi(height, dst2, src, dst1)
+  	hanoi(height-1, dst2, src, dst1)
   	move(src, dst2)
-  	hanoi(height, other, src, dst2)	
+  	hanoi(height-1, other, src, dst2)	
 	}
   
   aux(height, 0 , src, other, dst1, dst2)
