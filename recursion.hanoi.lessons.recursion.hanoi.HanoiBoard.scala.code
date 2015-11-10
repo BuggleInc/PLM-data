@@ -1,3 +1,13 @@
 def hanoi(height:Int, src:Int, other:Int, dst:Int) {
-  if 
+ 
+  height match {
+    
+    case 1 => { move(src, dst) }
+    
+    case n => {
+      hanoi(n - 1, src, other)
+      move(src, dst)
+      hanoi(n - 1, other, dest)
+    }
+  } 
 }
