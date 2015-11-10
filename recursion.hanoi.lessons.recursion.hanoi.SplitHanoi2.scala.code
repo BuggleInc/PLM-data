@@ -20,10 +20,14 @@ def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(getSlotSize(src) > 0) {
     //dst1 is supposed to be ordered. We'll only work on dst1, then invert both of them.
     // move our disc to the empty "other" rod
-    move(src, other)
-    // then put src1 on top of it
-    trueHanoi(getSlotSize(dst1), dst1, src, other)
-    // then splitHanoi on the rest
-    splitHanoi(height, src, dst1, dst2, other)
+    if(getSlotSize(dst1) == 0) {
+      move(src, dst1)
+    } else {
+   		move(src, other)
+  	  // then put src1 on top of it
+  	  trueHanoi(getSlotSize(dst1), dst1, src, other)
+    	// then splitHanoi on the rest  
+    }
+   	 splitHanoi(height, src, dst1, dst2, other)
   }
 }
