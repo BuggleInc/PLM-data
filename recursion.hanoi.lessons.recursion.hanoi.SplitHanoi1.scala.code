@@ -15,7 +15,7 @@ def hanoi2(height:Int, src:Int, other1:Int, other2:Int, dst:Int) {
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
-  hanoi2(height-1, src, other, dst1, dst2)
+  hanoi2(height-1, src, dst1, dst2, other)
   move(src, dst1)
   move(src, dst2)
   splitHanoi(height-1, other, dst1, dst2, src)
