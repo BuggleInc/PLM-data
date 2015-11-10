@@ -10,6 +10,22 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
   }
 }
 
+
+def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+  def aux(height:Int, p:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+    
+  	move(src, dst1)
+  	hanoi(p, dst2, src, dst1)
+  	move(src, dst2)
+  	hanoi(p, other, src, dst2)	
+    if (height > 1)
+  		aux(height-1, p+1, src, dst1, dst2, other)
+	}
+  
+  aux(height, 0 , src, other, dst1, dst2)
+}
+
+/*
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   def aux(height:Int, p:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
     
@@ -23,3 +39,4 @@ def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   
   aux(height, 0 , src, other, dst1, dst2)
 }
+*/
