@@ -12,6 +12,18 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
   } 
 }
 
+def hanoi_fast(height, src, free, full, dst) {
+  
+  if height <= 1 {
+    hanoi(height, src, free, dst)
+  }
+  else {
+    move(src, full)
+    hanoi((height - 1), src, free, dst)
+    move(full, dst)
+  }
+}
+
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   
   height match {
@@ -21,9 +33,9 @@ def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
     case n => {
       splitHanoi((n - 1), src, dst1, dst2, other)
       move(src, dst1)
-      hanoi((n - 1), dst2, src, dst1)
+      hanoi_fast((n - 1), dst2, src, dst1)
       move(src, dst2)
-      hanoi((n - 1), other, src, dst2)
+      hanoi_fast((n - 1), other, src, dst2)
     }
   }
  }
