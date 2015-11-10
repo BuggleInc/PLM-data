@@ -6,19 +6,18 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
   }
 }
 
-def interleavedHanoi(height:Int, src1:Int, src2:Int, other:Int, dst:Int) {
+def hanoiPair(height:Int, src:Int, other:Int, dst:Int){
   if(height != 0){
-    hanoi(height-1, src1, dst, other)
-    deplace(src1, dst)
-    hanoi(height-1, src2, dst, src1)
-    deplace(src2, dst)
-    interleavedHanoi(height-1, other, src1, src2, dst)
+    hanoiPair(height-1, src, dst, other)
+    deplace(src, dst)
+    deplace(src, dst)
+    hanoiPair(height-1, other, src, dst)
   }
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(height != 0){
-    hanoi(2 * height - 2, src, dst1, other)
+    hanoiPair(2 * height - 2, src, dst1, other)
     deplace(src, dst1)
     deplace(src, dst2)
     splitHanoi(height -1, other, src, dst1, dst2)
