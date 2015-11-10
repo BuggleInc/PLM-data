@@ -15,9 +15,9 @@ def interleavedHanoi(height:Int, src1:Int, src2:Int, other:Int, dst:Int) {
     move(src2,dst)
   }
   else{
-    hanoi(height-1,src1,dst,other)
+    hanoi(height-2,src1,dst,other)
     move(src1,dst)
-    hanoi(height-1,src2,src1,dst)
+    hanoi(height-2,src2,src1,dst)
     move(src2,dst)
     interleavedHanoi(height-1,other,src1,src2,dst)
   }
