@@ -16,7 +16,11 @@ def hanoiPair(height:Int, src:Int, other:Int, dst:Int){
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
-  if(height != 0){
+  if(height == 1){
+    deplace(src, dst1)
+    deplace(src, dst2)
+  }
+  else if(height != 0){
     hanoiPair(height-1, src, dst2, other)
     deplace(src, dst2)
     deplace(src, dst1)
