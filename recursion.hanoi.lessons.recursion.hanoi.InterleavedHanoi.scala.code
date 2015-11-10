@@ -8,7 +8,11 @@ def interleavedHanoi(height:Int, src1:Int, src2:Int, other:Int, dst:Int) {
     }
     
     case n => {
-      hanoi src1 
+      hanoi (n - 1) src1 dst other
+      move src1 dst
+      hanoi (n - 1) src2 dst src1
+      move src2 dst
+      interleavedHanoi(n - 1, other, src1, src2)
     }
   }
 }
