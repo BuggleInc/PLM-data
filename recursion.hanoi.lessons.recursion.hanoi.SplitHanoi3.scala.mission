@@ -1,0 +1,34 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Les tours de Hano? s?par?es rapides</h2>
+
+<p>Une fois encore, notre solution est fonctionnelle, mais elle est loin d'?tre
+optimale. Nous utilisons l'algorithme classique de d?placement des tours,
+celui invent? pour la situation avec trois piquets, alors que nous avons
+quatre piquets. Bien entendu, on ne peut pas disposer librement de ce
+quatri?me piquet puisqu'il contient l'autre pile, mais nous pouvons toujours
+placer le plus petit disque au sommet de l'autre pile avant d'en d?placer
+une.</p>
+
+<p>Pour cela, il faut ?crire une nouvelle fonction <code>hanoi_rapide(hauteur,
+src, libre, plein, dst)</code> qui d?place une pile depuis <code>src</code>
+vers <code>dst</code> en utilisant <code>libre</code> pour le stockage
+temporaire, apr?s avoir plac? le plus petit disque sur le piquet
+<code>plein</code>.</p>
+
+<a href="#tip-1">Je suis perdu</a> <br>
+
+<p>Ce changement am?liore consid?rablement les performances, comme vous pouvez
+le constater dans le tableau. Bien entendu, cette astuce pourrait ?tre
+utilis?e pour l'algorithme d'interclassement, ce qui boosterait les
+performances exactement de la m?me fa?on. </p>
+<table border="1">
+<tr><td>Nombre de disques</td><td>Interclassement</td><td>S?paration lente</td><td>S?paration rapide</td></tr>
+<tr><td>5 paires</td>     <td> 62 mouvements</td>  <td> 88 mouvements </td><td> 46 mouvements</td></tr>
+<tr><td>6 paires</td>     <td>126 mouvements</td>  <td>183 mouvements </td><td> 82 mouvements</td></tr>
+<tr><td>7 paires</td>     <td>254 mouvements</td>  <td>374 mouvements </td><td>150 mouvements</td></tr>
+</table>
+
+<p>En conclusion, nous nous contentons souvent d'une solution fonctionnelle, et
+nous manquons souvent des occasions d'am?liorer la d?composition du
+probl?me. <b>Vous</b> ne devriez pas faire cela ;)</p>
