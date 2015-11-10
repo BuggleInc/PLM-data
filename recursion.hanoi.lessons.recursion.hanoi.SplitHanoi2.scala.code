@@ -1,2 +1,21 @@
-def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+def hanoi(height:Int, src:Int, other:Int, dst:Int) {
+  if (height==1){
+    move(src,dst)
   }
+  else{
+    hanoi(height-1,src,dst,other)
+    move(src,dst)
+    hanoi(height-1,other,src,	dst)
+  }
+}
+
+def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+  if (height ==1){
+    move(src,dst1)
+    move(src,dst2)
+  } else {
+    splitHanoi(height-1,other,src,dst1,dst2)
+    move(src,dst1)
+    move(src,dst2)
+  }
+}
