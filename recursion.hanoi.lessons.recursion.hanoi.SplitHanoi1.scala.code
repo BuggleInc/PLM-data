@@ -18,7 +18,7 @@ def interleavedHanoi(height:Int, src1:Int, src2:Int, other:Int, dst:Int) {
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(height != 0){
-    hanoi(2 * height - 2, src, other)
+    hanoi(2 * height - 2, src, dst1, other)
     deplace(src, dst1)
     deplace(src, dst2)
     splitHanoi(height -1, other, src, dst1, dst2)
