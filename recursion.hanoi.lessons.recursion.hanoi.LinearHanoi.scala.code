@@ -1,0 +1,15 @@
+def linearHanoi(height:Int, src:Int, mid:Int, dst:Int) 
+{
+  if (height == 1)
+  {
+    move(src, dst)
+  }
+  else
+  {
+    linearHanoi(height-1, src, mid, dst)
+    move(src, mid)
+    linearHanoi(height-1, dst, mid, src)
+    move(mid, dst)
+    linearHanoi(height-1, src, mid, dst)
+  }
+}
