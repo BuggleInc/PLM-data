@@ -1,4 +1,12 @@
-// s?parer noir et blanc puis faire des hanois simples dessus
+def hanoi(height:Int, src:Int, other:Int, dst:Int) {
+  if (height > 0) {
+    	hanoi(height-1, src, dst, other)
+    	move(src, dst)
+    	hanoi(height-1, other, src, dst)
+  }
+}
+
+// split black and white then simple hanoi on them
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   
