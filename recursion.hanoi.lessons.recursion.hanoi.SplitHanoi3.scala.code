@@ -13,15 +13,15 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
 
 def quick_hanoi(height:Int, src:Int, free:Int, full:Int, dst:Int) 
 {
+  if (height == 1)
+  {    
+    move(src, dst)    
+  }
   if (height >= 2) 
   {
     move(src, full)  
   	hanoi(height-1, src, free, dst)  
     move(full, dst)
-  }
-  else
-  {
-    move(src, dst)
   }
 }
 
