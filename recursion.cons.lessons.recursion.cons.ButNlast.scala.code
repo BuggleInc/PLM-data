@@ -7,14 +7,10 @@ def butNlast(l:List[Int], n:Int): List[Int] = {
       return 1+length(list.tail)
     }
   }
-  def valEnleve(list:List[Int],x:Int):Int={
-    val y=length(butNlast(list,x))-x
-    return y
-  }
-  if(l==Nil){
-    return Nil
+  if(length(l)==n){
+    return l
   }
   else{
-    return l.head::butNlast(l.tail,valEnleve(l,n))
+    return butNlast(l.tail,n)
   }
 }
