@@ -3,10 +3,10 @@ def nlast(l:List[Int], n:Int): List[Int] = {
     val y:Int=length(list)
     return y-x
   }
-  if(n==1){
-    return l.head
+  if(n==0){
+    return Nil
   }
   else{
-    return nlast(l.tail,valEnleve(l,n))
+    return l.head::nlast(l.tail,valEnleve(l,n))
   }
 }
