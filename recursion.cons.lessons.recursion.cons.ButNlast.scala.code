@@ -1,0 +1,20 @@
+def butNlast(l:List[Int], n:Int): List[Int] = {
+  def length(list:List[Int]):Int={
+    if(list==Nil){
+      return 0
+    }
+    else{
+      return 1+length(list.tail)
+    }
+  }
+  def valEnleve(list:List[Int],x:Int):Int={
+    val y=length(l)-x
+    return y
+  }
+  if(l==Nil){
+    return Nil
+  }
+  else{
+    return l.head::butNlast(l.tail,valEnleve(l,n))
+  }
+}
