@@ -1,1 +1,12 @@
 def nlast(l:List[Int], n:Int): List[Int] = {
+  def valEnleve(list:List[Int],x:Int):Int={
+    val l=length(list)
+    return l-x
+  }
+  if(n==1){
+    return l.head
+  }
+  else{
+    return nlast(l.tail,valEnleve(l,n))
+  }
+}
