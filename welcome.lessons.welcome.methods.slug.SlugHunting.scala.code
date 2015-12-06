@@ -1,15 +1,12 @@
 def hunt() {
   while (!estSurBiscuit()) {
-    while (isFacingTrail() == true) {
+    if (isFacingTrail()) {
       baisseBrosse();
       leveBrosse();
       avance()
-    }
-    var colorGreen: Boolean = false
-    do {
+    } else {
       gauche();
-      colorGreen = isFacingTrail();
-    } while (!colorGreen)
+    }
   }
   prendBiscuit();
 }
