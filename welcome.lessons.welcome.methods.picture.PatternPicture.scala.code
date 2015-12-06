@@ -1,0 +1,46 @@
+override def run() {
+  def symboleUn() {
+    for (k <- 1 to 2) {
+    avance();
+  	peindre();
+  	gauche();
+  	avance();
+  	gauche();
+    }
+  }
+  def symboleDeux() {
+    for (k <- 1 to 2) {
+    	peindre();
+  		avance();
+  		gauche();
+  		avance();
+    	gauche();
+    }
+  }
+  
+  def motif() {
+  	symboleUn();
+  	avance(2);
+  	symboleDeux();
+  	recule(2);
+  	gauche();
+  	avance(2);
+  	droite();
+  	symboleDeux();
+  	avance(2);
+  	symboleUn();
+  	recule(2);
+  	gauche();
+  	recule(2);
+  	droite();
+  }
+  for (i <- 1 to 2) {
+    for (j <- 1 to 2) {
+      motif()
+      avance(4);
+    }
+    droite();
+    avance(4);
+    gauche();
+  }
+}
