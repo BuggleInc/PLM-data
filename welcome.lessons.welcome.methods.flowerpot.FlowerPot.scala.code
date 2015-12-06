@@ -1,7 +1,39 @@
 def qrowFlowers() {
-  
+  FlowersLigne(Color.red, Color.cyan);
+  ChangementLigne()
+  FlowerSimple(Color.orange);
+  ChangementLigne()
+  FlowersLigne(Color.pink, Color.green);
 }
 
-def Flower() {
-  
+def Flower(c:Color) {
+  setCouleurBrosse(c);
+  baisseBrosse();
+  avance(2);
+  reucle();
+  gauche();
+  recule(2);
+  avance();
+  gauche();
+  setCouleurBrosse(Color.yellow);
+  leveBrosse();
+}
+
+def FlowersLigne(c1: Color, c2: Color) {
+  Flower(c1);
+  avance(3);
+  Flower(c2);
+  recule(5);
+}
+
+def FlowerSimple(c: Color) {
+  avance(2);
+  Flower(Color.orange);
+  recule(3);
+}
+
+def ChangementLigne() {
+  droite();
+  avance(2);
+  gauche();
 }
