@@ -1,5 +1,6 @@
 override def run() {
-  def symboleUn() {
+  def symboleUn(c: Color) {
+    setCouleurBrosse(c)
     for (k <- 1 to 2) {
     avance();
   	peindre();
@@ -8,7 +9,8 @@ override def run() {
   	gauche();
     }
   }
-  def symboleDeux() {
+  def symboleDeux(c: Color) {
+    setCouleurBrosse(c)
     for (k <- 1 to 2) {
     	peindre();
   		avance();
@@ -18,16 +20,16 @@ override def run() {
     }
   }
   def motif() {
-  	symboleUn();
+  	symboleUn(Color.rouge);
   	avance(2);
-  	symboleDeux();
+  	symboleDeux(Color.bleu);
   	recule(2);
   	gauche();
   	avance(2);
   	droite();
-  	symboleDeux();
+  	symboleDeux(Color.yellow);
   	avance(2);
-  	symboleUn();
+  	symboleUn(Color.green);
   	recule(2);
   	gauche();
   	recule(2);
