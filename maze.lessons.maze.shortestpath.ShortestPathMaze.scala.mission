@@ -1,0 +1,56 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Algorithme basique de recherche du plus court chemin</h2>
+
+<p>Pour conclure avec cette le?on d'introduction aux algorithmes de sortie de
+labyrinthe, nous allons ?tudier un autre moyen de trouver la sortie. La
+buggle de cette le?on est sp?ciale : c'est une jedi. Elle peut ressentir la
+Force. Cela signifie qu'elle peut ressentir son environnement.</p>
+
+<p>Sans m?me changer de place, elle peut retrouver des informations sur le
+monde qui l'entoure, avec les instructions suivantes&nbsp;:</p>
+<ul>
+  <li><code>getMondeLargeur()</code> pour conna?tre la largeur du monde</li>
+  <li><code>getMondeHauteur()</code> pour conna?tre la hauteur du monde.</li>
+  <li><code>aMurNord(x,y)</code> indique si la cellule (x,y) de ce monde est
+ferm?e par un mur en haut.</li>
+  <li><code>aMurOuest(x,y)</code> indique si la cellule (x,y) de ce monde est
+ferm?e par un mur ? gauche.</li>
+  <li><code>aBiscuit(x,y)</code> indique si un baggle se trouve dans la cellule
+(x,y) de ce monde.</li>
+  <li><code>setIndication(x,y,i)</code> ajoute une indication enti?re
+<code>i</code> sur le sol de la cellule (x,y).</li>  
+  <li><code>getIndication(x,y)</code> retourne l'indication enti?re qui se trouve
+dans la cellule (x,y) (ou bien la valeur 9999 s'il n'y a pas d'indication ?
+l'endroit indiqu?).</li>  
+</ul>
+
+<p>Il est bon de noter qu'il n'est pas possible de construire un mur sur le
+c?t? inf?rieur ou le cot? droit d'une case. N?anmoins, quand de tels murs
+existent, cela signifie qu'il a ?t? construit sur une case voisine -- comme
+mur sup?rieur (respectivement gauche) sur la case qui est situ?e en dessous
+(respectivement sur ? droite) de la case courante.</p>
+
+<h3>Objectif de cet exercice</h3>
+
+<p>Votre buggle devrait tout d'abord ?crire sur chaque case importante la
+distance qui la s?pare de la sortie.<br/>
+Pour cela, trouvez la sortie et ?crivez 0 dessus. Ensuite, ?crivez 1 sur
+toutes les cases adjacentes ? la sortie qui n'en sont pas s?par?es par un
+mur. Ensuite, ?crivez 2 sur toutes les cases ? partir desquelles on peut
+atteindre une case marqu?e 1, puis faites de m?me pour toutes les cases
+jusqu'? avoir num?rot? toutes les cases du monde.</p>
+
+<p>Une fois que toutes les cases sont marqu?es, faites en sorte que votre
+buggle jedi trouve le plus court chemin en suivant les indications ?crites
+au sol. Pour cela, il lui suffit ? chaque pas d'aller sur la case de plus
+petite distance parmi celles accessibles. Vous pouvez utiliser la m?thode
+<code>void setDirection(Direction d)</code> pour faire regarder votre buggle
+dans une direction sp?cifique comme
+<code>Direction.NORD</code>,
+<code>Direction.SUD</code>,
+<code>Direction.EST</code> ou
+<code>Direction.OUEST</code>, qui correspondent
+respectivement au nord, sud, est et ouest.</p>
+
+<a href="#tip-1">Je suis perdu, je voudrais plus d'indications</a>	
