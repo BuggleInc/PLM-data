@@ -1,10 +1,11 @@
 def hunt() {
-	isFacingTrail() match{
-    case  true => avance();baisseBrosse();leveBrosse()
-    case _ => gauche()
-  }
+  while(!estSurBaggel){
+    isFacingTrail() match{
+    	case  true => avance();baisseBrosse();leveBrosse()
+    	case _ => gauche()
+  	}
+	}
 }
-
 
 def isFacingTrail():Boolean = {
   if(estFaceMur){
