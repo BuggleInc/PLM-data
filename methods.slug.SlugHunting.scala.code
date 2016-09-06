@@ -1,12 +1,15 @@
 def hunt() {
   while(!estSurBiscuit())
   {
-    while(isFacingTrail()&&estSurBiscuit())
+    var ctn = true
+    while(isFacingTrail()&&cnt)
     {
       avance()
       marque()
+      if(estSurBiscuit())
+      	ctn = false
     }
-    while(!isFacingTrail())
+    while(!isFacingTrail()&&cnt)
       droite()
   }
   prendBiscuit()
