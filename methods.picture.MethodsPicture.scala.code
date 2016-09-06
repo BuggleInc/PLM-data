@@ -1,0 +1,64 @@
+var numCarre = 0
+def marqueCase(couleur:Color) {
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(couleur:Color) {
+  
+  /*
+  *    0
+  *   > 0
+  */
+  
+  marqueCase(couleur)
+  gauche()
+  avance()
+  droite()
+  avance()
+  marqueCase(couleur)
+  avance()
+  droite()
+  avance()
+  gauche()
+  marqueCase(couleur)
+  
+}
+
+def faireCarre() {
+  
+  for (c <- 1 to 4) {
+  	avance()
+  	faireV(Color.YELLOW)
+  	avance()
+    gauche()
+  
+  }
+  
+}
+
+def carreSuivant() {
+  
+  if (numCarre == 3) {
+    
+    gauche()
+    avance(5)
+    droite()
+    
+  }
+  
+  avance(5)
+  
+}
+
+override def run() {
+  
+  for (c <- 1 to 9) {
+    
+  faireCarre()
+  carreSuivant()
+    
+  }
+  
+}
