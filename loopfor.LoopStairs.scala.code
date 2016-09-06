@@ -1,19 +1,15 @@
-X=getX()
-Y=getY()
-while (X!=14) & (Y!=8){
-  if (!isFacingWall()){
-    forward()
-    forward()
-    forward()
-    X=getX()
-    Y=getY()
-  }
-  else {
+var finished : Boolean = false
+while (finished!=true) {
+  if (isFacingWall()) {
     left()
     forward()
     right()
     forward()
-    X=getX()
-    Y=getY()
   }
+  else {
+    forward()
+    forward()
+    forward()
+  }
+  var finished : Boolean = true
 }
