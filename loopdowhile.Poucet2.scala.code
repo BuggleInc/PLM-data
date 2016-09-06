@@ -1,5 +1,6 @@
 var couloir=0
 while (!sortieTrouvee()){
+  var couloir=0
   var baggle=0
   for (couloir <- 1 to 5){
     forward()
@@ -7,28 +8,33 @@ while (!sortieTrouvee()){
       baggle = baggle + 1
     }
   }
-  left()
-  if (isFacingWall()){
-    right()
+  if (crossing()){
+  	if (baggle>=3){
+    	left()
+  	}
+ 	 else {
+    	right()
+    	}
+  	}
+  else {
     forward()
     if (estSurBiscuit()){
-      baggle = baggle + 1
+      baggle = baggle +1
     	if (baggle>=3){
     		left()
-  }
-  		else {
-    right()
+  	}
+ 	 		else {
+    	right()
+    	}
     }
-    }
-  }
-  else {
-    right()
-  		if (baggle>=3){
+    else {
+      if (baggle>=3){
     		left()
-  }
-  		else {
-    right()
+  	}
+ 	 		else {
+    	right()
     }
   }
+
 }
 forward()
