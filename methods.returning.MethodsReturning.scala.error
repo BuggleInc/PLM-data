@@ -1,6 +1,12 @@
 Compilation error:
-MethodsReturning:1: error: not found: type Bolean
-def haveBaggle():Boolean = {var b:Bolean = false
-                                  ^MethodsReturning:6: error: return outside method definition
-for (i <- 1 to 6) {if (haveBaggle()) {return}; droite(); avance(); gauche(); } 
-                                      ^
+MethodsReturning:1: error: type mismatch;
+ found   : Unit
+ required: Boolean
+def haveBaggle():Boolean = {vuBiscuit()}
+                                     ^MethodsReturning:3: error: return outside method definition
+for (i <- 1 to 6) {if (haveBaggle()) {return}; droite(); avance(); gauche(); }
+                                      ^MethodsReturning:4: error: not found: type Bolean
+def vuBiscuit() {var b:Bolean = false
+                       ^MethodsReturning:7: warning: enclosing method vuBiscuit has result type Unit: return value discarded
+                                       recule();recule();recule();recule();recule();recule();return b} 
+                                                                                             ^
