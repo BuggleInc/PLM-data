@@ -1,13 +1,18 @@
 var orangeCount = 0
 var baggleCount = 0
 
-do {
-  forward()
+while (!isFacingWall||(baggleCount != (orangeCount+1)/2)) {
   if (isOverOrange){
     orangeCount = orangeCount + 1
+    if (baggleCount != (orangeCount+1)/2){
+      forward()
+    }
   }
   if (isOverBaggle){
     baggleCount = baggleCount + 1
+    if (baggleCount != (orangeCount+1)/2){
+      forward()
+    }
   }
-} while ((baggleCount != (orangeCount+1)/2)&&(orangeCount != 0))
+}
 
