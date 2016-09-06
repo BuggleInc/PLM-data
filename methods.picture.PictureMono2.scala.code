@@ -1,3 +1,4 @@
+var numCarre = 0
 def marquerCase() {
   baisseBrosse()
   leveBrosse()
@@ -55,6 +56,7 @@ def faireCarre() {
     gauche()
 
   }
+  numCarre = numCarre + 1
 }
 
 def prochainCarre() {
@@ -62,11 +64,13 @@ def prochainCarre() {
   /*
    Avance jusqu'au prochain carré avec un pattern zarbi
   */
-  
   avance(7)
-  gauche()
-  avance(14)
-  droite()
+  if (numCarre == 3) {
+    gauche()
+    avance(7)
+    droite()
+    numCarre = 0
+  }
 }
 
 
