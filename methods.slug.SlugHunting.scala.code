@@ -5,8 +5,7 @@
 def hunt() {
 def isFacingTrail():Boolean = {if (isFacingWall()) {return false}
                                    else {forward(); if (getGroundColor()==Color.green) {backward(); return true} else {backward(); return false}}}
-var test:Boolean=true
-                               while (!isOverBaggle()) {while (!test) {right(); test=isFacingTrail(); forward()}; forward(); test=isFacingTrail}
+                               while (!isOverBaggle()) {while (!isFacingTrail()) {right(); forward()}; forward()}
     // Write your code here
 
 
