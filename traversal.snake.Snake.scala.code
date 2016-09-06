@@ -25,7 +25,10 @@ def sneakForward()
     avance()
   else
   {
-    setY(getY()-1)
+    var oldD = getDirection()
+    setDirection(Direction.NORTH)
+    avance()
+    setDirection(oldD)
     droite()
     droite()
   }
