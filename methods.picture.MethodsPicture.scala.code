@@ -1,0 +1,53 @@
+override def run() {
+}
+
+def faireV(c:Color) {
+  setColorBrosse(c);
+  avance();avance();
+  baisseBrosse();leveBrosse();
+  gauche();avance();droite();avance();
+  baisseBrosse();leveBrosse();
+  droite();avance();gauche();avance();
+  baisseBrosse();leveBrosse();
+  avance();avance();gauche()
+}
+
+
+def motif(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+ 	faireV(Color.BLEU)
+  faireV(Color.GREEN)
+  avance();avance();avance();avance();avance();avance();avance();
+}
+
+def faireLigne(){
+  for(j<-0 to 2){
+   motif();
+  }
+}
+
+def sautLigne(){
+  for(i <- 0 to 13)
+  {
+    recule();
+  }
+  gauche();
+  for(i <- 0 to 6)
+  {
+    avance();
+  }
+  droite
+}
+
+def faireMotif(){  
+  for (i<-0 to 2){
+    faireLigne();
+    sautLigne();
+  }
+    sautLigne();
+}
+
+override def run() {
+  faireMotif();
+}
