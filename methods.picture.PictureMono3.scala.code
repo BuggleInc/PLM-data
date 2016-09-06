@@ -1,0 +1,33 @@
+def dessine() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+ 	dessine()
+  avance();gauche();avance()
+  dessine()
+  for (k <- 1 to 2) {
+    droite()
+    avance()
+  }
+  dessine()
+  gauche() 
+}
+def faireMotif() {
+  for(k <- 1 to 4) {
+    avance(2)
+  	faireV()
+  	avance(2)
+  	gauche()
+	}
+}
+override def run() {
+  for(k <- 1 to 9){
+    for (l <- 1 to 9) {
+      faireMotif()
+      avance(8)
+    }
+    gauche();avance(8)
+  }
+}
