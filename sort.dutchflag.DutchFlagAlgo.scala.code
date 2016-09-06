@@ -1,0 +1,30 @@
+def solve() = {
+  def danslOrdre(x:Int, y:Int) = {
+
+    if (getColor(x) == getColor(y)) {
+      return true;
+    } else:
+        if (getColor(x) == "BLUE") {
+        	return true;
+      } else if (getColor(x) == "WHITE") {
+        if (getColor(y) == "BLUE") {
+          return false;
+        }else{
+          return true;
+        }
+      } else if (getColor(x) == "RED") {
+        return false;
+      }
+
+  }
+
+  for (i <- 1 until getSize()) {
+    if (!danslOdre(i, i+1)){
+      swap(i, i+1);
+    }
+    
+  }
+  
+  
+}
+
