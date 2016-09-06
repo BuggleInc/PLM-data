@@ -1,0 +1,41 @@
+for (stepper1 <- 1 to 7) {
+  if (isOverBaggle()) {
+    stepper1 = stepper1 + 1
+  }
+  else {
+    forward() ;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var stepAmount = 0 
+while (!isOverBaggle()) {
+  forward() ; stepAmount = stepAmount+1
+}
+
+pickupBaggle()
+var doneSteps = 0
+while (doneSteps!=stepAmount) {
+  backward() ; doneSteps = doneSteps+1
+}
+dropBaggle()
