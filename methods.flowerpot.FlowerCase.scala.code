@@ -1,0 +1,83 @@
+def growFlowers() {
+	growGPattern();
+  
+  right();
+  forward();
+  right();
+  move(8);
+  left();
+  move(3)
+  left();
+  
+  growGPattern();
+}
+
+def growGPattern() {
+  growPattern();
+  move(6);
+  left();
+  move(2)
+  right();
+  growFlower(Color.blue)
+  move(2)
+  left();
+  move(2);
+  right();
+  growPattern();
+}
+  
+def growPattern() {
+  growFlower(Color.red);
+  move(4);
+  
+  growFlower(Color.cyan);
+  right();
+  move(2);
+  right();
+  
+  growFlower(Color.orange);
+  backward();
+  left();
+  forward();
+  
+  growFlower(Color.green);
+  forward();
+  right();
+  move(5);
+  right();
+  right();
+  
+  growFlower(Color.pink);
+}
+
+def move(steps:Int) {
+  for (i <- 1 to steps) {
+    forward();
+  }
+}
+
+def growFlower(c:Color) {
+  setBrushColor(c);
+  paint();
+  forward();
+  left();
+  
+  for (i <- 1 to 3) {
+    forward();
+    paint();
+    backward();
+    right();
+  }
+  
+  setBrushColor(Color.yellow);
+  paint();
+  
+  forward();
+  right();
+  right();
+}
+
+def paint() {
+  brushDown();
+  brushUp();
+}
