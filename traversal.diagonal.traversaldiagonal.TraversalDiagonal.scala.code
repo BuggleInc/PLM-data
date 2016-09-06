@@ -1,0 +1,26 @@
+var diag = 0;
+var cpt = 0;
+override def run() {
+  baisseBrosse()
+  while(cpt<=20)//!finalPos())
+  {
+    setY(diag)
+    doDiag()
+  }
+  
+}
+
+def doDiag()
+{
+  while(getY()!=0)
+  {
+    setPos(getX()+1,getY()-1)
+    ecrireMessage(cpt)
+    cpt=cpt+1
+  }
+}
+
+def finalPos():Boolean = 
+{
+  return (getMondeHauteur()==getY()+1)&&(getMondeLargeur()==getX()+1)
+}
