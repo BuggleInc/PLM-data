@@ -1,27 +1,9 @@
 def island(num:Array[Int]): Int = {
-  var min:Int = num(0);
-  var max:Int = num(0);
+  var numLevels = 0;
   
-  for (i <- 1 to num.length-1) {
-    if (num(i) < min) {
-      min = num(i);
-    }
-    
-    if (num(i) > max) {
-      max = num(i);
-    }
+  for (i <- 1 to num.length) {
+    if (num(i) > num(i-1)) numLevels += 1;
   }
   
-  var levels = Array.ofDim[Boolean](max-min+1);
-  
-  for (i <- 0 to num.length-1) {
-    levels(num(i)-min) = true;
-  }
-  
-  var count = 0;
-  for (i <- 0 to (max-min)) {
-    if (levels(i) == true) count += 1;
-  }
-  
-  return count;
+  return numLevels;
 }
