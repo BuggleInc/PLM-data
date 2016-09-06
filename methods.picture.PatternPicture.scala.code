@@ -16,7 +16,7 @@ def marquage(c:Color){
 
 def diaGauche(c:Color){
   gauche();avance();marquage(c);recule();droite()
-  avance();marquage(c);avance()
+  avance();marquage(c)
 }
 
 def diaDroite(c:Color){
@@ -28,7 +28,8 @@ def diaDroite(c:Color){
 def Ligne(a:Color,b:Color,gauchefirst:Boolean){
   while(!estFaceMur()){
     if(gauchefirst){
-      	diaGauche(a)
+      diaGauche(a)
+      avance()
       diaDroite(b)}
      else{
       	diaDroite(a)
