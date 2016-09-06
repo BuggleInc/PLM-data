@@ -1,0 +1,22 @@
+var nbPas = 0
+var n = 0
+
+def goAndGet() {
+  while (estSurBiscuit() != true) {
+    avance();
+    nbPas += 1;
+  }
+  prendBiscuit()
+  for (n <- 1 to nbPas) {
+    recule();
+  }
+  poseBiscuit();
+  
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
