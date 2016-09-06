@@ -1,0 +1,16 @@
+var run = true
+var baggleStomped = 0 
+var orangeStomped = 0
+
+while(run){
+  forward()
+  if(isOverBaggle()){
+    baggleStomped = baggleStomped +1 ;
+  }
+  if(getGroundColor()=="orange"){
+    orangeStomped = orangeStomped +1 ;
+  }
+  if(2 * baggleStomped == orangeStomped + 1){
+    run = false
+  }
+}
