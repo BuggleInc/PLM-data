@@ -1,7 +1,10 @@
 def goAndGet() {
-  while (! isOverBaggle()) {forward()}
+  var steps=0
+  while (! isOverBaggle()) {forward(), steps = steps + 1}
   pickupBaggle()
-}
+  for (stepped <- 1 to steps) 
+  {Backward()}
+  }
 
 for (i <- 1 to 7) {
     goAndGet();
