@@ -1,0 +1,46 @@
+def makeV(c:Color) {
+  setBrushColor(c)
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  left()
+}
+ def pattern(){
+   makeV(Color.Yellow)
+   makeV(Color.RED)
+   makeV(Color.BLUE)
+   makeV(Color.GREEN)
+ }
+
+
+def triplePattern(){
+  for (k<- 1 to 3){
+  pattern()
+  for (i<- 1 to 5){
+    forward()
+  }
+  }
+  forward()
+}
+
+override def run() {
+  for (m <- 1 to 3) {
+    triplePattern()
+    left()
+    for (p <- 1 to 5) {
+      forward()
+    }
+    right()
+  }
+}
