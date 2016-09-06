@@ -1,0 +1,16 @@
+override def run() {
+def marquer(){baisseBrosse();leveBrosse()}
+def faire1V(c:Color){setCouleurBrosse(c)
+  avance();marquer();avance;gauche();avance();marquer();recule();droite();avance();marquer();avance()}
+
+def faireV(){faire1V(Color.YELLOW)
+             gauche()
+             faire1V(Color.RED)
+             gauche()
+             faire1V(Color.BLUE)
+             gauche()
+             faire1V(Color.GREEN)
+             gauche()}
+for(x<-1 to 3){(for(y<-1 to 3){faireV();avance(7)})
+               gauche();avance(7);droite()}
+}
