@@ -10,7 +10,7 @@ def isFinalPosition() : Boolean = {
   var ok:Boolean = false;
   
   if (isFacingWall()) {
-    if (getDirection() == Direction.west) {
+    if (getDirection() == Direction.WEST) {
       right();
       if (isFacingWall()) {
         ok = true;
@@ -27,8 +27,8 @@ def moveLikeSnake() {
     forward();
   } else {
     getDirection() match {
-      case Direction.west => right(); forward(); right();
-      case Direction.east => left(); forward(); left();
+      case Direction.WEST => right(); forward(); right();
+      case Direction.EAST => left(); forward(); left();
   		case _ => return;
     }
   }
