@@ -1,0 +1,27 @@
+def solve() {
+  for (j <- 0 to getSize()-2){
+    for (i <- j to getSize()-2 ) {
+      if (!ordre(i,i+1))
+        swap(i, i+1)
+    }
+	}
+}
+
+
+def ordre(x:Int, y:Int) : Boolean = {
+  var A = getColor(x);
+  var B = getColor(y);
+  
+  if (A == B )
+   	return true;
+  else{
+  	if( A == "BLUE" || B == "RED" )
+    	return true;
+  	else{
+      if (A == "WHITE")
+      	return true
+      else
+      	return false
+    }
+  }
+}
