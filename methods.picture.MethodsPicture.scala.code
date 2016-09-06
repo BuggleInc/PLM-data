@@ -33,24 +33,18 @@ def faireMotif() {
   recule()
 }
 
-def changeColonne() {
-  for (compt1 <- 1 to 7) {
-    avance()
-  }
-}
-
-def changeLigne() {
-  gauche()
-  changeColonne()
-  droite()
-}
-
 override def run() {
   for (compteur1 <- 1 to 3) {
     for (compteur2 <- 1 to 3) {
       faireMotif()
-    	changeColonne()    
+    	for (compt3 <- 1 to 7) {
+        avance()
+      }   
     }
-		changeLigne()
+		gauche()
+    for (compt1 <- 1 to 7) {
+      avance()
+    }
+    droite()
   }
 }
