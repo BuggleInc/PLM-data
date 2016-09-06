@@ -23,23 +23,28 @@ def pattern() {
 }
 
 
-def twoTimes(){
-  for (k <- 1 to 2) {
+  }
+}
+override def run() {
   pattern()
   for (i <- 1 to 4) {
     forward()
   }
+  pattern()
+  for (i <- 1 to 3) {
+    forward()
   }
-}
-override def run() {
-  twoTimes()
   left()
   for (m <- 1 to 4) {
     forward()
   }
   right()
-  twoTimes()
   for (m <- 1 to 4) {
+    backward()
+  }  
+  pattern()
+  for (i <- 1 to 4) {
     forward()
   }
+	pattern()
 }
