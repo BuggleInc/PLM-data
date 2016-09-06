@@ -1,0 +1,26 @@
+override def run() {
+  def marquer(){baisseBrosse;leveBrosse}
+  def miniMotif(c:Color){setCouleurBrosse(c)
+                         avance()
+                         marquer()
+                         gauche()
+                         avance()
+                         gauche()
+                         avance()
+                         marquer()
+                         gauche()
+                         avance()
+                         gauche()
+                        avance(2)}
+  def ptitMotif(){
+    miniMotif(Color.RED)
+    miniMotif(Color.BLUE)
+    miniMotif(Color.GREEN)
+    miniMotif(Color.YELLOW)
+    avance()
+    gauche()
+  }
+  def Motif(nbMot: Int){
+  for(x<-1 to nbMot){for(y<-1 to nbMot){ptitMotif();avance(4)};gauche();avance(4);droite()}}
+  Motif(2)
+}
