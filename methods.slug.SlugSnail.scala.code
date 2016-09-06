@@ -1,29 +1,32 @@
 def hunt(c:Color) {
   var continue=true
   while(continue==true){
-    if(isFacingTrail(c)==true){
-      forward();
-    	brushDown();
-    	brushUp();}
-  	else{
-      right();
-      if(isFacingTrail(c)==true){
+    if(isOverBaggle==true){
+      pickUpBaggle();
+    	continue=false;}
+    else if(isFacingTrail(c)==true){
         forward();
-     	  brushDown();
-    		brushUp();}
+        brushDown();
+        brushUp();}
       else{
         right();
         if(isFacingTrail(c)==true){
           forward();
-        	brushDown();
-    			brushUp();}
+          brushDown();
+          brushUp();}
         else{
           right();
           if(isFacingTrail(c)==true){
             forward();
-          	brushDown();
-    				brushUp();}
-          else{continue=false}
+            brushDown();
+            brushUp();}
+          else{
+            right();
+            if(isFacingTrail(c)==true){
+              forward();
+              brushDown();
+              brushUp();}
+            else{continue=false}
         }
       }
     }
