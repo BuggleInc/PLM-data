@@ -1,11 +1,13 @@
 override def run() {
-  for (k<- 1 to  9) {
-    doublecote()
-    suivant
+  for (k<- 1 to 9) {
+    cotepur()
+    changementcote()
   }
-}
-
-override def run() {
+  gauche()
+  for (i<-1 to 9) {
+    faireV()
+  }
+  droite()
 }
 
 def faireV() {
@@ -32,25 +34,24 @@ def faireV() {
 def cotepur() {
   for (i<- 1 to 9) {
     faireV()
+    gauche()
+    faireV()
+    droite()
     avance()
+    droite()
+    faireV()
+    gauche()  
   }
 }
 
-def doublecote() {
-  cotepur()
-  recule()
+def changementcote() {
   gauche()
-  cotepur()
-  droite()
-}
-def suivant() {
+  faireV()
   gauche()
-  for (i<- 1 to 6) {
-    avance()
-    gauche()
-    avance()
-    droite()
+  for (i<-1 to 9) {
+    faireV()
   }
+  droite()
   avance()
   droite()
 }
