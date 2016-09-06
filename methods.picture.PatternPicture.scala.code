@@ -1,0 +1,47 @@
+override def run() {
+  main(2,4)
+}
+def main(nbMotifParLigne:Int,tailleLigne:Int)
+{
+  for(i <- 1 to nbMotifParLigne)
+  {
+    for(j <- 1 to nbMotifParLigne)
+     faireMotif()
+    monteLigne(tailleLigne)
+  }
+}
+def monteLigne(tailleLigne:Int)
+{
+  gauche()
+  for(i <- 1 to tailleLigne)
+  		avance()
+}
+
+def marquer()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def ligne(c1:Color,c2:Color)
+{
+  setCouleurBrosse(c1)
+  avance()
+  marque()
+  setCouleurBrosse(c2)
+  avance()
+  marque()
+  avance()
+}
+
+def faireMotif()
+{
+  var tabCouleur:Array[Color] = Array(Color.YELLOW,Color.RED,Color.BLUE,Color.GREEN)
+  for(i <- 0 to 3)
+  {
+    ligne(tabCouleur(i%3),tabCouleur((i+1)%3)
+    gauche()
+  }
+  for(j <- 1 to 4)
+  	avance()
+}
