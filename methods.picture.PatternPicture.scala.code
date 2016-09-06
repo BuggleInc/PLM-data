@@ -1,0 +1,52 @@
+override def run() {
+}
+
+def motif()
+{
+  
+  gauche();avance();
+  droite();avance();droite();avance();
+  
+  droite();avance();
+  avance();gauche();avance()
+  
+  avance();
+  avance();gauche();avance();
+  
+  avance();
+  avance();gauche();avance();
+  
+  avance();avance();droite();
+}
+
+def faireLigne(){
+  for(j<-0 to 1){
+   motif();
+  }
+}
+
+def sautLigne(){
+  for(i <- 0 to 44)
+  {
+    recule();
+  }
+  gauche();
+  for(i <- 0 to 4)
+  {
+    avance();
+  }
+  droite
+}
+
+def faireMotif(){  
+  for (i<-0 to 8){
+    faireLigne();
+    sautLigne();
+  }
+    sautLigne();
+}
+
+override def run() {
+  faireMotif();
+  gauche();recule();recule();recule();recule();recule();droite();
+}
