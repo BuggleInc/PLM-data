@@ -1,14 +1,20 @@
+c = 0
 while(!estSurBiscuit() || porteBiscuit()){
   if(estSurBiscuit()){
     prendBiscuit()
   } else {
     if(!estSurBiscuit() && !porteBiscuit()){
       avance()
+      c+=1
     } else {
       recule()
+      c-=1
     }
   }
   if(estSurBiscuit()){
     prendBiscuit()
+  }
+  if(c = 0 && porteBiscuit()){
+    poseBiscuit()
   }
 }
