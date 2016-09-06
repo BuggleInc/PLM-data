@@ -1,0 +1,33 @@
+override def run() {
+  for (i <- 0 to 8){
+    for(j <- 0 to 8){
+      setPos(i*7,j*7)
+      for (k <- 1 to 4){
+        faireMotif()
+      }
+    }
+  }
+  setPos(0,20)
+  
+  def faireMotif(){
+    avance()
+    avance()
+    marquerSol()
+    avance()
+    droite()
+    avance()
+    marquerSol()
+    recule()
+    gauche()
+    avance()
+    marquerSol()
+    avance()
+    avance()
+    droite()
+  }
+
+  def marquerSol(){
+    baisseBrosse()
+    leveBrosse()
+  }
+}
