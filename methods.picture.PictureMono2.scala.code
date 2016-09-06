@@ -1,0 +1,54 @@
+override def run() {
+  var partie=0
+  var a=0
+  var fini=0
+  var b=0
+  
+  
+  while (fini!=3){
+    for (partie<-0 to 2){
+        faireMotif()
+        for (a<-0 to 6){
+          avance()
+    }
+    gauche()
+    for (b<-0 to 6){
+      avance()
+    }
+    droite()
+		fini=fini+1
+  }
+}
+
+def faireV(){
+  baisseBrosse()
+  leveBrosse()
+  
+  gauche()
+  avance()
+  droite()
+  avance()
+  
+  baisseBrosse()
+  leveBrosse()
+  
+  avance()
+  droite()
+  avance()
+  gauche()
+  
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  var cote=0
+  for(cote<-0 to 3){
+    avance()
+    avance()
+    faireV()
+    avance()
+    avance()
+    gauche()
+  }
+}
