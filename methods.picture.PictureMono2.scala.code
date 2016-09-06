@@ -1,0 +1,43 @@
+override def run() {
+  for (compteur <- 1 to 3) {
+    faireMotif()
+    setPos(0,20)
+  }
+}
+
+def faireV() {
+  avance(2)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  droite()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance(2)
+  gauche()
+}
+
+def faireMotif() {
+  if (estFaceMur()) {
+    retourne(20);
+    gauche()
+    avance(7)
+    droite();
+  }
+  override def run() {
+    for (compt <- 1 to 4) {
+    faireV()
+  }
+  }
+  avance(6)
+  if (!estFaceMur())
+  	avance()
+}
