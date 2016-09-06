@@ -2,10 +2,10 @@ override def run() {
   var cpt = 0
   do
   {
-    //ecritMessage(cpt)
+    ecritMessage(cpt)
     move()
     cpt = cpt+1
-  }while(cpt<10)//!finalPos())
+  }while(!finalPos())
 }
 
 def finalPos():Boolean = 
@@ -14,9 +14,8 @@ def finalPos():Boolean =
 }
 def move()
 {
-  if(getMondeHauteur()-1==getY()+1)
-    setPos(0,getX()+1)
+  if(getMondeHauteur()==getY()+1)
+    setPos(getX()+1,0)
 	else
   	setY(getY()+1)
-  ecritMessage(getY())
 }
