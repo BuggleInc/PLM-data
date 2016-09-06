@@ -1,0 +1,35 @@
+override def run() {
+  brushDown();
+  while(isFinalPosition()) {
+    moveLikeSnake();
+  }
+}
+
+
+def isFinalPosition() {
+  var finalPosition = false;
+  
+  if (isFacingWall()) {
+    if (getDirection() == Direction.west) {
+      right();
+      if (isFacingWall()) {
+        finalPosition = true;
+      }
+      left();
+    }
+  }
+  
+  return finalPosition;
+}
+
+def moveLikeSnake() {
+  if (!isFacingWall()) {
+    forward();
+  } else {
+    getDirection() match {
+      case Direction.west => right(); forward(); right();
+      case Direction.east => left(); forward(); left();
+  		case _ => return;
+    }
+  }
+}
