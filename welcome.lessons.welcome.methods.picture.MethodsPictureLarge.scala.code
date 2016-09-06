@@ -1,0 +1,40 @@
+override def run() {
+  var x=0
+  for(x<-0 to 8) {
+    fairemotif()
+  }
+}
+def marquer() {
+  baisseBrosse()
+  leveBrosse()
+}
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  marquer()
+  avance()
+  gauche()
+  avance()
+  marquer()
+  gauche()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  marquer()
+  avance()
+  gauche()
+}
+def fairemotif() {
+  var x=0
+  for(x<-0 to 8) {
+    faireV(Color.yellow)
+    faireV(Color.red)
+    faireV(Color.blue)
+    faireV(Color.green)
+    avance(5)
+  }
+  gauche()
+  avance(5)
+  droite()
+}
