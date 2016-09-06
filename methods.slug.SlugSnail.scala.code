@@ -1,0 +1,53 @@
+def hunt(c:Color) {
+    // Write your code here
+	do {
+ 	 if (isFacingTrail(c:Color)== true) {
+    forward()
+    brushDown()
+    brushUp()
+  }
+	  else{
+    left()
+  }
+    
+  }while (isOverBaggle() == false)
+  
+	pickupBaggle()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Copy your isFacingTrail() here
+def isFacingTrail(c:Color):Boolean = {
+    // Write your code here
+  if (isFacingWall()==false){
+    forward()
+  }
+  else {
+    left()
+    forward()
+  }
+  
+  
+  if (getGroundColor()== c:Color) {
+  	backward()
+    return true
+    
+  }
+  else {
+		backward()
+    return false
+  }
+
+}
