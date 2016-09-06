@@ -25,19 +25,42 @@ def motifLigne(){
   recule()
 }
 
+def motifLigneMilieu(){
+  gauche()
+  motifLigne()
+  droite()
+  avance()
+  droite()
+  motifLigne()
+  gauche()
+}
+
+def motifLignesMilieu(){
+  for (i <- 1 to 6){
+    avance()
+  }
+	motifLigneMilieu()
+  for (i <- 1 to 4){
+    avance()
+  }
+  motifLigneMilieu()
+  for (i <- 1 to 6){
+    avance()
+  }
+}
+
 
 override def run() {
 	for (j <- 1 to 4){
     motifLigne()
     gauche()
 	}
-  for (i <- 1 to 6){
-    avance()
-  }
+	motifLignesMilieu()
   gauche()
-  motifLigne()
+  motifLignesMilieu()
   gauche()
-  avance()
+  motifLignesMilieu()
   gauche()
-  motifLigne()
+  motifLignesMilieu()
+  gauche()
 }
