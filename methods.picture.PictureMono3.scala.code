@@ -1,0 +1,32 @@
+override def run() {
+  for (d <-1 to 9){
+    ligne()
+  }
+}
+
+def ligne() {
+  for ( a <- 1 to 9){
+   		faireMotif()
+    	for (b <- 1 to 7) {
+      	avance();
+    	}	
+  	}
+  gauche();
+  for (c <- 1 to 7) {
+    avance();
+  }
+	droite();
+}
+
+def faireMotif() {
+  for (a <- 1 to 4) {
+    avance(); avance(); FaireV(); avance(); avance(); gauche();
+  }
+}
+
+def FaireV() {
+  marquerLeSol(); avance(); gauche(); avance(); marquerLeSol(); recule(); droite(); avance(); marquerLeSol();
+}
+def marquerLeSol() {
+  baisseBrosse(); leveBrosse();
+}
