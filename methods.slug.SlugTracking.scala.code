@@ -1,12 +1,41 @@
 def isFacingTrail():Boolean = {
+  var go=false
   if (!isFacingWall) {
     forward;
     if (getGroundColor()==Color.green) {
       backward();
-      return true
+      go=true
+      return go
     }
     else {
-      return false
+      go=false
+      return go
+    }
+  }
+  else if (go==false) {
+    right();
+    forward;
+    if (getGroundColor()==Color.green) {
+      backward();
+      go=true
+      return go
+    }
+    else {
+      go=false
+      return go
+    }
+  }
+  else {
+    left; left;
+    forward;
+    if (getGroundColor()==Color.green) {
+      backward();
+      go=true
+      return go
+    }
+    else {
+      go=false
+      return go
     }
   }
 }
