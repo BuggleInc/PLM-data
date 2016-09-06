@@ -1,0 +1,39 @@
+override def run() {
+  var i:Int = 0
+  for (i <- 1 to 9){ faireLigne();passerLigneDuDessus()}
+}
+
+def marque(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(){
+  avance();avance()
+  marque();
+  avance;
+  gauche();avance();marque();recule()
+  droite();
+  avance();marque()
+  avance();avance()
+}
+
+def faireCadre() {
+  var i:Int=0
+  for (i <- 1 to 4){faireV();gauche()}
+}
+
+def faireLigne(){
+  var i:Int=0
+  for (i<- 1 to 9){
+  	faireCadre()
+  	avance(7)
+  	}
+}
+
+def passerLigneDuDessus(){
+  recule(9*7)
+  gauche()
+ 	avance(7)
+  droite()
+}
