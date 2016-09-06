@@ -1,0 +1,47 @@
+def marqueCase(couleur:Color) {
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireFleur(couleur:Color) {
+  
+  /* Réalise une jolie fleur comme ça :
+  *
+  *    C
+  *   >JC
+  *    C
+  *
+  */
+  marqueCase(couleur)
+  avance()
+  marqueCase(Color.YELLOW)
+  gauche()
+  avance()
+  marqueCase(couleur)
+  recule(2)
+  marqueCase(couleur)
+  avance()
+  droite()
+  avance()
+  marqueCase(couleur)
+  recule(2)
+}
+
+def growFlowers() {
+  
+  faireFleur(color.RED)
+  avance(4)
+  faireFleur(color.CYAN)
+  recule()
+  droite()
+  avance()
+  faireFleur(color.ORANGE)
+  avance(3)
+  gauche()
+  avance()
+  faireFleur(color.GREEN)
+  recule(4)
+  faireFleur(color.PINK)
+  
+}
