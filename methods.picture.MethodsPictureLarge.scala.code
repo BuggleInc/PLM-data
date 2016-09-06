@@ -1,0 +1,22 @@
+override def run() {
+  def marquer(){baisseBrosse();leveBrosse()}
+  def motif(nbMot:Int){
+
+def faire1V(c:Color){setCouleurBrosse(c)
+  avance();marquer();avance;gauche();avance();marquer();recule();droite();avance();marquer();avance()}
+
+def faireV(){faire1V(Color.YELLOW)
+             gauche()
+             faire1V(Color.RED)
+             gauche()
+             faire1V(Color.BLUE)
+             gauche()
+             faire1V(Color.GREEN)
+             gauche()}
+for(x<-1 to nbMot){(for(y<-1 to nbMot){faireV();avance(5)})
+               gauche();avance(5);droite()}
+}
+  motif(9)
+  
+  
+}
