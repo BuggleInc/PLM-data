@@ -1,0 +1,84 @@
+var numCarre = 0
+def marquerCase() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+
+  /*
+  Dessine un V en commencant comme ça :
+  
+     0
+    > 0
+ 
+  Et termine comme ça :
+  
+     0
+    0 >
+  */
+
+  marquerCase()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marquerCase()
+  avance()
+  droite()
+  avance()
+  gauche()
+  marquerCase()
+
+}
+
+def faireCarre() {
+
+  /*
+  Fais le motif suivant :
+   
+    **0*0**
+    ***0***
+    0*****0
+    *0***0*
+    0*****0
+    ***0***
+    >*0*0**
+    
+  Et termine au point de départ
+  */
+
+  for (c <- 1 to 4) {
+
+    avance(2)
+    faireV()
+    avance(2)
+    gauche()
+
+  }
+  numCarre = numCarre + 1
+}
+
+def prochainCarre() {
+
+  /*
+   Avance jusqu'au prochain carré avec un pattern zarbi
+  */
+  avance(7)
+  if (numCarre == 3) {
+    gauche()
+    avance(7)
+    droite()
+    numCarre = 0
+  }
+}
+
+
+override def run() {
+  
+  for (c <- 1 to 9) {
+    faireCarre()
+    prochainCarre()
+  }
+  
+}

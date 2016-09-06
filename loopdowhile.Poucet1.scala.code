@@ -1,0 +1,24 @@
+var bagglesVus = 0
+
+while (!sortieTrouvee()) {
+  
+  for (c <- 1 to 5) {
+    
+    avance()
+    if (estSurBiscuit) {
+      
+      bagglesVus = bagglesVus +1
+      
+    }
+  }
+  
+  bagglesVus match {
+    case i if i>=3 => gauche()
+    case _ => droite()  
+  } 
+  
+  bagglesVus = 0 
+  
+}
+
+avance()
