@@ -1,24 +1,24 @@
 var bagglesVus = 0
 
-while (!sortieTrouvee()) {
+while (!exitReached()) {
   
   do {
     
-    avance()
-    if (estSurBiscuit) {
+    forward()
+    if (isOverBaggle()) {
       
       bagglesVus = bagglesVus +1
       
-    } while (!croisement())
-  }
+    }
+  } while (!crossing())
   
   bagglesVus match {
-    case i if i>=3 => gauche()
-    case _ => droite()  
+    case i if i>=3 => left()
+    case _ => right()  
   } 
   
   bagglesVus = 0 
   
 }
 
-avance()
+forward()
