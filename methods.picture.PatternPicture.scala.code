@@ -1,3 +1,23 @@
+var pattern:Array[Array[Color]] = Array(
+	Array(Color.white, Color.yellow, Color.green, Color.white),
+  Array(Color.yellow, Color.white, Color.white, Color.green),
+  Array(Color.red, Color.white, Color.white, Color.blue),
+  Array(Color.white, Color.red, Color.blue, Color.white)
+)
+
 override def run() {
-  setPos(0, 0)
+  for(i <- 1 to 4) {
+    for(j <- 1 to 4) {
+      if(pattern(j, i) != Color.white) {
+      	colorier(j, i, pattern(j, i))
+      }
+    }
+  }
+}
+
+def colorier(x:Int, y:int, c:Color) {
+  setPos(x, y)
+  setBrushColor(c)
+  brushDown()
+  brushUp()
 }
