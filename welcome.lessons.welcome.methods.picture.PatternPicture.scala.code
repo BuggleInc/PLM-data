@@ -1,0 +1,31 @@
+override def run() {
+  grosmotif()
+  avance(4)
+  grosmotif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  grosmotif()
+  avance(4)
+  grosmotif()
+}
+def motif(c:Color,v:Color) {
+  avance()
+  marquer(c)
+  avance()
+  marquer(v)
+  avance()
+  gauche()
+}
+def marquer(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+def grosmotif() {
+  motif(Color.red,Color.blue)
+  motif(Color.blue,Color.green)
+  motif(Color.green,Color.yellow)
+  motif(Color.yellow,Color.red)
+}
