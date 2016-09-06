@@ -1,0 +1,64 @@
+override def run() {
+  for (i <- 0 to 2){
+    motif()
+    move(15,true)
+    motif()
+    move(15,true)
+    motif()
+    move(30,false)
+    gauche()
+    move(15,true)
+    droite()
+  }
+}
+
+def grandMotif() {
+  for (i <- 0 to 2){
+    motif()
+    move(5,true)
+    motif()
+    move(5,true)
+    motif()
+    move(10,false)
+    gauche()
+    move(5,true)
+    droite()
+  }
+}
+
+
+def move(nbPas: Int,versLAvant: Boolean) {
+  if (versLAvant){
+    for (i <- 0 to (nbPas - 1)){
+      avance()
+    }
+  }
+  else{
+    for (i <- 0 to (nbPas - 1)){
+      recule() 
+    }
+  }
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+}
+
+def motif() {
+  faireV(Color.YELLOW);faireV(Color.RED);faireV(Color.BLUE);faireV(Color.GREEN)
+}
