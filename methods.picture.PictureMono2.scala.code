@@ -1,8 +1,23 @@
 override def run() {
-for (i<-1 to 3) {
-  lines();
+	for (i<- 1 to 3) {
+    for (j<-1 to 3) {
+      square();
+      for (a<-1 to 7) {
+        forward();
+      }
+    }
+   
+  }
+}
+def square() {
+  for (step<-1 to 4){
+  	forward();forward()
+  	makeV()
+  	forward();forward()
+  	left();
 }
 }
+
 def makeV() {
   brushDown();brushUp();
   forward();
@@ -13,32 +28,4 @@ def makeV() {
   right();
   forward();
   brushDown();brushUp();
-}
-def square() {
-    for (step<-1 to 3){
-  	forward();forward()
-  	makeV()
-  	forward();forward()
-}
-}
-
-var c=0
-def lines() {
-
-  for (i<-1 to 3) {
-    square()
-    for (a<- 1 to 7) {
-      forward()
-      c=c+1
-    }
-  }
-}
-  while (c>0) {
-    backward();
-    c=c-1
-  }
-  left();
-	for (a<- 1 to 7) {
-      forward()
-  
 }
