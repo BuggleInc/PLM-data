@@ -1,0 +1,23 @@
+var instruction=litMessage()
+var dance=true
+
+while (dance==true){
+  instruction match{
+    case instruction=="R"=>droite();avance()
+    case instruction=="L"=>gauche();avance()
+    case instruction=="I" =>retourne();avance()
+    case instruction=="A"=>avance() 
+    case instruction=="B"=>avance();avance()
+    case instruction=="C"=>avance();avance();avance()
+    case instruction=="D"=>avance();avance();avance();avance()
+    case instruction=="E"=>avance();avance();avance();avance();avance()
+    case instruction=="F"=>avance();avance();avance();avance();avance();avance()
+    case instruction=="Z"=>recule() 
+    case instruction=="Y"=>recule();recule()
+    case instruction=="X"=>recule();recule();recule()
+    case instruction=="W"=>recule();recule();recule();recule()
+    case instruction=="V"=>recule();recule();recule();recule();recule()
+    case instruction=="U"=>recule();recule();recule();recule();recule();recule()
+    case _ =>dance=false
+  }
+}
