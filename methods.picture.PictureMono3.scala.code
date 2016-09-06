@@ -1,0 +1,52 @@
+    baisseBrosse()
+    leveBrosse()
+}
+
+def faireV(){
+  avance()
+  avance()
+  marquer()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marquer()
+  avance()
+  droite()
+  avance()
+  marquer()
+  gauche()
+  avance()
+  avance()
+  gauche()
+}
+
+def faireCarre(){
+  for(i<- 1 to 4){
+    faireV()
+  }
+  for(j<- 1 to 7){
+  	avance()  
+  }
+}
+
+def faireLigne(){
+  for(carre <- 1 to 9){
+    faireCarre()
+  }
+}
+
+def monter(){
+  gauche()
+  for(k <- 1 to 7){
+    avance()
+  }
+  droite()
+}
+
+override def run() {
+  for(ligne <- 1 to 9){
+    faireLigne()
+    monter()
+  } 
+}
