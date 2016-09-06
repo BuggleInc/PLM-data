@@ -1,0 +1,47 @@
+override def run()
+{
+  for (i <- 1 to 2) faireRectangle();
+  for (i <- 1 to 4) avance();
+}
+
+def ecrire()
+{
+  baisseBrosse();
+  leveBrosse();
+}
+
+def faireM(c:Color)
+{
+  setCouleurBrosse(c)
+  
+  avance();
+  ecrire();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  ecrire();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  avance();
+  avance();
+  gauche();
+}
+
+def faireRectangle()
+{
+  for (j <- 1 to 2)
+  {
+    faireM(Color.RED);
+    faireM(Color.BLUE);
+    faireM(Color.GREEN);
+    faireM(Color.YELLOW);
+    for (i <- 1 to 4) avance()
+  }
+  gauche();
+  
+  for (i <- 1 to 4) avance()
+  droite();
+}
