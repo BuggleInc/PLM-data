@@ -1,8 +1,7 @@
 override def run() {
-  for (compteur <- 1 to 9) {
+  for (compteur <- 1 to 3) {
     faireMotif()
   }
-  setPos(0,20)
 }
 
 def faireV() {
@@ -22,20 +21,17 @@ def faireV() {
   baisseBrosse()
   leveBrosse()
   avance(2)
-  gauche()
+  gauche
 }
 
 def faireMotif() {
-  if (estFaceMur()) {
-    recule(20);
-    gauche()
+  for (compt1 <- 1 to 3)  {
+  	for (compt <- 1 to 4) {
+  	faireV()
+  	}
     avance(7)
-    droite();
   }
-  for (compt <- 1 to 4) {
-  faireV()
-  }
-  avance(6)
-  if (!estFaceMur())
-  	avance()
+  gauche()
+  avance(7)
+  droite()
 }
