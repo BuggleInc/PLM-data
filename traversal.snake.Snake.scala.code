@@ -9,9 +9,11 @@ def finalPos():Boolean =
 {
   if(estFaceMur())
   {
+    var oldD = getDirection()
     setDirection(Direction.NORTH)
-    
-    return estFaceMur()
+    var r =estFaceMur() 
+    setDirection(oldD)
+    return r
   }
   
   return false
