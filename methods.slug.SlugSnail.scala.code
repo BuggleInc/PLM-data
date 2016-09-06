@@ -1,0 +1,31 @@
+def hunt(c:Color) {
+  var continue=true
+  while(continue==true){
+    if(isFacingTrail(c)==true){forward();}
+  	else{
+      left();
+      if(isFacingTrail(c)==true){forward();}
+      else{
+        left();
+        if(isFacingTrail(c)==true){forward();}
+        else{
+          left();
+          if(isFacingTrail(c)==true){forward();}
+          else{continue=false}
+        }
+      }
+    }
+  }		
+ }
+
+
+
+def isFacingTrail(color:Color):Boolean={
+  
+  if (isFacingWall()==true){return false;}
+  else{
+    forward();
+    if(getGroundColor().equals(color)){return true;}
+    else{return false;}
+  }
+}
