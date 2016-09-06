@@ -1,0 +1,23 @@
+var stepAmount = 0
+var doneSteps = 0
+
+while (isOverBaggle() == false && isCarryingBaggle() == false) {
+  forward()
+  stepAmount = stepAmount + 1
+} 
+
+if (isOverBaggle() == true) {
+  pickupBaggle()
+}
+
+if (isCarryingBaggle() == true) {
+  while (doneSteps < stepAmount) {
+    doneSteps = doneSteps + 1
+    backward()
+  }
+  
+}
+
+if (doneSteps == stepAmount) {
+  dropBaggle()
+}
