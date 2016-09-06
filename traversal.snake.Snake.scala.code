@@ -7,19 +7,19 @@ override def run() {
 
 
 def isFinalPosition() : Boolean {
-  var finalPosition:Boolean = false;
+  var ok:Boolean = false;
   
-  if (!!isFacingWall()) {
+  if (isFacingWall()) {
     if (getDirection() == Direction.west) {
       right();
       if (isFacingWall()) {
-        finalPosition = true;
+        ok = true;
       }
       left();
     }
   }
   
-  return finalPosition;
+  return ok;
 }
 
 def moveLikeSnake() {
