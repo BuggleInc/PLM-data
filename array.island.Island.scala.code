@@ -1,5 +1,6 @@
 def island(num:Array[Int]): Int = {
   import scala.collection.mutable.Stack
+  var truc
   var nombreNiveaux = 0
   var niveaux = Stack[Int]()
   for (elt <- num) {
@@ -10,9 +11,10 @@ def island(num:Array[Int]): Int = {
       
     } else if (niveaux.top >= elt) { //On est descendu d'un niveau de parenthésage, un point pour Griffondor !
       
-      niveaux.pop
+      truc = niveaux.pop
+      if (truc != 0) {
       nombreNiveaux = nombreNiveaux + 1
-      
+      }
     }
     
   }
