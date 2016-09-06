@@ -1,0 +1,41 @@
+override def run() {
+  faireMotif()
+  change()
+  FaireMotif()
+}
+
+
+faireMotif(){
+  for(i<- 1 to 2){
+    Ligne(Color.red ,Color.blue)
+    Ligne(Color.blue ,Color.green)
+    Ligne(Color.green ,Color.yellow)
+    Ligne(Color.yellow ,Color.red)
+  }
+}
+
+
+
+
+Ligne(a:Color , b:Color){
+  marque(a)
+  marque(b)
+  avance()
+  gauche()
+}
+
+marque(c:Color){
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
+
+change(){
+  gauche()
+  for(i<- 1 to 5)
+  avance()
+  droite()
+  
+}
+
