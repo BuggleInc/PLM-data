@@ -1,7 +1,10 @@
 def isFacingTrail():Boolean = {
   while (isOverBaggle!=true){
   	forward();
-  	if (getGroundColor()==Color.green && isFacingWall!=true) {
+    if(&isFacingWall!=true){
+      left();
+    }
+  	if (getGroundColor()==Color.green) {
     	backward();brushDown();forward();brushUp();
   	} else {
       backward();
