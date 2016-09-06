@@ -1,0 +1,48 @@
+override def run() {
+  def point() {
+    brushDown();
+    brushUp();
+  }
+  def makeV(n: Int) {
+    for(i <- 1 to n){
+      point();
+      forward();
+      left();
+      forward();
+      point();
+      backward();
+      right();
+      forward();
+      point();
+      forward(2);
+      left();
+      forward(2);
+    }
+  }
+  def makePattern() {
+    forward(2);
+    makeV(4);
+    backward(2);
+  }
+  def oneRight() {
+    forward(7);
+  }
+  def oneUp() {
+    left();
+    forward(7);
+    right();
+  }
+  def oneLine(){
+    for(i <- 1 to 3){
+      makePattern();
+      oneRight();
+    }
+  }
+  def theWholeThing(){
+    for(i <- 1 to 3){
+      oneLine();
+      oneUp();
+    }
+  }
+  theWholeThing()
+}
