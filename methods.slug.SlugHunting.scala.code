@@ -1,8 +1,10 @@
+var x = 0
 def hunt() {
     if (isFacingTrail()) {
       avance()
     if (estSurBiscuit()) {
       prendBiscuit()
+      x=1
     }
     }
 }
@@ -20,4 +22,8 @@ def isFacingTrail():Boolean = {
       }
     }
   return false
+}
+
+while (x==0) {
+  hunt()
 }
