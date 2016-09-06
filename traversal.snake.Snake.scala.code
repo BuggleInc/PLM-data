@@ -2,8 +2,8 @@ def positionFinale():Boolean {
   var bool:Boolean = false
   if (estFaceMur()) {
     getDirection() match { 
-      case Direction.EST => gauche(); bool=estFaceMur(); droite();
-      case Direction.OUEST => droite(); bool=estFaceMur(); gauche();
+      case Direction.EAST => gauche(); bool=estFaceMur(); droite();
+      case Direction.WEST => droite(); bool=estFaceMur(); gauche();
     }
   }
   return bool
@@ -17,8 +17,8 @@ override def run() {
     }
     else {
       getDirection() match {
-        case Direction.EST => gauche(); avance(); gauche()
-        case Direction.OUEST => droite(); avance(); droite()
+        case Direction.EAST => gauche(); avance(); gauche()
+        case Direction.WEST => droite(); avance(); droite()
       }
     }
   }
