@@ -1,0 +1,17 @@
+var nbBaggles:int = 0
+var count:int = 0  
+
+while(exitReached() == false){
+  for(count <- 1 to 5){
+    if(isOverBaggle() == true){
+      nbBuggles = nbBuggles + 1
+    }
+    forward()
+  }
+  if(nbBuggles >= 3){
+    left(); forward()
+  }
+  else if(nbBuggles < 3) {
+    right(); forward()
+  }
+}
