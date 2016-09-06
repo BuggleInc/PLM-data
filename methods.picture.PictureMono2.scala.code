@@ -1,0 +1,49 @@
+def makeV() {
+  forward()
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  forward()
+  left()
+}
+
+def makePattern(){
+  for (i<- 1 to 4){
+    makeV()
+  }
+}
+def troisPattern(){
+    for (k<- 1 to 3){
+    makePattern()
+    for (l <- 1 to 7){
+      forward()
+    }
+  }
+  forward()
+}
+
+def next(){
+  left()
+  for (m <- 1 to 7){
+    forward()
+  }
+  right()
+}
+override def run() {
+  for (p <- 1 to 3){
+  	troisPattern()
+  	next()
+  }
+  
+}
