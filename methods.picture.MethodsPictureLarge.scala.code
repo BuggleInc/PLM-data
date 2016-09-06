@@ -1,0 +1,88 @@
+override def run() {
+  for (i <- 1 to 3){
+    bout();
+    forward(15);
+    bout();
+    forward(15);
+    bout();
+    backward(30);
+    left();
+    forward(15);
+    right();
+	}
+}
+
+def bout() {
+  for (i <- 1 to 3){
+    makeCube();
+    forward(5);
+    makeCube();
+    forward(5);
+    makeCube();
+    backward(10);
+    left();
+    forward(5);
+    right();
+    
+  }
+}
+
+def makeV(c:Color){
+    left()
+    forward()
+    setBrushColor(c)
+  	brushDown()
+  	brushUp()
+  
+    backward()
+    right()
+    forward()
+    setBrushColor(c)
+  	brushDown()
+  	brushUp()
+  	
+  	backward()
+    right()
+    forward()
+    setBrushColor(c)
+  	brushDown()
+  	brushUp()
+  
+    backward()
+    left()
+}
+
+def makeCube(){
+    forward()
+    forward()
+		left()
+    makeV(Color.yellow)
+		right()
+		forward()
+		forward()
+		left()
+		forward()
+    forward()
+		left()
+    makeV(Color.red)
+		right()
+		forward()
+		forward()
+		left()
+		forward()
+    forward()
+		left()
+    makeV(Color.blue)
+		right()
+		forward()
+		forward()
+		left()
+		forward()
+    forward()
+		left()
+    makeV(Color.green)
+		right()
+		forward()
+		forward()
+		left()
+}
