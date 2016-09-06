@@ -1,0 +1,18 @@
+var seenBaggle = false
+def haveBaggle():Boolean = {
+  for (i<- 1 to 6){
+    if (isOverBaggle()) {
+      seenBaggle = true
+    }
+    forward()
+  }
+  for (i<- 1 to 6) {
+    backward()
+  }
+  if (seenBaggle == true) {
+    return true
+  }
+  else {
+    return false
+  }
+}
