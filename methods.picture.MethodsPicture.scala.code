@@ -1,0 +1,55 @@
+override def run() {
+  val nbOfRow:Int = 3 //Considering that it's a square, count(row) = count(col) and we're only countig preset
+  def point() {
+    brushDown();
+    brushUp();
+  }
+  def makeV() {
+    for(i <- 1 to 4){
+      point();
+      forward();
+      left();
+      forward();
+      point();
+      backward();
+      right();
+      forward();
+      point();
+      forward(2);
+      left();
+      forward(2);
+      i match {
+        1 => setBrushColor(Color.YELLOW),
+        2 => setBrushColor(Color.RED),
+        3 => setBrushColor(Color.BLUE),
+        4 => setBrushColor(Color.GREEN)
+      }
+    }
+  }
+  def makePattern() {
+    forward(2);
+    makeV();
+    backward(2);
+  }
+  def oneRight() {
+    forward(7);
+  }
+  def oneUp() {
+    left();
+    forward(7);
+    right();
+  }
+  def oneLine(n:Int){
+    for(i <- 1 to n){
+      makePattern();
+      oneRight();
+    }
+  }
+  def theWholeThing(n:Int){
+    for(i <- 1 to n){
+      oneLine(n);
+      oneUp();
+    }
+  }
+  theWholeThing(nbOfRow)
+}
