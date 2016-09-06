@@ -1,0 +1,53 @@
+def growFlowers() {
+  growFlower(Color.red);
+  move(4);
+  
+  growFlower(Color.cyan);
+  right();
+  move(2);
+  right();
+  
+  growFlower(Color.orange);
+  backward();
+  right();
+  forward();
+  
+  growFlower(Color.green);
+  forward();
+  right();
+  move(5);
+  right();
+  right();
+  
+  growFlower(Color.pink);
+}
+
+def move(steps:Int) {
+  for (i <- 1 steps) {
+    forward();
+  }
+}
+
+def growFlower(c:Color) {
+  setBrushColor(c);
+  paint();
+  forward();
+  left();
+  
+  for (i <- 1 to 3) {
+    forward();
+    paint();
+    backward();
+    right();
+  }
+  
+  setBrushColor(c.Yellow);
+  paint();
+  
+  backward();
+}
+
+def paint() {
+  brushDown();
+  brushUp();
+}
