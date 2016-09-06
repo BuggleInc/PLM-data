@@ -1,0 +1,30 @@
+def fig1() {
+  gauche();baisseBrosse();leveBrosse(); avance(); gauche(); avance(); baisseBrosse(); leveBrosse(); avance(); gauche(); avance(); baisseBrosse(); leveBrosse()}
+            
+def fig2() {baisseBrosse();leveBrosse(); avance();gauche();avance();baisseBrosse();avance();leveBrosse();avance(); gauche();avance();baisseBrosse();leveBrosse();avance();gauche();avance();baisseBrosse();avance();leveBrosse()}
+
+def motifBord() {
+  avance();avance()
+  fig1()
+  gauche();avance();gauche();avance();avance();avance()
+  fig2()
+  gauche();avance();avance();gauche();avance();avance();avance()
+  fig1()
+   gauche();avance();gauche();avance();avance();avance()
+  fig2()
+  gauche();avance();avance();gauche();avance();avance();avance()
+  fig1()
+  avance();avance();gauche()
+}
+
+def motifCentre() {
+  fig2()
+  gauche(); avance(); gauche(); avance(); avance(); avance(); avance()
+}
+
+override def run() {
+  for (compteur <- 1 to 4) {motifBord()}
+  avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); gauche(); avance(); avance(); avance(); avance(); avance(); gauche()
+  for (compteur1 <- 1 to 4) {motifCentre()}
+  droite(); avance(); avance(); avance(); avance(); avance(); droite(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); droite(); droite()
+}
