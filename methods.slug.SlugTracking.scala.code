@@ -1,3 +1,13 @@
 def isFacingTrail():Boolean = {
-  return getCouleurSol()==Color.green
+  if (estFaceMur()) {
+    
+    return false
+    
+  } else { // On est pas face à un mur : on peut voir devant si il y a une case verte
+  
+    avance()
+    return getCouleurSol() == Color.green
+    
+  }
+  
 }
