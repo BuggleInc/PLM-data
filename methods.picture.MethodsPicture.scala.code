@@ -1,0 +1,28 @@
+override def run() {
+  for (k <- 0 to 2){
+  	for (j <- 0 to 2){   
+  		for (i <- 0 to 3){
+  			faireV()
+  			setCouleurBrosse()
+  		}
+      avance(); avance(); avance(); avance(); avance();
+    }
+   	recule(); recule(); recule(); recule(); recule();
+   	recule(); recule(); recule(); recule(); recule();
+		gauche();
+    avance(); avance(); avance(); avance(); avance();
+    droite();
+  }
+}
+
+
+def faireV(c:Color){
+  avance();
+  baisseBrosse(); leveBrosse();
+  gauche(); avance(); droite(); avance();
+  baisseBrosse(); leveBrosse();
+  avance(); droite(); avance(); gauche();
+  baisseBrosse(); leveBrosse();
+	avance();
+	gauche();
+}
