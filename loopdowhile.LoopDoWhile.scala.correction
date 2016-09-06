@@ -1,0 +1,21 @@
+$package 
+
+import java.awt.Color;
+
+class LoopDoWhile extends plm.universe.bugglequest.AbstractBuggle {
+	def isGroundWhite():Boolean = {
+	  if (getGroundColor() == Color.white)
+	    return true;
+	  return false;
+	}
+	/* BINDINGS TRANSLATION */
+	def estSurBlanc():Boolean = { return isGroundWhite(); }
+
+	override def run() {
+		/* BEGIN SOLUTION */
+		do {
+			forward();
+		} while (!isGroundWhite());
+		/* END SOLUTION */
+	}
+}
