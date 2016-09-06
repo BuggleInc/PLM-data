@@ -13,6 +13,19 @@ def pushpt(x:Int, y:Int) = {
   setPos(0,0)
 }
 
+
+def makeLigne0(nb:Int, ligne:Int){
+    for (i <- 1 to nb){
+    make0(ligne, 3+7*i)
+  }
+}
+
+def makeLigne0c(nb:Int, ligne:Int){
+    for (i <- 1 to nb){
+    make0couche(ligne, 0+7*i)
+  }
+}
+
 def makeO(x:Int,y:Int) = {
   var arr = Array( x-1,y, x+1,y, x,y-2, x,y+1, x-1,y-1, x+1, y-1 );
 
@@ -34,18 +47,5 @@ def makeOcouche(x:Int,y:Int) = {
     var xx = arr(2*i+1);
     if (xx >=0 && yy >=0 && xx < 7 && yy <7)
     	pushpt(xx,yy);
-  }
-}
-
-
-def makeLigne0(nb:Int, ligne:Int){
-    for (i <- 1 to nb){
-    make0(ligne, 3+7*i)
-  }
-}
-
-def makeLigne0c(nb:Int, ligne:Int){
-    for (i <- 1 to nb){
-    make0couche(ligne, 0+7*i)
   }
 }
