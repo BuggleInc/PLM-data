@@ -1,0 +1,21 @@
+def island(num:Array[Int]): Int = {
+  var nombreNiveaux = 0
+  var niveaux = Stack[Int]()
+  for (elt <- num) {
+    
+    if (niveaux.isEmpty||niveaux.top < elt) { //Nouveau niveau
+      
+      niveaux.push(elt)
+      
+    } else if (niveaux.top >= elt) { //On est descendu d'un niveau de parenthésage, un point pour Griffondor !
+      
+      niveaux.pop
+      nombreNiveaux = nombreNiveaux + 1
+      
+    }
+    
+  }
+  
+  return nombreNiveaux
+  
+}
