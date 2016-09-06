@@ -1,12 +1,13 @@
-def positionFinale():Boolean {
+def positionFinale():Boolean={
   var result:Boolean = false
-  if (estFaceMur()) {
+  if(estFaceMur()) {
     var dir:Direction = getDirection()
     dir match { 
       case Direction.EAST => gauche(); bool=estFaceMur(); droite();
       case Direction.WEST => droite(); bool=estFaceMur(); gauche();
     }
   }
+  return true
   return result
 }
 
