@@ -1,5 +1,5 @@
-var vuBiscuit = 0
-var test: Boolean=false
+var vuBiscuit = false
+
 def haveBaggle():Boolean = {
   if(vuBiscuit != 0){
     return true
@@ -8,35 +8,19 @@ def haveBaggle():Boolean = {
     
   }
 }
-
-def deplacement(){
-  for(i <- 1 to 6){
+while(!haveBaggle)
+	for(i<- 1 to 6){
+ 	  avance()
+	  if(estSurBiscuit){
+  	  vuBiscuit=true
+ 	  }
+	}
+	for(i<-1 to 6){
+	  recule()
+	}
+	if(!vuBiscuit){
+    droite()
     avance()
-    if(estSurBiscuit()){
-      vuBiscuit=vuBiscuit+1
-    }
-  }
-  
-}
-
-def demitour(){
-  gauche()
-  gauche()
-  for(i <- 1 to 6){
-    avance()
-  }
-  gauche()
-  avance()
-  gauche()  
-}
-var boule=false
-while(!boule){
-  vuBiscuit = 0
-	deplacement()
-  test= haveBaggel()
-  if(!test){
-    demitour
-  }else{
-    boule = true
+    gauche()
   }
 }
