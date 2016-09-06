@@ -1,0 +1,86 @@
+def growFlowers()
+{
+  droite();
+  avance();
+  gauche();
+  
+  creerRectangle();
+  for (i <- 1 to 14) recule();
+  droite();
+  for (i <- 1 to 4) avance();
+
+  creerRectangle();
+  for (i <- 1 to 6) recule();
+  gauche();
+  avance()
+  droite();
+}
+
+def ecrire()
+{
+  baisseBrosse();
+  leveBrosse();
+}
+
+def growFlower(c:Color)
+{
+  setCouleurBrosse(c);
+
+  avance();
+  ecrire();
+  
+  for (i <- 1 to 4)
+  {
+    avance();
+    gauche();
+    avance();
+    ecrire();
+  }
+  
+  gauche();
+  avance();
+  setCouleurBrosse(Color.YELLOW);
+  ecrire();
+  
+  droite();
+  avance();
+  gauche();
+  avance();
+}
+
+def creerRectangle()
+{
+  growFlower(color.RED);
+  avance();
+  growFlower(color.CYAN);
+  avance();
+  growFlower(color.RED);
+  avance();
+  growFlower(color.CYAN);
+  
+  for (i <- 1 to 12) recule();
+  droite();
+  for (i <- 1 to 2) avance();
+  gauche();
+  
+  growFlower(color.ORANGE);
+  avance();
+  growFlower(color.BLUE);
+  avance();
+  growFlower(color.ORANGE);
+  
+  for (i <- 1 to 12) recule();
+  droite();
+  for (i <- 1 to 2) avance();
+  gauche();
+  
+  growFlower(color.PINK);
+  avance();
+  growFlower(color.GREEN);
+  avance();
+  growFlower(color.PINK);
+  avance();
+  growFlower(color.GREEN);
+  
+
+}
