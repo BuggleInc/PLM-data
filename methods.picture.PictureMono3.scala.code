@@ -1,0 +1,57 @@
+override def run() {
+  for (i <- 1 to 3) {
+    dessinMoyenLigne
+  }
+}
+
+
+def peindre() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  avance(2)
+  peindre()
+  avance()
+  gauche()
+  avance()
+  peindre()
+  recule()
+  droite()
+  avance()
+  peindre()
+  avance(2)
+  gauche()
+}
+
+def dessinPetit() {
+  for (i<- 1 to 4) {
+    faireV()
+  }
+  avance(7)
+}
+
+def dessinPetitLigne() {
+  for (i <- 1 to 3) {
+    dessinPetit()
+  }
+  gauche()
+  avance(7)
+  droite()
+}
+
+def dessinMoyen() {
+  for (i <- 1 to 3) {
+    dessinPetitLigne()
+  }
+  avance(21)
+}
+
+def dessinMoyenLigne() {
+  for (i<- 1 to 3) {
+    dessinPetitLigne()
+  }
+  gauche()
+  avance(21)
+}
