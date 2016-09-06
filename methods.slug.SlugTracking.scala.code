@@ -1,11 +1,15 @@
 def isFacingTrail():Boolean = {
     // Write your code here
   do {
+    bruchDown()
     forward()
+    backward()
     if (getGroundColor() != Color.green) {
-      backward()
+      left()
     }
-    left()
+    if (isFacingWall()){
+      left()
+    }
   }while (isOverBaggle() == false)
   return true
 }
