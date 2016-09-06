@@ -1,0 +1,23 @@
+def goAndGet() {
+  var avancement=0 //variable pour savoir quand retourner à la position intiniale
+  while (!estSurBiscuit){ //cherche le biscuit
+    avance()
+    avancement=avancement+1
+  }
+  
+  prendBiscuit() //le buggle récupère le biscuit
+  
+  var pas=0 //pour savoir combien de pas devra faire le buggle
+  for (pas<-0 to avancement){
+    recule()
+  }
+  
+  poseBiscuit() //le buggle redépose le biscuit à la case de départ
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
