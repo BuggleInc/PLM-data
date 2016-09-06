@@ -1,19 +1,20 @@
 def haveBaggle():Boolean = {
   var vuBiscuit = false
   var nbPas=0
-  do {if(estSurBiscuit) {
+  while (vuBiscuit==false && nbPas<6) {
+    if(estSurBiscuit) {
     vuBiscuit=true
   	}
     avance()
     nbPas=nbPas+1}
-  while (vuBiscuit==false && nbPas<6)
+  
   for(i <- 1 to nbPas) {
     recule()
   }
   return(vuBiscuit)
 }
 
-while(haveBaggle()==false) {
+while(haveBaggle()==false && estSurBiscuit==false) {
   droite()
   avance()
   gauche()
