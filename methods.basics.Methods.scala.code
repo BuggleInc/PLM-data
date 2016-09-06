@@ -4,6 +4,16 @@
  *   Does not check for walls, so be careful to not call it when walls are present.
  */
 def goAndGet() {
+  var step = 0
+  while (isOverBaggle()) {
+    forward()
+    step += 1
+  }
+  pickupBaggle()
+  for (stepper <- 1 to step) {
+    backward()
+  }
+  dropBuggle()
 }
 
 for (i <- 1 to 7) {
