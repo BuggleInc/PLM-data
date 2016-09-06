@@ -1,0 +1,21 @@
+override def run() {
+  var cpt = 0
+  do
+  {
+    ecritMessage(cpt)
+    move()
+    cpt = cpt+1
+  }while(!finalPos())
+}
+
+def finalPos():Boolean = 
+{
+  return (getMondeHauteur()==getY())&&(getMondeLargeur()==getX())
+}
+def move()
+{
+  if(getMondeHauteur()==getY())
+    setPos(0,getX()+1)
+	else
+  	setY(getY()+1)
+}
