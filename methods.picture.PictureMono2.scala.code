@@ -8,18 +8,34 @@ def faireV() {
   avance();avance();gauche()
 }
 
-def faireMotif(){
-  
-  for (j <- 0 to 8){ 
-    for (i <- 0 to 3){
+def faireLigne(){
+  for(j<-0 to 2){
+  for (i <- 0 to 3){
     faireV();
   }
-    avance();avance();avance();avance();avance();avance();avance();
-    if (j == 2 || j==4 || j==6 || j==7)
-    	gauche();
-     
-    
+   avance();avance();avance();avance();avance();avance();avance();
+  }
 }
+
+def sautLigne(){
+  for(i <- 0 to 13)
+  {
+    recule();
+  }
+  gauche();
+  for(i <- 0 to 6)
+  {
+    avance();
+  }
+  droite
+}
+
+def faireMotif(){  
+  for (i<-0 to 2){
+    faireLigne();
+    sautLigne();
+  }
+    sautLigne();
 }
 
 override def run() {
