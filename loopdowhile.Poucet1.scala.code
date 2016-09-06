@@ -1,0 +1,18 @@
+var steps:Int = 1
+var encBaggle:Int = 0
+while (!exitReached()) {
+  for (steps <- 1 to 5) {
+    forward();
+    if (isOverBaggle) {
+      encBaggle = encBaggle +1;
+    }
+  }
+  if (encBaggle>=3) {
+    left();
+    encBaggle=0;
+  } else {
+    right();
+    encBaggle=0;
+  }
+}
+forward()
