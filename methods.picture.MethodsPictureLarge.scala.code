@@ -1,0 +1,38 @@
+def dessine() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+ 	dessine()
+  avance();gauche();avance()
+  dessine()
+  for (k <- 1 to 2) {
+    droite()
+    avance()
+  }
+  dessine()
+  gauche() 
+}
+def faireMotifCouleur(c:Color) {
+  for( k <- 1 to 9){
+    for(l <- 1 to 9) {
+      avance()
+  		faireV(c)
+      avance(2)
+    }
+    gauche();avance(5);droite()
+  }
+}  
+
+override def run() {
+  faireMotifCouleur(Color.YELLOW)
+  droite();avance()
+  faireMotifCouleur(Color.GREEN)
+  droite();avance()
+  faireMotifCouleur(Color.BLUE)
+  droite();avance()
+  faireMotifCouleur(Color.RED)
+  droite();avance()
+}
