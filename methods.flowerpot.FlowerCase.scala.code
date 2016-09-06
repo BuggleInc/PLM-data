@@ -1,0 +1,55 @@
+def growFlowers(){
+	cadran()
+  jointureVerticale()
+  cadran()
+  jointureHorizontale()
+  cadran()
+  JointureVerticale()
+  cadran()
+  }
+
+def cadran(){
+  avance()
+  fleurir(Color.RED)
+  avance(4)
+  fleurir(Color.CYAN)
+  droite();avance(4)
+  fleurir(Color.GREEN)
+  droite();avance(4)
+  fleurir(Color.PINK)
+  droite();avance(2);droite();avance(2)
+  fleurir(Color.ORANGE)
+  recule(3);droite;avance(2);gauche()
+}
+
+def jointureVerticale(){
+  gauche();avance(2);droite();avance(7);fleurir(Color.blue)
+  avance();gauche;avance(2);droite
+}
+
+def jointureHorizontale(){
+  droite();avance();droite()
+  while(!estFaceMur()){avance()}
+  gauche();avance(3);gauche()
+}
+
+def marquage(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def fleurir(c:Color){
+	marquage(Color.YELLOW)
+  var i:Int = 0
+	for (i <- 1 to 4){
+    petale(c);gauche()
+  }  
+  
+}
+
+def petale(c:Color){
+  avance()
+  marquage(c)
+  recule()
+}
