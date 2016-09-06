@@ -1,0 +1,35 @@
+override def run() { 
+  for (a <- 1 to 3){
+    ligne()
+    gauche()
+    for (b <- 1 to 5){
+      avance()
+    }
+    droite()
+  }
+}
+
+def ligne(){ //construit une ligne de motif de 4V
+  for (a <- 1 to 3){
+    motif()
+    for (b <- 1 to 5){
+      avance()
+    }
+  }
+}
+
+def motif(){ // construit un motif constitué de 4V
+  faireV(Color.yellow)
+  faireV(Color.red)
+  faireV(Color.blue)
+  faireV(Color.green)
+  
+}
+
+def faireV(c:Color){ //fait un V d'un couleur donnée 
+  setCouleurBrosse(c)
+  avance();baisseBrosse(); leveBrosse();
+  avance(); gauche(); avance(); baisseBrosse(); leveBrosse(); recule(); droite();
+  avance();baisseBrosse(); leveBrosse(); avance(); gauche();
+  
+}
