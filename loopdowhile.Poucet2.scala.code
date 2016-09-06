@@ -2,15 +2,17 @@ var biscuit: Int = 0
 while (!sortieTrouvee) {
   do {
     forward();
+    if (estSurBiscuit) {
+      biscuit = biscuit + 1
+    }
   } while (!crossing())
-  	if (estSurBiscuit) {
-    	biscuit = biscuit + 1
-  	}
-  	if (biscuit >=3) {
-    	left();
-  	} else {
-    	right();
+  if (biscuit >=3) {
+    left();
+  } else {
+    right();
   }
+  biscuit = 0
 }
-  biscuit = 0 
-forward();
+
+
+
