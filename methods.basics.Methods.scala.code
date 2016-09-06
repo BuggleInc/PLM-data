@@ -1,0 +1,19 @@
+def goAndGet() {
+  var a = 0
+  while (estSurBiscuit()==false){ //Avance jusqu'au biscuit
+    avance();
+    a=a+1
+  }
+  prendBiscuit(); // Le prend
+  for (b <- 1 to a) { //Recule du même nombre de cases que celles dont il a avancé
+    recule();
+  }
+  poseBiscuit(); // Pose le biscuit
+}
+
+for (i <- 1 to 7) { // Se déplace de sort à récupérer tout les biscuits
+    goAndGet();
+    right();
+    forward();
+    left();
+}
