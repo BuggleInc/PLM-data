@@ -1,10 +1,15 @@
 def haveBaggle():Boolean = {
   var seenBaggle=false;
   for (i <- 1 to 6) {
-    forward();
-    if (isOverBaggle()) {
-      seenBaggle=true
+    for (j <- 1 to 6) {
+      forward();
+      if (isOverBaggle()) {
+        seenBaggle=true
+      }
+    }
+    backward(6);
+    if (seenBaggle()) {
+      return seenBaggle
     }
   }
-  return seenBaggle
 }
