@@ -25,7 +25,11 @@ def isFacingTrail(color:Color):Boolean={
   if (isFacingWall()==true){return false;}
   else{
     forward();
-    if(getGroundColor().equals(color)){return true;}
-    else{return false;}
+    if(getGroundColor().equals(color)){
+      backward();
+      return true;}
+    else{
+      backward();
+      return false;}
   }
 }
