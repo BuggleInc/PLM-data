@@ -1,15 +1,9 @@
 def isFacingTrail():Boolean =
 {
-  var isVert = false;
-  var nbPas = 0;
+  if (estFaceMur()) return false;
   
-  while (!isVert && !estFaceMur() && nbPas < 7)
-  {
-    isVert = (getCouleurSol() == Color.green);
-    avance();
-    nbPas += 1;
-  }
-  for (i <- 1 to nbPas) recule();
-  
+  avance();
+  isVert = (getCouleurSol() == Color.green);
+  recule();
   return isVert;
 }
