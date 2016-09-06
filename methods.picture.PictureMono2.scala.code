@@ -1,0 +1,55 @@
+override def run() {
+  for (compteur <- 1 to 4) {
+    avance(2)
+    faireV()
+    avance(4)
+    faireV()
+    avance(4)
+    faireV()
+    avance(2)
+    gauche()   }  // Fin des motifs du bord
+  avance(3)
+  gauche()
+  avance(3)
+  droite()
+  for (compteur <- 1 to 4) {
+    avance(4)
+    gauche()
+    faireMotif()
+    avance(6)
+    droite()
+    faireMotif()
+    avance(4)
+    gauche()
+    
+  }
+   
+  
+  
+}
+
+
+def faireV() {
+  marquerSol()
+  gauche()
+  avance()
+  droite()
+  avance()
+  marquerSol()
+  avance()
+  droite()
+  avance()
+  marquerSol()
+  gauche()
+}
+
+def marquerSol() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif() {
+  faireV()
+  droite()
+  faireV()
+}
