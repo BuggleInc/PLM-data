@@ -6,17 +6,22 @@ var pattern:Array[Array[Color]] = Array(
 )
 
 override def run() {
-  for(i <- 0 to 3) {
-    for(j <- 0 to 3) {
-      if(pattern(i)(j) != Color.white) {
-      	colorier(i, j, pattern(i)(j))
+  for(i <- 0 to 7) {
+    for(j <- 0 to 7) {
+      var x:Int = j % 4;
+      var y:Int = i % 4
+      
+      setPos(j, i)
+      if(pattern(y)(x) != Color.white) {
+      	nyan(pattern(y)(x))
       }
     }
   }
+  
+  setPos(4,3)
 }
 
-def colorier(x:Int, y:Int, c:Color) {
-  setPos(x, y)
+def nyan(c:Color) {
   setBrushColor(c)
   brushDown()
   brushUp()
