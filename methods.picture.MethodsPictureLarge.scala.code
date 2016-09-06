@@ -1,0 +1,56 @@
+override def run() {	
+  main(9)
+}
+def main(taille : Int)
+{
+  for(j <- 1 to taille)
+  {
+  	for(i <-1 to taille)
+    	faireMotif()
+  	monteLigne()
+  }  
+  
+}
+def monteLigne()
+{
+  gauche()
+  for( i <- 1 to 5)
+  	avance()
+  droite()
+}
+def faireMotif()
+{
+  var tabCouleur:Array[Color] = Array(Color.YELLOW,Color.RED,Color.BLUE,Color.GREEN)
+  
+  for(i <- 1 to 4)
+  {
+  	faireV(tabCouleur(i-1))
+ 		gauche()
+  }
+  
+  for(i <- 1 to 5)
+  	avance()
+}
+
+def marquer()
+{
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c: Color)
+{
+  setCouleurBrosse(c)
+  avance()
+  marquer()
+  avance()
+  gauche()
+  avance()
+  marquer()
+  recule()
+  droite()
+  avance()
+  marquer()
+  
+  avance()
+}
