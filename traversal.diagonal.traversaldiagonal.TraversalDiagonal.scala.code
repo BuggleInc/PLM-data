@@ -1,4 +1,4 @@
-var diag = 1;
+var diag = 0;
 var cpt = 0;
 override def run() {
   while(cpt<=20)//!finalPos())
@@ -17,10 +17,13 @@ def doDiag()
     ecritMessage(cpt)
     cpt=cpt+1
     if(getY()>0)
+    {
     	setPos(getX()+1,getY()-1)
+      
+  		ecritMessage(cpt)
+  		cpt=cpt+1
+    }
   }while(getY()!=0);
-  ecritMessage(cpt)
-  cpt=cpt+1
 }
 
 def finalPos():Boolean = 
