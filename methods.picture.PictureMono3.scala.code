@@ -1,0 +1,21 @@
+
+def marquer () {baisseBrosse();leveBrosse()}
+def faireV () {
+  marquer()
+  gauche();avance();droite();avance()
+  marquer()
+  avance();droite();avance()
+  marquer()
+}
+
+def faireMotif() {
+  avance();avance();
+  faireV()
+  for (i<-1 to 3) {gauche();avance();avance();gauche();avance();avance();faireV()}
+  gauche();avance();avance();gauche()
+}
+
+override def run() {
+  for (i<-1 to 3){for (j<- 1 to 3){faireMotif();avance();avance();avance();avance();avance();avance();avance();}
+                 gauche();avance();avance();avance();avance();avance();avance();avance();droite}
+}
