@@ -1,8 +1,10 @@
 def isFacingTrail():Boolean = {
   var mur : Boolean= false
-  forward()
-  if(getGroundColor()==Color.green)
-  	mur=true
+  if(!isFacingWall()){
+    forward()
+    if(getGroundColor()==Color.green)
+      mur=true
+  }
   
   return mur
 }
