@@ -1,0 +1,78 @@
+var numCarre = 0
+def marqueCase(couleur:Color) {
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(couleur:Color) {
+  
+  /*
+  *   début :
+  *   
+  *    0
+  *    >0
+  *
+  *   fin :
+  *
+  *    x
+  *    >x
+  */
+  
+  
+  gauche()
+  avance()
+  marqueCase(couleur)
+  droite()
+  avance()
+  droite()
+  avance()
+  marqueCase(couleur)
+  gauche()
+  recule()
+  
+}
+
+def faireMotifCouleur(couleur:Color) {
+  
+  faireMotif(couleur)
+  avance(3)
+  gauche()
+  
+}
+
+def faireCarre() {
+  
+  faireMotifCouleur(Color.RED)
+  faireMotifCouleur(Color.BLUE)
+  faireMotifCouleur(Color.GREEN)
+  faireMotifCouleur(Color.YELLOW)
+  
+}
+
+def carreSuivant() {
+  
+  if (numCarre == 2) {
+    
+    gauche()
+    avance(4)
+    droite()
+    numCarre = 0
+    
+  }
+  
+  avance(4)
+  
+}
+
+override def run() {
+  
+  for (c <- 1 to 4) {
+    
+  faireCarre()
+  numCarre = numCarre + 1
+  carreSuivant()
+    
+  }
+  
+}
