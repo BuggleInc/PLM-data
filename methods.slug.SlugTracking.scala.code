@@ -1,0 +1,12 @@
+def isFacingTrail():Boolean =
+{
+  var isVert = false;
+  var nbPas = 0;
+  
+  while (!isVert && !estFaceMur())
+  {
+    isVert = (getCouleurSol() == Color.green || isVert);
+    avance();
+  }
+  for (i <- 1 to nbPas) recule();
+}
