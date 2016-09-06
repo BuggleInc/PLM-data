@@ -1,0 +1,45 @@
+def bslash(c:Color) {
+  setBrushColor(c)
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  forward()
+  left()
+}
+
+def pattern() {
+  bslash(Color.RED)
+  bslash(Color.BLUE)
+  bslash(Color.GREEN)
+  bslash(Color.YELLOW)
+  
+}
+
+
+def twoTimes(){
+  for (k <- 1 to 2) {
+  pattern()
+  for (i <- 1 to 4) {
+    forward()
+  }
+  }
+}
+override def run() {
+  twoTimes()
+  left()
+  for (m <- 1 to 4) {
+    forward()
+  }
+  right()
+  twoTimes()
+  for (m <- 1 to 4) {
+    forward()
+  }
+}
