@@ -1,0 +1,20 @@
+var score:Int = 0
+var nbPas:Int = 0
+while (score <= 4){//Tant qu'on a pas 4 biscuits, on continue :
+  
+  
+  while(!estSurBiscuit()){//On avance jusqu'au biscuit...
+    avance()
+    nbPas += 1
+  }
+  prendBiscuit()
+  while(nbPas > 0){//...puis on le ramène...
+    recule()
+    nbPas -= 1
+  }
+  poseBiscuit()
+  
+  score += 1 //...et on a gagné 1 pt
+  
+  
+}
