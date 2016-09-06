@@ -1,0 +1,26 @@
+override def run() {
+	baisseBrosse()
+  while(!finalPos())
+  	sneakForward()
+  leveBrosse()
+}
+
+def finalPos():Boolean
+{
+  if(estFaceMur())
+  {
+    setDirection(Direction.NORTH)
+    
+    return estFaceMur()
+  }
+  
+  return false
+}
+
+def sneakForward()
+{
+  if(!estFaceMur())
+    avance()
+  else
+    setY(getY()-1)
+}
