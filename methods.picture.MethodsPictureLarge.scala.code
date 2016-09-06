@@ -1,0 +1,48 @@
+override def run() {
+  var i:Int = 0
+  for (i <- 1 to 9){ faireLigne();passerLigneDuDessus()}
+}
+
+def marque(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color){
+  avance()
+  marque(c);
+  avance;
+  gauche();avance();marque(c);recule()
+  droite();
+  avance();marque(c)
+  avance();
+}
+
+def faireCadre() {
+  var i:Int=0
+  for (i <- 1 to 4){
+    i match{
+      case 1 => faireV(Color.YELLOW)
+      case 2 => faireV(Color.RED)
+      case 3 => faireV(Color.BLUE)
+      case 4 => faireV(Color.GREEN)
+    }
+    gauche()
+}
+}
+
+def faireLigne(){
+  var i:Int=0
+  for (i<- 1 to 9){
+  	faireCadre()
+  	avance(5)
+  	}
+}
+
+def passerLigneDuDessus(){
+  recule(9*5)
+  gauche()
+ 	avance(5)
+  droite()
+}
