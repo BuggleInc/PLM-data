@@ -1,0 +1,34 @@
+def point(){
+  baisseBrosse ; leveBrosse;
+}
+
+def faire1(){	
+  for(i <- 1 to 4){
+    avance ; avance ;
+    point ;
+    left ; avance ; right ; avance ;
+    point ;
+    right ; avance ; left ; avance ;
+    point ;
+    avance ; avance ; left ;
+	}
+}
+def faire2(){
+  for(i <- 1 to 9){
+    faire1 ;
+    for (n <- 1 to 7) avance ;
+  }
+}
+def faire3(){
+  for(i <- 1 to 9){
+    faire2 ;
+    left ; 
+    for(n <- 1 to 7) avance ;
+    right
+  }
+}
+
+override def run(){
+  faire3();
+  
+}
