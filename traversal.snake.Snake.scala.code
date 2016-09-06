@@ -1,0 +1,25 @@
+def positionFinale() = Boolean {
+  var bool:Boolean = false
+  if (estFaceMur()) {
+    getDirection() match { 
+      case Direction.EST => gauche(); bool=estFaceMur(); droite()
+      case Direction.OUEST => droite(); bool=estFaceMur(); gauche()
+    }
+  }
+  return bool
+}
+
+override def run() {
+  baisseBrosse()
+  while (!positionFinale()) {
+    if (!estFaceMur) {
+      avance()
+    }
+    else {
+      getDirection() match {
+        case Direction.EST => gauche(); avance(); gauche()
+        case Direction.OUEST => droite(); avance(); droite()
+      }
+    }
+  }
+}
