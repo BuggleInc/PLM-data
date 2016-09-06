@@ -1,26 +1,16 @@
 var vuBiscuit = false
 
 def haveBaggle():Boolean = {
-  if(!vuBiscuit){
-    return false
-  } else {
-    return true
-    
+  for(i <- 1 to 6){
+  	avance()
+  	if(estSurBiscuit){
+    	return true
+    }
   }
-}
-while(!haveBaggle){
-	for(i<- 1 to 6){
- 	  avance()
-	  if(estSurBiscuit){
-  	  vuBiscuit=true
- 	  }
-	}
-	for(i<-1 to 6){
-	  recule()
-	}
-	if(!vuBiscuit){
-    droite()
-    avance()
-    gauche()
+  for(i<- 1 to 6){
+    recule()
+  }
+  	
+    
   }
 }
