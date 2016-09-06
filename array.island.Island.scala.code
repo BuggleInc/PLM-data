@@ -1,0 +1,27 @@
+def island(num:Array[Int]): Int = {
+  min = num(0);
+  max = num(0);
+  
+  for (i <- 1 to num.lengh-1) {
+    if (num(i) < min) {
+      min = num(i);
+    }
+    
+    if (num(i) > max) {
+      max = mun(i);
+    }
+  }
+  
+  levels[Boolean](max-min+1);
+  
+  for (i <- 0 to num.lengh-1) {
+    levels(mun(i)-min) = true;
+  }
+  
+  var count = 0
+  for (i <- 0 to (max-min+1)) {
+    if (levels(i) == true) count += 1;
+  }
+  
+  return count;
+}
