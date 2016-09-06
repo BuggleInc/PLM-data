@@ -1,0 +1,37 @@
+def marqueCase() {
+  baisseBrosse()
+  leveBrosse()
+}
+def hunt() {
+    while(!estSurBiscuit()) {
+      
+      if isFacingTrail() {
+        
+        avance()
+        marqueCase()
+        
+        
+      } else {
+        
+        gauche()
+        
+      }
+      
+    }
+}
+
+def isFacingTrail():Boolean = {
+  if (estFaceMur()) {
+    
+    return false
+    
+  } else { // On est pas face à un mur : on peut voir devant si il y a une case verte
+  	var couleur:Color = null
+    avance()
+    couleur = getCouleurSol()
+    recule()
+    return couleur == Color.green
+    
+  }
+  
+}
