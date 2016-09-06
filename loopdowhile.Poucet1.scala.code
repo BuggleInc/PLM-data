@@ -1,19 +1,18 @@
 var sortie=false
 
 while (sortie==false){
-  avance()
   var biscuit=0
   var couloir=0
 
   for (couloir<-0 to 4){
-    if (estSurBiscuit()){
-      if (couloir!=0){
-        biscuit=biscuit+1
-      }
-    }
     avance()
+    if (estSurBiscuit()){
+      biscuit=biscuit+1
+    }
   }
 
+  
+  //direction selon le nombre de biscuit
   if (biscuit<=2){
     droite()
   }else{
@@ -21,3 +20,4 @@ while (sortie==false){
   }
   sortie=sortieTrouvee()
 }
+avance()
