@@ -1,0 +1,59 @@
+override def run() {
+  drawRow();
+  moveNextRow();
+  drawRow();
+}
+
+def moveNextRow() {
+  for (i <- 1 to 4) {
+    backward();
+  }
+  left();
+  
+  for (i <- 1 to 4) {
+    forward();
+  }
+  right();
+}
+
+def drawRow() {
+  drawCPattern();
+  moveNextCPattern();
+  drawCPattern();
+}
+
+def moveNextCPattern() {
+  for (i <- 1 to 4) {
+    forward();
+  }
+}
+
+def drawCPattern() {
+  drawPattern(Color.red);
+  moveNextPattern();
+  drawPattern(Color.blue);
+  moveNextPattern();
+  drawPattern(Color.green);
+  moveNextPattern();
+  drawPattern(Color.red);
+}
+
+def moveNextPattern() {
+  forward();
+  left();
+}
+
+def drawPattern(c:Color) {
+  left();
+  foward();
+  paint();
+  backward();
+  left();
+  forward();
+  paint();
+}
+
+def paint() {
+  brushDown();
+  brushUp();
+}
