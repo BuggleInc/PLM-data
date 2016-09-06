@@ -1,13 +1,16 @@
-for (i<- 1 to 4){
+override def run() = {
+  for (i<- 1 to 4){
     makeLigne0(3,0+i*7)
     
     makeLigne0c(4,3+i*7)
+  }
+}
 
 def pushpt(x:Int, y:Int) = { 
   setPos(x,y);
 	brushDown();
   brushUp();
-  setPos(0,20)
+  setPos(0,20);
 }
 
 
@@ -25,6 +28,8 @@ def makeLigne0c(nb:Int, ligne:Int){
 
 def makeO(x:Int,y:Int) = {
   var arr = Array( x-1,y, x+1,y, x,y-2, x,y+1, x-1,y-1, x+1, y-1 );
+
+  
   for (i <- 0 to 3) {
     var xx = arr(2*i);
     var yy = arr(2*i+1);
@@ -35,6 +40,8 @@ def makeO(x:Int,y:Int) = {
 
 def makeOcouche(x:Int,y:Int) = {
   var arr = Array( x-1,y, x+1,y, x,y-2, x,y+1, x-1,y-1, x+1, y-1 );
+
+  
   for (i <- 0 to 3) {
     var yy = arr(2*i);
     var xx = arr(2*i+1);
