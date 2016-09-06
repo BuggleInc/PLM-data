@@ -1,1 +1,28 @@
-avance()
+var pattern:Array[Array[Color]] = Array(
+	Array(Color.white, Color.yellow, Color.green, Color.white),
+  Array(Color.yellow, Color.white, Color.white, Color.green),
+  Array(Color.red, Color.white, Color.white, Color.blue),
+  Array(Color.white, Color.red, Color.blue, Color.white)
+)
+
+override def run() {
+  for(i <- 0 to 7) {
+    for(j <- 0 to 7) {
+      var x:Int = j % 4;
+      var y:Int = i % 4
+      
+      setPos(j, i)
+      if(pattern(y)(x) != Color.white) {
+      	colorier(pattern(y)(x))
+      }
+    }
+  }
+  
+  setPos(4,3)
+}
+
+def colorier(c:Color) {
+  setBrushColor(c)
+  brushDown()
+  brushUp()
+}
