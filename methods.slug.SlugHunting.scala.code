@@ -1,24 +1,27 @@
 def hunt() {
-  if (isFacingTrail()) {
-    forward();
-    brushDown();
-    brushUp();
-  }
-  else {
-    right();
+  while (!isOverBaggle) {
     if (isFacingTrail()) {
       forward();
       brushDown();
       brushUp();
     }
     else {
-      left();
-      left();
-      forward();
-      brushDown();
-      brushUp();
+      right();
+      if (isFacingTrail()) {
+        forward();
+        brushDown();
+        brushUp();
+      }
+      else {
+        left();
+        left();
+        forward();
+        brushDown();
+        brushUp();
+      }
     }
   }
+  pickupBaggle();
 }
 
 def isFacingTrail():Boolean = {
