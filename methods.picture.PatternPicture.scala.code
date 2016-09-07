@@ -1,0 +1,36 @@
+override def run() {
+  var color:Color = Color.BLUE
+  for (i <- 0 to 1){
+    for(j <- 0 to 1){
+      setPos(i*4,j*4)
+      for (k <- 1 to 4)
+    		faireV(k)
+    }
+  }
+  setPos(4,3)
+  
+  def faireV(k:Int){
+    k match{
+      case 1 => color = Color.YELLOW
+      case 2 => color = Color.GREEN
+    	case 3 => color = Color.BLUE
+    	case 4 => color = Color.RED
+    }
+    setCouleurBrosse(color)
+    avance()
+    marquerSol()
+    recule()
+    droite()
+    avance()
+    marquerSol()
+    recule()
+    gauche()
+    avance()
+    avance()
+  }
+
+  def marquerSol(){
+    baisseBrosse()
+    leveBrosse()
+  }
+}
