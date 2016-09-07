@@ -1,0 +1,26 @@
+def next() {
+  
+  (getY()%2,getX()) match { // On vérifie la parité de la ligne pour le sens et X pour les collisions
+    
+    case (0,0) => setY(getY()+1) //ligne paire, dernière case : on descend
+    case (0,_) => setX(getX()-1) //ligne paire, case qqqe : à gauche
+    case (1,getModeLargeur()-1) => setY(getY()+1) //ligne impaire, dernière case : on descends
+    case (1,_) => setX(getX()+1)  //ligne impaire, case qqqe : on descend
+    
+  }
+  
+}
+
+override def run() {
+  
+  var compteur = 0
+  for (c <- 1 to getMondeHauteur()*getMondeLargeur()) {
+    
+    ecritMessage(compteur)
+    next()
+    compteur = compteur + 1
+    
+  }
+  
+  
+}
