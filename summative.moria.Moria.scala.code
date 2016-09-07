@@ -1,5 +1,6 @@
 retourne()
-while(getCouleurSol()!=Color.GREEN){
+var stop:Boolean = false
+while(!stop){
   if (porteBiscuit()){
     if (estSurBiscuit()){
      	recule();poseBiscuit();recule();retourne()}
@@ -12,7 +13,7 @@ while(getCouleurSol()!=Color.GREEN){
     else{
       if (estFaceMur()){
         droite()
-        if (estFaceMur()){gauche();gauche()}
+        if (estFaceMur()){gauche();gauche();stop=true}
         avance()
       }
       else{
