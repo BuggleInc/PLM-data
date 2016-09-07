@@ -1,20 +1,20 @@
 override def run() {
   var posfinale=false
   while (!posfinale){
-    if (!estFaceMur()){
+    if (!estFaceMur()){ //pas de mur on avance
       avance()
-    } else if (getDirection() == Direction.East){
+    } else if (getDirection() == Direction.East){ // regarde ? l'Est regarde si mur ? gauche
       gauche()
-      if (!estFaceMur()){
+      if (!estFaceMur()){ // pas de mur on avance
         avance(); gauche()
-      } else {
+      } else { // Mur a Est + Nord = Position finale
         posfinale=true
       }
-    } else {
+    } else { // On regarde ? l'Ouest regarde si mur ? droite
       droite()
-      if (!estFaceMur){
+      if (!estFaceMur){ // Pas de mur on avance 
         avance(); droite();
-      } else {
+      } else { // Mur Ouest + Nord = Position finale
         posfinale=true
       }
     }
