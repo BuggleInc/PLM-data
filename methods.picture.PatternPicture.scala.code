@@ -1,0 +1,66 @@
+override def run() {
+  makeBigPattern()
+  makeBigPattern()
+  forward()
+  forward()
+  left()
+  forward()
+  forward()
+  right()
+  makeBigPattern()
+  makeBigPattern()
+}
+
+
+def makeBigPattern() {
+  makePattern1(Color.RED)
+  forward()
+  forward()
+  makePattern2(Color.BLUE)
+  backward()
+  backward()
+  left()
+  forward()
+  forward()
+  right()
+  makePattern2(Color.YELLOW)
+  forward()
+  forward()
+  makePattern1(Color.GREEN)
+  forward()
+  forward()
+  right()
+  forward()
+  forward()
+}
+
+def makePattern1(c:Color) {
+  setBrushColor(c:Color)
+  forward()
+  paint()
+  left()
+  forward()
+  left()
+  forward()
+  paint()
+  left()
+  forward()
+  left()
+}
+
+def makePattern2(c:Color) {
+  setBrushColor(c:Color)
+  paint()
+  forward()
+  left()
+  forward()
+  paint()
+  backward()
+  right()
+  backward()
+}
+
+def paint() {
+  brushDown()
+  brushUp()
+}
