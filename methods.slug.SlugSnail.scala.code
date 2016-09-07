@@ -1,8 +1,12 @@
 def hunt(c:Color) {
   while(!estSurBiscuit()){
     isFacingTrial(c)
-  }  prendBiscuit()
-     
+  isFacingTrial(c) match {
+    case true => baisseBrosse();leveBrosse;recule();
+    case false => recule();gauche()
+  }
+  } 
+  prendBiscuit()   
  }
 
 def isFacingTrial(b:Color): Boolean={
