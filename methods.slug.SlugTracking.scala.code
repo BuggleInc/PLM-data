@@ -1,12 +1,14 @@
 var vert:Color = Color.green;
 
-def isFacingTrail():Boolean = {true}
-
-avance();
-if (isFacingTrail()) {var couleur:Color = getCouleurSol(); 
-                               while (couleur==vert)
-                                      {var test:Boolean = estFaceMur(); 
-                                       if (!test) {avance();}
-                                       else {recule();gauche();}
-                                      }
+def isFacingTrail():Boolean = {var test:Boolean = estFaceMur(); 
+                              if (!test) 
+                               {avance(); var couleur:Color = getCouleurSol(); 
+                               if (couleur==vert) {recule(); return true}
+                               else {recule(); return false}}
                               }
+
+
+while (!estSurBiscuit()) {if (isFacingTrail()) {avance();
+                                               else {gauche();}
+                                               }
+                         }
