@@ -1,17 +1,14 @@
-var highestLevel = 0;
+var last = 0;
 var number = 0 ;
 def island(num:Array[Int]): Int = {
   highestLevel = 0;
   number = 0 ;
   // Print all the array elements
   for(x <- num) {
-    if(x>highestLevel){
-      highestLevel = x;
+    if(x>last){
       number = number+1;
     }
-    if(x==0){
-      highestLevel = 0;
-    }
+    last = x;
   }
   return number ; 
 }
