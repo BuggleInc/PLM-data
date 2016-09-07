@@ -1,0 +1,43 @@
+override def run(tailleMotif:Int, tailleGrille:Int) 
+{
+var occurenceMotif=tailleGrille/tailleMotif
+var L:Array[Color]=Array(Color.yellow,Color.red,Color.blue,Color.green)
+  for (k<-1 to occurenceMotif)
+  	{
+  	for (j<-1 to occurenceMotif)
+  		{
+  		for (i <- L)
+  			{
+    			avance()
+    			gauche()
+    			faireV(i)
+  			}
+      	avance(tailleMotif)
+    	}
+  	gauche()
+  	avance(tailleMotif)
+  	droite()
+    }
+}
+
+def faireV(color:Color)
+{
+  for (i<-1 to 2)
+  {
+  	marquer(color)
+  	avance()
+  	droite()
+  	avance()
+  }
+  marquer(color)
+  gauche()
+  avance()
+  gauche()
+}
+
+def marquer(color:Color)
+{
+  setCouleurBrosse(color)
+  baisseBrosse()
+  leveBrosse()
+}
