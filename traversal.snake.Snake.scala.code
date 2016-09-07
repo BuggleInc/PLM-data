@@ -1,3 +1,12 @@
 override def run() {
-  forward()
+  brushDown();
+  while (!isFacingWall()) {
+    forward();
+    if (isFacingWall() && getDirection==Direct.EAST) {
+      left();forward();left()
+    }
+    else if (isFacingWall() && getDirection==Direction.WEST) {
+      right();forward():right()
+    }
+  }
 }
