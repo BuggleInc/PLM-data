@@ -1,4 +1,5 @@
 var x = 0
+var Couleur = Color.black
 def hunt(c:Color) {
   while(x==0) {
     if (isFacingTrail()==true) {
@@ -18,11 +19,12 @@ def hunt(c:Color) {
 def isFacingTrail():Boolean = {
     if (!estFaceMur){
     	avance()
-      if (getCouleurSol==Color.green){
+      Couleur = getCouleurSol
+      if (getCouleurSol==Couleur){
         recule()
         return true
       }
-      if (getCouleurSol!=Color.green) {
+      if (getCouleurSol!=Couleur) {
         recule()
         return false
       }
