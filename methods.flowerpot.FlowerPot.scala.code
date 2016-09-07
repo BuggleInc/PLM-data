@@ -1,3 +1,46 @@
-def growFlowers(){
+def growFlowers() {
+  var color:Color = Color.YELLOW
+  for (i <- 0 to 1){
+    for(j <- 0 to 1){
+      setPos(i*4,j*4)
+      faireFleur()
+    }
+  }
+  setPos(0,5)
+
+  def faireFleur(){
+    gauche()
+    
+    for (i <- 1 to 4)
+			fairePetale(color)
+    
+    faireCentre()
+  }
   
+  color match{
+    case 1 => color = Color.YELLOW
+    case 2 => color = Color.GREEN
+    case 3 => color = Color.BLUE
+    case 4 => color = Color.RED
+    case 5 => color = Color.RED
+  }
+  
+  def fairePetale(c:Color){
+    marquerSol(c)
+    avance()
+    droite()
+    avance()
+  }
+  
+  def faireCentre(){
+    droite()
+    avance()
+    marquerSol(Color.YELLOW)
+  }
+
+  def marquerSol(c:Color){
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
 }
