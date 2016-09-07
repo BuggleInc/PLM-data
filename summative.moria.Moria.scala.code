@@ -1,0 +1,15 @@
+def rangement () {
+  prendBiscuit()
+  while (!estSurBiscuit()) {recule()}
+  avance();poseBiscuit();avance()
+}
+
+def chemin () {
+  while (getCouleurSol()==Color.GREEN){
+  while (!estSurBiscuit() ) {
+    avance(); if (estFaceMur() && !estSurBiscuit()) {
+      droite();avance();gauche();avance()
+    }
+  }
+    rangement()
+  }}
