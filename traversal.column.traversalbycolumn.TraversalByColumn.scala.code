@@ -1,0 +1,23 @@
+override def run() {
+  var nbr:Int = 0;
+  var width:Int = getWorldWidth();
+  var  height:Int = getWorldHeight();
+  while (!finished(x,y,width,height)) {
+    var x:Int = getX;
+    var y:Int = getY;
+    writeMessage(""+nbr);
+    if (y != height) {
+      setPos(x,y+1);
+    }
+    else {
+      setPos(x+1,0);
+    }
+  }
+}
+
+def finished(x:Int,y:Int,width:Int,height:Int):Boolean = {
+  if (x==width && y==height) {
+    return true
+  }
+  return false
+}
