@@ -1,4 +1,5 @@
 override def run() {
+  var x=0
   for (i <- 1 to 2) {
     for (j <- 1 to 2) {
       fairemotif()
@@ -9,7 +10,10 @@ override def run() {
         recule();recule();recule();recule();recule();recule();recule()
       }
     }
-    gauche();avance();avance();avance();avance();droite()
+    if (x==0) {
+    	gauche();avance();avance();avance();avance();droite()
+      x=1
+    }
   }
 }
 
