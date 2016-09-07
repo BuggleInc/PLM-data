@@ -1,24 +1,25 @@
 override def run() {
     forward();
-    makeL();
+    makeL(Color.RED);
     forward();
     forward();
- 	  makeI();
+ 	  makeI(Color.BLUE);
   left();
   forward();
   forward();
   right();
   forward();
-  makeL();
+  makeL(Color.GREEN);
   backward();
   backward();
-  makeI();
+  makeI(Color.YELLOW);
   }
   
   
 
 
-def makeL() {
+def makeL(c: Color) {
+  setBrushColor(c)
   brushDown();
   brushUp();
   backward();
@@ -31,7 +32,8 @@ def makeL() {
 }
 
 
-def makeI() {
+def makeI(c: Color) {
+  setBrushColor(c)
   brushDown();
   brushUp();
   forward();
