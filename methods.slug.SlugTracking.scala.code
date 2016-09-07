@@ -1,11 +1,9 @@
 def isFacingTrail():Boolean = {
   var biscuit=0
-  val x=rien
   while (biscuit==0){
     forward()
-    x=getCouleurSol()
-    backward()
-    if (x==Color.green){
+    if (getGroundColor()==Color.green){
+      backward()
       forward()
       baisseBrosse()
       leveBrosse()
@@ -15,6 +13,7 @@ def isFacingTrail():Boolean = {
       }
     }
     else {
+      backward()
       left()
       forward()
     	x=getCouleurSol()
@@ -28,6 +27,7 @@ def isFacingTrail():Boolean = {
         	biscuit = biscuit + 1
         }
       else {
+        backward()
         right()
       }
     }
