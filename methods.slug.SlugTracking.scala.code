@@ -1,15 +1,16 @@
 def isFacingTrail():Boolean = {
-  while (estSurBiscuit==false) {
-    if (estFaceMur()==true) {
-      left();
-    }
-    forward();brushUp();
     if (getCouleurSol()==Color.green) {
       backward(); brushDown();brushUp(); forward();
     } else {
       backward(); left();
     }
-  }
   return true
 }
 
+while (estSurBiscuit==false) {
+    if (estFaceMur()==true) {
+      left();
+    }
+  	if (isFacingTrail() ==true) {
+      forward();brushUp();
+    }
