@@ -21,9 +21,14 @@ def moveAndDrop () = {
   dropBaggle();
 }
 
+// to allow the last steps toward the exit 
+def nextStepsAllowed () : Boolean = {
+  return isFacingWall() && !isOverBaggle();
+}
+
 def run () = {
   uTurn();
-  while (!isFacingWall() || isOverBaggle()) {
+  while (!nextStepsAllowed()) {
     moveAndTake();
     uTurn();
     moveAndDrop();
