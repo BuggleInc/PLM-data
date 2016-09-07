@@ -2,10 +2,20 @@ override def run() {
   faireMotif
 }
 
-def faireMotif() {
+def faireTrace() {
   avance()
   baisseBrosse(); leveBrosse()
   recule(); gauche(); avance()
   baisseBrosse(); leveBrosse()
-  recule(); droite(); avance(3)
+  recule(); droite(); avance(3); gauche()
+}
+
+def faireMotif() {
+  setCouleurBrosse(Color.RED)
+  faireTrace()
+  setCouleurBrosse(Color.BLUE)
+  faireTrace()
+  setCouleurBrosse(Color.GREEN)
+  faireTrace()
+  setCouleurBrosse(Color.YELLOW)
 }
