@@ -3,21 +3,21 @@ def fonctionTest():Boolean={
     if(estFaceMur() && getDirection()==Direction.EST){
       gauche()
       if(estFaceMur()){droite()
-                      return true }
+                      return false }
       droite()}
     if(estFaceMur && getDirection()==Direction.OUEST){
       droite()
       if(estFaceMur()){gauche()
-                      return true}
+                      return false}
       gauche()
     }
-  return false
+  return true
   }
   
   
   baisseBrosse()
   
-  while(!fonctionTest()){avance()
+  while(fonctionTest()){avance()
     if(estFaceMur() && getDirection()==Direction.EST){gauche();avance();gauche()}
     if(estFaceMur() && getDirection()==Direction.OUEST){droite();avance();droite()}
     }
