@@ -1,0 +1,30 @@
+def run() {
+  while (!finished()) {
+		if (!isOverBaggle && !isCarringBaggle) {
+     	setDirection(Direction.EST);
+			forward();
+    }
+    else if (isOverBaggle && !isCarringBaggle) {
+      pickUpBaggle();
+    }
+    else if (isCarringBaggle && !isOverBaggle) {
+      setDirection(Direction.EST);
+			forward();
+    }
+    else {
+      setDirection(Direction.WEST);
+			forward();
+      dropBaggle();
+      
+    }
+  }
+}
+
+def finished(): Boolean = {
+  var width:Int = getWorldWidth;
+  var x:Int = getX;
+  if (x == width -3) {
+    return true
+  }
+  return false
+}
