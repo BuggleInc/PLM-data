@@ -1,4 +1,10 @@
 def island(num:Array[Int]): Int = {
   var niveaux = 0
-  l = Array.len(num)
+  l = num.size
+  for (i <- 1 to l-1) {
+    if (num[i] > num[i-1]) {
+      niveaux = niveaux + 1
+    }
+  }
+  return niveaux
 }
