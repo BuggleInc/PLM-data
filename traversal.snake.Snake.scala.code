@@ -1,7 +1,7 @@
 override def run() {
   baisseBrosse()
   while (arrivee()==false){
-    if(estFaceMur){
+    if(estFaceMur()){
       getDirection()
       if (getDirection() == Direction.EST){
         gauche()
@@ -19,11 +19,11 @@ override def run() {
 }
 
 def arrivee(){
-  if(estFaceMur){
+  if(estFaceMur()){
     getDirection()
 		if (getDirection() == Direction.EST){
       gauche()
-      if(estFaceMur){
+      if(estFaceMur()){
         droite()
         return true
       }else{
@@ -31,7 +31,7 @@ def arrivee(){
       }
     }else if (getDirection() == Direction.OUEST){
       droite()
-      if(estFaceMur){
+      if(estFaceMur()){
         gauche()
       	return true  
       }else{
