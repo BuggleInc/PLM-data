@@ -1,0 +1,16 @@
+def cocktailSort() {
+  var nbEchange:Int = 0
+  val n:Int = getNombreValeurs()
+  do {
+    for (i <- 0 to n-2) {
+      if (plusPetit(i+1, i)) {
+        echange(i, i+1)
+      }
+    }
+    for (j <- n-1 to 1) {
+      if (plusPetit(j, j-1)) {
+        echange(j-1, j)
+      }
+    }
+  } while (nbEchange!=0)
+}
