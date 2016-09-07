@@ -1,4 +1,7 @@
 override def run() {
+  while(!testFinal()){
+    pas()
+  }
 }
 
 def testFinal():Boolean={
@@ -13,4 +16,21 @@ def testFinal():Boolean={
   return fin
 }
 
-def pas
+def pas(){
+  if(!estFaceMur){
+    avance()
+  }else{
+    if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }else{
+      droite()
+      avance()
+      droite()
+    }
+  }
+}
+
+
+
