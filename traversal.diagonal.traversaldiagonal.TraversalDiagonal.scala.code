@@ -4,7 +4,7 @@ var nCase = 0;
 override def run()
 {
   do suivant();
-  while (!isPositionFinale)
+  while (!isPositionFinale && nCase < 50)
   
   ecritMessage(nCase);
 }
@@ -16,7 +16,7 @@ def suivant()
   
   ecritMessage(nCase);
   
-  if (x < diag) setPos(x+1, y+1);
+  if (x < diag) setPos(x+1, y-1);
   else if (diag < getMondeLargeur()-1) //fonctionne avec un monde carre
   {
     diag+=1;
