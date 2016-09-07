@@ -1,0 +1,30 @@
+def isFacingTrail():Boolean = {
+    avance()
+  if (getCouleurSol()==Color.green){
+    avance()
+  }
+  else{
+    recule()
+    gauche()
+    avance()
+    if (getCouleurSol()==Color.green){
+    avance()
+    }
+    else{
+      recule()
+      droite()
+      droite()
+      avance()
+    }
+  }
+}
+
+var biscuit:Boolean=false
+
+while (biscuit==false){
+  isFacingTrail()
+  if (estSurBiscuit()){
+    biscuit = true
+  }
+}
+
