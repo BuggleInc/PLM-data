@@ -19,6 +19,13 @@ override def run() {
     setCouleurBrosse(color)
     avance()
     baisseBrosse()
+    color match{
+      case Color.RED => color = Color.YELLOW
+      case Color.YELLOW => color = Color.GREEN
+    	case Color.GREEN => color = Color.BLUE
+    	case Color.BLUE => color = Color.RED
+    }
+    setCouleurBrosse(color)
     avance()
     leveBrosse()
     avance()
