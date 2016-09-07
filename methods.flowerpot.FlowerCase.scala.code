@@ -1,0 +1,35 @@
+def fleurs(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse();leveBrosse()
+  avance();gauche();avance()
+  baisseBrosse();leveBrosse()
+  droite();avance();droite();avance()
+  baisseBrosse();leveBrosse()
+  droite();avance();gauche();avance()
+  baisseBrosse();leveBrosse()
+  droite();droite();avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse();leveBrosse();
+}
+
+def deplacement1() {
+  droite();avance();avance();avance()
+}
+
+def deplacement2() {
+  gauche();avance();avance();gauche();avance();avance();gauche();recule()
+}
+
+def growFlowers() {
+  fleurs(Color.RED)
+  deplacement1()
+  fleurs(Color.CYAN)
+  deplacement2()
+  fleurs(Color.ORANGE)
+  deplacement2()
+  fleurs(Color.PINK)
+  deplacement1()
+  fleurs(Color.GREEN)
+  gauche();avance();avance();avance();avance()
+  avance();retourne()
+}
