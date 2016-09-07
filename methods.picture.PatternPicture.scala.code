@@ -1,13 +1,22 @@
 override def run() {
-  ligne()
-  for(j <- 1 to 4){
+  carre()
+  for(i <- 1 to 4){
     avance()
+  }
+  carre()
+  for(j <- 1 to 4){
+    recule()
   }
   gauche()
-  for(j <- 1 to 4){
+  for(k <- 1 to 4){
     avance()
   }
-  ligne()
+  droite()
+  carre()
+  for(l <- 1 to 4){
+    avance()
+  }
+  carre()
 }
 
 def marquer(c:Color) {
@@ -32,10 +41,3 @@ def carre(){
   bord(Color.YELLOW,Color.RED)
 }
 
-def ligne(){
-  carre()
-  for(i <- 1 to 4){
-    avance()
-  }
-  carre()
-}
