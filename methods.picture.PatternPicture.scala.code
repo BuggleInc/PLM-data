@@ -1,0 +1,63 @@
+override def run() {
+  marqueGrille()
+  for (i<- 1 to 4){
+    avance()
+  }
+}
+
+
+def marqueSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def marqueGrille(){
+  marqueLigne()
+  gauche()
+  for (i<- 1 to 4){
+    avance()
+  }
+  droite()
+  marqueLigne()
+}
+
+def marqueLigne(){
+  marquePatern()
+  for (i<- 1 to 4){
+    avance()
+  }
+  marquePatern()
+  for (i<- 1 to 4){
+    avance()
+  }
+}
+
+def marquePatern(){
+  for (i<- 1 to 4){
+    marqueCoin()
+  }
+}
+
+def marqueCoin(){
+  avance()
+  marqueSol()
+  recule()
+  gauche()
+  avance()
+  marqueSol()
+  avance()
+  avance()
+  gauche()
+  gauche()
+  changeColor(getCouleurBrosse())
+}
+
+def changeColor(c: Color){
+  c match{
+    case Color.GREEN => setCouleurBrosse(Color.BLUE)
+    case Color.BLUE => setCouleurBrosse(Color.RED)
+    case Color.RED => setCouleurBrosse(Color.YELLOW)
+    case Color.YELLOW => setCouleurBrosse(Color.GREEN)
+  }
+}
+
