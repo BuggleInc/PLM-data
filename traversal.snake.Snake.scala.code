@@ -1,0 +1,51 @@
+override def run()
+{
+  baisseBrosse();
+  while (!isPositionFinale()) marcheSerpent();
+}
+
+def marcheSerpent()
+{
+  if (estFaceMur())
+  {
+    if (getDirection() == Direction.OUEST)
+    {
+      droite();
+      avance();
+      droite();
+    }
+    else
+    {
+      gauche();
+      avance();
+      gauche();
+    }
+  }
+  else avance();
+}
+
+def isPositionFinale():Boolean =
+{
+  getDirection() match
+  {
+    case Direction.NORD => return estFaceMur();
+    
+    case Direction.EST =>
+      gauche();
+      var isMurNord = estFaceMur();
+      droite();
+      return isMurNord;
+    
+    case Direction.OUEST =>
+      droite();
+      var isMurNord = estFaceMur();
+      gauche();
+      return isMurNord;
+    
+    case _ =>
+      retourne();
+      var isMurNord = estFaceMur();
+      retourne();
+      return isMurNord;
+  }
+}
