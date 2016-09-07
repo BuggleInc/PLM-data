@@ -1,0 +1,54 @@
+def marquer(c:Color)
+	{
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+def motif1(c:Color)
+	{
+    marquer(c)
+    avance();
+    marquer(Color.yellow)
+    droite();avance();
+    marquer(c)
+    gauche()
+  }
+
+def motif2(c:Color)
+	{
+    marquer(c)
+    avance();droite();avance();
+    marquer(c)
+    gauche()
+  }
+def flowers(c:Color)
+	{
+    motif1(c)
+    gauche;avance();avance();droite()
+    motif2(c)
+  }
+
+def parterre()
+{
+  flowers(Color.red)
+  droite();avance();avance();gauche()
+  flowers(Color.orange)
+  droite();avance();avance();gauche()
+  flowers(Color.green)
+  recule(2); gauche(); avance(4);droite()
+  flowers(Color.cyan)
+  recule(6);droite();avance(4);gauche()
+  flowers(Color.pink);
+  
+}
+
+def growFlowers()
+{
+  
+  parterre()
+  setPos(8,1)
+  parterre()
+  
+  
+  
+}
