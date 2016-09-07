@@ -1,0 +1,49 @@
+def positionFinale(){
+  
+  if(estFaceMur())
+  	{
+      if(getDirection()==Direction.EST)
+      	{
+          gauche()
+          if(estFaceMur())
+          	{
+              return true
+            }
+          else {
+            return false
+          }
+        }
+      else{
+         droite()
+          if(estFaceMur())
+          	{
+              return true
+            }
+          else {
+            return false
+          }
+      }
+    }
+  else{
+    return false
+  }
+}
+
+override def run() {
+  baisseBrosse()
+  while(!positionFinale())
+  {
+    if(estFaceMur() && getDirection()==Direction.EST)
+    	{
+        gauche();avance();gauche()
+        
+      }
+    if(estFaceMur() && getDirection()==Direction.OUEST)
+    	{
+        droite();avance();droite()
+        
+      }
+    avance()
+  }
+  
+}
