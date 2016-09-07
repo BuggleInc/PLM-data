@@ -1,5 +1,6 @@
 override def run() {
-  while (!finale()) {
+	var x = 0
+  while (x==0) {
     if (estFaceMur) {
     	mur()
   } else {
@@ -12,18 +13,17 @@ override def run() {
 
 
 def mur(): {
-  gauche()
-  if (estFaceMur) {
+	if (getDirection()==Direction.EST) {
     gauche()
-    if (estFaceMur) {
-      gauche()
-      if (estFaceMur) {
-        finale()
-      }
+    if (estFaceMur()) {
+      x=1
+    } else {
+    avance()
+    gauche()
     }
-  }
-}
-
-def finale(): Boolean {
-  return true
+  } else if (getDirection()==Direction.OUEST) {
+    droite()
+    avance()
+    droite()
+  } 
 }
