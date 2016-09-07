@@ -1,50 +1,3 @@
-override def run() {
-}
-def faireV(){
-  avance();
-  avance();
-  baisseBrosse();
-  leveBrosse();
-  avance();
-  gauche();
-  avance();
-  baisseBrosse();
-  leveBrosse();
-	droite();
-  avance();
-  droite();
-  avance();
-  baisseBrosse();
-  leveBrosse();
-  gauche();
-  avance();
-  avance();
-  gauche();
-}
-def faireMotif(){ 
-  for(i<-1 to 4){
-    faireV();
-}  
-}
-def avanceloin(){
-  for(i<-1 to 7){
-    avance();
-  }
-  
-}
-def faireligne(){
-  for(k<-1 to 2){
-   faireMotif();
-  avanceloin();
-  }
-  faireMotif();
-} 
-def allerlignesuivante(){
-  var A:Int =getY();
-  setY(A-7);
-  setX(getX()-14)
-  
-}
 def fairecube(){
  faireligne();
  allerlignesuivante();
@@ -53,7 +6,7 @@ def fairecube(){
   faireligne(); 
 }
 def sepositionner(){
-  setPos(getX()+7,getY()+14)
+  setPos(getX()+5,getY()+10)
 }
 def changerligne(){
   var A:Int =getY();
@@ -84,3 +37,50 @@ override def run() {
   
   setPos(0,62);
 }
+
+def faireV(c:Color){
+  setCouleurBrosse(c)
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+	droite();
+  avance();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+def faireMotif(){ 
+  faireV(Color.YELLOW);
+  faireV(Color.RED);
+  faireV(Color.BLUE);
+  faireV(Color.GREEN);
+}
+def avanceloin(){
+  for(i<-1 to 5){
+    avance();
+  }
+  
+}
+def faireligne(){
+  for(k<-1 to 2){
+   faireMotif();
+  avanceloin();
+  }
+  faireMotif();
+} 
+def allerlignesuivante(){
+  var A:Int =getY();
+  setY(A-5);
+  setX(getX()-10)
+  
+}
+
