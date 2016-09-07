@@ -3,7 +3,19 @@ override def run() {
 	var x = 0
   while (x==0) {
     if (estFaceMur) {
-    	mur()
+    		if (getDirection()==Direction.EST) {
+          gauche()
+          if (estFaceMur()) {
+            x=1
+          } else {
+          avance()
+          gauche()
+          }
+        } else if (getDirection() == Direction.OUEST) {
+          droite()
+          avance()
+          droite()
+        } 
   	} else {
     	avance()
   	}
