@@ -10,10 +10,17 @@ override def run() {
       x=x
       y=y+1
     }else{
-      setPos(x-1,y)
-      cpt = cpt +1
-      x=x-1
-      y=y
+      if(y%2==0){
+      	setPos(x+1,y)
+      	cpt = cpt +1
+      	x=x+1
+      	y=y
+      }else{
+        setPos(x-1,y)
+      	cpt = cpt +1
+      	x=x-1
+      	y=y
+      }
     }
   }
   ecritMessage(cpt)
