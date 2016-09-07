@@ -1,0 +1,71 @@
+def growFlowers(){
+  ligne(2) // On a deux lignes
+}
+
+def ligne(n:Int){
+  if(n == 0) return
+  motif ;			//PREMIER MOTIF
+  avancen(6);
+  left ; 
+  avancen(2);
+  right ;
+  flower ; 		//FLEUR BLEUE
+  avancen(2);
+  left ;
+  avance(2);
+  right ;
+  motif ;			//SECOND MOTIF
+  right ;			//RETOUR(on est ? Gauche de la deuxi?me fleur Rose)
+  avance ;
+  right ;
+  avancen(9);
+  left ;
+  avancen(3);
+  right ;
+  ligne(n-1);	//REITERATION, on fait la ligne en dessous
+}
+
+
+def motif(){
+  flower(Color.RED) ;
+  avancen(4);
+  flower(Color.CYAN) ;
+  reculen(4);
+  right ;
+  avancen(2) ;
+  left ;
+  avancen(2)
+  flower(Color.ORANGE) ;
+  right ;
+  avancen(2) ;
+  left ;
+  flower(Color.PINK) ;
+  avancen(4);
+  flower(Color.GREEN) ;
+  reculen(4);
+}
+
+def point(c:Color){
+  setCouleurBrosse(c) ;
+  baisseBrosse ;
+  leveBrosse ;//OK
+}
+
+def avancen(n:Int) {for (i <- 1 to n) avance ;}
+def reculen(n:Int) {for (i <- 1 to n) recule ;}
+
+def flower(c:Color){
+  for (i <- 1 to 4 ){
+    point(c) ;
+    right ;
+    avance ; 
+    left ; 
+    avance ; 
+    left;
+  }
+  avance ;
+  point(Color.YELLOW);
+  recule;
+}
+
+
