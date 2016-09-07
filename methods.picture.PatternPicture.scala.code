@@ -1,0 +1,33 @@
+override def run() {
+  ligne()
+  ligne()
+}
+
+def marquer(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def bord(c1:Color,c2:Color){
+  avancer()
+  marquer(c1)
+  marquer(c2)
+  avancer()
+  gauche()
+}
+
+def carre(){
+  bord(Color.RED,Color.BLUE)
+  bord(Color.BLUE,Color.GREEN)
+  bord(Color.GREEN,Color.YELLOW)
+  bord(Color.YELLOW,Color.RED)
+}
+
+def ligne(){
+  carre()
+  for(i <- 1 to 4){
+    avance()
+  }
+  carre()
+}
