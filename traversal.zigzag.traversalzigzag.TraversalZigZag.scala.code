@@ -10,12 +10,15 @@ override def run() {
     var endroit : Boolean = true
     if (endroit) {
       if (x == width) {
-      	setPos(x,y+1) ; endroit = ! endroit
+      	setPos(x,y+1) ;
+        endroit = ! endroit
     	} else {
         setPos(x+1,y)
-      }} else {
-      if (x==0) {
-        setPos(x,y+1)
+      }
+    } else {
+      if (x==0 && y!=0) {
+        setPos(x,y+1) 
+        endroit = ! endroit
     	} else {
     		setPos(x-1, y)
     	}
