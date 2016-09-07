@@ -1,4 +1,32 @@
 def growFlowers(){
+  bac()
+  droite()
+  avance()
+  droite()
+  move(8,true)
+  droite()
+  move(2,true)
+  gauche()
+  bac()
+}
+
+def line1(c1:Color, c2:Color){
+  flower(c1)
+  move(4,true)
+  flower(c2)
+  move(4,false)
+}
+
+def line2(c1:Color, c2:Color){
+  move(2,true)
+  flower(c1)
+  move(4,true)
+  flower(c2)
+  move(4,true)
+  flower(c1)
+}
+
+def bac(){
   line1(Color.RED,Color.CYAN)
   droite()
   move(4,true)
@@ -17,26 +45,8 @@ def growFlowers(){
   move(4,true)
   gauche()
   line1(Color.PINK, Color.GREEN)
-  droite()
-  avance()
-  droite()
 }
 
-def line1(c1:Color, c2:Color){
-  flower(c1)
-  move(4,true)
-  flower(c2)
-  move(4,false)
-}
-
-def line2(c1:Color, c2:Color){
-  move(2,true)
-  flower(c1)
-  move(4,true)
-  flower(c2)
-  move(4,true)
-  flower(c1)
-}
 def flower(c:Color){
   setCouleurBrosse(c)
   baisseBrosse()
