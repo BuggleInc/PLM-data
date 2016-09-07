@@ -9,7 +9,7 @@ override def run() {
 }
 
 def testFin():Boolean= {
-  if(getX()+1==getMondeLargeur && getY()+1==getMondeLargeur){
+  if(getX()+1==getMondeLargeur && getY()+1==getMondeHauteur){
     return true
   }else{
     return false
@@ -17,7 +17,7 @@ def testFin():Boolean= {
 }
 
 def go(){
-  if(!estFaceMur()){
+  if(getY()+1<=getMondeHauteur){
     setPos(getX(),getY+1)
   }else{
     setPos(getX()+1,0)
