@@ -1,6 +1,8 @@
 def hunt() {
   while(!isOverBaggle()){
-    isFacingTrail()
+    if(isFacingTrail==false){
+      left();
+    }
 }
 
 def isFacingTrail():Boolean ={
@@ -9,13 +11,11 @@ def isFacingTrail():Boolean ={
     }else{
       forward();
     if(getCouleurSol()==Color.green){
-      brushDown();
-      brushUp();
+      backward();
       return true
     }else{
       backward();
       return false
     }
     }
-}
 }
