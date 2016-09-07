@@ -1,13 +1,20 @@
 def growFlowers() {
   var color:Color = Color.RED
+  var x:Int = 0
+  var y:Int = 0
   for (i <- 1 to 4) {
     for (fleur <- 1 to 5) {
+      i match{
+        case 2 => x = 8;y = 0
+        case 3 => x = 0;y = 8
+        case 4 => x = 8; y =8
+      }
       fleur match {
         case 1 => color = Color.RED
-        case 2 => color = Color.CYAN; setX(5 + 8 * (i % 2)); setY(2 + 8 * (i % 2));
-        case 3 => color = Color.ORANGE; setX(3 + 8 * (i % 2)); setY(4 + 8 * (i % 2));
-        case 4 => color = Color.PINK; setX(1 + 8 * (i % 2)); setY(6 + 8 * (i % 2));
-        case 5 => color = Color.GREEN; setX(5 + 8 * (i % 2));
+        case 2 => color = Color.CYAN; setX(5 + x); setY(2 + y);
+        case 3 => color = Color.ORANGE; setX(3 + x); setY(4 + y);
+        case 4 => color = Color.PINK; setX(1 + x); setY(6 + y);
+        case 5 => color = Color.GREEN; setX(5 + x);
       }
     faireFleur(color)
   	}
