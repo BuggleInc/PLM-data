@@ -1,0 +1,12 @@
+override def run() {
+  var cpt : Int = 0 
+  (getX(),getY()) match {
+    case (getMondeLargeur(),getMondeHauteur()) => ecritMessage(cpt)
+    case (getMondeLargeur(),_) => getY() match {
+      case 0 => ecritMessage(cpt); while(!(getDirection()==Direction.SOUTH)){gauche()}; cpt=cpt + 1 ; avance()
+      case _ => ecritMessage(cpt); cpt=cpt+1; avance()
+    }
+    case (_,getMondeHauteur()) => ecritMessage(cpt); cpt= cpt + 1; gauche();avance();droite(); for (i <-1 to getMondeLargeur()) {recule()}
+    case (_,_)=> ecritMessage(cpt); cpt=cpt+1
+  }
+}
