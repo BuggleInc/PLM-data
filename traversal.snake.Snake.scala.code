@@ -14,11 +14,13 @@ override def run() {
 }
 
 def finished():Boolean ={
-  var dir = getDirection();
-  setDirection(Direction.NORTH);
-  if (isFacingWall()) {
-    return true
+  if (!isFacingWall) {
+    var dir = getDirection();
+    setDirection(Direction.NORTH);
+    if (isFacingWall()) {
+      return true
+    }
+    setDirection(dir);
   }
-  setDirection(dir);
   return false
 }
