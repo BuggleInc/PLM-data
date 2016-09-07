@@ -1,0 +1,55 @@
+def fairediagobas(c:Color){
+ setCouleurBrosse(c);
+ avance();
+ baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+}
+
+def fairediagohaut(c:Color){
+  setCouleurBrosse(c);
+ baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  gauche();
+  
+}
+def fairecarre(){
+  fairediagobas(Color.RED)
+  avance();
+  avance();
+  fairediagohaut(Color.BLUE)
+  gauche();
+  avance();
+  avance();
+  droite();
+  fairediagobas(Color.GREEN)
+  recule();
+  recule();
+  fairediagohaut(Color.YELLOW)
+}
+override def run() {
+  fairecarre();
+  setPos(getX()-4,getY()+2);
+  fairecarre();
+  setPos(getX(),getY()+6);
+  fairecarre();
+  setPos(getX()+4,getY()+2)
+  
+}
