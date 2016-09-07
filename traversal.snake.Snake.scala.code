@@ -6,7 +6,8 @@ override def run() {
       avance()
     }
     
-    fin = verifFin()
+    if (verifFin()):
+    	fin = true
     
     if(fin == false) {
       monte(getDirection())
@@ -23,7 +24,7 @@ def verifFin() {
   } else if (getDirection() == Direction.OUEST) {
     droite()
      if (estFaceMur()) {fin = true}
-    gauche
+    gauche()
   }
   return fin
 }
