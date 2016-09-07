@@ -1,53 +1,17 @@
 override def run() {
-  var colonne=0
-  var ligne=0
+  motif_final(Color.red,Color.blue,Color.green,Color.yellow)
+  avance1()
+  motif_final(Color.red,Color.blue,Color.green,Color.yellow)
   
-  for (colonne <-0 to 1){
-    avance()
-    motif(Color.red,Color.blue)
-
-    avance()
-    motif(Color.blue,Color.green)
-
-    avance()
-    motif(Color.green,Color.yellow)
-
-    avance()
-    motif(Color.yellow,Color.red)
-    
-    avance()
-    avance()
-    avance()
-    avance()
-    
-    avance()
-    motif(Color.red,Color.blue)
-
-    avance()
-    motif(Color.blue,Color.green)
-
-    avance()
-    motif(Color.green,Color.yellow)
-
-    avance()
-    motif(Color.yellow,Color.red)
-    
-    gauche()
-    avance()
-    avance()
-    avance()
-    avance()
-    
-    gauche()
-    avance()
-    avance()
-    avance()
-    avance()
-    retourne()
-  }
+  gauche()
+  avance1()
+  gauche()
+  avance1()
+  retourne()
   
-  
-  
+  motif_final(Color.red,Color.blue,Color.green,Color.yellow)
+  avance1()
+  motif_final(Color.red,Color.blue,Color.green,Color.yellow)
 }
 
 
@@ -66,3 +30,25 @@ def motif(c:Color, d:Color){
   avance()
   gauche()
 }
+
+def motif_final(a:Color, b:Color,c:Color,d:Color){
+  avance()
+    motif(a,b)
+
+    avance()
+    motif(b,c)
+
+    avance()
+    motif(c,d)
+
+    avance()
+    motif(d,a)
+}
+
+def avance1(){
+  avance()
+  avance()
+  avance()
+  avance()
+}
+
