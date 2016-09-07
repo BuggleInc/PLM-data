@@ -1,5 +1,20 @@
 def growFlowers(){
-  flower(Color.RED)
+  flower(Color.RED) ;
+  avancen(4);
+  flower(Color.CYAN) ;
+  reculen(4);
+  right ;
+  avancen(2) ;
+  left ;
+  avancen(2)
+  flower(Color.ORANGE) ;
+  right ;
+  avancen(2) ;
+  left ;
+  flower(Color.PINK) ;
+  avancen(4);
+  flower(Color.GREEN) ;
+  reculen(4);
 }
 
 def point(c:Color){
@@ -9,6 +24,7 @@ def point(c:Color){
 }
 
 def avancen(n:Int) {for (i <- 1 to n) avance ;}
+def reculen(n:Int) {for (i <- 1 to n) recule ;}
 
 def flower(c:Color){
   for (i <- 1 to 4 ){
@@ -24,14 +40,4 @@ def flower(c:Color){
   recule;
 }
 
-def couleurNum(n:Int):Color = {
-    var c:Color = Color.YELLOW;
-  	n match {
-    case 1 		=> 	c = Color.RED ;
-    case 2 		=>  c = Color.BLUE ;
-    case 3 		=> 	c = Color.GREEN ;
-    case _ 		=> 	c = Color.YELLOW ;
-  }
-  return c;
-}
 
