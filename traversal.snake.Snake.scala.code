@@ -1,20 +1,4 @@
-override def run() 
-{def test_fin():Boolean={var test:Boolean=false;
-if (getDirection()==(Direction.WEST)) 
-                         {right();if (!isFacingWall()) {test=true}; left()}; 
-if (getDirection()==Direction.EAST) 
-{left();if (!isFacingWall()) {test=true}; right()}; return(test)}
- var test2:Boolean=false
-  
-                   
-def fonce(){while (!isFacingWall) {forward()}}                  
-def change_dir(){if((isFacingWall())&&(getDirection()==(Direction.EAST))) {left(); forward(); left()} else {right(); forward(); right()}}
- while((!test2)) {fonce(); change_dir(); test2=test_fin()}}
-
-
-
-
-
-
-
-
+override def run()                   
+def fonce(){while (!isFacingWall) {forward()}}              
+brushDown()
+for (i<-1 to 3) {fonce(); left(); forward(); left(); fonce(); right(); forward(); right()}; fonce()
