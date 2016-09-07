@@ -1,16 +1,11 @@
-def isFacingTrail():Boolean = { var devantVert : Boolean = false
+
+def chercherBiscuit() {def isFacingTrail():Boolean = { var devantVert : Boolean = false
     // Write your code here
-while (!unMur())
-{avance(); if (getCouleurSol()==Color.green) {devantVert = true}; recule()
+
+                              avance(); if (getCouleurSol()==Color.green) {devantVert = true}; recule()
 	
-                                return devantVert}} 	
-
-def unMur() 
-{var mur : Boolean = false
-  if ( !estFaceMur() && !estDosMur() ) {mur=true}
-return mur}
-
-def chercherBiscuit() {while (!estSurBiscuit() ) 
+                                return devantVert}	
+while (!estSurBiscuit() ) 
                        {if (isFacingTrail) {avance()}
                         else {gauche()}}
                       prendBiscuit()}
