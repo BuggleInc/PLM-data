@@ -5,11 +5,13 @@ override def run() {
   var count:Int = 0;
   var direction = 1;
   
-  var x = -1;
-  var y = -1;
+  var x = 0;
+  var y = 0;
   
   
   do {
+    setPos(x,y);
+    writeMessage(count);
     
     count += 1;
     x += direction;
@@ -25,8 +27,6 @@ override def run() {
     }
     
     
-    setPos(x,y);
-    writeMessage(count);
     
   } while (!isOnFinalDestination());
 }
