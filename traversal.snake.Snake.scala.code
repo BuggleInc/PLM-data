@@ -1,0 +1,47 @@
+override def run() {
+  
+  while(test==false){
+    
+    if (isFacingWall==false){forward}
+    
+    else if(getDirection() == Direction.EAST){
+      left();
+      forward();
+      left();
+    }
+    else if(getDirection() == Direction.WEST){
+      right();
+      forward();
+      right();
+    }
+  }
+}
+
+def test:Boolean={
+  
+  if(isFacingWall==false){return false;}
+  else{
+    if(getDirection() == Direction.EAST){
+      left();
+      if(isfacingWall()==true){
+        right();
+        return true;
+      }
+			else{
+        right();
+        return false;
+      }
+    }
+    else{
+      right();
+      if(isFacingWall()){
+        left();
+        return true;
+      }
+      else{
+      	right();
+      	return false;
+      }
+    }
+  }  
+}
