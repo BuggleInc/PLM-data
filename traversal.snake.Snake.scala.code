@@ -1,7 +1,22 @@
 override def run() {
   baisseBrosse()
   while (!posFinale()) {
-    pas()
+    if (estFaceMur()) {
+    if (getDirection() == Direction.OUEST) {
+      	droite()
+      	avance()
+      	droite()
+    }
+    else {
+      	gauche()
+      	avance()
+      	gauche()
+    }
+   
+  }
+  else
+  	avance()
+  	
   }
   
 }
@@ -22,7 +37,7 @@ def posFinale() : Boolean = {
   	return false
 }
 
-//def pas() {
+def pas() {
   if (estFaceMur()) {
     if (getDirection() == Direction.OUEST) {
       	droite()
@@ -35,7 +50,7 @@ def posFinale() : Boolean = {
       	gauche()
     }
    
-  
+  }
   else
   	avance()
   	
