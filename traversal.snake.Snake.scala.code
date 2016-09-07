@@ -1,0 +1,38 @@
+override def run() {
+  baisseBrosse()
+  while (!positionFinale()) {
+    pasSerpent()
+  }
+}
+
+def positionFinale() {
+  var res:Boolean=true
+  if (estFaceMur()) {
+    res=false
+  } else {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      if (!estFaceMur) {
+        res=false
+      }
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      if (!estFaceMur) {
+        res=false
+      }
+    }
+  }
+  return res
+}
+
+def pasSerpent() {
+  if (!estFaceMur) {
+    avance()
+  } else if (getDirection==Direction.OUEST) {
+    droite();avance();droite()
+  }
+  else if (getDirection==Direction.EST) {
+    gauche();avance();gauche()
+  }
+}

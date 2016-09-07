@@ -1,0 +1,52 @@
+def fleurs(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse();leveBrosse()
+  avance();gauche();avance()
+  baisseBrosse();leveBrosse()
+  droite();avance();droite();avance()
+  baisseBrosse();leveBrosse()
+  droite();avance();gauche();avance()
+  baisseBrosse();leveBrosse()
+  droite();droite();avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse();leveBrosse();
+}
+
+def deplacement1() {
+  droite();avance();avance();avance()
+}
+
+def deplacement2() {
+  gauche();avance();avance();gauche();avance();avance();gauche();recule()
+}
+
+def fleurs5() {
+  fleurs(Color.RED)
+  deplacement1()
+  fleurs(Color.CYAN)
+  deplacement2()
+  fleurs(Color.ORANGE)
+  deplacement2()
+  fleurs(Color.PINK)
+  deplacement1()
+  fleurs(Color.GREEN)
+}
+
+def fleursJardin() {
+  fleurs5()
+  avance();avance();droite();avance()
+  fleurs(Color.BLUE)
+  avance();droite();avance();gauche();avance();droite()
+  fleurs5()
+}
+
+def growFlowers() {
+  fleursJardin()
+  recule();gauche()
+  for (i <- 1 to 13) {
+    avance()
+  }
+  gauche();avance();avance();avance();gauche()
+  fleursJardin
+  droite();recule();recule();recule();recule();recule()
+}
