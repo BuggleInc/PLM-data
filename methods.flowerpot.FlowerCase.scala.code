@@ -10,7 +10,7 @@ def Fleur(c:Color){
   setCouleurBrosse(Color.YELLOW)
   baisseBrosse();leveBrosse();avance()
 }
-def Half(){
+def Fleurmax(){
   Fleur(Color.RED)
   avance(2)
   Fleur(Color.CYAN)
@@ -22,10 +22,15 @@ def Half(){
   Fleur(Color.GREEN)
 }
 
-def growFlowers(){
- 	Half()
+def Half(){
+ 	Fleurmax()
   gauche();avance(2);droite()
   Fleur(Color.BLUE)
   gauche();avance(2);droite()
+  Fleurmax()
+}
+def growFlowers(){
+  Half()
+  droite();avance();droite();avance(21);gauche();avance(3);gauche()
   Half()
 }
