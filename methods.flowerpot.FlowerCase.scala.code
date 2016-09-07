@@ -16,3 +16,19 @@ def growFlowers() {
   avance(); avance(); droite(); avance(); avance(); avance(); droite(); droite()
   
 }
+
+def transitionGD() {
+  avance(); avance(); avance(); avance(); avance(); avance(); gauche(); avance(); avance(); droite(); setCouleurBrosse(Color.BLUE)
+   for ( compteur <- 1 to 4) { baisseBrosse(); leveBrosse(); avance(); droite(); avance(); droite(); droite()}
+  avance(); setCouleurBrosse(Color.YELLOW); baisseBrosse(); leveBrosse()
+  avance(); droite(); avance(); avance(); gauche()  
+}
+
+def transitionHB() {
+  droite(); avance(); droite(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); gauche(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); gauche()
+}
+
+override def run() {
+  growFlowers(); transitionGD(); growFlowers()
+  transitionHB(); growFlowers(); transitionGD(); growFlowers()
+}
