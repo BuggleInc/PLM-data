@@ -19,8 +19,11 @@ override def run() {
     miniMotif(Color.GREEN)
     miniMotif(Color.YELLOW)
   }
+  def ligneMotif(nbMot: Int){for(x<-1 to nbMot-1){ptitMotif();avance(4)};ptitMotif}
   def Motif(nbMot: Int){
-  for(x<-1 to nbMot-1){ptitMotif();avance(4)};ptitMotif
+    for(y<-1 to nbMot-1){ligneMotif(nbMot);recule(4*(nbMot-1));gauche();avance(4);droite()}
+    ligneMotif(nbMot)
+  
 }
 Motif(2)
 }
