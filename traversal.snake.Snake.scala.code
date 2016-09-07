@@ -1,0 +1,43 @@
+def positionFinale() {
+  
+	var murDevant = estFaceMur()
+  var murAuNord:Boolean = null
+  
+  getDirection() match {
+    
+    Direction.EST => gauche();murAuNord = estFaceMur();droite()
+    Direction.OUEST => droite();murAuNord = estFaceMur();gauche()
+    
+  }
+  
+  return (murDevant && murAuNord)
+  
+}
+
+def avanceSerpent() {
+  
+  if (estFaceMur) {
+    
+    getDirection() match {
+      
+      case Direction.EST => gauche();avance();gauche();
+      case Direction.OUEST => droite();avance():droite();
+      
+    }
+    
+  } else {
+    
+    avance()
+    
+  }
+  
+}
+
+override def run() {
+  baisseBrosse()
+  while (!positionFinale()) {
+
+		avanceSerpent()
+
+  }
+}
