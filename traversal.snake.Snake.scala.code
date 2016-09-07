@@ -6,7 +6,7 @@ override def run() {
       avance()
     }
     
-    fin = verifFin(getDirection())
+    fin = verifFin()
     
     if(fin == false) {
       monte(getDirection())
@@ -14,13 +14,13 @@ override def run() {
   }
 }
 
-def verifFin(dir: Direction) {
+def verifFin() {
   var fin = false
-  if (dir == Direction.EST) {
+  if (getDirection() == Direction.EST) {
     gauche()
     fin = estFaceMur()
     droite()
-  } else if (dir == Direction.OUEST) {
+  } else if (getDirection() == Direction.OUEST) {
     droite()
     fin = estFaceMur()
     gauche
