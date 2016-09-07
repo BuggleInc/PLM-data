@@ -1,25 +1,27 @@
 override def run() {
   baisseBrosse()
-  while(!posFinale()) {
-  if (!estFaceMur()) avance()
-  else if (getDirection() == Direction.OUEST) {droite();avance();droite()}
-  else if (getDirection() == Direction.EST) {gauche();avance();gauche()}
-  else ()
+  while(!posFinale()) snake()
+}
+
+
+def snake() {
+  if(!estFaceMur) avance()
+  else {
+    if(getDirection() == Direction.EST) {
+      gauche();avance();gauche()
+    }
+    else{
+      droite();avance();droite()
+    }
   }
 }
 
-def posFinale():Boolean = {
-  if(!estFaceMur) return(false)
-  if (getDirection() == Direction.EST) {
+def posFinale() {
+  if(!estFaceMur()) return false
+  else {
     gauche()
-    if(estFaceMur) avance();gauche();return(true)}
-  
-  if (getDirection() == Direction.OUEST) {
+    var rep = estFaceMur()
     droite()
-    if(estFaceMur) avance();droite();return(true)}
-	return(false)
-}
-
-def snake() {
-
+    return(rep)
+  }
 }
