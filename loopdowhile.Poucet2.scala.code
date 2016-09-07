@@ -1,0 +1,23 @@
+var baggles = 0 
+var cases = 0
+
+do {
+  do {
+    
+    avance();
+    
+    if (estSurBiscuit() == true) {
+      baggles += 1;
+    }
+    
+  } while (crossing() != true)
+  
+  if (baggles <= 2) {
+    droite();
+  } else {
+    gauche();
+  }
+  baggles = 0
+  
+} while (sortieTrouvee() != true)
+avance();
