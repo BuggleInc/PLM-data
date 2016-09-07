@@ -5,10 +5,17 @@ override def run() {
   for (i <- 1 to 48){
     ecritMessage(cpt)
     if(x==getMondeLargeur()-1){
-      setPos(x,y+1)
-      cpt = cpt +1
-      x=x
-      y=y+1
+      if(cpt%6==0){
+      	setPos(x,y+1)
+      	cpt = cpt +1
+      	x=x
+      	y=y+1
+      }else{
+        setPos(x-1,y)
+      	cpt = cpt +1
+      	x=x
+      	y=y
+      }
     }else{
       if(y%2==0){
       	setPos(x+1,y)
@@ -18,7 +25,7 @@ override def run() {
       }else{
         setPos(x-1,y)
       	cpt = cpt +1
-      	x=x-1
+      	x=x
       	y=y
       }
     }
