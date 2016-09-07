@@ -1,20 +1,68 @@
 override def run() {
+  var colonne=0
+  var ligne=0
+  
+  for (colonne <-0 to 1){
+    avance()
+    motif(Color.red,Color.blue)
+
+    avance()
+    motif(Color.blue,Color.green)
+
+    avance()
+    motif(Color.green,Color.yellow)
+
+    avance()
+    motif(Color.yellow,Color.red)
+    
+    avance()
+    avance()
+    avance()
+    avance()
+    
+    avance()
+    motif(Color.red,Color.blue)
+
+    avance()
+    motif(Color.blue,Color.green)
+
+    avance()
+    motif(Color.green,Color.yellow)
+
+    avance()
+    motif(Color.yellow,Color.red)
+    
+    gauche()
+    avance()
+    avance()
+    avance()
+    avance()
+    
+    gauche()
+    avance()
+    avance()
+    avance()
+    avance()
+    retourne()
+  }
+  
+  
+  
 }
 
-def motif(c:Color){
+
+
+def motif(c:Color, d:Color){
   setCouleurBrosse(c)
-  
-  avance()
   baisseBrosse()
   leveBrosse()
   
-  gauche()
-  avance()
-  gauche()
   avance()
   
+  setCouleurBrosse(d)
   baisseBrosse()
   leveBrosse()
   
-  droite()
+  avance()
+  gauche()
 }
