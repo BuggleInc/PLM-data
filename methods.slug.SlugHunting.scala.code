@@ -1,0 +1,27 @@
+def hunt() {
+    while(!isOverBaggle()){
+      
+      while(!isFacingTrail()){
+        left()
+      }
+      
+      while(isFacingTrail() && !isOverBaggle()){
+        forward()
+      }
+      
+      
+    }
+}
+
+def isFacingTrail():Boolean = {
+  
+  var piste : Boolean= false
+  if(!isFacingWall()){
+    forward()
+    if(getGroundColor()==Color.green)
+      piste=true
+    backward()
+  }
+  
+  return piste
+}
