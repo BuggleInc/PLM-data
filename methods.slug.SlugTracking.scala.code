@@ -2,11 +2,15 @@ def isFacingTrail():Boolean = {
   	var vuVert: Boolean = false
   	if (estFaceMur()==true) {
       vuVert = false
-    } else if (getCouleurSol()==Color.green) {
+    } else {
+      forward();
+      if (getCouleurSol()==Color.green) {
       vuVert=true
     } else {
       vuVert = false
     }
   	return vuVert
+    }
+  	
 }
 
