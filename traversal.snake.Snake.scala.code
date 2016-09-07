@@ -18,12 +18,15 @@ def fonctionTest():Boolean={
   
   
   baisseBrosse()
-  do{avance()
+  
+  while(!fonctionTest()){avance()
     if(estFaceMur() && getDirection()==Direction.EST){gauche()
                                                       if(!estFaceMur()){avance();gauche()}}
     if(estFaceMur() && getDirection()==Direction.OUEST){droite()
                                                         if(!estFaceMur()){avance();droite()}}
-    }while(!fonctionTest())
+    }
+  
+  
   droite()
   if(!estFaceMur()){droite();droite()}
 }
