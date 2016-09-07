@@ -1,6 +1,15 @@
 forward();
-def isFacingTrail():Boolean = {
-  if (getCouleurSol()==Color.green){
+def isFacingTrail():Boolean ={
+  while(!isOverBaggle()){
     forward();
-	}
+    if(getCouleurSol()==Color.green){
+      backward();
+    }else{
+      backward();
+      left();
+    }
+    if(isFacingWall()){
+      left();
+    }
+  }
 }
