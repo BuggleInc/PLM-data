@@ -6,17 +6,15 @@ def fini():Boolean={
 }
 
 def traceDiag(){
-  if (diag<8){
     var x = diag
     var y = 0
     while(y != diag ){
-      setPos(y,x);
+      setPos(y%(getMondeHauteur()-1),x%(getMondeHauteur()-1)-1);
       ecritMessage(cpt)
       cpt += 1;
       x -= 1;
       y += 1;
     }
-  }
 }
 
 override def run() {
