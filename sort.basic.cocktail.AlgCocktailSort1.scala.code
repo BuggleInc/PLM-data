@@ -1,15 +1,18 @@
 def cocktailSort() {
-  
-  for(k <- 1 to getValueCount()) {
+  var modif = false;
+  do {
     for(i <- 0 to (getValueCount() - 2) by -1) 
-          if(isSmaller(i+1,i))
-          swap(i,i+1);
+          if(isSmaller(i+1,i)){
+          	swap(i,i+1);
+            modif = true;
+          }
     
     for (j <- 0 to (getValueCount() - 2))  {
 
       if(isSmaller(j+1,j))
           swap(j,j+1);
+    modif = true;
     }
-  }
+  } while(modif)
       
 }
