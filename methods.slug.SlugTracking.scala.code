@@ -1,11 +1,10 @@
 def isFacingTrail():Boolean = {
-  	while(isCarryingBaggle() == false){
-  	
-    	forward()
-    	while (getGroundColor() != Color.green){
-      	backward()
-      	left()
+  	forward()
+  	if (getGroundColor() == Color.green){
+      return true
     }
-  	return true
-    }
+  	else {
+    backward()
+    left()
+  }
 }
