@@ -1,0 +1,44 @@
+override def run() {
+  motifCarre()
+  move(4,true)
+  motifCarre()
+  gauche()
+  move(4,true)
+  droite()
+  motifCarre()
+  move(4,false)
+  motifCarre()
+}
+
+def cote(c1:Color, c2:Color){
+  avance()
+  setCouleurBrosse(c1)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  setCouleurBrosse(c2)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+}
+
+def motifCarre(){
+  cote(Color.RED,Color.BLUE)
+  cote(Color.BLUE,Color.GREEN)
+  cote(Color.GREEN,Color.YELLOW)
+  cote(Color.YELLOW,Color.RED)
+}
+
+def move(nbPas: Int,versLAvant: Boolean) {
+  if (versLAvant){
+    for (i <- 0 to (nbPas - 1)){
+      avance()
+    }
+  }
+  else{
+    for (i <- 0 to (nbPas - 1)){
+      recule() 
+    }
+  }
+}
