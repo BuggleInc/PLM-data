@@ -24,10 +24,15 @@ def ligne() {
 
 def carre() {
   forward();
-  faireV(Color.YELLOW); forward; forward(); left(); forward(); faireV(Color.RED); forward; forward(); left(); forward(); faireV(Color.BLUE); forward; forward(); left(); forward(); faireV(Color.GREEN); forward; forward(); left(); forward(); backward();
+  for (compteur <- 1 to 4) {
+    faireV(c:Color); forward; forward(); left(); forward(); 
+  }
+  backward();
 }
 
-
+def faireV(c:Color) {
+    setCouleurBrosse(c:Color); faireV();
+}
 
 def faireV() {
     forward(); brushDown(); brushUp(); left(); forward(); right(); forward(); brushDown(); brushUp(); forward(); right(); forward(); brushDown(); brushUp(); left();
