@@ -1,10 +1,14 @@
 def bubbleSort()  {
   
-  for (c <- 0 to getNombreValeurs()-1; x <- c to getNombreValeurs()-1) {
+  for (c <- 0 to getNombreValeurs()-1) {
     
-    if (getValeur(c+x)>getValeur(c+x+1)) {
+    for (x <- c to getNombreValeurs()-2) {
       
-      echange(c+x,c+x+1)
+      if (!plusPetit(c+x,c+x+1)) {
+        
+        echange(c+x,c+x+1)
+        
+      }
       
     }
     
