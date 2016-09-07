@@ -3,13 +3,14 @@ def bubbleSort2()  {
   var count = 0;
   
   do {
-    count += 1;
     swapped = false;
-    for (i <- 0 to getValueCount()-2) {
+    for (i <- 0 to getValueCount()-2-count) {
       if (isSmaller(i+1, i)) {
         swap(i, i+1);
         swapped = true;
       }
     }
-  } while (swapped && count == getValueCount());
+    
+    count += 1;
+  } while (swapped);
 }
