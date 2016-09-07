@@ -1,0 +1,15 @@
+override def run() {
+  var cpt = 0
+  var sens = true
+  for(i<- 0 to getMondeLargeur()-1){
+    for(j<- 0 to getMondeHauteur()-1){
+      if(sens)
+      	setPos(j,i);
+      else
+      	setPos(j,getMondeLargeur()-i-1)
+      ecritMessage(cpt);
+      cpt += 1;
+    }
+    sens = !sens
+  }
+}
