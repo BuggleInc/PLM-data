@@ -20,7 +20,6 @@ def moveAndDrop () = {
   uTurn();
   forward();
   dropBaggle();
-  forward();
 }
 
 // to allow the last steps toward the exit 
@@ -34,6 +33,7 @@ def run () = {
     moveAndTake();
     uTurn();
     moveAndDrop();
+    if (!isFacingWall ()) {forward();}
   }
   // the few last moves to exit
   right();
