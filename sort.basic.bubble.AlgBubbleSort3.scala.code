@@ -1,6 +1,7 @@
 def bubbleSort3()  {
-  for(i <- getValueCount()- 1 to 2 by -1)
-  	traverse(i);
+  for(i <- getValueCount() - 1 to 2 by -1)
+  	if (!traverse(i))
+  	  return;
 }
 
 
@@ -12,6 +13,5 @@ def traverse(fin:Int) : Unit  = {
        swapped = true;
 	   }
    }
-   if(!swapped)
-  	 return;
+  return swapped;
 }
