@@ -2,7 +2,7 @@ override def run() {
   var x = getX()
   var y = getY()
   var cpt = 0
-  while(arrivee()==false){
+  while(getX()!=getMondeLargeur() && getY()!=getMondeHauteur()){
     ecritMessage(cpt)
     if(getY()==getMondeHauteur()){
       setPos(x+1,0)
@@ -13,13 +13,5 @@ override def run() {
       setPos(x,y+1)
       cpt=cpt+1
     }
-  }
-}
-
-def arrivee(){
-  if(getX()!=getMondeLargeur() && getY()!=getMondeHauteur()){
-    return false
-  }else{
-  	return true
   }
 }
