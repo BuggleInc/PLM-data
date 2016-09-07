@@ -1,0 +1,55 @@
+override def run() {
+  
+  var n = 0
+	var m = 0
+  var p = 0
+
+	def marqueSol() {
+  	baisseBrosse();
+  	leveBrosse();
+	}
+  
+  def faireV(c : Color) {
+  	
+    avance();
+    setCouleurBrosse(c);
+  	marqueSol();
+  	avance();
+ 		gauche();
+  	avance();
+  	marqueSol();
+  	recule();
+  	droite();
+  	avance();
+  	marqueSol();
+    avance();
+  	}  
+	
+  def motif() {
+    for(m <- 1 to 9) {
+      for(n <- 1 to 9) {
+        faireV(Color.YELLOW);
+        gauche();
+        faireV(Color.RED);
+        gauche();
+        faireV(Color.BLUE);
+        gauche();
+        faireV(Color.GREEN);
+        gauche();
+        for (m <- 1 to 5) {
+         	avance();
+    	 	}
+      }
+      
+      gauche();
+      for (m <- 1 to 5) {
+         	avance();
+    	}
+      droite();
+     
+    }
+  }
+
+motif();
+  
+}
