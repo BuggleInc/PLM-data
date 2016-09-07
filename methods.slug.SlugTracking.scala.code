@@ -1,76 +1,16 @@
 def isFacingTrail():Boolean = {
     var bool = false
-  	if(!estFaceMur())
+  	if(estFaceMur())
       {
-        avance()
-        if(getCouleurSol()==Color.green)
-        	{
-            bool=true
-            recule()
-          }
-      
-        else
-        	{
-            recule();droite() // on teste une autre direction
-          
-                if(!estFaceMur())
-                  {
-                    avance()
-                    if(getCouleurSol()==Color.green)
-                      {
-                        bool=true
-                        recule()
-                      }
-                    else
-                    	{
-                        retourne(); bool=true;
-                      }
-                  }
-                else
-                  {
-                    recule();retourne()
-                    if(!estFaceMur())
-                      {
-                        avance()
-                        if(getCouleurSol()==Color.green)
-                          {
-                            bool=true
-                            recule()
-                          }
-                      }
-
-                  }
-              }
-      
+        bool = false
       }
-  else
+  	else
   	{
-      droite();
-      if(!estFaceMur())
+      if(getCouleurSol()==Color.green)
       	{
-          avance()
-          if(getCouleurSol()==Color.green)
-            {
-              bool=true
-              recule()
-            }
-          else
-          	{
-              recule();retourne()
-              bool=true
-            }
-          
+          bool = true
         }
-      else
-      	{
-          retourne();
-          bool=true
-        }
-      
-      
     }
-      
-    	
   return bool
   
 }
