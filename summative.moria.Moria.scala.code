@@ -1,0 +1,21 @@
+def deplacerBiscuit(){
+  while(!estSurBiscuit()){
+    avance()
+  }
+  prendBiscuit()
+  while(!estSurBiscuit()){
+    recule()
+  }
+  avance()
+  poseBiscuit()
+}
+
+override def run(){
+  while(!estFaceMur()){
+    deplacerBiscuit()
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
