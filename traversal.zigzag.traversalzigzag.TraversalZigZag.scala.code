@@ -11,7 +11,7 @@ def murADroite():Boolean = {
 
 def next() {
   
-  (getY()%2,getX(),MurADroite()) match { // On vérifie la parité de la ligne pour le sens et X pour les collisions
+  (getY()%2,getX(),murADroite()) match { // On vérifie la parité de la ligne pour le sens et X pour les collisions
     
     case (0,0,_) => setY(getY()+1) //ligne paire, dernière case : on descend
     case (0,_,_) => setX(getX()-1) //ligne paire, case qqqe : à gauche
@@ -28,7 +28,7 @@ override def run() {
   for (c <- 1 to getMondeHauteur()*getMondeLargeur()) {
     
     ecritMessage(compteur)
-    if (!estDosMur&&MurADroite) {
+    if (!estDosMur()&&murADroite()) {
       
       next()
       
