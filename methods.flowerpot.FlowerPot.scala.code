@@ -1,0 +1,37 @@
+def growFlowers(){
+  
+}
+
+def point(c:Color){
+  setCouleurBrosse(c) ;
+  baisseBrosse ;
+  leveBrosse ;//OK
+}
+
+def avance(n:Int) for (i <- 1 to n) avance ;
+
+def flower(c:Color){
+  for (i <- 1 to 4 ){
+    point(c) ;
+    right ;
+    avance ; 
+    left ; 
+    avance ; 
+    left;
+  }
+  avance ;
+  point(Color.YELLOW);
+  recule;
+}
+
+def couleurNum(n:Int):Color = {
+    var c:Color = Color.YELLOW;
+  	n match {
+    case 1 		=> 	c = Color.RED ;
+    case 2 		=>  c = Color.BLUE ;
+    case 3 		=> 	c = Color.GREEN ;
+    case _ 		=> 	c = Color.YELLOW ;
+  }
+  return c;
+}
+
