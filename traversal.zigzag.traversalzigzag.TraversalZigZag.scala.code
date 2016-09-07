@@ -9,12 +9,14 @@ override def run() {
       counter += 1;
     }
     
-    var c = i + 1;
-    
-    for(j <- getWorldHeight() - 1 to 0 by -1) {
-      setPos(j, c);
-      writeMessage(counter);
-      counter += 1;
+    if(i + 1 < getWorldHeight() - 1) {
+      var c = i + 1;
+
+      for(j <- getWorldHeight() - 1 to 0 by -1) {
+        setPos(j, c);
+        writeMessage(counter);
+        counter += 1;
+      }
     }
   }
 }
