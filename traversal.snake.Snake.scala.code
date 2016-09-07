@@ -5,13 +5,17 @@ override def run() {
     avance()
     if(getDirection() == Direction.EST && estFaceMur()){
         gauche()
+       if(!estFaceMur){
         avance()
         gauche()
-      }
+      } 
+    }
     else if(getDirection() == Direction.OUEST && estFaceMur() ){
         droite()
+      if(!estFaceMur){
         avance()
-        droite()  	
+        droite()
+      } 	
     		}	
     if(getCouleurSol() == Color.red && estFaceMur){
       x = false
