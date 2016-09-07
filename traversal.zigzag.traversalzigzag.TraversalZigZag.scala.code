@@ -1,8 +1,9 @@
 def pasDeSerpent() {
-  
+  var x:Int=getX()
+ 	var absMax:Int=getMondeLargeur()
   estFaceMur() match {
     case false => avance()
-    case true if getDirection()==Direction.EST => droite();avance();droite()
+    case true if x==absMax => droite();avance();droite()
     case _ => gauche();avance();gauche()
   }
 }
