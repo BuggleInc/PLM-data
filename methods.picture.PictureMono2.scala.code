@@ -1,20 +1,18 @@
 var c:Int=0
 
 override def run() {
-  forward();
   def makeV(){
   	brushDown();
     brushUp();
     forward();
     left();
-    forward();
-    brushDown();
-    brushUp();
-    backward();
-    right();
-    forward();
-    brushDown();
-    left();
+    forward();brushDown();brushUp();backward();
+    right();forward();brushDown();left();
   }
-  makeV()
+  def makePattern(){
+    forward();
+    forward();
+    makeV();
+  }
+  makePattern();
 }
