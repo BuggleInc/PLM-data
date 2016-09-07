@@ -14,14 +14,17 @@ def faireDiag(){
   gauche()
 }
 
+def faireDoubleDiag() {
+  faireDiag()
+  avance(3)
+  faireDiag()
+}
+
 def faireMotif(c:Color){
   setCouleurBrosse(c)
   for (k <- 1 to 2){
-    for (l <- 1 to 2){
-       faireDiag()
-      avance(3)
-    }
-    gauche();avance(4);droite()
+    faireDoubleDiag()
+    recule(5);gauche();avance(4);droite()
   }
  
 }
