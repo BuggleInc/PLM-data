@@ -3,17 +3,14 @@ override def run() {
   var x = true
   while(x){
     avance()
-      if(getDirection() == Direction.EST){
+      if(getDirection() == Direction.EST && !estFaceMur()){
         gauche()
-        if(!estFaceMur()){
           avance()
         	gauche()
       }else{
         droite()
-        if(!estFaceMur()){
           avance()
-        	droite()
-        	}   	
+        	droite()  	
     		}	
   		}
     if(getCouleurSol() == Color.red){
