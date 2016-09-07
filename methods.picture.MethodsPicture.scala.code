@@ -1,0 +1,32 @@
+override def run() {
+  
+  for (i <- 0 to 2){
+    for(j <- 0 to 2){
+      setPos(i*5,j*5)
+      for (k <- 1 to 4)
+    		faireV()
+    }
+  }
+  setPos(0,14)
+  
+  def faireV(c:Color){
+    setCouleurBrosse(c)
+    avance()
+    marquerSol()
+    avance()
+    droite()
+    avance()
+    marquerSol()
+    recule()
+    gauche()
+    avance()
+    marquerSol()
+    avance()
+    droite()
+  }
+
+  def marquerSol(){
+    baisseBrosse()
+    leveBrosse()
+  }
+}
