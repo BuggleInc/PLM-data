@@ -31,16 +31,16 @@ def findSideWall() {
 
 def findNorthWall() {
   var etat:Int = 0
-  var x:Int = getX()
-  while (x!=0) {
+  var y:Int = getY()
+  while (getY()!=0) {
     etat match {
       case 0 => setDirection(Direction.NORTH)
                 while (!estFaceMur) {
                   avance()
                 }
                 etat = 1
-      case 1 => x=getX()
-                while (x>=getX()) {
+      case 1 => y=getY()
+                while (y>=getY()) {
                   keepHandOnSideWall()
                 }
                 etat = 0
