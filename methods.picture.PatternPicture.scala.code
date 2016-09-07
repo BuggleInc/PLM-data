@@ -1,5 +1,10 @@
 override def run() {
-  motif(Color.GREEN)
+  ligne (2) ;
+  for (i <- 1 to 4 )recule ;
+  left ;
+  for (i <- 1 to 4 )avance ;
+  right ;
+  ligne (2) ;
 }
 
 def point(c:Color){
@@ -16,4 +21,28 @@ def motif(c:Color){
   avance ;
   avance ;
   left ;
+}
+
+def couleurNum(n:Int):Color{
+  n match {
+    case 1 => return Color.RED ;
+    case 2 => return Color.BLUE ;
+    case 3 => return Color.GREEN ;
+    case _ => return Color.YELLOW ;
+  }
+}
+
+def carre() {
+  for (i <- 1 to 4){
+    motif(couleurNum(i));
+  }
+}
+
+def ligne(n:Int) {
+  for (i <- 1 to n){
+    carre ;
+    for (i <- 1 to 4){
+      avance ;
+    }
+  }
 }
