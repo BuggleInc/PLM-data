@@ -1,0 +1,26 @@
+def solve() {
+  var n:Int = getTaille()
+  var apresBleu:Int = 0
+  var blancRouge:Int = n-1
+  var avantBlanc:Int = n-1
+  var couleur:Color = BLEU
+  var i:Int = 0
+  while (apresBleu<avantBlanc) {
+    couleur = getCouleur(i)
+    if (couleur==ROUGE) {
+      echange(i, blancRouge)
+      blancRouge = blancRouge-1
+      if (blancRouge<avantBlanc) {
+        avantBlanc = blancRouge
+      }
+    }
+    if (couleur==BLEU) {
+      echange(i, apresBleu)
+      apresBleu = apresBleu+1
+    }
+    if (couleur==BLANC) {
+      echange(i, avantBlanc)
+      avantBlanc = avantBlanc-1
+    }
+  }
+}
