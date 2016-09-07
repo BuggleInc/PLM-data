@@ -1,7 +1,19 @@
 def haveBaggle():Boolean = {
-  if(isOverBaggle()) {
-    return true;
-  } else {
-    return false;
+  var bBaggle = false;
+  
+  var counter = 0;
+  
+  for(i <- 0 to 6) {
+    if(isOverBaggle()) {
+      bBaggle = true;
+    }
+    
+    forward();
   }
+  
+  for(i <- 0 to 6) {
+    backward();
+  }
+  
+  return bBaggle;
 }
