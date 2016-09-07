@@ -1,20 +1,22 @@
 override def run() {
-  ligne()
+  motif()
+  for (i <- 1 to 4){
+    avance()
+  }
+  motif()
+  for (i <- 1 to 4){
+    recule()
+  }
   gauche()
   for (i <- 1 to 4){
     avance()
   }
   droite()
-  ligne()
-}
-
-def ligne(){
   motif()
   for (i <- 1 to 4){
     avance()
   }
   motif()
-}
 
 def motif(){
   quartMotif(Color.red)
@@ -36,5 +38,5 @@ def quartMotif(c:Color){
 
 def quartMotif2(c:Color){
   setCouleurBrosse(c)
-  baisseBrosse(); leveBrosse(); avance(); gauche(); avance(); baisseBrosse(); leveBrosse(); gauche(); avance(); gauche(); avance()
+  baisseBrosse(); leveBrosse(); avance(); gauche(); avance(); baisseBrosse(); leveBrosse(); gauche(); avance(); gauche(); avance(); gauche()
 }
