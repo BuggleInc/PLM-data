@@ -3,20 +3,19 @@ droite()
 
 while(!estFaceMur())
 {
-  if(!estFaceMur())
- 	{
+  avance()
+  while(!estSurBiscuit() && !estFaceMur())
+  {
+    avance()
+  }
+  prendBiscuit()
+  while(!estSurBiscuit())
+  {
+    recule()
+  }
+  if (!estFaceMur())
+  {
   	avance()
-  	while(!estSurBiscuit() && !estFaceMur())
-  	{
-   	 avance()
-  	}
-  	prendBiscuit()
-  	while(!estSurBiscuit())
-  	{
-   	 recule()
-  	}
-  	if (!estFaceMur())
-  		avance()
   	poseBiscuit()
   }
 } 
