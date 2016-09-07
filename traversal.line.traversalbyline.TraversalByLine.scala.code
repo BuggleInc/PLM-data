@@ -1,0 +1,20 @@
+def estPosiFin():Boolean={
+  if(getX()+1==getMondeHauteur() && getY()+1==getMondeLargeur()){return true}
+  return false}
+def avancer(){
+  var x=getX()
+  var y=getY()
+  x=x+1
+  if (x+1>getMondeHauteur()){x=0;y=y+1}
+  setPos(x,y)
+}
+
+
+override def run() {
+  var mark=0
+  do{ecritMessage(mark)
+     mark=mark+1
+    avancer()
+  }while(!estPosiFin())
+  ecritMessage(mark)
+}
