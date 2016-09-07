@@ -1,0 +1,30 @@
+var diag = 0;
+var cpt:Int = 0
+override def run() {
+  var cpt:Int=0
+  var zigzag:Boolean=false
+  while (!fini()){
+    ecritMessage(cpt)
+    cpt += 1
+    if (!finDiago()){
+      parcourirDiago()
+    }
+    else{
+      diag += 1
+      setPos(diag,0)
+    }
+  }
+  ecritMessage(cpt)  
+}
+
+def parcourirDiago(){
+  setPos(getX()+1,getY()-1)
+}
+
+def finDiago():Boolean={
+  return estFaceMur()
+}
+
+def fini():Boolean = {
+  return (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1)
+} 
