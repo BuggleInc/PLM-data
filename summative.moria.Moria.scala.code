@@ -25,12 +25,10 @@ right();forward();left();forward();
 def finished(): Boolean = {
   var width:Int = getWorldWidth;
   var x:Int = getX;
-  if (x==width-3) {
-    if (isOverBaggle()) {
-      pickupBaggle();
-      back();
-      forward(); forward();
+  if (isOverBaggle()) {
+    	return false
     }
+  else if (x==width-3){
     return true
   }
   return false
