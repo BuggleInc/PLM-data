@@ -1,0 +1,13 @@
+override def run() { def faireV(c:Color) 
+             {setCouleurBrosse(c);avance();baisseBrosse();leveBrosse();gauche();avance();gauche();avance();baisseBrosse();leveBrosse();gauche();avance();gauche()}
+
+def faireMotif() {faireV(Color.RED);faireV(Color.BLUE);recule();recule();gauche();avance();avance();droite();faireV(Color.YELLOW);avance()faireV(Color.GREEN) }
+                    
+def rangee(){faireMotif();avance();avance();avance();avance();avance();faireMotif();avance();avance();avance();avance();avance();faireMotif()}
+                    
+def remiseEnPlace(){for (i<-1 to 10) {recule()}
+                   gauche();avance();avance();avance();avance();avance();droite()}
+                   
+avance();rangee();remiseEnPlace();rangee();remiseEnPlace();rangee();remiseEnPlace();
+
+}
