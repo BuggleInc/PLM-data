@@ -1,41 +1,5 @@
-def testmur(){
-  var x:Boolean = false
-  if (estFaceMur()){
-    if (getDirection()==Direction.EST){
-      gauche()
-      if (estFaceMur()){
-        x=true
-      }
-      droite()
-    }
-    if (getDirection()==Direction.OUEST){
-      droite()
-      if (estFaceMur()){
-        x=true
-      }
-      gauche()
-    }
-  }
-  return x
-}
 override def run() {
-  setCouleurBrosse(Color.red)
-  baisseBrosse()
-  while (testmur()!=true){
-    avance()
-    if (estFaceMur()==true){
-      if (getDirection()==Direction.OUEST){
-      droite();avance();droite();avance(6);
-    }
-      if (getDirection()==Direction.EST){
-      gauche();avance();gauche()
-      }
-           
-
-  }
-    
-       
-    
-  }
-  droite()
+  baisseBrosse();avance(6);gauche();avance();gauche();avance(6);droite()
+  avance();droite();avance(6);gauche();avance();gauche();avance(6);droite()
+  avance();droite();avance(6);gauche();avance();gauche();avance(6);
 }
