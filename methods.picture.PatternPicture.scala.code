@@ -1,5 +1,5 @@
 override def run() {
-  def centre(c1:Color,c2:Color){
+  def centre1(c1:Color,c2:Color){
     avance()
     setCouleurBrosse(c1:Color)
     baisseBrosse()
@@ -10,6 +10,17 @@ override def run() {
     gauche()
     avance()
     droite()
+  }
+  def centre2(c1:Color,c2:Color){
+    avance()
+    setCouleurBrosse(c1:Color)
+    baisseBrosse()
+    avance()
+    setCouleurBrosse(c2:Color)
+    leveBrosse()
+    recule(2)
+    gauche()
+   
   }
   def cote(c3:Color,c4:Color){
     setCouleurBrosse(c3:Color)
@@ -25,19 +36,27 @@ override def run() {
     droite()
   }
   def carre(){
-    centre(Color.red,Color.blue)
+    centre1(Color.red,Color.blue)
     cote(Color.red,Color.blue)
     cote(Color.yellow,Color.green)
-    centre(Color.yellow,Color.green)
+    centre2(Color.yellow,Color.green)
+ 
     
   }
   carre()
+  avance()
+  droite()
   carre()
   recule(7)
   droite()
   avance(4)
   carre()
+  avance()
+  droite()
   carre()
+  recule(7)
+  droite()
+  recule(4)
   
   
 }
