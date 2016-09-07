@@ -1,20 +1,21 @@
-var green = false 
-while (green==false){
+var posfinale=false
+while (posfinale==false){
   droite(); droite()
-  while (!estSurBiscuit() && !estFaceMur()){
-    avance()
+  while ((estSurBiscuit()==false) && (estFaceMur()==false)){
+    avance();
   }
-  if (estSurBiscuit){
+  if (estSurBiscuit==true){
     prendBiscuit()
-    while (!estSurBiscuit() && !estFaceMur()){
-      avance()
+    droite(); droite();
+    while ((estSurBiscuit==false) && (estFaceMur()==false)){
+      avance();
     }
-    if (estSurBiscuit){
-      backward(); poseBiscuit(); backward();
+    if (estSurBiscuit==true){
+      recule(); poseBiscuit(); recule()
     } else {
-      poseBiscuit()
+      poseBiscuit(); recule()
     }
   } else {
-    droite(); avance(); gauche(); avance(); green=true;
-  }  
+    gauche(); avance(); droite(); avance(); posfinale=true
+  }
 }
