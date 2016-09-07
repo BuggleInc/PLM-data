@@ -20,6 +20,12 @@ def deplacement2() {
   gauche();avance();avance();gauche();avance();avance();gauche();recule()
 }
 
+def recule(nbPas:Int) {
+  for (i <- 1 to nbPas) {
+    recule()
+  }
+}
+
 def growFlowers() {
   fleurs(Color.RED)
   deplacement1()
@@ -30,6 +36,5 @@ def growFlowers() {
   fleurs(Color.PINK)
   deplacement1()
   fleurs(Color.GREEN)
-  retourne();avance();avance();avance();avance()
-  avance();avance();retourne()
+  recule(6)
 }
