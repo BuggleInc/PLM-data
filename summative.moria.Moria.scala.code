@@ -1,4 +1,4 @@
-while (!isFacingWall()) {
+/*while (!isFacingWall()) {
   forward();
   if (!isOverBaggle()) {
     
@@ -21,4 +21,37 @@ right();
 forward();
 left();
 forward();
-forward();
+forward(); */
+
+while (!(getGroundColor() == Color.green)) {
+  if (getDirection() == Direction.EAST) {
+    if (isFacingWall()) {
+      right();
+    } else if (isOverBaggle()){
+      pickupBaggle();
+      right();
+      right();
+    } else if (isCarryingBaggle()) {
+      dropBaggle();
+      forward();
+    } 
+    else {
+      forward();
+    }
+  } else if (getDirection() == Direction.SOUTH) {
+    if (isFacingWall()) {
+      left();
+      forward();
+    } else {
+      forward();
+    }
+  } else if (getDirection() == Direction.WEST) {
+    if (isOverBaggle()) {
+      right();
+      right();
+      forward();
+    } else {
+      forward();
+    }
+  }
+}
