@@ -1,28 +1,11 @@
 override def run() {
-  faireColone()
-}
-
-def faireDessin() {
-  avance(); baisseBrosse(); leveBrosse(); recule() // 1ere trace
-  gauche() // positionnement 2eme trace
-  avance(); baisseBrosse(); leveBrosse(); recule() // 2eme trace
-  droite(); avance(3); gauche() // positionnement pour relancement
+  faireMotif
 }
 
 def faireMotif() {
-  setCouleurBrosse(Color.RED)
-  faireDessin()
-  setCouleurBrosse(Color.BLUE)
-  faireDessin()
-  setCouleurBrosse(Color.GREEN)
-  faireDessin()
-  setCouleurBrosse(Color.YELLOW)
-  faireDessin()
-}
-
-def faireColone(){
-  for (m<- 1 to 2) {
-    faireMotif()
-    gauche(); avance(4); droite()
-  }
+  avance()
+  baisseBrosse(); leveBrosse()
+  recule(); gauche(); avance()
+  baisseBrosse(); leveBrosse()
+  recule(); droite(); avance(3)
 }
