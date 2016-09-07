@@ -1,0 +1,52 @@
+override def run() {
+  faireGrille()
+}
+
+def faireGrille(){
+  for (i<- 1 to 3){
+    faireLigne()
+    gauche()
+  	for(i<- 1 to 5){
+    	avance()
+    }
+    droite()
+  }
+
+}
+def faireLigne(){
+  for (i<- 1 to 3){
+    fairePatern()
+  }
+}
+
+def fairePatern(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  for(i<- 1 to 5){
+    avance()
+  }
+}
+
+def faireV(c: Color){
+  setCouleurBrosse(c)
+  avance()
+  marqueSol()
+  avance()
+  gauche()
+  avance()
+  marqueSol()
+  recule()
+  droite()
+  avance()
+  marqueSol()
+  avance()
+  gauche
+}
+
+
+def marqueSol(){
+  baisseBrosse()
+  leveBrosse()
+}

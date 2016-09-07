@@ -1,0 +1,70 @@
+def growFlowers(){
+  var n=0
+  for (i<- 1 to 3){
+    n=dessineLigne(n)
+  }
+}
+
+def choisiCouleur(n:Int){
+  n match{
+    case 0 => setCouleurBrosse(Color.RED)
+    case 1 => setCouleurBrosse(Color.CYAN)
+    case 2 => setCouleurBrosse(Color.ORANGE)
+    case 3 => setCouleurBrosse(Color.PINK)
+    case 4 => setCouleurBrosse(Color.GREEN)
+  }
+}
+
+def dessineFleur(n: Int)={
+  choisiCouleur(n)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  leveBrosse()
+  droite()
+  recule()
+}
+
+def dessineLigne(n: Int)={
+  n match{
+    case 0 => dessineLigne0(0)
+    case 2 => dessineLigne1(n)
+    case 3 => dessineLigne0(3)
+  }
+}
+
+def dessineLigne1(n:Int):Int ={
+  droite() //se place pour la nouvelle ligne
+  avance()
+  avance()
+  gauche()
+  avance()  // se place pour la fleur
+  avance()
+  dessineFleur(2)
+  recule()  // se replace
+  recule()
+  droite()  // se place pour la troisieme ligne
+  avance()
+  avance()
+  gauche()
+  return n+1
+}
+
+def dessineLigne0(n: Int):Int={
+  dessineFleur(n)
+  for (i<- 1 to 4){
+    avance()
+  }
+  dessineFleur(n+1)
+  for (i<- 1 to 4){
+    recule()
+  }
+  return n+2
+}
