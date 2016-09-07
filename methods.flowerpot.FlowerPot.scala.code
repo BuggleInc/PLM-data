@@ -1,0 +1,62 @@
+override def run() {
+  avance()
+  fleur(Color.rouge)
+  move(4,true)
+  fleur(Color.cyan)
+  droite()
+  move(4,true)
+  fleur(Color.green)
+  droite()
+  move(2,true)
+  droite()
+  move(2,true)
+  fleur(Color.orange)
+  move(2,false)
+  droite()
+  move(2,false)
+  fleur(Color.pink)
+  recule()
+}
+
+
+def minicarre(C:Color){
+  // on commence par le blanc tourné vers la couleur
+  setCouleurBrosse(C)
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+}
+
+def fleur(C:Color){
+  // on commence au centre
+  setCouleurBrosse(Color.yellow)
+  colorie()
+  gauche()
+  minicarre(C)
+  droite()
+  minicarre(C)
+}
+
+def colorie(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def move(nbPas : Int, versLAvant:Boolean) {
+   if (versLAvant){
+     for (pas <- 1 to nbPas){
+       avance()
+     }
+   }else{
+     for (pas <- 1 to nbPas){
+       recule()
+     }
+   }
+ }
