@@ -1,0 +1,41 @@
+def growFlowers(){
+  Motif(Color.RED)
+  avance(4)
+  Motif(Color.CYAN)
+  recule(4)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  Motif(Color.ORANGE)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+  Motif(Color.PINK)
+  avance(4)
+  Motif(Color.GREEN)
+  recule(4)
+}
+
+def Motif(c){
+  for (i <- 1 to 4){
+    Mouv(c)
+  }
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+  recule()
+}
+
+def Mouv(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  droite()
+  avance()
+  droite()
+}
