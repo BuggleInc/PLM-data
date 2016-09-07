@@ -1,0 +1,29 @@
+def positionFinale():Boolean = {
+  return ((getX()+1,getY()+1)==(getMondeLargeur(),getMondeHauteur()))
+}
+
+override def run() {
+  var cpt:Int=0
+  var x:Int=0
+  var y:Int=0
+  val xmax:Int=getMondeLargeur()-1
+  val ymax:Int=getMondeHauteur()-1
+  while (!positionFinale()) {
+    for (diag <- 0 to ymax) {
+      x=0
+      y=diag
+      setPos(y,x)
+      ecritMessage(cpt)
+      cpt=cpt+1
+      while(x!=xmax && y!=ymax) {
+        x=x+1
+        y=y+1
+        setPos(y,x)
+        ecritMessage(cpt)
+        cpt=cpt+1
+      }
+      
+    }
+    
+  }
+}
