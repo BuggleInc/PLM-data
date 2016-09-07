@@ -1,34 +1,24 @@
 def testmur(){
-  var x:Boolean = false
   if (estFaceMur()){
     if (getDirection()==Direction.EST){
       gauche()
       if (estFaceMur()){
-        x=true
+        droite()
+        return true
       }
       droite()
     }
     if (getDirection()==Direction.OUEST){
       droite()
       if (estFaceMur()){
-        x=true
+        gauche()
+        return true
       }
       gauche()
     }
   }
-  return x
+  return false
 }
-
-
-
-
-
-
-
-
-
-
-
 override def run() {
   while (!testmur()){
     baisseBrosse
