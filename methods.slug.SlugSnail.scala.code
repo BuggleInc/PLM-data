@@ -13,13 +13,13 @@ def hunt(c:Color){
         brushDown()
 }
 
-def isFacingTrail():Boolean = {
+def isFacingTrail(c:Color):Boolean = {
   if (isFacingWall()==true){
     return false ;
   }
   else {
     forward()
-    if (getGroundColor()==Color.green){
+    if (getGroundColor()==c){
       backward()
       return true;
     }
