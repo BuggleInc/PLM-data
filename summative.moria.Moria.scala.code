@@ -26,6 +26,11 @@ def finished(): Boolean = {
   var width:Int = getWorldWidth;
   var x:Int = getX;
   if (x==width-3) {
+    if (isOverBaggle()) {
+      pickupBaggle();
+      back();
+      forward();
+    }
     return true
   }
   return false
