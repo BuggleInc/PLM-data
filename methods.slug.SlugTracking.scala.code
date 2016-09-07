@@ -1,28 +1,25 @@
 def isFacingTrail():Boolean = {
     // Write your code here
   avance();
-  do {
     
-    while (estFaceMur == true) {
-    	gauche();
-      avance();
-    }
-    
-    if (getCouleurSol() == Color.green) {
+  while (estFaceMur == true) {
+    gauche();
+    avance();
+  }
+
+  if (getCouleurSol() == Color.green) {
+    recule();
+    return true
+
+  } else {
+
+    while (getCouleurSol() != Color.green) {
       recule();
-      return true
-      
-    } else {
-      
-      while (getCouleurSol() != Color.green) {
-      	recule();
-      	gauche();
-      	avance();
-      }
-      
+      gauche();
+      avance();
+      return false
     }
-    
-  } while (estSurBiscuit != true)
-  return estSurBiscuit
+
+  }
 
 }
