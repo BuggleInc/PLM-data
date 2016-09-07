@@ -19,7 +19,7 @@ def island(num:Array[Int]):Int = {
     match position
     case i if (i<x && num(i)>actuel) => islandRecursif(nume,x,(compteur+1),num(i),(i+1))
     case i if (i<x && num(i)<actuel) => islandRecursif(nume,x,compteur,num(i),(i+1))
-    case >x => return compteur
+    case i if  i>x => return compteur
   }
   islandRecursif(num,(num.length - 1),0,num(0),1)
 }
