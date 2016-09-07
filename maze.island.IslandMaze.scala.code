@@ -31,6 +31,7 @@ def findSideWall() {
 
 def findNorthWall() {
   var etat:Int = 0
+  var dir:Direction = getDirection()
   while (getX()!=0) {
     etat match {
       case 0 => setDirection(Direction.NORTH)
@@ -39,7 +40,10 @@ def findNorthWall() {
                 }
                 etat = 1
       case 1 => while (estFaceMur) {
+                  setDirection(dir)
                   keepHandOnSideWall()
+                  dir = getDirection()
+                  setDirection(Direction.NORTH)
                 }
                 etat = 0
       case _ => println("Ce cas ne devrait pas arriver.")
