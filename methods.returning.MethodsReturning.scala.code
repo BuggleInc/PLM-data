@@ -1,19 +1,16 @@
 def haveBaggle():Boolean = {
-  var vuBiscuit : Boolean = false
-  if (estSurBiscuit)
-  	vuBiscuit = true
-  for (nbPas <- 1 to 6) {
-    avance()
-    if (estSurBiscuit)
-    	vuBiscuit = true
+  if (estSurBiscuit()) {
+    return true
+  else
+    return false
   }
-  recule(6)
-  return(vuBiscuit)
 }
 
-var ord : Int=0
-for (colonne <- 0 to 6) {
-  if (haveBaggle() == true)
-  	ord = colonne
+var vuBiscuit : Boolean = false
+while (vuBiscuit == false) {
+  for (nbPas <- 1 to 6) {
+    avance()
+    vuBiscuit = haveBaggle()
+  }
+  recule(6)
 }
-setPos(7,ord)
