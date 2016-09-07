@@ -1,0 +1,62 @@
+def pistil(){
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def petale(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def corner(){
+  avance()
+  gauche()
+  avance()
+}
+
+def deplace(){
+  for(i<- 1 to 3){
+    avance()
+  }
+}
+
+def fleur(c:Color){
+  pistil()
+  avance()
+  gauche()
+  for(i<- 1 to 4){
+  	petale(c)
+  	corner()
+  }
+}
+
+def growFlowers(){
+  avance()
+  fleur(Color.RED)
+  droite()
+  deplace()
+  fleur(Color.CYAN)
+  droite()
+  droite()
+  deplace()
+  avance()
+  droite()
+  avance()
+  fleur(Color.GREEN)
+  droite()
+  deplace()
+  fleur(Color.PINK)
+  gauche()
+  deplace()
+  gauche()
+  avance()
+  avance()
+  fleur(Color.ORANGE)
+  deplace()
+  gauche()
+  deplace()
+  gauche()
+  
+}
