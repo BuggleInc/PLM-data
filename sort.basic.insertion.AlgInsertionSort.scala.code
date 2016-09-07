@@ -9,17 +9,19 @@ def insertionSort() {
     dernierecase=true
     v = getValeur(i)
     j = 0
-    while (i-j>0||dernierecase){
-      if (getValeur(i-j)>=v){
+    while (dernierecase){
+      
+      if (!(i-j==0)&&getValeur(i-j)>=v){
         copie(i-j,i+1-j)
         j+=1
       }
       else{
         dernierecase=false
+        setValeur(i-j+1, v)
       }
       
      	}
-    setValeur(i-j+1, v)
+    
   
 	}
 }
