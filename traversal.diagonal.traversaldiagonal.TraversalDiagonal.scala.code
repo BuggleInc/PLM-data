@@ -5,15 +5,15 @@ override def run() {
   val xmax:Int=getMondeLargeur()-1
   val ymax:Int=getMondeHauteur()-1
   for (diag1 <- 0 to ymax) {
-    x=diag1
-    y=0
-    setPos(y,x)
+    y=diag1
+    x=0
+    setPos(x,y)
     ecritMessage(cpt)
     cpt=cpt+1
     while(x!=0 && y!=ymax) {
-      x=x+1
-      y=y-1
-      setPos(y,x)
+      x=x-1
+      y=y+1
+      setPos(x,y)
       ecritMessage(cpt)
       cpt=cpt+1
     }
@@ -21,13 +21,13 @@ override def run() {
   for (diag2 <- 1 to ymax) {
     x=diag2
     y=ymax
-    setPos(y,x)
+    setPos(x,y)
     ecritMessage(cpt)
     cpt=cpt+1
     while(x!=xmax && y!=0) {
-      x=x+1
-      y=y-1
-      setPos(y,x)
+      x=x-1
+      y=y+1
+      setPos(x,y)
       ecritMessage(cpt)
       cpt=cpt+1
     }
