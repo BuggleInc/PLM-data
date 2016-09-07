@@ -1,0 +1,41 @@
+override def run() {
+  baisseBrosse()
+  while(!fini()){
+    avanceSnake()
+  }
+}
+
+def fini(){
+  var fini=false
+  if (estFaceMur()){
+    if (getDirection()==Direction.EST) {
+      gauche()
+      fini=estFaceMur()
+      droite()
+    } else {
+      droite()
+      fini=estFaceMur()
+      gauche()
+    }
+  }
+  return fini
+}
+
+def avanceSnake(){
+  if (getDirection()==Direction.EST){
+    if (!estFaceMur())
+    	avance()
+    else {
+      gauche()
+      avance()
+      gauche()
+    }
+  }else{
+    if (!estFaceMur())
+    	avance()
+    else {
+      droite()
+      avance()
+      droite()
+  }
+}
