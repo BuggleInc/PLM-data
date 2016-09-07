@@ -1,0 +1,55 @@
+var etat = 0
+override def run() {
+  while(!estSurBiscuit())
+  {
+    ecritMessage(getY())
+  	if(getY()<=1
+       while(!estSurBiscuit())
+       		keepHandOnSideWall()
+    if(etat==0)
+    	coursNord()
+    else
+    	suitMur()
+  }
+  prendBiscuit()
+}
+
+def coursNord()
+{
+  setDirection(Direction.NORD)
+  while(!estFaceMur())
+  	avance()  
+  etat = 1
+}
+
+def suitMur()
+{
+  while(!estFaceMur())
+  	avance()
+  
+  droite()
+  
+  keepHandOnSideWall()
+  if(getDirection()==Direction.NORD && (!estFaceMur()))
+  	etat = 0
+}
+
+def keepHandOnSideWall()
+{
+  while(estFaceMur())
+  	droite()
+  avance()
+  gauche()
+  
+  if(!estFaceMur())
+  {
+    avance()
+    gauche()
+    if(!estFaceMur())
+    	avance()
+    else
+    	droite()
+  }
+  else
+  	droite()
+}
