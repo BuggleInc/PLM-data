@@ -1,9 +1,9 @@
 override def run() {
   var etat = 0 
-  etat match{
-    while(!estSurBiscuit)
-    {
-       case 0 => while(!estFaceMur){avance();etat = 1}
+  while(estSurBiscuit)
+  {
+    etat match{
+    case 0 => while(!estFaceMur){avance();etat = 1}
     case 1 => while(!estFaceMur())
     {gauche()}
     droite()
@@ -27,11 +27,8 @@ override def run() {
       else
         avance()
     }
-   
-    }
     etat = 0
     }
+  }  
   prendBiscuit()
-  
-  
 }
