@@ -1,0 +1,31 @@
+override def run() {
+  while (!fin) {
+    explorer()
+  }
+}
+
+def fin(): Boolean = {
+  if ((estFaceMur) && (getDirection() == Direction.EST)) {
+    droite()
+    if (estFaceMur) {
+      return true
+    }
+  } else if ((estFaceMur) && (getDirection() == Direction.OUEST)) {
+    gauche()
+    if (estFaceMur) {
+      return true
+    }
+  } else {
+    return false
+  }
+}
+
+def explorer() {
+  if (!estFaceMur) {
+    avance()
+  } else if (getDirection() == Direction.EST) {
+    gauche() , avance() ; gauche()
+  } else if (getDirection() == Direction.OUEST) {
+    droite() ; avance() ; droite()
+  }
+}
