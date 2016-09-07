@@ -1,37 +1,30 @@
 def estPosiFin():Boolean={
   if(getX()+1==getMondeHauteur() && getY()+1==getMondeLargeur()){return true}}
 
-def avancerCrois(a):
+def avancerCrois(a):Boolean={
   var x=getX()
   var y=getY()
 	x=x+1
-	if 
-override def run() {
-  
-  
-  
-}
-
-
-
-
-
-
-
-  return false}
-def avancer(){
-
-  y=y+1
-  if (y+1>getMondeHauteur()){y=0;x=x+1}
+  if(a){if (x+1>getMondeLargeur()){y=y+1;setPos(x,y);return false}
   setPos(x,y)
-}
+        return true}
+  if x==0{y=y+1;setPos(x,y);return true}
+  setPos(x,y)
+  return false}
+
+
 
 
 override def run() {
   var mark=0
+	var a= true 
   do{ecritMessage(mark)
      mark=mark+1
-    avancer()
-  }while(!estPosiFin())
+     a=avancer(a)}while(!estPosiFin())
   ecritMessage(mark)
 }
+
+
+
+
+
