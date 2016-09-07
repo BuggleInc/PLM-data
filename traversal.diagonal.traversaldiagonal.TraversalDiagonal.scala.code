@@ -1,0 +1,17 @@
+var diag = 0;
+var cpt:Int=0;
+override def run() {
+  for (i <- 0 to 6) {
+    for (j <- 0 to 6) {
+        writeMessage(cpt)
+        cpt+=1
+      if (getPos()(1)==0) {
+        setPos(0,diag)
+        diag+=1
+      }
+      else {
+        setPos(getPos()(0)+1,getPos()(1)-1)
+      }
+    }
+  }
+}
