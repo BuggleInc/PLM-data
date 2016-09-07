@@ -1,12 +1,14 @@
 def isFacingTrail():Boolean = {
   	forward()
-  	if (getGroundColor() == Color.green){
+  	
+  		if(isFacingWall() == true){
+      backward()
+   	 	left()
+      return false
+      
+      else if (getGroundColor() == Color.green){
       return true
     }
-  	else if(isFacingWall() == true){
-      backward()
-   	 left()
-      return false
     }
   	else {
     backward()
