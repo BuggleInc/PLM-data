@@ -1,6 +1,8 @@
 def cocktailSort3() {
   
   var aMixe = false
+  var Croiss = false
+  var Decroiss = false
   var debut = 0
   var fin = getNombreValeurs()-2
   
@@ -10,7 +12,7 @@ def cocktailSort3() {
     
     for (x <- debut to fin) {
       
-      if (!plusPetit(x,x+1)) {echange(x,x+1);aMixe = true}
+      if (!plusPetit(x,x+1)) {echange(x,x+1);aMixe = true; Croiss = true}
       
     }
     
@@ -20,11 +22,11 @@ def cocktailSort3() {
     
     for (x <- fin to debut by -1) {
       
-      if (!plusPetit(x,x+1)) {echange(x,x+1);aMixe = true}
+      if (!plusPetit(x,x+1)) {echange(x,x+1);aMixe = true; Decroiss = true}
       
     }
     
-    if (!aMixe) {return}
+    if (Croiss && !Decroiss) {return}
     
     debut = debut + 1
     
