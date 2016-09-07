@@ -1,0 +1,38 @@
+override def run() {
+  var cp:Int = 0
+  var x:Int = 0
+  var y:Int = 0
+  while (!fin) {
+    if (y%2 == 0) && (x != 6) {
+      ecritMessage(cp)
+      cp += 1
+      x += 1
+      setPos(x,y)
+    } else if ((y%2 == 0) && (x == 6)) {
+      ecritMessage(cp)
+      cp += 1
+      y += 1
+      setPos(x,y)
+    } else if ((y%2 == 1) && (x != 0)) {
+      ecritMessage(cp)
+      cp += 1
+      x -= 1
+      setPos(x,y)
+    } else {
+      ecritMessage(cp)
+      cp += 1
+      y += 1
+      setPos(x,y)
+    }  
+  }
+}
+
+
+def fin():Boolean = {
+  if (getX() == ((getMondeLargeur() - 1)) && (getY() == (getMondeHauteur() -1))) {
+    return true
+  } else {
+    return false
+  }
+}
+
