@@ -1,0 +1,24 @@
+override def run() {
+  var cpt:Int=0
+  while (!fini()){
+    ecritMessage(cpt)
+    cpt += 1
+    tp()
+  }
+  ecritMessage(cpt)  
+}
+
+def fini():Boolean = {
+  return (getX()==getMondeLargeur() && getY()==getMondeHauteur())
+} 
+
+def basDeColonne():Boolean={
+  return (getY()==getMondeHauteur())
+}
+
+def tp():{
+  if (basDeColonne){
+    setPos(getX()+1,0)
+  }
+  else {setPos(getX(),getY()+1)}
+}
