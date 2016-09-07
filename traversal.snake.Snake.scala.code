@@ -1,20 +1,20 @@
 override def run() {
   baisseBrosse()
-  while(!final()){
-    avanceserpent()
+  while( !final() ) {
+    avanceSerpent()
   }
 }
   
   
   
-def final():Boolean = {
+def final(): Boolean = {
 	if (estFaceMur() && murNord()){
  	return true
 	}
   else {return false}
 }
   
-def murNord():Boolean={
+def murNord(): Boolean = {
 	var r:Boolean=true
 	if (getDirection()==Direction.EST){
    	gauche()
@@ -29,7 +29,7 @@ def murNord():Boolean={
   return r 
 }
   
-def avanceserpent(){
+def avanceSerpent(){
 	if (estFaceMur()){
     getDirection() match{
       case Direction.EST => gauche();avance();gauche()
