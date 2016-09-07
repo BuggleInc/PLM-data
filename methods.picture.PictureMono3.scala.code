@@ -43,12 +43,42 @@ def allerlignesuivante(){
   setX(getX()-14)
   
 }
-
+def fairecube(){
+ faireligne();
+ allerlignesuivante();
+ faireligne();
+ allerlignesuivante();
+  faireligne(); 
+}
+def sepositionner(){
+  setPos(getX()+7,getY()+21)
+}
+def changerligne(){
+  var A:Int =getY();
+  setY(A-7);
+  setX(getX()-42)
+  
+}
 override def run() {
- faireligne();
- allerlignesuivante();
- faireligne();
- allerlignesuivante();
-  faireligne();
-  setPos(0,20);
+	 
+  fairecube();
+  sepositionner();
+  fairecube();
+  sepositionner();
+  fairecube();
+  changerligne()
+  fairecube();
+  sepositionner();
+  fairecube();
+  sepositionner();
+  fairecube();
+  changerligne()
+  fairecube();
+  sepositionner();
+  fairecube();
+  sepositionner();
+  fairecube();
+  
+  
+  setPos(0,62);
 }
