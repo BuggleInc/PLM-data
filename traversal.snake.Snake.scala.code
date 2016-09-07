@@ -1,0 +1,23 @@
+override def run() {
+}
+
+def positionFinale() {
+  var res=Boolean=true
+  if (estFaceMur()) {
+    res=false
+  } else {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      if (!estFaceMur) {
+        res=false
+      }
+    }
+    if (getDirection()==Direction.OUEST) {
+      droite()
+      if (!estFaceMur) {
+        res=false
+      }
+    }
+  }
+  return res
+}
