@@ -7,5 +7,9 @@ override def run() {def faireV(c:Color)
 
                     def remiseEnPlace(){for (i<-1 to 7) {recule()}
                                         gauche();avance();avance();droite()}
+                    
+                    def faireX(c:Color){setCouleurBrosse(c);baisseBrosse();leveBrosse();gauche();avance();droite();avance();baisseBrosse();leveBrosse();droite;avance();gauche(); if(!estFaceMur()){avance()}}
+                    
+                    def motive(){faireX(Color.YELLOW);faireV(Color.GREEN)}
 
-motif(); remiseEnPlace()} 
+motif(); remiseEnPlace();motive()} 
