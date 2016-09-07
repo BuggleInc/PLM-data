@@ -1,14 +1,14 @@
 def estPosiFin():Boolean={
   if(getX()+1==getMondeHauteur() && getY()+1==getMondeLargeur()){return true}}
+
+
 def avanceCrois(a):Boolean={
   var x=getX()
   var y=getY()
-	x=x+1
-  if(a){if (x+1>getMondeLargeur()){y=y+1;setPos(x,y);return false}
-  setPos(x,y)
-        return true}
-  if x==0{y=y+1;setPos(x,y);return true}
-  setPos(x,y)
+	if(a){if(x+1>getMondeLargeur()){setPose(x,y+1);return false}
+       setPose(x+1,y);return true}
+  if(x==0){setPose(0,y+1;return true)}
+  setPose(x-1,y)
   return false}
 
 
@@ -16,7 +16,7 @@ def avanceCrois(a):Boolean={
 
 override def run() {
   var mark=0
-	var a= true 
+	Boolean a=true 
   do{ecritMessage(mark)
      mark=mark+1
      a=avanceCrois(a)}while(!estPosiFin())
