@@ -1,0 +1,47 @@
+def paint() {
+  brushDown()
+  brushUp()
+}
+
+def flower(c:Color) {
+  setGroundColor(c)
+  paint()
+  forward()
+  left()
+  forward()
+  paint()
+  backward()
+  backward()
+  paint()
+  forward()
+  right()
+  forward()
+  paint()
+  backward()
+  setGroundColor(Color.YELLOW)
+  paint()
+  backward()
+}
+
+def avance(p: Int) {
+  for (1 to p) {forward()}
+}
+
+override def run() {
+  flower(Color.RED)
+  avance(4)
+  flower(Color.CYAN)
+  right()
+  avance(4)
+  left()
+  flower(Color.GREEN)
+  back()
+  avance(4)
+  back()
+  flower(Color.PINK)
+  left()
+  avance(2)
+  right()
+  avance(2)
+  flower(Color.ORANGE)
+}
