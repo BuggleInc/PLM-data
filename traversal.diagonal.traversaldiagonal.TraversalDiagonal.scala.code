@@ -18,14 +18,15 @@ override def run() {
     y -= 1;
     
     
-    if (y < 0) {
+    if (x >= w) {
+      diag += 1;
+      x = diag - w + 1;
+      y = h - 1;
+    } else if (y < 0) {
       diag += 1;
       y = diag;
       x = 0;
-    } else if (x >= w) {
-      x = diag - w + 2;
-      y = h - 1;
-    }
+    } 
     
     
   } while (!isOnFinalDestination());
