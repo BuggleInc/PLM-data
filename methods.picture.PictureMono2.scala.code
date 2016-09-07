@@ -7,6 +7,10 @@ override def run() {
     makeO1();
   }
   forward(3);left();forward(3);right()
+  for (i <- 1 to 4) {
+    makeO2();
+  }
+  right();forward(5);right();forward(5);right();right()
 }
 
 def makeV() {
@@ -47,4 +51,13 @@ def makeO1() {
     forward(4);
   }
   forward(2);left();
+}
+
+def makeO2() {
+  forward(4);
+  for (i <- 1 to 2) {
+    forward(); brushDown();brushUp();forward();left();forward();brushDown();forward();brushUp();forward();left();
+  }
+  forward(6);
+  left();
 }
