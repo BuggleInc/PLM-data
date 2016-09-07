@@ -1,10 +1,11 @@
 def estSurPositionFinale() {
+  var res : Boolean = true
   while(!(getDirection() == Direction.EST)){gauche()}
-  if (!(estFaceMur())) {return(false)}
+  if (!(estFaceMur())) {res=false}
   gauche()
-  if (!(estFaceMur())){return(false)}
-  else {droite()
-        return(true)  }
+  if (!(estFaceMur())){res=false}
+  droite()
+  return(res)  
 }
 
 override def run() {
