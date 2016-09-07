@@ -2,18 +2,22 @@ override def run() {
   baisseBrosse()
   var x = true
   while(x){
-  while(!estFaceMur()){
-    avance()
-  }
+  	while(!estFaceMur()){
+    	avance()
+  	}
   	if (estFaceMur()){
       if(getDirection() == Direction.EST){
         gauche()
-        avance()
-        gauche()
+        if(!estFaceMur()){
+          avance()
+        	gauche()
+        }
       }else{
         droite()
-        avance()
-        droite()
+        if(!estFaceMur()){
+          avance()
+        	droite()
+        }
       }
      	
     }else if(getCouleurSol() == Color.red){
