@@ -1,19 +1,16 @@
-def trouveRocher(){
-  do avance() {
-    while (!estSurBiscuit || estFaceMur())
-  }
-}
-
-  
-
 while (!estFaceMur()) {
   retourne()
-  trouveRocher()
-  prendBiscuit()
-  retourne()
-  trouveRocher()
-  recule()
-  poseBiscuit()
+  do avance() {
+    while (!estSurBiscuit || !estFaceMur())
+  }  
+  if (estSurBiscuit){
+    prendBiscuit()
+  	retourne()
+  	trouveRocher()
+  	recule()
+  	poseBiscuit()
+	} else {
+    droite();avance();droite();avance()
+  }
 }
-droite();avance();droite();avance()
 
