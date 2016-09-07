@@ -1,0 +1,24 @@
+while(getCouleurSol()!=Color.GREEN){
+  if (porteBiscuit()){
+    setDirection(Direction.WEST)
+    if (estSurBiscuit()){
+     	recule(),poseBiscuit(),recule()}
+    else{
+      avance()
+    }
+		}
+  else{
+    if(estSurBiscuit()){prendBiscuit()}
+    else{
+      if (estFaceMur()){
+        getDirection() match{
+          case Direction.EST => droite(),avance()
+          case Direction.SOUTH => gauche(),avance()
+        }
+      }
+      else{
+        avance
+      }
+    }
+  }
+}
