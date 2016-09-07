@@ -1,0 +1,31 @@
+def marque(){baisseBrosse();leveBrosse()}
+def fleur(couleur:Color){
+  setCouleurBrosse(couleur)
+  marque();avance(2);marque();recule()
+  gauche();avance();marque();recule(2);marque();avance();droite()
+  setCouleurBrosse(Color.YELLOW)
+  marque();recule()
+}
+
+def growFlowers(){
+  fleur(Color.RED)
+  avance(4)
+  fleur(Color.CYAN)
+  droite();avance(2);gauche();recule(2);
+  fleur(Color.ORANGE)
+  recule(2);droite();avance(2);gauche()
+  fleur(Color.PINK)
+  avance(4)
+  fleur(Color.GREEN)
+  recule(4)
+}
+def ligne(){
+  growFlowers()
+  gauche();avance(2);droite();avance(6)
+  fleur(Color.BLUE)
+  avance(2);gauche();avance(2);droite()
+  growFlowers()
+}
+ligne()
+droite();avance();gauche();recule(8);droite();avance(3),gauche()
+ligne()
