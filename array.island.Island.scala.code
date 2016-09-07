@@ -3,11 +3,16 @@ def island(num:Array[Int]): Int = {
   	var L:List[Int]= List()
   	var n:Int=num.length
   	for (i <- 0 to (n-1)) {
-      	if (num(i) ==0)
+      	if (num(i) == L.head-1) {
+          x = x+1
+          L=L.tail
+          	
+        }
+      	else if (num(i) ==0)
       			()
       	else if (L.isEmpty || num(i)>L.head)
       			L = List(num(i)):::L
-      	else if (num(i) == L.head-1) {
+      	if (num(i) == L.head-1) {
           x = x+1
           L=L.tail
           	
