@@ -20,7 +20,24 @@ def createFlower(c:Color) {
   setBrushColor(c);
   for (rot<-1 to 4) {
     forward();
-        step = step + 1;
+    brushDown();
+  	brushUp();
+    backward();
+    left();
+  }
+}
+
+def trajet(c:Color,nbrFl:Int) {
+  var step:Int = 0
+  while (step != 4) {
+    if (isFacingWall) {
+      if (nbrFl==2 || nbrFl == 9 || nbrFl == 13 || nbrFl == 20) {
+        contournement();
+        step = step +2;
+      }
+      else {
+        retourLigne();
+        step = step + 1
       }
     }
     else {
@@ -42,20 +59,4 @@ def retourLigne() {  //en bout de ligne, ramène a la rangée suivante
     forward();
   }
   left();forward();left();
-}    brushDown();
-  	brushUp();
-    backward();
-    left();
-  }
 }
-
-def trajet(c:Color,nbrFl:Int) {
-  var step:Int = 0
-  while (step != 4) {
-    if (isFacingWall) {
-      if (nbrFl==2 || nbrFl == 9 || nbrFl == 13 || nbrFl == 20) {
-        contournement();
-        step = step +2;
-      }
-      else {
-        retourLigne();
