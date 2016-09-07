@@ -16,8 +16,6 @@ override def run() {
     	case 3 => color = Color.BLUE
     	case 4 => color = Color.RED
     }
-    setCouleurBrosse(color)
-    avance()
 		marquerSol()
     color match{
       case Color.RED => color = Color.YELLOW
@@ -25,14 +23,15 @@ override def run() {
     	case Color.GREEN => color = Color.BLUE
     	case Color.BLUE => color = Color.RED
     }
-    setCouleurBrosse(color)
-    marquerSol()
+    marquerSol(color)
     avance()
     avance()
     droite()
   }
   
-  def marquerSol(){
+  def marquerSol(c:Color){
+    setCouleurBrosse(c)
+    avance()
     baisseBrosse()
     leveBrosse()
   }
