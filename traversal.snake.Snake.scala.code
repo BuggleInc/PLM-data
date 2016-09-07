@@ -1,0 +1,42 @@
+override def run() {
+  baisseBrosse()
+  while(!final()){
+    avanceserpent()
+  }
+}
+  
+  
+  
+def final():Boolean = {
+	if (estFaceMur() && murNord()){
+ 	return true
+	}
+  else {return false}
+}
+  
+def murNord():Boolean={
+	var r:Boolean=true
+	if (getDirection()==Direction.EST){
+   	gauche()
+    r=estFaceMur()
+    droite()
+  }
+  if (getDirection()==Direction.OUEST){
+   droite()
+   r = estFaceMur()
+   gauche()
+  }
+  return r 
+  
+def avanceserpent(){
+	if (estFaceMur()){
+    getDirection() match{
+      case Direction.EST => gauche();avance();gauche()
+      case Direction.OUEST => droite();avance();droite()
+    }
+  }
+  else{avance()}
+}
+    
+
+ 
