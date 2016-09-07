@@ -3,24 +3,20 @@ def solve() {
   var apresBleu:Int = 0
   var blancRouge:Int = n-1
   var avantBlanc:Int = n-1
-  var couleur:Color = BLEU
   var i:Int = 0
   while (apresBleu<avantBlanc) {
-    couleur = getCouleur(i)
-    if (couleur==ROUGE) {
+    getCouleur(i) match
+    case ROUGE) =>
       echange(i, blancRouge)
       blancRouge = blancRouge-1
       if (blancRouge<avantBlanc) {
         avantBlanc = blancRouge
       }
-    }
-    if (couleur==BLEU) {
+    case BLEU =>
       echange(i, apresBleu)
       apresBleu = apresBleu+1
-    }
-    if (couleur==BLANC) {
+    case BLANC =>
       echange(i, avantBlanc)
       avantBlanc = avantBlanc-1
-    }
   }
 }
