@@ -1,0 +1,42 @@
+def island(num:Array[Int]): Int = {
+  if (isConstant(num)) //cas de base ie un seul etage
+  	return 1
+  
+  var cpt : Int =0
+  
+  var ground : Int = num(0)
+  
+  var debut : Int = 1
+  var tailletr : Int
+  
+  while (debut+taille < num.size){
+    
+  	tailletr = 0
+    while(num(debut)==ground)
+      debut=debut+1
+
+    while(num(debut+tailletr)!=ground)
+      tailletr=tailletr+1
+
+    var montagne : Array[int] = new Array[int](tailletr)
+    for(it 0<-tailletr-1)
+      montagne(it)=num(it+debut)
+
+    cpt = cpt + island(montagne)
+  
+  }
+  return cpt
+  
+}
+
+
+def isConstant(num: Array[Int]){
+  var v0 : Int = num(0)
+  
+  for(stepper<-1 to num.size-1)
+  	if (num(stepper)!=v0)
+  		return false
+  
+  return true
+}
+
