@@ -1,46 +1,58 @@
 def growFlowers() {
-  var color:Color = Color.YELLOW
-  for (i <- 0 to 1){
-    for(j <- 0 to 1){
-      setPos(i*4,j*4)
-      faireFleur()
+  var color:Color = Color.RED
+  for (fleur <- 1 to 5) {
+    fleur match {
+    	case 2 => color = Color.CYAN
+    	case 3 => color = Color.ORANGE
+    	case 4 => color = Color.PINK
+    	case 5 => color = Color.GREEN
+  	}
+    if (fleur == 2) {
+    	setX(5)
+    	setY(2)
+ 	  }
+    else if (fleur == 3) {
+      setX(3)
+      setY(4)
+    }
+    else if(fleur == 4) {
+      setX(0)
+      setY(6)
+    }
+    else if(fleur == 5) {
+      setX(5)
+    }
+    
+    faireFleur()
     }
   }
   setPos(0,5)
+}
 
-  def faireFleur(){
-    gauche()
+def faireFleur(){
+  gauche()
     
-    for (i <- 1 to 4)
-			fairePetale(color)
+  for (i <- 1 to 4)
+		fairePetale(color)
     
-    faireCentre()
-  }
+  faireCentre()
+}
   
-  color match{
-    case 1 => color = Color.YELLOW
-    case 2 => color = Color.GREEN
-    case 3 => color = Color.BLUE
-    case 4 => color = Color.RED
-    case 5 => color = Color.RED
-  }
+def fairePetale(c:Color){
+  marquerSol(c)
+  avance()
+  droite()
+  avance()
+}
   
-  def fairePetale(c:Color){
-    marquerSol(c)
-    avance()
-    droite()
-    avance()
-  }
-  
-  def faireCentre(){
-    droite()
-    avance()
-    marquerSol(Color.YELLOW)
-  }
+def faireCentre(){
+  droite()
+  avance()
+  marquerSol(Color.YELLOW)
+}
 
-  def marquerSol(c:Color){
-    setCouleurBrosse(c)
-    baisseBrosse()
-    leveBrosse()
-  }
+def marquerSol(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
 }
