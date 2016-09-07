@@ -1,0 +1,23 @@
+override def run() {
+  var x:Int = random3()
+  while (!estSurBiscuit) {
+    if (estFaceMur) {
+      while (x==0) {
+        x = random3()
+      }
+      x match {
+        case 1 => gauche()
+        case 2 => droite()
+      }
+    }
+    else {
+      x match {
+        case 0 => avance()
+        case 1 => gauche()
+        case 2 => droite()
+      }
+    }
+    x = random3()
+  }
+  prendBiscuit()
+}
