@@ -22,10 +22,11 @@ def island(num:Array[Int]): Int = {
   {
     if (num(0)>0)
   		return 1
+    
     return 0
   }
   
-  var cpt : Int =0
+  var cpt : Int = 0
   
   var ground : Int = num(0)
   
@@ -46,10 +47,10 @@ def island(num:Array[Int]): Int = {
     if (tailletr>0){
       var montagne : Array[Int] = new Array[Int](tailletr) 
 
-
       for(it <- 0 to tailletr-1)				//copie
         montagne(it)=num(it+debut)
-
+			
+      println(montagne)
       cpt = cpt + island(montagne)
       
     }
@@ -58,7 +59,6 @@ def island(num:Array[Int]): Int = {
   }
   
   return cpt
-  
 }
 
 
