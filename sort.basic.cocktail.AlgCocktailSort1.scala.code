@@ -2,6 +2,7 @@ def cocktailSort()
 {
   var n = getNombreValeurs()-2;
   var isEchange = false;
+  var j = n;
   
   do
   {
@@ -16,13 +17,16 @@ def cocktailSort()
       }
     }
 
-    for (i -> n to 0)
+    j = n;
+    
+    while (j>=0)
     {
       if (plusPetit(i+1, i))
       {
         echange(i, i+1);
         isEchange = true;
       }
+      j+-=1;
     }
   }
   while(isEchange)
