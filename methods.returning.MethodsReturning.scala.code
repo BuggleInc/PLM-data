@@ -1,19 +1,13 @@
+var vuBiscuit:Boolean = false
+
 def haveBaggle():Boolean = {
   for (c <- 1 to 6) {
     avance()
     if (estSurBiscuit) {
-      recule()
-      return true
-    } else {
-    		recule(6)
-    		return false
-    	}
+       vuBiscuit=true
+    }
+  recule(6)
+  if (estSurBisuit) {
+    vuBiscuit=true
   }
-}
-
-def vuBiscuit():Boolean = {
-  while (!haveBaggle) {
-    droite(); avance(); gauche()
-  
-  }
-}
+  return vuBiscuit
