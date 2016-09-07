@@ -1,0 +1,47 @@
+def growFlowers() {
+  var color:Color = Color.RED
+  for (fleur <- 1 to 5) {
+		fleur match {
+      case 1 => color = Color.RED
+    	case 2 => color = Color.CYAN; setX(5); setY(2);
+    	case 3 => color = Color.ORANGE; setX(3); setY(4);
+    	case 4 => color = Color.PINK; setX(1); setY(6);
+    	case 5 => color = Color.GREEN; setX(5);
+  	}
+    faireFleur(color)
+  }
+  color = Color.BLUE
+  setX(7);setY(5)
+  faireFleur(color)
+  setX(7);setY(12)
+  faireFleur(color)
+  setPos(1,6)
+}
+
+def faireFleur(c:Color){
+  gauche()
+    
+  for (i <- 1 to 4)
+		fairePetale(c)
+    
+  faireCentre()
+}
+  
+def fairePetale(c:Color){
+  marquerSol(c)
+  avance()
+  droite()
+  avance()
+}
+  
+def faireCentre(){
+  droite()
+  avance()
+  marquerSol(Color.YELLOW)
+}
+
+def marquerSol(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
