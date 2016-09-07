@@ -34,7 +34,7 @@ def fleur(c:Color){
   }
 }
 
-def growFlowers(){
+def pattern(){
   avance()
   fleur(Color.RED)
   droite()
@@ -56,11 +56,38 @@ def growFlowers(){
   avance()
   avance()
   fleur(Color.ORANGE)
-  deplace()
-  gauche()
-  deplace()
-  gauche()
+  
   
 }
 
+def grow(){
+  pattern()
+  gauche()
+  avance()
+  gauche()
+  déplace()
+  avance()
+  fleur(Color.BLUE)
+  gauche()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  droite()
+  pattern()
+  
+  
+}
 
+def growFlower(){
+  grow()
+  for(i<- 1 to 11){
+    avance()
+  }
+  droite()
+  for(i<-1 to 7){
+    avance()
+  }
+  gauche()
+  pattern()
+}
