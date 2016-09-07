@@ -1,0 +1,25 @@
+  var diag = 0;
+  var cpt = 0;
+
+def fini():Boolean={
+  return cpt == (getMondeHauteur()+getMondeLargeur()-1) 
+}
+
+def traceDiag(){
+    var x = diag
+    var y = 0
+    while(y != diag ){
+      setPos(y%getMondeHauteur(),x%getMondeHauteur());
+      ecritMessage(cpt)
+      cpt += 1;
+      x -= 1;
+      y += 1;
+    }
+}
+
+override def run() {
+  while(!fini()){
+    traceDiag();
+    diag += 1;
+  }
+}
