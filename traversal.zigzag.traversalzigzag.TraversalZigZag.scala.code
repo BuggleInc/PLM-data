@@ -5,13 +5,11 @@ override def run() {
   var count:Int = 0;
   var direction = 1;
   
-  var x = 0;
-  var y = 0;
+  var x = -1;
+  var y = -1;
   
   
-  while (!isOnFinalDestination()) {
-    setPos(x,y);
-    writeMessage(count);
+  do {
     
     count += 1;
     x += direction;
@@ -26,9 +24,13 @@ override def run() {
       direction = -1;
     }
     
-  }
+    
+    setPos(x,y);
+    writeMessage(count);
+    
+  } while (!isOnFinalDestination());
 }
 
 def isOnFinalDestination() : Boolean = {
-  return getX() == getWorldWidth() && getY() == getWorldHeight();
+  return getX() == getWorldWidth()-1 && getY() == getWorldHeight()-1;
 }
