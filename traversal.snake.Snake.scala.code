@@ -1,12 +1,17 @@
 override def run() {
   setBrushColor(Color.RED);
   brushDown();
-  while (isFacingWall==false){
-    forward();
-  }
-  if (getDirection()==Direction.EAST){
-    right();forward();right();
-  } else {
-    left();forward();left();
-  }
+  var fin=false;
+  while (fin==false){
+    while (isFacingWall==false){
+      forward();
+    }
+    if (getDirection()==Direction.EAST){
+      left();
+      if (isFacingWall==false){forward();left();
+                              } else {
+        fin=true;
+      } else {
+      right();forward();right();
+    }
 }
