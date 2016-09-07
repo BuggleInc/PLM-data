@@ -1,0 +1,61 @@
+override def main() {
+  trajet(Color.red,1;
+  trajet(Color.cyan,2);
+  trajet(Color.red,3);
+  trajet(Color.cyan,4);
+  trajet(Color.orange,5);
+  trajet(Color.blue,6);
+  trajet(Color.orange,7);
+  trajet(Color.pink,8);
+  trajet(Color.green,9);
+  trajet(Color.pink,10);
+  trajet(Color.green,11);
+}
+
+
+def createFlower(c:Color) {
+  setBrushColor(Color.yellow);
+  brushDown();
+  brushUp();
+  setBrushColor(c);
+  for (rot<-1 to 4) {
+    forward();
+        step = step + 1
+      }
+    }
+    else {
+      forward();
+      step = step +1;
+    }
+  }
+  createFlower(c);
+  
+}
+
+def contournement() {
+   left();forward();right();forward();forward();right();forward();left();
+}
+
+def retourLigne() {  //en bout de ligne, ramène a la rangée suivante
+  right(); forward();right();
+  for (i<-1 to 14) {
+    forward();
+  }
+  left();forward();left();
+}    brushDown();
+  	brushUp();
+    backward();
+    left();
+  }
+}
+
+def trajet(c:Color,nbrFl:Int) {
+  var step:Int = 0
+  while (step != 4) {
+    if (isFacingWall) {
+      if (nbrFl==2 || nbrFl == 9 || nbrFl == 13 || nbrFl == 20) {
+        contournement();
+        step = step +2;
+      }
+      else {
+        retourLigne();
