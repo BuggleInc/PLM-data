@@ -17,16 +17,20 @@ def motif(){
   gauche();avance();avance();gauche();
   sousMotif(Color.yellow)
   gauche();avance();avance();
-  gauche();avance();avance();avance();avance();
 }
 
 def faireLigne(){
-  for(j<-0 to 1){
    motif();
-  }
+   gauche();avance();avance();avance();avance();
+   motif();
+   gauche();avance();avance();
 }
 
 def sautLigne(){
+    for(i <- 0 to 6)
+  {
+    recule();
+  }
   gauche();
   for(i <- 0 to 3)
   {
@@ -36,10 +40,10 @@ def sautLigne(){
 }
 
 def faireMotif(){  
-  for (i<-0 to 2){
-    faireLigne();
-    sautLigne();
-  }
+  faireLigne();
+  sautLigne();
+  faireLigne();
+  recule();recule();recule();
 }
 
 override def run() {
