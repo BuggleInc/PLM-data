@@ -1,0 +1,43 @@
+def marquer(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def fleur(c:Color) {
+  droite()
+  for(i <- 1 to 4){
+    marquer(c)
+    avance()
+    gauche()
+    avance()
+  }
+  gauche()
+  avance()
+  marquer(Color.YELLOW)
+  recule()
+}
+
+def growFlowers(){
+  fleur(Color.RED)
+  droite()
+  avance();avance()
+  gauche()
+  avance();avance()
+  fleur(Color.ORANGE)
+  avance();avance()
+  gauche()
+  avance();avance()
+  droite()
+  fleur(Color.CYAN)
+  droite()
+  for(j <- 1 to 4){
+    avance()
+  }
+  gauche()
+  fleur(Color.GREEN)
+  for(k <- 1 to 4){
+    recule()
+  }
+  fleur(Color.PINK)
+}
