@@ -3,7 +3,13 @@ override def run() {
   while (!isFacingWall()) {
     forward();
     if (isFacingWall() && getDirection==Direction.EAST) {
-      left();forward();left()
+      left();
+      if (!isFacingWall()) {
+        right()
+      }
+      else {
+        forward();left()
+      }
     }
     else if (isFacingWall() && getDirection==Direction.WEST) {
       right();forward();right()
