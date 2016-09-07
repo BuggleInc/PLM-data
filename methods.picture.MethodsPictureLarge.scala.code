@@ -1,0 +1,73 @@
+override def run() {
+ 	var i5:Int=0
+  for (i5<-0 to 8){
+    faireLigne()
+    monterLigne()
+    
+  }
+
+
+  
+}
+
+
+def monterLigne(){
+  gauche()
+  var i4:Int=0
+  for(i4 <-0 to 2){
+    avance()
+  }
+  droite()
+  
+}
+
+def faireLigne(){
+  var i3:Int=0
+  for (i3<-0 to 8){
+    
+    faireMotif()
+    var i2:Int=0
+    for(i2<-0 to 4){
+      avance()
+    }
+
+  }
+  
+}
+
+
+
+
+//Motif
+def faireMotif(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  
+}
+
+
+//marque le sol
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+//fait un seul V => une seule couleur
+def faireV (c:Color){
+  setCouleurBrosse(c:Color)
+  avance()
+  marquerSol()
+  avance()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  droite()
+  avance()
+  marquerSol()
+  avance()
+  gauche()  
+  
+}
