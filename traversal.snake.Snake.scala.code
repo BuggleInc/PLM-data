@@ -1,34 +1,8 @@
 override def run() {
-  def posfinal():Boolean{
-    if (estFaceMur==true){return false}
-    if (getDirection()==Direction.EAST){
-      gauche()
-      if (estFaceMur==true){return false}
-      else{droite();return true}
-    }
-    if (getDirection()==Direction.WEST){
-      droite()
-      if (estFaceMur==true){return false}
-      else{gauche() ; return true}
-  }
-    else{return true}
-}
-  def pasSerp(){
-    baisseBrosse()
-    while(posfinal()){
-      if (estFaceMur==false){avance()}
-      else{
-        if (getDirection()==Direction.WEST){
-          droite()
-          avance()
-          droite()}
-        else{
-          gauche()
-          avance()
-          gauche()
-        }
-      }
-    }
-    leveBrosse()
-  }
-}
+	avance(6) ; gauche(); avance(); gauche()
+  avance(6) ; droite(); avance(); droite()
+  avance(6) ; gauche(); avance(); gauche()
+  avance(6) ; droite(); avance(); droite()
+  avance(6) ; gauche(); avance(); gauche()
+  avance(6) ;droite(); avance(); droite()
+  
