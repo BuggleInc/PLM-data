@@ -1,0 +1,14 @@
+def marquer (c:Color) = {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
+def faireV (c:Color) = {
+  marquer(c)
+  gauche();avance();droite();avance()
+  marquer(c)
+  avance();droite();avance()
+  marquer(c)
+}
+
+def pattern () {avance();faireV(Color.YELLOW);gauche();avance();gauche();avance();faireV(Color.RED);gauche();avance();gauche();avance();faireV(Color.BLUE);gauche();avance();gauche();avance();faireV(Color.GREEN);gauche();avance();gauche()}
+
+override def run() {
+  for (i <- 1 to 9){for (i<- 1 to 9) {pattern();avance(5)};gauche();avance(5);droite()}
+}
