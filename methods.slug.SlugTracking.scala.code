@@ -1,0 +1,15 @@
+def isFacingTrail():Boolean = {
+  while (getCouleurSol()!=Color.green) {
+    forward();
+    if (getCouleurSol()==Color.green) {
+      backward();
+    } else {
+      backward(), left();forward();
+      if (getCouleurSol()==Color.green) {
+        backward();
+      } else {
+        backward(); right();right();forward();
+      }
+    }
+  }
+}
