@@ -19,24 +19,35 @@ def faireV(){
   avance();
   gauche();
 }
-def faireMotif(X:Int,Y:Int){
-setPos(X,Y); 
+def faireMotif(){ 
   for(i<-1 to 4){
     faireV();
 }  
 }
 def avanceloin(){
+  for(i<-1 to 7){
+    avance();
+  }
   
 }
+def faireligne(){
+  for(k<-1 to 2){
+   faireMotif();
+  avanceloin();
+  }
+  faireMotif();
+} 
+def allerlignesuivante(){
+  var A:Int =getY();
+  setY(A+7);
+  setX(getX()-14)
   
+}
 
 override def run() {
-  var X:Int=getX()
-  var Y:Int=getY()
-  faireMotif(getX(),getY())
-  for(k<-0 to 2){
-   for(i<-1 to 2){
-    faireMotif(X+i*7,Y+k*7)
-  } 
-  }
+ faireligne();
+ allerlignesuivante();
+ faireligne();
+ allerlignesuivante();
+  faireligne();
 }
