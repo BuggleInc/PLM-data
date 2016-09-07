@@ -1,0 +1,30 @@
+override def run() {
+  brushDown();
+  
+  while(!isFacingWall() && getDirection() != Direction.NORTH) {
+    if(!isFacingWall()) {
+      forward();
+    }
+    
+    if(isFacingWall()) {
+      if(getDirection() == Direction.EAST) {
+        left();
+        
+        if(!isFacingWall()) {
+          forward();
+          left();
+        }
+      }
+      else if(getDirection() == Direction.WEST) {
+        right();
+        
+        if(!isFacingWall()) {
+          forward();
+          right();
+        }
+      }
+    }
+  }
+  
+  right();
+}
