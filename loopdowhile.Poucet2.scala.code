@@ -1,22 +1,24 @@
 var sortie = false
 var b = 0
-var c = getCouleurSol
 while(sortie == false){
-  do{
+  for(i <- 0 to 4){
     avance();
     if (estSurBiscuit()){
       b = b +1;
+    }else if(sortieTrouvee()){
+      b = 0;
+    	sortie = true;
     }
-  }while(crossing())
+  }
   if(b <= 2){
     droite();
     b = 0
   }else if(b >= 3){
     gauche();
     b=0
-  }else if(c == Color.orange){
-    avance();
+  }else if(sortieTrouvee()){
     b = 0;
     sortie = true;
   }
 }
+avance()
