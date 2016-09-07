@@ -1,6 +1,6 @@
 override def run() {
   for (stepper <- 1 to 3) {
-    makeLine(c: Color)
+    makeLine()
     left()
     for (stepper <- 1 to 5) {
       forward()
@@ -10,6 +10,19 @@ override def run() {
 }
 
 
+def makeLine() {for (stepper <- 1 to 3) {
+  makePattern()
+  for (stepper <- 1 to 5) {
+    forward()
+  }
+}}
+
+def makePattern() {
+  makeV(Color.YELLOW)
+  makeV(Color.RED)
+  makeV(Color.BLUE)
+  makeV(Color.GREEN)
+}
 
 def makeV(c: Color) {
   					 forward()
@@ -29,6 +42,3 @@ def makeV(c: Color) {
 
 def paint() {brushDown()
              brushUp()}
-
-def makeLine(c: Color) {for (stepper <- 1 to 3) {makeV(c:Color)
-                                         for (stepper <- 1 to 5) {forward()}}}
