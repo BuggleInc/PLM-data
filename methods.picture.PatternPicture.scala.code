@@ -1,0 +1,38 @@
+override def run() {
+  moyenPattern()
+}
+
+
+def peindre() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def petitPattern() {
+  setCouleurBrosse(Color.RED)
+  avance() ; peindre()
+  
+  setCouleurBrosse(Color.BLUE)
+  avance() ; peindre() ; avance() ; gauche() ; avance() ; peindre()
+  
+  setCouleurBrosse(Color.GREEN)
+  avance() ; peindre() ; avance() ; gauche() ; avance() ; peindre()
+  
+  setCouleurBrosse(Color.YELLOW)
+  avance() ; peindre() ; avance() ; gauche() ; avance() ; peindre()
+  
+  setCouleurBrosse(Color.RED)
+  avance() ; peindre() ; gauche()
+}
+
+def moyenPattern() {
+  for (j <- 1 to 2) {
+
+  	for (i <- 1 to 2) {
+    	petitPattern()
+  	}
+    
+    gauche() ; avance(5) ; droite()
+	}
+}
