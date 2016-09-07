@@ -1,9 +1,13 @@
 Compilation error:
 SlugTracking:3: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
-def testavant() {avance(); getCouleurSol()==Color.green; recule(); return bool}
-                                                                          ^SlugTracking:3: warning: enclosing method testavant has result type Unit: return value discarded
-def testavant() {avance(); getCouleurSol()==Color.green; recule(); return bool}
-                                                                   ^SlugTracking:4: error: type mismatch;
+def testavant() {avance(); var b = getCouleurSol(); if (b==Color.green) {return true}; recule(); return bool}
+                                                                                ^SlugTracking:3: warning: enclosing method testavant has result type Unit: return value discarded
+def testavant() {avance(); var b = getCouleurSol(); if (b==Color.green) {return true}; recule(); return bool}
+                                                                         ^SlugTracking:3: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
+def testavant() {avance(); var b = getCouleurSol(); if (b==Color.green) {return true}; recule(); return bool}
+                                                                                                        ^SlugTracking:3: warning: enclosing method testavant has result type Unit: return value discarded
+def testavant() {avance(); var b = getCouleurSol(); if (b==Color.green) {return true}; recule(); return bool}
+                                                                                                 ^SlugTracking:4: error: type mismatch;
  found   : Unit
  required: Boolean
 def testgauche() {gauche();bool=testavant();droit();return bool}
