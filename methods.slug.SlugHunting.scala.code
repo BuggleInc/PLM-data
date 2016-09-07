@@ -1,10 +1,11 @@
 def hunt() {
   while (!estSurBiscuit) {
-    if (estFaceMur()==false) {
-    	if (isFacingTrail() == true) {
-      	brushDown(); forward(); brushUp();
-    	}
+    if (estFaceMur()==false && isFacingTrail() == true) {
+      brushDown(); forward(); brushUp();
+    } else {
+      left();
     }
+    
   }
   prendBiscuit();
   
