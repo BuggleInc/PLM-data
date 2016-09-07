@@ -1,5 +1,9 @@
-def posFinal(a:Boolean,b:Boolean):Boolean ={
-
+def posFinal():Boolean ={
+  droite()
+  var a = estFaceMur()
+  retourne()
+  var b = estFaceMur()
+  droite()
 	if (estFaceMur() && ((getDirection() == Direction.EST && b) || (getDirection() == Direction.WEST && a))){
     return true
   }
@@ -14,29 +18,19 @@ def posFinal(a:Boolean,b:Boolean):Boolean ={
 
 override def run() {
   baisseBrosse()
-    droite()
-  	var a = estFaceMur()
-  	retourne()
-  	var b = estFaceMur()
-  	droite()
 	do {
-  	droite()
-  	a = estFaceMur()
-  	retourne()
-  	b = estFaceMur()
-  	droite()
     avance()
-    if (estFaceMur() && a) {
+    if (estFaceMur() && getDirection() == Direction.EST) {
       gauche()
       avance()
       gauche()
     }
-    else if (estFaceMur() && b) {
+    else if (estFaceMur() && getDirection() == Direction.WEST) {
       droite()
       avance()
       droite()
     }
-  } while (!posFinal(a,b))
+  } while (!posFinal())
     
 
   
