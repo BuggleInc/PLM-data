@@ -4,17 +4,32 @@ override def run() {
   var posX = 0
   var posY = 0
   var compt = 0
+  var prec = 0
   while(!((posX == xMax) && (posY == yMax))) {
     ecritMessage(compt)
+    if (posY/2)!=prec) {
+      if (posX == 0) {posX+=1
+                     compt +=1
+                     setPos(posX,posY)
+                     ecritMessage(compt)}
+      else {posX+=1
+           compt +=1
+           setPos(posX,posY)
+           ecritMessage(compt)}
+    }
     if((posX<xMax)&&(posX>(-1))) {
       if  ((posY/2)==0) {
-        posX += 1 }
+        posX += 1
+        prec = (posY/2)
+      }
       else {
         posX += -1
+        prec = (posY/2)
       }
     }
-    else {
+    else if(posX==xMax) {
       posY += 1
+      
     }
     setPos(posX,posY)
     compt += 1
