@@ -1,5 +1,7 @@
 override def run() {
-  val nbOfRow:Int = 3 //Considering that it's a square, count(row) = count(col) and we're only countig preset
+  val nbOfRow:Int = 3; //Considering that it's a square, count(row) = count(col) and we're only countig preset
+  val nbCasePerRow = 5;
+  val SpaceBetween = 1;
   def point() {
     brushDown();
     brushUp();
@@ -21,22 +23,22 @@ override def run() {
       right();
       forward();
       point();
-      forward(2);
+      forward(SpaceBetween);
       left();
-      forward(2);
+      forward(SpaceBetween);
     }
   }
   def makePattern() {
-    forward(2);
+    forward(SpaceBetween);
     makeV();
-    backward(2);
+    backward(SpaceBetween);
   }
   def oneRight() {
-    forward(7);
+    forward(nbCasePerRow);
   }
   def oneUp() {
     left();
-    forward(7);
+    forward(nbCasePerRow);
     right();
   }
   def oneLine(n:Int){
