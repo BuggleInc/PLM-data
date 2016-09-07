@@ -18,11 +18,11 @@ def verifFin() {
   var fin = false
   if (getDirection() == Direction.EST) {
     gauche()
-    fin = estFaceMur()
+    if (estFaceMur()) {fin = true}
     droite()
   } else if (getDirection() == Direction.OUEST) {
     droite()
-    fin = estFaceMur()
+     if (estFaceMur()) {fin = true}
     gauche
   }
   return fin
