@@ -1,21 +1,19 @@
 var seenBaggle = false
 var sawBaggle = false
 
-def haveBaggle():Boolean = {
-  if (isOverBaggle()) {
-    sawBaggle = true
+def haveBaggle() {
+  for (i<- 1 to 7) {
+    forward()
+    if (isOverBaggle) {
+      sawBaggle = true
     }
+    backward(6)
+  }
   if (sawBaggle) {
     seenBaggle = true
   }
   return seenBaggle
-
-
-  
-while (!isOverBaggle()) {
-  forward()
-  }
-  haveBaggle()
-  backward(7)
 }
+
+haveBaggle()
   
