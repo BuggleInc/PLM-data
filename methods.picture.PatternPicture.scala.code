@@ -18,8 +18,57 @@ def ligne1 (c1:Color, c2:Color) {
   baisseBrosse();
   leveBrosse();
   avance();
+  avance();
+}
+
+def monte () {
+  gauche();
+  avance();
+  droite();
+}
+
+def ligne2 (c1:Color, c2:Color) {
+  setCouleurBrosse(c1);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  avance();
+  avance();
+  setCouleurBrosse(c2);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  setCouleurBrosse(c1);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  avance();
+  avance();
+  setCouleurBrosse(c2);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+}
+
+def finalPosition () {
+  for (i <- 0 to 3) {
+    avance();
+  }
+  droite();
+  avance(); avance(); avance();
+  gauche();
 }
 
 override def run() {
+  for (repeat <- 0 to 1) {
   ligne1 (Color.RED, Color.BLUE);
+  monte();
+  ligne2 (Color.RED; Color.BLUE);
+  monte();
+  ligne1 (Color.YELLOW, Color.GREEN);
+  monte();
+  ligne2 (Color.YELLOW; Color.GREEN);
+  monte();
+  }
+  finalPosition();
 }
