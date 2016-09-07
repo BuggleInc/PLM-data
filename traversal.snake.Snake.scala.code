@@ -1,0 +1,41 @@
+override def run() {
+  var fin == false
+  while(!fin){
+    
+    while(!estFaceMur()){
+      avance()
+    }
+    
+    fin = verifFin(getDirection())
+    
+    if(!fin){
+      monte(getDirection())
+    }
+  }
+}
+
+def verifFin(dir: Direction): Boolean {
+  var fin == false
+  if (dir == Direction.EST) {
+    gauche()
+    fin = estFaceMur()
+    droite()
+  } else if (dir == Direction.OUEST) {
+    droite()
+    fin = estFaceMur()
+    gauche
+  }
+  return fin
+}
+
+def monte(dir: Direction) {
+  if (dir == Direction.EST) {
+    gauche()
+    avance()
+    gauche()
+  } else {
+    droite()
+    avance()
+    droite()
+  }
+}
