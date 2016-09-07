@@ -1,11 +1,3 @@
-def plusDeBiscuit():Boolean = { //Renvoie true s'il n'y a plus de biscuit, false sinon.
-                                //Positionne la buggle sur le prochaine biscuit, ou au bout du couloir.
-  while (!estSurBiscuit && !estFaceMur) {
-    recule()
-  }
-  return !estSurBiscuit
-}
-
 def run() {
   while (!plusDeBiscuit()) {
     prendBiscuit()
@@ -20,4 +12,12 @@ def run() {
   avance()
   gauche()
   avance()
+}
+
+def plusDeBiscuit():Boolean = { //Renvoie true s'il n'y a plus de biscuit, false sinon.
+                                //Positionne la buggle sur le prochaine biscuit, ou au bout du couloir.
+  while (!estSurBiscuit && !estFaceMur) {
+    recule()
+  }
+  return !estSurBiscuit
 }
