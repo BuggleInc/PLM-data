@@ -1,21 +1,25 @@
 override def run() {
-  def murNord(){
-  if(getDirection()==Direction.EST){gauche()
-                                    if(estFaceMur()){droite();return true}
-                                    droite()}
-  if(getDirection()==Direction.OUEST){droite()
-                                      if (estFaceMur()){gauche();return true}
-                                       gauche()}
+def fonctionTest(){
+  if(estFaceMur()){
+    if(getDirection()==Direction.EST){
+      gauche()
+      if(estFaceMur()){gauche()
+                      return true}
+      gauche()}
+    if(getDirection()==Direction.OUEST){
+      droite()
+      if(estFaceMur()){gauche()
+                      return true}
+      gauche()
+    }
+    }
+  }
   return false
 }
-
-def estPosiFin(){
-  if(estFaceMur() && murNord()){return true}
-  return false}
   
   baisseBrosse()
   do{avance()
     if(estFaceMur() && getDirection()==Direction.EST){gauche();avance();gauche()}
     if(estFaceMur() && getDirection()==Direction.OUEST){droite();avance();droite()}
-    }while(!estPosiFin())
+    }while(!fonctionTest())
 }
