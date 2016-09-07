@@ -1,3 +1,20 @@
+def getMondeHauteur() {
+  val a=getY()
+  var nb : Int = 0
+  while (!(getDirection()=Direction.NORTH)){gauche()}
+  do {avance(); nb= nb + 1} while (a!=getY())
+  return(nb)
+}
+
+def getMondeLargeur() {
+  val a=getX()
+  var nb : Int = 0
+  while (!(getDirection()=Direction.EAST)){gauche()}
+  do {avance(); nb= nb + 1} while (a!=getX())
+  return(nb)
+}
+
+
 override def run() {
   var cpt : Int = 0 
   (getX(),getY()) match {
