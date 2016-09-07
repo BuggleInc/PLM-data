@@ -1,5 +1,44 @@
 def growFlowers(){
-  def growFlower(c:Color){
-    
+  def point() {
+    brushDown();
+    brushUp();
   }
+  
+  
+  def growFlower(c:Color){
+    for(i <- 1 to 4){
+			setBrushColor(c);
+      point();
+      forward(2);
+      point();
+      backward();
+      left();
+      forward();
+      point();
+      backward(2);
+      point();
+      forward();
+      right();
+      setBrushColor(Color.YELLOW);
+      point();
+      backward();
+    }
+  }
+  
+  growFlower(Color.RED);
+  forward(4);
+  growFlower(Color.CYAN);
+  right();
+  forward(2);
+  right();
+  growFlower(Color.ORANGE);
+  backward(2);
+  left();
+  forward(2);
+  right();
+  growFlower(Color.GREEN);
+  backward(6);
+  growFlower(Color.PINK);
+  backward(2);
 }
+
