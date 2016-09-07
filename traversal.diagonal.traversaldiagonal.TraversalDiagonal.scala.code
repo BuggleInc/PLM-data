@@ -1,0 +1,34 @@
+var diag = 0;
+var cpt:Int = 0
+override def run() {
+  var cpt:Int=0
+  var zigzag:Boolean=false
+  while (!fini()){
+    ecritMessage(cpt)
+    cpt += 1
+    if (!finDiago()){
+      parcourirDiago()
+    }
+    else{
+      diag += 1
+      if (diag<=6){
+        setPos(0,diag)}
+      else{
+        setPos(diag-6,getMondeHauteur()-1)
+      }
+    }
+  }
+  ecritMessage(cpt)  
+}
+
+def parcourirDiago(){
+  setPos(getX()+1,getY()-1)
+}
+
+def finDiago():Boolean={
+  return (estFaceMur()||getX()==getMondeLargeur()-1)
+  }
+
+def fini():Boolean = {
+  return (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1)
+} 

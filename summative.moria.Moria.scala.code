@@ -1,0 +1,24 @@
+retourne()
+var stop:Boolean = false
+while(!stop){
+  if (porteBiscuit()){
+    if (estSurBiscuit()){
+     	recule();poseBiscuit();recule();retourne()}
+    else{
+      avance()
+    }
+		}
+  else{
+    if(estSurBiscuit()){prendBiscuit();retourne()}
+    else{
+      if (estFaceMur()){
+        droite()
+        if (estFaceMur()){gauche();gauche();stop=true}
+        avance()
+      }
+      else{
+        avance
+      }
+    }
+  }
+}
