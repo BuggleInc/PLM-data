@@ -1,0 +1,25 @@
+var color:Color=getCouleurSol()
+while (color!=Color.GREEN) {
+  
+  
+  if (!estFaceMur) {
+	while (!estSurBiscuit()) {
+    recule();
+    color=getCouleurSol();
+  }
+  avance();
+  prendBiscuit();
+  
+  while (!estSurBiscuit()) {
+  	avance();
+    color=getCouleurSol();
+  }
+  
+  recule();
+  poseBiscuit();
+  } else {
+    droite(); if (!estFaceMur()) {avance()}
+  }
+  
+  
+}
