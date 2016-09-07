@@ -1,15 +1,11 @@
 var depart:Boolean = true
 def isFacingTrail():Boolean = {
-  if (depart == true){
-  	avance()
-  	return true
-  }
-	if(getCouleurSol() == Color.green && !estFaceMur()) {
+	if((getCouleurSol() == Color.green && !estFaceMur()) || depart == true) {
  		avance()
     return true
   } else {
     recule()
     return false
   }
-  var depart = false
+  depart = false
 }
