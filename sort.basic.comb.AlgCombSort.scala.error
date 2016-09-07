@@ -1,10 +1,27 @@
-The execution of your program raised a java.lang.RuntimeException exception: Out of bounds in isSmaller(150,149), 150>= value count
- Please fix your code.
-   at plm.universe.sort.SortingWorld.isSmaller (null:-1)
-   at plm.universe.sort.SortingEntity.isSmaller (null:-1)
-   at plm.universe.sort.SortingEntity.plusPetit (null:-1)
-   at plm.runtime48.AlgCombSort.combSort (plm.runtime48.AlgCombSort:25)
-   at plm.runtime48.AlgCombSort.run (plm.runtime48.AlgCombSort:7)
-   at plm.core.lang.JVMCompiledLang.runEntity (null:-1)
-   at plm.core.model.lesson.ExerciseRunner$3.run (null:-1)
-   at java.lang.Thread.run (Thread.java:745)
+Compilation error:
+AlgCombSort:6: error: type mismatch;
+ found   : Int
+ required: Boolean
+  var ecart:Boolean = n;
+                      ^AlgCombSort:12: error: type mismatch;
+ found   : Int(1)
+ required: Boolean
+    if (ecart>1) ecart /= 1.3;
+              ^AlgCombSort:12: error: value / is not a member of Boolean
+    if (ecart>1) ecart /= 1.3;
+                       ^AlgCombSort:15: error: overloaded method value + with alternatives:
+  (x: Double)Double <and>
+  (x: Float)Float <and>
+  (x: Long)Long <and>
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int <and>
+  (x: String)String
+ cannot be applied to (Boolean)
+    while (i+ecart<n)
+            ^AlgCombSort:25: error: type mismatch;
+ found   : Int(1)
+ required: Boolean
+  while (ecart > 1 || isEchange)
+                 ^
