@@ -2,6 +2,24 @@ override def run() {
   val nbOfRow:Int = 2; //Considering that it's a square, count(row) = count(col) and we're only counting preset
   val nbCasePerRow = 4;
   val SpaceBetween = 2;
+  def forwardD(n:Int) {
+    var ret = false
+    for(i <- 1 to n){
+      if(!isFacingWall()){
+        forward();
+      }
+      else {
+        ret = true ;
+      }
+    }
+    if(ret){
+      right();
+      right();
+      forward((nbOfRow*nbCasePerRow)-1);
+      right();
+      right();
+    }
+  }
   def point() {
     brushDown();
     brushUp();
@@ -28,11 +46,11 @@ override def run() {
     backward(SpaceBetween);
   }
   def oneRight() {
-    forward(nbCasePerRow);
+    forwardD(nbCasePerRow);
   }
   def oneUp() {
     left();
-    forward(nbCasePerRow);
+    forwardD(nbCasePerRow);
     right();
   }
   def oneLine(n:Int){
