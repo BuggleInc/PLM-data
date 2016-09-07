@@ -1,0 +1,47 @@
+def GrowFlowers(){
+  flower(Color.RED)
+  move(4,true)
+  flower(Color.CYAN)
+  move(5,false)
+  droite()
+  move(2,true)
+  gauche()
+  move(2,true)
+  flower(Color.ORANGE)
+  move(3,false)
+  droite()
+  move(2,true)
+  gauche()
+  move(2,true)
+  flower(Color.PINK)
+  move(4,true)
+  flower(Color.GREEN)
+}
+
+def flower(c:Colors){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  move(2,true)
+  recule()
+  gauche()
+  avance()
+  move(2,false)
+  droite()
+  leveBrosse()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def move(nbPas: Int,versLAvant: Boolean) {
+  if (versLAvant){
+    for (i <- 0 to (nbPas - 1)){
+      avance()
+    }
+  }
+  else{
+    for (i <- 0 to (nbPas - 1)){
+      recule() 
+    }
+  }
+}
