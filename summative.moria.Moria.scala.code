@@ -5,7 +5,7 @@ def uTurn () = {
 
 // move forward while we not encounter a baggle and pick it
 def moveAndTake () = {
-  while (!isOverBaggle()) {
+  while (!isOverBaggle() && !isFacingWall()) {
     forward();
   }
   pickupBaggle();
@@ -13,13 +13,15 @@ def moveAndTake () = {
 
 // idem but drop it
 def moveAndDrop () = {
-  while (!isOverBaggle()) {
+  while (!isOverBaggle() && !isFacingWall()) {
     forward();
   }
   // turn back and drop it
   uTurn();
   forward();
   dropBaggle();
+  // avoid bugs
+  forward();
 }
 
 // to allow the last steps toward the exit 
@@ -33,7 +35,6 @@ def run () = {
     moveAndTake();
     uTurn();
     moveAndDrop();
-    if (!isFacingWall ()) {forward();}
   }
   // the few last moves to exit
   right();
