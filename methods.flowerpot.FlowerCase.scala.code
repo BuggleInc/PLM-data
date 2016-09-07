@@ -1,6 +1,6 @@
-def growFlowers(){
-  moitie()
-  droite(); recule(); gauche()
+def growFlowers(){ //Dessine le jardin
+  moitie() // R?alise la moiti? du jardin
+  droite(); recule(); gauche() // Se met en place pour l'autre moiti?
   while (estDosMur==false){
     recule()
   }
@@ -9,21 +9,21 @@ def growFlowers(){
     avance()
   }
   gauche()
-  moitie()
+  moitie() // R?alise l'autre moiti?
 }
 
-def moitie(){
-  partie()
-  gauche(); avance(); avance(); droite();
+def moitie(){ // Dessine une moiti? du jardin
+  partie() // Fait la moiti? de la moiti?
+  gauche(); avance(); avance(); droite(); // Se met en place pour la fleur bleue
   for (i <- 1 to 6){
     avance()
   }
-  flowers(Color.blue)
-  avance(); avance(); gauche(); avance(); avance(); droite();
+  flowers(Color.blue)  //Fleur Bleue
+  avance(); avance(); gauche(); avance(); avance(); droite(); // En place pour la seconde moiti? de la moiti?
   partie()
 }
 
-def partie(){
+def partie(){ // Dessine un "quart de jardin"
   flowers(Color.red)
   for (i <- 1 to 4){
     avance()
@@ -42,7 +42,7 @@ def partie(){
 
 
 
-def flowers(c:Color){
+def flowers(c:Color){ // Dessine une fleur
   setCouleurBrosse(Color.yellow)
   avance(); marqueSol(); recule()
   setCouleurBrosse(c)
@@ -53,6 +53,6 @@ def flowers(c:Color){
   droite()
 }
 
-def marqueSol(){
+def marqueSol(){ //Marque le Sol
   baisseBrosse(); leveBrosse();
 }
