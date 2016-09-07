@@ -1,0 +1,47 @@
+override def run() {
+  findNorthWall()
+  findSideWall()
+  while(!estSurBiscuit) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall() {
+  if (estFaceMur) {
+    (droite)
+  }
+  else {
+    avance()
+    gauche()
+    while (!estFaceMur) {
+      avance()
+      gauche()
+    }
+    droite()
+  }
+}
+
+def findSideWall() {
+  while (!estFaceMur) {
+    avance()
+  }
+  droite()
+}
+
+def findNorthWall() {
+  while (getX()!=0) {
+    var etat:Int = 0
+    etat match {
+      case 0 => setDirection(Direction.NORTH)
+                while (!estFaceMur) {
+                  avance()
+                }
+                etat = 1
+      case 1 => while (estFaceMur) {
+                  keepHandOnSideWall()
+                  setDirection(Direction.NORTH)
+                }
+    }
+  }
+}
