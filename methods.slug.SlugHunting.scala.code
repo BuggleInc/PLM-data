@@ -1,14 +1,9 @@
-def hunt() : {while estSurBiscuit == false {
+def hunt() {while estSurBiscuit == false {
   if (isFacingTrail())
       {avance();baisseBrosse(); leveBrosse();}
   else {left();}
-  
-  
-  
-  
-  
-  
-}
+  }
+  prendBiscuit();
     
             
             
@@ -21,10 +16,12 @@ def hunt() : {while estSurBiscuit == false {
 
 def isFacingTrail():Boolean = {
   var c=Color.white ; var e =false ;
-  if (estFaceMur()) {return (e);}
+  if (estFaceMur()) 
+      {return (e);}
   avance();
   c = getCouleurSol();
   recule() ;
-  if (c == Color.green) {e=true;}
+  if (c == Color.green)
+      {e=true;}
   return(e);
 }
