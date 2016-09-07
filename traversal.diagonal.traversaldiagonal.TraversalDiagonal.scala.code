@@ -2,6 +2,10 @@ var diag = 0;
 override def run() {
   var cpt = 0
   while ((getX()!=getMondeLargeur()-1) || (getY()!=getMondeHauteur()-1)){
+    if ((getX()=6) || (getY()=0)){
+      ecritMessage(cpt)
+      cpt+=1
+    }
     if (diag<7){
       setPos(0,diag)
     } else {
@@ -12,7 +16,6 @@ override def run() {
       ecritMessage(cpt)
       setPos(getX()+1,getY()-1)
     }
-    ecritMessage(cpt)
     diag=diag+1
   }
   ecritMessage(cpt)
