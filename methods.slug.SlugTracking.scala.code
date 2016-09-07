@@ -2,6 +2,18 @@
 
 def isFacingTrail():Boolean = {//var test:Boolean = estFaceMur(); 
                               if (!estFaceMur()) 
+  														{avance(); 
+                               //var couleur:Color = getCouleurSol(); 
+                               if (getCouleurSol()==Color.green) {recule(); return true}
+                               else {recule(); return false}}
+                              }
+
+
+  
+//var vert:Color = Color.green;
+
+def isFacingTrail():Boolean = {//var test:Boolean = estFaceMur(); 
+                              if (!estFaceMur()) 
                                {avance(); //var couleur:Color = getCouleurSol(); 
                                if (getCouleurSol()==Color.green) {recule(); return true}
                                else {recule(); return false}}
@@ -9,3 +21,6 @@ def isFacingTrail():Boolean = {//var test:Boolean = estFaceMur();
 
 
   
+while (!estSurBiscuit()) {if (isFacingTrail()) {avance();}
+                                               else {gauche();}
+                                               }                       
