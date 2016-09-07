@@ -1,7 +1,4 @@
 def deplacer(){
-  while(!estSurBiscuit()){
-    avance()
-  }
   prendBiscuit()
   porteBiscuit()
   while(!estSurBiscuit()){
@@ -9,15 +6,20 @@ def deplacer(){
   }
   avance()
   poseBiscuit()
-  avance()
+  while(!estSurBiscuit() || !estFaceMur()){
+    avance()
+  }
 }
 
 gauche();gauche()
-while(!(estFaceMur && !estSurBiscuit())){
-  deplacer()
+while(!estSurBiscuit()){
+  avance()
 }
 while(!estFaceMur){
-  avance()
+  deplacer()
+}
+if(estSurBiscuit()){
+  deplacer()
 }
 droite()
 avance()
