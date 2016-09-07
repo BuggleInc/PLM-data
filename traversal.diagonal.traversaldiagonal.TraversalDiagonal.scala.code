@@ -1,0 +1,28 @@
+var diag = 0;
+override def run() {
+  var a = getMondeHauteur()
+  var b = getMondeLargeur()
+  var x = getX()
+  var y = getY()
+  var cpt = 0
+	var cote = true
+ do {
+ setPos(y, x) 
+ ecritMessage(cpt)
+ x+=1
+ y+=1 
+ 
+ cpt += 1
+   if (y > 6 || x<0){
+     y = 0
+     x = diag
+     cote = false
+   }
+ 		else if (y <0 || x> 6){
+      y = 0
+      x+=1
+      cote = true
+    }
+ }while (a!=x && b!=y)
+   
+}
