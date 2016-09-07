@@ -1,0 +1,47 @@
+override def run() {
+  baisseBrosse;
+  while(!estArrive){
+    if(!estFaceMur) avance;
+    else if (vOuest) tourneD;
+    else if (vEst) tourneG;
+  }
+}
+
+def estArrive():Boolean = {
+  if(!estFaceMur) return false;
+  
+  if (vEst){
+    left ;
+    if (estFaceMur){
+      right;
+      return true;
+    }
+    right;
+  }
+  
+  else  if (vOuest){
+    right ;
+    if (estFaceMur){
+      left;
+      return true;
+    }
+    left;  
+  }
+  return False
+  
+}
+
+def tourneG(){
+  left ; avance ; left ;
+}
+def tourneD(){
+  right ; avance ; right ;
+}
+
+def vOuest():Boolean = {
+  return getDirection() == Direction.OUEST;
+}
+
+def vEst():Boolean = {
+  return getDirection() == Direction.EST;
+}
