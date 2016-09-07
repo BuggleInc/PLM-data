@@ -1,18 +1,17 @@
 def run() {
   while (!finished()) {
 		if (!isOverBaggle && !isCarryingBaggle) {
-     	setDirection(Direction.EAST);
 			forward();
     }
     else if (isOverBaggle && !isCarryingBaggle) {
       pickupBaggle();
+      back();
     }
     else if (isCarryingBaggle && !isOverBaggle) {
-      setDirection(Direction.EAST);
 			forward();
     }
     else {
-      setDirection(Direction.WEST);
+      back();
 			forward();
       dropBaggle();
       
