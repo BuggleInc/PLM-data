@@ -1,20 +1,19 @@
-def ligne() {
-  for (i <- 1 to 6){
-    forward()
+def posFinal() :Boolean {
+  right()
+  var a = estFaceMur()
+  back()
+  var b = estFaceMur()
+  right()
+	if (estFaceMur() && ((getDirection() == Direction.EST && b) || (getDirection() == Direction.WEST && a)){
+    return true
   }
-}
+  else {
+    return false
+  }
+      }
 
-def alre(){
-  ligne()
-  left()
-  forward()
-  left()
-  ligne()
-  right()
-  forward()
-  right()
-  
-}
+ 
+
 override def run() {
   brushDown()
   alre()
