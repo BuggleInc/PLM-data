@@ -1,0 +1,57 @@
+def growFlowers(){
+  moitie()
+  droite(); recule(); gauche()
+  while (estDosMur==false){
+    recule()
+  }
+  droite()
+  for (i <- 1 to 5){
+    avance()
+  }
+  gauche()
+  moitie()
+}
+
+def moitie(){
+  gauche(); avance(); avance(); droite();
+  for (i <- 1 to 6){
+    avance()
+  }
+  flowers(Color.blue)
+  avance(); avance(); gauche(); avance(); avance(); droite();
+  partie()
+}
+
+def partie{
+  flowers(Color.red)
+  for (i <- 1 to 4){
+    avance()
+  }
+  flowers(Color.cyan)
+  droite(); avance(); avance(); droite();
+  flowers(Color.orange)
+  droite(); recule(); recule(); droite();
+  flowers(Color.green)
+  for (i <- 1 to 4){
+    recule()
+  }
+  flowers(Color.pink)
+}
+
+
+
+
+def flowers(c:Color){
+  setCouleurBrosse(Color.yellow)
+  avance(); marqueSol(); recule()
+  setCouleurBrosse(c)
+  gauche()
+  for (i <- 1 to 4){
+    avance(); droite();  avance(); marqueSol()
+  }
+  droite()
+}
+
+def marqueSol(){
+  baisseBrosse(); leveBrosse();
+}
