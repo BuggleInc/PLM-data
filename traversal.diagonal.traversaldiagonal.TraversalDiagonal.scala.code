@@ -7,26 +7,26 @@ def posFinale():Boolean = {
   
 def diago(cpt:Int,a:Int):Int = {
   ecritMessage(cpt)
-  var d = a
-	if (d <= 6){
+  var diag = a
+	if (diag <= 6){
     if (getY() != 0){
       setPos(getX()+1, getY()-1)
-    } else if (d != 6) {
-      setPos(0,d)
-      d += 1
+    } else if (diag != 6) {
+      diag += 1
+      setPos(0,diag)
     } else {
-      d += 1
-      setPos(d - 6,6)
+      diag += 1
+      setPos(diag - 6,6)
     }
   } else {
     if (getX() != 6){
     	setPos(getX()+1, getY()-1)
     } else {
-      d += 1
-      setPos(d - 6,6)
+      diag += 1
+      setPos(diag - 6,6)
     }
   }
-  return d
+  return diag
 }
 
 override def run() {
