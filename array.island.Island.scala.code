@@ -17,6 +17,7 @@ def isConstant(num: Array[Int]) : Boolean = {
 
 def island(num:Array[Int]): Int = {
   
+  
   if (isConstant(num)) //cas de base ie un seul etage
   {
     if (num(0)>0)
@@ -40,16 +41,22 @@ def island(num:Array[Int]): Int = {
 
     while(debut+tailletr < num.size && num(debut+tailletr)!=ground)  //largeur
       tailletr=tailletr+1
-
-    var montagne : Array[Int] = new Array[Int](tailletr) 
+		
     
-    for(it <- 0 to tailletr-1)				//copie
-      montagne(it)=num(it+debut)
+    if (tailletr>0){
+      var montagne : Array[Int] = new Array[Int](tailletr) 
 
-    cpt = cpt + island(montagne)
+
+      for(it <- 0 to tailletr-1)				//copie
+        montagne(it)=num(it+debut)
+
+      cpt = cpt + island(montagne)
+      
+    }
     debut=debut+tailletr
   
   }
+  
   return cpt
   
 }
