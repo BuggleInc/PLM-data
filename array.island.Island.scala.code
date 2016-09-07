@@ -1,0 +1,18 @@
+def island(num:Array[Int]): Int = {
+  var lvl : Int = 0
+  var h : Int = 0
+  for (i <- num) {
+    if (i != 0) {
+      if (i >h) {
+        h = i
+      }
+      else {
+        if (i != h) {
+          lvl = lvl +1
+          h = i
+        }
+      }
+    }
+  }
+  return lvl
+}
