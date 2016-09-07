@@ -1,0 +1,25 @@
+override def run() {
+  var cpt:Int = 0
+  while (!estSurFin) {
+    ecritMessage(cpt)
+    parcours()
+    cpt = cpt +1
+  }
+  ecritMessage(cpt)
+}
+
+def estSurFin():Boolean = {
+  if ((getMondeHauteur()-1 == getY)&&(getMondeLargeur-1 == getX)){
+    return true
+  } else {
+    return false
+  }
+}
+
+def parcours():Unit = {
+  if (getX() == getMondeLargeur()-1){
+    setPos(0, getY +1)
+  } else {
+    setPos(getX +1, getY)
+  }
+}
