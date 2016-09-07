@@ -1,33 +1,43 @@
 def haveBaggle():Boolean = {
   
-  var vuBagg:Boolean = false
+  var vuBiscuit:Boolean = false
   
-  while (!vuBagg) {
+  	while (!vuBiscuit) {
   
-  	for (i <- 1 to 6) {
+  		for (i <- 1 to 6) {
     
-    	avance();
+    		avance();
     
-    	if (estSurBiscuit()) {
+    		if (estSurBiscuit()) {
       
-      	vuBagg = true
+      		vuBiscuit = true 
       
-    	}
+    		}
+        
+      }
     
-  	}
+  		for (i <- 1 to 6) {
+    
+    		recule();
+        
+      }  
+    
+			if (vuBiscuit) {
+    
+    		return vuBiscuit
+    
+  		} 
+    
+			else {
+    
+  		droite();
+  		avance();
+  		gauche();
+    
+  		}
+    
+    }
   
-  	for (i <- 1 to 6) {
-    
-    	recule();
-    
-  	}
-    
-    droite();
-    avance();
-    gauche();
-    
-  }
-  
-  return vuBagg
+  return vuBiscuit
   
 }
