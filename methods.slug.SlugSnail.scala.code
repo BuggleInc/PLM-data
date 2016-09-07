@@ -1,6 +1,6 @@
 def hunt(c:Color) {
   while(!isOverBaggle()){
-    if(isFacingTrail(c)==true){
+    if(isFacingTrail()==true){
       brushDown();
       brushUp();
       forward();
@@ -13,12 +13,12 @@ def hunt(c:Color) {
   pickupBaggle();
 }
 
-def isFacingTrail(c):Boolean ={
+def isFacingTrail():Boolean ={
     if(isFacingWall()){
       return false
     }else{
       forward();
-    if(getCouleurSol()==c){
+    if(getCouleurSol()==Color.pink){
       backward();
       return true
     }else{
