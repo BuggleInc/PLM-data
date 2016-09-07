@@ -7,9 +7,21 @@ override def run() {
 }
 
 def goToNorthWall() {
+  
   while (getY() != 0) {
-    while (getDirection() != Direction.NORTH) left();
+    if (getDirection() == Direction.SOUTH) {
+      left();
+      if (isFacingWall()) {
+        right(); right();
+      }
+      
+      if (isFacingWall()) {
+        left();
+      }
+    } else while (getDirection() != Direction.NORTH) left();
+    
     while (isFacingWall()) left();
+    
     forward();
   }
 }
