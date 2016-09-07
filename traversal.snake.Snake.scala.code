@@ -6,20 +6,20 @@ override def run() {
 }
 
 def positionFinale() {
-  var res:Boolean=true
+  var res:Boolean=false
   if (!estFaceMur()) {
     res=false
   } else {
     if (getDirection()==Direction.EST) {
       gauche()
-      if (!estFaceMur) {
-        res=false
+      if (estFaceMur) {
+        res=true
       }
     }
     if (getDirection()==Direction.OUEST) {
       droite()
-      if (!estFaceMur) {
-        res=false
+      if (estFaceMur) {
+        res=true
       }
     }
   }
