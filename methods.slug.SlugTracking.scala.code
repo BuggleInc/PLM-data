@@ -1,22 +1,12 @@
 def isFacingTrail():Boolean = {
-  var biscuit = 0
-  while (biscuit==0){
-    forward()
-    if (estFaceMur()){
+  var x = 0
+  while (x==0){
+    if (estFaceMur){
       return false
     }
-    if (getGroundColor()==Color.green){
-      if (estSurBiscuit()){
-        prendBiscuit()
-        biscuit = biscuit + 1
-      }
-      baisseBrosse()
-      leveBrosse()
+    if (estSurBiscuit()){
+      return true
     }
-    else {
-      backward()
-      left()
     }
   }
-  return true
 }
