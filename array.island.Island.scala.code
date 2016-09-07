@@ -1,23 +1,6 @@
 def island(num:Array[Int]): Int = {
   var res : Int = 0
-  var mer1 : Int = 0
-  var mer2 : Int = 0 
-  while (mer2!=num.length-1){
-    for (i <- 0 to num.length -1){
-      if (num(i)==0 && i!=num.length-1){
-        mer1=i
-        mer2=i+1
-        while(num(mer2)!=0 && mer2<num.length -1){
-          mer2=mer2+1       
-        }
-        if (mer1+1!=mer2){
-          if (mer1+2==mer2){
-            res=res+1
-          }
-          for (j <-mer1+1 to mer2-2){
-            if (num(j)>=num(j+1)){res=res+1}
-          }
-        }
-      }
-    }}
-return(res)}
+  for (i<- 0 to num.length-2){
+    if (num(i)>=num(i+1)){res=res+1}
+   return(res)
+  }
