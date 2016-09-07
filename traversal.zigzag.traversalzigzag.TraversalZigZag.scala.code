@@ -9,7 +9,7 @@ override def run() {
   var y:Byte = 0;
   
   
-  do {
+  while (!isOnFinalDestination()) {
     setPos(x,y);
     writeMessage(count);
     
@@ -26,7 +26,7 @@ override def run() {
       direction = -1;
     }
     
-  } while (!isOnFinalDestination());
+  }
 }
 
 def isOnFinalDestination() : Boolean = {
