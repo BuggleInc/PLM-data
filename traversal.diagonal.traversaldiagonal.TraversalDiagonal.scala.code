@@ -1,0 +1,34 @@
+
+override def run() {
+  var w = getWorldWidth();
+  var h = getWorldHeight();
+  
+  var count:Int = 0;
+  
+  var diag = 0;
+  var x = 0;
+  var y = 0;
+  
+  
+  do {
+    setPos(x,y);
+    writeMessage(count);
+  
+  	count += 1;
+    
+    if (y < 0) {
+      diag += 1;
+      y = diag;
+      x = 0;
+    } else {
+      x += 1;
+      y -= 1;
+    }
+    
+    
+  } while (!isOnFinalDestination());
+}
+
+def isOnFinalDestination() : Boolean = {
+  return getX() == getWorldWidth()-1 && getY() == getWorldHeight()-1;
+}
