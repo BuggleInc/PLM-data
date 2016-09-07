@@ -1,0 +1,17 @@
+def estSurPositionFinale() {
+  while(!(getDirection() == Direction.EST)){gauche()}
+  if (!(estFaceMur())) {return(false)}
+  gauche()
+  if(!(estFaceMur())){return(false)}
+  droite()
+  return(true)  
+}
+
+override def run() {
+  baisseBrosse()
+  while (!(estSurPositionFinale())){
+    while(!(estFaceMur())){avance()}
+    if(getDirection() == Direction.EST){gauche();avance();gauche()}
+    else {droite();avance();droite()}
+  }
+}
