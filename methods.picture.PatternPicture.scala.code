@@ -5,11 +5,12 @@ override def run() {
     leveBrosse();
   }
   
-  def deuxCarreaux(c : Color) {
+  def motif1(c : Color) {
     
-    var n = 0
+    var n = 0;
     
-    setCouleurBrosse(c)
+    setCouleurBrosse(c);
+    
     for (n <- 1 to 2) {
       avance();
       moveBrosse();
@@ -18,8 +19,26 @@ override def run() {
       gauche();
 
   	}
-    avance();
-    avance();
+    
   }
-deuxCarreaux(Color.RED)
+  
+  def motif2(c : Color) {
+    
+    var n = 0;
+    
+    for (n <- 1 to 3) {
+      avance();
+    }
+    
+    setCouleurBrosse(c);
+    for (n <- 1 to 2) {
+      
+      moveBrosse();
+      avance();
+      gauche();
+      avance();
+    }
+    
+  }
+motif2(Color.BLUE)
 }
