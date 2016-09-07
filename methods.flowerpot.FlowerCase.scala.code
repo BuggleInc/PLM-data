@@ -32,10 +32,20 @@ def fleurs5() {
   fleurs(Color.GREEN)
 }
 
-def growFlowers() {
+def fleursJardin() {
   fleurs5()
   avance();avance();droite();avance()
   fleurs(Color.BLUE)
   avance();droite();avance();gauche();avance();droite()
   fleurs5()
+}
+
+def growFlowers() {
+  fleursJardin()
+  recule();gauche()
+  for (i <- 1 to 13) {
+    avance()
+  }
+  gauche();avance();avance();avance();gauche()
+  fleursJardin
 }
