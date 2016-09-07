@@ -1,0 +1,34 @@
+def cocktailSort2() {
+  var n : Int =getValueCount()
+  
+  var debut : Int = 0
+  var fin : Int = n-2
+  
+  do{
+    
+    var triee : Boolean = true
+    var j : Int = debut
+    
+    while(j<=fin){
+      
+      if( isSmaller(j+1,j)){
+	    	swap(j,j+1)
+        triee=false
+      }
+    }
+    
+    j=fin
+    while(j>=debut){
+      
+      if( isSmaller(j,j-1)){
+	    	swap(j,j-1)
+        triee=false
+      }
+      j-=1
+    }
+
+		debut+=1
+    fin-=1
+  }while(!triee)
+
+}
