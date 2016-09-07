@@ -1,0 +1,44 @@
+override def run() {
+}
+def point(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse ; leveBrosse;
+}
+
+def faire1(){	
+	  var c:Color = Color.YELLOW
+    for(i <- 1 to 4){
+    i match{
+      case 1 => c = Color.YELLOW
+      case 2 => c = Color.RED
+      case 3 => c = Color.BLUE
+      case _ => c = Color.GREEN
+    }
+    avance ; avance ;
+    point(c) ;
+    left ; avance ; right ; avance ;
+    point(c) ;
+    right ; avance ; left ; avance ;
+    point(c) ;
+    avance ; avance ; left ;
+	}
+}
+def faire2(){
+  for(i <- 1 to 2){
+    faire1 ;
+    for (n <- 1 to 7) avance ;
+  }
+}
+def faire3(){
+  for(i <- 1 to 2){
+    faire2 ;
+    left ; 
+    for(n <- 1 to 7) avance ;
+    right
+  }
+}
+
+override def run(){
+  faire3();
+  
+}
