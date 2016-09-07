@@ -1,0 +1,13 @@
+override def run() {
+  var cpt = 0
+  while ((getX()!=getMondeLargeur()-1) || (getY()!=getMondeHauteur()-1)){
+    ecritMessage(cpt) // ecrit au sol
+    cpt +=1 // ajoute +1 pour le futur marquage
+    if (getX()!=getMondeLargeur()-1){ // si on n'est pas en bas de la colonne on descend
+      setPos(getX()+1,getY())
+    } else { // On remonte si on est en bas en se d?placant ? droite
+      setPos(0,get(Y)+1)
+    }
+  }
+  ecritMessage(cpt)
+}
