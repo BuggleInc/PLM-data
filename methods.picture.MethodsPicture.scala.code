@@ -1,0 +1,56 @@
+def faireV(c:Color){
+  setCouleurBrosse(Color.c)
+  avance();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+	droite();
+  avance();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche();
+  avance();
+  avance();
+  gauche();
+}
+def faireMotif(){ 
+  faireV(Color.YELLOW);
+  faireV(Color.RED);
+  faireV(Color.BLUE);
+  faireV(Color.GREEN);
+}
+def avanceloin(){
+  for(i<-1 to 7){
+    avance();
+  }
+  
+}
+def faireligne(){
+  for(k<-1 to 2){
+   faireMotif();
+  avanceloin();
+  }
+  faireMotif();
+} 
+def allerlignesuivante(){
+  var A:Int =getY();
+  setY(A-7);
+  setX(getX()-14)
+  
+}
+
+override def run() {
+ faireligne();
+ allerlignesuivante();
+ faireligne();
+ allerlignesuivante();
+  faireligne();
+  setPos(0,20);
+}
