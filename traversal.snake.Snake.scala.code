@@ -9,10 +9,20 @@ override def run() {
     if(isFacingWall()) {
       if(getDirection() == Direction.EAST) {
         left();
+        
+        if(!isFacingWall()) {
+          forward();
+          left();
+        }
       }
       
       if(getDirection() == Direction.WEST) {
         right();
+        
+        if(!isFacingWall()) {
+          forward();
+          right();
+        }
       }
     }
   }
