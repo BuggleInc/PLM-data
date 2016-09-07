@@ -5,28 +5,29 @@ def isFacingTrail():Boolean = {
         bool = true
       }
   	else{
-      avance()
-      if (!estFaceMur() && getCouleurSol()==Color.green)
+      
+      if (!estFaceMur())
   		{
-        bool = true
+        avance()
+        if (getCouleurSol()==Color.green){
+          bool = true }
       }
       else{
-        recule();
-        droite();avance()
-      if (!estFaceMur() && getCouleurSol()==Color.green)
+        droite();
+      if (!estFaceMur())
   		{
-        bool = true
+        avance()
+        if (getCouleurSol()==Color.green){
+          bool = true }
       }
       else{
-        recule();gauche
+        retourne()
         
-         gauche();avance()
-      if (!estFaceMur() && getCouleurSol()==Color.green)
+         if (!estFaceMur())
   		{
-        bool = true
-      }
-      else{
-        recule();droite()
+        avance()
+        if (getCouleurSol()==Color.green){
+          bool = true }
       }
       }
         
