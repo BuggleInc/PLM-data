@@ -1,11 +1,22 @@
+def murADroite():Boolean = {
+  
+  var resultat = false
+  droite()
+  resultat = estFaceMur()
+  gauche()
+  return resultat
+  
+}
+
+
 def next() {
   
-  (getY()%2,getX()) match { // On vérifie la parité de la ligne pour le sens et X pour les collisions
+  (getY()%2,getX(),MurADroite()) match { // On vérifie la parité de la ligne pour le sens et X pour les collisions
     
-    case (0,0) => setY(getY()+1) //ligne paire, dernière case : on descend
-    case (0,_) => setX(getX()-1) //ligne paire, case qqqe : à gauche
-    case (1,getMondeLargeur()-1) => setY(getY()+1) //ligne impaire, dernière case : on descends
-    case (1,_) => setX(getX()+1)  //ligne impaire, case qqqe : on descend
+    case (0,0,_) => setY(getY()+1) //ligne paire, dernière case : on descend
+    case (0,_,_) => setX(getX()-1) //ligne paire, case qqqe : à gauche
+    case (1,_,true) => setY(getY()+1) //Mur à droite : on descend
+    case (1,_,false) => setX(getX()+1) // Pas de mur à droite : on va à droite
     
   }
   
@@ -17,7 +28,11 @@ override def run() {
   for (c <- 1 to getMondeHauteur()*getMondeLargeur()) {
     
     ecritMessage(compteur)
-    next()
+    if (!estDosMur&&MurADroite) {
+      
+      next()
+      
+    }
     compteur = compteur + 1
     
   }
