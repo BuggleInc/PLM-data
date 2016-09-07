@@ -1,0 +1,29 @@
+override def run() {
+  var nbr:Int = 0;
+  var width:Int = getWorldWidth();
+  var  height:Int = getWorldHeight();
+  var x:Int = getX; var y:Int = getY;
+  while (!finished(width,height)) {
+    var x:Int = getX;
+    var y:Int = getY;
+    writeMessage(""+nbr);
+    if (x != width-1) {
+      setPos(x+1,0);
+    }
+    else {
+      setPos(x,y+1);
+    }
+    nbr = nbr +1 ;
+  }
+  writeMessage(""+nbr);
+ 
+}
+
+def finished(width:Int,height:Int):Boolean = {
+  var x:Int = getX; var y:Int = getY;
+
+  if (x==6 && y==6) {
+    return true
+  }
+  return false
+}
