@@ -21,12 +21,13 @@ def deplacerBiscuit(){
 }
 
 def est(){
-  while(getDirection != Direction.EST){
+  while(getDirection() != Direction.EST){
     gauche()
   }
 }
 
 while(!estFaceMur()){
+  est()
   deplacerBiscuit()
 }
 droite()
