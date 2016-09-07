@@ -1,0 +1,31 @@
+def plusDeBiscuit():Boolean = { //Renvoie true s'il n'y a plus de biscuit, false sinon.
+                                //Positionne la buggle sur le prochaine biscuit, ou au bout du couloir.
+  while (!estSurBiscuit && !estFaceMur) {
+    recule()
+  }
+  return !estSurBiscuit
+}
+
+def rameneBiscuit() {
+  prendBiscuit()
+  while (!estSurBiscuit) {
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  recule()
+}
+
+def sortMonde() { //On sort du monde.
+  gauche()
+  avance()
+  gauche()
+  avance()
+}
+
+def run() {
+  while (!plusDeBiscuit()) {
+    rameneBiscuit()
+  }
+  sortMonde()
+}
