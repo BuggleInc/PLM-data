@@ -10,7 +10,7 @@ def faireV() {
   avance()
   gauche()
 }
-def faireLigne() {
+def faireMotif() {
   setCouleurBrosse(Color.YELLOW)
   faireV()
   setCouleurBrosse(Color.RED)
@@ -21,10 +21,16 @@ def faireLigne() {
   faireV()
 }
 
-override def run() {
-  for (l <- 1 to 3) {
-    faireLigne()
+def faireLigne() {
+  for (m <- 1 to 3) {
+    faireMotif()
     avance(5)
   }
   gauche(); avance(5); droite()
+}
+
+override def run(){
+  for (l <- 1 to 3) {
+    faireLigne()
+  }
 }
