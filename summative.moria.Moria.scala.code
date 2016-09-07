@@ -6,26 +6,18 @@ def plusDeBiscuit():Boolean = { //Renvoie true s'il n'y a plus de biscuit, false
   return !estSurBiscuit
 }
 
-def rameneBiscuit() {
-  prendBiscuit()
-  while (!estSurBiscuit) {
-    avance()
-  }
-  recule()
-  poseBiscuit()
-  recule()
-}
-
-def sortMonde() { //On sort du monde.
-  gauche()
-  avance()
-  gauche()
-  avance()
-}
-
-override def run() {
+def run() {
   while (!plusDeBiscuit()) {
-    rameneBiscuit()
+    prendBiscuit()
+    while (!estSurBiscuit) {
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    recule()
   }
-  sortMonde()
+  gauche()
+  avance()
+  gauche()
+  avance()
 }
