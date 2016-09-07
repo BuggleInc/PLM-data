@@ -1,0 +1,66 @@
+def jardin(){
+  for (i<- 1 to 2){
+  	growFlowers()
+  	avance(6)
+  	gauche()
+  	avance(2)
+  	droite()
+  	Motif(Color.Blue)
+  	avance(2)
+  	gauche()
+  	avance(2)
+  	droite()
+  	growFlowers()
+    if (i%2!=0){
+      droite()
+  		avance()
+  		gauche()
+  		recule(8)
+  		droite()
+  		avance(3)
+  		gauche()
+    }
+  }
+}
+
+def growFlowers(){
+  Motif(Color.RED)
+  avance(4)
+  Motif(Color.CYAN)
+  recule(4)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  Motif(Color.ORANGE)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+  Motif(Color.PINK)
+  avance(4)
+  Motif(Color.GREEN)
+  recule(4)
+}
+
+def Motif(c:Color){
+  for (i <- 1 to 4){
+    Mouv(c)
+  }
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  baisseBrosse()
+  leveBrosse()
+  recule()
+}
+
+def Mouv(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  droite()
+  avance()
+  droite()
+}
