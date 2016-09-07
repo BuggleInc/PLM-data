@@ -2,9 +2,10 @@ def island(num:Array[Int]): Int = {
   val res : Int = 0
   for (compteur <- 1 to num.length) {
     val aux : Boolean = true
-    for (compteur1 <-compteur to num.length) {
+    for (compteur1 <-1 to num.length) {
+      if (compteur1>compteur){
       if (num[compteur]>num[compteur1]){aux=false}
-      if ((num[compteur]==num[compteur1]) && aux) {res = res + 1}
+        if ((num[compteur]==num[compteur1]) && aux) {res = res + 1}}
     }
   }
 }
