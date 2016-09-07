@@ -1,0 +1,46 @@
+override def run() {
+  for(j <-0 to 1){
+    LigneMotif()
+  }
+  
+}
+
+def carrémotif() {
+  for(i <-0 to 3){
+  if(i == 0){
+    FaireMotif(Color.red)
+  }else if(i == 1){
+    FaireMotif(Color.blue)
+  }else if(i==2){
+    FaireMotif(Color.green)
+  }else{
+    FaireMotif(Color.yellow)
+  }
+	}
+  avance(4)
+}
+
+def LigneMotif(){
+  for(i<- 0 to 1){
+  carrémotif()
+  avance(5)
+  }
+}
+
+def Marquer(){
+  baisseBrosse()
+  leveBrosse()
+}
+def FaireMotif(c: Color){
+  setCouleurBrosse(c:Color)
+  avance()
+ 	Marquer()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  Marquer()
+  gauche()
+  avance()
+  gauche()
+}
