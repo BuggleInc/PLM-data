@@ -1,0 +1,29 @@
+def faireV() {
+  avance()
+  baisseBrosse(); leveBrosse()
+  avance()
+  gauche(); avance()
+  baisseBrosse(); leveBrosse()
+  recule(); droite()
+  avance()
+  baisseBrosse(); leveBrosse()
+  avance()
+  gauche()
+}
+def faireLigne() {
+  setCouleurBrosse(Color.Yellow)
+  faireV()
+  setCouleurBrosse(Color.Red)
+  faireV()
+  setCouleurBrosse(Color.Blue)
+  faireV()
+  setCouleurBrosse(Color.Green)
+  faireV()
+}
+
+override def run() {
+  for (l <- 1 to 3) {
+    faireLigne()
+  }
+  gauche(); avance(5); droite()
+}
