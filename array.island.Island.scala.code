@@ -1,30 +1,8 @@
 def island(num:Array[Int]): Int = {
-  if (num.length>2) {
-    for (i<- 2 to num.length-1){
-      if (num(i)<num(i+1) && num(i)<num(i-1)) {
-        return island(num.slice(0,i-1))+island(num.slice(i+1,num.length))
-      }
-       }
-    return {var c=0;
-           for (j<-0 to num.length-1){
-             if (num(j)>c){
-               c=num(j) 
-             }}}
-           
-  } else {
-    return 0;
-  }
-  }
-
-
-def max(num:Array[Int]): Int ={
-  var c=0;
-  for (j<-0 to num.length-1){
-    if (num(j)>c){
-      c=num(j);
-    }
-  }
-  return c;
-}
-
-     
+  var c=num(0);
+  var e=0
+  for(i<-0 to num.length-1){
+    if(i>c){
+      e=e+1}
+    c=num(i);
+  } }
