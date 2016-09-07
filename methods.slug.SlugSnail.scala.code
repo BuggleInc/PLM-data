@@ -1,6 +1,6 @@
 def hunt(c:Color) {
     while (!estSurBiscuit) {
-    if (isFacingTrail() == true) {
+    if (isFacingTrail(c:Color) == true) {
       brushDown(); forward(); brushUp();
     } else {
       left();
@@ -14,11 +14,11 @@ def hunt(c:Color) {
 
  // here comes your isFacingTrail method
 
-def isFacingTrail():Boolean = {
+def isFacingTrail(c:Color):Boolean = {
   	var vuVert: Boolean = false
   	if (estFaceMur()==false) {
       forward();
-      if (getCouleurSol()==Color.pink) {
+      if (getCouleurSol()==c) {
         vuVert=true
       } 
       backward();
