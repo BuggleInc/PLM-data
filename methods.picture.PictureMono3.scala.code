@@ -1,0 +1,32 @@
+override def run() {
+    def makeV(){
+  	brushDown();
+    brushUp();
+    forward();
+    left();
+    forward();brushDown();brushUp();backward();
+    right();forward();brushDown();left();
+    right();brushUp();forward();forward();
+    left();forward();forward()
+  }
+  def makePattern(){
+    forward();
+    forward();
+    for(c<-1 to 4){
+      makeV();
+    }
+    forward();forward();forward();forward();forward();
+  }
+  def makeLigne(){
+    for(i<-1 to 9){
+    	makePattern();
+  	}
+    left();
+    forward();
+    forward();forward();forward();forward();forward();forward();
+	}
+  for(j<-1 to 9){
+    makeLigne();
+    right();
+	}
+}
