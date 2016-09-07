@@ -9,13 +9,7 @@ override def run() {
 def goToNorthWall() {
   while (getY() != 0) {
     while (getDirection() != Direction.NORTH) left();
-    while (isFacingWall()) {
-      random3() match {
-        case 0 => right();
-        case 1 => left();
-        case 2 => left();
-      }
-    }
+    while (isFacingWall()) right();
     forward();
   }
 }
