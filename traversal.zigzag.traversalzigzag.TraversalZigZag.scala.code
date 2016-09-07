@@ -1,0 +1,30 @@
+def pasDeSerpent() {
+  estFaceMur() match {
+    case false => avance()
+    case true if getDirection()==Direction.EST => droite();avance();droite()
+    case _ => gauche();avance();gauche()
+  }
+}
+
+def fonctionTest():Boolean = {
+  if (!estFaceMur()) {
+    return false
+  }else {
+    droite()
+    if (!estFaceMur()){
+      gauche()
+      return false
+    } else {
+      gauche()
+      return true
+    }
+  }
+}
+
+override def run() {
+  baisseBrosse()
+  gauche()
+  while(!fonctionTest()){
+    pasDeSerpent()
+  }
+}
