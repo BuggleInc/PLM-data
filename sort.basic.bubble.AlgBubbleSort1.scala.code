@@ -2,17 +2,18 @@ def bubbleSort()
 {
   var n = getNombreValeurs()-1;
   var i = 0;
-  var isTermine = false;
+  var isEchange = true;
   
-  while (!isTermine)
+  while (isEchange)
   {
-    isTermine = true;
+    isEchange = false;
+    
     for (j <- 0 to i-1)
     {
       if (plusPetit(i,j))
       {
         echange(i,j);
-        isTermine = false;
+        isEchange = true;
       }
     }
     i+=1;
