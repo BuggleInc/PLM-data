@@ -1,0 +1,37 @@
+override def run() 
+{
+  for (i<-1 to 2)
+  	{
+      motif()
+    }
+  gauche()
+  avance(4)
+  for (i<-1 to 2)
+  	{
+      motif()
+    }
+}
+
+def motif()
+	{
+    var L:Array[Color]=Array(Color.blue,Color.green,Color.yellow,Color.red)
+    avance()
+    for (i<-L)
+    	{
+        avance()
+        marquer(i)
+        avance()
+        gauche()
+        avance()
+        marquer(i)
+      }
+    avance(3)
+    
+  }
+
+def marquer(color:Color)
+	{
+    setCouleurBrosse(color)
+    baisseBrosse()
+    leveBrosse()
+  }
