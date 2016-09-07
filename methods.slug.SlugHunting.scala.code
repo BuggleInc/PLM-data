@@ -1,0 +1,37 @@
+def hunt() {
+	while (!estSurBiscuit()){	   
+  	if (isFacingTrail()){
+      baisseBrosse()
+      avance()
+      leveBrosse()
+    } else {
+      droite()
+      if(isFacingTrail()){
+      	avance()
+    	}
+      gauche()
+      gauche()
+      if(isFacingTrail()){
+      	baisseBrosse()
+        avance()
+        leveBrosse()
+      }
+    } 
+	}
+  prendBiscuit()
+}
+
+// Copy your isFacingTrail() here
+def isFacingTrail():Boolean = {
+  if (estFaceMur()){
+    return false
+  }
+  avance()
+  var couleur=getCouleurSol()
+  if (couleur==Color.green){
+    recule()
+  	return true
+  }
+  recule()
+  return false
+}

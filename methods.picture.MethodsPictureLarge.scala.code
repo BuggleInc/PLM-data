@@ -1,0 +1,58 @@
+override def run() {
+  for (l <- 1 to 9){
+    ligne()
+    gauche()
+    move(5,true)
+    droite()
+  }
+}
+
+
+def faireV(C:Color) {
+  setCouleurBrosse(C)
+  avance()
+  colorier()
+  avance()
+  gauche()
+  avance()
+  colorier()
+  droite()
+  avance()
+  droite()
+  avance()
+  colorier()
+  gauche()
+  avance()
+  gauche()
+}
+
+def colorier(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def petitcarre(){
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)  
+  move(5,true)
+}
+
+def ligne(){
+  for (carre <- 1 to 9){
+    petitcarre()
+  }
+}
+
+def move(nbPas : Int, versLAvant:Boolean) {
+   if (versLAvant){
+     for (pas <- 1 to nbPas){
+       avance()
+     }
+   }else{
+     for (pas <- 1 to nbPas){
+       recule()
+     }
+   }
+ }

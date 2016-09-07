@@ -1,0 +1,62 @@
+override def run() {
+  rond()
+  move(4,true)
+  rond()
+  gauche()
+  move(4,true)
+  gauche()
+  move(4,true)
+  droite()
+  droite()
+  rond()
+  move(4,true)
+  rond()
+}
+
+
+def minicarre(C:Color){
+  // on commence par le blanc tourné vers la couleur
+  setCouleurBrosse(C)
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+}
+
+def rond(){
+  minicarre(Color.red)
+  move(3,true)
+  gauche()
+  minicarre(Color.blue)
+  move(3,true)
+  gauche()
+  minicarre(Color.green)
+  move(3,true)
+  gauche()
+  minicarre(Color.yellow)
+  move(3,true)
+  gauche()
+}
+
+def colorie(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def move(nbPas : Int, versLAvant:Boolean) {
+   if (versLAvant){
+     for (pas <- 1 to nbPas){
+       avance()
+     }
+   }else{
+     for (pas <- 1 to nbPas){
+       recule()
+     }
+   }
+ }
