@@ -1,8 +1,38 @@
+def tvert():Boolean {
+  var test:Boolean = false
+  avance()
+  if (getCouleurSol()==Color.green) {
+    test=true
+  }
+	return test
+}
+
+
+
 def isFacingTrail():Boolean = {
     // Write your code here
   while (!estSurBiscuit) {
     do {
-				      
+      if (tvert()) {
+        avance()
+      else {
+          gauche()
+          if (tvert()) {
+            avance()
+          else {
+            droite();droite()
+            if (tvert()) {
+              avance()
+            }
+          }
+          }
+      }
+      }
+
     } while (!estFaceMur)
-  }
+    if (estFaceMur) {
+      droite()
+      avance()
+    }
+	}
 }
