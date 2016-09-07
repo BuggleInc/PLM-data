@@ -1,13 +1,14 @@
 def estSurPositionFinale():Boolean={
   var res : Boolean = true
+  var nb : Int = 0
   while(!(getDirection() == Direction.EST))
-  	{gauche()}
+  	{gauche(); nb=nb+1}
   if (!(estFaceMur()))
   	{res=false}
   gauche()
   if (!(estFaceMur()))
   	{res=false}
-  droite()
+  for (i <- 1 to nb+1){droite()}
   return(res)
 }
 
