@@ -3,9 +3,10 @@ override def run() {
   val yMax=getMondeHauteur()-1
   var posX = 0
   var posY = 0
+  var compt = 0
   while(!((posX == xMax) && (posY == yMax))) {
-    ecritMessage(posX+(yMax+1)*(posY))
-    if((posX<xMax)&&posX>-1) {
+    ecritMessage(compt)
+    if((posX<xMax)&&(posX>-1)) {
       if  ((posY/2)==0) {
         posX += 1 }
       else {
@@ -16,6 +17,7 @@ override def run() {
       posY += 1
     }
     setPos(posX,posY)
+    compt += 1
   }
 }
 
