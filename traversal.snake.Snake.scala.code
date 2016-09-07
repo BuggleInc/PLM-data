@@ -1,0 +1,23 @@
+override def run() {
+  var posfinale=false
+  while (!posfinale){
+    if (!estFaceMur()){
+      avance()
+    } else if (getDirection() == Direction.est){
+      gauche()
+      if (!estFaceMur()){
+        avance(); gauche()
+      } else {
+        posfinale=true
+      }
+    } else {
+      droite()
+      if (!estFaceMur){
+        avance(); droite();
+      } else {
+        posfinale=true
+      }
+    }
+    }
+  }
+}
