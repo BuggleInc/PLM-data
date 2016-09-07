@@ -1,0 +1,27 @@
+var nCase = 0;
+
+override def run()
+{
+  do suivant();
+  while (!isPositionFinale)
+  
+  ecritMessage(nCase);
+}
+
+def suivant()
+{
+  var x = getX();
+  var y = getY();
+  
+  ecritMessage(nCase);
+  
+  if (x < getMondeLargeur()) setPos(x+1, y);
+  else setPos(0, y+1);
+  
+  nCase+=1;
+}
+
+def isPositionFinale():Boolean =
+{
+  return (getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1);
+}
