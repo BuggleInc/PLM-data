@@ -1,9 +1,18 @@
 def island(num:Array[Int]): Int = {
   var max=0
+  var niveau=0
   for (x <- num){
-    if (x>=max){
+    if (x==1 ||x==0){
+      niveau=niveau
+    }
+    else if (x!=max){
       max=x
+      niveau=niveau+1
+    }
+    else{
+      max=x
+      niveau=niveau
     }
   }
-  return max+2
+  return niveau+2
 }
