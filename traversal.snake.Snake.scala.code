@@ -1,17 +1,17 @@
 def testmur(){
-  var x:Int = 1
+  var x:Boolean = false
   if (estFaceMur()){
     if (getDirection()==Direction.EST){
       gauche()
       if (estFaceMur()){
-        x=0
+        x=true
       }
       droite()
     }
     if (getDirection()==Direction.OUEST){
       droite()
       if (estFaceMur()){
-        x=0
+        x=true
       }
       gauche()
     }
@@ -21,7 +21,7 @@ def testmur(){
 override def run() {
   setCouleurBrosse(Color.red)
   baisseBrosse()
-  while (testmur()==1){
+  while (testmur()!=true){
     avance()
     if (estFaceMur()==true){
       if (getDirection()==Direction.EST){
