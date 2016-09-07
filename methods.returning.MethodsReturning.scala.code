@@ -1,19 +1,15 @@
 var c:Int=0
-var seenBaggle:Int=0
+var seenBaggle:Boolean=false
 
 def haveBaggle():Boolean = {
   for(c<-1 to 6){
     if(isOverBaggle()){
-      seenBaggle=seenBaggle+1
+      seenBaggle=true
     }
     forward();
   }
   for(e<-1 to 6){
     backward();
   }
-  if(seenBaggle!=0){
-    return true
-  }else{
-    return false
-  }
+  return seenBaggle
 }
