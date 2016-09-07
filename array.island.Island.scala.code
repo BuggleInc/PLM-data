@@ -16,10 +16,11 @@ def island1(num:Array[Int]): Int = {
 
 def island(num:Array[Int]):Int = {
   def islandRecursif(nume:Array[Int],x:Int,compteur:Int,actuel:Int,position:Int): Int {
-    match position
+   position match {
     case i if (i<x && num(i)>actuel) => islandRecursif(nume,x,(compteur+1),num(i),(i+1))
     case i if (i<x && num(i)<actuel) => islandRecursif(nume,x,compteur,num(i),(i+1))
     case i if  i>x => return compteur
   }
   islandRecursif(num,(num.length - 1),0,num(0),1)
+}
 }
