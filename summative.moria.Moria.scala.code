@@ -5,17 +5,20 @@ while (color!=Color.GREEN) {
     recule();
     color=getCouleurSol();
   }
+  if (estDosMur && !estSurBiscuit) {
   prendBiscuit();
   avance();
+  }
   
   while (!estSurBiscuit()) {
   	avance();
     color=getCouleurSol();
   }
+  if (!estDosMur && estSurBiscuit) {
   recule();
   poseBiscuit();
   recule();
-    
+  }
   if (estDosMur && !estSurBiscuit) {
     gauche();gauche();gauche();gauche(); if (!estFaceMur()) {avance()}
   }
