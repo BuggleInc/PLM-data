@@ -1,0 +1,69 @@
+def GrowFlowers(){
+  carreFlowers()
+  
+}
+
+def carreFlowers() {
+  avance()
+  growFlowers(Color.red)
+  move(4,true)
+  growFlowers(Color.cyan)
+  droite()
+  move(4,true)
+  growFlowers(Color.green)
+  droite()
+  move(2,true)
+  droite()
+  move(2,true)
+  growFlowers(Color.orange)
+  move(2,false)
+  droite()
+  move(2,false)
+  growFlowers(Color.pink)
+  recule()
+}
+
+
+def minicarre(C:Color){
+  // on commence par le blanc tourné vers la couleur
+  setCouleurBrosse(C)
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  colorie()
+  gauche()
+  avance()
+  gauche()
+}
+
+def growFlowers(C:Color){
+  // on commence au centre
+  setCouleurBrosse(Color.yellow)
+  colorie()
+  gauche()
+  minicarre(C)
+  droite()
+  droite()
+  minicarre(C)
+  gauche()
+}
+
+def colorie(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def move(nbPas : Int, versLAvant:Boolean) {
+   if (versLAvant){
+     for (pas <- 1 to nbPas){
+       avance()
+     }
+   }else{
+     for (pas <- 1 to nbPas){
+       recule()
+     }
+   }
+ }
