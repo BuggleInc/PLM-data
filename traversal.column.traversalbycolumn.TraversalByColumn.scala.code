@@ -4,9 +4,10 @@ override def run() {
   val largeur : Int = getMondeLargeur()
   val hauteur : Int = getMondeHauteur()
   var cpt : Int = 0 
+  while ((getX()!=largeur) && (getY() != hauteur)) {
   (getX(),getY()) match {
     case (largeur,hauteur) => ecritMessage(cpt)
     case (_,hauteur) => ecritMessage(cpt); cpt= cpt + 1; setPos(getX()+1,0)
     case (_,_)=> ecritMessage(cpt); cpt=cpt+1; setPos(getX(),getY()+1)
   }
-}
+  }}
