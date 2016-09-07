@@ -1,0 +1,70 @@
+def Motif(c:Color) {
+  droite()
+	for(i <- 1 to 4) {
+    brosse(c)
+    avance()
+    gauche()
+    avance()
+    brosse(c)
+  }
+  gauche()
+  avance()
+  brosse(Color.YELLOW)
+  recule()
+}
+
+def growFlowers() {
+  flowers()
+  gauche()
+  avance(2)
+  droite()
+  avance(6)
+  Motif(Color.BLUE)
+  avance(2)
+  gauche()
+  avance(2)
+  droite()
+  flowers()
+  droite()
+  avance()
+  droite()
+  avance(8)
+  gauche()
+  avance(3)
+  gauche()
+  flowers()
+  gauche()
+  avance(2)
+  droite()
+  avance(6)
+  Motif(Color.BLUE)
+  avance(2)
+  gauche()
+  avance(2)
+  droite()
+  flowers()
+  
+}
+
+def flowers() {
+  Motif(Color.RED)
+  avance(4)
+  Motif(Color.CYAN)
+  recule(4)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  Motif(Color.ORANGE)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+  Motif(Color.PINK)
+  avance(4)
+  Motif(Color.GREEN)
+  recule(4)
+}
+
+def brosse(c:Color) {
+  setCouleurBrosse(c)
