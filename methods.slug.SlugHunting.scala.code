@@ -1,0 +1,29 @@
+def hunt() 
+{
+	while(isFacingTrail())
+  	{
+      avance()
+    }
+  while(!isFacingTrail())
+  	{
+      droite()
+    }
+}
+
+
+
+def isFacingTrail():Boolean = 
+{
+  var couleur=getCouleurSol()
+	if (estFaceMur())
+  	{
+      return false
+    }
+  else
+  	{
+      avance()
+  		couleur=getCouleurSol()
+      recule()
+      return couleur==Color.green
+    }
+}
