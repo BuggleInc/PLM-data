@@ -1,0 +1,42 @@
+def marquer(c:Color)
+	{
+    setCouleurBrosse(c)
+  	baisseBrosse()
+  	leveBrosse()
+  
+  }
+
+def faireV(c:Color)
+  {
+    marquer(c)
+    avance();gauche();avance();
+    marquer(c)
+
+  }
+
+def carre()
+	{
+    avance(); avance(); faireV(Color.blue);
+    avance();faireV(Color.green);
+    avance();faireV(Color.yellow);
+    avance();faireV(Color.red);
+    recule()
+  }
+  override def run() 
+  {
+    var x=1
+    var y=7
+		for(compteur<-1 to 2)
+    	{
+        for(compteur2<-1 to 2)
+        	{
+            setPos(x-1,y-1)
+            carre()
+            x = x+4
+            
+          }
+         y= y-4
+        x = 1
+      }
+setPos(0,7)
+  }
