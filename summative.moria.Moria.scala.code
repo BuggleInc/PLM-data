@@ -1,0 +1,20 @@
+var green = false 
+while (green==false){
+  setDirection(Direction.OUEST)
+  while (!estSurBiscuit() && !estFaceMur()){
+    avance()
+  }
+  if (estSurBiscuit){
+    prendBiscuit()
+    while (!estSurBiscuit() && !estFaceMur()){
+      avance()
+    }
+    if (estSurBiscuit){
+      backward(); poseBiscuit();
+    } else {
+      poseBiscuit()
+    }
+  } else {
+    droite(); avance(), gauche(); avance(); green=true;
+  }  
+}
