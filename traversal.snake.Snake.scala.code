@@ -1,0 +1,43 @@
+override def run() {
+  while (arrivee()==false){
+    if(estFaceMur){
+      if (getDirection() == Direction.EST){
+        gauche()
+        avance()
+        gauche()
+    	}else if (getDirection() == Direction.OUEST){
+        droite()
+        avance()
+        droite()
+      }
+  	}
+    while(!estFaceMur){
+      avance()
+    }
+  } 
+}
+
+def arrivee(){
+  if(estFaceMur){
+    getDirection()
+		if (getDirection() == Direction.EST){
+      gauche()
+      if(estFaceMur){
+        droite()
+        return true
+      }else{
+        return false
+      }
+    }else if (getDirection() == Direction.OUEST){
+      droite()
+      if(estFaceMur){
+        gauche()
+      	return true  
+      }else{
+        return false
+      }
+    }
+  }else{
+    return false
+  }
+}
