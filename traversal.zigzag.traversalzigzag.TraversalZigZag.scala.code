@@ -4,23 +4,16 @@ override def run() {
   var y=0
   while (!(x==6 & y==6)) {
     ecritMessage(cpt)
-    y+=1
+    x+=1
     setPos(x,y)
     cpt+=1
-    if ((x==6 || y==6) & x>y) {
+    if (x==6 & y!=6) {
       y+=1
+      x=0
       ecritMessage(cpt)
       setPos(x,y)
       cpt+=1
     }
   }
   ecritMessage(cpt)
-}
-
-def versDroite(x:Int,y:Int,cpt:Int) {
-  while(x<6) {
-    setPos(x,y)
-    cpt=cpt+1
-    ecritMessage(cpt)
-  }
 }
