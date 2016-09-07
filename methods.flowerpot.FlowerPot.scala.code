@@ -12,11 +12,23 @@ def fleurs(c:Color) {
   baisseBrosse();leveBrosse();
 }
 
+def deplacement1() {
+  droite();avance();avance();avance()
+}
+
+def deplacement2() {
+  gauche();avance();avance();gauche();avance();avance();gauche();recule()
+}
+
 def growFlowers() {
   fleurs(Color.RED)
-  droite();avance();avance();avance()
+  deplacement1()
   fleurs(Color.CYAN)
-  gauche();avance();avance();gauche();avance();avance();gauche();recule()
+  deplacement2()
   fleurs(Color.ORANGE)
-  gauche();avance();avance();gauche();avance();avance();gauche();recule()
+  deplacement2()
+  fleurs(Color.PINK)
+  deplacement1()
+  fleurs(Color.GREEN)
+  recule();recule();recule();recule()recule();recule()
 }
