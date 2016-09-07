@@ -1,0 +1,27 @@
+override def run() {
+  def peindre(c:Color) {
+    setCouleurBrosse(c)
+    baisseBrosse();leveBrosse();
+  }
+  def cercle() {
+    avance();peindre(Color.RED);avance();peindre(Color.BLUE);avance();gauche();
+    avance();peindre(Color.BLUE);avance();peindre(Color.GREEN);avance();gauche();
+    avance();peindre(Color.GREEN);avance();peindre(Color.YELLOW);avance();gauche();
+    avance();peindre(Color.YELLOW);avance();peindre(Color.RED);avance();gauche();
+  }
+  
+  def ligne() {
+    avance(),avance();avance();avance()
+    
+  }
+  
+  def montee() {
+    gauche();avance();avance();avance();avance();droite()
+    
+  }
+  
+  
+  //OP
+  cercle();ligne();cercle();montee();cercle();ligne();cercle();montee()
+}
+
