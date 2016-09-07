@@ -1,18 +1,18 @@
 override def run() {
   for (i <- 1 to 2) {
-    make\(Color.RED);forward(2);make/(Color.BLUE);forward(2);make\(Color.RED);forward(2);make/(Color.BLUE)
+    make2(Color.RED);forward(2);make1(Color.BLUE);forward(2);make2(Color.RED);forward(2);make1(Color.BLUE)
     left();forward(2);right();backward(7)
-    make/(Color.YELLOW);forward(2);make\(Color.GREEN);forward(2);make/(Color.YELLOW);forward(2);make\(Color.GREEN)
+    make1(Color.YELLOW);forward(2);make2(Color.GREEN);forward(2);make1(Color.YELLOW);forward(2);make2(Color.GREEN)
     left();forward(2);right();backward(7)
   }
 }
 
-def make/(c:Color) {
+def make1(c:Color) {
   setBrushColor(c)
   brushDown();brushUp();forward();left();forward();brushDown();brushUp();left();forward();left();forward();left()
 }
 
-def make\(c:Color) {
+def make2(c:Color) {
   setBrushColor(c)
   forward();brushDown();brushUp();left();forward();left();forward();brushDown();brushUp();left();forward();left()
 }
