@@ -1,0 +1,29 @@
+override def run() {
+  findSideWall()
+  while(!estSurBiscuit) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall() {
+  if (estFaceMur) {
+    (droite)
+  }
+  else {
+    avance()
+    gauche()
+    while (!estFaceMur) {
+      avance()
+      gauche()
+    }
+    droite()
+  }
+}
+
+def findSideWall() {
+  while (!estFaceMur) {
+    avance()
+  }
+  droite()
+}
