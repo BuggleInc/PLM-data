@@ -7,6 +7,15 @@ override def run() {
   
   for(i<- 0 to 12){
     
+    do{
+      writeMessage(compteur);
+      x+=1;
+      y+=1;
+      setPos(x,y);
+      compteur+=1 
+    }while((x<6)&&(y<6))
+    diag+=1;
+    
     if(diag<6){
       x=0;
       y=6-diag;
@@ -16,14 +25,5 @@ override def run() {
       x=diag-6;
     }
     
-    do{
-      writeMessage(compteur);
-      x+=1;
-      y+=1;
-      setPos(x,y);
-      compteur+=1 
-    }while((x<6)&&(y<6))
-    diag+=1;
-
   }
 }
