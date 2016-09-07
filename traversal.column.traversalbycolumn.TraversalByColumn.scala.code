@@ -1,20 +1,20 @@
 def getMondeHauteur(): Int = {
   val a : Int = getY()
   var nb : Int = 0
-  var tourne : Int = 0 
-  while (!(getDirection()==Direction.NORD)){gauche(); tourne= tourne + 1}
+	val dir : Direction = getDirection()
+  setDirection(Direction.NORD)
   do {avance(); nb= nb + 1} while (a!=getY())
-  while (tourne!=0) { droite(); tourne = tourne - 1 }
+	setDirection(dir)
   return(nb)
 }
 
 def getMondeLargeur(): Int = {
   val a=getX()
   var nb : Int = 0
-  var tourne : Int = 0 
-  while (!(getDirection()==Direction.EST)){gauche(); tourne = tourne + 1 }
+  var dir : Direction = getDirection()
+  setDirection(Direction.EST)
   do {avance(); nb= nb + 1} while (a!=getX())
-  while (tourne!=0) { droite(); tourne = tourne - 1 }
+  setDirection(dir)
   return(nb)
 }
 

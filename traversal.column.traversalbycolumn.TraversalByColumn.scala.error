@@ -1,8 +1,12 @@
 Erreur de compilation :
-TraversalByColumn:4: error: not found: value Direction
-  while (!(getDirection()==Direction.NORD)){gauche(); tourne= tourne + 1}
-                           ^TraversalByColumn:14: error: not found: value Direction
-  while (!(getDirection()==Direction.EST)){gauche(); tourne = tourne + 1 }
-                           ^TraversalByColumn:27: error: value hauteur is not a case class, nor does it have an unapply/unapplySeq member
+TraversalByColumn:3: error: not found: type Direction
+  val dir : Direction = getDirection()
+            ^TraversalByColumn:4: error: not found: value Direction
+  setDirection(Direction.NORD)
+               ^TraversalByColumn:13: error: not found: type Direction
+  var dir : Direction = getDirection()
+            ^TraversalByColumn:14: error: not found: value Direction
+  setDirection(Direction.EST)
+               ^TraversalByColumn:27: error: value hauteur is not a case class, nor does it have an unapply/unapplySeq member
     case (_,hauteur()) => ecritMessage(cpt); cpt= cpt + 1; setPos(getX()+1,0)
             ^
