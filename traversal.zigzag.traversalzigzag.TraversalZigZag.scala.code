@@ -2,33 +2,33 @@ override def run() {
   var x = getX()
   var y = getY()
   var cpt = 0
-  for (i <- 1 to 48){
-    ecritMessage(cpt)
-    if(x==getMondeLargeur()-1){
-      if(cpt%6==0){
-      	setPos(x,y+1)
-      	cpt = cpt +1
-      	x=x
-      	y=y+1
+  for (i <- 1 to 7){
+  	for (j<- 1 to 7){
+      ecritMessage(cpt)
+      if (i%2==0){
+        if(x==0){
+          setPos(x,y+1)
+          cpt = cpt +1
+          x=x
+          y=y+1
+        }else{
+          setPos(x-1,y)
+          cpt = cpt +1
+          x=x-1
+          y=y
+        }
       }else{
-        setPos(x-1,y)
-      	cpt = cpt +1
-      	x=x
-      	y=y
-      }
-    }else{
-      if(y%2==0){
-      	setPos(x+1,y)
-      	cpt = cpt +1
-      	x=x+1
-      	y=y
-      }else{
-        setPos(x-1,y)
-      	cpt = cpt +1
-      	x=x
-      	y=y
+        if(x==getMondeLargeur()){
+          setPos(x,y+1)
+          cpt = cpt +1
+          x=x
+          y=y+1
+        }else{
+          setPos(x+1,y)
+          cpt = cpt +1
+          x=x+1
+          y=y
+        }
       }
     }
-  }
-  ecritMessage(cpt)
 }
