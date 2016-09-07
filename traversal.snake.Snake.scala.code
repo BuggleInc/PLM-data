@@ -1,6 +1,7 @@
 override def run() {
   baisseBrosse()
-  while(getCouleurSol() != Color.red){
+  var x = true
+  while(x){
     avance()
       if(getDirection() == Direction.EST){
         gauche()
@@ -15,6 +16,9 @@ override def run() {
         	}   	
     		}	
   		}
+    if(getCouleurSol() == Color.red){
+      x = false
+    }
   }
  droite() 
 }
