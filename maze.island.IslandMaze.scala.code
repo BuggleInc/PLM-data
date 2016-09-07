@@ -1,33 +1,26 @@
 override def run() {
+  while(!estFaceMur())
+  	gauche()
+  droite()
   while(!estSurBiscuit())
   {
-    var etat = 0
-    etat match
+    gauche()
+    if (estFaceMur())
     {
-      case 0 => if(getDirection() == Direction.NORTH){while(!estFaceMur){avance()}; etat = 1 }
-      case 1 =>while(!estFaceMur()){gauche()}
-                droite()
-                while(!estSurBiscuit() && getDirection()!=Direction.NORTH)
-                {
-                  gauche()
-                  if (estFaceMur())
-                  {
-                    droite()
-                    if(!estFaceMur())
-                      avance()
-                    else
-                    {
-                      droite()
-                      if (!estFaceMur())
-                        avance()
-                      else
-                        droite()
-                    }
-                  }
-                  else
-                    avance()
-                } ;etat = 0
-  prendBiscuit()
+      droite()
+      if(!estFaceMur())
+      	avance()
+      else
+      {
+        droite()
+        if (!estFaceMur())
+        	avance()
+        else
+        	droite()
+      }
     }
+    else
+    	avance()
   }
+  prendBiscuit()
 }
