@@ -1,0 +1,20 @@
+def bubbleSort()  {
+  var n = getNombreValeurs()-1
+  for(i <- 1 to n)
+  {
+    if(plusPetit(i,i-1))
+    	remonte(i)
+  }
+}
+
+def remonte(pos:Int)
+{
+  var i = pos-1
+  var j = pos
+  while(plusPetit(j,i)&&i>=0)
+  {
+    echange(j,i)
+    j = i
+    i = i-1
+  }
+}
