@@ -1,15 +1,15 @@
 def haveBaggle():Boolean = {
   for (compteur <-1 to 6) {
-    forward();       
+    forward();
+    if (estSurBiscuit) {
+      return true
+    }
     }
   for (compteur <-1 to 6) {
     backward();
   }
 }
 
-haveBaggle();
-if (vuBiscuit()) {
-  return true;
-} else {
-  return false
+if (haveBaggle == true) {
+  return vuBiscuit();
 }
