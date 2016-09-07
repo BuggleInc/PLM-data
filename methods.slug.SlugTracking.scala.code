@@ -6,16 +6,22 @@ def isFacingTrail():Boolean = {
         avance()
       }
   	else{
-      
-      droite();avance()
+      avance()
+      if (!estFaceMur() && getCouleurSol()==Color.green)
+  		{
+        bool = true
+      }
+      else{
+        recule();
+        droite();avance()
       if (!estFaceMur() && getCouleurSol()==Color.green)
   		{
         bool = true
       }
       else{
         recule();gauche
-      }
-       gauche();avance()
+        
+         gauche();avance()
       if (!estFaceMur() && getCouleurSol()==Color.green)
   		{
         bool = true
@@ -23,6 +29,12 @@ def isFacingTrail():Boolean = {
       else{
         recule();droite()
       }
+      }
+        
+      
+      }
+      
+      
     }
   return bool
   
