@@ -21,8 +21,12 @@ override def run() {
     make(Color.YELLOW)
   }
   for (i <- 1 to 4) {
-    pattern() ; forward(4)
-    if (i==2) {left() ; forward(4) ; right() ; backward(4)}
+    i match {
+      case 1 pattern() ; forward(4)
+      case 2 pattern() ; left() ; forward(4) ; right() ; backward(4)
+      case 3 pattern() ; forward(4)
+      case 4 pattern() 
+    }
+    
   }
-  backward(4)
         }
