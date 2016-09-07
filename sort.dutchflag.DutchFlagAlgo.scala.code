@@ -3,20 +3,18 @@ def solve() {
   var apresBleu:Int = 0
   var blancRouge:Int = n-1
   var avantBlanc:Int = n-1
-  var i:Int = 0
-  while (apresBleu<avantBlanc && i<n) {
-    getCouleur(i) match {
+  while (apresBleu<avantBlanc) {
+    getCouleur(apresBleu) match {
     case ROUGE =>
-      echange(i, blancRouge)
+      echange(apresBleu, blancRouge)
       blancRouge = blancRouge-1
       if (blancRouge<avantBlanc) {
         avantBlanc = blancRouge
       }
     case BLEU =>
-      echange(i, apresBleu)
       apresBleu = apresBleu+1
     case BLANC =>
-      echange(i, avantBlanc)
+      echange(apresBleu, avantBlanc)
       avantBlanc = avantBlanc-1
     }
     i = i+1
