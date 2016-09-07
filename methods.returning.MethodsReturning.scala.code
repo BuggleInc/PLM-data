@@ -1,26 +1,19 @@
 def haveBaggle():Boolean = {
   var baggle:Boolean = false
-  for (i <- 1 to 6) {
-    avance()
-    if (estSurBiscuit())
-    	baggle = true
-  }
-  for (i <-1 to 6)
-  	recule()
-  return baggle
-}
-
-override def run() {
-var vuBiscuit:Boolean = false
-for (i <- 1 to 7) {
-	vuBiscuit = haveBaggle()
-	if (vuBiscuit)	
-		return vuBiscuit
-	else {
-    droite()
-    avance()
-    gauche()
-  }
-  }
-return vuBiscuit
+  for (i <- 1 to 7) {
+  	for (i <- 1 to 6) {
+    	avance()
+    	if (estSurBiscuit())
+    		baggle = true
+    }
+  	for (i <-1 to 6)
+  		recule()
+  	if (baggle)
+    	return baggle
+  	else {
+    	droite()
+    	avance()
+    	gauche()
+  	}
+	}
 }
