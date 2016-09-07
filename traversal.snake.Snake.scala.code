@@ -1,12 +1,12 @@
 override def run() {
   def posfinal():Boolean{
     if (estFaceMur==true){return false}
-    if (getDirection()==Direction.EST){
+    if (getDirection()==Direction.EAST){
       gauche()
       if (estFaceMur==true){return false}
       else{droite();return true}
     }
-    if (getDirection()==Direction.OUEST){
+    if (getDirection()==Direction.WEST){
       droite()
       if (estFaceMur==true){return false}
       else{gauche() ; return true}
@@ -18,7 +18,7 @@ override def run() {
     while(posfinal()){
       if (estFaceMur==false){avance()}
       else{
-        if (getDirection()==Direction.OUEST){
+        if (getDirection()==Direction.WEST){
           droite()
           avance()
           droite()}
