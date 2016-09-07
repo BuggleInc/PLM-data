@@ -5,27 +5,27 @@ def posFinale():Boolean = {
   return false
 }
   
-def diago(cpt:Int,diag:Int = 0):Int = {
+def diago(cpt:Int,a:Int = 0):Int = {
   ecritMessage(cpt)
-	if (diag <= 6){
+	if (a <= 6){
     if (getY() != 0){
       setPos(getX()+1, getY()-1)
-    } else if (diag != 6) {
-      setPos(0,diag)
-      diag = diag + 1
+    } else if (a != 6) {
+      setPos(0,a)
+      a = a + 1
     } else {
-      diag += 1
-      setPos(diag - 6,6)
+      a += 1
+      setPos(a - 6,6)
     }
   } else {
     if (getX() != 6){
     	setPos(getX()+1, getY()-1)
     } else {
-      diag += 1
-      setPos(diag - 6,6)
+      a += 1
+      setPos(a - 6,6)
     }
   }
-  return diag
+  return a
 }
 
 override def run() {
