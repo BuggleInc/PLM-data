@@ -1,0 +1,39 @@
+def Motif(c:Color) {
+  droite()
+	for(i <- 1 to 4) {
+    brosse(c)
+    avance()
+    gauche()
+    brosse(c)
+  }
+  gauche()
+  avance()
+  brosse(Color.YELLOW)
+  recule()
+}
+
+
+def growFlower() {
+  Motif(Color.RED)
+  avance(4)
+  Motif(Color.CYAN)
+  recule(4)
+  droite()
+  avance(2)
+  gauche()
+  avance(2)
+  Motif(Color.ORANGE)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+  Motif(Color.PINK)
+  avance(4)
+  Motif(Color.GREEN)
+}
+
+def brosse(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
