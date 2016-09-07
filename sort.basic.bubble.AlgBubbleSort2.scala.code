@@ -1,0 +1,17 @@
+def bubbleSort2()  {
+  var n =  getValueCount();
+  for(i <- 2 to n+2)
+  	traverse(n-i)
+}
+
+
+def traverse(fin:Int) : Boolean = {
+   var swapped = false;
+   for (i <- 0 to fin){
+     if(isSmaller(i+1, i)){
+   		 swap(i,i+1);
+       swapped = true;
+	   }
+   }
+   return swapped;
+}

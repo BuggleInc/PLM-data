@@ -1,0 +1,17 @@
+def bubbleSort3()  {
+  for(i <- getValueCount() - 1 to 2 by -1)
+  	if (!traverse(i))
+  	  return;
+}
+
+
+def traverse(fin:Int) : Boolean  = {
+   var swapped = false;
+   for (i <- 0 until fin){
+     if(isSmaller(i+1, i)){
+   		 swap(i,i+1);
+       swapped = true;
+	   }
+   }
+  return swapped;
+}
