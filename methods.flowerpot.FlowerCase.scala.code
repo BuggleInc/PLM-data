@@ -1,0 +1,62 @@
+def colorie(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def fleur(c:Color) {
+  setCouleurBrosse(c)
+  colorie(c)
+  avance()
+  colorie(Color.yellow)
+  gauche()
+  avance()
+  colorie(c)
+  recule(2)
+  colorie(c)
+  avance()
+  droite()
+  avance()
+  colorie(c)
+}
+
+def growFlowers() {
+  fleur(Color.red)
+  avance(2)
+  fleur(Color.cyan)
+  droite()
+  avance(2)
+  droite()
+  avance(2)
+  fleur(Color.orange)
+  avance(2)
+  gauche()
+  avance(2)
+  gauche()
+  fleur(Color.pink)
+  avance(2)
+  fleur(Color.green)
+}
+
+def moitieJardiniere() {
+  growFlowers()
+  gauche()
+  avance(2)
+  droite()
+  fleur(Color.blue)
+  gauche()
+  avance(2)
+  droite()
+  growFlowers()
+}
+
+moitieJardiniere()
+droite()
+avance()
+droite()
+avance(14)
+gauche()
+avance(3)
+gauche()
+moitieJardiniere()
+recule(6)
