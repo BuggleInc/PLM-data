@@ -1,0 +1,30 @@
+var diag = 0;
+override def run() {
+  var cpt:Int = 0
+  while (!estSurFin) {
+    ecritMessage(cpt)
+    parcours()
+    cpt = cpt +1
+  }
+  ecritMessage(cpt)
+}
+
+def estSurFin():Boolean = {
+  if ((getMondeHauteur()-1 == getY)&&(getMondeLargeur-1 == getX)){
+    return true
+  } else {
+    return false
+  }
+}
+
+def parcours():Unit{
+  if ((getY == 0)||(getX == getMondeLargeur())){
+    if (diag>=getMondeHauteur-1){
+      setPos(getMondeHauteur-1, diag - getMondeLargeur +1)
+    } else {
+      setPos(0, diag)
+    }
+  } else {
+    setPos(getX+1,getY-1)
+  }
+}
