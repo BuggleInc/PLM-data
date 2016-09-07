@@ -5,10 +5,11 @@ def rangement () {
 }
 
 def chemin () {
-  while (getCouleurSol()==Color.GREEN){
+  var t = true
+  while (t){
   while (!estSurBiscuit() ) {
     avance(); if (estFaceMur() && !estSurBiscuit()) {
-      droite();avance();gauche();avance()
+      droite();avance();gauche();avance();t=false
     }
   }
     rangement()
