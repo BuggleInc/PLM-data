@@ -8,12 +8,10 @@ def isWallOnTheLeft () : Boolean = {
 }
 
 def makeMoving() {
-  while (!isWallOnTheLeft()) {
-    left();
-  }
-  if (!isFacingWall()) {
+  while (isWallOnTheLeft() && !isFacingWall()) {
     forward();
-  } else { right(); }
+  }
+  right();
 }
 
 override def run() {
