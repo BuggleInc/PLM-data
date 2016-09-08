@@ -6,10 +6,8 @@ override def run() {
   var gauche = false
   var cote = false
   while (!posFinale()) {
-    	var x = posSuivante()
+    	d = posSuivante(diag)
     	cpt += 1
-    	gauche = x(0)
-    	cote = x(1)
     	ecritMessage(cpt)
     	
   }
@@ -22,7 +20,7 @@ def posFinale() : Boolean = {
 
 
 
-def posSuivante() {
+def posSuivante(d) : Int = {
   if (getX() == getMondeLargeur() - 1  || getY() == 0){
     	if diag < 8 {
     			setPos( 0 , getY() + 1)
@@ -33,4 +31,5 @@ def posSuivante() {
   }
   else {
     	setPos(getX() + 1, getY() - 1 )
+    	return d
   }
