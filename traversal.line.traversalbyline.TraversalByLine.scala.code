@@ -6,9 +6,13 @@ override def run() {
   while (!positionfinale) {
     cpt+=1
     ligne+=1
-  	if (!estDosMur())
+		gauche()
+  	if (!estDosMur()) {
+    	droite()
     	setPos(ligne,colonne)
+    }
     else {
+      droite()
       colonne+=1
       ligne=0
     	setPos(ligne,colonne)
