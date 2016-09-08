@@ -1,23 +1,21 @@
 override def run() {
   val xMax:Int = getMondeLargeur()-1
   val yMax:Int = getMondeHauteur()-1
-  var xSortie:Int = 0
-  var ySortie:Int = 0
   chercheSortie(xMax, yMax) match {
-    case Tuple2(xSortie, ySortie) => ecritIndications(xSortie, ySortie, xMax, yMax, 0) //On remplit les cases.
+    case (xSortie, ySortie) => ecritIndications(xSortie, ySortie, xMax, yMax, 0) //On remplit les cases.
   }
   
 
 }
 
-def chercheSortie(xMax:Int, yMax:Int):Tuple2[Int,Int] = {
+def chercheSortie(xMax:Int, yMax:Int):(Int,Int) = {
   var xSortie:Int = 0
   var ySortie:Int = 0
   while (!aBiscuit(xSortie,ySortie)) {  //On cherche la sortie !
     ySortie = 0
     while (ySortie<=yMax) {
       if (aBiscuit(xSortie, ySortie)) {
-        return Tuple2[xSortie, ySortie]
+        return (xSortie, ySortie)
       }
       else {
         ySortie = ySortie+1
