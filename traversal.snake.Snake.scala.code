@@ -1,4 +1,5 @@
 override def run() {
+  baisseBrosse()
   while(!arrivee) {
     avance()
     if (estFaceMur && getDirection==Direction.EST) {
@@ -11,8 +12,8 @@ override def run() {
 }
 
 def arrivee():Boolean = {
-  if (getDirection()==Direction.EST) gauche()
-  if (getDirection()==Direction.OUEST) droite()
+  if (estFaceMur && getDirection()==Direction.EST) gauche()
+  if (estFaceMur && getDirection()==Direction.OUEST) droite()
   if (estFaceMur) return true
   return false
 }
