@@ -1,23 +1,25 @@
 def cocktailSort() {
 
   var swapped:Boolean =true
-  
-  
-  do {
+  var doneDroit:Int=0
+  var done:Int=0
+  while (swapped) {
     swapped=false
-    for (i <- 0 to getValueCount()-2) {
+    for (i <- done to getValueCount()-2-doneDroit) {
     	if ( ! isSmaller(i,i+1)) {
       	swap(i,i+1)
       	swapped=true
+        doneDroit+=1
       }
+      
     }
-    
-    for (i <- (getValueCount()-2) to 0) {
+    doneDroit+=1
+    for (i <- (getValueCount()-2-doneDroit) to done) {
     	if ( ! isSmaller(i,i-1)) {
       	swap(i,i-1)
       	swapped=true
       }
     }
-    
-  } while (swapped)
+    done+=1
+  } 
 }
