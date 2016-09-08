@@ -3,6 +3,7 @@ override def run() {
   baisseBrosse()
   while (!estPosFin){
     serpent()
+    demiTour()
   }
   
 }
@@ -26,24 +27,20 @@ def estPosFin(): Boolean = {
 }
 
 def serpent(){
-	avance()
-  gauche()
-  avance()
-  gauche()
-  avance()
-  droite()
-  avance()
-  droite()
-  
+	for(i<- 1 to 6){
+    avance()
+  }
   
 }
-def serpentB(){
-  avance()
-  droite()
-  avance()
-  droite()
-  avance()
-  gauche()
-  avance()
-  gauche()
+
+def demiTour(){
+  if(getDirection() == Direcion.EST){
+    gauche()
+    avance()
+    gauche()
+  }else{
+    doite()
+    avance()
+    droite()
+  }
 }
