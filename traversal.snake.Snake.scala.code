@@ -3,13 +3,14 @@ override def run() {
   //METHODE FIN
   def posfin():Boolean = {
     if (estFaceMur&&getDirection()==Direction.EST) {
-      gauche(); 
+      gauche();
       if (estFaceMur) {
         droite();
         return true
       }
+      droite()
     }
-    droite()
+    
     return false
   }
   
@@ -25,6 +26,7 @@ override def run() {
     droite();avance();droite()
   }
 
+baisseBrosse()
 while (posfin()) {
   avanserp()
 }
