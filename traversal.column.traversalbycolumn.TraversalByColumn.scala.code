@@ -1,13 +1,17 @@
 override def run() {
-  while (posFinale() == false) {
+  ecritMessage("0")
+  var cpt = 0
+  while (!posFinale()) {
     	posSuivante()
-    	ecritMessage("0")
+    	cpt += 1
+    	ecritMessage(cpt)
+    	
   }
 }
 
 
 def posFinale() : Boolean = {
-  return ((7 == getX()) && (getY() == 7))
+  return ((getMondeLargeur() == getX()) && (getY() == getMondeHauteur()))
 }
 
 
