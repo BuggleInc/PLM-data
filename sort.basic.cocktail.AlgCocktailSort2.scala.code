@@ -1,23 +1,24 @@
 def cocktailSort2() {
 
   var fini = false;
-  var n = getNombreValeurs();
+  var n = getNombreValeurs() -2 ;
+  var p = 0;
   do {
     fini = true ;
     n -= 1;
-    for (i<- (getNombreValeurs() - n) to n -2){
+    for (i<- p to n){
       if (!plusPetit(i,i+1)){
         echange(i,i+1);
         fini = false
       }
     }
-    for (i<- (getNombreValeurs() - n) to n -2){
-      if (!plusPetit(n - i - 2,n - i - 1)){
-        echange(n - i - 2,n - i - 1);
+    for (i<- p to n){
+      if (!plusPetit(n - i,n - i + 1)){
+        echange(n - i,n - i + 1);
         fini = false
       }
     }
-    
+    p += 1;    
   } while(!fini)
 
 }
