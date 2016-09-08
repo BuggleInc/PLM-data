@@ -1,0 +1,38 @@
+override def run() {
+  var c=0;
+  var x=0
+  var y=0
+  while (readMessage()!="48"){
+    for (i<- 1 to 6){
+      writeMessage(c);
+      y= y+1;
+      setPos(x,y);
+      c=c+1
+    }
+    y=0;
+    x=x+1;
+    writeMessage(c);
+    c=c+1
+    if(x<7){
+      setPos(x,y);
+    }
+   
+    for (i<- 1 to 6){
+      writeMessage(c);
+      y= y-1;
+      setPos(y,x);
+      c=c+1
+    }
+    y=0;
+    x=x+1;
+    writeMessage(c);
+    c=c+1
+    if(x<7){
+      setPos(x,y);
+    }
+    
+
+
+    
+  }
+}
