@@ -1,41 +1,25 @@
 override def run() {
-gauche()
+droite()
 var cpt:Int=0
-ecritMessage(cpt)
-
-  //METHODE FIN
-  def posfin():Boolean = {
-    if (estFaceMur&&getDirection()==EAST) {
-      droite();
-      if (estFaceMur) {
-        gauche();
-        return true
-      }
-      gauche()
-    }
+  def test:Boolean = {
+    var t1:Boolean=false
+    var t2:Boolean=false
+    if (getY()==getMondeHauteur()-1) {t1=true}
+    if (getX()==getMondeLargeur()-1) {t2=true}
+    return t1&&t2
     
-    return false
-  }
-  
-  //METHODE AVANCE
-  def avanserp() {
-		while (!estFaceMur) {
-      ecritMessage(cpt)
-      avance()
-    }
-    if (!posfin()) {
-      if (getDirection()==Direction.EAST) {
-        droite();avance();droite()
-      } else {
-        gauche();avance();gauche()
-        
-      }
-    }
-	}
-
-baisseBrosse()
-while (!posfin()) {
-  avanserp()
+def doupas:Boolean = {
+  return (getY()%2==0)
 }
-  
+
+    
+while (!test) {
+  if (doupas&&!estFaceMur) {
+    setPos(getX()+1,getY())
+    
+  }
+}
+    
+    
+    
 }
