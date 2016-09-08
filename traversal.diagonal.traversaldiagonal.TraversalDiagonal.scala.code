@@ -2,11 +2,19 @@ var diag = 0;
 override def run() {
   val largeur : Int = getLargeur()
   val hauteur : Int = getHauteur()
-  val nbDiag : Int = hauteur + largeur - 1
+  val diagMilieu : Int = largeur - 1
   var compteur : Int = 0
   var abscisse : Int = 0
   var ordonnee : Int = 0
-  while (abscisse < largeur && ordonnee < hauteur) {
-  	 
+  while (diag <= diagMilieu) {
+    setPos(0,diag)
+  	for (compt <- 0 to diag) {
+      abscisse = abscisse + 1
+      ordonnee = ordonnee - 1
+      setPos(abscisse, ordonnee)
+      compteur = compteur + 1
+      ecritMessage(compteur)
+    }
+    
   }
 }
