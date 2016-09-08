@@ -1,11 +1,13 @@
 override def run() {
   
+  var c=0
   while(isOverBaggle==false){
-    while(getDirection()!=Direction.NORTH){
+    if(!murNord)(forward();{
+    }
+    else{
+      right();
       suivremur()
     }
-    while(isFacingWall==false){
-      forward();
     }
   }
   pickupBaggle;
@@ -13,10 +15,10 @@ override def run() {
   
   
 def suivremur(){
-  while(isOverBaggle==false){
+  while((isOverBaggle==false)||(getDirection!=Direction.NORTH)){
     mur()
   }
-  pickupBaggle();  }
+}
 
 def mur(){
   
