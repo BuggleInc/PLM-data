@@ -7,7 +7,7 @@ override def run() {
   }
   
   def positionFinale():Boolean = {
-    if(getX() == getMondeLargeur() && getY() == getMondeHauteur())
+    if(getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur() - 1)
     	return true
     else return false
   }
@@ -22,7 +22,7 @@ override def run() {
       if(y == 0) {
       	descend == true
       	setPos(x + 1, y + 1)
-      } else if(y == hauteur) {
+      } else if(y == hauteur - 1) {
       	descend == false
       	setPos(x + 1, y - 1)
       }
