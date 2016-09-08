@@ -1,48 +1,49 @@
-override def run() {
+override def run() 
+{
   baisseBrosse()
   var dir:Direction = getDirection()
   
-  while(!positionFinale()){
+  while(!positionFinale())
+  {
     avancer()
   }
   
   def avancer() {
-    if(estFaceMur()){
-      if(dir == Direction.EAST){
+    if(estFaceMur())
+    {
+      if(dir == Direction.EAST)
+      {
         gauche()
         avance()
         gauche()
-      } else if(dir == Direction.WEST){
+      }
+      else if(dir == Direction.WEST)
+      {
         droite()
         avance()
         droite()
       }
-    } else avance()
+    }
+    else avance()
   }
   
   def positionFinale(){
-    if(estFaceMur()) {
+    if(estFaceMur())
     	return true
-    } else return false
-    /*if(dir == Direction.EAST){
+    else if(dir == Direction.EAST)
+    {
       gauche()
       if(estFaceMur())
     		return true
       droite()
     }
-    if(dir == Direction.WEST){
+    else if(dir == Direction.WEST)
+    {
       droite()
       if(estFaceMur())
     		return true
       gauche()
     }
-    if(dir == Direction.SOUTH){
-      gauche(2)
-      if(estFaceMur())
-    		return true
-      droite(2)
-    }
-    return false*/
-    
+    else return false
   }
 }
