@@ -1,6 +1,5 @@
 override def run() {
   findNorthWall()
-  findSideWall()
   while(!estSurBiscuit) {
     keepHandOnSideWall()
   }
@@ -16,7 +15,6 @@ def keepHandOnSideWall():Int = {
   else {
     avance()
     gauche()
-    sommeAngle = sommeAngle-1
     while (!estFaceMur) {
       avance()
       gauche()
@@ -26,13 +24,6 @@ def keepHandOnSideWall():Int = {
     sommeAngle = sommeAngle+1
   }
   return sommeAngle
-}
-
-def findSideWall() {
-  while (!estFaceMur) {
-    avance()
-  }
-  droite()
 }
 
 def findNorthWall() {
@@ -55,10 +46,8 @@ def findNorthWall() {
 }
 
 def isDirectionFree(dir:Direction):Boolean = { //Renvoie true si la buggle peut aller dans la direction dir.
-                                     //Si c'est le cas, la buggle est dans cette direction.
-                                     //Sinon, on renvoie false et elle reste dans sa direction initiale.
-  val dirActuelle:Direction = getDirection()
-  setDirection(dir)
+  val dirActuelle:Direction = getDirection()   //Si c'est le cas, la buggle est dans cette direction.
+  setDirection(dir)                            //Sinon on renvoie false et la buggle retrouve sa direction initiale.
   if (!estFaceMur) {
     return true
   }
