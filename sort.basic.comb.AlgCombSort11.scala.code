@@ -1,0 +1,29 @@
+def combSort11() {
+  var n : Int =getValueCount()
+  var gap : Int = n
+  var stop : Boolean = false
+  do{
+    
+    if(gap>1){
+    	gap=(gap/1.3).toInt
+      if(gap==10 || gap==9)
+      	gap=11
+    }
+    
+    var it : Int = 0
+    stop=false
+    
+    while (it+gap<n){
+      if(isSmaller(it+gap,it)){
+      	swap(it+gap,it)
+        stop=true 
+      }
+      it+=1
+      
+    }
+    
+    
+    
+  }while(gap>1 || stop)
+
+}
