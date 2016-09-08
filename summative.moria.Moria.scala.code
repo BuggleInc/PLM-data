@@ -1,0 +1,27 @@
+def deplacer(){
+	while(!estSurBiscuit){
+  	recule()
+	}
+	prendBiscuit()
+	while(!estSurBiscuit){
+  	avance()
+	}
+	recule()
+	poseBiscuit()
+}
+
+def sortie(){
+  while(!estDosMur()){
+    deplacer()
+    if (estSurBiscuit){
+      deplacer()
+      while(!estDosMur()){
+        recule()
+      }
+    }
+  }
+  gauche()
+  avance()
+  gauche()
+  avance()
+}
