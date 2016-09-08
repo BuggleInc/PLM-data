@@ -9,9 +9,11 @@ override def run() {
 
 def estPosFin(): Boolean = {
   getDirection() match{
-    case "Direction.EST" => gauche(); if(estFaceMur){
+    case Direction.EST => gauche(); if(estFaceMur){
       return true
-    } 
+    } else{
+      return false
+    }
 
     case _ => return false
   }
