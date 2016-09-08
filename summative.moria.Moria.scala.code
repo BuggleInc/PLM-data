@@ -5,7 +5,7 @@ def uTurn () = {
 
 // move forward while we not encounter a baggle and pick it
 def moveAndTake () = {
-  while (!isOverBaggle() && !isFacingWall()) {
+  while (!isOverBaggle() || !isFacingWall()) {
     forward();
   }
   if (isOverBaggle()) { pickupBaggle();}
