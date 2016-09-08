@@ -9,11 +9,13 @@ def cocktailSort() {
         isSorted = false;
       }
     }
-    for (i <- (n-2) to 0 by -1) {
-      if (isSmaller(i, i+1)) {
-        swap(i, i+1);
-        isSorted = false;
-      }
-    }
+    if (!isSorted()) {
+    	for (i <- (n-2) to 0 by -1) {
+      	if (isSmaller(i, i+1)) {
+        	swap(i, i+1);
+        	isSorted = false;
+      	}
+    	}
+  	}
   } while (!isSorted)
 }
