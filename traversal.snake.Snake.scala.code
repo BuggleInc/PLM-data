@@ -13,12 +13,14 @@ def positionFinale() : Boolean = {
     if (estFaceMur()) {
     	return true
     }
+    droite()
   }  
   if (getDirection() == Direction.OUEST) {
     droite()
     if (estFaceMur()) {
     	return true
     }
+    gauche()
   }
   return false
 }
@@ -28,10 +30,12 @@ def avanceSerpent() {
   	avance()
   else {
     if (getDirection() == Direction.EST) {
+      gauche()
       avance()
       gauche()
     }
     if (getDirection() == Direction.OUEST) {
+      droite()
       avance()
       droite()
     }
