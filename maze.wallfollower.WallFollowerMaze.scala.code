@@ -1,9 +1,19 @@
+def isWallOnTheLeft () : Boolean = {
+  left();
+  var answer = isFacingWall();
+  // back to the initial position :
+  right();
+  return answer();
+
+}
+
 def makeMoving() {
-  random3() match {
-    case 0 => if (!isFacingWall()) {forward();} else {makeMoving();}
-    case 1 =>  left();
-    case 2 => right();
+  while (!isWallOnTheLeft()) {
+    right();
   }
+  if (!isFacingWall()) {
+    forward();
+  } else { right(); }
 }
 
 override def run() {
