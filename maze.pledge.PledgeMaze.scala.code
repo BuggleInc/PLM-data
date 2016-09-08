@@ -1,0 +1,58 @@
+override def run() {
+  while (!isOnNorthBorder()) {
+    while (!isNextToNorthWall() && !isOnNorthBorder) {
+      goNorth();
+    }
+    if (!isOnNorthBorder()) workaroundObstacle();
+  }
+}
+
+
+def isOnNorthBorder() = getY() == 0;
+
+def isNextToNorthWall() : Boolean = {
+  var currentDirection = getDirection();
+  
+  setDirection(Direction.NORTH);
+  var isFacingWall = isFacingWall();
+  
+  setDirection(currentDirection);
+  return isFacingWall;
+}
+
+def goNorth() {
+  if (getDirection() != Direction.NORTH) setDirection(Direction.NORTH);
+  while (!isFacingWall) forward();
+}
+
+def workaroundObstacle() {
+  var turnCount = 0;
+  
+  while turnCount != 0 {
+    // Keep the wall on the left
+    left();
+    turnCount += 1;
+    
+    while (isFacingWall()) {
+      right();
+      turnCount -= 1;
+    }
+    
+    // Once the path is clear, move forward
+    forward();
+  }
+}
+
+def followWall() {
+  while (!isOverBaggle()) {
+    keepWallOnLeft();
+    forward();
+  }
+  
+  pickupBaggle();
+}
+
+def keepWallOnLeft() {
+	left();
+  while (isFacingWall()) right();
+}
