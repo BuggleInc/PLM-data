@@ -1,0 +1,18 @@
+override def run() {
+  while (!posFinale()) {
+    	posSuivante()
+  }
+}
+
+
+def posFinale() {
+  return (getMondeLargueur() == getX() && getY() == getMondeHauteur())
+}
+
+def posSuivante() {
+  if (getY() == getMondeHauteur() - 1) {
+    	setPos(getX()+1, 0)
+  }
+  else
+  		setPos(getX(), getY() + 1)
+}
