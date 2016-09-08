@@ -2,7 +2,28 @@ override def run() {
   var cpt:Int=0
   ecritMessage(cpt)
   while (positionTest()==false){
-    parcours()
+    
+    var x:Int=0
+    var y:Int=0
+    x=getX()
+    y=getY()
+
+    droite()    
+    if (estFaceMur==false && cpt%2=0 ){
+      setPos(x+1,y)
+      gauche()
+
+    }else if (estFaceMur()==false && cpt%2=1){
+      setPos(x-1,y)
+      gauche()
+    }
+  
+  
+   
+
+    
+    
+    
     cpt+=1
     ecritMessage(cpt)
     positionTest()   
@@ -14,24 +35,28 @@ override def run() {
 
 
 
-def parcours(){
-  var x:Int=0
-  var y:Int=0
 
-  x=getX()
-  y=getY()
-  
-  droite()    
-  if (estFaceMur==false){
-    setPos(x+1,y)
+
+def serpent(){
+  if(estFaceMur==false){
+    avance()
+  }else if(getDirection()==Direction.EST){
     gauche()
-    
-  }else if (estFaceMur()==true){
-    setPos(x,y+1)
+    avance()
     gauche()
+    avance()
+  }else if (getDirection()==Direction.OUEST){
+    droite()
+    avance()
+    droite()
+    avance()
   }
-  
 }
+
+
+
+
+
 
 
 def positionTest():Boolean={
