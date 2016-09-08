@@ -1,0 +1,20 @@
+def solve() {
+  var n = getSize();
+  
+  var nextBlue = 0;
+  var nextRed = n - 1;
+  var i = 0;
+  
+  while (nextRed > i) {
+    getColor(i) match {
+      RED =>
+      	swap(i, nextRed);
+      	nextRed -= 1;
+      BLUE =>
+      	nextBlue += 1;
+      	i += 1;
+      WHITE =>
+      	i += 1;
+    }
+  }
+}
