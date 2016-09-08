@@ -1,0 +1,23 @@
+override def run() {
+  var x = 0
+  var y = 0
+  var num = 0
+  do{
+   	ecritMessage(num)
+    num = num+1
+    if(x<6){
+      x = x +1
+      setPos(x,y)
+    }else{
+      x=x-1
+      y = y+1
+      setPos(x,y)
+    }
+  }while(!posFinale(x,y)) 
+  ecritMessage(num)
+}
+
+def posFinale(x:Int,y:Int): Boolean ={
+    return ((getX() == 6) && (getY()== 6))
+}
+
