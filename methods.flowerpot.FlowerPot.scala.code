@@ -1,9 +1,30 @@
 def growFlowers() {
-  
+  Flowers(Color.PINK)
+  for(b<-1 to 4) { avance()}
+  Flowers (Color.GREEN)
+  gauche(); for(b<-1 to 4) { avance()} ; droite();
+  Flowers (Color.CYAN)
+  gauche();gauche();for(b<-1 to 4) { avance()};droite();droite();
+  Flowers(Color.RED)
+  droite();for(b<-1 to 2) { avance();droite();avance();gauche()}
+  Flowers(Color.ORANGE)
 }
 
 
+
 def Flowers(c:Color) {
-  setCouleurBrosse(c:Color)
-  
+  for (a<- 1 to 4) {
+    marquer(c);
+    avance();
+    marquer(Color.YELLOW)
+    gauche();
+    avance();
+    droite();
+    droite()
+  }
+}
+
+def marquer(c:Color)  {
+  setCouleurBrosse(c);
+  baisseBrosse();leveBrosse();
 }
