@@ -1,0 +1,69 @@
+def motif1(c : Color) {
+  
+  var n = 0
+  
+  baisseBrosse();
+  setCouleurBrosse(c);
+  
+  for (n <- 1 to 2) {
+    avance();
+  }
+  recule();
+  gauche();
+  avance();
+  for (n <- 1 to 2) {
+    recule();
+  }
+  avance();
+  
+  setCouleurBrosse(Color.YELLOW);
+  droite();
+  leveBrosse();
+  
+}
+
+def motif(re : Color , cy : Color) {
+  
+  motif1(re)
+  for (n <- 1 to 3) {
+    avance();
+  }
+  motif1(cy)
+  for (n <- 1 to 5) {
+    recule();
+  }
+  
+}
+
+def motif2(c : Color) {
+  
+  
+  motif1(c);
+  for (n <- 1 to 4) {
+    avance();
+  }
+  droite();
+  avance();
+  avance();
+  gauche();
+  
+}
+
+def growFlowers() {
+  
+	motif(Color.RED , Color.CYAN)
+  droite();
+  for (n <- 1 to 4) {
+    avance();
+  }
+  motif(Color.PINK , Color.GREEN)
+  
+  gauche();
+  avance();
+  avance();
+  droite();
+ 	avance();
+  avance();
+  
+  motif2(Color.ORANGE)
+}
