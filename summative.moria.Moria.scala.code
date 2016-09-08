@@ -1,15 +1,28 @@
-while (!estSurBiscuit() || !estFaceMur()) {
-  retourne()
-  do {avance()}
-  while () 
-  if (estSurBiscuit){
-    prendBiscuit()
-  	retourne()
-		do {avance()}
-  	while (!estSurBiscuit)
-  	recule()
-  	poseBiscuit()
-	} else {
+/* tant que aps sur vert
+Si facemur -> avance jusqua case verte
+Si porte biscuit: si sur biscuit recule , posebiscuit, retourne
+ 									sinon avance
+Sinon si surbiscuit -> prend biscuit,retourne
+			sion avance()
+      */
+
+
+
+
+while (getCouleurSol()!=Color.GREEN) {
+  if (estFaceMur()) {
     droite();avance();droite();avance()
+  } else if (porteBiscuit()){
+    	if (surBiscuit()){
+        recule();poseBiscuit();retourne();avance()
+      } else {
+        avance()
+      }
+  }else {
+    if (surBiscuit()){
+      prendBiscuit();retourne()
+    } else {
+      avance()
+    }
   }
 }
