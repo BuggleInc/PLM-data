@@ -1,7 +1,7 @@
 override def run() {
   baisseBrosse()
   while (positionFinale()==false){
-    pasDeSerpent()
+    avance(6)
   }
 
 }
@@ -26,15 +26,13 @@ def positionFinale() : Boolean={
 }
 
 def pasDeSerpent() {
-  while (estFaceMur()==false){
-    avance()
-  } 
+  
 
   if (getDirection()==Direction.EST){
     gauche()
     avance()
     gauche()
-  } else {
+  } else if (getDirection()==Direction.OUEST) {
     droite()
     avance()
     droite()
