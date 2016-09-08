@@ -1,18 +1,19 @@
 def cocktailSort2() {
   var n = getNombreValeurs()
-  var d = 1
-      while (d!= 0) {
-        d = 0
-        for (i<- 0 to n-2) {
-          if (!plusPetit(i,i+1)) {
-            echange(i,i+1)
-            d=1
-          }
-        }
-        for (i<- n-2 to 0) {
-          if (!plusPetit(i-1,i)) {
-            echange(i,i-1); d =1
-          }
-        }
+  var d = false
+  var debut = 0
+  var fin = n-2
+  do {
+    d = false
+    for (i <- debut to n-2) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1);d = true
+      }; debut += 1
+    }
+    for (i <- fin to 0 by -1) {
+      if (!plusPetit (i,i+1)) {
+        echange(i+1,i);d = true
+      } 
+  }; fin -= 1
   }
-}
+  while (d)}
