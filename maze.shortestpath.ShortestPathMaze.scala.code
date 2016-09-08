@@ -2,12 +2,12 @@ def getBaggleCoords():Array[Int] = {
   for(i <- 0 to getWorldHeight() - 1) {
     for(j <- 0 to getWorldWidth() - 1) {
       if(hasBaggle(j, i)) {
-        return Array(j, i);
+        return Array(j, i)
       }
     }
   }
   
-  return Array(5, 2);
+  return Array(5, 2)
 }
 
 def mHasTopWall(coords:Array[Int]):Boolean = {
@@ -15,15 +15,15 @@ def mHasTopWall(coords:Array[Int]):Boolean = {
     return true;
   }
   
-  return false;
+  return false
 }
 
 def mHasLeftWall(coords:Array[Int]):Boolean = {
   if(hasLeftWall(coords(0), coords(1))) {
-    return true;
+    return true
   }
   
-  return false;
+  return false
 }
 
 override def run() {
@@ -31,8 +31,10 @@ override def run() {
   setIndication(baggleCoords(0), baggleCoords(1), 0);
   
   var currentCoords = baggleCoords;
+  var i = 1;
   
-  if(mHasTopWall(currentCoords)) {
-    
+  if(mHasTopWall(currentCoords) && mHasLeftWall(currentCoords)) {
+    currentCoords(1) -= 1
+    setIndication(currentCoords(0), currentCoords(1), i)
   }
 }
