@@ -1,0 +1,81 @@
+var diag = 0;
+override def run() {
+  var i=0
+  var j=0
+  var place=0
+  var partie1=0
+  var partie2=0
+  while (diag!=12){
+    while (i!=6){
+      for (i<- 0 to 6){
+        for (j<- 0 to 6){
+          for (k <- 0 to i){
+            setPos(k,j)
+            ecritMessage(place)
+            place+=1
+          }
+        }
+      }
+    }
+    i=0
+    place=28
+    while (i!=5){
+      for (i<- 0 to 5){
+        for (j<- 0 to 6){
+          for (k <- 0 to i){
+            setPos(k,j)
+            ecritMessage(place)
+            place+=1
+          }
+        }
+      }
+    }
+  }
+}
+
+//déplacement en diagonale//
+/*for (i<- 0 to 6){
+  for (j<- 0 to 6){
+    for (k <- 0 to i){
+      setPos(k,j)
+      ecritMessage(place)
+      place+=1
+    }
+  }
+}*/
+
+override def run() {
+  var i=0
+  var j=0
+  var place=0
+  while (!positionFinale()){
+    for (j <- 0 to 6){
+      if (j==0 || j==2 || j==4 ||j==6){
+        setPos(0,j)
+        for (i <- 0 to 6){
+          ecritMessage(place)
+          place +=1
+          if (i<6){
+            setPos(i+1,j)
+        	}
+        }
+      }else{
+        setPos(6,j)
+        for (i <- 0 to 6){
+          ecritMessage(place)
+          place +=1
+          if (i<6){
+            setPos(5-i,j)
+        	}
+        }
+      }
+    }
+  }
+}
+
+def positionFinale():Boolean={
+  if (getX()==6 && getY()==6){
+    return true
+  }
+  return false
+}
