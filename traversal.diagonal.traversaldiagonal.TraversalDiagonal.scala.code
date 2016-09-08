@@ -1,0 +1,26 @@
+var diag = 0;
+override def run() {
+  var count = 0
+  ecritMessage()
+  while (PositionFinale()==false){
+    ecritMessage()
+    count=count+1
+    if (getX()<=diag-1 && getY()<=diag-1){
+      setX(getX()+1);setY(getY()+1)
+    }
+    else{
+      diag=diag+1
+      setX(0);setY(diag-1)
+    }
+  }
+}
+
+
+def PositionFinale() : Boolean = {
+  var H=getMondeHauteur()
+  var L=getMondeLargeur()
+  if (getX()+1==L && getY()+1==H){
+    return true
+  }
+  return false
+}
