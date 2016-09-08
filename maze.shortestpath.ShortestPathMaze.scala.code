@@ -1,6 +1,6 @@
 override def run() {
-  for (i<-0 to getWorldWidth) {
-    for (j<-0 to getWorldHeight) {
+  for (i<-0 to getMondeLargeur-1) {
+    for (j<-0 to getMondeHauteur-1) {
       if (aBiscuit(i,j))
       	setIndication(i,j,0)
     }
@@ -16,13 +16,13 @@ override def run() {
 
 def tablecomplet:Boolean = {
   var ind = 0
-  for (x<-0 to 11) {
-    for (y<-0 to 11) {
-      if (getIndication(x,y)>ind && getIndication(x,y)!=9999)
-      	ind = getIndication(x,y)
+  for (x<-0 to getMondeLargeur-1) {
+    for (y<-0 to getMondeHauteur-1) {
+      if (getIndication(x,y)==9999 && possible(x,y))
+      	ind = 1
     }
   }
-  if (ind<87)
+  if (ind!=0)
   	return false
   return true
 }
@@ -32,8 +32,8 @@ def ecrire = {
   var S = 9999
   var E = 9999
   var W = 9999
-  for (x<-0 to 11) {
-    for (y<-0 to 11) {
+  for (x<-0 to getMondeLargeur-1) {
+    for (y<-0 to getMondeHauteur-1) {
       N = 9999
       E = 9999
       W = 9999
@@ -42,9 +42,9 @@ def ecrire = {
       	N = getIndication(x,y-1)
       if (x!=0 && !aMurOuest(x,y))
       	W = getIndication(x-1,y)
-      if (x!=11 && !aMurOuest(x+1,y))
+      if (x!=getMondeLargeur-1 && !aMurOuest(x+1,y))
       	E = getIndication(x+1,y)
-      if (y!=11 && !aMurNord(x,y+1))
+      if (y!=getMondeHauteur-1 && !aMurNord(x,y+1))
       	S = getIndication(x,y+1)
       if (N!=9999 && getIndication(x,y)==9999)
   			setIndication(x,y,N+1)
@@ -69,9 +69,9 @@ def mvt = {
       	N = getIndication(x,y-1)
       if (x!=0 && !aMurOuest(x,y))
       	W = getIndication(x-1,y)
-      if (x!=11 && !aMurOuest(x+1,y))
+      if (x!=getMondeLargeur-1 && !aMurOuest(x+1,y))
       	E = getIndication(x+1,y)
-      if (y!=11 && !aMurNord(x,y+1))
+      if (y!=getMondeHauteur-1 && !aMurNord(x,y+1))
       	S = getIndication(x,y+1)
       if (N<getIndication(x,y)) {
   			setDirection(Direction.NORTH)
@@ -89,4 +89,22 @@ def mvt = {
   			setDirection(Direction.WEST)
   			avance()
       }
+}
+
+def possible(x:Int,y:Int):Boolean = {
+  var N = 9999
+  var S = 9999
+  var E = 9999
+  var W = 9999
+      if (y!=0 && !aMurNord(x,y))
+      	N = getIndication(x,y-1)
+      if (x!=0 && !aMurOuest(x,y))
+      	W = getIndication(x-1,y)
+      if (x!=getMondeLargeur-1 && !aMurOuest(x+1,y))
+      	E = getIndication(x+1,y)
+      if (y!=getMondeHauteur-1 && !aMurNord(x,y+1))
+      	S = getIndication(x,y+1)
+  if (N!=9999 || E!=9999 || W!=9999 || S!=9999)
+  	return true
+  return false
 }
