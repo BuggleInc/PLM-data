@@ -5,19 +5,15 @@ def cocktailSort2() {
   while(continuer){
     continuer = false
     for (i <- debut to (length - 2)){
-      if ( i < (length - 1)){
-        if (!plusPetit(i,i+1)){
-          echange(i,i+1)
-          continuer = true
-        }
+      if (!plusPetit(i,i+1)){
+        echange(i,i+1)
+        continuer = true
       }
     }
     for (i <- debut to (length - 2)){
-      if ( i < (length - 1)){
-        if (!plusPetit(length - 2 - i,length - 1 - i)){
-          echange(length - 2 - i,length - 1 - i)
-          continuer = true
-        }
+      if (!plusPetit(length - 2 - i,length - 1 - i)){
+        echange(length - 2 - i,length - 1 - i)
+        continuer = true
       }
     }
     length += -1
