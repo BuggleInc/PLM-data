@@ -2,25 +2,25 @@ override def run() {
   Motif()
 }
 
-def marquer(c:Color) = {
+def marquer(c:Color)  {
   setCouleurBrosse(c);
   baisseBrosse();leveBrosse();
 }
 
-def sousMarque(a.Color,b.Color) = {
+def sousMarque(a.Color,b.Color) {
   avance(); marquer(a);
   avance(); marquer(b);
   avance();gauche()
 }
 
-def faireMotif()= {
+def faireMotif() {
   sousMarque(Color.RED,Color.BLUE);
   sousMarque(Color.BLUE,Color.GREEN);
   sousMarque(Color.GREEN,Color.YELLOW);
   sousMarque(Color.YELLOW,Color.RED)
 }
 
-def Motif() = {
+def Motif() {
   faireMotif();
   for (z<- 1 to 4) {avance()}
   faireMotif();
