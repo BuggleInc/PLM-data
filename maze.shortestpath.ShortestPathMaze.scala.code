@@ -33,8 +33,10 @@ override def run() {
   var currentCoords = baggleCoords;
   var i = 1;
   
-  if(mHasTopWall(currentCoords) && mHasLeftWall(currentCoords)) {
-    currentCoords(1) += 1
-    setIndication(currentCoords(0), currentCoords(1), i)
+  while(i < 50) {
+    if(mHasTopWall(currentCoords) && mHasLeftWall(currentCoords)) {
+      currentCoords(1) += 1
+      setIndication(currentCoords(0), currentCoords(1), i)
+    }
   }
 }
