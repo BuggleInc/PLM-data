@@ -1,5 +1,6 @@
 def growFlowers()
 {
+  var listPos:Array[(Int,Int)]=Array((3,6),)
   fleur(Color.red)
   
 }
@@ -9,13 +10,11 @@ def fleur(color:Color)
   ligne(color)
   for (i<-1 to 2)
 		{
-      droite()
-      avance()
+      tourneDroite()
     }
   droite()
   ligne(color)
-  droite()
-  avance()
+  tourneDroite()
 }
 
 
@@ -31,6 +30,14 @@ def ligne(color:Color)
   marquer(color)
 }
 
+def tourneDroite(nb:Int)
+{
+  for (i<-1 to nb)
+  	{
+    	droite()
+  		avance()
+    }
+}
 
 
 def marquer(color:Color)
