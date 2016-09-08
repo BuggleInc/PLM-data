@@ -1,0 +1,43 @@
+var diag = 0;
+var cp:Int = 0
+var x:Int = 0
+var y:Int = 0
+
+override def run() {
+  ecritMessage(cp)
+  y += 1
+  setPos(x,y)
+  while (!fin) {
+    while ((x != 6) || (y != 0)) {
+      x += 1
+      y -= 1
+      setPos(x,y)
+      cp += 1
+      ecritMessage(cp)
+    }
+    diag += 1
+    if (diag <= 6) {
+      y = x + 1
+      x = 0
+      setPos(0,x)
+      cp += 1
+      ecritMessage(cp)
+    } else {
+      y = 6
+      x = diag - y
+      setPos(x,y)
+      cp += 1
+      ecritMessage(cp)
+    }
+  }
+}
+
+
+def fin():Boolean = {
+  if (getX() == ((getMondeLargeur() - 1)) && (getY() == (getMondeHauteur() -1))) {
+    return true
+  } else {
+    return false
+  }
+}
+
