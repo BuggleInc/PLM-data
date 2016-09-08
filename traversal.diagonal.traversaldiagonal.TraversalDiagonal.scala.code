@@ -1,0 +1,37 @@
+
+override def run() {
+  var n = 0
+  var diag = 0
+  marque(0)
+  while(!positionFinale){
+    if(getY()==0){
+      diag=diag+1
+      setPos(0,diag)
+      n=n+1
+      marque()
+    } else {
+      setPos(getX()+1,getY()+1)
+      n=n+1
+      marque(n)
+    }
+  }
+}
+
+
+
+
+
+
+def positionFinale():Boolean = {
+  if(getMondeHauteur()-1==getY() && getMondeLargeur()-1==getX()){
+    return true
+  } else {
+    return false
+  }
+}
+
+
+
+def marque(x:Int){
+  ecritMessage(x)
+}
