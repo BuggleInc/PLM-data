@@ -1,0 +1,14 @@
+def clearMoria(){
+  droite();droite();
+  while(!estFaceMur()){
+    while(getDirectio() == Direction.EST && !estSurBiscuit() && !porteBiscuit()){
+      avance();
+    }
+    prendBiscuit();droite();droite()
+    while(getDirectio() == Direction.OUEST && !estSurBiscuit() && porteBiscuit()){
+      avance();
+    }
+    recule();poseBiscuit();droite();droite();
+  }
+  droite();avance();gauche();avance();
+}
