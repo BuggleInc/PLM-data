@@ -1,14 +1,14 @@
 def insertionSort() {
   
-  for(j<- 1 to getValueCount()-1){
-    var lastValue = getValueCount()-1;
-    for(i<- 1 to getValueCount()-1){
-      var v = getValue(i);
-      if(!isSmaller(i-1,i)){
-        copy(i-1,i);
-        lastValue = i-1;
-      }
+  var lastValue = getValueCount()-1;
+  for(i<- 1 to getValueCount()-1){
+    var v = getValue(i);
+    for(j<- 1 to i){
+      copy(i-1,i);
+      lastValue = i-1;
+      
     }
     setValue(lastValue, v);
   }
+  
 }
