@@ -5,8 +5,10 @@ def insertionSort() {
   for (i<-1 to n-2) {
     v = getValue(i);
     j = i;
-    while (j!=0 && isSmaller(j-1,v)) {
-      setValue(getValue(j-1),j);
+    while (j!=0) {
+      if (isSmaller(j-1,v)) {
+      	setValue(getValue(j-1),j);
+      }
       j =  j-1;
     }
     setValue(j,v)
