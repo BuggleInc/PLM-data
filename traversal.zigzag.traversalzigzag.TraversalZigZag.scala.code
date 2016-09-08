@@ -1,11 +1,14 @@
 override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()-1&&getY()==getMondeLargeur()-1) {return true}
                                                   else {return false}}
  var a:Int = 0;                   
-                    def marche() {droite(); while (!positionFinale()) 
+                    
+                    def marche() {while (!positionFinale()) 
                                 {ecritMessage(a);a+=1;
-                                 if (estFaceMur())
+                   var b:Int = getMondeLargeur();              
+                                 if (getX!=b)
                                  {setPos(getX(),getY()+1);}
-                                 else {if (getDirection()==Direction.EST) {setPos(getX(),getY()+1)}
+                                 else  
+                                 {setPos(getX(),getY()+1)}
                                        else {setPos(getX(),getY()-1)}
                                       }
                                  }
