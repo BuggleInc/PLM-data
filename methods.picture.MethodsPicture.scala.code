@@ -1,0 +1,42 @@
+override def run() {
+  
+  def makeV(c:Color) {
+  setBrushColor(c)
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+}
+  
+def makePattern(c:Color) {
+  for (i <- 1 to 3) {
+  	for (k <- 1 to 5) {
+      	forward()
+      	makeV(c)
+      	forward()
+      	forward()
+      	left()
+    }
+    right()
+    forward()
+  }
+  backward(14)
+  left()
+  forward(5)
+  right()
+  
+}
+
+for (n <- 1 to 3)
+	makePattern(c:Color)
+}
+}
