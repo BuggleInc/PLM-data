@@ -1,74 +1,48 @@
-
-
-def posFinale():Boolean = {
-  
-  if (estFaceMur())
-  	{
-      if (getDirection()==Direction.EST)
-      	{
-          droite()
-          if (estFaceMur())
-          	{
-              return true
-            }
-          else 
-            {
-              gauche()
-              return false
-            }
-        }
-      else 
-      	{
-           gauche()
-            if (estFaceMur())
-              {
-                return true
-              }
-            else 
-              {
-                  droite()
-                  return false
-              }
-      	}
-    }
-  else
-  {
-    return false
-  }
-}
-
 def marquer(c:Int){
   
   ecritMessage(c)
   
 }
+def posFinale():Boolean ={
+  
+  var x = getX()
+  var y = getY()
+  var x_max = getMondeLargeur()
+  var y_max = getMondeHauteur()
+  if (x==(x_max-1) && y==(y_max-1))
+  	{
+      return true
+    }
+  else
+  	{
 
+      return false
+    }
+}
 
 override def run() {
-  droite()
   var c = 0
+  avance()
   while(!posFinale())
   	{
-      	
-      if(estFaceMur() && getDirection()==Direction.EST)
+      	droite()
+      	var x = getX()
+  			var y = getY()
+      	var z = 0
+      if(estFaceMur() && z==0)
       	{
           marquer(c)
-        	c = c+1
-          gauche();avance();gauche()
+          setPos(x-1,y+1)
+          
+        c = c+1
         }
-      else if(estFaceMur() && getDirection()==Direction.OUEST)
-        {
-          marquer(c)
-            c = c+1
-            droite();avance();droite()
-        }
-      else
-      	{
-          marquer(c)
-          c=c+1
-          avance()
-        }
+      else{
+        marquer(c)
+        setPos(0,y+1)
+        
+        c = c+1
+      }
     }
+  	gauche()
         marquer(48)
-  setDirection(Direction.NORD)
 }
