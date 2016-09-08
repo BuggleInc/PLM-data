@@ -2,9 +2,32 @@ def shellSort()
 {
   var n = getNombreValeurs()-1;
   var ecart = n/2;
+  var v = 0;
+  var x = 0;
+  var j = 0;
+  var dernier = 0;
   
   while (ecart > 0)
   {
-    
+    for (i <- 1 to n)
+    {
+      v = getValeur(i);
+      x = v+1;
+      dernier = i;
+      j = i;
+
+      while (j>0 && x>v)
+      {
+        x = getValeur(j-ecart);
+        if (x > v)
+        {
+          setValeur(j, x);
+          dernier = j-ecart;
+        }
+        j-=ecart;
+      }
+      setValeur(dernier, v);
+    }
+    ecart-=1;
   }
 }
