@@ -2,8 +2,9 @@ override def run() {
   ecritMessage("0")
   var cpt = 0
   var gauche = false
+  var cote = false
   while (!posFinale()) {
-    	gauche = posSuivante(gauche)
+    	(gauche,cote) = posSuivante(gauche,cote)
     	cpt += 1
     	ecritMessage(cpt)
     	
@@ -17,17 +18,17 @@ def posFinale() : Boolean = {
 
 
 
-def posSuivante(gauche : Boolean) : Boolean = {
-  if (getX() == getMondeLargeur() - 1  || getX() == 0) {
+def posSuivante(gauche : Boolean, cote : Boolean) : (Boolean,Boolean) = {
+  if ((getX() == getMondeLargeur() - 1  || getX() == 0)&& cote ){
     	setPos(getX(), getY() + 1)
-   		return (!gauche)
+   		return (!gauche,!cote)
   }
   else if (!gauche) {
   		setPos(getX() + 1, getY())
-    	return gauche}
+    	return (!gauche,cote)}
   else {
   		setPos(getX() - 1 , getY())
-    	return gauche }
+    	return (gauche, cote) }
   }
 
            
