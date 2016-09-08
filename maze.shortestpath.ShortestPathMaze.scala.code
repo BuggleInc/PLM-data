@@ -53,13 +53,15 @@ def processNeighbor(x:Int, y:Int, xn:Int, yn:Int, min:Int) : Int = {
 def mark(i:Int) {
   for (x <- 0 to getWorldWidth() - 1) {
     for (y <- 0 to getWorldHeight() - 1) {
-      var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
-      min = processNeighbor(x, y, 1, 0, min);
-      min = processNeighbor(x, y, 0, -1, min);
-      min = processNeighbor(x, y, 0, 1, min);
+      if (getIndication != NO_INDICATION) {
+      	var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
+      	min = processNeighbor(x, y, 1, 0, min);
+      	min = processNeighbor(x, y, 0, -1, min);
+      	min = processNeighbor(x, y, 0, 1, min);
       
-      if (min != NO_INDICATION) {
-        setIndication(x, y, min + 1)
+      	if (min != NO_INDICATION) {
+      	  setIndication(x, y, min + 1)
+      	}
       }
     }
   }
