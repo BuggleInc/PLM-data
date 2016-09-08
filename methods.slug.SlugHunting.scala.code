@@ -2,8 +2,9 @@ def hunt() {
   while (isFacingTrail()) 
   {avance();}
   if (!isFacingTrail()) {
-    gauche();
-    isFacingTrail();
+    gauche(); 
+    if (!isFacingTrail())
+    {droite(); isFacingTrail();}
   }
   if (estSurBiscuit) {prendBiscuit()};
   return
