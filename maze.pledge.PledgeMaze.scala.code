@@ -2,8 +2,7 @@ override def run() {
   
   var c=0
   while(isOverBaggle==false){
-    if(!murNord)(forward();{
-    }
+    if(!murNord){forward();}
     else{
       right();
       suivremur()
@@ -27,4 +26,10 @@ def mur(){
     right();
 	}
   forward();
+}
+
+def murNord():Boolean={
+  setDirection(Direction.NORTH)
+  if(isFacingWall==true){return true;}
+  else {return false;} 
 }
