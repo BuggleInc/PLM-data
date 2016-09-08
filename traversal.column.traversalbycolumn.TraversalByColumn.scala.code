@@ -5,9 +5,9 @@ override def run() {
   var fini : Boolean = false
   while (!fini) {
   (getX(),getY()) match {
-    case (0,0) => ecritMessage(getMondeHauteur()); fini = true
+    case (7,7) => ecritMessage(cpt); fini = true
     case (_,hauteur) => ecritMessage(cpt); cpt= cpt + 1; setPos(getX()+1,0)
-    case (_,_)=> ecritMessage(cpt); cpt=cpt+1; setPos(5,5)
+    case (_,_)=> ecritMessage(cpt); cpt=cpt+1; setPos(getX(),getY()+1)
   }
   }
 }
