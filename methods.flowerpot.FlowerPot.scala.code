@@ -2,12 +2,14 @@ def growFlowers() {
   faireLigneFleurs1()
   droite(); avance(2); gauche()
   faireFleurCentrale()
+  droite(); avance(2); gauche()
+  faireLigneFleurs2()
 }
   
 def faireLigneFleurs1() {
 	setCouleurBrosse(Color.RED)
   faireFleur()
-  droite(); avance(3)
+  avance(3)
   setCouleurBrosse(Color.CYAN)
   faireFleur()
   droite()
@@ -21,10 +23,22 @@ def faireFleur() {
   avance()
   setCouleurBrosse(Color.YELLOW)
   leveBrosse()
+  droite()
 }
 
 def faireFleurCentrale() {
   avance(2)
   setCouleurBrosse(Color.ORANGE)
   faireFleur()
+  recule(3)
+}
+
+def faireLigneFleurs2() {
+	setCouleurBrosse(Color.PINK)
+  faireFleur()
+  avance(3)
+  setCouleurBrosse(Color.GREEN)
+  faireFleur()
+  droite()
+  recule(5)
 }
