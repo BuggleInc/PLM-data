@@ -3,14 +3,15 @@ override def run() {
   var x:Int = 0
 		ecritMessage(x)
    while (getMondeHauteur()-1 !=getY() || getMondeLargeur()-1 != getX()){
-     if (diag<getMondeHauteur()-1){
+     if (diag<getMondeHauteur()){
 for (i <- 0 to diag){
   x+=1
   setPos(i,diag-i)
-  ecritMessage(x)
+  ecritMessage(diag)
 }
-     }else{
-       for (i <- 0 to diag){
+     }
+     else{
+       for (i <- getMondeHauteur() to diag){
   x+=1
   setPos(getMondeHauteur()-i,i)
   ecritMessage(x)
