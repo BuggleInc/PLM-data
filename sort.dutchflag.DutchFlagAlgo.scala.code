@@ -4,8 +4,8 @@ def solve() {
   while(!estTrie()){
     for (i <- 0 to taille-1){
       getCouleur(i) match{
-        case BLEU => if (!rBon){echange(i,taille-1)}
-        case ROUGE =>if (!bBon){echange(i,0)}
+        case BLEU => if (!rBon(i)){echange(i,taille-1)}
+        case ROUGE =>if (!bBon(i)){echange(i,0)}
       }
     }
     
