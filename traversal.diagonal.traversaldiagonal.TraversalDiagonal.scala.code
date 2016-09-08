@@ -1,23 +1,24 @@
+
+
+
+var diag = 0;
 override def run() {
-  def estPosiFin():Boolean={
+def estPosiFin():Boolean={
   if(getX()+1==getMondeHauteur() && getY()+1==getMondeLargeur()){return true}
 	return false}
 
 
-def avance(){
+def avance(diag:Int){
   var x=getX()
   var y=getY()
-  var X=getMondeLargeur()
-  var Y=getMondeHauteur()
-  if(y==0 && x+1<X){setPos(0,y+1)}else if(x+1==X){setPos(y+1,Y-1)}else{setPos(x+1,y-1)}
-}
+  if(y==0 && diag+1<getMondeLargeur()){setPos(diag+1,0);return diag+1}
+  if(diag>=getMondeLargeur() && x+1==getMondeLargeur()){setPos(y,getMondeHauteur());return diag+1}
+  setPos(x+1,y-1)
+  return diag}
 
-  
-  
-  var diag = 0;
   var mark=0
   do{ecritMessage(mark)
      mark=mark+1
-     avance()}while(!estPosiFin())
+     diag=avance(diag)}while(!estPosiFin())
   ecritMessage(mark)
 }
