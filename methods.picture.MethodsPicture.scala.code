@@ -16,13 +16,30 @@ override def run() {
   brushUp()
 }
   
-def makePattern(c:Color) {
+def makePattern() {
   for (i <- 1 to 3) {
   	for (k <- 1 to 5) {
-      	forward()
-      	makeV(c)
-      	forward()
-      	left()
+      	if (k==1) {
+      		forward()
+      		makeV(Color.green)
+      		forward()
+      		left()
+        } else if (k==2) {
+          forward()
+      		makeV(Color.red)
+      		forward()
+      		left()
+        } else if (k==3) {
+          forward()
+      		makeV(Color.blue)
+      		forward()
+      		left()
+        } else if (k==4) {
+          forward()
+      		makeV(Color.green)
+      		forward()
+      		left()
+        }
     }
     right()
     forward()
@@ -35,6 +52,6 @@ def makePattern(c:Color) {
 }
 
 for (n <- 1 to 3) {
-	makePattern(Color.green)
+	makePattern()
 }
 }
