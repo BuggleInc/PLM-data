@@ -22,26 +22,35 @@ def posFinale():Boolean ={
 
 override def run() {
   var c = 0
-  avance()
   while(!posFinale())
   	{
       	droite()
       	var x = getX()
   			var y = getY()
       	var z = 0
-      if(estFaceMur() && z==0)
+      if(estFaceMur())
       	{
           marquer(c)
-          setPos(x-1,y+1)
+          setPos(x,y+1)
+          retourne()
           
         c = c+1
         }
-      else{
-        marquer(c)
-        setPos(0,y+1)
-        
-        c = c+1
-      }
+      else
+          {
+
+            marquer(c)
+            if(z==0)
+            	{
+                setPos(x-1,y)
+              }
+            else{
+            
+            setPos(x+1,y)
+            }
+
+            c = c+1
+          }
     }
   	gauche()
         marquer(48)
