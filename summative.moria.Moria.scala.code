@@ -11,15 +11,17 @@ while(!isFacingWall()) {
   left()
   left()
 
-  while(!isOverBaggle()) {
+  while(!isOverBaggle() && !isFacingWall()) {
 		forward()
   }
 
-  backward()
+  if(!isFacingWall()) {
+    backward()
 
-  dropBaggle()
-  
-  backward()
+    dropBaggle()
+
+    backward()
+  }
 }
 
 right()
