@@ -1,0 +1,25 @@
+def cocktailSort() {
+  var finished:Boolean= true;
+  var n:Int = getValueCount();
+  var deb:Int = 0;
+	var fin:Int = n-2;
+  do{
+    finished = true;
+    for (i<-deb to fin) {
+      if (!isSmaller(i,i+1)) {
+        swap(i,i+1);
+        finished = false;
+      }
+    }
+    fin = fin-1;
+    
+    for (i<- fin to deb by -1) {
+      if (!isSmaller(i,i+1)) {
+        swap(i,i+1);
+        finished = false;
+    	}
+  	}
+    deb = deb +1;
+    
+	} while (!finished)
+}
