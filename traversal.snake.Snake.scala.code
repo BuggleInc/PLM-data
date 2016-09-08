@@ -1,11 +1,15 @@
-override def run() {def positionFinale() {//if (estFaceMur()(&&getDirection()==Direction.EST)) {gauche();return estFaceMur()}
-                                           if (estFaceMur() && getDirection() == Direction.OUEST) {droite();return estFaceMur();}
+override def run() {def positionFinale() {if (estFaceMur()(&&getDirection()==Direction.EST)) {gauche();if (estFaceMur()) {return} else {gauche(); avance();gauche();}}
+                                           if (estFaceMur() && getDirection() == Direction.OUEST) {droite();if (estFaceMur()) {return} else {droite();avance();droite();};}
                                           else {return false}}
                     
-                    def marche() {while (!positionFinale()) 
-                                {if (estFaceMur()&&getDirection()==Direction.EST) {gauche();}
-                                   if (estFaceMur()&&getDirection()==Direction.OUEST) {droite();}
-                                  else {avance();}
-                                  }
-                                }
+//override def run() {def positionFinale() {//if (estFaceMur()(&&getDirection()==Direction.EST)) {gauche();return estFaceMur()}
+//                                           if (estFaceMur() && //getDirection() == Direction.OUEST) {droite();return estFaceMur();}
+//                                          else {return false}}
+                    
+//                    def marche() {while (!positionFinale()) 
+//                                {if //(estFaceMur()&&getDirection()==Direction.EST) {gauche();}
+      //                             if //(estFaceMur()&&getDirection()==Direction.OUEST) {droite();}
+//                                  else {avance();}
+ //                                 }
+ //                               }
 }
