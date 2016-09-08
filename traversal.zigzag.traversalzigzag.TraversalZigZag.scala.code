@@ -4,7 +4,7 @@ override def run() {
   var gauche = false
   var cote = false
   while (!posFinale()) {
-    	[gauche,cote] = posSuivante(gauche,cote)
+    	T[gauche,cote] = posSuivante(gauche,cote)
     	cpt += 1
     	ecritMessage(cpt)
     	
@@ -21,14 +21,14 @@ def posFinale() : Boolean = {
 def posSuivante(gauche : Boolean, cote : Boolean) : Array[Boolean] = {
   if ((getX() == getMondeLargeur() - 1  || getX() == 0)&& cote ){
     	setPos(getX(), getY() + 1)
-   		return [!gauche,!cote]
+   		return T[!gauche,!cote]
   }
   else if (!gauche) {
   		setPos(getX() + 1, getY())
-    	return [!gauche,cote]}
+    	return T[!gauche,cote]}
   else {
   		setPos(getX() - 1 , getY())
-    	return [gauche, cote] }
+    	return T[gauche, cote] }
   }
 
            
