@@ -1,9 +1,17 @@
 override def run() {
-  while (!overbiscuit) {
-    if (!murNord)
+  var c = 0
+  while (c!=1) {
+    if (!murNord) {
     	avance()
+    	if (getY==0) {
+        c=1
+      }
+    }
     else
     	keephandonwall
+  }
+  while (!overBiscuit) {
+    keephandonwall
   }
   prendBiscuit()
 }
