@@ -4,8 +4,13 @@ override def run() {
   var counter : Int = 0
   while (finalpos==false){
   	for ( a <- 0 to 6){
-       if  ( a== 6 && b ==6)
-    	setPos(a,b)
+       if  ( a== 6 && b ==6){
+         setPos(a,b)
+         coubnter+=1
+         writeMessage(counter)
+         finalpos=true
+       }
+    setPos(a,b)
    	 writeMessage(counter)
     	while (isFacingWall()==false){
     	  setPos(a,b)
