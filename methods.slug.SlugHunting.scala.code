@@ -1,14 +1,15 @@
 def hunt() {
-  forward()
-    if (!isFacingTrail()) {
-      left()
-      if (isFacingTrail()) {
-        forward()
-      } else {
-        back()
-        forward()
-      }
+  if (isFacingTrail) {
+    forward()
+  } else {
+    left()
+    if (isFacingTrail) {
+    	forward()
+    } else {
+      back()
+      forward()
     }
+  }
 }
 
 def isFacingTrail():Boolean ={
