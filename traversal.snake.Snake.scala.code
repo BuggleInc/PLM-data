@@ -10,15 +10,19 @@ override def run()
     {
       gauche()
       if(estFaceMur())
+        droite()
     		return true
-      droite()
+      gauche()
+      return false
     }
     else if(dir == Direction.WEST)
     {
       droite()
       if(estFaceMur())
+        gauche()
     		return true
       gauche()
+      return false
     }
     else return false
   }
