@@ -1,21 +1,17 @@
 override def run() {
-  baisseBrosse()
-  do {
-    while(!estFaceMur){
-      avance()
+  while(!arrivee) {
+    avance()
+    if (estFaceMur && getDirection==Direction.EST) {
+      gauche(); avance(); gauche()
     }
-    
-  } while(!estSurPositionFinale)
+    if (estFaceMur && getDirection==Direction.OUEST) {
+      droite(); avance(); droite()
+  }
 }
 
-def estSurPositionFinale():Boolean = {
-  if(getDirection()==Direction.EST) {
-    gauche()
-    if(estFaceMur) return true
-  }
-  if(getDirection()==Direction.OUEST) {
-    droite()
-    if(estFaceMur) return true
-  }
+def arrivee():Boolean = {
+  if (getDirection()==Direction.EST) gauche()
+  if (getDirection()==Direction.OUEST) droite()
+  if (estFaceMur) return true
   return false
 }
