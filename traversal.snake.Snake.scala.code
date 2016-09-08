@@ -1,4 +1,9 @@
 override def run() {
+  baisseBrosse()
+  while (positionFinale()==false){
+    pasDeSerpent()
+  }
+  
 }
 
 def positionFinale() : Boolean={
@@ -20,5 +25,21 @@ def positionFinale() : Boolean={
     }
   } else {
     return false
+  }
+}
+
+def pasDeSerpent() {
+  if (estFaceMur()==false){
+    avance()
+  } else {
+    if (getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    } else {
+      droite()
+      avance()
+      droite()
+    }
   }
 }
