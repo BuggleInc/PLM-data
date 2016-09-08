@@ -1,0 +1,24 @@
+def cocktailSort2() {
+  var debut:Int = 0
+  var fin:Int = getNombreValeurs
+  var echange1:Int = 1
+  var echange2:Int = 1
+  while ((echange1>0)||(echange2>0)){
+    echange1 = 0
+  	echange2 = 0
+    for (i <- debut to fin){
+      if (getValeur(i)>getValeur(i+1)){
+        echange(i,i+1)
+        echange1 = echange1+1
+      }
+    }
+    fin = fin-1 
+    for (i <- fin to debut by -1){
+      if(getValeur(i)>getValeur(i+1)){
+      	echange(i,i+1)
+      	echange2 = echange2+1
+      }
+    }
+    debut = debut+1
+  }
+}
