@@ -1,0 +1,21 @@
+override def run() {
+  H=getMondeHauteur()
+  L=getMondeLargeur()
+  while (PositionFinale==false){
+    if (getY()+1==H){
+      setY(0);setY(getX()+1)
+    }
+    else{
+      setY(getY()+1)
+    }
+  }
+}
+
+
+def PositionFinale() : Boolean = {
+  H=getMondeHauteur()
+  L=getMondeLargeur()
+  if (getX()+1==L && getY()+1==H){
+    return true
+  }
+  return false
