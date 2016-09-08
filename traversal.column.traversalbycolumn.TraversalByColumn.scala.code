@@ -1,7 +1,14 @@
 override def run() {
   var cpt:Int=0
   ecritMessage(cpt)
-  while ((getY()!=getMondeHauteur()-1)&&(getX()!=getMondeLargeur()-1)) {
+  def test {
+    var t1:Boolean=false
+    var t2:Boolean=false
+    if (getY()==getMondeHauteur()-1) {t1=true}
+    if (getX()==getMondeLargeur()-1) {t2=false}
+    return t1&&t2
+  }
+  while (!test) {
     if (!estDosMur()) {
       setPos(getX(),getY()+1)
       cpt=cpt+1
