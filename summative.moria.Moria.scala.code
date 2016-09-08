@@ -1,0 +1,29 @@
+def getThaRock{
+  while(!isOverBaggle && !isFacingWall){
+    forward()
+  }
+  if(isOverBaggle){
+    pickupBaggle();
+    back();
+    while(!isOverBaggle && !isFacingWall){
+      forward()
+    }
+    back();
+    forward();
+    dropBaggle();
+    forward();
+    return true ;
+  } else {
+    getOutAlive()
+    return false
+  }
+  
+  
+}
+def getOutAlive{
+  right();
+  forward();
+  left();
+  forward();
+}
+while(getThaRock);
