@@ -1,13 +1,13 @@
 def gnomeSort() {
   
   var positionGnome:Int = 0
-  val taille:Int = getNombreValeurs()
+  val taille:Int = getNombreValeurs()-1
   
   while (true) {
   
     (plusPetit(positionGnome,positionGnome+1),positionGnome) match {
 
-      case (true,taille-1) => return
+      case (true,taille) => return
       case (true,_) => positionGnome = positionGnome + 1 
       case (false,0) => echange(positionGnome,positionGnome+1); positionGnome = positionGnome + 1;
       case (false,_) => echange(positionGnome,positionGnome+1); positionGnome = positionGnome - 1;
