@@ -1,10 +1,15 @@
 def bubbleSort3()  {
   var n = getValueCount();
-  for (i <- 1 to n-1) {
-    for (j <- 0 to n-1-i) {
-      if (!isSmaller(j, j+1)) {
-         swap(j, j+1);
-      } else { return;}
+  var isSorted = false;
+  while (!isSorted) {
+  	for (i <- 1 to n-1) {
+    	for (j <- 0 to n-1-i) {
+      	if (!isSmaller(j, j+1)) {
+          swap(j, j+1);
+          isSorted = false;
+        } else { isSorted = true; }
     }
+      if (isSorted()) {return;}
+  }
   }
 }
