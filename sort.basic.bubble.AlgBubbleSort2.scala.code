@@ -1,4 +1,4 @@
-def bubbleSort2() {
+/*def bubbleSort2() {
   var continuer:Boolean = true
   var length:Int = getNombreValeurs()
   while (continuer){
@@ -12,5 +12,22 @@ def bubbleSort2() {
       }
     }
     length += -1
+  }
+}
+*/
+
+def bubbleSort2() {
+  var continuer:Boolean = true
+  var length:Int = getNombreValeurs()
+  for (i <- 0 to (length - 1)){
+    continuer = false
+    for (i <- 0 to (length - 1)){
+      if (i < (length - 1)){
+        if (!plusPetit(i,i+1)){
+          echange(i,i+1)
+          continuer = true
+        }
+      }
+    }
   }
 }
