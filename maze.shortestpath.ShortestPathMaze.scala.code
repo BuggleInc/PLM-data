@@ -4,7 +4,7 @@ override def run() {
   chercheSortie(xMax, yMax) match {
     case (xSortie, ySortie) => ecritIndications(xSortie, ySortie, xMax, yMax, 0) //On remplit les cases.
   }
-  trouveSortie()
+  trouveSortie(xMax, yMax)
   prendBiscuit()
 }
 
@@ -62,7 +62,7 @@ def ecritIndications(x:Int, y:Int, xMax:Int, yMax:Int, cnt:Int) {
   }
 }
 
-def trouveSortie() {
+def trouveSortie(xMax:Int, yMax:Int) {
   var distance:Int = getIndication(getX(), getY())
   var x:Int = getX()
   var y:Int = getY()
