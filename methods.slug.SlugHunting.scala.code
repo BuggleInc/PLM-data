@@ -1,49 +1,23 @@
 def hunt() {
-   
-  while (isFacingTrail()) {
-    
-    avance();
-    baisseBrosse();
-    
-  } 
   
-  leveBrosse();
-  
-  gauche();
-  
-  if (isFacingTrail()) {
+  isFacingTrail() match {
     
-    avance();
-    baisseBrosse();
+    case true => avance(); baisseBrosse(); leveBrosse(); hunt();
     
-  }
-  
-  leveBrosse();
-  
-  else {
+    case false => droite();
+    							if (!isFacingTrail()) {
+                    
+                    hunt()
+                    
+                  }
     
-    droite();
-    recule();
-    
-  }
-  
-  droite();
-  
-  if (isFacingTrail()) {
-    
-    avance();
-    baisseBrosse();
-    
-  }
-  
-  leveBrosse();
-  
-  else {
-    
-    recule();
-    gauche();
-    
-  }
+    							else {
+                    
+                    gauche();
+                    gauche();
+                    hunt();
+                    
+                  }
   
 }
 
@@ -77,3 +51,5 @@ def isFacingTrail():Boolean = {
     }
   
   }
+
+}
