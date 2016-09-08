@@ -2,5 +2,5 @@ while (!isBackingWall)
 {def fonce() {while ((!isOverBaggle)&&(!isBackingWall)) {backward()}}
 def retraite() {while (!isOverBaggle) {forward()}}
 def caselibre() {while (isOverBaggle) {backward()}}
- def pickbaggle() {if (isOverBaggle) {pickupBaggle()}; retraite(); caselibre(); dropBaggle; backward()};
+ def pickbaggle() {if (isOverBaggle) {pickupBaggle()}; retraite(); caselibre(); if (isCarryingBaggle) {dropBaggle}; backward()};
  fonce(); pickbaggle(); if (!isBackingWall) {backward()}}
