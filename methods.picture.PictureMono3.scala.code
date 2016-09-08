@@ -1,0 +1,49 @@
+def faireMotif(){
+		var nbpas=0
+  	var n=0
+  	for (n<- 1 to 4){
+  	while (nbpas<2){
+      avance()
+      nbpas=nbpas+1
+    }
+    nbpas=0
+    baisseBrosse()
+    leveBrosse()
+    avance
+    gauche()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+  	recule()
+		droite()
+  	avance()
+  	baisseBrosse()
+		leveBrosse()
+  	avance()
+  	avance()
+  	gauche()
+    }
+}
+override def run() {
+  var nbcolonnefaite=0
+  var nbmotif=0
+  var nbpas2=0
+  var nbpas3=0
+  for (nbcolonnefaite<- 1 to 9){
+    for (nbmotif<- 1 to 9){
+    faireMotif()
+    while (nbpas2<7){
+      avance()
+      nbpas2=nbpas2+1
+      }
+      nbpas2=0
+    }
+    gauche()
+    while (nbpas3<7){
+      avance()
+      nbpas3=nbpas3+1
+    }
+		droite()
+  	nbpas3=0
+  }
+}
