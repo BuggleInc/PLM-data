@@ -6,22 +6,32 @@ override def run()
   
   while (getPosY() > 0)
   {
-  	while (!estFaceMur() && getPosY() > 0) avance();
+    //Avance jusqu'a un mur
+  	while (!estFaceMur() && getY() > 0) avance();
     
+    //Recherche le point le plus eleve de sa structure qu'il contourne
     droite();
-    iniPosX = getPosX();
-    iniPosY = getPosY();
+    iniPosX = getX();
+    iniPosY = getY();
     minY = -1;
+    XminY = 0;
     
     do
     {
       keepHandOnSideWall();
-      if (estMurNord() && (getPosY() < minY || minY == -1)) minY = getPosY();
+      if (estMurNord() && (getY() < minY || minY == -1))
+      {
+        minY = getY();
+        XminY = getX();
     }
-    while (getPosX() != iniPosX && getPosY() != iniPosY) //Recherche le point le plus eleve de sa structure
+    while (getX() != iniPosX && getY() != iniPosY)
+      
+    //Se rend sur ce point le plus eleve
+    while (getX() != XminY && getY() != minY) keepHandOnSideWall();
 	}
   droite();
   
+  //Recherche la sortie
   while (!estSurBiscuit()) keepHandOnSideWall();
   prendBiscuit();
 }
