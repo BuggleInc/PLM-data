@@ -2,14 +2,15 @@ while(!isFacingWall()) {
   left()
   left()
 
-  while(!isOverBaggle()) {
+  while(!isOverBaggle() && !isFacingWall()) {
 		forward()
   }
 
-  pickupBaggle()
-
-  left()
-  left()
+  if(isOverBaggle()) {
+    pickupBaggle()
+    left()
+    left()
+  }
 
   while(!isOverBaggle() && !isFacingWall()) {
 		forward()
