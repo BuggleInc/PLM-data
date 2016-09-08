@@ -5,16 +5,16 @@ override def run() {
   var hauteur : Int = getMondeHauteur()
   var largeur : Int = getMondeLargeur()
   for (colonne <- 1 to largeur) {
+    while (getY() != (hauteur - 1)) {
+      ecritMessage(compteur)
+      ordonnee = ordonnee + 1
+      compteur = compteur + 1
+      setPos(abscisse, ordonnee)            
+    }
     ecritMessage(compteur)
     ordonnee = 0
-    while (getY() != (hauteur - 1)) {
-      ordonnee = ordonnee + 1
-      setPos(abscisse, ordonnee)
-      compteur = compteur + 1
-      ecritMessage(compteur)      
-    }
     abscisse = abscisse + 1
-    setPos(abscisse,0)
+    setPos(abscisse,ordonnee)
     compteur = compteur + 1
   }
 }
