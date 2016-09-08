@@ -1,6 +1,8 @@
 override def run() {
   var cpt:Int = 0
   var descend:Boolean = true
+  setPos(0, 1)
+  message()
   
   while(!positionFinale()){
     avancer()
@@ -18,8 +20,7 @@ override def run() {
     var y:Int = getY()
     if(y == 0 || y == hauteur) {
       setPos(x + 1, y)
-      cpt += 1
-    	ecritMessage(cpt)
+      message()
       if(y == 0) {
       	descend == true
       	setPos(x + 1, y + 1)
@@ -27,15 +28,18 @@ override def run() {
       	descend == false
       	setPos(x + 1, y - 1)
       }
-      cpt += 1
-    	ecritMessage(cpt)
+      message()
     } else {
       if(descend)
       	setPos(x, y + 1)
       else
       	setPos(x, y - 1)
-      cpt += 1
-    	ecritMessage(cpt)
+      message()
     }
+  }
+  
+  def message() {
+    cpt += 1
+    ecritMessage(cpt)
   }
 }
