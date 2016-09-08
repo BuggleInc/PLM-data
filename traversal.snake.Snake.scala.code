@@ -1,0 +1,34 @@
+override def run() {
+  setCouleurBrossse(Color.red)
+  while (!positionFinale()){
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+}
+
+
+
+
+
+
+def positionFinale():Boolean={
+  if (estFaceMur){
+    if (getDIrection()==Direction.est){
+      gauche()
+      if (estFaceMur){
+        droite()
+        return true
+      }return false
+    }else if (getDIrection()==Direction.ouest){
+      droite()
+      if (estFaceMur){
+        gauche()
+        return true
+      }return false
+    }else{
+      return false
+    }
+  }
+  return false
+}
