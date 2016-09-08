@@ -1,18 +1,18 @@
 droite();droite()
 while(!estDebloque()){
-  while(!estSurBiscuit){avance()}
-  prendBiscuit()
-  droite();droite()
-  while(!estSurBiscuit){avance()}
-  recule()
-  poseBiscuit()
-  droite();droite()
-  avance()
-  if(estFaceMur){
-    droite()
+  while((!estSurBiscuit)||(!estFaceMur)){avance()}
+  if (estFaceMur){droite()
 		avance()
 		gauche()
  		avance()
+  } else {
+    prendBiscuit()
+  	droite();droite()
+  	while(!estSurBiscuit){avance()}
+  	recule()
+  	poseBiscuit()
+  	droite();droite()
+  	avance()
   }
 }
 
