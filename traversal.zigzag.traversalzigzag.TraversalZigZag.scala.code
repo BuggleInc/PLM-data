@@ -4,12 +4,14 @@ override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()
                     
                     def marche() {while (!positionFinale()) 
                                 {ecritMessage(a);a+=1;
-                   var b:Int = getMondeLargeur();              
+                   var b:Int = getMondeLargeur();
+                                 var c:Int = 0;
                                  if (getX!=b)
                                  {setPos(getX(),getY()+1);}
-                                 else  
-                                 {setPos(getX(),getY()+1)}
-                                       else {setPos(getX(),getY()-1)}
+                                 else  {if (c==0)                          
+                                        {setPos(getX(),getY()+1)}
+                                        else
+                                        {setPos(getX(),getY()-1)}
                                       }
                                  }
                                  }
