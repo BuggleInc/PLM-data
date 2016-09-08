@@ -74,6 +74,7 @@ def trouveSortie(xMax:Int, yMax:Int) {
         case true  => setDirection(Direction.NORTH)
                       avance()
                       y = y-1
+                      distance = getIndication(x, y)
         case false => ()
       }
     }
@@ -83,6 +84,7 @@ def trouveSortie(xMax:Int, yMax:Int) {
         case true  => setDirection(Direction.WEST)
                       avance()
                       x = x-1
+                      distance = getIndication(x, y)
         case false => ()
       }
     }
@@ -92,18 +94,19 @@ def trouveSortie(xMax:Int, yMax:Int) {
         case true  => setDirection(Direction.SOUTH)
                       avance()
                       y = y+1
+                      distance = getIndication(x, y)
         case false => ()
       }
     }
 
     if (x+1<=xMax) {             //ou à l'est.
-      (!aMurOuest(x+1, y) && getIndication(x+1, y)) match {
+      (!aMurOuest(x+1, y) && getIndication(x+1, y)<distance) match {
         case true  => setDirection(Direction.EAST)
                       avance()
                       x = x+1
+                      distance = getIndication(x, y)
         case false => ()
       }
-    }
-    
+    }  
   }
 }
