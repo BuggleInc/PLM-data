@@ -35,16 +35,12 @@ def chercheSortie()
   if(x>0)
   	o=getIndication(x-1,y)
   
-  if( n<s && n<e && n<o && isDirectionFree(Direction.NORD))
+  if( n<=s && n<=e && n<=o && isDirectionFree(Direction.NORD))
   	avance()
-  else if(s<n && s<e && s<o  && isDirectionFree(Direction.SUD))
+  else if(s<=n && s<=e && s<=o  && isDirectionFree(Direction.SUD))
   	recule()
-  else if( e<n && e<s && e<o && isDirectionFree(Direction.EST))
+  else if( e<=n && e<=s && e<=o && isDirectionFree(Direction.EST))
   {
-    if(getIndication(x,y)==14)
-    {
-      setIndication(x,y,420)
-    }
     droite()
     avance()
   }
