@@ -35,10 +35,10 @@ def marquerCases()
           if (!aMurNord(x, y))
           	setIndication(x, y+1, compteur + 1)
           
-          if (aMurSud(x, y))
+          if (!aMurSud(x, y))
           	setIndication(x, y-1, compteur + 1)
           
-          if (aMurEst(x, y))
+          if (!aMurEst(x, y))
           	setIndication(x+1, y, compteur + 1)
         }
       }
@@ -49,7 +49,7 @@ def marquerCases()
   
   
 
-def aMurEst(x:Int, y:Int)
+def aMurEst(x:Int, y:Int) : Boolean =
   {
     var (h, l) = (getMondeHauteur(), getMondeLargeur())
     if (x == l)
@@ -58,7 +58,7 @@ def aMurEst(x:Int, y:Int)
     	return aMurOuest(x+1, y)
   }
   
-def aMurSud(x:Int, y:Int)
+def aMurSud(x:Int, y:Int) : Boolean =
   {
     if (y == 0)
     	return true
