@@ -11,19 +11,30 @@ override def run() {
 def chercheSortie(xMax:Int, yMax:Int):(Int,Int) = {
   var xSortie:Int = 0
   var ySortie:Int = 0
-  while (!aBiscuit(xSortie,ySortie)) {  //On cherche la sortie !
-    ySortie = 0
-    while (ySortie<=yMax) {
-      if (aBiscuit(xSortie, ySortie)) {
-        return (xSortie, ySortie)
-      }
-      else {
-        ySortie = ySortie+1
+
+  for (x <- 0 to xMax) {
+    for (y <- 0 to yMax) {
+      if (aBiscuit(x,y)) {
+        xSortie = x
+        ySortie = y
       }
     }
-    xSortie = xSortie+1
   }
-  return (xSortie, ySortie) //On doit déjà avoir renvoyé le résultat normalement.
+  
+  
+//  while (!aBiscuit(xSortie,ySortie)) {  //On cherche la sortie !
+//    ySortie = 0
+//    while (ySortie<=yMax) {             //On ne doit pas sortir du labyrinthe !
+//      if (aBiscuit(xSortie, ySortie)) {
+//        return (xSortie, ySortie)
+//      }
+//      else {
+//        ySortie = ySortie+1
+//      }
+//    }
+//    xSortie = xSortie+1
+//  }
+  return (xSortie, ySortie)
 }
 
 def ecritIndications(x:Int, y:Int, xMax:Int, yMax:Int, cnt:Int) {
