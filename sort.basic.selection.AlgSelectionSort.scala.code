@@ -3,11 +3,13 @@ def selectionSort() {
   var lgr:Int = getNombreValeurs()
   var M:Int=0
 	var min:Int = 0
+  var valmin:Int=0
   for (N <- 0 to lgr-2){
     min = N
     for (M <- N to lgr-1){
-      if (getValeur(M)<getValeur(min)){
+      if (getValeur(M)<valmin){
         min = M
+        valmin = getValeur(M)
       }
     }
     echange(N,min)
