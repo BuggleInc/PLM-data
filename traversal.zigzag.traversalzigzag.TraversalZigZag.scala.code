@@ -1,29 +1,19 @@
 override def run() {
   var cpt:Int=0
+  var x:Int=0
+  var y:Int=0
+  x=getX()
+  y=getY()
   ecritMessage(cpt)
+  parcours2()
   while (positionTest()==false){
-    
-    var x:Int=0
-    var y:Int=0
-    x=getX()
-    y=getY()
-
-    droite()    
-    if (estFaceMur==false && cpt%2=0 ){
-      setPos(x+1,y)
-      gauche()
-
-    }else if (estFaceMur()==false && cpt%2=1){
-      setPos(x-1,y)
-      gauche()
+    droite()
+    if(cpt%2==0 && estFaceMur()==true){
+      setPos(x,y+1)
+      parcours1()
+    }else{
+      parcours2()
     }
-  
-  
-   
-
-    
-    
-    
     cpt+=1
     ecritMessage(cpt)
     positionTest()   
@@ -31,6 +21,23 @@ override def run() {
   }
   
   
+}
+
+
+
+def parcours1(){
+  var x:Int=0
+  var y:Int=0
+  x=getX()
+  y=getY()
+  setPos(x-1,y)   
+}
+def parcours2(){
+  var x:Int=0
+  var y:Int=0
+  x=getX()
+  y=getY()
+  setPos(x+1,y)  
 }
 
 
