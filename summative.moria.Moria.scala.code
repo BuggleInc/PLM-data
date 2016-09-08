@@ -9,7 +9,7 @@ Sinon si surbiscuit -> prend biscuit,retourne
 
 
 retourne()
-while (!sortieTrouvee()) {
+while (!estFaceMur() && !estSurBiscuit()) {
 	if (porteBiscuit()){
 		if (estSurBiscuit()){
 			recule();poseBiscuit();retourne();avance()
@@ -20,11 +20,8 @@ while (!sortieTrouvee()) {
 		if (estSurBiscuit()){
 			prendBiscuit();retourne()
 		} else {
-			if (estFaceMur()) {
-				droite();avance();gauche();avance()
-			} else{ 
-        avance()
+			avance()
       }
 		}
-	}
 }
+droite();avance();droite();avance()
