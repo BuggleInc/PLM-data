@@ -22,11 +22,18 @@ def chercheSortie()
   var x = getX()
   var y = getY()
   
-  var n = getIndication(x,y-1)
-  var s = getIndication(x,y+1)
-  var e = getIndication(x+1,y)
-  var o = getIndication(x-1,y)
-  
+  var n = 9000
+  if(y>0)
+  	n=getIndication(x,y-1)
+  var s = 9000
+  if(y<getMondeLargeur())
+  	s=getIndication(x,y+1)
+  var e = 9000
+  if(x<getMondeHauteur())
+  	e=getIndication(x+1,y)
+  var o = 9000
+  if(x>0)
+  	o=getIndication(x-1,y)
   
   if( n<s && n<e && n<o && isDirectionFree(Direction.NORD))
   	avance()
@@ -34,16 +41,22 @@ def chercheSortie()
   	recule()
   else if( e<n && e<s && e<o && isDirectionFree(Direction.EST))
   {
-  	if(getIndication(x,y)==14)
-	 	{
-   		 setIndication(x,y,420)
-	  }
+    if(getIndication(x,y)==14)
+    {
+      setIndication(x,y,420)
+    }
     droite()
     avance()
   }
   else if( o<n && o<s && o<e && isDirectionFree(Direction.OUEST))
   {
     gauche()
+    avance()
+  }
+  else
+  {
+  	while(estFaceMur())
+  		droite()
     avance()
   }
   
