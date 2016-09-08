@@ -1,7 +1,7 @@
 def combSort() {
   var n : Int =getValueCount()
   var gap : Int = n
-  
+  var stop : Boolean = false
   do{
     
     if(gap>1)
@@ -10,11 +10,13 @@ def combSort() {
     var it : Int = 0:
     
     while (it+gap<n){
-      if(isSmaller(it+gap,it))
+      if(isSmaller(it+gap,it)){
       	swap(it+gap,it)
+        stop=true 
+      }
       it+=1
       
     }
     
-  }
+  }while(gap>1 || stop)
 }
