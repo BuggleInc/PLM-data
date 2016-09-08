@@ -1,0 +1,42 @@
+override def run() {
+  var abscisse : Int = 0
+  var ordonnee : Int = 0
+  var compteur : Int = 0
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  while (abscisse < largeur && ordonnee < hauteur - 1) {
+    if (getDirection() == Direction.EST) {
+      ligneEst(compteur, abscisse, ordonnee, hauteur, largeur)
+      abscisse = largeur - 1
+      setPos(abscisse, ordonnee +1) 
+    }
+    if (getDirection() == Direction.OUEST) {
+      ligneOUEST(compteur, abscisse, ordonnee, hauteur, largeur)
+      abscisse = 0
+      setPos(abscisse, ordonnee + 1)
+    }
+    retourne()
+    ordonnee = ordonnee + 1
+    compteur = compteur + 7
+  if (getDirection() == Direction.EST)
+    ligneEST(compteur, abscisse, ordonnee, hauteur, largeur)
+  if (getDirection() == Direction.OUEST)
+    ligneOUEST(compteur, abscisse, ordonnee, hauteur, largeur)
+  }
+}
+
+def ligneEst(c : Int, abscisse : Int, ordonnee : Int, hauteur : Int, largeur : Int) {
+  for (colonne <- 1 to largeur) {
+    setPos(abscisse, ordonnee)
+    ecritMessage(c)
+    abscisse = abscisse + 1
+  }
+}
+
+def ligneOuest(c : Int, abscisse : Int, ordonnee : Int, hauteur : Int, largeur : Int) {
+  for (colonne <- 1 to largeur) {
+    setPos(abscisse, ordonnee)
+    ecritMessage(c)
+    abscisse = abscisse - 1
+  }
+}
