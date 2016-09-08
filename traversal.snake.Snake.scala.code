@@ -2,15 +2,15 @@ override def run() {
   
   //METHODE FIN
   def posfin():Boolean = {
-    if (getDirection()==Direction.EST&&estFaceMur) {
+    if (estFaceMur&&getDirection()==Direction.EST) {
       gauche(); 
       if (estFaceMur) {
         droite();
         return true
       }
+    }
     droite()
     return false
-    }
   }
   
   //METHODE AVANCE
