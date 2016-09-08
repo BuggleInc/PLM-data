@@ -1,18 +1,11 @@
-override def run(){
+def moria(){
   gauche()
   gauche()
   while(!estFaceMur() || !estSurBiscuit()){
    avance()
   }
   if(estSurBiscuit){
-    rangerBiscuit()
-  } else {
-    deplacementFinale
-  }
-}
-
-def rangerBiscuit(){
-  prendBiscuit()
+    prendBiscuit()
   gauche()
   gauche()
   while(!estSurBiscuit){
@@ -22,13 +15,11 @@ def rangerBiscuit(){
   poseBiscuit()
   gauche()
   gauche()
-}
-
-
-
-def deplacementFinale(){
-  droite()
+  } else {
+    droite()
   avance()
   gauche()
   avance()
+  }
 }
+
