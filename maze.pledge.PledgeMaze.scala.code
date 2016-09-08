@@ -34,10 +34,10 @@ def workaroundObstacle() {
     left();
     turnCount += 1;
     
-    do {
+    while (isFacingWall()) {
       right();
       turnCount -= 1;
-    } while (isFacingWall());
+    }
     
     // Once the path is clear, move forward
     forward();
