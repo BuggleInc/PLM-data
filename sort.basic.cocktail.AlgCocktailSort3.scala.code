@@ -9,16 +9,18 @@ def cocktailSort3() {
     swapped=false
     swappedDroit=0
     swappedG=0
+    
     for (i <- done to getValueCount()-2-doneDroit) {
-    	if ( ! isSmaller(i,i+1)) {
+    	if (  isSmaller(i,i+1)) {
       	swap(i,i+1)
       	swapped=true
         swappedDroit+=1
       }
     }
     doneDroit=swappedDroit+doneDroit
+    
     for (i <- (getValueCount()-2-doneDroit) to done by -1) {
-    	if (  isSmaller(i+1,i)) {
+    	if ( ! isSmaller(i+1,i)) {
       	swap(i,i+1)
       	swapped=true
         swappedG+=1
