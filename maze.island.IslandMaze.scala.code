@@ -1,14 +1,29 @@
 override def run() {
   
-  
-  while(isOverBaggle==false){
-    mur()
+  while(getY()!=0){
+    
+    if(isFacingWall==false){forward();}
+    else if(leftWall==false){
+      left();
+      forward();
+      right();
+    }
+    else{
+      right();
+      forward();
+      left();
+    }
+    suivremur()
   }
-  pickupBaggle();  
+
 }
   
   
-
+def suivremur(){
+  while(isOverBaggle==false){
+    mur()
+  }
+  pickupBaggle();  }
 
 def mur(){
   
@@ -17,4 +32,16 @@ def mur(){
     right();
 	}
   forward();
+}
+
+def leftWall(){
+  left()
+  if(isFacingWall==true){
+    right();
+    return true;
+  else{
+    right();
+    return false;
+  }
+  }
 }
