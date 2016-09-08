@@ -5,17 +5,18 @@ override def run() {
   var hauteur : Int = getMondeHauteur()
   var largeur : Int = getMondeLargeur()
   while (abscisse < largeur && ordonnee < hauteur - 1) {
-    if (getDirection() == Direction.EST) {
+    gauche()
+    if (estFaceMur()) {
       ligneEst(compteur, abscisse, ordonnee, hauteur, largeur)
       abscisse = largeur - 1
       setPos(abscisse, ordonnee +1) 
     }
-    if (getDirection() == Direction.OUEST) {
+    else {
       ligneOUEST(compteur, abscisse, ordonnee, hauteur, largeur)
       abscisse = 0
       setPos(abscisse, ordonnee + 1)
     }
-    retourne()
+    droite()
     ordonnee = ordonnee + 1
     compteur = compteur + 7
   if (getDirection() == Direction.EST)
