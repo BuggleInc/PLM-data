@@ -16,14 +16,18 @@ override def run() {
   
   //METHODE AVANCE
   def avanserp() {
-    while (!estFaceMur) {
-      avance()
-    }
-    gauche();avance();gauche()
-   while (!estFaceMur) {
-      avance()
+   if (getDirection()==Direction.OUEST) {
+     while (!estFaceMur) {
+       avance()
+     if (!posfin()) {droite();avance();droite()}
+     }   
    }
-    droite();avance();droite()
+   if (getDirection()==Direction.EST) {
+     while (!estFaceMur) {
+       avance()
+     if (!posfin()) {gauche();avance();gauche()}
+     }   
+   }
   }
 
 baisseBrosse()
