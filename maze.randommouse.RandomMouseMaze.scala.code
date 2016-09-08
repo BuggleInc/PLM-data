@@ -4,7 +4,10 @@ override def run() {
   do{
     a = random3()
     match {
-      case a == 1  
+      case a == 1 && !estFaceMur()=> avance() 
+      case a == 2 => droite()
+      case a == 3 => gauche()
     }
   }while (estSurBiscuit() == false)
+  prendBiscuit()
 }
