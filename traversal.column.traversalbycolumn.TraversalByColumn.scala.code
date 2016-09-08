@@ -1,0 +1,40 @@
+def marquer(c:Int){
+  
+  ecritMessage(c)
+  
+}
+def posFinale:Boolean() ={
+  
+  var x = getX()
+  var y = getY()
+  var x_max = getMondeLargeur()
+  var y_max = getMondeHauteur()
+  if (x==x_max && y==y_max)
+  	{
+      return true
+    }
+  else
+  	{
+      return false
+    }
+}
+
+override def run() {
+  var c = 0
+  while(!posFinale())
+  	{
+      if(estFaceMur())
+      	{
+          var x = getX()
+          setPos(x+1,0)
+          marquer(c)
+        avance()
+        c = c+1
+        }
+      else{
+        marquer(c)
+        avance()
+        c = c+1
+      }
+    }
+}
