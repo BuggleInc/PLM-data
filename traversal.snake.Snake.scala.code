@@ -1,0 +1,41 @@
+override def run() {
+  setCouleurBrosse(Color.RED)
+  baisseBrosse()
+  while (!estPosFin){
+    serpent()
+  }
+  
+}
+
+def estPosFin(){
+  getDirection() match{
+    case Direction.EST => gauche(); if(estFaceMur){
+      return true
+    } 
+
+    case _ => return false
+  }
+}
+
+def serpent(){
+	avance()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  droite()
+  avance()
+  droite()
+  
+  
+}
+def serpentB(){
+  avance()
+  droite()
+  avance()
+  droite()
+  avance()
+  gauche()
+  avance()
+  gauche()
+}
