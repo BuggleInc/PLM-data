@@ -4,7 +4,7 @@ override def run()
   var iniPosX = 0;
   var iniPosY = 0;
   
-  while (getPosY() > 0)
+  while (getY() > 0)
   {
     //Avance jusqu'a un mur
   	while (!estFaceMur() && getY() > 0) avance();
@@ -14,7 +14,7 @@ override def run()
     iniPosX = getX();
     iniPosY = getY();
     minY = -1;
-    XminY = 0;
+    xMinY = 0;
     
     do
     {
@@ -22,13 +22,13 @@ override def run()
       if (estMurNord() && (getY() < minY || minY == -1))
       {
         minY = getY();
-        XminY = getX();
+        xMinY = getX();
       }
     }
     while (getX() != iniPosX && getY() != iniPosY)
       
     //Se rend sur ce point le plus eleve
-    while (getX() != XminY && getY() != minY) keepHandOnSideWall();
+    while (getX() != xMinY && getY() != minY) keepHandOnSideWall();
 	}
   droite();
   
