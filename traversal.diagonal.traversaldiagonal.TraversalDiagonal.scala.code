@@ -15,8 +15,23 @@ override def run() {
       return false
     }
   }
+  
+  
+  def murDroite:Boolean={
+    droite()
+    if(estFaceMur){
+      gauche()
+      return true
+    }else{
+      gauche()
+      return false
+    }
+  }
+  
+  
   ecritMessage(0)
   while(!fini){
+    if(y<6){
     if(estFaceMur){
       diag=diag+1
       y=diag
@@ -30,6 +45,22 @@ override def run() {
       setPos(x,y)
       c=c+1
       ecritMessage(c)
+    }
+  }else{
+      if(murDroite){
+        diag=diag+1
+        x=diag-5
+        y=6
+        setPos(x,y)
+        c=c+1
+        ecritMessage(c)
+      }else{
+        x=x+1
+        y=y-1
+        setPos(x,y)
+        c=c+1
+        ecritMessage(c)
+      }
     }
   }
 }
