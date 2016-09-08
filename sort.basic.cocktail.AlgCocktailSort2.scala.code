@@ -1,13 +1,15 @@
 def cocktailSort2() {
   var beg:Int=0;
   var end:Int=getValueCount()-2;
-  var sp:Boolean=false;
+  var sp1:Boolean=false;
+  var sp2:Boolean=false;
   do {
-    sp=false
+    sp1=false
+    sp2=false
     for (i <- beg to end) {
       if (!isSmaller(i,i+1)) {
         swap(i,i+1)
-        sp=true
+        sp1=true
       }
     }
     end-=1
@@ -18,6 +20,6 @@ def cocktailSort2() {
       }
     }
     beg+=1
-  } while (sp==true)
+  } while (sp1==true || sp2==true)
 }
 //a voir
