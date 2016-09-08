@@ -1,0 +1,65 @@
+def paint() {
+  brushDown()
+  brushUp()
+}
+
+def flower(c:Color) {
+  setBrushColor(c)
+  paint()
+  forward()
+  left()
+  forward()
+  paint()
+  backward()
+  backward()
+  paint()
+  forward()
+  right()
+  forward()
+  paint()
+  backward()
+  setBrushColor(Color.YELLOW)
+  paint()
+  backward()
+}
+
+def growFlowers() {
+  flower(Color.RED)
+  forward(4)
+  flower(Color.CYAN)
+  right()
+  forward(2)
+  right()
+  forward(2)
+  back()
+  flower(Color.ORANGE)
+  forward(2)
+  right()
+  forward(2)
+  left()
+  flower(Color.GREEN)
+  backward(4)
+  flower(Color.PINK)
+}
+
+
+def growLine() {growFLowers()
+  forward(6)
+  left()
+  forward(2)
+  right()
+  flower(Color.BLUE)
+  growFlowers()  
+}
+
+def run() {
+  growLine()
+  right()
+  forward()
+  right()
+  forward(9)
+  left()
+  forward(4)
+  left()
+  growLine()
+}
