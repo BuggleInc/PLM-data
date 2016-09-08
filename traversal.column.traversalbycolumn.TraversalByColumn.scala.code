@@ -1,3 +1,13 @@
 override def run() {
-  setPos(getX()+2,0)
+  val largeur : Int = getMondeLargeur()
+  val hauteur : Int = getMondeHauteur()
+  var cpt : Int = 0 
+  var fini : Boolean = false
+  while (!fini) {
+  (getX(),getY()) match {
+    case (largeur,hauteur) => ecritMessage(cpt); fini = true
+    case (_,hauteur) => ecritMessage(cpt); cpt= cpt + 1; setPos(getX()+1,0)
+    case (_,_)=> ecritMessage(cpt); cpt=cpt+1; setPos(getX(),getY()+1)
+  }
+  }
 }
