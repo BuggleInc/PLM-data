@@ -1,6 +1,4 @@
-override def run() {
-  var large = getMondeLargeur()-1
-	var hauteur = getMondeHauteur()-1
+override def run() {  
   while(!posFin){
     tp()
   }
@@ -11,7 +9,7 @@ override def run() {
 
 
 def posFin(): Boolean = {
-  if( getX() == large && getY() == hauteur){
+  if( getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1){
     return true
   }else{
     return false
@@ -19,7 +17,7 @@ def posFin(): Boolean = {
 }
 
 def tp(){
-  if(getY() != hauteur){
+  if(getY() != getMondeHauteur()-1){
     setPos(getX(),getY()+1)
   }else{
     setPos(getX()+1,0)
