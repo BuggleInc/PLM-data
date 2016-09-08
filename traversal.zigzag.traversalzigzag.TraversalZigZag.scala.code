@@ -1,0 +1,74 @@
+
+
+def posFinale():Boolean = {
+  
+  if (estFaceMur())
+  	{
+      if (getDirection()==Direction.EST)
+      	{
+          droite()
+          if (estFaceMur())
+          	{
+              return true
+            }
+          else 
+            {
+              gauche()
+              return false
+            }
+        }
+      else 
+      	{
+           gauche()
+            if (estFaceMur())
+              {
+                return true
+              }
+            else 
+              {
+                  droite()
+                  return false
+              }
+      	}
+    }
+  else
+  {
+    return false
+  }
+}
+
+def marquer(c:Int){
+  
+  ecritMessage(c)
+  
+}
+
+
+override def run() {
+  droite()
+  var c = 0
+  while(!posFinale())
+  	{
+      	
+      if(estFaceMur() && getDirection()==Direction.EST)
+      	{
+          marquer(c)
+        	c = c+1
+          gauche();avance();gauche()
+        }
+      else if(estFaceMur() && getDirection()==Direction.OUEST)
+        {
+          marquer(c)
+            c = c+1
+            droite();avance();droite()
+        }
+      else
+      	{
+          marquer(c)
+          c=c+1
+          avance()
+        }
+    }
+        marquer(48)
+  setDirection(Dorection.NORD)
+}
