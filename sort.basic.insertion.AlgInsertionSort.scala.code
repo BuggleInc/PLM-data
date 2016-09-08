@@ -3,11 +3,13 @@ def insertionSort() {
   for(i<- 1 to getValueCount()-1){
 	  var lastValue = i;
     var v = getValue(i);
+    
     for(j <- 0 to i-1){
       if(getValue(i-j-1) > v){
 	      copy(i-j-1,i-j);
-	      lastValue = i-j-1; 
-    	}else 
+	      lastValue = i-j; 
+    	}
+      else 
         setValue(lastValue, v);
     }
   }
