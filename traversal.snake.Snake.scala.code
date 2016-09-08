@@ -1,0 +1,34 @@
+override def run() {
+  
+  var posFin:Boolean = false
+  
+  baisseBrosse()
+  avance(6)
+  
+  while (posFin == false){
+    if (estFaceMur() == true && getDirection() == Direction.EST){
+      gauche()
+      	if(estFaceMur() == true){
+          posFin = true;}
+        
+     	  else{
+          avance()
+          gauche()
+          while(estFaceMur() == false){
+            avance()
+          }
+        
+      }
+      	
+    }
+    
+    if (estFaceMur() == true && getDirection() == Direction.OUEST){
+      droite()
+      avance()
+      droite()
+      while(estFaceMur() == false){
+        avance()
+      }
+    }
+  }
+}
