@@ -1,0 +1,23 @@
+override def run() {
+  def finale(): Boolean ={
+    left()
+    var theWall: Boolean=isFacingWall()
+    right()
+    return ((getDirection() == Direction.EAST) && isFacingWall() && theWall) 
+  }
+  def move() {
+    if (isFacingWall()) {
+      if (getDirection() == Direction.EAST) {
+        left() ; forward() ;left()
+      } else {
+        right() ; forward(); right()
+      }
+    } else {
+      forward()
+    }
+  }
+  brushDown()
+  while (!finale()) {
+    move()
+  }
+}

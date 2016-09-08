@@ -1,0 +1,30 @@
+override def run() {
+  def pattern() {
+    def makeV() {
+  		forward(2)
+  		brushDown()
+  		brushUp()
+  		forward()
+  		left()
+  		forward()
+  		brushDown()
+  		brushUp()
+  		backward()
+  		right()
+  		forward()
+  		brushDown()
+  		brushUp()
+  		forward()
+  		forward()
+  		left()
+    }
+		for (side <- 1 to 4) {
+  		makeV()
+		}
+  }
+  for (i <- 1 to 9) {
+    pattern() ; forward(7)
+    if (i==3 || i==6) {left() ; forward(7) ; right()}
+  }
+  right() ; forward(14) ; left()
+}

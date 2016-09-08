@@ -1,0 +1,22 @@
+override def run() {
+  def finale():Boolean ={
+  	return (getX()==getWorldWidth()-1)  &&  (getY()==getWorldHeight()-1)
+  }
+  def move() {
+    var x : Int = getX()
+    var y : Int = getY()
+    var width : Int = getWorldWidth()-1
+    var height : Int = getWorldHeight()-1
+    if (y == height) {
+      setPos(x+1,0)
+    } else {
+    	setPos(x, y+1)
+    }
+  }
+  var counter : Int = 0
+  writeMessage(0)
+  while (!finale()) {
+    move()
+    counter+=1 ; writeMessage(counter)
+  }
+}

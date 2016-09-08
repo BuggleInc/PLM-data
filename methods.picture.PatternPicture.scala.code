@@ -1,0 +1,32 @@
+override def run() {
+  def pattern() {
+    def make(c: Color) {
+      setBrushColor(c)
+  		forward()
+  		brushDown()
+  		brushUp()
+  		backward()
+  		left()
+  		forward()
+  		brushDown()
+  		brushUp()
+  		backward()
+  		right()
+  		forward(3)
+  		left()
+    }
+    make(Color.RED)
+    make(Color.BLUE)
+    make(Color.GREEN)
+    make(Color.YELLOW)
+  }
+  for (i <- 1 to 4) {
+    i match {
+      case 1 => pattern() ; forward(4)
+      case 2 => pattern() ; left() ; forward(4) ; right() ; backward(4)
+      case 3 => pattern() ; forward(4)
+      case 4 => pattern() 
+    }
+    
+  }
+        }
