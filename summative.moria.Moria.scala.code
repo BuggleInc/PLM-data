@@ -10,20 +10,21 @@ Sinon si surbiscuit -> prend biscuit,retourne
 
 retourne()
 while (getCouleurSol()!=Color.GREEN) {
-  if (porteBiscuit()){
-    	if (estSurBiscuit()){
-        recule();poseBiscuit();retourne();avance()
-      } else {
+	if (porteBiscuit()){
+		if (estSurBiscuit()){
+			recule();poseBiscuit();retourne();avance()
+		} else {
+			avance()
+		}
+	}else {
+		if (estSurBiscuit()){
+			prendBiscuit();retourne()
+		} else {
+			if (estFaceMur()) {
+				droite();avance();gauche();avance()
+			} else{ 
         avance()
       }
-  }else {
-    if (estSurBiscuit()){
-      prendBiscuit();retourne()
-    } else {
-      avance()
-    }
-    if (estFaceMur()) {
-    droite();avance();gauche();avance()
-  }
-}
+		}
+	}
 }
