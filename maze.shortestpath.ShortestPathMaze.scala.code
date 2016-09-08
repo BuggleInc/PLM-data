@@ -40,7 +40,7 @@ def getIndicationSafe(x:Int, y:Int) : Int = {
   return getIndication(x, y);
 }
       
-def processNeighbor(x:Int, y:Int, xn:Int, yn:Int, minNeighborX:Int, minNeighBorY:Int, min:Int) : (Int, Int, Int) = {
+def processNeighbor(x:Int, y:Int, xn:Int, yn:Int, minNeighborX:Int, minNeighBorY:Int, min:Int) : Int = {
   var indication = getIndicationSafe(x + xn, y + yn);
   
   if (indication < min) {
@@ -53,10 +53,10 @@ def processNeighbor(x:Int, y:Int, xn:Int, yn:Int, minNeighborX:Int, minNeighBorY
 def mark(i:Int) {
   for (x <- 0 to getWorldWidth() - 1) {
     for (y <- 0 to getWorldHeight() - 1) {
-      var (minNX, minNY, min) = processNeighbor(x, y, -1, 0, NO_INDICATION);
-      (minNX, minNY, min) = processNeighbor(x, y, 1, 0, min);
-      (minNX, minNY, min) = processNeighbor(x, y, 0, -1, min);
-      (minNX, minNY, min) = processNeighbor(x, y, 0, 1, min);
+      var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
+      min = processNeighbor(x, y, 1, 0, min);
+      min = processNeighbor(x, y, 0, -1, min);
+      min = processNeighbor(x, y, 0, 1, min);
       
       if (min != NO_INDICATION) {
         setIndication(x, y, min + 1)
