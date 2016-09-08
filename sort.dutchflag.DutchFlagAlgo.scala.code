@@ -1,0 +1,34 @@
+def solve() {
+  var taille:Int = getTaille()
+  var i:Int = 0
+  while(!estTrie()){
+    for (i <- 0 to taille-1){
+      getCouleur(i) match{
+        case BLEU => if (!rBon){echange(i,taille-1)}
+        case ROUGE =>if (!bBon){echange(i,0)}
+      }
+    }
+    
+  }
+}
+
+
+
+def rBon(i:int):Booleab = {
+  if (i=getTaille()-1||((getCouleur(i+1)==ROUGE)&&rbon(i-1))){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+def bBon(i:int):Booleab = {
+  if (i=0||((getCouleur(i-1)==BLEU)&&bBon(i-1))){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
