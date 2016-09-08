@@ -10,22 +10,25 @@ def positionFinale()
           	{
               return true
             }
-          else {
-            droite()
-            return false
-          }
-        }
-      else{
-         droite()
-          if(estFaceMur())
-          	{
-              return true
+          else 
+            {
+              droite()
+              return false
             }
-          else {
-            gauche()
-            return false
-          }
-      }
+        }
+      else
+      	{
+           droite()
+            if(estFaceMur())
+              {
+                return true
+              }
+            else 
+              {
+                  gauche()
+                  return false
+              }
+      	}
     }
   else
   {
@@ -42,10 +45,14 @@ override def run() {
         gauche();avance();gauche()
         
       }
-    if(estFaceMur() && (getDirection()==Direction.OUEST))
+    elifif(estFaceMur() && (getDirection()==Direction.OUEST))
     	{
         droite();avance();droite()
         
+      }
+    else
+    	{
+        avanc()
       }
     avance()
   }
