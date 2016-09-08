@@ -3,19 +3,20 @@ override def run() {
   var y = 0
   var num = 0
   do{
-    while(!estFaceMur()){
-      ecritMessage(num)
-      y = y+1
+   	ecritMessage(num)
+    num = num+1
+    if(y<6){
+      y = y +1
       setPos(x,y)
-    	num = num +1
+    }else{
+      y=0
+      x = x+1
+      setPos(x,y)
     }
-    y=0
-    x=x+1
-    setPos(x,y) 
-  }while(!posFinale(x,y))
-  
+  }while(posFinale(x,y)) 
 }
 
 def posFinale(x:Int,y:Int): Boolean ={
     return ((getX() == getMondeLargeur()) && (getY()== getMondeHauteur()))
 }
+
