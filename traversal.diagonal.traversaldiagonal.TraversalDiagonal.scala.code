@@ -1,23 +1,12 @@
-var diag:Int = 0;
+var diag:Int = 1;
 override def run() {
   var x:Int = 0
-
+		ecritMessage(x)
    while (getMondeHauteur()-1 !=getY() || getMondeLargeur()-1 != getX()){
-     var a:Int =0
-  var b:Int =diag
-      while (b!=0){
-        
-        setPos(a,b)
-        a+=1
-        b-=1
-        ecritMessage(x)
- x+=1
-      }
-      diag+=1
-     setPos(a,b)
-    }
-     
-      
-  
-  ecritMessage(x)
+for (i <- 0 to diag){
+  x+=1
+  setPos(i,diag-i)
+  ecritMessage
+}
+   }   
 }
