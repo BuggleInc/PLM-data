@@ -50,10 +50,12 @@ def isDirectionFree(dir:Direction):Boolean = { //Renvoie true si la buggle peut 
   val dirActuelle:Direction = getDirection()   //Sinon on renvoie false
   setDirection(dir)                            //La buggle retrouve sa direction initiale.
   if (!estFaceMur) {
+    setDirection(dirActuelle)
     return true
   }
   else {
+    setDirection(dirActuelle)
     return false
   }
-  setDirection(dirActuelle)
+
 }
