@@ -9,7 +9,7 @@ Sinon si surbiscuit -> prend biscuit,retourne
 
 
 retourne()
-while (getCouleurSol()!=Color.GREEN) {
+while (!soriteTrouvee()) {
 	if (porteBiscuit()){
 		if (estSurBiscuit()){
 			recule();poseBiscuit();retourne();avance()
@@ -22,9 +22,6 @@ while (getCouleurSol()!=Color.GREEN) {
 		} else {
 			if (estFaceMur()) {
 				droite();avance();gauche();avance()
-        setCouleurBrosse(Color.GREEN)
-        baisseBrosse()
-        leveBrosse()
 			} else{ 
         avance()
       }
