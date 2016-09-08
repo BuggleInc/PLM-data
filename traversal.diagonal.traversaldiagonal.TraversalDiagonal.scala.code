@@ -1,0 +1,31 @@
+override def run() {
+  var cpt=0
+  do{
+  	ecritMessage(cpt)
+    bouge()
+    cpt+=1
+  }while(!fini())
+  ecritMessage(cpt)
+}
+
+def fini() : Boolean = {
+  if (getMondeHauteur()-1==getY()){
+    if (getMondeLargeur()-1==getX()) 
+      return true
+  }
+    return false
+}  
+
+def bouge(){
+  var diag = 0
+  var pas = 0
+  if (pas <diag){
+    setPos(getX()+1,getY()-1)
+  	pas+=1
+  }else{
+    diag+=1
+    set(0,diag)
+    pas=0
+  }
+  
+}
