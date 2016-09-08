@@ -1,0 +1,26 @@
+var diag = 0;
+override def run() {
+  override def run() {
+  val width = getWorldWidth();
+  val height = getWorldHeight();
+  var i = 0;
+  var x = 0;
+  var y = 0;
+  var z = 0;
+  while(diag!=height*width){
+    z = diag + x + 1
+    x = 0
+    y=diag
+    while(y>=0){ // Alors, tant que le y est pas revenue en haut
+      if(x<=width && y >= 0 && y <= height){//Si on est sur le plateau
+        writeMessage(z);// On ecrit le message
+        y=y-1
+        x=x+1
+        //On bouge les vars
+        setPos(y, x);//On update la pos
+      }
+    }
+    diag=diag+1;
+  }
+}
+}
