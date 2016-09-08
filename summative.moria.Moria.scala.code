@@ -1,4 +1,4 @@
-while(getCouleurSol!=Color.GREEN){
+while(!estDosMur){
   while(!estSurBiscuit() || estDosMur){ 
     recule()
   }
@@ -10,3 +10,14 @@ while(getCouleurSol!=Color.GREEN){
   poseBiscuit()
   recule()
 }
+if (estSurBiscuit()){
+  prendBiscuit()
+  while(!estSurBiscuit()){
+    avance()
+  }
+  recule()
+  poseBiscuit()
+  recule()
+}
+while (!estDosMur()){recule()}
+gauche();avance();gauche();avance()
