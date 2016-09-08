@@ -1,11 +1,20 @@
 override def run() {
-  var x=0
+  
+  
   while(isOverBaggle==false){
-    x=random3()
-    if (x==1){left();}
-    else if (x==2){right();}
-    else if (isFacingWall==false){forward();}
-    
+    mur()
   }
-  pickupBaggle()
+  pickUpBaggle();  
+}
+  
+  
+
+
+def mur(){
+  
+  left()
+ 	while(isFacingWall==true){
+    right();
+	}
+  forward();
 }
