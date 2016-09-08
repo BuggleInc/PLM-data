@@ -16,15 +16,17 @@ def cocktailSort3() {
     end -= 1
     
     if(!swaped) {
-      for(i <- end to beg by -1) {
-        if(isSmaller(i + 1, i)) {
-          swap(i, i + 1)
-          swaped = true
-        }
-      }
-
-      beg += 1
+      break
     }
+    
+    for(i <- end to beg by -1) {
+      if(isSmaller(i + 1, i)) {
+        swap(i, i + 1)
+        swaped = true
+      }
+    }
+
+    beg += 1
     
   } while(swaped)
 }
