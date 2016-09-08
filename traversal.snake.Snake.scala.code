@@ -1,13 +1,13 @@
 override def run() {
   baisseBrosse()
-  while(!estSurPositionFinale){
+  do {
     while(!estFaceMur){
       avance()
     }
     if (getDirection()==Direction.EST) {
       gauche(); avance(); gauche()
     } else droite(); avance(); droite()
-  }
+  } while(!estSurPositionFinale)
 }
 
 def estSurPositionFinale():Boolean = {
