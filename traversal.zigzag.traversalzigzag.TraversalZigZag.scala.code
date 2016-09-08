@@ -1,0 +1,35 @@
+override def run() {
+  var i=0
+  var j=0
+  var place=0
+  while (!positionFinale()){
+    for (j <- 0 to 6){
+      if (j==0 || j==2 || j==4 ||j==6){
+        setPos(0,j)
+        for (i <- 0 to 6){
+          ecritMessage(place)
+          place +=1
+          if (i<6){
+            setPos(i+1,j)
+        	}
+        }
+      }else{
+        setPos(6,j)
+        for (i <- 0 to 6){
+          ecritMessage(place)
+          place +=1
+          if (i<6){
+            setPos(6-i+1,j)
+        	}
+        }
+      }
+    }
+  }
+}
+
+def positionFinale():Boolean={
+  if (getX()==6 && getY()==6){
+    return true
+  }
+  return false
+}
