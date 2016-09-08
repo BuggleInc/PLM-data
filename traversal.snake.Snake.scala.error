@@ -1,10 +1,8 @@
 Erreur de compilation :
 Snake:1: error: Missing closing brace `}' assumed here
-var y=0
-^Snake:1: error: expected class or object definition
-var y=0
-^Snake:2: error: expected start of definition
-override def run() {baisseBrosse();while(!a()){ {if (estFaceMur() && y==0){gauche();avance();gauche();y=1};if(estFaceMur()&& y==1){droite();avance();droite();y=0};else {avance()}};baisseBrosse()
-         ^Snake:6: error: expected class or object definition
+override def run() {baisseBrosse();var y=0; while(!a()){ {if (estFaceMur() && y==0){gauche();avance();gauche();y=1};if(estFaceMur()&& y==1){droite();avance();droite();y=0};else {avance()}};baisseBrosse()
+^Snake:1: error: expected start of definition
+override def run() {baisseBrosse();var y=0; while(!a()){ {if (estFaceMur() && y==0){gauche();avance();gauche();y=1};if(estFaceMur()&& y==1){droite();avance();droite();y=0};else {avance()}};baisseBrosse()
+         ^Snake:5: error: expected class or object definition
 def a(){if (getDirection()==Direction.EST){gauche();if(estFaceMur()){droite();return true} else {droite();return false};return false} 
 ^
