@@ -1,6 +1,5 @@
+setDirection(Direction.EAST)
 while(!estFaceMur()){
-  droite()
-  droite()
   	if (!estSurBiscuit())
   		avance()
   	else
@@ -14,13 +13,11 @@ avance()
 
 def bougeBiscuit(){
   prendBiscuit()
-  droite()
-  droite()
+  setDirection(Direction.WEST)
   avance()
   while(!estSurBiscuit())
   	avance()
   recule()
   poseBiscuit()
-  droite()
-  droite()
+  setDirection(Direction.EAST)
 }
