@@ -1,14 +1,14 @@
-var len = getValueCount();
+
 def selectionSort() {
-  
+  var len = getValueCount();
   for(i <- 0 to len){
-    var ind = select(i);
+    var ind = select(i,len);
     swap(ind, i);
     
   }
 }
 
-def select(i:Int) : Int = {
+def select(i:Int, len:Int) : Int = {
   var indMini = i;
   for(j<- i to len){
     if(getValue(j) < getValue(i))
