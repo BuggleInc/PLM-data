@@ -1,0 +1,38 @@
+def growFlowers()
+{
+  fleur(Color.red)
+  
+}
+
+def fleur(color:Color)
+{
+  ligne(color)
+  for (i<-1 to 2)
+		{
+      droite()
+      avance()
+    }
+  ligne(color)
+}
+
+
+
+def ligne(color:Color)
+{
+  var L:Array[Color]=Array(color,Color.yellow)
+  for(i<-L)
+  	{
+      marquer(i)
+      avance()
+    }
+  marquer(color)
+}
+
+
+
+def marquer(color:Color)
+{
+  setCouleurBrosse(color)
+  baisseBrosse()
+  leveBrosse()
+}
