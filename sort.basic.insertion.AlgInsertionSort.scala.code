@@ -1,15 +1,22 @@
 def insertionSort() {
   
   for(i<- 1 to getValueCount()-1){
-	  var lastValue = i;
-    var v = getValue(i);
-    for(j <- 0 to i-1){
-      if(getValue(i-j-1) > v){
-	      copy(i-j-1,i-j);
-	      lastValue = i-j-1; 
-    	}
-    }
-    setValue(lastValue, v);
+		sousTri(i);
   }
   
+}
+
+
+def sousTri(i:Int){
+  var lastValue = i;
+  var v = getValue(i);
+  for(j <- 0 to i-1){
+    if(getValue(i-j-1) > v){
+      copy(i-j-1,i-j);
+      lastValue = i-j-1; 
+    }else{
+      setValue(lastValue, v);
+      return;
+    }
+  }
 }
