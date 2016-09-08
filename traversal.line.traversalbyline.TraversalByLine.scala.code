@@ -1,0 +1,33 @@
+override def run() {
+  var cpt:Int = 0
+  var colonne:Int = 0
+  var ligne:Int = 0
+  ecritMessage(cpt)
+  while (!positionfinale) {
+    cpt+=1
+    ligne+=1
+  	if (!estDosMur())
+    	setPos(ligne,colonne)
+    else {
+      colonne+=1
+      ligne=0
+    	setPos(ligne,colonne)
+    }
+    ecritMessage(cpt)
+  }
+}
+
+def positionfinale():Boolean = {
+  if (estDosMur()) {
+    gauche()
+    if (estDosMur()) {
+    	droite()
+    	return true
+    }
+    else {
+      droite()
+    	return false   
+  	}
+  }
+  return false
+}
