@@ -2,10 +2,11 @@ override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()
                                                   else {return false}}
  var a:Int = 0;                   
                     def marche() {droite();droite(); while (!positionFinale()) 
-                                {if (estFaceMur())
-                                 {setPos(getX()+1,0)}
+                                {ecritMessage(a);a+=1;
+                                 if (estFaceMur())
+                                 {setPos(getX()+1,0);}
                                   else {setPos(getX(),getY()+1)}
                                  }
                                  }
                                 
-ecritMessage(0);marche();gauche();gauche();}
+marche();gauche();gauche();}
