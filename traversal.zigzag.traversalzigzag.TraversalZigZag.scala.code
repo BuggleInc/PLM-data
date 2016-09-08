@@ -1,0 +1,69 @@
+override def run() {
+  
+  
+  def fini:Boolean ={
+    if(getMondeHauteur()==getX()+1){
+      if(getMondeLargeur()==getY()+1){
+        return true
+      }else{
+        return false
+      }      
+    }else{
+      return false
+    }
+  }
+  
+  def finLD:Boolean={
+    droite()
+    if(estFaceMur){
+      gauche()
+      return true
+      
+    }else{
+      gauche()
+      return false
+    }
+  }
+  def finLG:Boolean={
+    gauche()
+    if(estFaceMur){
+      droite()
+      return true
+      
+    }else{
+      droite()
+      return false
+    }
+  }
+  var y:Int=0
+  var x:Int=0  
+	var c:Int=0
+ecritMessage(0)  
+while(fini==false){
+	if(finLD){
+      y=y+1
+    x=0
+      setPos(x,y)
+    c=c+1
+    }else{
+      
+      x=x+1
+      setX(x)
+    	c=c+1
+    }
+  if(finLG){
+      y=y+1
+    x=0
+      setPos(x,y)
+    c=c+1
+    }else{
+      
+      x=x+1
+      setX(x)
+    	c=c+1
+    }
+  ecritMessage(c)
+}
+  
+  
+}
