@@ -17,7 +17,9 @@ def cocktailSort3() {
         swappedDroit+=1
       }
     }
-    doneDroit=int(swappedDroit/2)+doneDroit-1
+    if (swapped) {
+      doneDroit+=swappedDroit
+    }
     
     swappedG=0
     for (i <- (getValueCount()-2-doneDroit) to done by -1) {
@@ -27,6 +29,8 @@ def cocktailSort3() {
         swappedG+=1
       }
     }
-    done=swappedG/2+done-1
+    if (swapped) {
+      done+=swappedG
+    }
   } 
 }
