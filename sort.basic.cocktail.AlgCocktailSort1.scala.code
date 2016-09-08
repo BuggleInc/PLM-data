@@ -1,16 +1,17 @@
 def cocktailSort() {
   var c = 1
+  var lim = getNombreValeurs()-2
   do {
     c=0
-    for ( i <- 0 to getNombreValeurs()-2){
+    for ( i <- 0 to lim){
       if (plusPetit(i+1, i)){
         echange(i+1, i)
         c += 1
       }
     }
-    for (j <- getNombreValeurs-2 to 0){
-      if (plusPetit(j, j+1)){
-        echange(j, j+1)
+    for (j <- 0 to lim){
+      if (plusPetit(lim-j, lim-j-1)){
+        echange(lim-j, lim-j-1)
         c += 1
       }
     }
