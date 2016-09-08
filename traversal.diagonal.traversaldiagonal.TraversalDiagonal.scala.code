@@ -1,0 +1,34 @@
+var diag = 0;
+var c=0
+var x=0
+var y=0
+override def run() {
+  
+  def fini:Boolean ={
+    if(getMondeHauteur()==getX()+1){
+      if(getMondeLargeur()==getY()+1){
+        return true
+      }else{
+        return false
+      }      
+    }else{
+      return false
+    }
+  }
+  ecritMessage(0)
+  while(!fini){
+    if(estFaceMur){
+      diag=diag+1
+      y=diag
+      setY(y)
+      c=c+1
+      ecritMessage(c)
+    }else{
+      x=x-1
+      y=y-1
+      setPos(x,y)
+      c=c+1
+      ecritMessage(c)
+    }
+  }
+}
