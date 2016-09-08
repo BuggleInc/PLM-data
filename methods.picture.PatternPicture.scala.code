@@ -1,0 +1,29 @@
+override def run() {
+}
+
+def ligne() {
+  for (compteur <-1 to 3) {
+    carre(); 
+    for (compteur <- 1 to 6) {
+      forward();
+    }
+  }
+  for (compteur <-1 to 15) {
+    backward();
+  }
+  left();
+  for (compteur <- 1 to 5) {
+    forward();
+  }
+  right();
+}
+
+def carre() {
+  faireV(Color.YELLOW); forward; left(); faireV(Color.RED); forward; left(); faireV(Color.BLUE); forward; left(); faireV(Color.GREEN); forward; left(); 
+  backward();
+}
+
+
+def faireV(c:Color) {
+    setCouleurBrosse(c); forward(); brushDown(); brushUp(); left(); forward(); right(); forward(); brushDown(); brushUp(); forward(); right(); forward(); brushDown(); brushUp(); left();
+}
