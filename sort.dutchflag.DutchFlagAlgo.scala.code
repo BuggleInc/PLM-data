@@ -2,17 +2,10 @@ def solve()
 {
   var n = getTaille()-1;
   var dernier = 0;
-  var x = 0;
-  var v = 0;
-  var j = 0;
-  var currCouleur = BLEU;
-  
+  var j = 0;  
   
   for (i <- 1 to n)
   {
-    v = getCouleur(i);
-    x = v+1;
-    dernier = i;
     j = i;
     
     while (j>0 && x>v)
@@ -21,7 +14,6 @@ def solve()
       if (x > v)
       {
         echange(j, j-1);
-        dernier = j-1;
       }
       j-=1;
     }
