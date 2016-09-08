@@ -31,7 +31,8 @@ def findNorthWall() {
   var sommeAngle:Int = 0
   while (getY()!=0) {
     etat match {
-      case 0 => while (!estFaceMur) {
+      case 0 => setDirection(Direction.NORTH)
+                while (!estFaceMur) {
                   avance()
                 }
                 etat = 1
@@ -46,13 +47,13 @@ def findNorthWall() {
 }
 
 def isDirectionFree(dir:Direction):Boolean = { //Renvoie true si la buggle peut aller dans la direction dir.
-  val dirActuelle:Direction = getDirection()   //Si c'est le cas, la buggle est dans cette direction.
-  setDirection(dir)                            //Sinon on renvoie false et la buggle retrouve sa direction initiale.
+  val dirActuelle:Direction = getDirection()   //Sinon on renvoie false
+  setDirection(dir)                            //La buggle retrouve sa direction initiale.
   if (!estFaceMur) {
     return true
   }
   else {
-    setDirection(dirActuelle)
     return false
   }
+  setDirection(dirActuelle)
 }
