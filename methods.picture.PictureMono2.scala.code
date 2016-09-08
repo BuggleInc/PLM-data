@@ -25,27 +25,25 @@ def faireMotif(){
     }
 }
 override def run() {
+  var nbcolonnefaite=0
   var nbmotif=0
   var nbpas2=0
-  for (nbmotif<- 1 to 3){
+  var nbpas3=0
+  for (nbcolonnefaite<- 1 to 3){
+    for (nbmotif<- 1 to 3){
     faireMotif()
     while (nbpas2<7){
       avance()
       nbpas2=nbpas2+1
-      
+      }
+      nbpas2=0
     }
-    nbpas2=0
-  
-  }
-	gauche()
-	for (nbmotif<- 1 to 3){
-    faireMotif()
-    while (nbpas2<7){
+    gauche()
+    while (nbpas3<7){
       avance()
-      nbpas2=nbpas2+1
-      
+      nbpas3=nbpas3+1
     }
-    nbpas2=0
-  
+    droite
+
   }
 }
