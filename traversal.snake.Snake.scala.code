@@ -4,9 +4,22 @@ override def run()
   
   def positionFinale():Boolean = {
     var dir:Direction = getDirection()
-    if(estFaceMur())
-    	return true
-
+    if(dir == Direction.EAST)
+    {
+      gauche()
+      if(estFaceMur())
+    		return true
+      droite()
+      return false
+    }
+    else if(dir == Direction.WEST)
+    {
+      droite()
+      if(estFaceMur())
+    		return true
+      gauche()
+      return false
+    }
     else return false
   }
   
