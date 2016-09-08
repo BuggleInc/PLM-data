@@ -1,4 +1,5 @@
-var diag = 0;
+var col = 0;
+var lig =0;
 override def run() {
   var c=0
   ecritMessage(0)
@@ -21,8 +22,13 @@ def posFin(): Boolean = {
 
 def tp(){
   if(estFaceMur){
-    setPos(0,diag+1)
-    diag +=1
+    if(lig<6){
+    	setPos(0,lig+1)
+    	lig +=1
+    }else{
+      setPos(col,6)
+      col +=1
+    }
   }else{
     setPos(getX()+1,getY()-1)
   }
