@@ -2,17 +2,35 @@ override def run() {
   
   
   def fini:Boolean ={
-    if(getMondeHauteur()==getY()+1){
-      if(getMondeLargeur()==getX()+1){
+    if(getMondeHauteur()==getX()+1){
+      if(getMondeLargeur()==getY()+1){
         return true
       }else{
         return false
-      }
-      
+      }      
     }else{
       return false
     }
   }
+  
+  def posS(x:Int,y:Int){
+    
+    if(!estFaceMur){
+      y=y+1
+      setY(y)
+    }else{
+      y=0
+      x=x+1
+      setPos(x,y)
+    }
+    
+  }
+  
+while(fini==false){
+  var x=0
+  var y=0
+  posS(x,y)
+}
   
   
 }
