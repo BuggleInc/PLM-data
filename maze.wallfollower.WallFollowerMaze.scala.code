@@ -1,0 +1,32 @@
+def keepHandOnSideWall(a:Char){
+  if (a == 'L'){
+    left()
+    if (isFacingWall){
+      right()
+      forward()
+    }
+    else{
+      forward()
+    }
+    
+  }
+  if (a == 'R'){
+    right()
+    if (isFacingWall){
+      left()
+      forward()
+    }
+    else{
+      forward()
+    }
+    
+  }
+}
+
+override def run() {
+  do{keepHandOnSideWall('L')
+    
+    
+  }while (!isOverBaggle())
+  pickUpBaggle()
+}
