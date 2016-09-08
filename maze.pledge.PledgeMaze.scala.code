@@ -1,0 +1,70 @@
+override def run()
+{
+  var minY = -1;
+  var xMinY = 0;
+  var iniPosX = 0;
+  var iniPosY = 0;
+  
+  while (getY() > 0)
+  {
+    //Avance jusqu'a un mur
+  	while (!estFaceMur() && getY() > 0) avance();
+    
+    //Recherche le point le plus eleve de sa structure qu'il contourne
+    gauche();
+    iniPosX = getX();
+    iniPosY = getY();
+    minY = -1;
+    xMinY = 0;
+    
+    do
+    {
+      keepHandOnSideWall();
+      if (!estMurNord() && (getY() < minY || minY == -1))
+      {
+        minY = getY();
+        xMinY = getX();
+      }
+    }
+    while (getX() != iniPosX && getY() != iniPosY)
+      
+    //Se rend sur ce point le plus eleve
+    while (getX() != xMinY && getY() != minY) keepHandOnSideWall();
+    droite();
+	}
+  gauche();
+  
+  //Recherche la sortie
+  while (!estSurBiscuit()) keepHandOnSideWall();
+  prendBiscuit();
+}
+
+def keepHandOnSideWall()
+{
+  droite();
+  
+  if (estFaceMur())
+  {
+    gauche();
+    gauche();
+    keepHandOnSideWall();
+  }
+  else avance();
+}
+          
+def estMurNord():Boolean =
+{
+  var nbTours = 0;
+  var isMurNord = false;
+  
+  while (getDirection() != Direction.NORD)
+  {
+    gauche();
+    nbTours+=1;
+  }
+  isMurNord = estFaceMur();
+  
+  for (i <- 1 to nbTours) droite();
+  
+  return isMurNord;
+}
