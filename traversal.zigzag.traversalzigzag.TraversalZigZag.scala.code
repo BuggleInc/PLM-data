@@ -1,7 +1,7 @@
 override def run() {
   ecritMessage("0")
   var cpt = 0
-  var gauche = true
+  var gauche = false
   var cote = false
   while (!posFinale()) {
     	var x = posSuivante(gauche,cote)
@@ -25,7 +25,7 @@ def posSuivante(gauche : Boolean, cote : Boolean) : Array[Boolean] = {
     	setPos(getX(), getY() + 1)
    		return Array(!gauche,!cote)
   }
-  else if (!gauche) {
+  else if (gauche == false) {
   		setPos(getX() + 1, getY())
     	return Array(!gauche,cote)}
   else {
