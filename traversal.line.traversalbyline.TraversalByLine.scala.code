@@ -1,0 +1,27 @@
+override def run() {
+  var cpt=0
+  do{
+  	ecritMessage(cpt)
+    bouge()
+    cpt+=1
+  } while(!fini())
+  ecritMessage(cpt)
+}
+
+def fini() : Boolean = {
+  if (getMondeHauteur()-1==getY()){
+    if (getMondeLargeur()-1==getX()) 
+      return true
+  }
+    return false
+}  
+
+def bouge(){
+  var X=getX()
+  if (X!=getMondeLargeur()-1)
+    setPos(X+1, getY())
+  else{
+    setPos(0,getY()-1)
+  }
+   
+}
