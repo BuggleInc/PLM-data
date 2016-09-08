@@ -1,11 +1,9 @@
 override def run() {
   baisseBrosse()
-  
-  
+  while (positionFinale()==false){
     avance(6)
     pasDeSerpent()
-  
-
+  }
 }
 
 def positionFinale() : Boolean={
@@ -15,16 +13,22 @@ def positionFinale() : Boolean={
       if(estFaceMur()==true){
         droite()
         return true
+      } else{
+        droite()
+        return false
       }
     }else if (getDirection()==Direction.OUEST){
       droite()
       if (estFaceMur()==true){
         gauche()
         return true
+      }else{
+        gauche()
+        return false
       }
     }
   }
-  droite()
+  
   return false
 }
 
