@@ -4,38 +4,33 @@ override def run()
   
   def positionFinale():Boolean = {
     var dir:Direction = getDirection()
-    if(estFaceMur() && dir == Direction.EAST)
-    {
+    if(estFaceMur() && dir == Direction.EAST) {
       gauche()
-      if(estFaceMur())
-      	droite()
+      if(estFaceMur()) {
+				droite()
     		return true
+      }
       droite()
       return false
-    }
-    else if(estFaceMur() && dir == Direction.WEST)
-    {
+    } else if(estFaceMur() && dir == Direction.WEST) {
       droite()
-      if(estFaceMur())
+      if(estFaceMur()) {
+      	gauche()
     		return true
+      }
       gauche()
       return false
-    }
-    else return false
+    } else return false
   }
   
   def avancer() {
     var dir:Direction = getDirection()
-    if(estFaceMur())
-    {
-      if(dir == Direction.EAST)
-      {
+    if(estFaceMur()) {
+      if(dir == Direction.EAST) {
         gauche()
         avance()
         gauche()
-      }
-      else if(dir == Direction.WEST)
-      {
+      } else if(dir == Direction.WEST) {
         droite()
         avance()
         droite()
@@ -44,8 +39,7 @@ override def run()
     else avance()
   }
   
-  while(!positionFinale())
-  {
+  while(!positionFinale()) {
     avancer()
   }
 }
