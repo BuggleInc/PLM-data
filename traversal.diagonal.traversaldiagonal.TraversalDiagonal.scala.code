@@ -20,9 +20,15 @@ def fini() : Boolean = {
 
 def bouge(){
 	var MaxY=getMondeHauteur()-1
+  var MaxX=getMondeLargeur()-1
   if (pas < diag){
-    setPos(getX()+1,getY()-1)
-  	pas+=1
+    if(getX()<MaxX){
+      setPos(getX()+1,getY()-1)
+      pas+=1
+  	}else{
+    	setPos(MaxX,getY()-1)
+      pas+=1
+  }
   }else{
     diag+=1
     if (diag<MaxY){
