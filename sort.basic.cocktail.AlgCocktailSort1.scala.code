@@ -1,20 +1,20 @@
 def cocktailSort() {
-  var echange1:Boolean = false
-  var echange2:Boolean = false
+  var echange1:Int = 0
+  var echange2:Int = 0
   do{
     var echange1:Boolean = false
   	var echange2:Boolean = false
     for (i <- 0 to getNombreValeurs-2){
       if (getValeur(i)>getValeur(i+1)){
         echange(i,i+1)
-        echange1 = true
+        echange1 = echange1+1
       }
     }
     for (i <- getNombreValeurs-2 to 0 by -1){
       if(getValeur(i)>getValeur(i+1))
       echange(i,i+1)
-      echange2 = true
+      echange2 = echange2+1
       echange(0,getNombreValeurs()-1)
     }
-  } while (echange1||echange2)
+  } while ((echange1>0)||(echange2>0))
 }
