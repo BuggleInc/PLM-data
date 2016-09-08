@@ -5,9 +5,7 @@ override def run()
   def positionFinale() {
     var dir:Direction = getDirection()
     if(estFaceMur())
-    {
     	return true
-    }
     else if(dir == Direction.EAST)
     {
       gauche()
@@ -24,5 +22,29 @@ override def run()
     }
     else return false
   }
-
+  
+  def avancer() {
+    var dir:Direction = getDirection()
+    if(estFaceMur())
+    {
+      if(dir == Direction.EAST)
+      {
+        gauche()
+        avance()
+        gauche()
+      }
+      else if(dir == Direction.WEST)
+      {
+        droite()
+        avance()
+        droite()
+      }
+    }
+    else avance()
+  }
+  
+  while(!positionFinale())
+  {
+    avancer()
+  }
 }
