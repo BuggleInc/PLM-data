@@ -1,0 +1,13 @@
+override def run() {
+  var cpt:Int=0
+  while ((getY()!=getMondeHauteur())&&(getX()!=getMondeLargeur())) {
+    if (!estDosMur()) {
+      setPos(getX(),getY()+1)
+      cpt=cpt+1
+    } else {
+      setPos(getX()+1,0)
+      cpt=cpt+1
+    }
+    ecritMessage()
+  }
+}
