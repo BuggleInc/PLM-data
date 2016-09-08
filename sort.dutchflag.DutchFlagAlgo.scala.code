@@ -5,8 +5,7 @@ def solve() {
       getCouleur(i) match{
         case BLEU => if (!rBon(i)){echange(i,taille-1)}
         case ROUGE =>if (!bBon(i)){echange(i,0)}
-        case _ => return
-      }
+        case BLANC       }
     }
 	}
 
@@ -29,5 +28,23 @@ def bBon(i:Int):Boolean = {
   else {
     return false
   }
+}
+
+def bougerBlanc(i:Int){
+  var fini = false
+  var j = i
+  while(!fini){
+    if (j-1>0){
+      j -= j
+      if (getCouleur(j)==BLEU){
+        echange(j,i)
+        fini = true
+      }
+    }
+    else{
+      fini = true
+    }
+  }
+  
 }
 
