@@ -3,16 +3,20 @@ def cocktailSort() {
   var length:Int = getNombreValeurs()
   for (i <- 0 to (length - 1)){
     continuer = false
-    for (i <- 0 to (length - 2)){
-      if (!plusPetit(i,i+1)){
-        echange(i,i+1)
-        continuer = true
-    	}
+    for (i <- 0 to (length - 1)){
+      if ( i < (length - 1)){
+        if (!plusPetit(i,i+1)){
+          echange(i,i+1)
+          continuer = true
+        }
+      }
     }
-    for (i <- (length - 2) to 0){
-      if (!plusPetit(i,i+1)){
-        echange(i,i+1)
-        continuer = true
+    for (i <- (length - 1) to 0){
+      if ( i < (length - 1)){
+        if (!plusPetit(i,i+1)){
+          echange(i,i+1)
+          continuer = true
+        }
       }
     }
     length += -1
