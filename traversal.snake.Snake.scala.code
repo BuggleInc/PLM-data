@@ -4,7 +4,7 @@ override def run()
   
   def positionFinale():Boolean = {
     var dir:Direction = getDirection()
-    if(dir == Direction.EAST)
+    if(estFaceMur() && dir == Direction.EAST)
     {
       gauche()
       if(estFaceMur())
@@ -12,7 +12,7 @@ override def run()
       droite()
       return false
     }
-    else if(dir == Direction.WEST)
+    else if(estFaceMur() && dir == Direction.WEST)
     {
       droite()
       if(estFaceMur())
