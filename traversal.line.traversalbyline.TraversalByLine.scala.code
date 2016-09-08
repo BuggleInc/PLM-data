@@ -1,12 +1,23 @@
-override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()-1&&getY()==getMondeLargeur()-1) {return true}
-                                                  else {return false}}
- var a:Int = 0;                   
-                    def marche() {droite(); while (!positionFinale()) 
-                                {ecritMessage(a);a+=1;
-                                 if (estFaceMur())
-                                 {setPos(0,getY()+1);}
-                                  else {setPos(getX()+1,getY())}
+//override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()-1&&getY()==getMondeLargeur()-1) {return true}
+//                                                  else {return false}}
+// var a:Int = 0;                   
+//                    def marche() {droite(); while (!positionFinale()) 
+//                                {ecritMessage(a);a+=1;
+//                                 if (estFaceMur())
+//                                 {setPos(0,getY()+1);}
+//                                  else {setPos(getX()+1,getY())}
                                  }
-                                 }
+//                                 }
                                 
-marche();gauche();ecritMessage(48);}
+//marche();gauche();ecritMessage(48);}
+override def run() {def positionFinale():Boolean= {if (estFaceMur()&&(getDirection()==Direction.EST)) {gauche();var t:Boolean = estFaceMur();droite();return t}
+                                           if (estFaceMur() && getDirection() == Direction.OUEST) {droite();var t:Boolean = estFaceMur();gauche();return t}
+                                         else {return false}}
+                    
+                    def marche() {setCouleurBrosse(Color.RED); baisseBrosse(); while (!positionFinale()) 
+                                {if (estFaceMur()&&getDirection()==Direction.EST) {gauche();avance();gauche()}
+                                   if (estFaceMur()&&getDirection()==Direction.OUEST) {droite();avance();droite();}
+                                  else {avance();}
+                                 }
+                                }
+marche();}
