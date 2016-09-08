@@ -1,28 +1,26 @@
 def cocktailSort2() {
   var continuer:Boolean = true
   var length:Int = getNombreValeurs()
+  var debut:Int = 0
   while(continuer){
     continuer = false
-    for (i <- 0 to (length - 2)){
+    for (i <- debut to (length - 2)){
       if ( i < (length - 1)){
         if (!plusPetit(i,i+1)){
           echange(i,i+1)
           continuer = true
-          print("b")
+          length += -1
         }
       }
     }
-    print("c")
-    for (i <- 0 to (length - 2)){
-      print("a")
+    for (i <- debut to (length - 2)){
       if ( i < (length - 1)){
         if (!plusPetit(length - 2 - i,length - 1 - i)){
           echange(length - 2 - i,length - 1 - i)
           continuer = true
-          print("a")
+          debut += 1
         }
       }
     }
-    length += -1
   }
 }
