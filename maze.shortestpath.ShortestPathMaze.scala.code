@@ -1,0 +1,46 @@
+override def run() {
+  setIndication(11,5,0)
+  while (!tablecomplet) {
+    ecrire
+  }
+}
+
+def tablecomplet:Boolean = {
+  var ind = 0
+  for (x<-0,11) {
+    for (y<-0,11) {
+      if (getIndication(x,y)>ind)
+      	ind = getIndication(x,y)
+    }
+  }
+  if (ind==9999)
+  	return false
+  return true
+}
+
+def ecrire = {
+  var N = 9999
+  var S = 9999
+  var E = 9999
+  var W = 9999
+  for (x<-0,11) {
+    for (y<-0,11) {
+      if (y!=0 && !aMurNord(x,y))
+      	N = getIndication(x,y-1)
+      if (x!0 && !aMurOuest(x,y))
+      	W = getIndication(x-1,y)
+      if (x!11 && !aMurOuest(x+1,y))
+      	E = getIndication(x+1,y)
+      if (y!11 && !aMurNord(x,y+1))
+      	S = getIndication(x,y+1)
+    }
+  }
+  if (N!=9999)
+  	setIndication(x,y,N+1)
+  else if (S!=9999)
+  	setIndication(x,y,S+1)
+  else if (E!=9999)
+  	setIndication(x,y,E+1)
+  else if (W!=9999)
+  	setIndication(x,y,W+1)
+}
