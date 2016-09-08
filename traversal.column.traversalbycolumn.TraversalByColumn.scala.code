@@ -1,0 +1,30 @@
+override def run() {
+  var cpt:Int = 0
+  var colonne:Int = 0
+  ecritMessage(cpt)
+  while (!positionfinale) {
+    cpt+=1
+  	if (!estDosMur())
+    	recule()
+    else {
+      colonne+=1
+    	setPos(colonne,0)
+    }
+    ecritMessage(cpt)
+  }
+}
+
+def position finale () : Boolean = {
+  gauche()
+  gauche()
+  if estFaceMur() {
+    gauche()
+    if estFaceMur() {
+    	gauche()
+    	return true
+    }
+    else
+    	return false   
+  }
+  return false
+}
