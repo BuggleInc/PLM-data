@@ -1,0 +1,44 @@
+
+def marquer(c:Int){
+  
+  ecritMessage(c)
+  
+}
+def posFinale():Boolean ={
+  
+  var x = getX()
+  var y = getY()
+  var x_max = getMondeLargeur()
+  var y_max = getMondeHauteur()
+  if (x==(x_max-1) && y==(y_max-1))
+  	{
+      return true
+    }
+  else
+  	{
+
+      return false
+    }
+}
+
+override def run() {
+  var c = 0
+  var diag = 1
+  droite()
+  while(!posFinale())
+  	{
+      	
+      	
+      	for(c<-1 to diag)
+      		{
+            var x = getX()
+  					var y = getY()
+            marquer(c)
+            c = c+1
+            setPos(x+1,y-1)
+          }
+      
+    }
+  	gauche()
+   marquer(48)
+}
