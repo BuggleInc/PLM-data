@@ -1,11 +1,11 @@
 override def run() {
   var cpt:Int=0
   ecritMessage(cpt)
-  while (verif()==false){
+  while (positionTest()==false){
     parcours()
     cpt+=1
     ecritMessage(cpt)
-    verif()   
+    positionTest()   
     
   }
   
@@ -31,23 +31,12 @@ def parcours(){
   
 }
 
-def verif():Boolean={
-  droite()
-  if (estFaceMur()==true){
-    droite()
-    if(estFaceMur()==true){
-      gauche()
-      gauche()
-      return true
-    }
-    gauche()
-    gauche()
+
+def positionTest():Boolean={
+  if(getMondeHauteur()-1==getY() && getMondeLargeur()-1==getX()){
+    return true
+  }else {
     return false
   }
-  gauche()
-  gauche()
-  return false
-  
   
 }
-  
