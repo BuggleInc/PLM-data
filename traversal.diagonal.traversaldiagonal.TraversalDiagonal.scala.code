@@ -6,15 +6,14 @@ override def run() {
   var x = 0;
   var y = 0;
   var z = 0;
-  writeMessage(0)
   while(diag!=height*width){
     x = 0
     y=diag
     while(y>=0){ // Alors, tant que le y est pas revenue en haut
       if(x < width && y >= 0 && y < height){//Si on est sur le plateau  
         setPos(x, y);//On update la pos
-        z = diag + x
         writeMessage(z);// On ecrit le message
+        z=z+1
       }
       y=y-1 //On bouge les vars
       x=x+1
