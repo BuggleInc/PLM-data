@@ -1,0 +1,57 @@
+override def run()
+{
+  var minY = -1;
+  var iniPosX = 0;
+  var iniPosY = 0;
+  
+  while (getPosY() > 0)
+  {
+  	while (!estFaceMur() && getPosY() > 0) avance();
+    
+    droite();
+    iniPosX = getPosX();
+    iniPosY = getPosY();
+    minY = -1;
+    
+    do
+    {
+      keepHandOnSideWall();
+      if (estMurNord() && (getPosY() < minY || minY == -1) minY = getPosY();
+    }
+    while (getPosX() != iniPosX && getPosY() != iniPosY) //Recherche le point le plus eleve de sa structure
+	}
+  droite();
+  
+  while (!estSurBiscuit()) keepHandOnSideWall();
+  prendBiscuit();
+}
+
+def keepHandOnSideWall()
+{
+  droite();
+  
+  if (estFaceMur())
+  {
+    gauche();
+    gauche();
+    keepHandOnSideWall();
+  }
+  else avance();
+}
+          
+def estMurNord()
+{
+  var nbTours = 0;
+  var isMurNord = false;
+  
+  while (getDirection() != Direction.NORD)
+  {
+    gauche();
+    nbTours+=1;
+  }
+  isMurNord = estFaceMur();
+  
+  for (i <- 1 to nbTours) droite();
+  
+  return isMurNord();
+}
