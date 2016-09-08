@@ -1,15 +1,18 @@
 def insertionSort() {
   
+  var v = getValeur(i)
+  
   for (i <- 1 to getNombreValeurs()-1) {
     
-    var v = getValeur(i)
     var last = 0
     
     for (c <- 1 to i) {
       
-      if (!plusPetitQue(i-c,v)) {
+      var a = getValeur(i-c)
+      
+      if (a>v) {
         
-        copie(i-c,i-c+1)
+        setValeur(i-c+1,a)
         last = c
         
       }
