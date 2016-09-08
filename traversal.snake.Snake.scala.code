@@ -1,4 +1,6 @@
 override def run() {
+  
+  //METHODE FIN
   def posfin() {
     if (estFaceMur) {
       gauche(); 
@@ -10,4 +12,21 @@ override def run() {
     return false
     }
   }
+  
+  //METHODE AVANCE
+  def avanserp() {
+    while (!estFaceMur) {
+      avance()
+    }
+    gauche();avance();gauche()
+   while (!estFaceMur) {
+      avance()
+   }
+    droite();avance();droite()
+  }
+
+while (!posfin()) {
+  avanserp()
+}
+  
 }
