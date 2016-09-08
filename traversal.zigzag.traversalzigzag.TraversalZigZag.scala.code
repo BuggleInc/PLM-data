@@ -9,12 +9,19 @@ override def run() {
       setPos(getX(),getY()+1)
       n=n+1
       marque(n)
-      deplacementEst()
+      while(getMondeLargeur()-1!=getX()){
+    setPos(getX()+1,get(Y))
+    n=n+1
+    marque(n)
+  }
    } else {
       setPos(getX(),getY()+1)
       n=n+1
       marque(n)
-      deplacementOUEST()
+       while(0!=getX()){
+    setPos(getX()-1,get(Y))
+    n=n+1
+    marque(n)
     
   }
   
@@ -36,18 +43,3 @@ def marque(x:Int){
   ecritMessage(x)
 }
 
-def deplacementEst(n:Int){
-  while(getMondeLargeur()-1!=getX()){
-    setPos(getX()+1,get(Y))
-    n=n+1
-    marque(n)
-  }
-}
-
-def deplacementOUEST(n:Int){
-  while(0!=getX()){
-    setPos(getX()-1,get(Y))
-    n=n+1
-    marque(n)
-  }
-}
