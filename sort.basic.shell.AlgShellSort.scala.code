@@ -9,10 +9,10 @@ def shellSort() {
   for (i <- 1 to lgr-1){
     v = getValeur(i) 
     j = ecart
-    while (i-j>=0 && getValeur(i-j)>v ){
+    do{
       copie(i-j,i-(j-ecart))
       j+=ecart
-      }
+      }while (i-j>=0 && getValeur(i-j)>v )
     setValeur(i-(j-ecart), v)
   }
     ecart = (ecart.toDouble/2).toInt
