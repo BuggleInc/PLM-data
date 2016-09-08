@@ -1,13 +1,13 @@
 def bubbleSort2() {
   val len:Int = getNombreValeurs
-  var compteur:Int = 1
-  while (compteur != 0) {
-    compteur = 0
+  var fin:Boolean = false
+  while (!fin) {
+    fin = true
   	for (i <- (len - 2) to 0 by -1) {
     	for (j <- 0 to i) {
       	if (plusPetit((j+1),j)) {
         	echange(j,(j+1))
-        	compteur += 1
+        	fin = false
       	}
     	}
  	 	}
