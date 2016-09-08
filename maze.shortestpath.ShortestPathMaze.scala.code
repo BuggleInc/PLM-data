@@ -1,0 +1,66 @@
+var EXIT_NOT_FOUND = (-1, -1);
+var NO_INDICATION = 9999;
+
+
+override def run() {
+	var (exitX, exitY) = foundExit();
+  
+	markExit();
+	
+  var i = 1;
+  while (!isCurrentPositionMarked() && i+1 < NO_INDICATION) {
+    mark(i);
+    i += 1;
+  }
+}
+
+
+def findExit() : (Int, Int) = {
+  for (x <- 0 to getWorldWidth() - 1) {
+  	for (y <- 0 to getWoldHeight() -1) {
+      if (hasBaggle(x, y)) return (x, y);
+    }
+  }
+  
+  return EXIT_NOT_FOUND; // Should never happen...
+}
+
+def markExit(exitX, exitY) {
+  setIndication(exitX, exitY, 0);
+}
+
+def isCurrentPositionMarked() : Boolean =
+	getIndication(getX(), getY()) != NO_INDICATION);
+
+def getIndicationSafe(x:Int, y:Int) : Int = {
+  if (x < 0 || y < 0 || x >= getWorldWidth() || y >= getWordlHeight() {
+    return NO_INDICATION;
+  }
+      
+  return getIndication(x, y);
+}
+      
+def processNeighbor(x, y, xn, yn, minNeighborX, minNeighBorY, min) : (Int, Int, Int) {
+  var indication = getIndicationSafe(x + xn, y + yn);
+  
+  if (indication < min) {
+    return (xn, yn, indication);
+  }
+  
+  return (minNeighborX, maxNeighborY, min);
+}
+
+def mark(i:Int) {
+  for (x <- 0 to getWorldWidth() - 1) {
+    for (y <- 0 to getWorldHeight() - 1) {
+      var (minNX, minNY, min) = processNeighbor(x, y, -1, 0, NO_INDICATION);
+      (minNX, minNY, min) = processNeighbor(x, y, 1, 0, min);
+      (minNX, minNY, min) = processNeighbor(x, y, 0, -1, min);
+      (minNX, minNY, min) = processNeighbor(x, y, 0, 1, min);
+      
+      if (min != NO_INDICATION) {
+        setIndication(x, y, min + 1)
+      }
+    }
+  }
+}
