@@ -29,8 +29,27 @@ override def run() {
   
   
   def fini:Boolean ={
-    if(estFaceMur==true){
-      
+    if(estFaceMur==true && murN==true){
+      return true
+    }else{
+      return false
+    }
+  }
+  
+  while(fini == false){
+    while(estFaceMur==false){
+      avance()
+    }
+    if(getDirection()==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }else if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }else{
+      return
     }
   }
 }
