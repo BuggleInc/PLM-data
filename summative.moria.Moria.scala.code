@@ -4,11 +4,13 @@ def clearMoria(){
     while( !estSurBiscuit() && !porteBiscuit() && !estFaceMur()){
       avance();
     }
-    prendBiscuit();droite();droite()
+    if(estSurBiscuit())
+    	prendBiscuit();droite();droite()
     while(!estSurBiscuit() && porteBiscuit() && !estFaceMur()){
       avance();
     }
-    recule();poseBiscuit();droite();droite();avance();
+    if(porteBiscuit())
+    	recule();poseBiscuit();droite();droite();avance();
   }
   setPos(getX() + 1,getY() - 1)
 }
