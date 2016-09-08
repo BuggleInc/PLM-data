@@ -24,24 +24,45 @@ def posFinale():Boolean ={
 override def run() {
   var c = 0
   var diag = 1
+  var i=1
   while(!posFinale())
   	{
       	
-      	
-      	for(compteur<-1 to (diag-1))
-      		{
-            var x = getX()
-  					var y = getY()
+      	if(diag<=7)
+      	{
+          for(compteur<-1 to (diag-1))
+            {
+              var x = getX()
+              var y = getY()
+              marquer(c)
+              c = c+1
+              setPos(x+1,y-1)
+            }
             marquer(c)
-            c = c+1
-            setPos(x+1,y-1)
-          }
-      marquer(c)
-      c=c+1
-      diag = diag+1
-      var x = getX()
-  		var y = getY()
-      setPos(0,(diag-1))
+            c=c+1
+            diag = diag+1
+            var x = getX()
+            var y = getY()
+            setPos(0,(diag-1))
+        }
+      else
+      	{
+          for(compteur<-(diag-1) to 1)
+            {
+              var x = getX()
+              var y = getY()
+              marquer(c)
+              c = c+1
+              setPos(x+1,y-1)
+            }
+            marquer(c)
+            c=c+1
+            diag = diag+1
+            var x = getX()
+            var y = getY()
+            setPos(i,7)
+          i=i+1
+        }
       
     }
    marquer(48)
