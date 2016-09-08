@@ -11,19 +11,24 @@ override def run() {
       ecritMessage(cpt)
       cpt+=1
       setPos(x,y)
-    } else if (estFaceMur & diag>6) {
+    } else if (estFaceMur & diag>=6) {
         diag+=1
         y=6
         x=diag-6
         ecritMessage(cpt)
-      cpt+=1
-      setPos(x,y)
+        cpt+=1
+        setPos(x,y)
       } else {
-      x+=1
-      y-=1
-      ecritMessage(cpt)
-      cpt+=1
-      setPos(x,y)
+        if (x==6 & y==0) {
+          x=1
+          y=6
+        } else {
+          x+=1
+          y-=1
+          ecritMessage(cpt)
+          cpt+=1
+          setPos(x,y)
+        }
     }
   }
   diag = 0
