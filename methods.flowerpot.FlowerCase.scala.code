@@ -1,0 +1,45 @@
+def growFlowers() {
+  jardin();
+  for (compteur <- 1 to 11) {
+    backward();
+  }
+  right();
+  for (compteur <- 1 to 6) {
+    forward();
+  }
+  left();
+}
+
+
+def jardin() {
+  ligne1(); 
+  right(); forward(); forward(); forward(); forward(); left();  
+  ligne2();
+  left(); forward(); forward(); forward(); right(); forward(); forward(); forward();
+  fairePot(Color.ORANGE)
+  forward(); forward(); forward();
+  fairePot(Color.BLUE);
+  forward(); left(); forward(); forward(); right(); 
+  ligne1(); 
+  right(); forward(); forward(); forward(); forward(); left();  
+  ligne2();
+  left(); forward(); forward(); forward(); right(); forward(); forward(); forward();
+  fairePot(Color.ORANGE) 
+}
+
+def ligne1() {
+  fairePot(Color.RED); forward(); forward(); forward(); fairePot(Color.CYAN); backward(); backward(); backward(); backward(); backward();
+}
+
+def ligne2() {
+  fairePot(Color.PINK); forward(); forward(); forward(); fairePot(Color.GREEN); backward(); backward(); backward(); backward(); backward();
+}
+
+def fairePot(c:Color) {
+  faireC(c:Color); setCouleurBrosse(Color.YELLOW); brushDown(); brushUp();
+}
+
+
+def faireC(c:Color) {
+    setCouleurBrosse(c); brushDown(); forward(); forward(); backward(); left(); forward(); backward(); backward(); forward(); right(); brushUp();
+}
