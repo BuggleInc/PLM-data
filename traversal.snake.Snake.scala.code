@@ -1,14 +1,14 @@
 override def run() 
 {
   baisseBrosse()
-  var dir:Direction = getDirection()
   
-  while(!false)
+  while(!positionFinale())
   {
     avancer()
   }
   
   def avancer() {
+    var dir:Direction = getDirection()
     if(estFaceMur())
     {
       if(dir == Direction.EAST)
@@ -28,6 +28,7 @@ override def run()
   }
   
   def positionFinale(){
+    var dir:Direction = getDirection()
     if(estFaceMur())
     	return true
     else if(dir == Direction.EAST)
