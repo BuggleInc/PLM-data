@@ -1,0 +1,28 @@
+def cocktailSort3() {
+  var finished1:Boolean= true;
+  var finished2:Boolean= true;
+  var n:Int = getValueCount();
+  var deb:Int = 0;
+	var fin:Int = n-2;
+  do{
+    finished1 = true;
+    finished2 = true;
+    for (i<-deb to fin) {
+      if (!isSmaller(i,i+1)) {
+        swap(i,i+1);
+        finished1 = false;
+      }
+    }
+    fin = fin-1;
+    if (!finished1) {
+      for (i<- fin to deb by -1) {
+        if (!isSmaller(i,i+1)) {
+          swap(i,i+1);
+          finished2 = false;
+        }
+      }
+      deb = deb +1;
+    }
+    
+	} while (!finished1 && !finished2)
+}
