@@ -19,11 +19,13 @@ override def run() {
     droite()
     ordonnee = ordonnee + 1
     compteur = compteur + 7
-  if (getDirection() == Direction.EST)
-    ligneEST(compteur, abscisse, ordonnee, hauteur, largeur)
-  if (getDirection() == Direction.OUEST)
-    ligneOUEST(compteur, abscisse, ordonnee, hauteur, largeur)
   }
+  gauche()
+  if (estFaceMur())
+    ligneEST(compteur, abscisse, ordonnee, hauteur, largeur)
+  else
+    ligneOUEST(compteur, abscisse, ordonnee, hauteur, largeur)
+  droite()
 }
 
 def ligneEst(c : Int, abscisse : Int, ordonnee : Int, hauteur : Int, largeur : Int) {
