@@ -1,0 +1,46 @@
+def posFinal(a:Boolean,b:Boolean):Boolean ={
+  
+	if (estFaceMur() && ((getDirection() == Direction.EST && b) || (getDirection() == Direction.WEST && a))){
+    return true
+  }
+  else {
+    return false
+  }
+  }
+
+ 
+
+ 
+
+override def run() {
+  baisseBrosse()
+  droite()
+  var a = estFaceMur()
+  retourne()
+  var b = estFaceMur()
+  droite()
+	while (!posFinal(a,b)){
+ 		a = false
+    b = false
+    droite()
+  	a = estFaceMur()
+  retourne()
+  	b = estFaceMur()
+  droite()
+    
+    if (estFaceMur() && getDirection() == Direction.EST) {
+      gauche()
+      avance()
+      gauche()
+    }
+    else if (estFaceMur() && getDirection() == Direction.WEST) {
+      droite()
+      avance()
+      droite()
+    }
+    
+    avance()
+  }
+	leveBrosse
+  
+}

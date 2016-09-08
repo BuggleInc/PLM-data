@@ -1,0 +1,31 @@
+override def run() {
+  var a = getMondeHauteur()
+  var b = getMondeLargeur()
+  var x = getX()
+  var y = getY()
+  var cpt = 0
+	var cote = true
+ do {
+ setPos(y, x) 
+ ecritMessage(cpt)
+ 
+ cpt += 1
+ if (cote == true){  
+ y +=1 
+ }
+ else {
+   y-=1
+ }  
+   if (y == 7){
+     y = 6
+     x +=1
+     cote = false
+   }
+ 		else if (y == -1){
+      y = 0
+      x+=1
+      cote = true
+    }
+ }while (a!=x && b!=y)
+   
+}
