@@ -27,17 +27,20 @@ def goNorth() {
 }
 
 def workaroundObstacle() {
-  var turnCount = 0;
+  right();
+  var turnCount = -1;
   
   do {
     // Keep the wall on the left
-    left();
-    turnCount += 1;
+    if (!isFacingWall()) {
+      left();
+      turnCount += 1;
+    }
     
-    while (isFacingWall()) {
+    /*while (isFacingWall()) {
       right();
       turnCount -= 1;
-    }
+    }*/
     
     // Once the path is clear, move forward
     forward();
