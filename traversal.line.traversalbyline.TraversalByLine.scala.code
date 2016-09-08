@@ -1,0 +1,45 @@
+override def run() {
+  
+  
+  def fini:Boolean ={
+    if(getMondeHauteur()==getX()+1){
+      if(getMondeLargeur()==getY()+1){
+        return true
+      }else{
+        return false
+      }      
+    }else{
+      return false
+    }
+  }
+  
+  def finL:Boolean={
+    droite()
+    if(estFaceMur){
+      true
+      gauche()
+    }else{
+      gauche()
+    }
+  }
+  var y:Int=0
+  var x:Int=0  
+	var c:Int=0
+ecritMessage(0)  
+while(fini==false){
+	if(finL){
+      y=y+1
+    x=0
+      setY(y)
+    c=c+1
+    }else{
+      
+      x=x+1
+      setPos(x,y)
+    	c=c+1
+    }
+  ecritMessage(c)
+}
+  
+  
+}
