@@ -1,8 +1,17 @@
 override def run() {
 		var cpt:Int =0
+  	var toucherMur:Boolean=false
     ecritMessage(cpt)
     while(finalPos!=true){
-      bougerPos()
+      bougerPos(toucherMur)
+      if(estFaceMur == true && toucherMur ==true){
+        toucherMur==false
+        setPos(getX(),getY()+1)
+      }
+      if(estFaceMur == true && toucherMur ==false){
+        toucherMur==true
+        setPos(getX(),getY()+1)
+      }
       cpt+=1;
       ecritMessage(cpt);
     }
@@ -16,11 +25,12 @@ override def run() {
       return false
     }
   }
-  def bougerPos(){
-    if(getX()==getMondeLargeur-1){
-      setPos(getX(),getY()+1)
-    }
-    else{
+  def bougerPos(a:Boolean){
+    if(a==false){
       setPos(getX()+1,getY())
+    
+    }
+    if(a==true){
+      setPos(getX()-1,getY())
     }
   }
