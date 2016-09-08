@@ -10,34 +10,34 @@ override def run() {
     }
     xSortie = xSortie+1
   }
-  ecritIndications(xSortie, ySortie, 0) //On remplit les cases.
+  ecritIndications(xSortie, ySortie, xMax, yMax, 0) //On remplit les cases.
 
 }
 
-def ecritIndications(x:Int, y:Int, cnt:Int) {
+def ecritIndications(x:Int, y:Int, xMax:Int, yMax:Int, cnt:Int) {
   if (getIndication(x, y)>cnt) { //S'il n'y a pas d'indication ou si on a trouvé un plus court chemin,
                                  //on écrit l'indication.
     setIndication(x, y, cnt)
                                  //Puis on regarde où on peut aller :
     aMurNord(x, y) match {       //Au nord,
-      case false => ecritIndications(x-1, y, cnt+1)
+      case false => ecritIndications(x-1, y, xMax, yMax, cnt+1)
       case true  => ()
     }
     aMurOuest(x, y) match {      //à l'ouest,
-      case false => ecritIndications(x, y-1, cnt+1)
+      case false => ecritIndications(x, y-1, xMax, yMax, cnt+1)
       case true  => ()
     }
     if (x+1<=xMax) {             //au sud,
       aMurNord(x+1, y) match {
-        case false => ecritIndication(x+1, y, cnt+1)
+        case false => ecritIndication(x+1, y, xMax, yMax, cnt+1)
       }
     }
     else {
       ()
     }
-    if (y+1<=ymax) {             //et à l'est.
+    if (y+1<=yMax) {             //et à l'est.
       aMurOuest(x, y+1) match {
-        case false => ecritIndications(x, y+1, cnt+1)
+        case false => ecritIndications(x, y+1, xMax, yMax, cnt+1)
         case true  => ()
       }
     }
