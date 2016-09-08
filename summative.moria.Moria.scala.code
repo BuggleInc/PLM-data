@@ -1,9 +1,13 @@
 gauche()
 gauche()
-while(getCouleurSol() != Color.green){
+while(!mur){
   findBiscuit()
   demiPosDemi
 }
+droite()
+avance()
+gauche()
+avance()
 
 
 def mur():Boolean = {
@@ -25,10 +29,9 @@ def demiPosDemi(){
 }
 
 def findBiscuit(){
-  while(!estSurBiscuit && getCouleurSol() != Color.green){
-    mur() match{
-    	case  true => avance()
-    	case _ => gauche()
+  while(!estSurBiscuit && !mur){
+    avance()
+
   	}
   }
   prendBiscuit()
