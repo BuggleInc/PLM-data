@@ -1,0 +1,24 @@
+override def run() {
+}
+
+def positionFinale() : Boolean={
+  if (estFaceMur()==true){
+    if (getDirection()==Direction.EST){
+      gauche()
+      if(estFaceMur()==true){
+        return true
+      }else {
+        return false
+      }
+    }else if (getDirection()==Direction.OUEST){
+      droite()
+      if (estFaceMur()==true){
+        return true
+      }else{
+        return false
+      }
+    }
+  } else {
+    return false
+  }
+}
