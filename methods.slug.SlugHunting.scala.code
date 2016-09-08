@@ -1,32 +1,28 @@
 def hunt() {
   
-  while (!estSurBiscuit()) {
-  
-  	isFacingTrail() match {
+  	(isFacingTrail(),estSurBiscuit()) match {
     
-    	case true => avance(); baisseBrosse(); leveBrosse(); hunt();
+    	case (true,false) => avance(); baisseBrosse(); leveBrosse(); hunt();
     
-    	case false => droite();
-    								if (isFacingTrail()) {
+    	case (false,false) => droite();
+    												if (isFacingTrail()) {
                     
-        	           hunt();
+        	           				hunt();
                     
-          	       	}
+          	       					}
     
-    								else {
+    												else {
                     
-              	     gauche();
-                	   gauche();
-                  	 hunt();
+              	     				gauche();
+                	   				gauche();
+                  	 				hunt();
                     
-                  	}
+                  					}
+      
+      case(_,true) => prendBiscuit();
   
 		}
 
-	}
-  
-  prendBiscuit();
-  
 }
 
 
@@ -61,3 +57,10 @@ def isFacingTrail():Boolean = {
   }
 
 }
+
+/* (x,y) match {
+ case (0,0) => println("C'est le point origine")
+ case (_,0) => println("C'est un point de l'ordonnée")
+ case (0,_) => println("C'est un point de l'abscisse")
+ case (_,_) => println("C'est un point quelconque")
+} */
