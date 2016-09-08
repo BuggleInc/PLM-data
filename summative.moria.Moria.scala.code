@@ -1,34 +1,18 @@
-// move forward while we not encounter a baggle and pick it
-def moveAndTake () = {
-  while (!isOverBaggle() || !isFacingWall()) {
-    forward();
+// make a u-turn
+left(); 
+left();
+while (!isFacingWall()) {
+  forward()
+  if (isOverBaggle()) {
+    pickupBaglle();
+    while (!isOverBaggle()) {
+      backward();
     }
-  if (isOverBaggle()) { pickupBaggle();}
-}
-
-// idem but drop it
-def moveAndDrop () = {
-  while (!isOverBaggle()) {
-    backward();
+    forward();
+    dropBaggle();
   }
-  // new step and drop it
-  forward();
-  if (isCarryingBaggle()) { dropBaggle(); }
-  // avoid bugs
-  forward();
 }
-
-def run () = {
-  left(); left(); // U-turn
-  while (!isFacingWall()) {
-    moveAndTake();
-    moveAndDrop();
-  }
-  // the few last moves to exit
-  right();
-  forward();
-  left();
-  forward();
-}
-
-run();
+right();
+forward();
+left();
+forward();
