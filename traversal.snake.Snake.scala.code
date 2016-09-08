@@ -2,8 +2,10 @@ override def run() {
   baisseBrosse()
   while(!positionFinale){
     if(estFaceMur && getDirection==Direction.EST){
-      
-    }
+      changeEST()
+    } else if(estFaceMur && getDirection==Direction.OUEST){
+      change.OUEST
+    } else {avance}
     
   }
 }
@@ -19,7 +21,24 @@ def positionFinale():Boolean{
     }if(estFaceMur){
       
       return true
-    } else {return false}
-  } else {return false}
+    } else {
+      while (getDirection()!=dir){
+        gauche()
+      }
+      return false
+    }
+    }  else {return false}
  
+}
+
+def changeEST(){
+  gauche()
+  avance()
+  gauche()
+}
+
+def change.OUEST(){
+  droite()
+  avance()
+  droite()
 }
