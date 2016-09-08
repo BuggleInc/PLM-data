@@ -1,0 +1,26 @@
+override def run() {
+  ecritMessage("0")
+  var cpt = 0
+  while (!posFinale()) {
+    	posSuivante()
+    	cpt += 1
+    	ecritMessage(cpt)
+    	
+  }
+}
+
+
+def posFinale() : Boolean = {
+  return ((getMondeLargeur() - 1 == getX()) && (getY() == getMondeHauteur() - 1))
+}
+
+
+
+def posSuivante() {
+  if (getX() == getMondeLargeur() - 1) {
+    	setPos(0, getY() + 1)
+  }
+  else {
+  		setPos(getX() + 1, getY())
+  }
+}
