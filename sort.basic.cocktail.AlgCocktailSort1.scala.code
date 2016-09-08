@@ -1,7 +1,7 @@
 def cocktailSort() {
   var n = getValueCount();
   var isSorted = false;
-  while (!isSorted) {
+  do {
     isSorted =true;
     for (i <- 0 to n-2) {
       if (isSmaller(i, i+1)) {
@@ -11,9 +11,9 @@ def cocktailSort() {
     }
     for (i <- (n-2) to 0 by -1) {
       if (isSmaller(i, i+1)) {
-        swap(i+1, i);
+        swap(i, i+1);
         isSorted = false;
       }
     }
-  }
+  } while (!isSorted())
 }
