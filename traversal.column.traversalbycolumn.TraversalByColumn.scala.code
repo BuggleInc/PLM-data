@@ -1,7 +1,9 @@
 override def run() {
-  
+  var cpt:Int=0
   while positionTest()==false {
     parcours()
+    cpt+=1
+    ecritMessage(msc:cpt)    
     positionTest()
     
   }
@@ -21,6 +23,7 @@ def positionTest():Boolean={
 def parcours(){
   var x:Int=0
   var y:Int=0
+
   x=getX()
   y=getY()
     
@@ -29,6 +32,6 @@ def parcours(){
     
   }else{
     setPos(x+1,0)
-  } 
+  }
   
 }
