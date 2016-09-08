@@ -3,6 +3,7 @@ def insertionSort() {
   var v:Int = 0;
   var j:Int = 0;
   var lastOne:Int = 0;
+  casePrec:Int = 0;
   
   for (i<-1 to n-1) {
   
@@ -10,9 +11,9 @@ def insertionSort() {
     j = i;
     
     while (j!=0) {
-      
-      if (isSmaller(v,getValue(j-1))) {
-      	copie(j-1,j);
+      casePrec = getValue(j-1);
+      if (isSmaller(v,casePrec)) {
+      	setValue(j-1,casePrec);
         lastOne = j-1;
       }
       
