@@ -1,0 +1,34 @@
+override def run() {
+  
+  while positionTest()==false {
+    parcours()
+    positionTest()
+    
+  }
+  
+}
+
+
+def positionTest():Boolean={
+  if(getMondeHauteur()==getY() && getMondeLargeur()==getX()){
+    return true
+  }else {
+    return false
+  }
+  
+}
+
+def parcours(){
+  var x:Int=0
+  var y:Int=0
+  x=getX()
+  y=getY()
+    
+  if (estFaceMur==false){
+    setPos(x,y+1)
+    
+  }else{
+    setPos(x+1,0)
+  } 
+  
+}
