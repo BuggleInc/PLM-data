@@ -19,19 +19,17 @@ def fini() : Boolean = {
 def bouge(){
   var Y=getY()
   var X=getX()
-  if (getDirection()==Direction.EAST){
+  if (Y%2==1){
     if (X!=getMondeLargeur()-1)
-    	setPos(X+1,Y)
+        	setPos(X+1,Y)
     else {
     	setPos(X,Y+1)
-      gauche();gauche()//setDirection(Direction.WEST)
     }
   }else{
     if (X!=0)
     	setPos(X-1,Y)
     else {
     	setPos(X,Y+1)
-    	droite();droite()//setDirection(Direction.EAST)
     }
   }
 }
