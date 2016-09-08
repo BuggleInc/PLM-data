@@ -1,6 +1,17 @@
-def bubbleSort2() {
-  for(i<- 0 to getNombreValeurs - 2){
-    var k = getNombreValeurs - i - 2
-    for(j<- 0 to i)if(plusPetit(k, j)) echange(j,k);
+def bubbleSort2()  {
+  var inchange = true ;
+  var perfect = false;
+  var j = getNombreValeurs-2;
+  while(!perfect){
+    perfect = true
+    for(i <- 0 to j){
+      var k = getNombreValeurs-2-i
+    	if (getValeur(k) > getValeur(k+1)) {
+        echange (i, i+1);
+        perfect = false;
+      }
+      
+    }
+    j -= 1;
   }
 }
