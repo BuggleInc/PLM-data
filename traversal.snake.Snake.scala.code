@@ -24,16 +24,18 @@ def positionFinale() {
 }
   
 def avanceSerpent() {
-  if (!estFaceMur)
+  if (!estFaceMur())
   	avance()
-  if (getDirection() == Direction.EST) {
-  	gauche()
-    avance()
-    gauche()
-  }
-  if (getDirection() == Direction.OUEST) {
-    droite()
-    avance()
-    droite()
+  else {
+    if (getDirection() == Direction.EST) {
+      gauche()
+      avance()
+      gauche()
+    }
+    if (getDirection() == Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    }
   }
 }
