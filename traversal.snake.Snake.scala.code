@@ -5,8 +5,23 @@ override def run()
   def positionFinale(){
     var dir:Direction = getDirection()
     if(estFaceMur())
+    {
     	return true
-
+    }
+    else if(dir == Direction.EAST)
+    {
+      gauche()
+      if(estFaceMur())
+    		return true
+      droite()
+    }
+    else if(dir == Direction.WEST)
+    {
+      droite()
+      if(estFaceMur())
+    		return true
+      gauche()
+    }
     else return false
   }
   
