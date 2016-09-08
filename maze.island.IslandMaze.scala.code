@@ -1,0 +1,29 @@
+override def run() {
+  while (!overbiscuit) {
+    if (murNord)
+    	avance()
+    else
+    	keephandonwall
+  }
+  prendBiscuit()
+}
+
+def keephandonwall = {
+  gauche()
+  while (estFaceMur())
+    droite()
+  avance()
+}
+
+def overbiscuit:Boolean = {
+  if (estSurBiscuit())
+  	return true
+  return false
+}
+
+def murNord:Boolean = {
+  setDirection(Direction.NORTH)
+  if (estFaceMur())
+  	return true
+  return false
+}
