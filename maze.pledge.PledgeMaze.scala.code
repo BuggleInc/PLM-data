@@ -31,8 +31,10 @@ def workaroundObstacle() {
   
   do {
     // Keep the wall on the left
-    left();
-    turnCount += 1;
+    if (!isFacingWall) {
+      left();
+      turnCount += 1;
+    }
     
     while (isFacingWall()) {
       right();
