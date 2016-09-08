@@ -1,12 +1,18 @@
 Erreur de compilation :
 Snake:1: error: value unary_! is not a member of Unit
 override def run() {var y=0; while (!a()){if (estFaceMur() && y==0){gauche();avance();gauche();y=y+1};if(estFaceMur()&& y==1){droite;avance;droite;y=y-1};else {avance()}}
-                                    ^Snake:5: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
-def a(){setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){return true}};else return false} 
-                                                                                        ^Snake:5: warning: enclosing method a has result type Unit: return value discarded
-def a(){setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){return true}};else return false} 
-                                                                                 ^Snake:5: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
-def a(){setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){return true}};else return false} 
-                                                                                                           ^Snake:5: warning: enclosing method a has result type Unit: return value discarded
-def a(){setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){return true}};else return false} 
-                                                                                                    ^
+                                    ^Snake:5: error: not found: value x
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+        ^Snake:5: error: not found: value x
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                               ^Snake:5: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                                         ^Snake:5: warning: enclosing method a has result type Unit: return value discarded
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                                  ^Snake:5: error: not found: value x
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                                                                   ^Snake:5: warning: a pure expression does nothing in statement position; you may be omitting necessary parentheses
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                                                                             ^Snake:5: warning: enclosing method a has result type Unit: return value discarded
+def a(){x=getDirection();setDirection(Direction.EAST);if(estFaceMur()){gauche();if (estFaceMur()){setDirection(x);return true}};else {setDirection(x);return false}} 
+                                                                                                                                                      ^
