@@ -1,4 +1,5 @@
 override def run() {
+  ecritMessage(0)
   while (positionFinale()==false){
     Next()
   }
@@ -14,11 +15,16 @@ def positionFinale():Boolean={
 }
 
 def Next() {
+  var N=0
   while (positionFinale()==false){
     while (getY() != 6){
+      ecritMessage(N)
       setPos(getX(),getY()+1)
+      N=N+1
     }
     setPos(getX()+1,0)
+    ecritMessage(N)
+    N=N+1
     
     
   }
