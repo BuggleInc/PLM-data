@@ -1,10 +1,6 @@
 override def run() {
-  while (posFinale() == true) {
-    	if (getY() == getMondeHauteur()) {
-    		setPos((getX()+1), 0)
-  }
-  		else
-  			setPos(getX(), (getY() + 1))
+  while (posFinale() == false) {
+    	posSuivante()
   }
 }
 
@@ -14,9 +10,11 @@ def posFinale() {
 }
 
 def posSuivante() {
+  val x = getX()
+  val y = getY()
   if (getY() == getMondeHauteur()) {
-    	setPos((getX()+1), 0)
+    	setPos((x+1), 0)
   }
   else
-  		setPos(getX(), (getY() + 1))
+  		setPos(getX(), (y+ 1))
 }
