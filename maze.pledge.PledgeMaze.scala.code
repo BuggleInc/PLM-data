@@ -11,19 +11,19 @@ def keepHandOnSideWall():Int = {
   var sommeAngle:Int = 0
   if (estFaceMur) {
     (droite)
-    sommeAngle = (sommeAngle+1)%4
+    sommeAngle = sommeAngle+1
   }
   else {
     avance()
     gauche()
-    sommeAngle = (sommeAngle-1)%4
+    sommeAngle = sommeAngle-1
     while (!estFaceMur) {
       avance()
       gauche()
-      sommeAngle = (sommeAngle-1)%4
+      sommeAngle = sommeAngle-1
     }
     droite()
-    sommeAngle = (sommeAngle+1)%4
+    sommeAngle = sommeAngle+1
   }
   return sommeAngle
 }
@@ -46,7 +46,7 @@ def findNorthWall() {
                 etat = 1
       case 1 => sommeAngle = 0
                 while (!isDirectionFree(Direction.NORTH) || sommeAngle!=0) {
-                  sommeAngle = (sommeAngle+keepHandOnSideWall())%4
+                  sommeAngle = sommeAngle+keepHandOnSideWall()
                 }
                 etat = 0
       case _ => println("Ce cas ne devrait pas arriver.")
