@@ -5,15 +5,16 @@ def cocktailSort3() {
   while(!fini) {
     p += 1;
     fini = true ;
+    
+    if (fini && p> n/2)
+    	return
+    
     for (i<- p to n-p){
       if (!plusPetit(i,i+1)){
         echange(i,i+1);
         fini = false
       }
     }
-    
-    if (fini)
-    	return
     
     for (i<- p to n-p){
       if (!plusPetit(n - i,n - i + 1)){
