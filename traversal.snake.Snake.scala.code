@@ -1,0 +1,33 @@
+override def run() {
+  var finalpos : Boolean = false
+  while (finalpos == false){
+    brushDown()
+    if (isFacingWall()==true){
+      if (getDirection()==Direction.East){
+        left()
+        if(isFacingWall()==true){
+          finalpos=true
+        }
+        else{
+          forward()
+          left()
+          forward(6)
+          
+        }
+      }
+      if (getDirection()==Direction.West){
+        rigth()
+        if(isFacingWall()==true){
+          finalpos=true
+        }
+        else{
+          forward()
+          right()
+          forward(6)
+        }
+      }
+    }
+    forward(6)
+    
+  }
+}
