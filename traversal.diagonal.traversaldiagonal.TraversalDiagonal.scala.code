@@ -7,7 +7,7 @@ override def run() {
   while (!fini) {
   (getX(),getY()) match {
     case (6,6) => ecritMessage(cpt); fini = true
-    case (6,_) => ecritMessage(cpt); diag = diag+1; setPos(diag-6,6)
+    case (6,_) => ecritMessage(cpt);cpt=cpt+1; diag = diag+1; setPos(diag-6,6)
     case (_,0) => ecritMessage(cpt); cpt= cpt + 1; diag = diag+1; setPos(0,diag)
    
     case (_,_)=> ecritMessage(cpt); cpt=cpt+1; setPos(getX()+1,getY()-1)
