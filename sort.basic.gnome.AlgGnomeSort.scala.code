@@ -3,26 +3,14 @@ def gnomeSort() {
   var positionGnome = 0
   val taille = getNombreValeurs()
   
-  while (true) {
-    
-    /*(x,y) match {
- 			case (0,0) => println("C'est le point origine")
- 			case (_,0) => println("C'est un point de l'ordonnée")
- 			case (0,_) => println("C'est un point de l'abscisse")
- 			case (_,_) => println("C'est un point quelconque")
-		}*/
-  
-    var ppetit = plusPetit(positionGnome,positionGnome+1)
-    
-    (ppetit,positionGnome) match {
-
+  while(true) {
+        
+    (plusPetit(positionGnome,positionGnome+1),positionGnome) match {
+      
       case (true,taille-1) => return
-      case (true,_) => positionGnome = positionGnome + 1 
-      case (_,0) => echange(positionGnome,positionGnome+1); positionGnome = positionGnome + 1;
-      case (_,_) => echange(positionGnome,positionGnome+1); positionGnome = positionGnome - 1;
-
-  	}
-  
+      
+    }
+    
   }
   
 }
