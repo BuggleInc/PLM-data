@@ -6,16 +6,14 @@ def shellSort() {
   var j:Int=0
   var ecart:Int = (lgr.toDouble/2).toInt
  	while (ecart>=1){
-  for (i <- 1 to lgr-1){
+  for (i <- ecart-1 to lgr-ecart+1){
     v = getValeur(i) 
     j = ecart
-    if (i-j>=0){
     while (i-j>=0 && getValeur(i-j)>v ){
       copie(i-j,i-(j-ecart))
       j+=ecart
       }
     setValeur(i-(j-ecart), v)
-    }
   }
     ecart = (ecart.toDouble/2).toInt
 }
