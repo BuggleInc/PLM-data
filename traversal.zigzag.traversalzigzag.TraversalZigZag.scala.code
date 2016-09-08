@@ -3,24 +3,27 @@ override def run() {
   var x=0
   var y=0
   while (!(x==6 & y==6)) {
-    if (y%2==0) {
-    ecritMessage(cpt)
-    x+=1
-    setPos(x,y)
-    cpt+=1
-    if (x==6 & y!=6) {
-      y+=1
-      x=0
+    if (y%2==0 || y==0) {
       ecritMessage(cpt)
-      setPos(x,y)
       cpt+=1
-    }
-    } else if (y%2==1) {
+      x+=1
+      setPos(x,y)
       if (x==6 & y!=6) {
-        y-=1
         ecritMessage(cpt)
-        setPos(x,y)
+        y+=1
         cpt+=1
+        setPos(x,y)
+      }
+    } else if (y%2==1) {
+      ecritMessage(cpt)
+      cpt+=1
+      x-=1
+      setPos(x,y)
+      if (x==0) {
+        ecritMessage(cpt)
+        y+=1
+        cpt+=1
+        setPos(x,y)
       }
     }
   }
