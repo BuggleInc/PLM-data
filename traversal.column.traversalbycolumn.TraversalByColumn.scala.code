@@ -1,5 +1,6 @@
 override def run() {
   var n = 0
+  marque(n)
   while(!positionFinale()){
     if(getY()==getMondeHauteur()){
       setPos(getX()+1,0)
@@ -14,7 +15,7 @@ override def run() {
 }
 
 def positionFinale():Boolean = {
-  if(getMondeHauteur()==getY() && getMondeLargeur()==getX()){
+  if(getMondeHauteur()-1==getY() && getMondeLargeur()-1==getX()){
     return true
   } else {
     return false
