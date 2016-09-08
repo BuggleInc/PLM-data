@@ -1,13 +1,17 @@
 def cocktailSort() {
   do{
+    var echange1:Boolean = false
+  	var echange2:Boolean = false
     for (i <- 0 to getNombreValeurs-2){
       if (getValeur(i)>getValeur(i+1)){
         echange(i,i+1)
+        echange1 = true
       }
     }
     for (i <- 0 to getNombreValeurs -2 by -1){
       if(getValeur(i)>getValeur(i+1))
       echange(i,i+1)
+      echange2 = true
     }
-  }
+  } while (echange1||echange2)
 }
