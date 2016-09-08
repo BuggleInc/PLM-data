@@ -1,18 +1,14 @@
-def bubbleSort3()  {
-  var inchange = true ;
-  var perfect = false;
-  var j = getNombreValeurs-2;
-  while(!perfect){
-    perfect = true
-    for(i <- 0 to j){
-      var k = getNombreValeurs-2-i
-    	if (getValeur(k) > getValeur(k+1)) {
-        echange (k, k+1);
-        perfect = false;
+def BubbleSort3(){
+  var lgr = getNombreValeurs;
+  for(k <- 0 to lgr - 2){
+    var i = lgr - 2 - k;
+    for (j <- 0 to i){
+      var fini = true;
+      if(plusPetit(i,j)){
+        echange(i,j);
+        fini = false;
       }
+      if(fini) return;
     }
-    if(perfect)return;
-    j -= 1;
   }
 }
-
