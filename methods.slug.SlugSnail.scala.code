@@ -1,5 +1,6 @@
-def hunt(c:Color) {
-	while (isFacingTrail(c)){
+def hunt(c: Color) {
+  var biscuit=0
+  while (isFacingTrail(c)){
     if (!estSurBiscuit()){
       forward()
       baisseBrosse()
@@ -13,13 +14,14 @@ def hunt(c:Color) {
     }
   }  
   prendBiscuit()  
- }
+}
 
-def isFacingTrail(c:Color):Boolean = {
+def isFacingTrail(c: Color):Boolean = {
   while (!estSurBiscuit){
     if (!estFaceMur){
+      forward()
       if (getGroundColor()==c){
-        backward() ; return true
+        backward ; return true
       }
       else 
         backward()
