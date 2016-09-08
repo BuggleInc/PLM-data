@@ -3,13 +3,14 @@ def estPosiFin():Boolean={
 	return false}
 
 
-def avance(diag:Int):Int={
-  var x=getX()
-  var y=getY()
-  if(y==0 && (diag+1)<getMondeLargeur()){setPos(diag+1,0);return diag+1}
-  if(diag>=getMondeLargeur() && x+1==getMondeLargeur()){setPos(y,getMondeHauteur());return diag+1}
-  setPos(x+1,y-1)
-  return diag}
+def avance(){
+  x=getX()
+  y=getY()
+  X=getMondeLargeur()
+  Y=getMondeHauteur()
+  if(y==0 && x+1<X){setPos(0,y+1)}else if(x+1==X){setPos(y+1,Y-1)}else{setPos(x+1,y-1)}
+}
+
 
 
 
@@ -19,6 +20,6 @@ override def run() {
   var mark=0
   do{ecritMessage(mark)
      mark=mark+1
-     diag=avance(diag)}while(!estPosiFin())
+     avance()}while(!estPosiFin())
   ecritMessage(mark)
 }
