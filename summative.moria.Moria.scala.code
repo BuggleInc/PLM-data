@@ -1,0 +1,35 @@
+gauche()
+gauche()
+while(getCouleurSol() != Color.GREEN){
+  findBiscuit()
+  demiPosDemi
+}
+
+
+def mur():Boolean = {
+  if(estFaceMur){
+    return false
+  }else{
+  return true
+  }
+    
+  }
+
+def demiPosDemi(){
+  while(!estSurBiscuit){
+    recule()
+  }
+  avance()
+  poseBiscuit()
+  avance()
+}
+
+def findBiscuit(){
+  while(!estSurBiscuit && getCouleurSol() != Color.GREEN){
+    mur() match{
+    	case  true => avance()
+    	case _ => gauche()
+  	}
+  }
+  prendBiscuit()
+}
