@@ -1,29 +1,29 @@
 def hunt() {
   
-  while (!estSurBiscuit()) {
-  
-  	isFacingTrail() match {
+  isFacingTrail() match {
     
-    	case true => avance(); baisseBrosse(); leveBrosse(); hunt();
+    case true => while (!estSurBiscuit()) {
+      
+      avance(); baisseBrosse(); leveBrosse(); hunt();
     
-    	case false => droite();
-    								if (isFacingTrail()) {
-                    
-        	            hunt();
-                    
-          	        }
+    	}
     
-    								else {
+    case false => droite();
+    							if (isFacingTrail()) {
                     
-              	      gauche();
-                	    gauche();
-                  	  hunt();
+        	           hunt();
                     
-                  	}
+          	       }
+    
+    							else {
+                    
+              	     gauche();
+                	   gauche();
+                  	 hunt();
+                    
+                  }
   
 		}
-    
-	}
   
   prendBiscuit();
 
