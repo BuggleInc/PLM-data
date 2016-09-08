@@ -2,22 +2,16 @@ def bubbleSort3() {
     var cpt = 1
   var l = getNombreValeurs() - 2
   for (i <- 0 to l) {
+    cpt = 0
     for (j <- 0 to l - 1 - i) {
       if (plusPetit(j+1,j)) {
         echange(j, j+1)
+        cpt += 1
+       if (cpt == 0) {
+         return
+       }
       }
     }
   }
 }
 
-def bubbleSort2() {
-  var cpt = 1
-  var l = getNombreValeurs() - 2
-  for (i <- 0 to l) {
-    for (j <- 0 to l - 1 - i) {
-      if (plusPetit(j+1,j)) {
-        echange(j, j+1)
-      }
-    }
-  }
-}
