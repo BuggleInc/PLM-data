@@ -1,18 +1,9 @@
-def isWallOnTheLeft () : Boolean = {
-  left();
-  var answer = isFacingWall();
-  // back to the initial position :
-  right();
-  return answer;
-
-}
-
 def makeMoving() {
-  while (isWallOnTheLeft() && !isFacingWall()) {
+  while (!isFacingWall()) {
     forward();
   }
-  left();
-}
+  right();
+  
 
 override def run() {
 	while (!isOverBaggle()) {
