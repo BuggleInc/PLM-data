@@ -1,0 +1,34 @@
+def estPosiFin():Boolean={
+  if(getX()+1==getMondeHauteur() && getY()+1==getMondeLargeur()){return true}
+	return false}
+
+def isPair(nb:Int):Boolean={
+  var a=0
+  while(a<nb){a=a+2}
+  if (a==nb){return true}
+  return false}
+
+def avance(diag:Int){
+  x=getX()
+  y=getY()
+  if(y==0 && diago<getMondeLargeur()){setPos(diag+1,0),return diag+1}
+  if(diag>=getMondeLargeur() && x+1==getMondeLargeur()){setPos(y,getMondeHauteur();return diag+1)}
+  setPos(x+1,y-1)
+  return diag}
+
+
+
+var diag = 0;
+override def run() {
+  var mark=0
+  do{ecritMessage(mark)
+     mark=mark+1
+     diag=avance(diag)}while(!estPosiFin())
+  ecritMessage(mark)
+}
+
+
+
+
+
+
