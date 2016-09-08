@@ -1,0 +1,41 @@
+override def run() {
+gauche()
+var cpt:Int=0
+ecritMessage(cpt)
+
+  //METHODE FIN
+  def posfin():Boolean = {
+    if (estFaceMur&&getDirection()==Direction.EST) {
+      droite();
+      if (estFaceMur) {
+        gauche();
+        return true
+      }
+      gauche()
+    }
+    
+    return false
+  }
+  
+  //METHODE AVANCE
+  def avanserp() {
+		while (!estFaceMur) {
+      ecritMessage(cpt)
+      avance()
+    }
+    if (!posfin()) {
+      if (getDirection()==Direction.EST) {
+        droite();avance();droite()
+      } else {
+        gauche();avance();gauche()
+        
+      }
+    }
+	}
+
+baisseBrosse()
+while (!posfin()) {
+  avanserp()
+}
+  
+}
