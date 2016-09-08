@@ -1,0 +1,66 @@
+def hunt(c:Color) {
+  
+  	(isFacingTrail(c),estSurBiscuit()) match {
+    
+    	case (true,false) => avance(); baisseBrosse(); leveBrosse(); hunt();
+    
+    	case (false,false) => droite();
+    												if (isFacingTrail()) {
+                    
+        	           				hunt();
+                    
+          	       					}
+    
+    												else {
+                    
+              	     				gauche();
+                	   				gauche();
+                  	 				hunt();
+                    
+                  					}
+      
+      case (_,true) => prendBiscuit();
+  
+		}
+
+}
+
+
+
+def isFacingTrail(c:Color):Boolean = {
+  
+  if (estFaceMur()) {
+    
+    return false
+    
+  } 
+  
+  else {
+  
+  	avance();
+  
+  	if (getCouleurSol() == c) {
+    
+    	recule();
+    	
+      return true
+    
+  	}
+    
+    else {
+      
+      recule();
+      return false
+      
+    }
+  
+  }
+
+}
+
+/* (x,y) match {
+ case (0,0) => println("C'est le point origine")
+ case (_,0) => println("C'est un point de l'ordonnée")
+ case (0,_) => println("C'est un point de l'abscisse")
+ case (_,_) => println("C'est un point quelconque")
+} */
