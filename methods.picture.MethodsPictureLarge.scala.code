@@ -1,0 +1,55 @@
+override def run(a:Int, b:Int) {
+  
+  def makeV(c:Color) {
+  setBrushColor(c)
+  brushDown()
+  brushUp()
+  forward()
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+}
+  
+def makePattern(a) {
+  for (i <- 1 to a) {
+  	for (k <- 1 to 4) {
+      	if (k==1) {
+      		forward()
+      		makeV(Color.yellow)
+      		forward()
+      		left()
+        } else if (k==2) {
+          forward()
+      		makeV(Color.red)
+      		forward()
+      		left()
+        } else if (k==3) {
+          forward()
+      		makeV(Color.blue)
+      		forward()
+      		left()
+        } else if (k==4) {
+          forward()
+      		makeV(Color.green)
+      		forward()
+      		left()
+        }
+    }
+  	forward(5)
+  }
+  backward(15)
+  left()
+  forward(5)
+  right()
+  
+}
+
+for (n <- 1 to b) {
+	makePattern()
+}
