@@ -6,15 +6,17 @@ override def run() {
   ecritMessage(cpt)
   while (!positionfinale) {
     cpt+=1
-    if ((cpt-tourne)%6==0)
+    if ((cpt-tourne)%6==0) {
     	ligne+=1
+    	tourne+=1
+    }
     else {
   		if (tourne%2==0)
     		colonne+=1
     	else
     		colonne-=1
     }
-    setPos(ligne,colonne)
+    setPos(colonne,ligne)
   }
 }
 
