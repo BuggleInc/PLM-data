@@ -19,13 +19,17 @@ def fini() : Boolean = {
 }  
 
 def bouge(){
-
+	var MaxY=getMondeHauteur()-1
   if (pas < diag){
     setPos(getX()+1,getY()-1)
   	pas+=1
   }else{
     diag+=1
-    setPos(0,diag)
-    pas=0
+    if (getY()<MaxY){
+    	setPos(0,diag)
+    	pas=0
+    }else {
+      setPos(diag-MaxY,MaxY)
+    }
   }
 }
