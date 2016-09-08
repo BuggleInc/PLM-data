@@ -1,52 +1,70 @@
 def growFlowers()
 {
-  var listPos:Array[Int]=Array(7,6,3,6,5,4)
-  var listColor:Array[Color]=Array(Color.red,Color.cyan,Color.orange,Color.green,Color.pink)
-  var compteur=0
-  for (i<-listColor)
-  	{
-      setPos(listPos[compteur],listPos[compteur+1])
-      fleur(i)
-      compteur+=2
-    }
+	ligneFleur(Color.rouge,Color.cyan)
+  tourneGauche(2)
+  tourneDroite(2)
+  fleur(Color.orange)
+  recule(3)
+  tourneGauche(2)
+  tourneDroite(2)
+  ligneFleur(Color.pink,Color.green)
   
+  
+}
+          
+def ligneFleur(color1:Color,color2:Color)
+{
+  fleur(color1)
+  avance(3)
+  fleur(color2) 
+  recule(5)
 }
 
 def fleur(color:Color)
 {
   ligne(color)
-  tourneDroite(2)
-  droite()
-  ligne(color)
-  tourneDroite(1)
+  tourneDroite()
+	avance()
+  retourne()
+  ligne()
+  marquer(Color.yellow,0)
 }
 
 
 
 def ligne(color:Color)
 {
-  var L:Array[Color]=Array(color,Color.yellow)
-  for(i<-L)
-  	{
-      marquer(i)
-      avance()
-    }
-  marquer(color)
+	marquer(color,3)
+  retourne()
+  avance()
 }
 
 def tourneDroite(nb:Int)
 {
+  droite()
   for (i<-1 to nb)
   	{
-    	droite()
+  		avance()
+    }
+}
+
+def tourneGauche(nb:Int)
+{
+  gauche()
+  for (i<-1 to nb)
+  	{
   		avance()
     }
 }
 
 
-def marquer(color:Color)
+def marquer(color:Color,nb:Int)
 {
   setCouleurBrosse(color)
   baisseBrosse()
-  leveBrosse()
+  if (nb!=0)
+  	{
+      avance(nb-1)
+    }
+	leveBrosse()
 }
