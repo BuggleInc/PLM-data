@@ -4,26 +4,25 @@ def shellSort()  {
   
   while (ecart>0) {
   
-    for (i <- 1 to (getNombreValeurs()/ecart).toInt) {
-      
-			var last = 0
+    for (i <- 1 to getNombreValeurs()-1) {
+    
+      var v = getValeur(i)
+      var last = 0
       var c = 1
-      var v = getValeur(i*ecart-(c-1)*ecart)
-      
 
-      while (i*ecart-(c+1)*ecart >= 0 && !plusPetitQue(i*ecart-c*ecart,v)) {
+      while (i-c >= 0 && !plusPetitQue(i-c,v)) {
 
-        copie(i*ecart-c*ecart,i*ecart-(c+1)*ecart)
+        copie(i-c,i-c+1)
         last = c
         c = c + 1
 
       }
 
-      setValeur(i*ecart-last*ecart,v)
-
-    }
+      setValeur(i-last,v)
     
-    ecart = ecart/2
+  	}
+    
+  ecart = ecart/2
   
   }
   
