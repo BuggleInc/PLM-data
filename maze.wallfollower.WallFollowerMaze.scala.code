@@ -1,0 +1,30 @@
+override def run() {
+}
+
+def keepHandOnSideWall() {
+  if ((checkLeftWall) && (!estFaceMur)) {
+    avance()
+    while (!checkLeftWall) {
+      gauche()
+      avance()
+    }
+  } else if (!checkLeftWall) {
+    while (!checkLeftWall) {
+      gauche()
+      avance()
+    }
+  } else if (estFaceMur) {
+    droite()
+  }  
+}
+
+def checkLeftWall():Boolean = {
+  gauche()
+  if (estFaceMur) {
+    droite()
+    return true
+  } else {
+    return false
+  }
+}
+
