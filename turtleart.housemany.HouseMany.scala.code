@@ -1,8 +1,5 @@
 override def run() {
-  for(i <- 1 to 1) {
-    makeHouse(20)
-    penUp()
-  }
+  makeLine(Array(true, true, true, true))
 }
 
 def makeHouse(length:Int) {
@@ -20,4 +17,22 @@ def makeHouse(length:Int) {
     forward(length)
     right(90)
   }
+}
+
+def makeLine(grid:Array[Boolean]) {
+  for(i <- 1 to grid.Length) {
+    if(grid(i)) {
+      penDown()
+      makeHouse(30)
+      penUp()
+
+      right(90)
+      forward(30 + 20)
+    }
+  }
+  
+  left(90)
+  forward(grid.Length * (30 + 20))
+  right(90)
+  forward(75)
 }
