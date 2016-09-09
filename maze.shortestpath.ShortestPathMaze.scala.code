@@ -1,12 +1,30 @@
 var EXIT_NOT_FOUND = (-1, -1);
 var NO_INDICATION = 9999;
 
+object NeighborPos extends Enumeration {
+	type NeighborPos = Value
+	val TOP, BOTTOM, RIGHT, LEFT = Value
+}
+import NeighborPos._
+
 
 override def run() {
 	var (exitX, exitY) = findExit();
 
 	markExit(exitX, exitY);
 	markOthers();
+}
+
+def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int) {
+  
+}
+
+def moveToExit() {
+  
+}
+
+def goToExit() {
+  
 }
 
 def markOthers() {
@@ -43,12 +61,6 @@ def getIndicationSafe(x:Int, y:Int) : Int = {
 	return getIndication(x, y);
 }
 
-object NeighborPos extends Enumeration {
-	type NeighborPos = Value
-	val TOP, BOTTOM, RIGHT, LEFT = Value
-}
-
-import NeighborPos._
 
 
 def hasBottomWall(x:Int, y:Int) : Boolean = {
@@ -67,29 +79,34 @@ def hasRightWall(x:Int, y:Int) : Boolean = {
   return hasLeftWall(x + 1, y);
 }
 
-def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
-  var xn = 0;
-  var yn = 0;
+def getNeighborRelativePos(x:Int, y:Int, np:NeighborPos) : (Int, Int, Boolean) = {
+  var canAccess = true;
   
   np match {
     case TOP =>
-    	if (hasTopWall(x, y)) return min;
+    	if (hasTopWall(x, y)) canAccess = false;
     	xn = 0;
     	yn = -1;
     case BOTTOM =>
-    	if (hasBottomWall(x, y)) return min;
+    	if (hasBottomWall(x, y)) canAccess = false;
     	xn = 0;
     	yn = 1;
     case RIGHT =>
-    	if (hasRightWall(x, y)) return min;
+    	if (hasRightWall(x, y)) canAccess = false;
     	xn = 1;
     	yn = 0;
     case LEFT =>
-    	if (hasLeftWall(x, y)) return min;
+    	if (hasLeftWall(x, y)) casAccess = false;
     	xn = -1;
     	yn = 0;
   }
   
+  return canAccess;
+}
+
+def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
+  var (xn, yn, canAccess) = getNeihborRelativePos(x, y, np);
+  if (!canAccess) return min;
   
 	var indication = getIndicationSafe(x + xn, y + yn);
 

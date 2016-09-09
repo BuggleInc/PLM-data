@@ -1,8 +1,42 @@
-The world 'Labyrinth' differs:
-  In (11,5), there shouldn't be this baggle.
-  Something is wrong about buggle 'Thesee':
-    Its position is (7,10); expected: (11,5).
-    Its color is java.awt.Color[r=0,g=0,b=0]; expected: java.awt.Color[r=0,g=0,b=0].
-    The color of its brush is java.awt.Color[r=192,g=192,b=192]; expected: java.awt.Color[r=192,g=192,b=192].
-
-------------------------------------------
+Compilation error:
+ShortestPathMaze:89: error: not found: value xn
+      xn = 0;
+      ^ShortestPathMaze:90: error: not found: value yn
+      yn = -1;
+      ^ShortestPathMaze:93: error: not found: value xn
+      xn = 0;
+      ^ShortestPathMaze:94: error: not found: value yn
+      yn = 1;
+      ^ShortestPathMaze:97: error: not found: value xn
+      xn = 1;
+      ^ShortestPathMaze:98: error: not found: value yn
+      yn = 0;
+      ^ShortestPathMaze:100: error: not found: value casAccess
+      if (hasLeftWall(x, y)) casAccess = false;
+                             ^ShortestPathMaze:101: error: not found: value xn
+      xn = -1;
+      ^ShortestPathMaze:102: error: not found: value yn
+      yn = 0;
+      ^ShortestPathMaze:105: error: type mismatch;
+ found   : Boolean
+ required: (Int, Int, Boolean)
+  return canAccess;
+         ^ShortestPathMaze:109: error: not found: value getNeihborRelativePos
+  var (xn, yn, canAccess) = getNeihborRelativePos(x, y, np);
+                            ^ShortestPathMaze:110: error: value unary_! is not a member of Any
+  if (!canAccess) return min;
+      ^ShortestPathMaze:112: error: overloaded method value + with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Any)
+  var indication = getIndicationSafe(x + xn, y + yn);
+                                       ^ShortestPathMaze:112: error: overloaded method value + with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Any)
+  var indication = getIndicationSafe(x + xn, y + yn);
+                                               ^
