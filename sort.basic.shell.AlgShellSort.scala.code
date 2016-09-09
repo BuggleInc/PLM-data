@@ -2,15 +2,15 @@ def shellSort()  {
   var ecart = getNombreValeurs()/2.0
   while(ecart>0){
   var v=0
-  
+  var k=1
   for (i<-1 to getNombreValeurs()-1){
-    var n=i
+    
     v = getValeur(n)
-    while(n >0 && !plusPetitQue(n-1,v)  ){
-      copie(n-1,n)
-      n= n-1
+    while(i-ecart >0 && !plusPetitQue(i-k*ecart,v)  ){
+      copie(i-k*ecart,i-(k-1)*ecart)
+      i
     }
-   setValeur(ecart,v) 
+   setValeur(i,v) 
   }
 }
   }
