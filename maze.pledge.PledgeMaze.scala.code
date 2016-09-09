@@ -1,4 +1,5 @@
 var virages = 0
+var first = true
 
 def libreAuNord():Boolean = {
   
@@ -41,6 +42,7 @@ def longerMurGauche() {
       
       droite()
       virages = virages - 1
+      first = false
       return
     
     } else {
@@ -53,6 +55,7 @@ def longerMurGauche() {
       
     	gauche()
     	virages = virages + 1
+    	first = false
       avance()
     
   }
@@ -73,7 +76,7 @@ override def run() {
   while (!estSurBiscuit()) {
     
     longerMurGauche()
-    if (virages==0 && getDirection==Direction.NORD) {
+    if (virages==0 && !first && getDirection==Direction.NORD) {
       
       fonceAuNord()
       
