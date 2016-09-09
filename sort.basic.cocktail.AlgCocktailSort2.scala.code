@@ -5,12 +5,11 @@ def cocktailSort2() {
   var cpt:Int=0
   var cpt2:Int=0
   debut=0
-  fin=getNombreValeurs()-2
   do{
     cpt=0
     for(i<-debut to fin){
       
-      if(plusPetit(i,i+1)){
+      if(!plusPetit(i,i+1)){
         echange(i,i+1)
         cpt+=1
       }
@@ -18,7 +17,7 @@ def cocktailSort2() {
     fin-=1
     cpt2=0
     for(i<- fin to debut by -1){
-      if(plusPetit(i,i+1)){
+      if(!plusPetit(i,i+1)){
         echange(i,i+1)
         cpt2+=1
       }
