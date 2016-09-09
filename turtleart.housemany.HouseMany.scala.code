@@ -1,0 +1,39 @@
+def maison(){
+
+  avance(30)
+  droite(30)
+  for (i<-1 to 3){
+  avance(30)
+    droite(120)}
+  droite(60)
+  for (i<-1 to 3){
+    avance(30)
+		droite(90)    
+  }
+  
+}
+
+def triple(){
+  var a = getX()
+  var b = getY()
+  for (i <- 1 to 4){
+    maison()
+    setX(a+50)
+    a+=50
+    
+    
+  }
+  setPos(a-150;b+75)
+}
+override def run() {
+  baisseCrayon()
+  triple()
+  maison()
+ 	var k = getX()
+  var o = getY()
+  setX(k+150)
+  maison()
+  setPos(k;o+75)
+  triple()
+  
+}
