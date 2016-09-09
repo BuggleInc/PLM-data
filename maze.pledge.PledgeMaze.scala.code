@@ -1,4 +1,5 @@
 var etat = 0
+var compteVirage = 0
 override def run() {
   while (!estSurBiscuit){
   	etat match {
@@ -11,6 +12,7 @@ override def run() {
 
 def aGaucheToute(){
   droite()
+  var compteVirage = 0
   while ((getDirection!=Direction.NORD || estFaceMur()==true) && !estSurBiscuit){
     gauche()
     while(estFaceMur()){
