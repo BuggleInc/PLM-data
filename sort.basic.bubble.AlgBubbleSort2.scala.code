@@ -1,21 +1,4 @@
-def bubbleSort0() {
-  val len:Int = getNombreValeurs()
-  var fin:Boolean = false
-  while (!fin) {
-    fin = true
-  	for (i <- (len - 2) to 0 by -1) {
-    	for (j <- 0 to i) {
-      	if (plusPetit((j+1),j)) {
-        	echange(j,(j+1))
-        	fin = false
-      	}
-    	}
- 	 	}
-	}
-}
-
-
-def bubbleSort2()  {
+def bubbleSort()  {
   val len:Int = getNombreValeurs()
   var fin:Boolean = false
   do {
@@ -32,16 +15,25 @@ def bubbleSort2()  {
 }
 
 
-def bubbleSort()  {
+
+def bubbleSort2() {
   val len:Int = getNombreValeurs()
   var fin:Boolean = false
-  do {
+  var end:Boolean = false
+  while (!fin) {
     fin = true
-  	for (i <- 0 to (len - 2)) {
-    	if (plusPetit((i+1),i)){
-      	echange(i,(i+1))
-        fin = false
+  	for (i <- (len - 2) to 0 by -1) {
+      end = true
+    	for (j <- 0 to i) {
+      	if (plusPetit((j+1),j)) {
+        	echange(j,(j+1))
+        	fin = false
+          end = false
+      	}
     	}
-  	}
-  } while (fin == false)
+      if (end == true) {
+        return
+      }
+ 	 	}
+	}
 }
