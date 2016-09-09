@@ -91,25 +91,25 @@ def bouge(){
   val lDir = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
   // voir si on va à gauche
   setDirection(lDir(3))
-  if (gauche<min && !estFaceMur()){
+  if (x-1>=0 && gauche<min && !estFaceMur()){
     dir = lDir(3)
     min = gauche
   }
   //voir si on va à droite
   setDirection(lDir(2))
-  if (droite<min && !estFaceMur()){
+  if (x+1<L && droite<min && !estFaceMur()){
     dir = lDir(2)
     min = droite
   }
   //voir si on va en haut
   setDirection((lDir(0)))
-  if (haut<min && !estFaceMur()){
+  if (y-1>=0 && haut<min && !estFaceMur()){
     dir = lDir(0)
     min = haut
   }
   //voir si on va en bas
   setDirection(lDir(1))
-  if (bas<min && !estFaceMur()){
+  if (y+1<L && bas<min && !estFaceMur()){
     dir=lDir(1)
     min = bas
   }
