@@ -1,12 +1,22 @@
 override def run() {
   brushDown()
-  while (! isInPosition) {
+  do {
     doTheMove()
-  }
+  } while (! isInPosition())
 }
 
-def isInPosition() {
-  
+def isInPosition() = Boolean {
+  if (getDirection() == Direction.EAST) {
+    left()
+    if (isFacingWall()) {
+      right()
+      return true
+    }
+    else {
+      right()
+      return false
+    }
+  }
 }
 
 def doTheMove() {
@@ -15,5 +25,10 @@ def doTheMove() {
     left()
     forward()
     left()
+  }
+  if (getDirection() == Direction.WEST) {
+    right()
+    forward()
+    right
   }
 }
