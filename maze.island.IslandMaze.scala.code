@@ -3,19 +3,12 @@ override def run() {
     if(northOK()){
       goNorth();
     }else{
-      followWall();
+      if(!hasWallLeft())
+        placeWallLeft();
+      keepHandOnSideWall();
     }
   }
   pickupBaggle();
-}
-
-def followWall() {
-  if(!hasWallLeft())
-  	placeWallLeft();
-  
-  while(!isOverBaggle())
-  	keepHandOnSideWall();
-
 }
 
 
