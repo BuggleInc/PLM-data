@@ -35,7 +35,9 @@ def pose(){
   var bibi:Boolean = false
   retourne()
    while(bibi == false ){
-     avance()
+     if(porteBiscuit()==false){return}
+     else{
+       avance()
      if(estSurBiscuit()){
        bibi=true
        recule()
@@ -43,5 +45,7 @@ def pose(){
        retourne()
        avance()
      }
+     }
+     
    }
 }
