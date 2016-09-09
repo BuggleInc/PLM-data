@@ -1,51 +1,19 @@
-var diag = 0;
 override def run() {
+  var diag=0
   var x=0
   var y=0
   var compteur=0
-  while (x!=getMondeLargeur()){
-  	while (y!=getMondeHauteur){
-    	ecritMessage(compteur)
-      if (y!=6){
-      	y = y + 1
-    		setPos(x,y)
-        compteur = compteur + y + x
-      }
-      else {
-        y=y+1
-        if (x!=6){
-        	x=x+1
-        	setPos(x,0)
-        }
-        else {
-          x=x+1
-        }
-    y=0
-    if (x==1){
-      compteur=2
+  while (x==getMondeLargeur && y==getMondeHauteur){
+    while (y!=0){
+      ecritMessage(compteur)
+      y=y-1
+      x=x+1
+      compteur = compteur+1
+      setPos(x,y)
     }
-    if (x==2){
-      compteur=5
-    }
-    if (x==3){
-      compteur=9
-    }
-    if (x==4){
-      compteur=14
-    }
-    if (x==5){
-      compteur=20
-    }
-    else {
-      compteur=27
-    }
-      }
-    if (x!=6){
-        	x=x+1
-        	setPos(x,0)
-        }
-        else {
-          x=x+1
-        }}
+    diag = diag +1
+    y=diag
+    x=0
+    compteur = compteur+1
+    setPos(x,y)
   }
-}
