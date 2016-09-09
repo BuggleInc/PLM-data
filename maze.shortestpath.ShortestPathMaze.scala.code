@@ -18,23 +18,10 @@ def indication(){
     for(i<-0 to x-1){
     for(j<-0 to y-1){
       if(getIndication(i,j)==k){
-        if(aMurNord(i,j)){
+        if(aMurNord()){
           setIndication(i,j+1,k+1)
         }else if(aMurOuest(i,j)) {
           setIndication(i+1,j,k+1)
-        }else if(aMurSud(i,j)){
-          setIndication(i,j-1,k+1)
-        }else if(aMurEst(i,j)){
-          setIndication(i-1,j,k+1)
-        }else{
-          setIndication(i+1,j+1,k+1)
-          setIndication(i+1,j-1,k+1)
-          setIndication(i+1,j,k+1)
-          setIndication(i,j+1,k+1)
-          setIndication(i,j-1,k+1)
-          setIndication(i-1,j+1,k+1)
-          setIndication(i-1,j,k+1)
-          setIndication(i-1,j-1,k+1)
         }
       }
     }
