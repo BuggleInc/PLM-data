@@ -27,10 +27,11 @@ override def run()
       }
     }
     while (getX() != iniPosX || getY() != iniPosY)
-    
+      
     //Se rend sur ce point le plus eleve
-    while (getX() != xMinY && getY() != minY) keepHandOnSideWall();
-    droite();
+    while ((getX() != xMinY || getY() != minY) && getY() != 0) keepHandOnSideWall();
+    
+    setDirection(Direction.NORD);
 	}
   gauche();
   
