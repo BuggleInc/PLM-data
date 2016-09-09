@@ -53,7 +53,7 @@ def ecrireAdj(x:Int,y:Int,indic:Int,H:Int,L:Int){
   var adjX = 0
   var adjY = 0
   for (adjX <- -1 to 1;adjY <- -1 to 1){
-    if (Math.abs(adjX)+Math.abs(adjY)==1 && x+adjX<L && y+adjY<H){
+    if (Math.abs(adjX)+Math.abs(adjY)==1 && 0<x+adjX<L && 0<y+adjY<H){
       adjX match{
         case -1 => if(!aMurOuest(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY,indic+1)}
         case 1 => if (!aMurOuest(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
