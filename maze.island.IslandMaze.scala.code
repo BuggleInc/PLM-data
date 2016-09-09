@@ -2,7 +2,7 @@ override def run() {
   var dir:Direction = getDirection();
   
   while (!isOverBaggle()) {
-    totheNorth();
+    totheNorth(dir);
     keepHandOnSideWall();
   }
   
@@ -26,11 +26,11 @@ def keepHandOnSideWall() {
   }
 }
 
-def toTheNorth() {
+def toTheNorth(dir:Direction) {
     dir = getDirection();
     setDirection(Direction.NORTH);
     if (!isFacingWall()) {
-      forward()
+      forward();
     }
     else {
     setDirection(dir);      
