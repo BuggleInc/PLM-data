@@ -1,24 +1,26 @@
 override def run() {
+  
   //brushDown()
+  
   while(!isOverBaggle()){
 
     	while(!isFacingWall() && wallToLeft()){
         forward()
       }
-    if(isFacingWall()){
-      if(wallToLeft()){
-        right()
+    
+      if(isFacingWall()){
+        if(wallToLeft()){
+          right()
+        }
+        else{
+          left()
+          forward()
+        }
       }
       else{
         left()
         forward()
-       
       }
-    }
-   else{
-     left()
-     forward()
-   }
     
   }
   pickupBaggle()
