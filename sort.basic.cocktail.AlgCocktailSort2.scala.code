@@ -1,0 +1,23 @@
+def cocktailSort() {
+  var len:Int = getNombreValeurs()
+  var end:Boolean = false
+  var debut:Int = 0
+  var fin:Int = (len - 2)
+  do {
+    end = true
+    for (i <- 0 to (len - 2)) {
+      if (plusPetit((i+1),i)) {
+        echange(i,(i+1))
+        end = false
+      }
+    }
+    fin -= 1
+    for (i <- (len - 2) to 0 by -1) {
+      if (plusPetit((i+1),i)) {
+        echange(i,(i+1))
+        end = false
+      }
+    }
+    debut += 1
+  } while (!end)
+}
