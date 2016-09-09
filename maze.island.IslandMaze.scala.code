@@ -6,6 +6,8 @@ override def run() {
     right();
     
     while(!(getDirection == Direction.NORTH && northOK() )){
+      if(!hasWallLeft())
+        placeWallLeft();
       keepHandOnSideWall();
     }
   }
