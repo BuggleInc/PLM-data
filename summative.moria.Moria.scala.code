@@ -1,12 +1,13 @@
 retourne();
 while (estFaceMur() == false) {
 
-  while (!estSurBiscuit() && !estFaceMur()) {
+  if (!estSurBiscuit()) {
     avance();
   }
+  
   prendBiscuit();
   retourne();
-  while (!estSurBiscuit()) {
+  if (!estSurBiscuit()) {
     avance();
   }
   recule();
