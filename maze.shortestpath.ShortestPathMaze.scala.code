@@ -85,21 +85,25 @@ def plusCourt(x:Int, y:Int, ind:Int)
   if(y != getMondeHauteur()-1 && getIndication(x, y+1) == ind-1)
   {
     setDirection(Direction.SUD)
-    avance()
+    if(!estFaceMur())
+    	avance()
   }
   if(y != 0 && getIndication(x, y-1) == ind-1)
   {
     setDirection(Direction.NORD)
-    avance()
+    if(!estFaceMur())
+    	avance()
   }
   if(x != getMondeLargeur()-1 && getIndication(x+1, y) == ind-1)
   {
     setDirection(Direction.EST)
-    avance()
+    if(!estFaceMur())
+    	avance()
   }
   if(x != 0 && getIndication(x-1, y) == ind-1)
   {
     setDirection(Direction.OUEST)
-    avance()
+    if(!estFaceMur())
+    	avance()
   }
 }
