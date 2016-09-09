@@ -47,6 +47,27 @@ object NeighborPos extends Enumeration {
 
 import NeighborPos._
 
+
+def hasBottomWall(x:Int, y:Int) : Boolean = {
+  y += 1;
+  
+  if (y >= getWorldHeight()) {
+    return true;
+  }
+  
+  return hasTopWall(x, y);
+}
+
+def hasRightWall(x:Int, y:Int) : Boolean = {
+  x += 1;
+  
+  if (x >= getWorldWidth()) {
+    return true;
+  }
+  
+  return hasLeftWall(x, y);
+}
+
 def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
   var xn = 0;
   var yn = 0;
