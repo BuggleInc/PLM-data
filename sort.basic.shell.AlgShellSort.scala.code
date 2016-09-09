@@ -1,5 +1,4 @@
 def insertionSort(e : Int) = {
-  var n = getNombreValeurs()
   var v = 0
   var j = e
   for (i <- 1 to n-1) {
@@ -14,10 +13,11 @@ def insertionSort(e : Int) = {
 }
 
 def shellSort()  {
+  var n = getNombreValeurs()
   var e = ((getNombreValeurs()).toDouble/2).toInt
   while (e>0) {
     insertionSort(e)
-    e = (e/2)
+    e = (e.toDouble/2).toInt
   }
 }
 
