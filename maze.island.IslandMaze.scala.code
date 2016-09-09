@@ -1,0 +1,22 @@
+def garderMainSurMur()
+{
+  droite();
+  while(estFaceMur())
+  	gauche();
+  avance();
+}
+
+override def run()
+{
+  
+  while (!estSurBiscuit())
+  {
+    while (!estFaceMur())
+  		avance();
+  	gauche();
+  	garderMainSurMur();
+  	while (getDirection() != Direction.NORTH)
+    	droite();
+  }
+  prendBiscuit();
+}
