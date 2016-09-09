@@ -6,12 +6,19 @@ def gnomeSort() {
   
   
   while(i < l-2){
-    J = getValeur(i+1);
     
-    if(I <= J) i+=1;
+    if(I <= J){
+      i += 1;
+      I = J;
+      J = getValeur(i+1);
+    }
     else{
       echange(i,i+1);
-      if(i != 0) i-= 1;
+      if(i != 0){
+        i -= 1;
+        J = I;
+        I = getValeur(i);
+      }
     }
   }
 }
