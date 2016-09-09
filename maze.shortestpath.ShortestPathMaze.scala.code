@@ -1,0 +1,76 @@
+val X = getLargeurMonde()-1
+val Y = getHauteurMonde()-1
+
+def toutMarque():Boolean = {
+  
+  for (x <- 0 to getMondeLargeur()-1:y <- 1 to getMondeHauteur()-1) {
+    
+    getIndication(x,y) match {
+      
+      case 9999 => return false
+      
+    }
+    
+  }
+  
+  return true
+  
+}
+
+def dirMinimale(x,y):Direction {
+  
+  var a = Array(9999,9999,9999,9999)
+  
+  (x>0,x<X,y>0,y<Y) match {
+    
+    case (true,true,true,true) => a(0)=getIndication(x-1,y) 
+    
+  }
+  
+}
+
+def marquerAutour(x:Int,y:Int,indice:Int) {
+  
+  if (!aMurNord(x,y) && y>0) { setIndication(x,y-1,indice) }
+  if (!aMurOuest(x,y) && x>0) { setIndication(x-1,y,indice) }
+  if (y<getMondeHauteur-1 && !aMurNord(x,y+1)) { setIndication(x,y+1,indice) }
+  if (x<getMondeLargeur-1 && !aMurOuest(x+1,y)) { setIndication(x+1,y,indice) }
+}
+
+override def run() {
+  
+  var a = getIndication(-1,-1)
+  setIndication(0,0,a)
+  
+  /* var xSortie = -1
+	var ySortie = -1
+  //trouver la sortie
+  for (x <- 0 to getMondeLargeur()-1:y <- 1 to getMondeHauteur()-1) {
+
+    aBiscuit(x,y) match {
+
+      case true => xSortie = x; ySortie = y
+
+    }
+
+  }
+  //écrire 0 dessus
+  setIndication(xSortie,ySortie,0)
+  var indice = 1
+  while (!toutMarque()) {
+    
+    for (x <- 0 to getMondeLargeur()-1:y <- 1 to getMondeHauteur()-1) {
+    
+    getIndication(x,y) match {
+      
+      case indice-1 => marquerAutour(x,y,indice)
+      
+    	}
+    
+  	}
+ 		
+ 	while (!estSurBiscuit())
+  
+	}*/
+  
+}
