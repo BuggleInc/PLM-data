@@ -1,14 +1,17 @@
 def insertionSort() {
   
   for(j <- 1 to getValueCount()-1){
-  	backMinus(j);
+    var v = getValue(indSorted);
+  	var indLast = backMinus(j, v);
+    
+  	setValue(indLast, v);
+    
   }
   
 }
 
 
-def backMinus(indSorted:Int){
-  var v = getValue(indSorted);
+def backMinus(indSorted:Int, v:Int){
   var indLastCopied = indSorted;
   for(i <- 1 to indSorted){
     if(!isSmallerThan(indSorted-i, v)){
@@ -16,10 +19,10 @@ def backMinus(indSorted:Int){
       indLastCopied = indSorted-i;
     }else{
   		setValue(indLastCopied, v);
-      return;
+      return indLastCopied;
     }
 	
-  setValue(indLastCopied, v);
+      return indLastCopied;
     	
   }
   
