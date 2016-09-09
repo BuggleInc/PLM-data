@@ -1,22 +1,11 @@
 override def run() {
-  var bleft = false;
-  
   while(!isOverBaggle()) {
-    
-    if(isFacingWall() && left == false) {
+    while(!isFacingWall()) {
       left()
-      
-      if(isFacingWall()) {
-        bleft = true;
-      }
-      
-      right()
     }
-    else if(bleft == true) {
-      forward()
-    }
-    else {
-      right()
-    }
+    
+    right()
+    
+    forward()
   }
 }
