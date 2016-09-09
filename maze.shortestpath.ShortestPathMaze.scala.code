@@ -1,4 +1,4 @@
-/*val X = getLargeurMonde()-1
+val X = getLargeurMonde()-1
 val Y = getHauteurMonde()-1
 
 def toutMarque():Boolean = {
@@ -19,13 +19,15 @@ def toutMarque():Boolean = {
 
 def dirMinimale(x,y):Direction {
   
-  var a = Array(9999,9999,9999,9999)
+  var a = Array(9999,9999,9999,9999) //Nord, Sud, Est, Ouest
+  var Directions = (Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
   
-  (x>0,x<X,y>0,y<Y) match {
-    
-    case (true,true,true,true) => a(0)=getIndication(x-1,y) 
-    
-  }
+  try {if !aMurNord(x,y) {a(0)=getIndication(x,y-1)}} catch {}
+  try {if !aMurNord(x,y-1) {a(1)=getIndication(x,y+1)}} catch {}
+  try {if !aMurOuest(x+1,y) {a(2)=getIndication(x+1,y)}} catch {}
+  try {if !aMurOuest(x,y) {a(3)=getIndication(x-1,y)}} catch {}
+  
+  return Directions(a.zipWithIndex.min._2)
   
 }
 
@@ -35,14 +37,14 @@ def marquerAutour(x:Int,y:Int,indice:Int) {
   if (!aMurOuest(x,y) && x>0) { setIndication(x-1,y,indice) }
   if (y<getMondeHauteur-1 && !aMurNord(x,y+1)) { setIndication(x,y+1,indice) }
   if (x<getMondeLargeur-1 && !aMurOuest(x+1,y)) { setIndication(x+1,y,indice) }
-}*/
+}
 
 override def run() {
   
   var a = getIndication(-1,-1)
   setIndication(0,0,a)
   
-  /* var xSortie = -1
+  var xSortie = -1
 	var ySortie = -1
   //trouver la sortie
   for (x <- 0 to getMondeLargeur()-1:y <- 1 to getMondeHauteur()-1) {
@@ -69,8 +71,11 @@ override def run() {
     
   	}
  		
- 	while (!estSurBiscuit())
+ 	while (!estSurBiscuit()) {
   
-	}*/
+    setDiresction(dirMinimale(x,y))
+    avance()
+    
+	}
   
 }
