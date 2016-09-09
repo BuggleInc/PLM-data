@@ -4,6 +4,10 @@ override def run() {
     while(sommeAngle==0 && isDirectionFree(Direction.NORTH)){
       setDirection(Direction.NORTH)
       avance()
+      while(estFaceMur()){
+        droite()
+        sommeAngle-=1
+      }
     }
     sommeAngle += keepHandOnSideWall()
   }
