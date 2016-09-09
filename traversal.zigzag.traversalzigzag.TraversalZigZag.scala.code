@@ -1,18 +1,17 @@
 var compt:Int = 0
 var x:Int = 0
 var y:Int = 0
+  var posFin:Boolean = false
 
 override def run() {
   
  
-  var posFin:Boolean = false
+
   
   while(posFin != true){
     avancer()
     
-    if(getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1){
-      
-      posFin = true;
+    
     }
   }
 }
@@ -35,14 +34,17 @@ def avancer(){
     y=y+1;
   }
   
- while (x  != 0)
+ while (x  != 1)
    {
     ecritMessage(compt)
     compt=compt+1;
     
     setPos(x,y)
     x=x-1; 
-     
+    
+     if(getX() == getMondeLargeur()-1 && getY() == getMondeHauteur()-1){
+      
+      posFin = true;
     
   } 
  }
