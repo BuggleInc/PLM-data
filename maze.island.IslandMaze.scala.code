@@ -12,9 +12,9 @@ def hand() {
 
 override def run() {
   while (!estSurBiscuit()) {
+    while (getDirection() == Direction.NORTH){avance()
     if (estFaceMur()) {
-      hand()
-    }
-    avance()
+      hand()}
+    };droite();hand()
   };prendBiscuit()
 }
