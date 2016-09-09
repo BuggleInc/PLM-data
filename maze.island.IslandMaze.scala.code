@@ -20,7 +20,12 @@ override def run() {
   
 			}
   while (! isOverBaggle()) {
-    keepLeftHand()
+    setDirection(Direction.North)
+    if (! isFacingWall()) {forward}
+    else {
+      keepLeftHand()
+    }
+    
   }
   pickupBaggle()
 }
