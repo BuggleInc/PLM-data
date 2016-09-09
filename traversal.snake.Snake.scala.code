@@ -8,6 +8,7 @@ override def run() {
       gauche()
       avance()
       gauche()
+      
     }
     else {
       droite()
@@ -19,17 +20,30 @@ override def run() {
 }
 
 def test():Boolean= {
-  if (estFaceMur()==true && (getDirection()==Direction.EST)) {
-    gauche()
-    if (estFaceMur()==true) {
-      return true
+  if (estFaceMur()==true) {
+    if (getDirection()==Direction.EST) {
+      gauche()
+      if (estFaceMur==true) {
+        droite()
+        return true
+      }
+      else {
+        droite()
+        return false
+      }
     }
-  }
-  else if (estFaceMur()==true && getDirection()==Direction.OUEST) {
-    droite()
-    if (estFaceMur()==true) {
-      return true
+    else {
+      droite()
+      if (estFaceMur()==true) {
+        gauche()
+        return true
+      }
+      else {
+        gauche()
+        return false
+      }
     }
+     
   }
   return false
 }
