@@ -9,10 +9,10 @@ def followTheLeftSide() {
    if (!isWallAtLeft()) { // gestion case 2
     left();
     forward();
-    if (!isWallAtLeft()) { // gestion case 3
+    if (!isWallAtLeft() && !isFacingWall()) { // gestion case 3
     	left();
       forward();
-      }
+      } else (return ();) // keep moving
     } else { right(); } // gestion case 4 (impasse)
 }
 
