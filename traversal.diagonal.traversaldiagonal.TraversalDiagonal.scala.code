@@ -1,0 +1,39 @@
+var diag = 0;
+override def run() {
+  var cpt:Int=0
+  var diagc=0
+	ecritMessage(cpt)
+  def test:Boolean = {
+    var t1:Boolean=false
+    var t2:Boolean=false
+    if (getY()==getMondeHauteur()-1) {t1=true}
+    if (getX()==getMondeLargeur()-1) {t2=true}
+    return t1&&t2
+   
+  }
+  
+  def finirdiag(d:Int) {
+    var com:Int=0
+    while (com!=d) {
+      com=com+1
+      if (!estDosMur) {
+      	setPos(getX()+1,getY()+1)
+ 				
+    }
+    
+    
+  }
+  
+  
+  while (!test) {
+    diagc=0
+    finirdiag(diag)
+    diagc=diagc+1
+    if (diagc<7) {
+      diag=diag+1
+  } else {
+      diag=diag-1
+    }
+    setPos(0,diag)
+    
+}
