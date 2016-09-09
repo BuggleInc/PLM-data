@@ -1,0 +1,29 @@
+var etat = 0
+override def run() {
+  while (!estSurBiscuit){
+  	etat match {
+    	case 0 => auNordChef()
+    	case 1 => aGaucheToute()
+  	}
+  }
+  prendBiscuit()
+}
+
+def aGaucheToute(){
+  droite()
+  while ((getDirection!=Direction.NORD || estFaceMur()==true) && !estSurBiscuit){
+    gauche()
+    while(estFaceMur()){
+      droite()
+    }
+   	forward()
+  }
+  etat=0
+}
+
+def auNordChef(){
+  while (!estFaceMur){
+    forward()
+  }
+  etat=1
+}
