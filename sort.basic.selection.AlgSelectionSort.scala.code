@@ -1,14 +1,21 @@
+def plusPetit(deb){
+	val lgr=getNombreValeurs()
+  var a=deb
+  var Amin=getvaleur(deb)
+  for (b<-deb to lgr-1){
+    if (getValeur(b)<Amin){a=b}
+  }
+  return a
+}
+
+
+
+
+
 def selectionSort() {
 	val lgr=getNombreValeurs()
   
   
   for(pivot<-0 to lgr-2){
-    var petitA=pivot
-    var valA=getValeur(petitA)
-    for(b <-pivot to lgr-2){
-      if(getValeur(b)<valA){
-        petitA=b
-      }
-    }
-    echange(pivot,petitA)
+    echange(pivot,plusPetit(pivot))
   }}
