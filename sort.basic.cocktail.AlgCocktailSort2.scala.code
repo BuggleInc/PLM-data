@@ -1,19 +1,10 @@
 def cocktailSort2() {
   var k = true;
-  var j = 0;
   val len = getValueCount();
 	var beg=0; 
   var end=len-2
   while(k){
     k = false ;
-    for(i<- beg to end){
-      j = len-2-i ;
-      if(!isSmaller(j, j+1)){
-        swap(j,j+1);
-        k = true ;
-      }
-    }
-    beg += 1;
     for(i<- beg to end){
       if(!isSmaller(i, i+1)){
         swap(i,i+1);
@@ -22,5 +13,12 @@ def cocktailSort2() {
       } 
     }
     end -= 1;
+    for(i<- end to beg by -1){
+      if(!isSmaller(j, j+1)){
+        swap(j,j+1);
+        k = true ;
+      }
+    }
+    beg += 1;
   }
 }
