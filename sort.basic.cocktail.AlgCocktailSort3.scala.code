@@ -1,0 +1,36 @@
+def cocktailSort3() {
+  
+  var len:Int = getNombreValeurs()
+  var end:Boolean = false
+  var debut:Int = 0
+  var fin:Int = (len - 2)
+  var ende:Boolean = false
+  
+  do {
+    ende = true
+    end = true
+    for (i <- (debut) to (fin)) {
+      if (plusPetit((i+1),i)) {
+        echange(i,(i+1))
+        end = false
+        ende = false
+      }
+    }
+    if (ende) {
+      return
+    }
+    ende = true
+    fin -= 1
+    for (i <- (fin) to (debut) by -1) {
+      if (plusPetit((i+1),i)) {
+        echange(i,(i+1))
+        end = false
+        ende = false
+      }
+    }
+    if (ende) {
+      return
+    }
+    debut += 1
+  } while (!end)
+}
