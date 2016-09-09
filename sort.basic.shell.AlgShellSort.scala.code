@@ -1,16 +1,16 @@
 def shellSort()  {
   var n:Int=getNombreValeurs()
-  var ecart:Int=n
+  var ecart:Int=(n/2).toInt
   while (ecart>0){
+    insertionSort(ecart) 
     ecart=(ecart.toDouble/2.0).toInt
-    insertionSort(ecart)
   }
   
 }
 
 def insertionSort(e:Int) {
   var n:Int=getNombreValeurs()
-  for ( k <- e to (n-1)){
+  for ( k <- e-1 to (n-1)){
     var stock:Int=getValeur(k)
     var l:Int=k-e
     while ((l>=0)&&(stock<getValeur(l))){
