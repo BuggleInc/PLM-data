@@ -6,10 +6,11 @@ def bubbleSort2()  {
     listeTriee=true
     for (i <- x-2 to 0) {
       for (j <- 0 to i) {
-         if (plusPetit(j+1,j)) {
+         if (plusPetit(j+1,j) & i!=0) {
            echange(j+1,j)
+       } else if (i==0) {
            listeTriee=false
-       }
+         }
       }
     }
   } while (i!=0)
