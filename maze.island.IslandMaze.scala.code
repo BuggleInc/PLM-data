@@ -3,7 +3,7 @@ override def run() {
   while(!porteBiscuit()){
     etat match  {
       case 0 =>setDirection(Direction.NORTH); while(!estFaceMur()){avance()};etat = 1
-      case 1 => keepHandOnSideWall();etat = 0
+      case 1 => gauche();if(!estFaceMur()){avance()};else{keepHandOnSideWall()};etat = 0
     }
     if(estSurBiscuit()){
       prendBiscuit()
@@ -18,7 +18,5 @@ def keepHandOnSideWall(){
   }
   avance()
   droite()
-  if(!estFaceMur()){
-    avance()
-  }
+  if(!estFaceMur())
 }
