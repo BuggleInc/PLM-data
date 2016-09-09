@@ -3,13 +3,18 @@ def solve() {
 	var bleu = 0;
   var blanc = 0;
   var rouge = 0;
-  while((bleu+rouge+blanc)!=lgr){
+  var fini = false;
+  while(!fini){
+    fini = true;
     for(i<-bleu to lgr-rouge-1){
       getCouleur(i) match {
         case BLEU => echange(i,bleu+1); bleu += 1;
         case BLANC =>  blanc += 1;
         case ROUGE => echange(i,lgr-rouge-1); rouge += 1;
       }
+    }
+    if((bleu+rouge+blanc)!=lgr){
+      if 
     }
   }
 }
