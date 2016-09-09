@@ -3,20 +3,21 @@ def cocktailSort() {
   var stop=false
   
   while(stop!=true){
+    
     for (i<-0 to lgr-2){
-      var pos1=i
-      var pos2=i+1
-      if (plusPetit(pos2,pos1)){
+      if (plusPetit(i,i+1)){
         echange(pos1,pos2)
+        stop=false
+      }else{
         stop=true
       }
     }
 
     for (i<-lgr-2 to 0 by -1){
-      var pos1=i
-      var pos2=i+1
-      if (plusPetit(pos2,pos1)){
+      if (plusPetit(i+1,i)){
         echange(pos1,pos2)
+        stop=false
+      }else{
         stop=true
       }
     }
