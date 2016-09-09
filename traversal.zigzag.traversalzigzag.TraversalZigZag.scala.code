@@ -6,41 +6,28 @@ override def run() {
   var y : Int = 0
   var fin : Boolean = false
   while (finalpos== false){
-    while (y!=6){
-      if (x==0){
-       	 setPos(x,y)
-       	 writeMessage(counter)
-       	 counter = counter + 1
-       	 x = x + 1
-       	 while (time!=7){
-        		setPos(x,y)
-        		writeMessage(counter)
-        		counter = counter + 1
-       			 x = x + 1
-           time = time + 1
-       		 }
-        time = 0
-     	 }
-     	else if (x == 6){
-        else{
-          setPos(x,y)
-       	  writeMessage(counter)
-       	  counter = counter + 1
-       	  x = x - 1
-       	  while (time!=7)){
-        	 	setPos(x,y)
-        	 	writeMessage(counter)
-        	 	counter = counter + 1
-       		 	 x = x - 1  
-            time = time + 1
-       	 }
-         time = 0
-      }
-     }
-      y = y + 1
-      
+    if (x==6 && y==6){
+      setPos(x,y)
+      writeMessage(counter)
+      finalpos=true
     }
-    
-   }
-  
-}
+    else {
+      for (y <- 0 to 6){
+        if (x == 0){
+          for ( a <- 0 to 6){
+            setPos(x,y)
+            writeMessage(counter)
+            x = x + 1
+            counter = counter + 1
+          }
+        }
+        if ( x == 6){
+          for ( b <- 0 to 6){
+            setPos(x,y)
+            writeMessage(counter)
+            x = x - 1
+            counter = counter + 1
+          
+        }
+      }
+    }
