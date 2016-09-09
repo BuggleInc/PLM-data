@@ -8,7 +8,10 @@ def insertionSort() {
     for(j <- 1 to i){
       
       if(isSmaller(v,i-j)){
-        copy(i-j-1,i-j)
+        copy(i-j,i-j+1)
+        if(i-j=0){
+          setValue(0,v)
+        }
       }
       else{setValue(i-j,v)
         
