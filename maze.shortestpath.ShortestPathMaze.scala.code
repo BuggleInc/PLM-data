@@ -1,11 +1,24 @@
 override def run() {
-  var i=0
+  var x = 0
+  var y = 0 
+  var i = 0
+  var indic=0
   val L:Int=getMondeLargeur()
   val H:Int=getMondeHauteur()
   val xBis = trouverBis(0,H,L)
   val yBis = trouverBis(1,H,L)
   setIndication(xBis,yBis,0)
-    // Your code here
+  while(!fini()){
+    for (x<-0 to L-1; y<- 0 to H-1){
+      if (getIndication(x,y)!=9999){
+        indic = getIndication(x,y)
+        
+      }
+    }
+    
+    
+  }
+    
 }
 
 def trouverBis(i:Int,H:Int,L:Int):Int = {
@@ -24,5 +37,34 @@ def trouverBis(i:Int,H:Int,L:Int):Int = {
   }
   println("erreur")
   return 0
-}
+} // permet de trouver la valeur x (i=0) ou y (i=1) du Biscuit
 
+def fini(H:Int,L:Int):Boolean(){
+  var x=0
+  var y=0
+  for (x <- 0 to L-1){
+    for (y<- 0 to H-1){
+      if (getIndication(x,y)==9999){
+        return false
+      }
+    }
+  }
+  return true
+} // permet de voir si toutes les cases ont été marquées
+
+def ecrireAdj(x:Int,y:Int){
+  var adjX = 0
+  var adjY = 0
+  for (adjX <- -1 to 1;adjY <- -1 to 1){
+    if (Math.abs(adjX)+Math.abs(adjY)==1){
+      adjX match{
+        case -1 => if(!aMurOuest(x,y) && getIndication(adjX,adjY)==9999){setIndication(adjX,adjY,indic+1)}
+        case 1 => if (!aMurOuest(adjX,adjY) && getIndication(adjX,adjY)==9999){setIndication(adjx,adjY, indic+1)}
+      }
+      adjY match{
+        case -1 => if(!aMurNord(adjX,adjY) && getIndication(adjX,adjY)==9999){setIndication(adjx,adjY, indic+1)}
+        case 1 => if(!aMurNord(x,y) && getIndication(adjX,adjY)==9999){setIndication(adjx,adjY, indic+1)}
+      }
+    }
+  }
+}
