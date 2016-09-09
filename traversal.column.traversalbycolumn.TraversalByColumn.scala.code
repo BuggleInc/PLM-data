@@ -1,8 +1,12 @@
 override def run() {
   var cpt: Int = 0
   while (getMondeHauteur() != getY() && getMondeLargeur() != getY()) {
-    if (getX() == getMondeLargeur()) {
-      setPos(getX()+1, getY())
-    }
+    if (getY() == getMondeHauteur()) {
+      setPos(getX()+1, getY()-7)
+      cpt += 1; ecritMessage();
+    } else {
+      cpt += 1; ecritMesage();
+      setPos(getX()+1, getY()+1)
+    }   
   }
 }
