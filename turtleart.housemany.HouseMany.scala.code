@@ -6,9 +6,13 @@ override def run() {
   var yO = getY()
   var x=0
   var y=0
-  for (x <- 0 to 2 ;y <- 0 to 2){
-    allerVers(xO+x*l,yO-y*h)
-    maison()
+  for (x <- 0 to 3 ;y <- 0 to 2){
+    if (!((x==1 || x==2)&&y==1)){
+    	leveCrayon()
+    	allerVers(xO+x*l,yO-y*h)
+    	baisseCrayon()
+    	maison()
+    }
   }
   
 }
