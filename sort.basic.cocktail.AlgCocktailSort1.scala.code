@@ -1,0 +1,20 @@
+def cocktailSort() {
+  var fin:Boolean = false
+  var n:Int = getNombreValeurs() - 2
+  do {
+    fin = true
+    for(i <- 0 to n) {
+      if(plusPetit(i, i + 1)) {
+        echange(i + 1, i)
+        fin = false
+      }
+    }
+    
+    for(j <- n to 0 by -1) {
+      if(plusPetit(j + 1, j)) {
+        echange(j + 1, j)
+        fin = false
+      }
+    }
+  } while(!fin)
+}
