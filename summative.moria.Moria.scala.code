@@ -1,4 +1,6 @@
 def run() {
+  gauche()
+  gauche()
   while (estFaceMur()==false) {
     moria()
   }
@@ -7,10 +9,10 @@ def run() {
     moria()
   }
   
-  gauche()
+  droite()
   avance()
   gauche()
-  avance()
+  droite()
   
 }
 
@@ -19,17 +21,17 @@ run()
 def moria() {
   if (estSurBiscuit()==true) {
       prendBiscuit()
-      avance()
+      recule()
       while (estSurBiscuit()==false) {
-        avance()
+        recule()
       }
-      recule()
+      avance()
       poseBiscuit()
-      recule()
+      avance()
     }
     else {
       while(estSurBiscuit()==false&&estFaceMur()==false) {
-        recule()
+        avance()
       }
     }
 }
