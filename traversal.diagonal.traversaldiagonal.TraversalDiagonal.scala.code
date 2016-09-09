@@ -2,14 +2,24 @@ var diag = 0;
 override def run() {
   var cpt:Int = 0
   while(!positonFinale()) {
-    while (diag<getMondeLargeu) {
+    if (diag<getMondeLargeur()) {
       setPos(0, diag)
       ecritMessage(cpt)
       cpt+=1
       while(get(X)!=diag) {
         setPos(getX()+1, getY()-1)
+        ecritMessage(cpt)
+        cpt+=1
       }
-    }
+    } else {
+      	setPos(diag-getMondeLargeur(), getMondeHauteur())
+      	ecritMessage(cpt)
+      	cpt+=1
+      	while(getX()!=getMondeLargeur) {
+          setPos(getX()+1, getY()-1)
+        }     	
+    	}
+    
 	}
 }
 
