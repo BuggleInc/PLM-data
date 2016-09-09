@@ -1,20 +1,16 @@
 def selectionSort() {
   
-  for (a <- 0 to getNombreValeurs()-1) {
+  for (a <- 0 to getNombreValeurs()-2) {
+  
+    var min = 0
     
-    var min = 1
-    
-    for (b <- a to getNombreValeurs()-1) {
+    for (b <- a+1 to getNombreValeurs()-1) {
       
-      if (plusPetit(b,min)) {
-        
-        min = b
-        
-      }
+      if (plusPetit(b,min)) {min = b}
       
     }
     
-    echange(min,a)
+    echange(a,min)
     
   }
   
