@@ -1,35 +1,42 @@
 override def run() {
   var counter : Int = 0
   var finalpos : Boolean = false
+  var x : Int = 0
   var y : Int = 0
+  right()
   while (finalpos() == false){
-    for (round <- 0 to 6){
+    if (x == 6 & y == 6){
+      setPos(x,y)
+      writeMessage(counter)
+      finalpos = true
+    }
+    else {
+      	while (isFacingWall()==false){
+      	if (getDirection()==Direction.EAST){
+      	  setPos(x,y)
+      	  writeMessage(counter)
+      	  counter + = 1
+      	  x + = 1
+     	 }
+     	 else {
+     	   setPos(x,y)
+    	    writeMessage(counter)
+    	    x - = 1
+    	    counter+ = 1
+   	   }
+   	 }
+  	  y + = 1
+      if (getDirection()==Direction.EAST){
+        right()
+        forward()
+        right()
       }
-      for (x <- 0 to 6){
-        if (x==6 && y == 6){
-        setPos(x,y)
-        writeMessage(counter)
-        finalpos=true
-        }  
-        else { 
-        	setPos(x,y)
-     	 		writeMessage(counter)
-    	  	counter + = 1
-        } 
-      y + = 1
-      for (x <- 0 to 6){
-        if (x==6 && y == 6){
-        setPos(x,y)
-        writeMessage(counter)
-        finalpos=true
-        }  
-        else { 
-        	setPos(6-x,y)
-        	writeMessage(counter)
-        	counter + = 1
-        }
-        
+      else{
+        left()
+        forward()
+        left()
       }
     }
   }
 }
+   
