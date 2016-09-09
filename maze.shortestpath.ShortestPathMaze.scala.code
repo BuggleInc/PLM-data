@@ -12,12 +12,13 @@ override def run()
     {
       if (aBiscuit(x,y))
       {
-        xSortie = x-1;
+        xSortie = x;
         ySortie = y;
       }
     }
   }
-    
+  if (getIndication(0,0) != 9999) avance();
+  return;
 	noteIndication(xSortie, ySortie, 0);
   
   while (!estSurBiscuit()) trouverChemin();
@@ -31,10 +32,10 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   setIndication(x,y,i);
   
-  if (getIndication(x,y) != 9999 && !aMurNord(x,y) && y>0) noteIndication(x, y-1, i+1);
-  if (getIndication(x,y) != 9999 && !aMurOuest(x,y) && x>0) noteIndication(x-1, y, i+1);
-  //if (y<m && getIndication(x,y+1) != 9999 && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1);
-  //if (x<n && getIndication(x+1,y) != 9999 && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1);
+  if (getIndication(x,y-1) != 9999 && !aMurNord(x,y) && y>0) noteIndication(x, y-1, i+1);
+  if (getIndication(x-1,y) != 9999 && !aMurOuest(x,y) && x>0) noteIndication(x-1, y, i+1);
+  if (y<m && getIndication(x,y+1) != 9999 && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1);
+  if (x<n && getIndication(x+1,y) != 9999 && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1);
 }
 
 def trouverChemin()
