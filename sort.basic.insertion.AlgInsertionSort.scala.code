@@ -1,17 +1,22 @@
 def insertionSort() {
   
-  for(indSorted <- 1 to getValueCount()-1){
-  	var v = getValue(indSorted);
-    var indLastCopied = indSorted;
-    for(i <- 1 to indSorted){
-      if(isSmaller(indSorted, indSorted-i)){
-        copy(indSorted-i,indSorted-i+1);
-        indLastCopied = indSorted-i;
-      }
-
-    }
-    setValue(indLastCopied, v);
+  for(j <- 1 to getValueCount()-1){
+  	backMinus(j);
   }
   
 }
 
+
+def backMinus(indSorted:Int){
+  var v = getValue(indSorted);
+  var indLastCopied = indSorted;
+  for(i <- 1 to indSorted){
+    if(!isSmallerThan(indSorted-i, v)){
+      copy(indSorted-i,indSorted-i+1);
+      indLastCopied = indSorted-i;
+    }
+    	
+  }
+  setValue(indLastCopied, v);
+  
+}
