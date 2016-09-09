@@ -1,0 +1,20 @@
+def shellSort()  {
+  var i=0
+  var v=0
+  var c=0
+  var ecart=getNombreValeurs()/2
+  var test=false
+  for(i <- 1 to getNombreValeurs()-1){
+    v=getValeur(i)
+    test=plusPetitQue(i-1,v)
+    c=0
+    while(test==false && i-1-c>=0){
+      copie(i-1-c,i-c)
+      c+=1
+      if(i-1-c>=0){
+      	test=plusPetitQue(i-1-c,v)
+      }
+    }
+    setValeur(i-c,v)
+  }
+}
