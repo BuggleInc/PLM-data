@@ -4,20 +4,20 @@ def shellSort()  {
   var compteur:Boolean=true
   while (ecart>0){
     ecart=(ecart.toDouble/2.0).toInt
-    insertionSort()
+    
   }
   
 }
 
-def insertionSort() {
+def insertion(e:Int) {
   var n:Int=getNombreValeurs()
-  for ( k <- 1 to (n-1)){
+  for ( k <- e to (n-1)){
     var stock:Int=getValeur(k)
-    var l:Int=k-1
+    var l:Int=k-e
     while ((l>=0)&&(stock<getValeur(l))){
       setValeur(l+1,getValeur(l))
-      l=l-1
+      l=l-e
     }
-    setValeur(l+1,stock)
+    setValeur(l+e,stock)
   }
 }
