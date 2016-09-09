@@ -60,7 +60,7 @@ override def run() {
 
   }
   //écrire 0 dessus
-  setIndication(xSortie,ySortie,0)
+  setIndication(xSortie,ySortie,indice)
   var indice = 1
   while (!toutMarque()) {
     
@@ -69,7 +69,8 @@ override def run() {
     if (getIndication(x,y) == indice-1) {marquerAutour(x,y,indice)}
     
   	}
- 		
+ 		indice = indice + 1
+    
  	while (!estSurBiscuit()) {
   
     setDirection(dirMinimale(getX(),getY()))
