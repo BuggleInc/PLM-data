@@ -27,9 +27,9 @@ def traceChemin(){
   var yBuggle = getY()
   var k = 0
   while((xBuggle,yBuggle) != (9999,9999)){
-    for(i<-0 to getMondeLargeur()-2){
-      for(j<-0 to getMondeHauteur()-2){
-        if(getIndication(i,j) == k){
+    for(i<--1 to getMondeLargeur()-2){
+      for(j<--1 to getMondeHauteur()-2){
+        if(getIndication(i+1,j+1) == k){
           marquer(i,j)
         }
       }
@@ -56,10 +56,11 @@ def marquer(x:Int,y:Int){
 def aMurSud(x:Int,y:Int): Boolean ={
   return aMurNord(x,y+1)
 }
+
 def aMurEst(x:Int,y:Int): Boolean ={
   return aMurOuest(x+1,y)
 }
-/*
+
 
 def trouveForce(){
   var m = getX()
@@ -89,4 +90,4 @@ def trouveForce(){
       avance()
     }
   }
-}*/
+}
