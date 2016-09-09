@@ -23,13 +23,13 @@ override def run()
 
 def noteIndication(x:Int, y:Int, i:Int)
 {
-  var n = getMondeLargeur();
-  var m = getMondeHauteur();
+  var n = getMondeLargeur()-1;
+  var m = getMondeHauteur()-1;
   
   setIndication(x,y,i);
   
   if (!aMurNord(x,y) && y>0) noteIndication(x, y-1, i+1);
   if (!aMurOuest(x,y) && x>0) noteIndication(x-1, y, i+1);
-  if (!aMurNord(x,y+1) && y>m) noteIndication(x, y+1, i+1);
+  if (!aMurNord(x,y+1) && y<m) noteIndication(x, y+1, i+1);
   if (!aMurOuest(x+1,y) && x<n) noteIndication(x+1, y, i+1);
 }
