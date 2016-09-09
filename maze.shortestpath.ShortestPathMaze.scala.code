@@ -43,10 +43,10 @@ def dirMinimale(x:Int,y:Int):Direction = {
 
 def marquerAutour(x:Int,y:Int,indice:Int) {
   
-  if (!aMurNord(x,y) && y>1) { setIndication(x,y-1,indice) }
-  if (!aMurOuest(x,y) && x>1) { setIndication(x-1,y,indice) }
-  if (y<getMondeHauteur-2) { if (!aMurNord(x,y+1)) { setIndication(x,y+1,indice) }}
-  if (x<getMondeLargeur-2) { if (!aMurOuest(x+1,y)) { setIndication(x+1,y,indice) }}
+  if (!aMurNord(x,y) && y>1) {if (getIndication(x,y)==9999) {setIndication(x,y-1,indice)} }
+  if (!aMurOuest(x,y) && x>1) {if (getIndication(x,y)==9999) { setIndication(x-1,y,indice)} }
+  if (y<getMondeHauteur-2) { if (!aMurNord(x,y+1)) {if (getIndication(x,y)==9999) { setIndication(x,y+1,indice)} }}
+  if (x<getMondeLargeur-2) { if (!aMurOuest(x+1,y)) {if (getIndication(x,y)==9999) { setIndication(x+1,y,indice)} }}
 }
 
 override def run() {
