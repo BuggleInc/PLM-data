@@ -1,6 +1,8 @@
 var diag = 0;
 override def run() {
   
+  var cpt = 0;
+  
   def changeDiag(x : Int, y : Int) {
     
     if (diag < 6) {
@@ -13,13 +15,21 @@ override def run() {
   
   def diagonale(x : Int, y : Int) {
     
+    ecritMessage(cpt);
+    
     if ((x == 0) && (y == 0)) {
       
       changeDiag(x , y);
       diag += 1;
+      cpt += 1;
     } else {
       
       setPos(getX()+1 , getY()+1)
+      cpt +=1
+      if (estFaceMur == true) {
+        changeDiag(x,y);
+        diag +=1
+      }
       
     }
     
