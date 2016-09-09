@@ -1,13 +1,14 @@
 
- retourne()
- while (getCouleurSol() != Color.GREEN) {
+retourne()
+var stop : Boolean = false
+while (!stop) {
     if (!porteBiscuit()) {
       	if (estSurBiscuit()) {
           	prendBiscuit()
           	retourne()
         }
      		else
-      			deplace()
+      			stop = deplace()
     }
     else {
       	if (estSurBiscuit()) {
@@ -23,14 +24,16 @@
   }
 
 
-def deplace() {
+def deplace() : Boolean = {
   if (estFaceMur()) {
     	droite()
     	avance()
     	gauche()
     	avance()
+    	return true
   }
   else
     	avance()
+  		return false
   
 }
