@@ -1,20 +1,15 @@
 override def run() {
-  
   while(!isOverBaggle()){
     if(northOK()){
       goNorth();
     }else{
       followWall();
     }
-    
   }
-    
   pickupBaggle();
 }
 
-
 def followWall() {
-    
   if(!hasWallLeft())
   	placeWallLeft();
   
@@ -44,9 +39,7 @@ def placeWallLeft(){
     forward();
   }
   right();
-  
 }
-
 
 def northOK() : Boolean = {
   var dir = getDirection();
