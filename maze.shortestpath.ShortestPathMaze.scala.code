@@ -37,9 +37,11 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   var indics:List[Int] = List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
   
+  var min = i;
+  
   for (j <- 0 to 3)
   {
-    if (indics(j)+1 < i) i = indics(j)+1;
+    if (indics(j)+1 < i) min = indics(j)+1;
   }
   
   if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1);
