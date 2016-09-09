@@ -2,7 +2,8 @@ def selectionSort() {
   val lgr=getNombreValeurs()
   for (pivot<-0 to lgr-2){var a=pivot
                           var amin=getValeur(a)
-                          for(b<-pivot to lgr-2){var blol=getValeur(b)
+                          for(b<-pivot+1 to lgr-2){var blol=getValeur(b)
                                                if(blol<amin){a=b}}
-                         echange(a,pivot)}
+                         if amin<getValeur(pivot){
+                          echange(a,pivot)}}
 }
