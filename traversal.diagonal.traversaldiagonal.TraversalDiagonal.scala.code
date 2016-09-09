@@ -2,23 +2,20 @@ var diag = 0;
 var finalpos : Boolean = true;
 override def run() {
   while (finalpos==false){
-
-    if (diag==6){
-      setPos(diag,diag)
-      writeMessage(diag)
-      finalpos=true
-  }
-    else if (diag==0){
+    if (diag==0){
       setPos(diag,diag)
       writeMessage(diag)
       diag=diag+1
     }
-    else {
-      for (a <- 0 to diag){
+    for ( a <- 0 to diag -1){
+      if (diag == 6) {
+        setPos(diag,diag)
+        writeMessage(diag)
+        finlpos=true
+      }
       setPos(diag-a,diag-a)
       writeMessage(diag)
       diag = diag + 1
-      }
     }
   }
   
