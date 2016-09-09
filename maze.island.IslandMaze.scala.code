@@ -1,0 +1,33 @@
+override def run() {
+  while(!verifierMurGauche()){
+    gauche()
+  }
+  while(!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall(){
+  if (estFaceMur()){
+    verifierMurGauche() match{
+      case true => droite();if(!estFaceMur()){avance()}
+      case false => while (estFaceMur()){gauche()};avance()
+    }
+  }
+  else{
+  	verifierMurGauche() match{
+      	case true => avance()
+      	case false => gauche();avance()
+  	} 
+	}
+}
+
+def verifierMurGauche():Boolean={
+  gauche()
+  estFaceMur() match{
+    case true => droite();return true
+    case false => droite();return false
+  }
+  
+}
