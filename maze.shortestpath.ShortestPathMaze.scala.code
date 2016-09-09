@@ -84,10 +84,18 @@ def bouge(H:Int,L:Int){
   var y = getY()
   var min=9999
   var dir=Direction.NORD
-  val gauche=getIndication(x-1,y)
-  val droite=getIndication(x+1,y)
-  val haut=getIndication(x,y-1)
-  val bas=getIndication(x,y+1)
+  
+ 	var gauche=9999
+  var droite=9999
+  var haut=9999
+  var bas=9999
+  
+  if(x-1>=0 ){gauche=getIndication(x-1,y)}
+  if(x+1<L){droite=getIndication(x+1,y)}
+  if(y-1>=0){haut=getIndication(x,y-1)}
+  if(y+1<L){bas=getIndication(x,y+1)}
+  
+  
   val lDir = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
   // voir si on va à gauche
   setDirection(lDir(3))
