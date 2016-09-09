@@ -1,4 +1,4 @@
-def run() {
+override def run() {
   while (estFaceMur()==false && estSurBiscuit()==false) {
     if (estSurBiscuit()==true) {
       prendBiscuit()
@@ -11,12 +11,14 @@ def run() {
       recule()
     }
     else {
-      while(estSurBiscuit()==false) {
+      while(estSurBiscuit()==false&&estFceMur()==false) {
         recule()
       }
     }
   }
+  gauche()
+  avance()
+  gauche()
+  avance()
   
 }
-
-run()
