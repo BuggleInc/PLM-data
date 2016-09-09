@@ -1,0 +1,14 @@
+def solve() {
+  var lgr = getTaille();
+  var v = 0 ;
+  var j = 1 ;
+	for(i<- 1 to lgr-1){
+    j = 1 ;
+    v = getCouleur(i);
+    while(j<=i && v<getCouleur(i-j)){
+      echange(i-j,i-j+1);
+      j += 1;
+    }
+    setCouleur(i-j+1,v)
+  }
+}
