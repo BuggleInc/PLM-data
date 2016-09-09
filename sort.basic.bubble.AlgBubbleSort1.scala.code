@@ -1,12 +1,22 @@
 def bubbleSort()  {
   val n = getNombreValeurs()
-  for(ind<- 0 to n-2)
+  while(!estTrie())
   {
-    var i = ind
+    var i = 0
     while(plusPetit(i+1, i) && i < n-2)
     {
       echange(i, i+1)
       i += 1
     }
+  }
+}
+
+def estTrie() : Boolean =
+{
+  Boolean trie = 1
+  for (i<- 0 to getNombreValeurs()-2)
+  {
+    if (!plusPetit(i, i+1))
+    	trie = 0
   }
 }
