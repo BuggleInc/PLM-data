@@ -3,7 +3,11 @@ override def run() {
   	var toucherMur:Boolean=false
     ecritMessage(cpt) 
     while(finalPos!=true){
+      
       bougerPos()
+      cpt+=1;
+      ecritMessage(cpt);
+    }
   }
 
   def finalPos():Boolean={
@@ -14,9 +18,24 @@ override def run() {
       return false
     }
   }
-  def bougerPos(){
-    for(i<-0 to 6){
-      avance();
-      seretourne();
-    }
+  def bougerPos(cpt:Int){
+     if(getX()==(getMondeLargeur-1)){
+       setPos(getX(),getY()+1)
+       ecritMessage(cpt+1)
+       bougerinverse(cpt+1)
+       cpt=cpt+7
+     }
+    
+    setPos(getX()+1,getY())
+    
+   
   }
+def bougerinverse(a:Int){
+  for(k<-1 to 7){
+    setPos(getX()-1,getY())
+    ecritMessage(a+1)
+    a +=1;
+  }
+  setPos(getX(),getY()+1)
+  ecritMessage(a)
+}
