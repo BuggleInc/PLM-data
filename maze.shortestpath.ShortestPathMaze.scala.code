@@ -3,13 +3,16 @@ var NO_INDICATION = 9999;
 
 
 override def run() {
-var (exitX, exitY) = findExit();
+	var (exitX, exitY) = findExit();
 
-markExit(exitX, exitY);
+	markExit(exitX, exitY);
+	markOthers();
+}
 
-var i = 1;
+def markOthers() {
+  var i = 1;
   while (!isCurrentPositionMarked() && i+1 < NO_INDICATION) {
-    mark(i);
+    if (!mark(i)) return;
     i += 1;
   }
 }
@@ -97,7 +100,8 @@ def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
   	return min;
  }
 
- def mark(i:Int) {
+ def mark(i:Int) : Boolean = {
+  var hasSetIndication = false;
   for (x <- 0 to getWorldWidth() - 1) {
     for (y <- 0 to getWorldHeight() - 1) {
       if (getIndication(x, y) == NO_INDICATION) {
@@ -108,8 +112,11 @@ def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
 
         if (min != NO_INDICATION) {
         	setIndication(x, y, min + 1)
+          hasSetIndication = true;
         }
       }
     }
   }
+   
+  return hasSetIndication;
 }
