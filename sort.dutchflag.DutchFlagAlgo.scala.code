@@ -2,29 +2,24 @@ def solve() {
   var apresbleu=0
   var blancrouge=getTaille()-1
   var avantblanc=0
-  var c:Int =0
-  while (c<getTaille()){
-    
-    if (getCouleur(c)==BLEU){
-      if (getCouleur(apresbleu)==BLEU){
-        apresbleu+=2
-        avantblanc+=2
-      }
-      else{
-      echange(c,apresbleu)
-      apresbleu+=1
-      avantblanc+=1
+  for (i <- 0 to getTaille()-1){
+    for (j <- 0 to apresbleu){
+      if (getCouleur(j)!=BLEU){
+        echange(j,j+1)
+        j-=1
       }
     }
-    if (getCouleur(c)==ROUGE){
-      echange(c,blancrouge)
+    if (getCouleur(i)==ROUGE){
+      echange(i,blancrouge)
       blancrouge-=1
     }
-    if (getCouleur(c)==BLANC){
-      echange(c,avantblanc)
+    if (getCouleur(i)==BLEU){
+      echange(i,apresbleu)
+      apresbleu+=1
       avantblanc+=1
-      
     }
-    c+=1
+    if (getCouleur(i)==BLANC){
+      echange(i,avantblanc)
+      avantblanc+=1
+    }  
   }
-}
