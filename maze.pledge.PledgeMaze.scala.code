@@ -8,16 +8,16 @@ override def run() {
     }
     while (angle!=0) {
       if (!isFacingWall()) {
-        right();angle=angle+1
+        forward();left();angle = angle -1
         if (isFacingWall()) {
-          left; angle=angle-1; forward()
+          right; angle=angle+1;
         }
         else {
           forward()
         }
       }
       else {
-        left(); angle=angle-1
+        right(); angle=angle+1
       }
     }
   }
