@@ -1,0 +1,82 @@
+def point() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def flower(c:Color) {
+  setCouleurBrosse(c)
+  gauche()
+  for(i<- 1 to 4) {
+    avance()
+    droite()
+    avance()
+    point()
+  }
+  droite()
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  point()
+  
+}
+
+def cinqFleurs() {
+  flower(Color.RED)
+  for (i<- 1 to 3) {
+    avance()
+  }
+  flower(Color.CYAN)
+  droite()
+  avance()
+  avance()
+  droite()
+  for (k<- 1 to 3) {
+    avance()
+  }
+  retourne()
+  flower(Color.ORANGE)
+  avance()
+  droite()
+  avance()
+  avance()
+  gauche()
+  flower(Color.GREEN)
+  for (j<- 1 to 5) {
+    recule()
+  }
+  flower(Color.PINK)
+  recule()  
+}
+
+def growFlowers() {
+  for(z <- 1 to 2) {
+    cinqFleurs()
+    for(l <- 1 to 6) {
+      avance()
+    }
+    gauche()
+    for (m<- 1 to 2) {
+      avance()
+    }
+    droite()
+    flower(Color.BLUE)
+    avance()
+    gauche()
+    avance()
+    avance()
+    droite()
+    cinqFleurs()
+    if(z==1) {
+      droite()
+      avance()
+      droite()
+      for(y <- 1 to 8) {
+        avance()
+      }
+      gauche()
+      for( x <- 1 to 3) {
+        avance()
+      }
+      gauche()
+    }
+  }
+}

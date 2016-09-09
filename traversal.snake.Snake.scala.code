@@ -1,0 +1,37 @@
+override def run() {
+  var murNord = false
+  var faceMur = false
+  while(murNord == false | faceMur == false) {
+    for(i <- 1 to 6) {
+      avance()
+    }
+    if(estFaceMur()) {
+      faceMur = true
+    }
+    else {
+      faceMur == false
+    }
+    if(getDirection() == Direction.EST) {
+      gauche()
+      if(estFaceMur()) {
+        murNord = true
+        droite()
+      }
+      else {
+        avance()
+        gauche()
+      }
+    }
+    else {
+      droite()
+      if(estFaceMur()) {
+        murNord = true
+        gauche()
+      }
+      else {
+        avance()
+        droite()
+      }
+    }
+  }
+}
