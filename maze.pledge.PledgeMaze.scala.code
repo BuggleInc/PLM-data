@@ -6,6 +6,7 @@ override def run() {
       setDirection(Direction.NORTH)
       forward()
     }
+    right();angle+=1
     do {
       //si ya pas de mur
       if (!isFacingWall()) {
@@ -23,12 +24,12 @@ override def run() {
       //si ya un mur
       else { //on tourne pour continuer
         right(); angle+=1;
-        forward(); left()
+        forward(); left();angle-=1
         if (!isFacingWall()) {
           forward()
         }
         else {
-          right()
+          right();angle+=1
         }
       }
     } while (angle!=0 && !isOverBaggle())
