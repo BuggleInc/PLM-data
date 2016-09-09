@@ -2,11 +2,11 @@ override def run() {
   var n=0
   val x = getWorldWidth()
   val y = getWorldHeight()
-  while(! isInPosition(x)) {
+  while(! isInPosition()) {
     writeMessage("n")
     n = n+1
-    if (0 != getY()) {
-      setPos(getX(), getY() - 1)
+    if (6 != getY()) {
+      setPos(getX(), getY() + 1)
     }
     else {
       setPos(getX() + 1, y-1)
@@ -15,7 +15,7 @@ override def run() {
 }
 
 
-def isInPosition(x: Int):Boolean = {
-  if ( (x -1 == getX()) && (0 == getY())) {return true}
+def isInPosition():Boolean = {
+  if ( (x -1 == getX()) && (y -1 == getY())) {return true}
   else {return false}
 }
