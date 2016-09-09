@@ -6,15 +6,15 @@ def shellSort()  {
   var test=false
   for(i <- 1 to getNombreValeurs()-1){
     v=getValeur(i)
-    test=plusPetitQue(i-1,v)
+    test=plusPetitQue(i-ecart,v)
     c=0
     while(test==false && i-1-c>=0){
-      copie(i-1-c,i-c)
+      copie(i-c*ecart,i-(c+1)*ecart)
       c+=1
-      if(i-1-c>=0){
-      	test=plusPetitQue(i-1-c,v)
+      if(i-c*ecart>=0){
+      	test=plusPetitQue(i-c*ecart,v)
       }
     }
-    setValeur(i-c,v)
+    setValeur(i-c*ecart,v)
   }
 }
