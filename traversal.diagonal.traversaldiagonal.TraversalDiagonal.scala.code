@@ -1,0 +1,31 @@
+var diag = 0;
+override def run() 
+{
+  var count=1
+  ecritMessage(0)
+  while(!posFinale)
+  	{
+      goNext()
+      ecritMessage(count)
+      count+=1
+    }
+}
+
+
+def posFinale():Boolean=
+{
+  return((getMondeHauteur()==(getY()+1))&&(getMondeLargeur()==getX()+1))
+}
+
+
+def goNextDiag()
+{
+  if (getY()==0)
+  	{
+      setPos(diag+1,0)
+    }
+  else
+  	{
+      setPos(getX()+1,getY()-1)
+    }
+}
