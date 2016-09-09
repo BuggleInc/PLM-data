@@ -1,5 +1,10 @@
+var etat = 1
 override def run() {
   while(!estSurBiscuit()){
+    etat match  {
+      case 0 => while(!estFaceMur()){avance()};etat = 1
+      case 1 => gauche();if(!estFaceMur()){avance()};else{keepHandOnSideWall()}
+    }
     gauche()
     if(!estFaceMur()){
       avance()
