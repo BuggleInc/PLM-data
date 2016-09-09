@@ -73,28 +73,17 @@ def trouveForce(){
   var m = getX()
   var n = getY()
   var ici = getIndication(getX(),getY())
-  setDirection(Direction.NORD)
-  if(!estFaceMur){
-    if(ici - getIndication(getX(),getY()-1)>0){
-      avance()
-    }
-  }
-   setDirection(Direction.SUD)
-  if(!estFaceMur){
-    if(ici - getIndication(getX(),getY()+1)>0){
-      avance()
-    }
-  }
-   setDirection(Direction.OUEST)
-  if(!estFaceMur){
-    if(ici - getIndication(getX()-1,getY())>0){
-      avance()
-    }
-  }
+  if(ici - getIndicator(x,y-1)>0){
+    setDirection(Direction.NORD)
+    avance()
+  }else if(ici - getIndicator(x-1,y)>0){
+    setDirection(Direction.OUEST)
+    avance()
+  }else if(ici - getIndicator(x+1,y)>0){
     setDirection(Direction.EST)
-  if(!estFaceMur){
-    if(ici - getIndication(getX()+1,getY())>0){
-      avance()
-    }
+    avance()
+  }elseif(ici - getIndicator(x,y+1)>0){
+    setDirection(Direction.SUD)
+    avance()
   }
 }
