@@ -3,6 +3,8 @@ override def run() {
   allerObjectif()
 }
 
+
+
 def marquerCases()
 {
 	var (h, l) = (getMondeHauteur(), getMondeLargeur())
@@ -38,22 +40,6 @@ def marquerCases()
   }
 }
 
-def aMurEst(x:Int, y:Int) : Boolean =
-  {
-    if (x == getMondeLargeur()-1)
-    	return true
-    else 
-    	return aMurOuest(x+1, y)
-  }
-  
-def aMurSud(x:Int, y:Int) : Boolean =
-  {
-    if (y == getMondeHauteur()-1)
-    	return true
-    else
-    	return aMurNord(x, y+1)
-  }
-
 def marquerAutour(x:Int, y:Int)
 {
   if (!aMurOuest(x, y) && getIndication(x-1, y) == 9999)
@@ -69,6 +55,24 @@ def marquerAutour(x:Int, y:Int)
    	setIndication(x+1, y, getIndication(x, y) + 1) 
 }
 
+def aMurEst(x:Int, y:Int) : Boolean =
+{
+    if (x == getMondeLargeur()-1)
+    	return true
+    else 
+    	return aMurOuest(x+1, y)
+}
+  
+def aMurSud(x:Int, y:Int) : Boolean =
+{
+    if (y == getMondeHauteur()-1)
+    	return true
+    else
+    	return aMurNord(x, y+1)
+  }
+
+
+
 
 def allerObjectif()
 {
@@ -79,6 +83,7 @@ def allerObjectif()
     plusCourt(x, y, indice)
   }
 }
+
 
 def plusCourt(x:Int, y:Int, ind:Int)
 {
