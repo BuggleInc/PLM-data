@@ -55,6 +55,8 @@ def trouverChemin()
   var xModDir = List(0, 1, 0, -1);
   var yModDir = List(-1, 0, 1, 0);
   
+  setDirection(Direction.NORD);
+  
   for (i <- 0 to 3)
   {
     if (!estFaceMur())
@@ -63,6 +65,7 @@ def trouverChemin()
       
       if (indic < minIndic) dir = i;
     }
+    droite();
   }
   
   dir match
