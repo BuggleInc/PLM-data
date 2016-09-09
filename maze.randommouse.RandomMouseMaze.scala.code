@@ -1,19 +1,18 @@
 override def run() {
- var fin=false
-  do{
-    random3()
-  }
-  while(fin==false)
-}
-
-def random3(){
-  if (random3==0){
-    avance()
-  }
-  if(random3==1){
-    droite()
-  }
-  if (random3==2){
-    gauche
+ 
+  while (estSurBiscuit==false){
+    var random=random3()
+  if(estFaceMur()){
+    if(rand==0){
+      droite()
+    }
+    else {
+      gauche()
+    }
+    else{
+      if(rand==0){gauche()}
+      else if(rand==1){droite()}
+      else{avance()}
+    }
   }
 }
