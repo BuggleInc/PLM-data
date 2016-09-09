@@ -1,13 +1,27 @@
-def makeMoving() {
-  while (!isFacingWall()) {
-    forward();
-  }
+def isWallAtLeft () {
+  left();
+  var answer = isFacingWall();
   right();
+  return answer;
+}
+
+def makeMoving() {
+  while (!isOverBaggle()) {
+    if (!isFacingWall())  { // gestion case 1
+      forward();
+      if (!isWallAtLeft()) { // gestion case 2
+        left();
+        forward();
+        if (!isWallAtLeft()) { // gestion case 3
+          left();
+          forward();
+        }
+      }
+  	} else { right(); }
+	}
 }
 
 override def run() {
-	while (!isOverBaggle()) {
-    makeMoving();
-  }
+  makeMoving();
   pickupBaggle();
 }
