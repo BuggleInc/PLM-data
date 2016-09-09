@@ -1,9 +1,15 @@
 def bubbleSort()  {
   var len=getValueCount()
-  for(i<-0 to len-1){
-    for(j<-0 to len-1){
-      if(!isSmaller(j,i)){
+  var bool=false
+  var swapp=false
+  while(bool==false){
+  for(i<-0 to len-2){
+      if(isSmaller(i,i+1)){
         swap(i,j)
+        swapp=true
+      if(swapp==false && i==len-1) {
+        bool==true
+      }
       }
     }
   }
