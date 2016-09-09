@@ -1,11 +1,16 @@
 def solve() {
-  while (! isSorted()) {
+  var afterBlue:Int = 0
+  var beforeWhite:Int = getSize()-1
+  var afterWhite:Int = getSize()-1
+  while (afterBlue<beforeWhite) {
     for (x <- 0 to getSize()-1) {
       if (getColor(x)==BLUE) {
-        swap(x,0)
+        swap(x,afterBlue)
       } else { 
         if (getColor(x)==RED) {
-          swap(x,getSize()-1)
+          swap(x,afterWhite)
+        } else {
+          swap(x,beforeWhite)
         }
       }
     }
