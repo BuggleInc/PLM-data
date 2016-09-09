@@ -18,17 +18,25 @@ def keepHandOnSideWall(){
 
 }
 
-override def run() {
 
+
+
+def nord() {
+  setDirection(Direction.NORTH)
   do{
-    setDirection(Direction.NORTH)
-    
-    if (isFacingWall()){
-    keepHandOnSideWall()
-      keepHandOnSideWall()
-    }
-    else{
-      forward()
+    forward()
+  } while (!isFacingWall())
+  
+  
+}
+
+override def run() {
+	var state = 0
+  do{
+    state match {
+      case 0 =>nord();state=1
+      case 1 =>keepHandOnSideWall();state=0
+      case _ => println("coucou")
     }
     
     
