@@ -1,0 +1,35 @@
+override def run() {
+  def keepLeftHand() {
+    
+      left()
+      if ( ! isFacingWall()) {
+        forward() 
+        } else {
+    					right()
+    					if (! isFacingWall()) {
+                forward
+              } else {
+                	right()
+                	if (! isFacingWall()) {
+                  	forward
+                	} else {
+                  right()
+                }
+              }
+            }
+  
+			}
+  while (getY()!=0) {
+    setDirection(Direction.NORTH)
+    if (! isFacingWall()) {forward}
+    else {
+      keepLeftHand()
+    }
+  }
+ 	setDirection(Direction.EAST)
+  while (! isOverBaggle()) {
+      keepLeftHand()
+    }
+  
+  pickupBaggle()
+}
