@@ -3,28 +3,29 @@ override def run() {
   var x:Int=0
   var y:Int=0
   var i:Int=0
+  var i2:Int=0
 
 	ecritMessage(cpt)
-	
-  for(i<- 0 to 5){
+	for(i2<-0 to  2){
+    for(i<- 0 to 5){
+      x=getX()
+      y=getY()
+      cpt+=1
+      parcours2()
+      ecritMessage(cpt)
+    }
+    setPos(x+1,y+1)
+    cpt+=1
+    ecritMessage(cpt)
+    for (i<- 0 to 5){
+      parcours1()
+      cpt+=1
+      ecritMessage(cpt)
+    }
     x=getX()
- 		y=getY()
-    cpt+=1
-    parcours2()
-    ecritMessage(cpt)
+    y=getY()
+    setPos(x,y+1)
   }
-  setPos(x+1,y+1)
-  cpt+=1
-  ecritMessage(cpt)
-  for (i<- 0 to 5){
-    parcours1()
-    cpt+=1
-    ecritMessage(cpt)
-  }
-  x=getX()
-  y=getY()
-	setPos(x,y+1)
-  
   
 } 
 
