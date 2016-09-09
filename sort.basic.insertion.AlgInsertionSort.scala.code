@@ -8,15 +8,17 @@ def insertionSort() {
 
 
 def backMinus(indSorted:Int){
-  var v = getValue(indSorted)
+  var v = getValue(indSorted);
+  var indLastCopied = indSorted;
   for(i <- 1 to indSorted -1 by -1){
     if(isSmaller(v, getValue(i-1))){
       swap(i, i-1);
+      indLastCopied = i-1;
     }
     else{
-      setValue(i-1, v);
-      return;
+
     }
   }
+  setValue( indLastCopied , v);
   
 }
