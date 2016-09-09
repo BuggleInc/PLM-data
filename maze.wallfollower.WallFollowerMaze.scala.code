@@ -11,7 +11,12 @@ def keepHandOnSideWall() {
   
   if (isFacingWall()) {
     right();
-    forward();
+    if (isFacingWall()) {
+      right();
+    }
+    else {
+    	forward();
+    }
   }
   else {
     forward();
