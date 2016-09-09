@@ -4,6 +4,7 @@ def solve() {
   
   while(afterBlue < beforeWhite){
   	var colorAB = getColor(afterBlue);
+  	var colorBW = getColor(beforeWhite);
     
     if(colorAB == RED){
       swap(afterBlue, whiteRed);
@@ -15,6 +16,20 @@ def solve() {
       beforeWhite -= 1;
     }
     if(colorAB == BLUE){
+      afterBlue += 1;
+    }
+     
+    
+    if(colorBW == RED){
+      swap(beforeWhite, whiteRed);
+      whiteRed -= 1;
+      beforeWhite -= 1;
+    }
+    if(colorBW == WHITE){
+      beforeWhite -= 1;
+    }
+    if(colorBW == BLUE){
+      swap(afterBlue, beforeWhite);
       afterBlue += 1;
     }
     
