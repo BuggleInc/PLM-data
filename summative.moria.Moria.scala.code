@@ -1,17 +1,23 @@
-def ramene{
-  droite()
-  while(getCouleurSol()!=Color.green)
-  while(!estSurBiscuit){
-  	avance()
-  }
-  prendBiscuit()
+def Biscuit{
   retourne()
-  while(!estSurBiscuit){
-  	avance()
-  }
-  poseBiscuit()
+  while(getCouleurSol()!=Color.green){
+  	while(!estSurBiscuit){
+      if(estFaceMur){
+       droite()
+       avance()
+       gauche()
+     }else{
+  		avance()
+ 	 }
+ 	 prendBiscuit()
+ 	 retourne()
+ 	 while(!estSurBiscuit){
+     
+  		avance()
+ 	 	}
+   }
+	  poseBiscuit()
+	}
 }
 
-def resteB{
-  
-}
+Biscuit()
