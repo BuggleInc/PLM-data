@@ -25,15 +25,23 @@ def house (height:Double) {
 
 override def run() {
   var (x, y) = (getX(), getY());
-  //for (i <- y to y+150 by 75) {
-    //for (j <- x to 250 by 50) {
-      //setPos(j, i);
-      //house(30);
-  	//}
- // }
-  setPos(x+75.0, y);
-  house(30);
-  setPos(x+75.0, y+150.0);
-  house(30);
-  setPos(x, y+155);
+	for (j <- 0 to 225 by 75) {
+  	setPos(x, y+j);
+    house(30.0);
+  }
+  right(90.0);
+  for (i <- 0 to 200 by 50) {
+  	setPos(x+i, y+150);
+    house(30.0);
+  }
+  right(90.0);
+  for (j <- 225 to 0 by -75) {
+  	setPos(x+200, y+150-j);
+    house(30.0);
+  }
+  right(90.0);
+  for (i <- 200 to 0 by -75) {
+  	setPos(x-i, y);
+    house(30.0);
+  }
 }
