@@ -24,22 +24,22 @@ def dirMinimale(x:Int,y:Int):Direction = {
       a(0)=getIndication(x,y-1)
     }
   }
-  catch {case _ =>}
+  catch {case _ : Throwable=>}
   try {
     if (!aMurNord(x,y-1)) {
       a(1)=getIndication(x,y+1)
     }
-  } catch {case _ =>}
+  } catch {case _ : Throwable=>}
   try {
     if (!aMurOuest(x+1,y)) {
       a(2)=getIndication(x+1,y)
     }
-  } catch {case _ =>}
+  } catch {case _ : Throwable=>}
   try {
     if (!aMurOuest(x,y)) {
       a(3)=getIndication(x-1,y)
     }
-  } catch {case _ =>}
+  } catch {case _ : Throwable=>}
   
   return Directions(a.zipWithIndex.min._2)
   
