@@ -5,8 +5,10 @@ def shellSort()  {
   for(i <- 1 to getNombreValeurs()-1){
     v=getValeur(i)
     while(ecart>0){
-      if(plusPetitQue(i-ecart,v)){
-        copie(i-ecart,i-2*ecart)
+      if(i-ecart>0){
+        if(plusPetitQue(i-ecart,v)){
+          copie(i-ecart,i-2*ecart)
+        }
       }
       ecart=ecart/2
     }
