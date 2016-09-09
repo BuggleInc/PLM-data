@@ -1,0 +1,69 @@
+def growFlowers()
+{
+	ligneFleur(Color.red,Color.cyan)
+  tourneDroite(2)
+  tourneGauche(2)
+  fleur(Color.orange)
+  recule(3)
+  tourneDroite(2)
+  gauche()
+  ligneFleur(Color.pink,Color.green)
+  
+  
+}
+          
+def ligneFleur(color1:Color,color2:Color)
+{
+  fleur(color1)
+  avance(3)
+  fleur(color2) 
+  recule(5)
+}
+
+def fleur(color:Color)
+{
+  ligne(color)
+  tourneDroite(1)
+  retourne()
+	ligne(color)
+  droite()
+  marquer(Color.yellow,0)
+}
+
+
+
+def ligne(color:Color)
+{
+	marquer(color,3)
+  recule()
+}
+
+def tourneDroite(nb:Int)
+{
+  droite()
+  for (i<-1 to nb)
+  	{
+  		avance()
+    }
+}
+
+def tourneGauche(nb:Int)
+{
+  gauche()
+  for (i<-1 to nb)
+  	{
+  		avance()
+    }
+}
+
+
+def marquer(color:Color,nb:Int)
+{
+  setCouleurBrosse(color)
+  baisseBrosse()
+  if (nb!=0)
+  	{
+      avance(nb-1)
+    }
+	leveBrosse()
+}
