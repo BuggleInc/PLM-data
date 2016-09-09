@@ -19,21 +19,15 @@ override def run() {
 def keepHandOnSideWall():Int={
   if (estFaceMur()){
     verifierMurGauche() match{
-      case true => droite();if(!estFaceMur()){avance()}
-      case false => while (estFaceMur()){gauche()};avance()
+      case true => droite();if(!estFaceMur()){avance()};return -1
+      case false => while (estFaceMur()){gauche()};avance();return +1
     }
   }
   else{
   	verifierMurGauche() match{
       	case true => avance();return 0
-      	case false => gauche();avance()
+      	case false => gauche();avance();return +1
   	} 
-	}
-  getDirection() match{
-    case Direction.EAST => return -1
-    case Direction.WEST => return 1
-    case _ => return 0
-    
   }
 }
 
