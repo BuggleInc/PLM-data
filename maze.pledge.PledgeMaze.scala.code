@@ -1,0 +1,37 @@
+override def run() {
+  
+  //brushDown()
+  
+  while(!isOverBaggle()){
+
+    	while(!isFacingWall() && wallToLeft()){
+        forward()
+      }
+    
+      if(isFacingWall()){
+        if(wallToLeft()){
+          right()
+        }
+        else{
+          left()
+          forward()
+        }
+      }
+      else{
+        left()
+        forward()
+      }
+    
+  }
+  pickupBaggle()
+  while(isFacingWall())
+  	right()
+  right();right()
+}
+
+def wallToLeft() : Boolean = {
+  left()
+  var mur : Boolean = isFacingWall()
+  right()
+  return mur
+}
