@@ -7,17 +7,6 @@ def cocktailSort3() {
   while(k){
     k = false ;
     for(i<- beg to end){
-      j = len-2-i ;
-      if(!isSmaller(j, j+1)){
-        swap(j,j+1);
-        k = true ;
-      }
-    }
-    beg += 1;
-    if(!k){
-      return
-    }
-    for(i<- beg to end){
       if(!isSmaller(i, i+1)){
         swap(i,i+1);
         k = true ;
@@ -25,5 +14,18 @@ def cocktailSort3() {
       } 
     }
     end -= 1;
+    if(!k){
+      return
+    }
+    for(i<- beg to end){
+      j = len-2-i ;
+      if(!isSmaller(j, j+1)){
+        swap(j,j+1);
+        k = true ;
+      }
+    }
+    beg += 1;
+    
+    
   }
 }
