@@ -1,0 +1,25 @@
+def cocktailSort3() {
+  var dbt=0
+  var fin=getNombreValeurs()-2
+  var chgt1=false
+  var chgt2=false
+  var nbchangt=getNombreValeurs()-2
+  do{
+  	chgt1=false
+    chgt2=false
+    for (i <- dbt to fin){
+    	if (plusPetit(i+1,i)){
+      	echange(i,i+1)
+        chgt1=true
+      }
+    }
+    fin-=1
+    for (i <- fin to dbt by -1){
+      if (plusPetit(i+1,i)){
+        echange(i+1,i)       
+      	chgt2=true
+      }
+    }
+    dbt+=1
+  }while (chgt1&&chgt2)
+}
