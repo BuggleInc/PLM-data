@@ -17,7 +17,13 @@ override def run() {
         }
       }
       else {
-        right(); angle+=1;forward()
+        left();angle-=1
+        if (!isFacingWall()) {
+          forward()
+        }
+        else {
+          right(); angle+=1;forward()
+        }
       }
     } while (angle!=0 && !isOverBaggle())
   }
