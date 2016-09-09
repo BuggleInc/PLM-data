@@ -37,9 +37,8 @@ def avanceSerpent()
 def posFinale():Boolean=
 {
   var murNord=false
-  while(estFaceMur)
-  	{
-  		if (getDirection()==Direction.EST)
+  do (
+  if (getDirection()==Direction.EST)
   			{
       		gauche()
       		murNord=estFaceMur()
@@ -50,7 +49,8 @@ def posFinale():Boolean=
     	  	droite()
       		murNord=estFaceMur()
       		gauche()
-    		}
+    		})
+  while(estFaceMur)
     }
   return (murNord&&estFaceMur())
 }
