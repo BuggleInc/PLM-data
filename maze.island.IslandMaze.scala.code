@@ -5,7 +5,8 @@ def isWallAtLeft () : Boolean = {
   return answer;
 }
 
-def followTheLeftSide() {
+// convoluted with staying the wall at the left :
+def leftFollowerMode() {
   while (!isOverBaggle()) {
   	if (!isFacingWall()) {
     	forward();
@@ -21,7 +22,27 @@ def followTheLeftSide() {
 	}
 }
 
+def northRunnerMode () {
+  while (getPosition() != Position.NORTH) { // auto-orientation
+    right();
+  	while (isFacingWall()) { // forward as long is possible
+  		forward();
+  	}
+	}
+}
+
+def makeMoving() {
+  var state = 0;
+  state match {
+    case 0 => northRunnerMode(); state = 1;
+    case 1 => while (!isWallAtLeft()) {
+      						left();
+    					} leftFollowerMode(); state = 0;
+    case _ => println("Error : this case should not happen.")
+  }
+}
+
 override def run() {
-  followTheLeftSide();
+  makeMoving();
   pickupBaggle();
 }
