@@ -1,9 +1,11 @@
 def selectionSort() {
   for (i <- 0 to getNombreValeurs() -1){
     var indMin:Int = i
+    var min:Int = getValeur(i)
     for (j <- i to getNombreValeurs() -1){
-      if (getValeur(j)<getValeur(indMin)){
+      if (getValeur(j)<min){
         indMin = j
+        min = getValeur(indMin)
       }
     }
     echange(i,indMin)
