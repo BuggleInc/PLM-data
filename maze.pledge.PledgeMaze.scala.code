@@ -1,6 +1,7 @@
 override def run() {
+  var angleSum:Int =0
   def keepLeftHand() {
-    	var angleSum:Int =0
+    	
       left()
     	angleSum+=1
       if ( ! isFacingWall()) {
@@ -21,13 +22,15 @@ override def run() {
                 }
               }
             }
-  
+  		
 			}
   while (getY()!=0) {
     setDirection(Direction.NORTH)
     if (! isFacingWall()) {forward}
-    else {
-      keepLeftHand()
+    else { 
+      while (angleSum !=0) {
+      	keepLeftHand()
+    	}
     }
   }
  	setDirection(Direction.EAST)
