@@ -1,0 +1,20 @@
+def island(num:Array[Int]): Int = {
+  var nbNiveaux=0
+  var max = num.max
+  var k = 0
+  while(num != [0]*num.size) {
+    for (i <- 1 to num.size) {
+    	if (num(i) == max) {
+        k=1
+      	while(num(i)==num(i+k)) {
+          k=k+1
+        }
+        nbNiveaux=nbNiveaux+1
+        for (j in range <- i to k-1) {
+          num(j)=num(j)-1
+        }
+    	}
+  	}
+  }
+  return nbNiveaux
+}
