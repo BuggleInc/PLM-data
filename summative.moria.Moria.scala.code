@@ -1,34 +1,8 @@
 var color:Color=getCouleurSol()
 
-def sortie():Boolean={
-  if (estFaceMur) {
-    return false
-  } else {
-    gauche(); if (estFaceMur) {
-      gauche()
-      gauche()
-      gauche()
-      return false
-    } else {
-      gauche(); if (estFaceMur) {
-        gauche()
-        gauche()
-        return false  
-      } else {
-        gauche(); if (estFaceMur) {
-          gauche()
-          return false
-        }
-        }
-   
-      }
-    }
-  return true
-  }
-
 while (color!=Color.GREEN) {
 
-	while (!estSurBiscuit() && !estDosMur() && !sortie()) {
+	while (!estSurBiscuit() && !estDosMur()) {
     recule();
     color=getCouleurSol();
   }
@@ -37,7 +11,7 @@ while (color!=Color.GREEN) {
   avance();
   }
   
-  while (!estSurBiscuit() && !estDosMur() && !sortie()) {
+  while (!estSurBiscuit() && !estDosMur()) {
   	avance();
     color=getCouleurSol();
   }
@@ -48,7 +22,7 @@ while (color!=Color.GREEN) {
   recule();
   }
   
-	if (!estSurBiscuit && sortie()) {
+	if (!estSurBiscuit) {
     setPos(getX()+1,getY()+1)
   }
   
