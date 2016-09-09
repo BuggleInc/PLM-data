@@ -1,0 +1,27 @@
+def shellSort()  {
+  var ecart:Int = 0
+  var len.Int = getNombreValeurs()
+  
+  ecart = ((len.toDouble)/2).toInt
+  while (ecart > 0) {
+		insertionSort(ecart)
+		ecart = ((ecart.toDouble)/2).toInt 
+  }
+}
+
+
+def insertionSort(ecart:Int) {
+  var j:Int = 0
+  var v:Int = 0
+  var len:Int = getNombreValeurs()
+  
+  for (i <- 1 to (len - 1)) {
+    j = i
+    v = getValeur(j)
+    while ((j > 0) && (!plusPetitQue((j - ecart),v))) {
+      copie((j - ecart),j)
+      j -= ecart
+    }
+    setValeur(j,v)
+  }
+}
