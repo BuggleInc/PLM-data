@@ -23,41 +23,41 @@ def indicationBaggle(){
 }
 
 def traceChemin(){
-  for(k<-0 to getMondeLargeur()*getMondeHauteur()){
-    for(i <-0 to getMondeLargeur()-2){
-      for(j <-0 to getMondeHauteur()-2){
+  var xBuggle = getX()
+  var yBuggle = getY()
+  var k = 0
+  while((xBuggle,yBuggle) != (9999,9999)){
+    for(i<-0 to getMondLargeur()-1){
+      for(j<-0 to getMondeHauteur()-1){
         if(getIndication(i,j) == k){
-          if(aMurNord(i,j)){
-            if(getIndication(i,j+1) == 9999){
-              setIndication(i,j+1,k+1)
-            }else if(getIndication(i-1,j) == 9999){
-              setIndication(i-1,j,k+1)
-            }else if(getIndication(i+1,j) == 9999){
-              setIndication(i+1,j,k+1)
-            }
-          }else if(aMurOuest(i,j)){
-            if(getIndication(i+1,j) == 9999){
-              setIndication(i+1,j,k+1)
-            }else if(getIndication(i,j+1) == 9999){
-              setIndication(i,j+1,k+1)
-            }else if(getIndication(i,j-1) == 9999){
-              setIndication(i,j-1,k+1)
-            }
-          }else{
-            if(getIndication(i+1,j) == 9999){
-              setIndication(i+1,j,k+1)
-            }else if(getIndication(i-1,j) == 9999){
-              setIndication(i-1,j,k+1)
-            }else if(getIndication(i,j+1) == 9999){
-              setIndication(i,j+1,k+1)
-            }else if(getIndication(i+1,j-1) == 9999){
-              setIndication(i+1,j-1,k+1)
-            }
-          }
+          marquer(i,j)
         }
       }
     }
   }
+  k = k+1
+}
+
+def marquer(x:Int,y:Int){
+  if(!aMurNord(x,y) && getIndication(x,y-1) == 9999){
+    setIndication(x,y-1,getIndication(x,y)+1)
+  }
+  if(!aMurOuest(x,y) && getIndication(x-1,y) == 9999){
+    setIndication(x-1,y,getIndication(x,y)+1)
+  }
+  if(!aMurEst(x,y) && getIndication(x+1,y) == 9999){
+    setIndication(x+1,y,getIndication(x,y)+1)
+  }
+  if(!aMurSud(x,y) && getIndication(x,y+1) == 9999){
+    setIndication(x,y+1,getIndication(x,y)+1)
+  }
+}
+
+def aMurSud(x:Int,y:Int): Boolean ={
+  return aMurNord(x,y+1)
+}
+def aMurEst(x:Int,y:Int): Boolean ={
+  return aMurOuest(x+1,y)
 }
 /*
 
