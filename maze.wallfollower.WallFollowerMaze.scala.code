@@ -1,5 +1,5 @@
 override def run() {
-  while (!isOverBaggle) {
+  while (!isOverBaggle()) {
     keepHandOnSideWall()
   }
   
@@ -7,11 +7,19 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if (isFacingWall) {
+  if (isFacingWall()) {
     right();
   }
 	else {
-    forward();
+    right();
+    if (isFacingWall()) {
+      left();
+      forward();
+    }
+    else {
+      forward();
+      right();
+    }
     
   }
 }
