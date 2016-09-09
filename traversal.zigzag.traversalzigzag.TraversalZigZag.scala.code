@@ -4,12 +4,16 @@ override def run() {
   ecritMessage(cpt)
   while(getX()!=getMondeLargeur()-1 | getY()!=getMondeHauteur()-1) {
     if(!estFaceMur()) {
-      avance()
+      if(getDirection()==Direction.EST) {
+        setPos(getX()+1,getY())
+      }
+      else {
+        setPos(getX()-1,getY())
+      }
     }
     else {
-      droite()
-      avance()
-      droite()
+      setPos(getX(),getY()+1)
+      retourne()
     }
     cpt=cpt+1
     ecritMessage(cpt)
