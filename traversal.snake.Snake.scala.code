@@ -13,7 +13,10 @@ def isInPosition():Boolean = {
   if ((getDirection() == Direction.EAST) && isFacingWall() ) {
     left()
     if (isFacingWall()) {right; return true}
-    else return false
+    else {
+      left()
+      return false
+    }
   }
   else return false
 }
