@@ -14,11 +14,16 @@ override def run() {
 }
 
 def keepHandOnSideWall():Boolean {
-  if (isFacingWall()) {
+  if (!isFacingWall()) {
     right();angle+=1
+    if (isFacingWall()) {
+      left; angle -=1; forward()
+    }
+    else {
+      forward()
+    }
   }
   else {
-    forward; left(); angle-=1
-    
+    left(); angle-=1
   }
 }
