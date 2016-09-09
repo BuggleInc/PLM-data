@@ -1,18 +1,22 @@
 Compilation error:
-ShortestPathMaze:54: error: Pattern variables must start with a lower-case letter. (SLS 8.1.1.)
-    case TOP:
-            ^ShortestPathMaze:54: error: '=>' expected but ':' found.
-    case TOP:
-            ^ShortestPathMaze:58: error: Pattern variables must start with a lower-case letter. (SLS 8.1.1.)
-    case BOTTOM:
-               ^ShortestPathMaze:58: error: '=>' expected but ':' found.
-    case BOTTOM:
-               ^ShortestPathMaze:62: error: Pattern variables must start with a lower-case letter. (SLS 8.1.1.)
-    case RIGHT:
-              ^ShortestPathMaze:62: error: '=>' expected but ':' found.
-    case RIGHT:
-              ^ShortestPathMaze:66: error: Pattern variables must start with a lower-case letter. (SLS 8.1.1.)
-    case LEFT:
-             ^ShortestPathMaze:66: error: '=>' expected but ':' found.
-    case LEFT:
-             ^
+ShortestPathMaze:54: error: stable identifier required, but ShortestPathMaze.this.TOP found.
+    case TOP =>
+         ^ShortestPathMaze:58: error: stable identifier required, but ShortestPathMaze.this.BOTTOM found.
+    case BOTTOM =>
+         ^ShortestPathMaze:59: error: not found: value hasBottomWall
+      if (hasBottomWall(x, y)) return min;
+          ^ShortestPathMaze:62: error: stable identifier required, but ShortestPathMaze.this.RIGHT found.
+    case RIGHT =>
+         ^ShortestPathMaze:63: error: not found: value hasRightWall
+      if (hasRightWall(x, y)) return min;
+          ^ShortestPathMaze:66: error: stable identifier required, but ShortestPathMaze.this.LEFT found.
+    case LEFT =>
+         ^ShortestPathMaze:86: error: too many arguments for method processNeighbor: (x: Int, y: Int, nPos: Int, min: Int)Int
+        var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
+                                 ^ShortestPathMaze:87: error: too many arguments for method processNeighbor: (x: Int, y: Int, nPos: Int, min: Int)Int
+        min = processNeighbor(x, y, 1, 0, min);
+                             ^ShortestPathMaze:88: error: too many arguments for method processNeighbor: (x: Int, y: Int, nPos: Int, min: Int)Int
+        min = processNeighbor(x, y, 0, -1, min);
+                             ^ShortestPathMaze:89: error: too many arguments for method processNeighbor: (x: Int, y: Int, nPos: Int, min: Int)Int
+        min = processNeighbor(x, y, 0, 1, min);
+                             ^
