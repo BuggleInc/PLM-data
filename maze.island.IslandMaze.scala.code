@@ -1,10 +1,11 @@
 override def run() {
   while(!isOverBaggle()){
+    if (getDirection == Direction.NORTH && northOK())
     while(getDirection == Direction.NORTH && northOK()){
-      goNorth();
+      forward();
     }
     right();
-    
+    else(getDirection == Direction.NORTH && northOK())
     while(!(getDirection == Direction.NORTH && northOK() )){
       keepHandOnSideWall();
     }
@@ -44,9 +45,3 @@ def northOK() : Boolean = {
   return nOK;
 }
 
-def goNorth() {
-  var dir = getDirection();
-  setDirection(Direction.NORTH);
-  forward();
-  setDirection(dir);
-}
