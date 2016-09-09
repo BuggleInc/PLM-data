@@ -1,0 +1,83 @@
+override def run() {
+  while (getY() != 0) {
+    if (goNorth) {
+      setDirection(Direction.NORTH)
+      avance()
+    } else {
+      outtaHere()
+    }
+  }
+  reallyOuttaHere()
+}
+
+
+
+def outtaHere() {
+  if (!checkLeftWall) {
+    while (!estFaceMur) {
+      avance()
+    }
+    droite()
+  }
+  while (!goNorth) {
+    keepHandOnSideWall()
+  }
+}
+
+def reallyOuttaHere() {
+  if (!checkLeftWall) {
+    while (!estFaceMur) {
+      avance()
+    }
+    droite()
+  }
+  while (!estSurBiscuit) {
+    keepHandOnSideWall()
+  }
+  prendBiscuit
+}
+
+
+
+def keepHandOnSideWall() {
+  if ((checkLeftWall) && (!estFaceMur)) {
+    avance()
+    while (!checkLeftWall) {
+      gauche()
+      avance()
+    }
+  } else if (!checkLeftWall) {
+    while (!checkLeftWall) {
+      gauche()
+      avance()
+    }
+  } else if (estFaceMur) {
+    droite()
+  }  
+}
+
+
+
+def checkLeftWall():Boolean = {
+  gauche()
+  if (estFaceMur) {
+    droite()
+    return true
+  } else {
+    droite()
+    return false
+  }
+}
+
+def goNorth():Boolean = {
+  var maRoute:Direction = Direction.NORTH
+  maRoute = getDirection()
+  setDirection(Direction.NORTH)
+  if (!estFaceMur) {
+    setDirection(maRoute)
+    return true
+  } else {
+    setDirection(maRoute)
+    return false
+  }
+}
