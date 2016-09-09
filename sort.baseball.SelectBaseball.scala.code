@@ -37,13 +37,14 @@ def derniereEtape(baseLibre:Int, baseCible:Int, position:Int) {
 }
 
 def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
+  var temp:Int = baseLibre
   if ((baseLibre-baseCible+n-1)%n!=n) {
     val nbMoves:Int = (baseLibre-baseCible+n-1)%n
     for (compt <- 1 to nbMoves) {
-      deplace((baseLibre-1)%4, position)
-      deplace(baseLibre, position)
-      deplace((baseLibre-1)%4, (position+1)%2)
-      baseLibre = (baseLibre-1)%4
+      deplace((temp-1)%4, position)
+      deplace(temp, position)
+      deplace((temp-1)%4, (position+1)%2)
+      temp = (temp-1)%4
     }
   }
   else {
