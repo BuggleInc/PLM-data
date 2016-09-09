@@ -3,12 +3,13 @@ override def run() {
   var y = 0 
   var i = 0
   var indic=0
+  var cpt = 0
   val L:Int=getMondeLargeur()
   val H:Int=getMondeHauteur()
   val xBis = trouverBis(0,H,L)
   val yBis = trouverBis(1,H,L)
   setIndication(xBis,yBis,0)
-  while(!fini(H,L)){
+  for (cpt <- 0 to H*L){
     for (x<-0 to L-1; y<- 0 to H-1){
       if (getIndication(x,y)!=9999){
         indic = getIndication(x,y)
@@ -16,6 +17,7 @@ override def run() {
       }
     }
    }
+  
 }
 
 def trouverBis(i:Int,H:Int,L:Int):Int = {
