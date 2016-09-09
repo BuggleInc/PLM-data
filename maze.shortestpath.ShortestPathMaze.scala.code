@@ -14,8 +14,8 @@ override def run() {
 	markExit(exitX, exitY);
 	markOthers();
   
-  moveToExit();
-  // pickupBaggle();
+  goToExit();
+  pickupBaggle();
 }
 
 def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) : (Int, NeighborPos) = {
@@ -58,7 +58,6 @@ def moveToExit() {
 }
 
 def goToExit() {
-  print(isOverBaggle() + "  ");
   while (!isOverBaggle()) {
     moveToExit();
   }
