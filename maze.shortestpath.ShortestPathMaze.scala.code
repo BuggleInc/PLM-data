@@ -40,9 +40,10 @@ def getIndicationSafe(x:Int, y:Int) : Int = {
 	return getIndication(x, y);
 }
 
-
-type NeighborPos = Value
-val TOP, BOTTOM, RIGHT, LEFT = Value
+object NeighborPos extends Enumeration {
+	type NeighborPos = Value
+	val TOP, BOTTOM, RIGHT, LEFT = Value
+}
 
 def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
   var xn = 0;
