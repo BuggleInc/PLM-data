@@ -1,8 +1,16 @@
+var a = Array(1,4,10,23,57,132,301)
+var x = 5
+
 def shellSort()  {
   
   var ecart = getNombreValeurs()/2
+  if (getNombreValeurs() == 150) {
+    
+    ecart = a(x)
+    
+  }
   
-  while (ecart>0) {
+  while (ecart>0||x>=1) {
   
 		for (i <- 1 to getNombreValeurs()-1 by ecart) {
       
@@ -22,8 +30,13 @@ def shellSort()  {
       
     }
     
-    ecart = ecart / 2
+    getNombreValeurs() match {
+      
+      case 150 => x = x-1; ecart = a(x)
+      case _ => ecart = ecart / 2
   
+    }
+    
   }
   
 }
