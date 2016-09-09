@@ -1,19 +1,18 @@
 while (getCouleurSol != Color.green){
   gauche();gauche()
-  if (getX()<=18){
-  while (estSurBiscuit()== false){
+  while (estSurBiscuit()== false && getX()!=18){
   	avance()
 }
-  prendBiscuit()
-  gauche()
-  gauche()
-  while (estSurBiscuit()==false && getX()!=18){
-  avance()
+  if (estSurBiscuit()==true){
+  	prendBiscuit()
+  	gauche()
+  	gauche()
+  	while (estSurBiscuit()==false && getX()!=18){
+  		avance()
        }
-  if (porteBiscuit()==true){
-  	recule()
-  	poseBiscuit()
-  	recule()
+  		recule()
+  		poseBiscuit()
+  		recule()
   }
   }
   if (getX()==18 && porteBiscuit()==false){
