@@ -1,0 +1,22 @@
+def bubbleSort2()  {
+  val n = getNombreValeurs()
+  val nbIter = 2
+  while(!estTrie(nbIter))
+  {
+    for(i<- 0 to n-nbIter)
+    {
+      if(plusPetit(i+1, i))
+      	echange(i, i+1)
+    }
+  }
+}
+
+def estTrie(nbIter:Int) : Boolean =
+{
+  for (i<- 0 to getNombreValeurs()-nbIter)
+  {
+    if (!plusPetit(i, i+1))
+    	return false
+  }
+  return true
+}
