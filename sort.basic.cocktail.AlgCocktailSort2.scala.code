@@ -1,16 +1,17 @@
 def cocktailSort2() {
   val n=getNombreValeurs()
   var compt = 1
+  var debut = 0
   var fin = 0
   while(compt != 0) {
     compt = 0
-    for (i <- fin to (n-2-fin)) {
+    for (i <- debut to (n-2-fin)) {
       if (plusPetit(i+1,i)) {echange(i,i+1)
       											 compt += 1
                             }
     }
-    fin +=1
-    for(i <- (n-2-fin) to fin by (-1)){
+    debut +=1
+    for(i <- (n-2-fin) to debut by (-1)){
       if (plusPetit(i+1,i)) {echange(i,i+1)
                              compt += 1
                             }
