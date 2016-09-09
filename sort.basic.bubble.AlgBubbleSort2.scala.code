@@ -20,13 +20,28 @@ def bubbleSort2()  {
   var fin:Boolean = false
   do {
     fin = true
-  	for (i <- (len - 2) to 0 by -1) {
-      for (j <- 0 to i) {
-    		if (plusPetit((j+1),j)){
-      		echange(j,(j+1))
+    for (j <- (len - 2) to 0 by -1) {
+    	for (i <- 0 to j) {
+      	if (plusPetit((i+1),i)) {
+        	echange(i,(i+1))
         	fin = false
-    		}
-      }
+      	}
+    	}
+    }
+  } while (fin == false)
+}
+
+
+def bubbleSort()  {
+  val len:Int = getNombreValeurs()
+  var fin:Boolean = false
+  do {
+    fin = true
+  	for (i <- 0 to (len - 2)) {
+    	if (plusPetit((i+1),i)){
+      	echange(i,(i+1))
+        fin = false
+    	}
   	}
   } while (fin == false)
 }
