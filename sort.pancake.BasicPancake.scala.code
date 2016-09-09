@@ -1,9 +1,14 @@
 def solve() {
   while(!estTriee()){
-    for (i <- getTaillePile() to 0 ){
-      if (getRayonCrepe(i)<getRayonCrepe(i-1)){
-        retourne(i)
+    var a = 0
+    var b = getTaillePile()
+    for (i <- 0 to getTaillePile() ){
+        if (getRayonCrepe(a)<getRayonCrepe(i)){
+          a=i
       }
     }
+    retourne(a)
+    retourne(b)
+    b-=1
   }
 }
