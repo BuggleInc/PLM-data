@@ -1,5 +1,8 @@
 override def run() {
-  while(!verifierMurGauche()){
+  while(getY()!=0){
+    trouverNord()
+  }
+  while(!verfifierMurGauche()){
     gauche()
   }
   while(!estSurBiscuit()){
@@ -21,6 +24,18 @@ def keepHandOnSideWall(){
       	case false => gauche();avance()
   	} 
 	}
+}
+
+def trouverNord(){
+  setDirection(Direction.North)
+  while(!estFaceMur()){
+    avance()
+  }
+  else{
+    droite()
+    avance()
+  }
+  
 }
 
 def verifierMurGauche():Boolean={
