@@ -57,10 +57,12 @@ def ecrireAdj(x:Int,y:Int,indic:Int,H:Int,L:Int){
       adjX match{
         case -1 => if(!aMurOuest(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY,indic+1)}
         case 1 => if (!aMurOuest(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
+        case _ => println("rien")
       }
       adjY match{
         case -1 => if(!aMurNord(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
         case 1 => if(!aMurNord(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
+        case _ => println("rien")
       }
     }
   }
