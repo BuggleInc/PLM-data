@@ -1,13 +1,13 @@
 def solve() {
   var n = getTaille ()
   var apresbleu = 0
-  var avantblanc = n-1
+  var avantblanc = n-2
   var blancrouge = n-1
   while (estTrie()) {
     for (i<- 0 to n-1) {
       getCouleur(i) match {
         case BLEU => echange(i,apresbleu);apresbleu += 1
-        case BLANC => echange(i,avantblanc-1);avantblanc -= 1
+        case BLANC => echange(i,avantblanc);avantblanc -= 1
         case ROUGE => echange(i,blancrouge); blancrouge -= 1 
       } 
     }
