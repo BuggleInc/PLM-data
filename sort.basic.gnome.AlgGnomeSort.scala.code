@@ -2,19 +2,17 @@ def gnomeSort() {
   var lgr=getNombreValeurs()
   var i=0
   
-  while (i!=lgr-4){
-    for (i<- 0 to lgr-2){
-      if (plusPetit(i+1,i)){
-        echange(i,i+1)
-        var l=i
-        if (i!=lgr-1){
-          while (l!=0){
-            for (k<-i to 1 by -1){
-              if (plusPetit(k,k-1)){
-                echange(k,k-1)
-              }
-              l-=1
+  for (i<- 0 to lgr-2){
+    if (plusPetit(i+1,i)){
+      echange(i,i+1)
+      var l=i
+      if (i!=lgr-1){
+        while (l!=0){
+          for (k<-i to 1 by -1){
+            if (plusPetit(k,k-1)){
+              echange(k,k-1)
             }
+            l-=1
           }
         }
       }
