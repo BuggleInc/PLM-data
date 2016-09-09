@@ -19,16 +19,49 @@ override def run()
   }
     
 	noteIndication(xSortie, ySortie, 0);
+  
+  while (!estSurBiscuit()) trouveChemin();
+  prendBiscuit();
 }
 
 def noteIndication(x:Int, y:Int, i:Int)
 {
   var n = getMondeLargeur()-1;
   var m = getMondeHauteur()-1;
+  
   setIndication(x,y,i);
   
   if (getIndication(x,y) != 9999 && !aMurNord(x,y) && y>0) noteIndication(x, y-1, i+1);
   if (getIndication(x,y) != 9999 && !aMurOuest(x,y) && x>0) noteIndication(x-1, y, i+1);
   //if (y<m && getIndication(x,y+1) != 9999 && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1);
   //if (x<n && getIndication(x+1,y) != 9999 && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1);
+}
+
+def trouveChemin(x:Int, y:Int)
+{
+  var dir = {0, 0, 0, 0}; //[0]:Nord, sens horaire
+  var dir = 0;
+  var indic = 0;
+  var minIndic = 9999;
+  var xModDir = {0, 1, 0, -1};
+  var yModDir = {1, 0, -1, 0}
+  
+  for (i <- 1 to 4)
+  {
+    if (!estFaceMur())
+    {
+      indic = getIndication(getX()+xModDir, getY()+yModDir);
+      
+      if (indic < minIndic) dir = i;
+    }
+  }
+  
+  indic match
+  {
+    case 0 => setDirection(Direction.NORD);
+    case 1 => setDirection(Direction.EST);
+    case 2 => setDirection(Direction.SUD);
+    case 3 => setDirection(Direction.OUEST);
+  }
+  avance();
 }
