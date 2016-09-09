@@ -1,0 +1,37 @@
+override def run() {
+  var n = 0
+  val x = getWorldWidth()
+  val y = getWorldHeight()
+  var right = true
+  while(! isInPosition(x,y)) {
+    writeMessage(n)
+    n = n+1
+    if (right) {
+      if (y-1 != getY()) {
+        setPos(getX(), getY() + 1)
+      }
+      else {
+        setPos(getX() + 1, 0)
+        right = false
+      }
+    }
+    else {
+      if (0 != getY()) {
+        setPos(getX(), getY() - 1)
+      }
+      else {
+        setPos(getX() + 1, y - 1)
+        right = right
+      }
+    }
+  }
+}
+
+
+def isInPosition(x: Int, y: Int):Boolean = {
+  if ( (x -1 == getX()) && (y -1 == getY())) {
+    writeMessage(x * y -1)
+    return true
+  }
+  else {return false}
+}
