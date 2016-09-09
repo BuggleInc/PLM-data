@@ -4,11 +4,12 @@ def bubbleSort2()  {
   x=getNombreValeurs
   do {
     listeTriee=true
-    for (i <- 0 to x-2) {
-       if (plusPetit(i+1,i)) {
-         echange(i+1,i)
+    for (i <- x-2 to 0) {
+      for (j <- 0 to i) {
+       if (plusPetit(j+1,j)) {
+         echange(j+1,j)
          listeTriee=false
-       }
+       }}
     }
   } while (!listeTriee)
 }
