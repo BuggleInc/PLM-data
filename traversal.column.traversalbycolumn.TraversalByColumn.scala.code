@@ -1,0 +1,22 @@
+override def run() 
+{
+  while(!posFinale)
+  	{
+      goNext()
+      marquer()
+    }
+}
+
+
+def posFinale():Boolean=
+{
+  return((getMondeHauteur()==(getY()+1))&&(getMondeLargeur()==getX()+1))
+}
+
+def goNext()
+{
+  if (estFaceMur())
+  {
+    setPosition(getX()+1,0)
+  }
+}
