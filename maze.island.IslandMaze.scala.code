@@ -33,6 +33,7 @@ def nord() {
 override def run() {
 	var state = 0
   var a = getDirection()
+  var b = 0
   do{
     if (state==0){
       nord()
@@ -56,8 +57,9 @@ override def run() {
        keepHandOnSideWall()
      }
     
-    if (getY()==0){
+    if (getY()==0 && b == 0){
       setDirection(Direction.NORTH)
+      b+=1
       state = 2
     }
     
