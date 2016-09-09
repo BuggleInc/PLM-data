@@ -13,18 +13,52 @@ override def run() {
 
 	markExit(exitX, exitY);
 	markOthers();
+  
+  moveToExit();
+  pickupBaggle();
 }
 
-def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int) {
+def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) = (Boolean, NeighborPos) {
+  var (xn, yn, canAccess) getNeighborRelativePos(x, y, np);
+  if (!canAccess) return (min, minNeighbor);
   
+  var indication = getIndicationSafe(xn, yn);
+  if (indication < min) {
+    return (indication, np);
+  }
+}
+
+def moveToNeighbor(n:NeighborPos) {
+  n match {
+    case TOP =>
+    	setDirection(Direction.NORTH);
+    case BOTTOM =>
+    	setDirection(Direction.BOTTOM);
+    case RIGHT =>
+    	setDirection(Direction.EAST);
+    case LEFT =>
+    	setDirection(Direction.WEST);
+  }
+  
+  forward();
 }
 
 def moveToExit() {
+  var x = getX();
+  var y = getY();
   
+  var (min, neighborToGo) = processNeighborForExit(x, y, TOP, NO_INDICATION);
+  (min, neighborToGo) = processNeighborForExit(x, y, BOTTOM, min);
+  (min, neighborToGo) = processNeighborForExit(x, y, LEFT, min);
+  (min, neighborToGo) = processNeighborForExit(x, y, RIGHT, min);
+  
+  moveToNeighbor(neighborToGo);
 }
 
 def goToExit() {
-  
+  while (!isOverBaggle()) {
+    moveToExit();
+  }
 }
 
 def markOthers() {
