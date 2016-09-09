@@ -1,6 +1,13 @@
 override def run() {
-  do(var ran=random3()
-     
-  )while{!estSurBiscuit()}
+  do{var ran=random3()
+     ran match {
+       case 0 => if(!estFaceMur()){avance()}
+       case 1 => droite();if(!estFaceMur()){avance()}else{gauche()}
+       case 2 => gauche();if(!estFaceMur()){avance()}else{droite}
+       
+       
+       
+     }
+     }while(!estSurBiscuit())
     // Your code here 
 }
