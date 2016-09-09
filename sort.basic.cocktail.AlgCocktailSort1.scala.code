@@ -1,10 +1,11 @@
 def cocktailSort() {
   var mouv:Boolean=true
-  var N=getNombreValeurs()
+  var N=getNombreValeurs()-2
+  deb=0
   while(mouv){mouv=false
-             for(x<-0 to N-2){if(plusPetit(x+1,x)){echange(x,x+1);mouv=true}}
-             for(x<-0 to N-2){
-               var j=N-2-x
+             for(x<-deb to N){if(plusPetit(x+1,x)){echange(x,x+1);mouv=true}}
+             for(x<-deb to N){
+               var j=N-x
                if(plusPetit(j+1,j)){echange(j,j+1);mouv=true}}
              }
 }
