@@ -6,8 +6,7 @@ override def run() {
       setDirection(Direction.NORTH)
       forward()
     }
-    angle=1
-    while (angle!=0) {
+    do {
       if (!isFacingWall()) {
         forward();left();angle = angle -1
         if (isFacingWall()) {
@@ -20,6 +19,6 @@ override def run() {
       else {
         right(); angle=angle+1
       }
-    }
+    } while (angle!=0)
   }
 }
