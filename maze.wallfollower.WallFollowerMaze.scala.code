@@ -2,15 +2,15 @@ override def run() {
   while(!isOverBaggle()) {
     while(!isFacingWall()) {
       left()
+      
+      if(!isFacingWall()) {
+        forward()
+      }
     }
     
     right()
     
-    if(!isFacingWall()) {
-      forward()
-    }
-    else {
-      right()
-    }
+    if(!isFacingWall())
+    forward()
   }
 }
