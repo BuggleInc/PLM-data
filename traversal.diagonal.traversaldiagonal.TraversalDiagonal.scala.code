@@ -22,9 +22,18 @@ def goNextDiag()
 {
   if (getY()==0)
   	{
-      diag+=1
-      setPos(0,diag)
+      if (diag<6)
+      	{
+      		diag+=1
+      		setPos(0,diag)
+        }
+      else
+      	{
+          diag=6-diag+1
+          setPos(diag,6)
+        }
     }
+  
   else
   	{
       setPos(getX()+1,getY()-1)
