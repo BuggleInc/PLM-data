@@ -47,12 +47,12 @@ def moveToExit() {
   var x = getX();
   var y = getY();
   
-  var (min, neighborToGo) = processNeighborForExit(x, y, TOP, NO_INDICATION);
-  min, neighborToGo = processNeighborForExit(x, y, BOTTOM, min);
-  (min, neighborToGo) = processNeighborForExit(x, y, LEFT, min);
-  (min, neighborToGo) = processNeighborForExit(x, y, RIGHT, min);
+  var a = processNeighborForExit(x, y, TOP, NO_INDICATION);
+  a = processNeighborForExit(x, y, BOTTOM, a._1);
+  a = processNeighborForExit(x, y, LEFT, a._1);
+  a = processNeighborForExit(x, y, RIGHT, a._1);
   
-  moveToNeighbor(neighborToGo);
+  moveToNeighbor(a._2);
 }
 
 def goToExit() {
