@@ -11,10 +11,11 @@ override def run() {
 
 def aGaucheToute(){
   while (getDirection!=Direction.NORD){
-    droite()
-    if (!estFaceMur){
-      forward()
+    gauche()
+    while (estFaceMur){
+      droite()
     }
+    forward()
   }
  etat=1   
 }
