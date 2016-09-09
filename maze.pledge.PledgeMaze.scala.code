@@ -1,4 +1,5 @@
 var virages = 0
+var init = false
 
 def murAGauche():Boolean = {
   
@@ -35,7 +36,7 @@ def longerMurGauche() {
     
     if (estFaceMur()) {
       
-      droite(); virages = virages - 1
+      droite(); virages = virages - 1; init = true
       return
     
     } else {
@@ -47,7 +48,7 @@ def longerMurGauche() {
     
   } else {
       
-    	gauche();virages = virages + 1;
+    	gauche();virages = virages + 1; init = true
       avance()
     	return
     
@@ -64,11 +65,11 @@ override def run() {
     
     fonceAuNord()
     droite()
-    while (virages !=0 && !libreAuNord()) {
+    do {
       
-      droite()
+      longerMurGauche()
       
-    }
+    } while (!init||virages !=0 && !libreAuNord())
     
   }
   
