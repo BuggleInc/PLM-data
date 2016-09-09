@@ -1,11 +1,30 @@
 def bubbleSort2()  {
+  var listeTriee:Boolean=true
   var x=0
   x=getNombreValeurs
-  for (i <- x-2 to 0) {
-    for (j <- 0 to i) {
-      if (plusPetit(j+1,j)) {
-         echange(j+1,j)
+  do {
+    listeTriee=true
+    for (i <- x-2 to 0) {
+      for (j <- 0 to i) {
+        if (plusPetit(j+1,j)) {
+           echange(j+1,j)
+      }
     }
-  }
-  }
+    }
+  } while (!listeTriee)
+}
+
+def bubbleSort()  {
+  var listeTriee:Boolean=true
+  var x=0
+  x=getNombreValeurs
+  do {
+    listeTriee=true
+    for (i <- 0 to x-2) {
+       if (plusPetit(i+1,i)) {
+         echange(i+1,i)
+         listeTriee=false
+       }
+    }
+  } while (!listeTriee)
 }
