@@ -45,12 +45,17 @@ var BOTTOM = 1;
 var RIGHT = 2;
 var LEFT = 3;
 
-def processNeighbor(x:Int, y:Int, nPos:Int, min:Int) : Int = {
+object NeighborPos extends Enumeration {
+    type NeighborPos = Value
+    val TOP, BOTTOM, RIGHT, LEFT = Value
+  }
+
+def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
   var xn = 0;
   var yn = 0;
   
-  nPos match {
-    case 0 =>
+  np match {
+    case TOP =>
     	if (hasTopWall(x, y)) return min;
     	xn = 0;
     	yn = -1;
@@ -82,10 +87,10 @@ def processNeighbor(x:Int, y:Int, nPos:Int, min:Int) : Int = {
   for (x <- 0 to getWorldWidth() - 1) {
     for (y <- 0 to getWorldHeight() - 1) {
       if (getIndication(x, y) == NO_INDICATION) {
-        var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
-        min = processNeighbor(x, y, 1, 0, min);
-        min = processNeighbor(x, y, 0, -1, min);
-        min = processNeighbor(x, y, 0, 1, min);
+        var min = processNeighbor(x, y, TOP, NO_INDICATION);
+        min = processNeighbor(x, y, BOTTOM, min);
+        min = processNeighbor(x, y, RIGHT, min);
+        min = processNeighbor(x, y, LEFT, min);
 
         if (min != NO_INDICATION) {
         	setIndication(x, y, min + 1)
