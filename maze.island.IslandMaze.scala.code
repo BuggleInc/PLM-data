@@ -10,7 +10,7 @@ override def run()
     //Avance jusqu'a un mur
   	while (!estFaceMur() && getY() > 0) avance();
     
-    //Recherche le point le plus eleve de sa structure qu'il contourne
+    //Recherche le point le plus eleve libre de la structure qu'il contourne
     gauche();
     iniPosX = getX();
     iniPosY = getY();
@@ -31,7 +31,7 @@ override def run()
       while (getX() != iniPosX || getY() != iniPosY)
     }
       
-    //Se rend sur ce point le plus eleve
+    //Se rend sur ce point libre
     while ((getX() != xMinY || getY() != minY) && getY() != 0) keepHandOnSideWall();
     
     setDirection(Direction.NORD);
