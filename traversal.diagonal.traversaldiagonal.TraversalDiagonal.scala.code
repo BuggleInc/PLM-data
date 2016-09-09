@@ -1,29 +1,14 @@
 var diag = 0;
 override def run() {
   var cpt:Int = 0
-  while(!positionFinale()) {
-    if (diag<getMondeLargeur()) {
-      setPos(0, diag)
+  for (i <- 0 to getMondeHauteur()) {
+    setPos(0,i)
+    ecritMessage(cpt)
+    cpt+=1
+    while(getx()!=i) {
+      setPos(getX()+1,getY()-1)
       ecritMessage(cpt)
       cpt+=1
-      while(getX()!=diag) {
-        setPos(getX()+1, getY()-1)
-        ecritMessage(cpt)
-        cpt+=1
-      }
-    } else {
-      	setPos(diag-getMondeLargeur(), getMondeHauteur())
-      	ecritMessage(cpt)
-      	cpt+=1
-      	while(getX()!=getMondeLargeur) {
-          setPos(getX()+1, getY()-1)
-        }     	
-    	}
-    
-	}
-}
-
-def positionFinale():Boolean = {
-  if (getX()==(getMondeHauteur()-1) && getY()==(getMondeLargeur()-1)) return true
-  return false
+    }
+  }
 }
