@@ -12,7 +12,7 @@ override def run() {
     for (x<-0 to L-1; y<- 0 to H-1){
       if (getIndication(x,y)!=9999){
         indic = getIndication(x,y)
-        ecrireAdj(x,y,indic)
+        ecrireAdj(x,y,indic,H,L)
       }
     }
     
@@ -52,18 +52,18 @@ def fini(H:Int,L:Int):Boolean={
   return true
 } // permet de voir si toutes les cases ont été marquées
 
-def ecrireAdj(x:Int,y:Int,indic:Int){
+def ecrireAdj(x:Int,y:Int,indic:Int,H:indic,L:indic){
   var adjX = 0
   var adjY = 0
   for (adjX <- -1 to 1;adjY <- -1 to 1){
-    if (Math.abs(adjX)+Math.abs(adjY)==1){
+    if (Math.abs(adjX)+Math.abs(adjY)==1 && x+adjX<L && y+adjY<H){
       adjX match{
-        case -1 => if(!aMurOuest(x,y) && getIndication(adjX,adjY)==9999){setIndication(adjX,adjY,indic+1)}
-        case 1 => if (!aMurOuest(adjX,adjY) && getIndication(adjX,adjY)==9999){setIndication(adjX,adjY, indic+1)}
+        case -1 => if(!aMurOuest(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY,indic+1)}
+        case 1 => if (!aMurOuest(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
       }
       adjY match{
-        case -1 => if(!aMurNord(adjX,adjY) && getIndication(adjX,adjY)==9999){setIndication(adjX,adjY, indic+1)}
-        case 1 => if(!aMurNord(x,y) && getIndication(adjX,adjY)==9999){setIndication(adjX,adjY, indic+1)}
+        case -1 => if(!aMurNord(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
+        case 1 => if(!aMurNord(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
       }
     }
   }
