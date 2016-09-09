@@ -1,0 +1,39 @@
+def triangle (length:Double) {
+  penDown();
+  for (i <- 0 to 2) {
+    forward(length);
+    right(120.0);
+  }
+}
+
+def square (steps:Double) {
+  penDown();
+  for (i <- 0 to 3) {
+    forward(steps);
+  	right(90.0);
+  }
+}
+
+def house (height:Double) {
+  square(height);
+  forward(height);
+  right(30.0);
+  triangle(height);
+  left(30.0);
+  backward(height);
+}
+
+override def run() {
+  var (x, y) = (getX, getY);
+  for (i <- (y - 150) to y by 150) {
+    for (j <- x to 200 by 50) {
+      setPos(j, i);
+      house(30);
+  	}
+  }
+  setPos(x, y-150);
+  house(30);
+  setPos(x+150, getY);
+  house(30);
+  setPos(x, y);
+}
