@@ -1,5 +1,6 @@
 override def run() {
-  while (getY()!=0) {
+  var reached=false;
+  while (getY()!=0 && reached!=true) {
     if (isFacingWall()) {
       right()
       if (!isFacingWall()) {
@@ -13,6 +14,7 @@ override def run() {
       forward()
     }
   }
+  reached=true
   while (!isOverBaggle()) {
     left()
     if (!isFacingWall()) {
