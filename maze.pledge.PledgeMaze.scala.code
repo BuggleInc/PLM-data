@@ -1,16 +1,5 @@
 var virages = 0
-var first = true
-
-def libreAuNord():Boolean = {
-  
-  var res = false
-  var dirInit = getDirection()
-  setDirection(Direction.NORD)
-  res = estFaceMur()
-  setDirection(dirInit)
-  return res
-  
-}
+var intitialisee = false
 
 def murAGauche():Boolean = {
   
@@ -22,19 +11,20 @@ def murAGauche():Boolean = {
   
 }
 
-
 def fonceAuNord() {
   
   setDirection(Direction.NORD)
-  while (!estFaceMur()) {
-    
-    avance()
-    
-  }
+  while (!estFaceMur()) {avance()}
   
 }
 
 def longerMurGauche() {
+  
+  if (virages == 0 && initialisee) {
+    
+    fonceAuNord()
+    
+  }
   
   if (murAGauche()) {
     
@@ -42,7 +32,6 @@ def longerMurGauche() {
       
       droite()
       virages = virages - 1
-      first = false
       return
     
     } else {
@@ -55,7 +44,6 @@ def longerMurGauche() {
       
     	gauche()
     	virages = virages + 1
-    	first = false
       avance()
     
   }
@@ -65,22 +53,9 @@ def longerMurGauche() {
 
 override def run() {
   
-  while (!murAGauche()) {
-    
-    gauche()
-    avance()
-    droite()
-    
-  }
-  
   while (!estSurBiscuit()) {
     
     longerMurGauche()
-    if (virages==0 && first && getDirection==Direction.NORD) {
-      
-      fonceAuNord()
-      
-    }
     
   }
   
