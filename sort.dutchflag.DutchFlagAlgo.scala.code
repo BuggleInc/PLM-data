@@ -9,7 +9,7 @@ def solve() {
     for(i<-bleu to lgr-rouge-1){
       getCouleur(i) match {
         case BLEU => echange(i,bleu+1); bleu += 1;
-        case BLANC =>  blanc += 1;
+        case BLANC => echange(i,bleu+blanc+1);blanc += 1;
         case ROUGE => echange(i,lgr-rouge-1); rouge += 1;
       }
     }
