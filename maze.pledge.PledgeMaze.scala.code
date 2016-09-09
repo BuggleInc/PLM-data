@@ -52,16 +52,17 @@ def longerMurGauche() {
 }
 
 
-override def run() {
+override def run() {}
   
-  fonceAuNord()
-  
-  while (!estSurBiscuit()) {
+  do {
     
-    longerMurGauche()
-    if (!first && virages == 0) {fonceAuNord()}
+    fonceAuNord()
     
-  }
+    while (!first && virages == 0) {
+    	longerMurGauche()
+    }
+    
+  } while (!estSurBiscuit())
   
   prendBiscuit()
   
