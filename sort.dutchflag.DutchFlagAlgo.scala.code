@@ -4,6 +4,7 @@ def solve() {
   var avantBlanc=getTaille()-1
   var c:Int =0
   while (c<getTaille()){
+    avantBlanc=blancrouge
     if (getCouleur(c)==BLEU){
       echange(c,apresbleu)
       print(apresbleu + avantBlanc)
@@ -14,7 +15,8 @@ def solve() {
       blancrouge-=1
     }
     if (getCouleur(c)==BLANC){
-      echange(c,apresbleu+1)
+      echange(c,avantBlanc)
+      avantBlanc-=1
     }
     c+=1
   }
