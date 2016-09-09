@@ -1,4 +1,5 @@
 def keepHandOnSideWall(){
+  var continuer:Boolean = true
   if (!estFaceMur()){
     gauche()
     if (estFaceMur()){
@@ -6,12 +7,19 @@ def keepHandOnSideWall(){
       avance()
     }else{avance()}
   }else{
-    gauche()
-    gauche()
-    if (estFaceMur()){
+    while(continuer){
+      gauche()
+      gauche()
+      if (estFaceMur()){
+        droite()
+        avance()
+        continuer = false
+      } else {
+        avance()
+        continuer = false
+      }
       droite()
-      avance()
-    } else {avance()}
+    }
   }
 }
 
