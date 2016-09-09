@@ -3,22 +3,24 @@ override def run() {
   brushDown();
   while (test ==false) {
     forward();
-  }
-  if (getDirection() == Direction.EST) {
-    left(); 
-    if (!estFaceMur) {
-      forward(); left();
-    } else {
-      test=true
+    if (getDirection() == Direction.EST) {
+      left();
+      if (estFaceMur) {
+        test=true
+      } else {
+        left();
+      }
+      left();
     }
-    left();
+    if (getDiretion() == Direction.OUEST) {
+      right();
+      if (estFaceMur) {
+        test=true
+      } else {
+        right();
+      }
+      right();
+    }
+	return test
   }
-  if (getDirection() == Direction.OUEST) {
-    right();
-    if (!estFaceMur) {
-      forward(); right();
-    } else {test=true}
-    right();
-  }
-  return test
 }
