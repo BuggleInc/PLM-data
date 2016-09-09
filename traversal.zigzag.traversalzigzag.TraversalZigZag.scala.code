@@ -1,0 +1,30 @@
+override def run() 
+{
+  var count=1
+  ecritMessage(0)
+  while(!posFinale)
+  	{
+      goNext()
+      ecritMessage(count)
+      count+=1
+    }
+}
+
+
+def posFinale():Boolean=
+{
+  return((getMondeHauteur()==(getY()+1))&&(getMondeLargeur()==getX()+1))
+}
+
+
+def goNext()
+{
+  if (getX()==6)
+  	{
+    	setY(getY()+1)
+  	}
+  else
+  	{
+      setX(getX()-1)
+    }
+}
