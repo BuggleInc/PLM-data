@@ -1,0 +1,23 @@
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h1>BubbleSort (take 3)</h1>
+
+<p>Let's now reintroduce the little optimization we removed at previous step:
+if a traversal does not swap any element, it means that the array is already
+sorted. In that case, we want to stop the whole sorting process.</p>
+
+<p>
+  
+  For that, simply quit the current function by calling <code>return</code> with no associated value. 
+</p>
+
+<tips data-tipid="tip-3" data-title="If you want, this tip shows the pseudo-code.">
+<p></p>
+<pre>For all i in [len-2,0] (traversing from biggest to smallest)
+       For all j in [0, i]
+          If cells j and j+1 must be swapped, do it
+       If traversal on j did not swap anything, break the for loop
+</pre>
+</tips>
+
+<p>This optimization is even more disappointing: it only provide a gain of a few
+percents on the amount of reads over BubbleSort2.</p>
