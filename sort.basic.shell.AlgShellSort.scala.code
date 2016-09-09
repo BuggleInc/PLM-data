@@ -1,0 +1,18 @@
+def shellSort() {
+  var length:Int = getNombreValeurs()
+  var v:Int = 0
+  var a:Int = 0
+  var j:Int = 0
+  var ecart:Int = 0
+  for (i <- 1 to length-1){
+    a = i
+    v = getValeur(i)
+    j = 1
+    while(j<=i && !plusPetitQue(j,v)){
+      copie(i-j,i-j+1)
+      a = i-j
+      j += 1
+    }
+    setValeur(a,v)
+  }
+}
