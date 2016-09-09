@@ -3,8 +3,20 @@ def shellSort()  {
   var ecart:Int=n
   while (ecart>0){
     ecart=(ecart.toDouble/2.0).toInt
-    insertion(ecart)
+    insertionSort(ecart)
   }
   
 }
 
+def insertionSort(e:Int) {
+  var n:Int=getNombreValeurs()
+  for ( k <- e to (n-1)){
+    var stock:Int=getValeur(k)
+    var l:Int=k-e
+    while ((l>=0)&&(stock<getValeur(l))){
+      setValeur(l+e,getValeur(l))
+      l=l-e
+    }
+    setValeur(l+e,stock)
+  }
+}
