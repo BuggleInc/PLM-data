@@ -6,10 +6,16 @@ def solve() {
   while (c<getTaille()){
     
     if (getCouleur(c)==BLEU){
+      if (getCouleur(apresbleu)==BLEU){
+        echange(c,apresbleu)
+        apresbleu+=2
+        avantblanc+=2
+      }
+      else{
       echange(c,apresbleu)
-      print(apresbleu + avantblanc)
       apresbleu+=1
       avantblanc+=1
+      }
     }
     if (getCouleur(c)==ROUGE){
       echange(c,blancrouge)
