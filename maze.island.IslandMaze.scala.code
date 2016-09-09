@@ -38,7 +38,7 @@ override def run() {
       nord()
       state = 1
     }
-    else{
+    else if (state == 1){
   		a = getDirection()
       keepHandOnSideWall()
       setDirection(Direction.NORTH)
@@ -49,10 +49,15 @@ override def run() {
       else{
         state = 0
       }
+      
     }
+     else{
+       keepHandOnSideWall()
+     }
     
-    
-    
+    if (getY()==0){
+      state = 2
+    }
     
     
     
