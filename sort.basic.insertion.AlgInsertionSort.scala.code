@@ -4,13 +4,12 @@ def insertionSort() {
   var j = 1
   for (i <- 1 to n-1) {
     v = getValeur (i)
-    do {
-      if (plusPetit(i,i-j)) {
+    while ( i-j >=0 && plusPetit(i,i-j)) {
         copie(i-j,i-j+1)
         j += 1 
       }
     }
-    while ( i-j >=0 && plusPetit(i,i-j))
+    
     setValeur(i-j+1,v)
     j=1
   }
