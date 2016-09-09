@@ -6,15 +6,16 @@ def isWallAtLeft () : Boolean = {
 }
 
 def followTheLeftSide() {
-   if (!isWallAtLeft()) { // gestion case 2
-    left();
-    forward();
-    if (!isWallAtLeft() && isFacingWall()) { // gestion case 3
-    	right();
-      forward();
-    } else { return (); } // keep moving
-    } else { right(); } // gestion case 4 (impasse)
-}
+   if (!isFacingWall()) {
+     foward();
+     if (!isWallAtLeft) {
+       left();
+       forward();
+     } if (!isWallAtLeft()) {
+       left();
+       forward();
+     }
+   } else { right(); }
 
 def makeMoving() = {
   while (!isOverBaggle()) {
@@ -25,6 +26,6 @@ def makeMoving() = {
 }
 
 override def run() {
-  makeMoving();
+  followTheLeftSide();
   pickupBaggle();
 }
