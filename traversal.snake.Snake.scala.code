@@ -1,13 +1,13 @@
 override def run() {
   baisseBrosse()
   var direction=getDirection()
-  while (positionfinale==false){
+  while (!positionfinale){
     while (!estFaceMur()){
       forward()
     }
     direction=getDirection()
     if (direction==Direction.EST){
-      if (positionfinale==false){
+      if (!positionfinale){
         left()
         forward()
         left()
