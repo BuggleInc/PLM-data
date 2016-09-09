@@ -1,19 +1,23 @@
+def shellSort()  {
+}
+
+
 def insertionSort() {
   
   for(j <- 1 to getValueCount()-1){
-  	backMinus(j);
+  	backMinus(j, 1);
   }
   
 }
 
 
-def backMinus(indSorted:Int){
+def backMinus(indSorted:Int, gap:Int){
   var v = getValue(indSorted);
   var indLastCopied = indSorted;
-  for(i <- 1 to indSorted){
-    if(!isSmallerThan(indSorted-i, v)){
-      copy(indSorted-i,indSorted-i+1);
-      indLastCopied = indSorted-i;
+  for(i <- 1 to indSorted / gap){
+    if(!isSmallerThan(indSorted-gap*i, v)){
+      copy(indSorted-igap*,indSorted-gap*i+1);
+      indLastCopied = indSorted-gap*i;
     }else{
   		setValue(indLastCopied, v);
       return ;
