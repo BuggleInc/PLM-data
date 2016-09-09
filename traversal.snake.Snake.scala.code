@@ -1,12 +1,15 @@
 override def run() {
+  var test:Boolean = false
   brushDown();
-  while (!estFaceMur) {
+  while (test ==false) {
     forward();
   }
   if (getDirection() == Direction.EST) {
     left(); 
     if (!estFaceMur) {
       forward(); left();
+    } else {
+      test=true
     }
     left();
   }
@@ -14,7 +17,8 @@ override def run() {
     right();
     if (!estFaceMur) {
       forward(); right();
-    }
+    } else {test=true}
     right();
   }
+  return test
 }
