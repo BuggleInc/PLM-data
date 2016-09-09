@@ -1,0 +1,29 @@
+def moria {
+  while (getCouleurSol() != Color.GREEN) {
+    if (!porteBiscuit()) {
+      	if (estSurBiscuit()) {
+          	prendBiscuit()
+          	retourne()
+        }
+      	else
+      			deplace() //Regarder si mur...
+    }
+    else {
+      	if (estSurBiscuit()) {
+          	recule()
+          	poseBiscuit()
+          	retourne()
+        }
+    }
+    
+  }
+}
+
+def deplace() {
+  if estFaceMur() {
+    	droite()
+    	avance()
+    	gauche()
+    	avance()
+  }
+}
