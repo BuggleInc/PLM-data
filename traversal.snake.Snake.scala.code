@@ -9,6 +9,10 @@ override def run() {
       if ((estFaceMur == true) && (getDirection() == Direction.NORTH)) {
         return true
       }
+      if ((estFaceMur == false) && (getDirection() == Direction.NORTH)) {
+        gauche();
+        return false
+      }
       return false
       
     }
@@ -17,6 +21,10 @@ override def run() {
     	droite();
       if ((estFaceMur == true) && (getDirection() == Direction.NORTH)) {
         return true
+      }
+    if ((estFaceMur == false) && (getDirection() == Direction.NORTH)) {
+        droite();
+        return false
       }
       return false
     }
