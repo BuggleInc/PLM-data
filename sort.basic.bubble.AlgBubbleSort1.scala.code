@@ -1,15 +1,17 @@
 def bubbleSort()  {
-  var B : Boolean = true
+  var B : Boolean = false
   var n = getNombreValeurs()
-  var rg : Double = 0
+  var rg = 0
 	for (i <- 0 to n-2 ){
       rg=i
-      while (rg>=0) {
+    	if (rg>=0)
+    		B= true
+      while (B) {
         if (plusPetit(rg+1,rg)) {
       		echange(rg,rg+1)
           rg-=1}
         else
-          rg=-1
+          B=false
         
    
       }
