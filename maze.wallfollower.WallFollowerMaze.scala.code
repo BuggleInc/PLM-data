@@ -1,3 +1,13 @@
+def chekMur():Boolean = {
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true
+  }
+  droite()
+  return false
+}
+
 def keepHandOnSideWall(){
   var continuer:Boolean = true
   if (!estFaceMur()){
@@ -5,10 +15,13 @@ def keepHandOnSideWall(){
     if (estFaceMur()){
       droite()
       avance()
-    }else{avance()}
+    }else{
+      droite()
+      
+    }
   }else{
     while(continuer){
-      gauche()
+      droite()
       if (!estFaceMur()){
         avance()
         continuer = false
