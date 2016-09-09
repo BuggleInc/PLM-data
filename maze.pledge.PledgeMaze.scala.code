@@ -2,23 +2,29 @@ override def run() {
   var dir:Direction=Direction.NORTH;
   var angle=1;
   while (!isOverBaggle()) {
-    while (!isFacingWall()) {
+    while (!isFacingWall() && !isOverBaggle()) {
       setDirection(Direction.NORTH)
       forward()
     }
     do {
       if (!isFacingWall()) {
-        forward();left();angle = angle -1
-        if (isFacingWall()) {
-          right; angle=angle+1;
+        left();angle-=1
+        if (!isFacingWall()) {
+          forward()
         }
         else {
-          forward()
+          forward();left();angle-=1
+          if (isFacingWall()) {
+            right();angle+=1
+          }
+          else {
+            forward();
+          }
         }
       }
       else {
         right(); angle=angle+1
       }
-    } while (angle!=0)
+    } while (angle!=0 && !isOverBaggle())
   }
 }
