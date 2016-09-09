@@ -81,6 +81,8 @@ def hasRightWall(x:Int, y:Int) : Boolean = {
 
 def getNeighborRelativePos(x:Int, y:Int, np:NeighborPos) : (Int, Int, Boolean) = {
   var canAccess = true;
+  var xn:Int = 0;
+  var xy:Int = 0;
   
   np match {
     case TOP =>
@@ -101,7 +103,7 @@ def getNeighborRelativePos(x:Int, y:Int, np:NeighborPos) : (Int, Int, Boolean) =
     	yn = 0;
   }
   
-  return canAccess;
+  return (xn, yn, canAccess);
 }
 
 def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
