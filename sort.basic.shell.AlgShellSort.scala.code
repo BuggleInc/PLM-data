@@ -16,12 +16,15 @@ def shellSort()  {
         while(it - k*gap >=0 && !isSmallerThan(it-k*gap,elementVal)){
           copy(it-k*gap,it-(k-1)*gap)
           k+=1
-          println(it)
         }
         
-        if(it-k*gap<0)
+        if(it-k*gap<0){
         	k+=1
-        setValue(it-k*gap,elementVal)
+        	setValue(it-k*gap,elementVal)
+        }
+        else{
+          setValue(it-k*gap,elementVal)
+        }
       }
     	
     	gap=(gap/2).toInt
