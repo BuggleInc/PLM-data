@@ -1,18 +1,21 @@
 def keepHandOnSideWall(){
 
-  	if (isFacingWall()){
-      right()
-      
-    }
-  	else {
+  	left()
+  if (isFacingWall()){
+    right()
+    if(!isFacingWall()){
       forward()
     }
-    
+    else {
+      right()
+    }
+  }
+  
 
 }
 
 override def run() {
- left()
+
 
   do{
     keepHandOnSideWall()
