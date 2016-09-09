@@ -2,12 +2,13 @@ def solve() {
   var afterBlue = 0;
   var whiteRed, beforeWhite = getSize-1;
   
-  while(afterBlue < whiteRed && whiteRed > beforeWhite){
+  while(afterBlue < beforeWhite){
   	var colorAB = getColor(afterBlue);
     
     if(colorAB == RED){
       swap(afterBlue, whiteRed);
       whiteRed -= 1;
+      beforeWhite -= 1;
     }
     if(colorAB == WHITE){
       swap(afterBlue, beforeWhite);
