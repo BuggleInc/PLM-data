@@ -1,7 +1,13 @@
 var diag = 0;
 var cpt:Int=0;
+var x:Int=0
+var y:Int=0
+x=getX()
+y=getY()
 override def run() {
- 	
+ 	ecritMessage(cpt)
+  setPos(x,y+diag+1)
+  
   while(diag!=6){
     parcours()
     diag+=1
@@ -16,11 +22,9 @@ override def run() {
 
 
 def parcours(){
-  var x:Int=0
-  var y:Int=0
+
   while(estFaceMur()==false && diag!=0){
-    x=getX()
-    y=getY()
+
     ecritMessage(cpt)
 
     setPos(x,y+diag+1)
