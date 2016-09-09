@@ -1,15 +1,9 @@
-def insertionSortWllh(ecart:Int) {
-  
-  
-  
-}
-
 def shellSort()  {
   
   var ecart = getNombreValeurs/2
   while (ecart>0) {
     
-    for (i <- 1 to getNombreValeurs()/ecart) {
+    for (i <- 1 to getNombreValeurs()/ecart-1) {
     
       var c = 1
       var v = getValeur(i-(c-1)*ecart)
@@ -18,7 +12,7 @@ def shellSort()  {
 
       while (i-c*ecart >= 0 && !plusPetitQue(i-c*ecart,v)) {
 
-        copie(i-c*ecart,i-(c+1)*ecart)
+        copie(i-(c+1)*ecart,i-c*ecart)
         last = c*ecart
         c = c + 1
 
