@@ -3,14 +3,12 @@ def insertionSort() {
   for ( k <- 1 to (n-1)){
     var stock:Int=getValeur(k)
     var compteur:Int=k
-    for (l <- (k-1) to 0 by -1){
-      var compa:Int=getValeur(l)
-      if (compa > stock){
-        setValeur((l+1),compa)
-        compteur=l
-      }
-
+    var compa:Int=getValeur(l)
+    while (compa>stock || l>=0){
+      setValeur((l+1),compa)
+      compteur=l
     }
-    setValeur(compteur,stock)
   }
+  setValeur(compteur,stock)
 }
+           
