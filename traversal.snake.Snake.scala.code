@@ -3,7 +3,7 @@ override def run() {
   brushDown();
   while (test ==false) {
     forward();
-    while (!estFaceMur) {
+    if (estFaceMur) {
       if (getDirection()==Direction.EST) {
         left();
         if (estFaceMur) {
@@ -20,6 +20,8 @@ override def run() {
           forward(); right();
         }
       }
+    } else {
+      forward();
     }
 	return test
   }
