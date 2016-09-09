@@ -21,26 +21,33 @@ override def run() {
   
 def avancer(){
   
-  //for (a <- 1 to 7){
-    while (x <=7){
+  if (x==0){
+    while(x<=6){
+      setPos(x,y)
       ecritMessage(compt)
-      compt=compt+1;
       x=x+1;
-      setPos(x,y)
-    }
-    y=y+1;
-    setPos(x,y)
-    
-    while (x >= 0){
-      ecritMessage(compt)
       compt=compt+1;
-      x=x-1;
-      setPos(x,y)
     }
-    y=y+1;
+    
     setPos(x,y)
+    ecritmessage(compt)
+    y=y+1;
+    compt=compt+1;
+  }
+    else if (x==6){
+      while (x>=0){
+        setPos(x,y)
+        ecritMessage()
+        x=x-1;
+        compt=compt+1;
+      }
+    
+      setPos(x,y)
+      ecritMessage(compt)
+      y=y+1;
+      compt=compt+1;
       
-    //}
+    }
   }
 
- }
+ 
