@@ -1,39 +1,16 @@
+//Notons que l'algorithme precedent trouve bien la sortie (meme si le grand nombre de tour de boucle fait que l'on obtient un time out juste apres qu'il est pris le buggle)
+
+var sommeAngle = 0; //Compte dans le sens trigonometrique
+
 override def run()
-{
-  var minY = -1;
-  var xMinY = 0;
-  var iniPosX = 0;
-  var iniPosY = 0;
-  
+{  
   while (getY() > 0)
   {
-    //Avance jusqu'a un mur
   	while (!estFaceMur() && getY() > 0) avance();
-    
-    //Recherche le point le plus eleve de sa structure qu'il contourne
     gauche();
-    iniPosX = getX();
-    iniPosY = getY();
-    minY = -1;
-    xMinY = 0;
+    sommeAngle+=1;
     
-    if (getY() > 0)
-    {
-      do
-      {
-        keepHandOnSideWall();
-        if (!estMurNord() && (getY() < minY || minY == -1))
-        {
-          minY = getY();
-          xMinY = getX();
-        }
-      }
-      while ((getX() != iniPosX || getY() != iniPosY) && getY() > 0)
-    }
-
-    //Se rend sur ce point le plus eleve
-    while ((getX() != xMinY || getY() != minY) && getY() > 0) keepHandOnSideWall();
-    setDirection(Direction.NORD);
+    while (sommeAngle != 0) keepHandOnSideWall();
 	}
   gauche();
   
@@ -45,29 +22,32 @@ override def run()
 def keepHandOnSideWall()
 {
   droite();
+  sommeAngle-=1;
   
   if (estFaceMur())
   {
     gauche();
     gauche();
+    sommeAngle+=2;
     keepHandOnSideWall();
   }
   else avance();
 }
-          
-def estMurNord():Boolean =
+
+
+def isDirectionFree(dir:Direction):Boolean =
 {
   var nbTours = 0;
-  var isMurNord = false;
+  var isMurDir = false;
   
-  while (getDirection() != Direction.NORD)
+  while (getDirection() != dir)
   {
     gauche();
     nbTours+=1;
   }
-  isMurNord = estFaceMur();
+  isMurDir = estFaceMur();
   
   for (i <- 1 to nbTours) droite();
   
-  return isMurNord;
+  return isMurDir;
 }
