@@ -1,0 +1,74 @@
+override def run() {
+  
+  while (!posFinale()) {
+    
+    serpenter()
+    
+  }
+
+}
+
+
+def posFinale() {
+  
+  if (estFaceMur()) {
+    
+    if (getDirection() == Direction.EST) {
+      
+      gauche();
+       return !estFaceMur()
+      
+    } 
+    
+    else {
+      
+      if (getDirection() == Direction.OUEST) {
+        
+        droite();
+        return !estFaceMur()
+        
+      }
+      
+      return false
+      
+    }
+    
+  }
+  
+  else {
+    
+    return false
+    
+  }
+  
+}
+
+def serpenter() {
+  
+  if (getDirection() == Direction.EST) {
+    
+    if (!estFaceMur()) {
+      
+      gauche();
+      avance();
+      gauche();
+      
+    }
+    
+	else {
+    
+    if (getDirection() == Direction.OUEST) {
+      
+      if (!estFaceMur()) {
+      
+      droite();
+      avance();
+      droite();
+      
+    }
+      
+    }
+    
+  }
+    
+  }
