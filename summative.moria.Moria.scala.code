@@ -1,6 +1,23 @@
 def run() {
-  while (estFaceMur()==false && estSurBiscuit()==false) {
-    if (estSurBiscuit()==true) {
+  while (estFaceMur()==false) {
+    moria()
+  }
+  if (estSurBiscuit()==true) {
+    moria()
+    moria()
+  }
+  
+  gauche()
+  avance()
+  gauche()
+  avance()
+  
+}
+
+run()
+
+def moria() {
+  if (estSurBiscuit()==true) {
       prendBiscuit()
       avance()
       while (estSurBiscuit()==false) {
@@ -15,12 +32,4 @@ def run() {
         recule()
       }
     }
-  }
-  gauche()
-  avance()
-  gauche()
-  avance()
-  
 }
-
-run()
