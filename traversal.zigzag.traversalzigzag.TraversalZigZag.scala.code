@@ -1,14 +1,11 @@
 override def run() {
   var cpt: Int = 0
+  var dir: Int = 0
   ecritMessage(cpt);
   while (getMondeHauteur()-1 != getY() || getMondeLargeur()-1 != getX()) {
     cpt += 1;
-    if (getX() != getMondeLargeur()-1) {
-      setPos(getX(),getY()); ecritMessage(cpt);
-    } else if (getX()-1 == getMondeLargeur()-1) {
-      setPos(getX()-1,getY()+1); ecritMessage(cpt);
-    } else if (getX() == 0) {
-      setPos(getX()+1,getY()+1)
+    if (dir == 0 && getX()!=getMondeLargeur()-1) {
+      setPos(getX()+1,getY())
     }
   }
 }
