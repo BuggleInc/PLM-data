@@ -1,5 +1,6 @@
 override def run() {
   makePolygone(8, 50)
+  makeInner()
 }
 
 def makePolygone(nbSides:Int, length:Int) {
@@ -8,5 +9,14 @@ def makePolygone(nbSides:Int, length:Int) {
   for(i <- 1 to nbSides) {
     forward(length)
     right(angle)
+  }
+}
+
+def makeInner() {
+  for(i <- 1 to 50) {
+    right(45)
+    forward(25)
+    left(45)
+    forward(45)
   }
 }
