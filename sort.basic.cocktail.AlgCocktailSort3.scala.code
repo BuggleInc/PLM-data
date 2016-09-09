@@ -2,24 +2,29 @@ def cocktailSort3() {
   var swapped:Boolean=false
   var doneDroit:Int=0
   var done:Int=0
+  var swapDroit:Boolean=true
+  var swapG:Boolean=true
    do {
      swapped=false
-
+		 swapDroit=false
+     swapG=false
     for (i <- done to getValueCount()-2-doneDroit) {
     	if ( ! isSmaller(i,i+1)) {
       	swap(i,i+1)
       	swapped=true
+        swapDroit=true
       }
       
     }
-    if (!swapped) {return }
+    if (!swapDroit) {return }
    
     for (i <- (getValueCount()-3-doneDroit) to done by -1) {
     	if (  isSmaller(i+1,i)) {
       	swap(i+1,i)
       	swapped=true
+        swapG=true
       }
-      if (!swapped) {return }
+      if (! swapG) {return }
     }
     
     done+=1
