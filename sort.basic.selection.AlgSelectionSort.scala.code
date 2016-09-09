@@ -1,0 +1,17 @@
+def selectionSort() {
+  def mini(i:Int):Int = {
+    var M:Int = getValue(i)
+    var m:Int = i
+    for (k <- i to getValueCount()-1) {
+      if getValue(k)<M {
+        m=k
+        M=getValue(k)
+      }
+    }
+    return m
+  }
+  for (i <- 0 to getValueCount()-2) {
+    j=mini(i)
+    swap(i,j)
+  }
+}
