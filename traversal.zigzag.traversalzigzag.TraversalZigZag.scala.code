@@ -1,6 +1,8 @@
 override def run() {
+
 droite()
 var cpt:Int=0
+ecritMessage(cpt)
   def test:Boolean = {
     var t1:Boolean=false
     var t2:Boolean=false
@@ -12,14 +14,23 @@ def doupas:Boolean = {
   return (getY()%2==0)
 }
 
-    
 while (!test) {
-  if (doupas&&!estFaceMur) {
-    setPos(getX()+1,getY())
+  while (!estFaceMur) {
+    if (doupas&&!estFaceMur) {
+      setPos(getX()+1,getY())
+      ecritMessage(cpt)
+    setPos(getX(),getY()+1)
+    ecritMessage(cpt)
     
+    } else if (!estDosMur) {
+      setPos(getX()-1,getY())
+      ecritMessage(cpt)
+    setPos(getX(),getY()+1)
+    ecritMessage(cpt)
   }
+	
+
 }
-    
     
     
 }
