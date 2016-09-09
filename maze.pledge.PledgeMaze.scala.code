@@ -1,7 +1,7 @@
 override def run() {
   var sommeAngle:Int=0
   while(!estSurBiscuit()){
-    while(sommeAngle==0 && isDirectionFree(Direction.NORTH)){
+    if(sommeAngle==0 && isDirectionFree(Direction.NORTH)){
       setDirection(Direction.NORTH)
       avance()
       while(estFaceMur()){
@@ -9,9 +9,13 @@ override def run() {
         sommeAngle-=1
       }
     }
-    while(sommeAngle!=0){
+    if(sommeAngle!=0){
     	sommeAngle += keepHandOnSideWall()
     }
+    if(estSurBiscuit()){
+      prendBiscuit()
+    }
+    
   }
 }
 
