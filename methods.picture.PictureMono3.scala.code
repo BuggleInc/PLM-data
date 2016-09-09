@@ -1,0 +1,59 @@
+
+def faireGrandMotif(){
+  faireLigne()
+  for(m<-1 to 3 ){
+    faireLigne()
+  }
+  
+def GrandeLigne(){
+  faireGrandMotif()
+  avance(27)
+  faireGrandMotif()
+  droite()
+  recule(27)
+  gauche()
+  recule(54)
+}
+  
+
+def faireMotif(){
+   for (i<-1 to 4){ 
+     avance(2)
+     baisseBrosse()
+     gauche()
+     leveBrosse()
+     avance()
+     droite()
+     avance()
+     baisseBrosse()
+     leveBrosse()
+     droite()
+     avance()
+     gauche()
+     avance()
+     baisseBrosse()
+     leveBrosse()
+     avance(2)
+     gauche()
+  }
+}
+
+
+def faireLigne(){
+    faireMotif()
+    avance(7)
+    faireMotif()
+    avance(7)
+    faireMotif()
+    droite()
+    recule(7)
+    gauche()
+    recule(14)
+  
+  }
+
+override def run() {
+  for(m<-1 to 3 ){
+    GrandeLigne()
+  }
+}
