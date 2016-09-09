@@ -4,15 +4,23 @@ def shellSort()  {
 
 var ecart = (getNombreValeurs().toDouble / 2.0).toInt
 while (ecart > 0)
-  {insertion(ecart)
-
+  {for (i<- 1 to getNombreValeurs()-1)
+      {
+       var j = i
+       var v = getValeur(i)
+       
+       while ((j>ecart)&&(!plusPetitQue(j,v)))
+           
+          {copie(j,j+ecart); j=j-ecart}
+       
+        setValeur(j, v) }}
     ecart = (ecart.toDouble / 2.0).toInt
   
   
   }}
 
 
-def insertion (ecart) :Null = {
+def insertion (ecart)  {
     for (i<- 1 to getNombreValeurs()-1)
       {
        var j = i
