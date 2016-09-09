@@ -31,7 +31,7 @@ def keepHandOnSideWall(){
 }
 
 def trouverNord(){
-  var cpt=0
+  var fini:Boolean = false
   setDirection(Direction.NORTH)
   while(!estFaceMur()){
     avance()
@@ -43,9 +43,9 @@ def trouverNord(){
     keepHandOnSideWall()
     if (estSurBiscuit()){
       prendBiscuit()
-      return
+      fini = true
     }
-  }while(getDirection()!=Direction.NORTH && cpt <10)
+  }while(getDirection()!=Direction.NORTH && fini = false)
 }
 
 def verifierMurGauche():Boolean={
