@@ -28,7 +28,7 @@ def sortie():Boolean={
 
 while (color!=Color.GREEN) {
 
-	while (!estSurBiscuit() && !estDosMur()) {
+	while (!estSurBiscuit() && !estDosMur() && !sortie()) {
     recule();
     color=getCouleurSol();
   }
@@ -37,7 +37,7 @@ while (color!=Color.GREEN) {
   avance();
   }
   
-  while (!estSurBiscuit() && !estDosMur()) {
+  while (!estSurBiscuit() && !estDosMur() && !sortie()) {
   	avance();
     color=getCouleurSol();
   }
@@ -48,7 +48,7 @@ while (color!=Color.GREEN) {
   recule();
   }
   
-	if (!estSurBiscuit && estDosMur) {
+	if (!estSurBiscuit && sortie()) {
     setPos(getX()+1,getY()+1)
   }
   
