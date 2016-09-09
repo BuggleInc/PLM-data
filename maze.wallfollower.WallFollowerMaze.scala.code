@@ -7,8 +7,13 @@ override def run() {
 
 def keepHandOnSideWall(){
   if (estFaceMur()){
-    gauche()
+  	while (estFaceMur()){
+    	gauche()
+  	}
+    avance()
   }
+  
+  
   verifierMurGauche() match{
       case true => avance()
       case false => gauche();avance()
