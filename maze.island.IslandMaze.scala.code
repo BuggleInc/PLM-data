@@ -1,6 +1,6 @@
 override def run() {
   while(!isOverBaggle()){
-    if (getDirection == Direction.NORTH && northOK())
+    if(getDirection == Direction.NORTH && northOK())
       while(getDirection == Direction.NORTH && northOK())
     		forward();
     right();
@@ -20,20 +20,6 @@ def keepHandOnSideWall() {
   right();
 }
 
-def hasWallLeft() : Boolean = {
-  left();
-  var isThere = isFacingWall();
-  right();
-  return isThere;
-}
-
-def placeWallLeft(){
-  while(!isFacingWall()){
-    forward();
-    left();
-  }
-  right();
-}
 
 def northOK() : Boolean = {
   var dir = getDirection();
