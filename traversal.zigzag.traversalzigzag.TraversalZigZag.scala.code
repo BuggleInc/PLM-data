@@ -1,0 +1,19 @@
+override def run() {
+  droite()
+  var cpt=0
+  var k = 1
+  ecritMessage(cpt)
+  while(getX()!=getMondeLargeur()-1 | getY()!=getMondeHauteur()-1) {
+    if(!estFaceMur()) {
+      setPos(getX()+1*k,getY())
+    }
+    else {
+      setPos(getX(),getY()+1)
+      retourne()
+      k=(-1)*k
+    }
+    cpt=cpt+1
+    ecritMessage(cpt)
+  }
+  gauche()
+}
