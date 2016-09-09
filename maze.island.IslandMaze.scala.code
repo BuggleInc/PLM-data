@@ -10,19 +10,20 @@ override def run() {
     {
       forward()
     }
-    else if(!wallToRight())
-    {
-      right();forward()
-    }
     else if(!wallToLeft())
     {
       left();forward()
+    }
+    else if(!wallToRight())
+    {
+      right();forward()
     }
     else{
       right();right();forward()
     }
   }
-  
+  while(getDirection() != Direction.NORTH)
+    	right();
   while(!isOverBaggle()){
 
     	while(!isFacingWall() && wallToLeft()){
