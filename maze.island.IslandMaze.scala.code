@@ -1,0 +1,64 @@
+override def run() {
+  
+  while(!isOverBaggle()){
+    if(northOK()){
+      goNorth();
+    }else{
+      followWall();
+    }
+    
+  }
+    
+  pickupBaggle();
+}
+
+
+def followWall() {
+    
+  if(!hasWallLeft())
+  	placeWallLeft();
+  
+  while(!isOverBaggle())
+  	keepHandOnSideWall();
+
+}
+
+
+def keepHandOnSideWall() {
+  while(!isFacingWall()){
+    forward();
+    left();
+  }
+  right();
+}
+
+def hasWallLeft() : Boolean = {
+  left();
+  var isThere = isFacingWall();
+  right();
+  return isThere;
+}
+
+def placeWallLeft(){
+  while(!isFacingWall()){
+    forward();
+  }
+  right();
+  
+}
+
+
+def northOK() : Boolean = {
+  var dir = getDirection();
+  setDirection(Direction.NORTH);
+  var nOK = isFacingWall();
+  setDirection(dir);
+  return nOK;
+}
+
+def goNorth() {
+  var dir = getDirection();
+  setDirection(Direction.NORTH);
+  forward();
+  setDirection(dir);
+}
