@@ -1,16 +1,22 @@
+def indiceMin(debut:Int): Int = {
+  
+  var min = 0
+  
+  for (c <- debut to getNombreValeurs()-1) {
+    
+    if (plusPetit(c,min)) {min = c}
+    
+  }
+  
+  return min
+  
+}
+
 def selectionSort() {
   
   for (a <- 0 to getNombreValeurs()-2) {
-  
-    var min = 0
     
-    for (b <- a+1 to getNombreValeurs()-1) {
-      
-      if (plusPetit(b,min)) {min = b}
-      
-    }
-    
-    echange(a,min)
+    echange(a,indiceMin(a+1))
     
   }
   
