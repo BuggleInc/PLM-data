@@ -3,11 +3,11 @@ var NO_INDICATION = 9999;
 
 
 override def run() {
-	var (exitX, exitY) = findExit();
-  
-	markExit(exitX, exitY);
-	
-  var i = 1;
+var (exitX, exitY) = findExit();
+
+markExit(exitX, exitY);
+
+var i = 1;
   while (!isCurrentPositionMarked() && i+1 < NO_INDICATION) {
     mark(i);
     i += 1;
@@ -17,51 +17,79 @@ override def run() {
 
 def findExit() : (Int, Int) = {
   for (x <- 0 to getWorldWidth() - 1) {
-  	for (y <- 0 to getWorldHeight() -1) {
-      if (hasBaggle(x, y)) return (x, y);
+    for (y <- 0 to getWorldHeight() -1) {
+    	if (hasBaggle(x, y)) return (x, y);
     }
-  }
-  
-  return EXIT_NOT_FOUND; // Should never happen...
+}
+
+return EXIT_NOT_FOUND; // Should never happen...
 }
 
 def markExit(exitX:Int, exitY:Int) {
-  setIndication(exitX, exitY, 0);
+	setIndication(exitX, exitY, 0);
 }
 
 def isCurrentPositionMarked() =
 	getIndication(getX(), getY()) != NO_INDICATION;
 
 def getIndicationSafe(x:Int, y:Int) : Int = {
-  if (x < 0 || y < 0 || x >= getWorldWidth() || y >= getWorldHeight()) {
-    return NO_INDICATION;
-  }
-      
-  return getIndication(x, y);
-}
-      
-def processNeighbor(x:Int, y:Int, xn:Int, yn:Int, min:Int) : Int = {
-  var indication = getIndicationSafe(x + xn, y + yn);
-  
-  if (indication < min) {
-    return  indication;
-  }
-  
-  return min;
+	if (x < 0 || y < 0 || x >= getWorldWidth() || y >= getWorldHeight()) {
+	return NO_INDICATION;
+	}
+
+	return getIndication(x, y);
 }
 
-def mark(i:Int) {
+var TOP = 0;
+var BOTTOM = 1;
+var RIGHT = 2;
+var LEFT = 3;
+
+def processNeighbor(x:Int, y:Int, nPos:Int, min:Int) : Int = {
+  var xn = 0;
+  var yn = 0;
+  
+  nPos match {
+    case TOP:
+    	if (hasTopWall(x, y)) return min;
+    	xn = 0;
+    	yn = -1;
+    case BOTTOM:
+    	if (hasBottomWall(x, y)) return min;
+    	xn = 0;
+    	yn = 1;
+    case RIGHT:
+    	if (hasRightWall(x, y)) return min;
+    	xn = 1;
+    	yn = 0;
+    case LEFT:
+    	if (hasLeftWall(x, y)) return min;
+    	xn = -1;
+    	yn = 0;
+  }
+  
+  
+	var indication = getIndicationSafe(x + xn, y + yn);
+
+  if (indication < min) {
+  	return indication;
+  }
+
+  	return min;
+ }
+
+ def mark(i:Int) {
   for (x <- 0 to getWorldWidth() - 1) {
     for (y <- 0 to getWorldHeight() - 1) {
       if (getIndication(x, y) == NO_INDICATION) {
-      	var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
-      	min = processNeighbor(x, y, 1, 0, min);
-      	min = processNeighbor(x, y, 0, -1, min);
-      	min = processNeighbor(x, y, 0, 1, min);
-      
-      	if (min != NO_INDICATION) {
-      	  setIndication(x, y, min + 1)
-      	}
+        var min = processNeighbor(x, y, -1, 0, NO_INDICATION);
+        min = processNeighbor(x, y, 1, 0, min);
+        min = processNeighbor(x, y, 0, -1, min);
+        min = processNeighbor(x, y, 0, 1, min);
+
+        if (min != NO_INDICATION) {
+        	setIndication(x, y, min + 1)
+        }
       }
     }
   }
