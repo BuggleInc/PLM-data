@@ -2,14 +2,24 @@ override def run() {
   
   var compt:Int = 1
   var posFin:Boolean = false
-  var x:Int = 0
-  var y:Int = 0
-
   
-  while (posFin != true){
+  while(posFin != true){
+    avancer()
     
-    if (getX(x) == getMondeLargeur(6) && getY(y) == getMondeHauteur(6)){
+    if(getX() == getMondeLargeur() && getY() == getMondeLargeur){
       posFin = true;
+    }
+  }
+
+  }
+
+
+def avancer() {
+  for (x <- 1 to getMondeLargeur()){
+    for (y <- 1 to getMondeHauteur()){
+      ecritMessage(compt)
+      compt = compt + 1;
+      setPos(x, y)
     }
   }
 }
