@@ -1,11 +1,13 @@
 override def run() {
   
+  
+  
   def posFinal() : Boolean =  {
     
     var H = getMondeHauteur();
-    var L = getMondeLargeur();
+  	var L = getMondeLargeur();
         
-    if ((getX() == H) && (getY() == L)) {
+    if ((getX() == L) && (getY() == H)) {
       return true
     }
     return false
@@ -14,9 +16,17 @@ override def run() {
   
   var cpt = 0
   
-  while(!posFinal) {
+  while(!posFinal()) {
     
     ecritMessage(cpt);
+    
+    if (getY() == getMondeHauteur) {
+      setPos(getX()+1, getY()-getMondeHauteur())
+    } else {
+      setX(setX+1)
+    }
+    cpt += 1
+    
     
     
     
