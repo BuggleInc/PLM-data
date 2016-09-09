@@ -2,8 +2,8 @@ var etat = 0
 override def run() {
   while(!porteBiscuit()){
     etat match  {
-      case 0 =>setDirection(Direction.NORTH); while(!estFaceMur()){avance()};etat = 1
-      case 1 => gauche();if(!estFaceMur()){avance()};else{keepHandOnSideWall()};etat = 0
+      case 0 => while(!estFaceMur()){avance()};etat = 1
+      case 1 => gauche();if(!estFaceMur()){avance()};else{keepHandOnSideWall()};if(getDirection() == Direction.NORTH)[etat = 0}
     }
     if(estSurBiscuit()){
       prendBiscuit()
