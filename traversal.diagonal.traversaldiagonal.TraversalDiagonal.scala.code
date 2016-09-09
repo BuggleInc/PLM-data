@@ -5,12 +5,17 @@ override def run() {
 
     if (diag==6){
       setPos(diag,diag)
-    writeMessage(diag)
-    finalpos=true
+      writeMessage(diag)
+      finalpos=true
   }
+    else if (diag==0){
+      setPos(diag,diag)
+      writeMessage(diag)
+      diag=diag+1
+    }
     else {
-      for (a <- 0 to diag +1){
-      setPos(diag-a+1,diag-a+1)
+      for (a <- 0 to diag){
+      setPos(diag-a,diag-a)
       writeMessage(diag)
       diag = diag + 1
       }
