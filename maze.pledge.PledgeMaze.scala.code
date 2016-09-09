@@ -13,18 +13,13 @@ def murAGauche():Boolean = {
 
 def fonceAuNord() {
   
+  first = true
   setDirection(Direction.NORD)
   while (!estFaceMur()) {avance()}
   
 }
 
 def longerMurGauche() {
-  
-  if (virages == 0 && !first) {
-    
-    fonceAuNord()
-    
-  }
   
   if (murAGauche()) {
     
@@ -60,6 +55,7 @@ override def run() {
   while (!estSurBiscuit()) {
     
     longerMurGauche()
+    if (!first && virages == 0) {fonceAuNord()}
     
   }
   
