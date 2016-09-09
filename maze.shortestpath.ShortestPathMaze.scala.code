@@ -18,7 +18,7 @@ override def run() {
   pickupBaggle();
 }
 
-def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) = (Boolean, NeighborPos) {
+def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) : (Boolean, NeighborPos) = {
   var (xn, yn, canAccess) getNeighborRelativePos(x, y, np);
   if (!canAccess) return (min, minNeighbor);
   
