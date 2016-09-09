@@ -7,23 +7,22 @@ override def run() {
       forward()
     }
     do {
+      //si ya pas de mur
       if (!isFacingWall()) {
+        //on tourne a gauche pour vérif
         left();angle-=1
+        //si ya pas de mur on trace dedans
         if (!isFacingWall()) {
           forward()
         }
+        //si yen a un on continue tout droit
         else {
           right();forward();angle+=1
         }
       }
-      else {
-        left();angle-=1
-        if (!isFacingWall()) {
-          forward()
-        }
-        else {
-          right(); angle+=1;forward()
-        }
+      //si ya un mur
+      else { //on tourne pour continuer
+        right(); angle+=1;
       }
     } while (angle!=0 && !isOverBaggle())
   }
