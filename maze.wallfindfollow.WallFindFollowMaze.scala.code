@@ -1,0 +1,25 @@
+override def run() {
+  while (!isOverBaggle()) {
+    right()
+    if (!isFacingWall()) {
+      forward()
+    }
+    else {
+      left();
+      if (isFacingWall()) {
+        left()
+        if (isFacingWall()) {
+          left()
+          forward()
+        }
+        else {
+          forward()
+        }
+      }
+      else {
+        forward()
+      }
+    }
+  }
+  pickupBaggle()
+}
