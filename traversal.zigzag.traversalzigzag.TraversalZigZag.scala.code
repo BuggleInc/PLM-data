@@ -1,21 +1,9 @@
 override def run() {
 		var cpt:Int =0
   	var toucherMur:Boolean=false
-    ecritMessage(cpt)
- 		droite(); 
+    ecritMessage(cpt) 
     while(finalPos!=true){
-      bougerPos(toucherMur)
-      if(estFaceMur == true && toucherMur ==true){
-        toucherMur==false
-        setPos(getX(),getY()+1)
-      }
-      if(estFaceMur == true && toucherMur ==false){
-        toucherMur==true
-        setPos(getX(),getY()+1)
-      }
-      cpt+=1;
-      ecritMessage(cpt);
-    }
+      bougerPos()
   }
 
   def finalPos():Boolean={
@@ -26,12 +14,9 @@ override def run() {
       return false
     }
   }
-  def bougerPos(a:Boolean){
-    if(a==false){
-      setPos(getX()+1,getY())
-    
-    }
-    if(a==true){
-      setPos(getX()-1,getY())
+  def bougerPos(){
+    for(i<-0 to 6){
+      avance();
+      seretourne();
     }
   }
