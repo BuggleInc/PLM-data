@@ -1,16 +1,21 @@
 override def run() {
   while(!isOverBaggle()) {
-    while(!isFacingWall()) {
-      left()
-      
-      if(!isFacingWall()) {
-        forward()
-      }
+    if(x()) {
+      forward()
     }
-    
-    //right()
-    
-    if(!isFacingWall())
-    forward()
   }
+}
+
+def x():Boolean = {
+  left()
+  
+  if(isFacingWall()) {
+    right()
+    
+    if(!isFacingWall()) {
+    	return true
+    }
+  }
+  
+  return false
 }
