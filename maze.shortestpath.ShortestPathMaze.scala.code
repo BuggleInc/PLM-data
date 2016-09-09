@@ -18,23 +18,41 @@ override def run()
     }
   }
   
-	noteIndication(xSortie, ySortie, 0);
+	noteIndication(xSortie, ySortie, 0, 0);
   
   while (!estSurBiscuit()) trouverChemin();
   prendBiscuit();
 }
 
-def noteIndication(x:Int, y:Int, i:Int)
+def noteIndication(x:Int, y:Int, i:Int, dir:Int)
 {
   var n = getMondeLargeur()-1;
   var m = getMondeHauteur()-1;
   
   setIndication(x,y,i);
   
-  if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1);
-  if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) noteIndication(x-1, y, i+1);
-  if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1);
-  if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1);
+  dir match
+  {
+    case 0 =>
+      if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1, 1);
+      if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1, 2);
+      if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) noteIndication(x-1, y, i+1, 3);
+    
+    case 1 =>
+      if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1, 0);
+      if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1, 2);
+      if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) noteIndication(x-1, y, i+1, 3);
+    
+    case 2 =>
+      if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1, 0);
+      if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1, 1);
+  		if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) noteIndication(x-1, y, i+1, 3);
+    
+    case 3 =>
+      if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1, 0);
+      if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1, 1);
+      if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1, 2);
+  }
 }
 
 def trouverChemin()
