@@ -19,13 +19,16 @@ override def run() {
             }
   
 			}
-  while (! isOverBaggle()) {
+  while (getY()!=0) {
     setDirection(Direction.NORTH)
     if (! isFacingWall()) {forward}
     else {
       keepLeftHand()
     }
-   keepLeftHand()
+  }
+  while (! isOverBaggle()) {
+      keepLeftHand()
+    }
   }
   pickupBaggle()
 }
