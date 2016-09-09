@@ -1,12 +1,10 @@
 override def run() {
   
+  baisseBrosse();
+  
   while (!posFinale()) {
-    
-    
-    baisseBrosse();
-    avance();
-    serpenter()
-    leveBrosse();
+
+    serpenter();
     
   }
 
@@ -43,6 +41,8 @@ def posFinale():Boolean = {
 
 
 def serpenter() {
+  
+  avance();
   
   if (getDirection() == Direction.EST && !estFaceMur()) {
       
