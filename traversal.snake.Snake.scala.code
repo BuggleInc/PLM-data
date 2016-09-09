@@ -11,27 +11,24 @@ override def run()
 
 def avanceSerpent()
 {
-  while(!posFinale)
+  if (estFaceMur())
   	{
-  		if (estFaceMur())
-  			{	
-      		if (getDirection()==Direction.EST)
-  					{
-          		gauche()
-          		avance()
-          		gauche()
-        		}
-      		else if (getDirection()==Direction.OUEST)
-      			{
-          		droite()
-          		avance()
-          		droite()
-        		}
-    		}		
-  		else
+      if (getDirection()==Direction.EST)
   			{
-      		avance()
-    		}
+          gauche()
+          avance()
+          gauche()
+        }
+      else if (getDirection()==Direction.OUEST)
+      	{
+          droite()
+          avance()
+          droite()
+        }
+    }
+  else
+  	{
+      avance()
     }
 }
 
@@ -40,19 +37,21 @@ def avanceSerpent()
 def posFinale():Boolean=
 {
   var murNord=false
-  if (getDirection()==Direction.EST)
+  while(!estFaceMur)
   	{
-      gauche()
-      murNord=estFaceMur()
-      droite()
+  		if (getDirection()==Direction.EST)
+  			{
+      		gauche()
+      		murNord=estFaceMur()
+      		droite()
+    		}
+	  	else if (getDirection()==Direction.OUEST)
+  			{
+    	  	droite()
+      		murNord=estFaceMur()
+      		gauche()
+    		}
     }
-  else if (getDirection()==Direction.OUEST)
-  	{
-      droite()
-      murNord=estFaceMur()
-      gauche()
-    }
-  
-  return (murNord&&estFaceMur())
+  return (murNord)
 }
 
