@@ -31,12 +31,13 @@ def trouverNord(){
   while(!estFaceMur()){
     avance()
   }
+  while(!verifierMurGauche()){
     droite()
-  	if (!estFaceMur()){
-      avance()
-    }
-    
   }
+  while(getDirection!=Direction.NORTH){
+    keepHandOnSideWall()
+  }
+}
 
 def verifierMurGauche():Boolean={
   gauche()
