@@ -1,18 +1,24 @@
 override def run() {
+  var state = 0;
   while(!isOverBaggle()){
-    if(getDirection == Direction.NORTH && northOK()){
-      while(getDirection == Direction.NORTH && northOK()){
-    		forward();
-    	}
+		state match {
+      case 0 => 
+      	while(!isFacingWall())
+	      	forward();
+      	right();
+      	state = 1;
+      case 1 =>
+      	keepHandOnSideWall();
+      	if(getDirection == Direction.NORTH && northOK())
+      		state = 0;
+      
     }
-    right();
-    else{
-	    while(!(getDirection == Direction.NORTH && northOK() ))
-  	    keepHandOnSideWall();
-    }
+    
   }
   pickupBaggle();
+
 }
+  
 
 
 def keepHandOnSideWall() {
@@ -30,4 +36,3 @@ def northOK() : Boolean = {
   setDirection(dir);
   return nOK;
 }
-
