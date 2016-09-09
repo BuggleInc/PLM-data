@@ -1,74 +1,7 @@
-var virages = 0
-var retourSurZero = false
-
-def murAGauche():Boolean = {
+override def run {
   
-  var res = false
-  gauche()
-  res = estFaceMur()
-  droite()
-  return res 
+  //bon j'en ai marre j'arrive à rien
   
-}
-
-def libreAuNord():Boolean = {
-  
-  var dirInit = getDirection()
-  var res = false
-  setDirection(Direction.NORD)
-  res = estFaceMur()
-  setDirection(dirInit)
-  return res
-  
-}
-
-def longerMurGauche() {
-  
-  if (murAGauche()) {
-    
-    if (estFaceMur()) {
-      
-      droite()
-      if (virages == 1) {retourSurZero = true}
-      virages = virages - 1
-      return
-    
-    } else {
-      
-      avance()
-      
-    }
-    
-  } else {
-      
-    	gauche()
-    	if (virages == -1) {retourSurZero = true}
-    	virages = virages + 1
-      avance()
-    
-  }
-  
-}
-
-
-override def run() {
-  
-  setDirection(Direction.NORD)
-  
-  while (!estSurBiscuit()) {
-    
-    while (!estFaceMur()) {avance()}
-    //Obstacle rencontré, début décompte virages
-    while (!retourSurZero && !libreAuNord()) {
-      
-      longerMurGauche()
-      
-    }
-    
-    retourSurZero = false
-    
-  }
-  
-  prendBiscuit()
+  while (true) {droite()}
   
 }
