@@ -22,24 +22,9 @@ def makeHouse(length:Int) {
 }
 
 def makeLine(grid:Array[Boolean]) {
-  for(i <- 0 to grid.length - 1) {
+  for(i <- 1 to grid.length) {
     if(grid(i)) {
-      penDown()
       makeHouse(30)
-      penUp()
-
-      right(90)
-      forward(30 + 20)
-      left(90)
-    }
-    else {
-      right(90)
-      forward(30 + 20)
     }
   }
-  
-  left(90)
-  forward(grid.length * (30 + 20))
-  right(90)
-  forward(75)
 }
