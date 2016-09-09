@@ -1,4 +1,4 @@
- var a:Int=0
+var a:Int=0
 def Biscuit{
  
   
@@ -29,7 +29,8 @@ def Biscuit{
    
  	 prendBiscuit()
  	 retourne()
- 	 while(!estSurBiscuit && getCouleurSol()!=Color.GREEN){
+    while(!estSurBiscuit && getCouleurSol()!=Color.GREEN){
+      return true{
      if(getCouleurSol()!=Color.GREEN){
   		avance()
  	 	}
@@ -49,4 +50,32 @@ def Biscuit{
 //  Biscuit
 //}
 
-
+def fini:Boolean ={
+  if(getCouleurSol()!=Color.GREEN){
+    return true
+  }else{
+    return false
+  }
+}
+  
+  while(!fini){
+    retourne()
+    while(!estSurBiscuit){
+      if(!estFaceMur){
+        avance()
+      }else{
+       droite()
+       avance()
+       gauche()
+       avance()
+      }  
+    }
+    prendBiscuit()
+    retourne()
+    while(!estSurBiscuit){
+        avance()    
+  	}
+  recule()
+  poseBiscuit()
+  recule()
+}
