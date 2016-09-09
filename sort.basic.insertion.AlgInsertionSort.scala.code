@@ -6,9 +6,12 @@ def insertionSort() {
     var elementId : Int = it
     var elementVal : Int = getValue(it)
     while(elementId >0 && !isSmallerThan(elementId-1,elementVal)){
-      swap(elementId,elementId-1)
+      copy(elementId-1,elementId)
       elementId-=1
     }
-    
+    if(elementId>=0)
+	    setValue(elementId,elementVal)
+    else
+  		setValue(0,elementVal)
   }
 }
