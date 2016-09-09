@@ -53,8 +53,9 @@ def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
 }
 
 def deplaceTrou(baseLibre:Int, baseCible:Int, position:Int) { //On déplace le trou dans la base du joueur.
+  var temp:Int = baseLibre
   while (baseLibre!=baseCible) {
     deplace((baseLibre-1)%4,position)
-    baseLibre = getTrouBase()
+    temp = getTrouBase()
   }
 }
