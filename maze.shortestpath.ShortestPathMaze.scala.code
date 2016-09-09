@@ -26,11 +26,16 @@ def traceChemin(){
   for(k<-0 to getMondeLargeur()*getMondeHauteur()){
     for(i <-0 to getMondeLargeur()-2){
       for(j <-0 to getMondeHauteur()-2){
-        if(getIndication(i,j)== k){
+        if(getIndication(i,j) == k){
           if(aMurNord(i,j)){
             setIndication(i,j+1,k+1)
           }else if(aMurOuest(i,j)){
             setIndication(i+1,j,k+1)
+          }else{
+            setIndication(i+1,j,k+1)
+            setIndication(i-1,j,k+1)
+            setIndication(i,j+1,k+1)
+            setIndication(i+1,j-1,k+1)
           }
         }
       }
