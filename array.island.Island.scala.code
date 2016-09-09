@@ -1,10 +1,9 @@
 def island(num:Array[Int]): Int = {
   var compt: Int =0
-  for (i <- num) {
-    if (i<i+1) {
+  for (i <- 0 to num.size) {
+    if (island(i)<island(i+1)) {
       compt=compt+1
     }
   }
-  compt=(compt-1)/2
   return compt
 }
