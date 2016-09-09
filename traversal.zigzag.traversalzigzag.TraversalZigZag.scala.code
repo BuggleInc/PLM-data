@@ -1,0 +1,23 @@
+def positionFinale():Boolean = {
+  return ((getX()+1,getY()+1)==(getMondeLargeur(),getMondeHauteur()))
+}
+
+override def run() {
+  var cpt:Int=0
+  val xmax:Int=getMondeLargeur()
+  val ymax:Int=getMondeHauteur()
+  for (x <- 0 to xmax-1) {
+    for (y <- 0 to ymax-1) {
+      if (x%2==0) {
+        setPos(y,x)
+        ecritMessage(cpt)
+        cpt=cpt+1
+      }
+      else {
+        setPos(ymax-1-y,x)
+        ecritMessage(cpt)
+        cpt=cpt+1
+      }
+    }
+  }
+}

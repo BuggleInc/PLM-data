@@ -1,0 +1,108 @@
+def growFlowers() {
+  growBlueFlowers()
+  growSmallFlowers()
+  decaleDroite() //On se décale pour dessiner le motif en haut à droite
+  growSmallFlowers()
+  decaleGauche() //On revient à la position initiale
+  decaleBas() //On va en bas
+  growSmallFlowers()
+  decaleDroite() //On se décale pour dessiner le motif en bas à droite
+  growSmallFlowers()
+}
+
+def marqueSol(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def move(nbPas:Int, versLAvant:Boolean) {
+  if (versLAvant==true) {
+    for (compteur1 <- 1 to nbPas) {
+      avance()
+    }
+  }
+  else {
+    for (compteur2 <- 1 to nbPas) {
+      recule()
+    }
+  }
+}
+
+def flower(c:Color) {
+  gauche()
+  for (compt <- 1 to 4) {
+    marqueSol(c)
+    avance()
+    droite()
+    avance()
+  }
+  droite()
+  avance()
+  marqueSol(Color.YELLOW)
+  recule()
+}
+
+def growSmallFlowers() {
+  flower(Color.RED)
+  move(4, true)
+  flower(Color.CYAN)
+  move(2, false)
+  droite()
+  move(2, true)
+  gauche()
+  flower(Color.ORANGE)
+  move(2, true)
+  droite()
+  move(2, true)
+  gauche()
+  flower(Color.GREEN)
+  move(4, false)
+  flower(Color.PINK)
+}
+
+def growBlueFlowers() {
+  move(6, true)
+  droite()
+  move(2, true)
+  gauche()
+  flower(Color.BLUE)
+  move(6, false)
+  droite()
+  move(8, true)
+  gauche()
+  move(6, true)
+  flower(Color.BLUE)
+  move(6, false)
+  gauche()
+  move(10, true)
+  droite()
+}
+
+def decaleDroite() {
+  move(6, true)
+  gauche()
+  move(2, true)
+  droite()
+  move(2, true)
+  gauche()
+  move(2, true)
+  droite()
+}
+
+def decaleGauche() {
+  gauche()
+  move(2, true)
+  gauche()
+  move(2, true)
+  droite()
+  move(2, true)
+  droite()
+  move(6, false)
+}
+
+def decaleBas() {
+  droite()
+  move(8, true)
+  gauche()
+}

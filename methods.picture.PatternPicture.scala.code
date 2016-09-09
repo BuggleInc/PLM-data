@@ -1,0 +1,51 @@
+def marqueSol(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireDiag(c:Color) {
+  marqueSol(c)
+  avance()
+  gauche()
+  avance()
+  marqueSol(c)
+  avance()
+}
+
+def motif() {
+  droite()
+  recule()
+  faireDiag(Color.RED)
+  faireDiag(Color.BLUE)
+  faireDiag(Color.GREEN)
+  faireDiag(Color.YELLOW)
+  avance()
+  gauche()
+}
+
+def move(nbPas:Int, versLAvant:Boolean) {
+  if (versLAvant==true) {
+    for (compt1 <- 1 to nbPas) {
+      avance()
+    }
+  }
+  else {
+    for (compt2 <- 1 to nbPas) {
+      recule()
+    }
+  }
+}
+
+override def run() {
+  motif()
+  move(4, true)
+  motif()
+  gauche()
+  move(4, true)
+  droite()
+  motif()
+  move(4, false)
+  motif()
+  move(4, true)
+}

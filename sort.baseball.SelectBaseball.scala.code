@@ -1,0 +1,59 @@
+override def run() {
+  var n:Int = getNombreBases()
+  var baseLibre:Int = getTrouBase()
+  var trouLibre:Int = getTrouPosition()
+  var baseCible:Int = 0
+  for (base <- 0 to n-1) {
+    if (!estBaseTriee(base)) {
+      baseCible = getCouleurJoueur(base, 0)
+      if (baseCible!=base) {                 //Si le joueur en (base, 0) n'est pas bien placé, on le déplace.
+        deplaceTrou(baseLibre, base, 1)
+        baseLibre = base
+        deplaceJoueur(baseLibre, baseCible, 0, n)
+        baseLibre = (baseCible+1)%4
+        derniereEtape(baseLibre, baseCible, 0)
+      }
+      baseCible = getCouleurJoueur(base, 1)
+      if (baseCible!=base) {                 //Si le joueur en (base, 0) n'est pas bien placé, on le déplace.
+        deplaceTrou(baseLibre, base, 0)
+        baseLibre = base
+        deplaceJoueur(baseLibre, baseCible, 1, n) 
+        baseLibre = baseCible
+        derniereEtape(baseLibre, baseCible, 1)
+      }
+    } 
+  }
+}
+
+def derniereEtape(baseLibre:Int, baseCible:Int, position:Int) {
+  if (getCouleurJoueur(baseCible, 0)!=baseCible) {
+    deplace(baseCible, 0)
+    deplace(baseLibre, position)
+  }
+  else {
+    deplace(baseCible, 1)
+    deplace(baseLibre,position)
+  }
+}
+
+def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
+  if ((baseLibre-baseCible+n-1)%n!=n) {
+    val nbMoves:Int = (baseLibre-baseCible+n-1)%n)
+    for (compt <- 1 to nbMoves) {
+      deplace((baseLibre-1)%4, position)
+      deplace(baseLibre, position)
+      deplace((baseLibre-1)%4, (position+1)%2)
+      baseLibre = (baseLibre-1)%4
+    }
+  }
+  else {
+    ()
+  }
+}
+
+def deplaceTrou(baseLibre:Int, baseCible:Int, position:Int) { //On déplace le trou dans la base du joueur.
+  while (baseLibre!=baseCible) {
+    deplace((baseLibre-1)%4,position)
+    baseLibre = getTrouBase()
+  }
+}

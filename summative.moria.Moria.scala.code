@@ -1,0 +1,25 @@
+def run() {
+  while (resteBiscuit()) {
+    prendBiscuit()
+    while (!estSurBiscuit) {
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    recule()
+  }
+  gauche()
+  avance()
+  gauche()
+  avance()
+}
+
+def resteBiscuit():Boolean = { //Renvoie true s'il reste au moins un biscuit, false sinon.
+                                //Positionne la buggle sur le prochain biscuit, ou au bout du couloir.
+  while (!estSurBiscuit && !estDosMur) {
+    recule()
+  }
+  return estSurBiscuit
+}
+
+run()

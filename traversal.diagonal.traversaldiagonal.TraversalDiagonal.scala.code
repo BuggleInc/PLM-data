@@ -1,0 +1,35 @@
+override def run() {
+  var cpt:Int=0
+  var x:Int=0
+  var y:Int=0
+  val xmax:Int=getMondeLargeur()-1
+  val ymax:Int=getMondeHauteur()-1
+  for (diag1 <- 0 to ymax) {
+    y=diag1
+    x=0
+    setPos(x,y)
+    ecritMessage(cpt)
+    cpt=cpt+1
+    while(x!=xmax && y!=0) {
+      x=x+1
+      y=y-1
+      setPos(x,y)
+      ecritMessage(cpt)
+      cpt=cpt+1
+    }
+  }
+  for (diag2 <- 1 to ymax) {
+    x=diag2
+    y=ymax
+    setPos(x,y)
+    ecritMessage(cpt)
+    cpt=cpt+1
+    while(x!=xmax && y!=0) {
+      x=x+1
+      y=y-1
+      setPos(x,y)
+      ecritMessage(cpt)
+      cpt=cpt+1
+    }
+  }
+}
