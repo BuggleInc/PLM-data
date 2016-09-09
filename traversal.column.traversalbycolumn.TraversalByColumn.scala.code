@@ -8,22 +8,11 @@ override def run() {
     var y:Int = getY()
     message()
     
-    if((y == 0  && x != 0) || y == hauteur - 1) {
-      setPos(x + 1, y)
+    if(y == hauteur - 1) {
+      setPos(x + 1, 0)
       message()
-      
-      if(y == 0) {
-      	descend = true
-      	setPos(x + 1, y + 1)
-      } else if(y == hauteur - 1) {
-      	descend = false
-      	setPos(x + 1, y - 1)
-      }
     } else {
-      if(descend)
       	setPos(x, y + 1)
-      else
-      	setPos(x, y - 1)
     }
   }
   
