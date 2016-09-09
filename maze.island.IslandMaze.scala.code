@@ -1,0 +1,40 @@
+def keepHandOnSideWall(){
+
+  	left()
+  if (isFacingWall()){
+    right()
+    if(!isFacingWall()){
+      forward()
+    }
+    else {
+      right()
+    }
+  }
+    else{
+      forward()
+    }
+  
+  
+
+}
+
+override def run() {
+
+  do{
+    setDirection(Direction.NORTH())
+    
+    if (isFacingWall()){
+    keepHandOnSideWall()
+    }
+    else{
+      forward()
+    }
+    
+    
+    
+    
+    
+    
+  }while (!isOverBaggle())
+  pickupBaggle()
+}
