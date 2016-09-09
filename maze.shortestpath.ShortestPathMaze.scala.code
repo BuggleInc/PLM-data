@@ -19,10 +19,10 @@ def dirMinimale(x:Int,y:Int):Direction {
   var a = Array(9999,9999,9999,9999) //Nord, Sud, Est, Ouest
   var Directions = (Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
   
-  try {if !aMurNord(x,y) {a(0)=getIndication(x,y-1)}} catch {}
-  try {if !aMurNord(x,y-1) {a(1)=getIndication(x,y+1)}} catch {}
-  try {if !aMurOuest(x+1,y) {a(2)=getIndication(x+1,y)}} catch {}
-  try {if !aMurOuest(x,y) {a(3)=getIndication(x-1,y)}} catch {}
+  try {if (!aMurNord(x,y)) {a(0)=getIndication(x,y-1)}} catch {}
+  try {if (!aMurNord(x,y-1)) {a(1)=getIndication(x,y+1)}} catch {}
+  try {if (!aMurOuest(x+1,y)) {a(2)=getIndication(x+1,y)}} catch {}
+  try {if (!aMurOuest(x,y)) {a(3)=getIndication(x-1,y)}} catch {}
   
   return Directions(a.zipWithIndex.min._2)
   
