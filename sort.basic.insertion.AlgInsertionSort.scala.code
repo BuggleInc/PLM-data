@@ -10,16 +10,15 @@ def insertionSort() {
 def backMinus(indSorted:Int){
   var v = getValue(indSorted);
   var indLastCopied = indSorted;
-  for(i <- 1 to indSorted){
+  for(i <- 1 to indSorted-1){
     if(!isSmallerThan(indSorted-i, v)){
       copy(indSorted-i,indSorted-i+1);
       indLastCopied = indSorted-i;
     }else{
-      
-  setValue(indLastCopied, v);
+  		setValue(indLastCopied, v);
       return;
     }
-    
+  
   setValue(indLastCopied, v);
     	
   }
