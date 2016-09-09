@@ -13,7 +13,7 @@ override def run() {
 
       case 1 =>
       	nbTurns += keepHandOnSideWall();
-      	if(isDirFree(Direction.NORTH) && nbTurns==0)
+      	if(isDirFree() && nbTurns==0)
       		state = 0;
       
     }
@@ -37,9 +37,9 @@ def keepHandOnSideWall() : Int = {
   return nbTurns;
 }
 
-def isDirFree(dir:Any) : Boolean = {
+def isDirFree() : Boolean = {
   var currDir = getDirection();
-  setDirection(dir);
+  setDirection(Direction.NORTH);
   var nOK = !isFacingWall();
   setDirection(currDir);
   return nOK;
