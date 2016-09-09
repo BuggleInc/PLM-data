@@ -11,22 +11,19 @@ override def run() {
       finalpos = true
     }
     else {
-      	while (isFacingWall()==false){
-      	if (getDirection()==Direction.EAST){
-      	  setPos(x,y)
-      	  writeMessage(counter)
-      	  counter = counter + 1
-      	  x  = x + 1
-     	 }
-     	 else {
-     	   setPos(x,y)
-    	    writeMessage(counter)
-    	    x = x - 1
-    	    counter = counter + 1
-   	   }
-   	 }
-  	  y = y + 1
+      	while (x<=6){
+          setPos(x,y)
+          writeMessage(counter)
+          x = x + 1
+          counter = counter + 1
+        }
+      y = y + 1
+      while (x!=0){
+        setPos(x,y)
+        writeMessage(counter)
+        x = x - 1
+        counter = counter + 1
+      }
     }
   }
 }
-   
