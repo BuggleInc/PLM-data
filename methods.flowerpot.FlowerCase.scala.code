@@ -1,0 +1,115 @@
+val jaune = Color.YELLOW
+
+
+def growFlowers(){
+  growFlower()
+  autreMotif()
+  growFlower()
+  Passage()
+  growFlower()
+  autreMotif()
+  growFlower()
+}
+
+
+
+
+
+
+def growFlower(){
+  avance()
+  gauche()
+  flower(Color.RED)
+  change()
+  flower(Color.CYAN)
+  change()
+  flower(Color.GREEN)
+  change()
+  flower(Color.PINK)
+	changeCentre()
+  flower(Color.ORANGE)
+  changeFin()   
+}
+
+def flower(c:Color){
+  marque(jaune)
+  for(i<- 1 to 4){
+    avance()
+    marque(c)
+    recule()
+    gauche()
+    
+  }
+}
+
+def change(){
+  droite()
+  for(i<- 1 to 4){
+    avance()
+  }
+}
+
+def changeCentre(){
+  droite()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  
+}
+
+def marque(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  
+}
+
+def changeFin(){
+  
+  droite()
+  avance()
+  avance()
+  droite()
+  avance()
+  avance()
+  avance()
+  droite()
+  droite()
+}
+
+def autreMotif(){
+  do{
+    avance()
+  }while(!estFaceMur)
+  gauche()
+  avance()
+  avance()
+  droite()
+  avance()
+  flower(Color.BLUE)
+  avance()
+  gauche()
+  avance()
+  avance()
+  droite()
+  
+}
+
+def Passage(){
+  droite()
+  avance()
+  droite()
+  do{
+    avance()
+  }while(!estFaceMur)
+  gauche()
+  for(i<-1 to 3){
+    avance()
+  }
+ 	gauche()
+  
+  
+}
+

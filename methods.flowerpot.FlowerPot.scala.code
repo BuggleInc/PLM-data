@@ -1,0 +1,56 @@
+val jaune = Color.YELLOW
+def growFlowers(){
+  avance()
+  gauche()
+  flower(Color.RED)
+  change()
+  flower(Color.CYAN)
+  change()
+  flower(Color.GREEN)
+  change()
+  flower(Color.PINK)
+	changeCentre()
+  flower(Color.ORANGE)
+  changeFin()
+  
+  
+  
+}
+
+def flower(c:Color){
+  marque(jaune)
+  for(i<- 1 to 4){
+    avance()
+    marque(c)
+    recule()
+    gauche()
+    
+  }
+  
+  
+  
+}
+
+def change(){
+  droite()
+  for(i<- 1 to 4){
+    avance()
+  }
+}
+
+def changeCentre(){
+  setPos(4,4)
+}
+
+def marque(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  
+}
+
+def changeFin(){
+  setPos(1,6)
+  droite()
+  droite()
+}

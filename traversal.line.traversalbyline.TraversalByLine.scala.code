@@ -1,0 +1,29 @@
+override def run() {
+  var n = 0
+  marque(n)
+  while(!positionFinale()){
+    if(getX()==getMondeLargeur()-1){
+      setPos(0,getY()+1)
+      n=n+1
+      marque(n)
+    } else {
+      setPos(getX()+1,getY())
+      n=n+1
+      marque(n)
+    }
+  }
+}
+
+def positionFinale():Boolean = {
+  if(getMondeHauteur()-1==getY() && getMondeLargeur()-1==getX()){
+    return true
+  } else {
+    return false
+  }
+}
+
+
+
+def marque(x:Int){
+  ecritMessage(x)
+}
