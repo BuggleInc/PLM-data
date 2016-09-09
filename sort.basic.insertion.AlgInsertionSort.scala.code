@@ -1,6 +1,7 @@
 def insertionSort() {
   var compte = 0
   var v = 0
+  var b = false
   for(i<- 1 to getNombreValeurs()-1){
     v = getValeur(i)
     
@@ -8,11 +9,13 @@ def insertionSort() {
       if(getValeur(j-1)>v){
         copie(j-1,j)
         compte = j-1
+        b=true
       }
     }
-    if(compte != 0){
+    if(b){
     	setValeur(compte, v)
     }
     compte = 0
+    b=false
   }
 }
