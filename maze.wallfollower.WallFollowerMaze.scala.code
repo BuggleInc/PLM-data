@@ -4,6 +4,7 @@ override def run() {
     	while(!isFacingWall() && wallToLeft()){
         forward()
       }
+    if(isFacingWall()){
       if(wallToLeft()){
         right()
       }
@@ -13,9 +14,11 @@ override def run() {
         left()
         forward()
       }
-  
+    }
+    else{
+      right()
+    }
     
-    //right()
   }
   pickupBaggle()
 }
