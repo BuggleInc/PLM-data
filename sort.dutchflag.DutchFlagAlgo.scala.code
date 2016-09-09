@@ -6,9 +6,9 @@ def solve() {
   while((bleu+rouge+blanc)!=lgr){
     for(i<-bleu to lgr-rouge-2){
       getCouleur(i) match {
-        case BLEU => if(getCouleur(i+1)!= BLEU){echange(i,bleu+1); bleu += 1;}
-        case BLANC => if(getCouleur(i+1)!= BLANC){echange(i,bleu+blanc+1); blanc += 1;}
-        case ROUGE => if(getCouleur(i-1)!= ROUGE){echange(i,lgr-rouge-1); rouge += 1;}
+        case BLEU => if(getCouleur(i+1)!= BLEU){echange(i,bleu+1); bleu += 1;};
+        case BLANC => if(getCouleur(i+1)!= BLANC){echange(i,bleu+blanc+1); blanc += 1;};
+        case ROUGE => if(getCouleur(i-1)!= ROUGE){echange(i,lgr-rouge-1); rouge += 1;};
       }
     }
   }
