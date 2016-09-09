@@ -1,6 +1,27 @@
 override def run() {
   
-  //brushDown()
+  while(getY()!=0){
+    
+    while(getDirection() != Direction.NORTH)
+    	right();
+    
+    
+    if(!isFacingWall())
+    {
+      forward()
+    }
+    else if(!wallToLeft())
+    {
+      left();forward()
+    }
+    else if(!wallToRight())
+    {
+      right();forward()
+    }
+    else{
+      right();right();forward()
+    }
+  }
   
   while(!isOverBaggle()){
 
@@ -33,5 +54,12 @@ def wallToLeft() : Boolean = {
   left()
   var mur : Boolean = isFacingWall()
   right()
+  return mur
+}
+
+def wallToRight() : Boolean = {
+  right()
+  var mur : Boolean = isFacingWall()
+  left()
   return mur
 }
