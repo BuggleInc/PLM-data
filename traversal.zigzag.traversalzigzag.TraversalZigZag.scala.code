@@ -3,7 +3,7 @@ override def run() {
   val x = getWorldWidth()
   val y = getWorldHeight()
   var right = true
-  while(! isInPosition(x,y)) {
+  while(! isInPosition(x-1,y-1)) {
     writeMessage(n)
     n = n+1
     if (right) {
@@ -29,8 +29,8 @@ override def run() {
 
 
 def isInPosition(x: Int, y: Int):Boolean = {
-  if ( (x -1 == getX()) && (y -1 == getY())) {
-    writeMessage(x * y -1)
+  if ( (x == getX()) && (y== getY())) {
+    writeMessage((x+1 * (y+1) -1)
     return true
   }
   else {return false}
