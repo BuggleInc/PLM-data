@@ -1,30 +1,45 @@
 def growFlowers()
 {
-	ligneFleurDouble(Color.red,Color.cyan)
-  tourneGauche(1)
-  tourneDroite(2)
+	carreFleur()
+  tourneGauche(2)
   droite()
-  fleur(Color.orange)
-  recule(3)
-  tourneDroite(2)
+  ligneFleur3()
+  tourneDroite(4)
   gauche()
-  ligneFleurDouble(Color.pink,Color.green)
   
-  
+  carreFleur()
+  tourneGauche(2)
+  droite()
+  ligneFleur3()
+  tourneDroite(4)
+  gauche()
 }
-          
-def ligneFleurDouble(color1:Color,color2:Color)
+
+def ligneFleur3()
+{
+  avance(2)
+  fleur(Color.orange)
+  avance(3)
+  fleur(Color.blue)
+  avance(3)
+  fleur(Color.orange)
+  recule(11)
+}
+
+def carreFleur()
+{
+  ligneFleur2(Color.red,Color.cyan)
+  tourneDroite(4)
+  gauche()
+  ligneFleur2(Color.pink,Color.green)
+}
+
+def ligneFleur2(color1:Color,color2:Color)
 {
   fleur(color1)
   avance(3)
   fleur(color2)
-  tourneGauche(1)
-  tourneDroite(3)
-  tourneDroite(1)
-  gauche()
-  fleur(color1)
-  avance(3)
-  fleur(color2)
+  recule(5)
 }
 
 def fleur(color:Color)
