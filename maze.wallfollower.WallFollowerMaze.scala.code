@@ -7,13 +7,20 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if (isFacingWall()) {
+  if (!isFacingWall()) {
     right();
+    if (isFacingWall()) {
+      left();
+      forward();
+    }
+    else {
+      forward();
+      right();
+      forward();
+    }
+    
   }
-	else {
+  else {
     right();
-    forward();
-    
-    
   }
 }
