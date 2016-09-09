@@ -8,22 +8,18 @@ override def run() {
     }
     right(); angle+=1
     while (angle!=0) {
-      keepHandOnSideWall(angle)
+      if (!isFacingWall()) {
+        right();angle=angle+1
+        if (isFacingWall()) {
+          left; angle=angle-1; forward()
+        }
+        else {
+          forward()
+        }
+      }
+      else {
+        left(); angle=angle-1
+      }
     }
-  }
-}
-
-def keepHandOnSideWall(angle:Int) {
-  if (!isFacingWall()) {
-    right();angle=angle+1
-    if (isFacingWall()) {
-      left; angle=angle-1; forward()
-    }
-    else {
-      forward()
-    }
-  }
-  else {
-    left(); angle=angle-1
   }
 }
