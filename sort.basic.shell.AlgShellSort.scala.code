@@ -1,0 +1,32 @@
+def insertionSortWllh(ecart:Int) {
+  
+  for (i <- 1 to getNombreValeurs()/ecart-1) {
+    
+    var v = getValeur(i)
+    var last = 0
+    var c = 1
+    
+    while (i-c*ecart >= 0 && !plusPetitQue(i-c*ecart,v)) {
+      
+      copie(i-c*ecart,i-c*ecart+1)
+      last = c*ecart
+      c = c + 1
+      
+    }
+    
+    setValeur(i-last,v)
+    
+  }
+  
+}
+
+def shellSort()  {
+  
+  var ecart = getNombreValeurs/2
+  while (ecart>0) {
+    
+    insertionSortWllh(ecart)
+    
+  }
+  
+}
