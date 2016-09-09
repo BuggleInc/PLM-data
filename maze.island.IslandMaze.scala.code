@@ -41,7 +41,10 @@ def trouverNord(){
   }
   do{
     keepHandOnSideWall()
-    cpt +=1
+    if (estSurBiscuit()){
+      prendBiscuit()
+      return
+    }
   }while(getDirection()!=Direction.NORTH && cpt <10)
 }
 
