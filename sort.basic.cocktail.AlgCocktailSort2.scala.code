@@ -8,7 +8,8 @@ def cocktailSort2() {
     na=0
     nb=0
     for(i<-debut to fin){
-      if(getValeur(i)>getValeur(i+1)){
+      //if(getValeur(i)>getValeur(i+1)){
+      if (! plusPetit(i,i+1))
         echange(i,i+1)
         na=na+1
       }
@@ -19,7 +20,8 @@ def cocktailSort2() {
     
     
     for (i <- fin to debut by -1) {
-      if(getValeur(i)>getValeur(i+1)){
+      if (! plusPetit(i,i+1)) {
+      //if(getValeur(i)>getValeur(i+1)){
         echange(i,i+1)
         nb=nb+1
       }
