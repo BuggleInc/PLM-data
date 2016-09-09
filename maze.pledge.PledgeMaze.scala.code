@@ -1,44 +1,4 @@
 override def run() {
-  var angleSum:Int =0
-  def keepLeftHand() {
-    	
-      left()
-    	angleSum+=1
-      if ( ! isFacingWall()) {
-        forward() 
-        } else {
-    					right()
-        			angleSum-=1
-    					if (! isFacingWall()) {
-                forward
-              } else {
-                	right()
-                	angleSum-=1
-                	if (! isFacingWall()) {
-                  	forward
-                	} else {
-                  right()
-                  angleSum-=1
-                }
-              }
-            }
-  		
-			}
-  while (getY()!=0) {
-    setDirection(Direction.NORTH)
-    if (! isFacingWall()) {forward}
-    else { 
-      angleSum=1
-      do  {
-        
-      	keepLeftHand()
-    	} while (angleSum !=0)
-    }
-  }
- 	setDirection(Direction.EAST)
-  while (! isOverBaggle()) {
-      keepLeftHand()
-    }
-  
+  setPos(20,20)
   pickupBaggle()
 }
