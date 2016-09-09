@@ -2,7 +2,6 @@ override def run() {
   var counter : Int = 0
   var finalpos : Boolean = false
   var x : Int = 0
-  var y : Int = 0
   while (finalpos== false){
     if (x == 6 & y == 6){
       setPos(x,y)
@@ -10,11 +9,11 @@ override def run() {
       finalpos = true
     }
     else {
+      for (y <- 0 to 6)
       if (x==0){
         setPos(x,y)
         writeMessage(counter)
         counter = counter + 1
-        y = y + 1 
         x = x + 1
         while (x!=6){
         	setPos(x,y)
@@ -27,7 +26,6 @@ override def run() {
       setPos(x,y)
         writeMessage(counter)
         counter = counter + 1
-       y = y + 1
         x = x - 1
         while (x!=0){
         	setPos(x,y)
