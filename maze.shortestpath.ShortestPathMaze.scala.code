@@ -35,13 +35,22 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   setIndication(x,y,i);
   
-  var indics = List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
+  var indic = 0;
+  var xModDir = List(0, 1, 0, -1);
+  var yModDir = List(1, 0, -1, 0);
+  
+  List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
   
   var min = i;
   
-  for (j <- 0 to 2)
+  for (i <- 0 to 3)
   {
-    if (indics(j)+1 < min) min = indics(j)+1;
+    if (!estFaceMur())
+    {
+      indic = getIndication(getX()+xModDir(i), getY()+yModDir(i))+1;
+      
+      if (indic < min) min = indic;
+    }
   }
   
   if (y>0 && getIndication(x,y-1) > min && !aMurNord(x,y)) noteIndication(x, y-1, min+1);
