@@ -3,7 +3,7 @@ override def run() {
   var n:Int = getNombreBases()
   var baseCandidate:Int = (baseLibre+1)%n
   while (!estTrie) {
-    distance(baseCandidate) match {
+    distance(baseCandidate, n) match {
       case (d1,d2) => if (d1<d2) {
                        deplace(baseCandidate, 1)
                      }
