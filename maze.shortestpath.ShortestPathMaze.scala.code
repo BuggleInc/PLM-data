@@ -16,8 +16,7 @@ override def run() {
         ecrireAdj(x,y,indic,H,L)
       }
     }
-   }
-  
+   }  
 }
 
 def trouverBis(i:Int,H:Int,L:Int):Int = {
@@ -74,4 +73,43 @@ def ecrireAdj(x:Int,y:Int,indic:Int,H:Int,L:Int){
       
     
   
+}
+
+def bouge(){
+  var x = getX()
+  var y = getY()
+  var min=9999
+  var dir=Direction.NORD
+  val gauche=getIndication(x-1,y)
+  val droite=getIndication(x+1,y)
+  val haut=getIndication(x,y-1)
+  val bas=getIndication(x,y+1)
+  lDir = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
+  // voir si on va à gauche
+  setDirection(lDir(3))
+  if (gauche<min && !estFaceMur()){
+    bonneDir = lDir(3)
+    min = gauche
+  }
+  //voir si on va à droite
+  setDirection(lDir(2))
+  if (droite<min && !estFaceMur()){
+    dir = lDir(2)
+    min = droite
+  }
+  //voir si on va en haut
+  setDirection((lDir(0)))
+  if (haut<min && !estFaceMur()){
+    dir = lDir(0)
+    min = haut
+  }
+  //voir si on va en bas
+  setDirection(lDir(1))
+  if (bas<min && !estFaceMur()){
+    dir=lDir(1)
+    min = bas
+  }
+  //ordre d'avancement
+  setDirection(dir)
+  avance()
 }
