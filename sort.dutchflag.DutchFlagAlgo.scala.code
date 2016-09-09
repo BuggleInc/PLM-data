@@ -2,13 +2,13 @@ def solve() {
   var afterBlue:Int = 0
   var beforeWhite:Int = getSize()-1
   var beforeRed:Int = getSize()-1
-  var x:Int = 0
+  var x:Int = getSize()/2
   while (afterBlue<beforeWhite) {
     
       if (getColor(x)==BLUE) {
         swap(x,afterBlue)
         afterBlue+=1
-        x+=1
+        
       } else { 
         if (getColor(x)==RED) {
           swap(x,beforeRed)
@@ -16,6 +16,7 @@ def solve() {
                beforeWhite+=1         
           }
           beforeRed-=1
+          
         } else {
           swap(x,beforeWhite)
           beforeWhite-=1
