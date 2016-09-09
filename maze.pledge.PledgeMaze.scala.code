@@ -1,20 +1,17 @@
 override def run() {
-  while(getY()!=0 && !porteBiscuit()){
-    trouverNord()
-  }
-  while(!verifierMurGauche()){
-    gauche()
-  }
-  while(!porteBiscuit()){
-    keepHandOnSideWall()
-    if(estSurBiscuit()){
-      prendBiscuit()
+  var sommeAngle:Int=0
+  while(!estSurBiscuit()){
+    while(sommeAngle==0 && isDirectionFree(Direction.NORTH)){
+      setDirection(Direction.NORTH)
+      avance()
     }
+    sommeAngle += keepHandOnSideWall()
   }
 }
 
+
 def keepHandOnSideWall(){
-  if (estFaceMur()){
+  if (estFaceMur(sommeAngle:Int)):Int{
     verifierMurGauche() match{
       case true => droite();if(!estFaceMur()){avance()}
       case false => while (estFaceMur()){gauche()};avance()
@@ -22,28 +19,16 @@ def keepHandOnSideWall(){
   }
   else{
   	verifierMurGauche() match{
-      	case true => avance()
+      	case true => avance();return 0
       	case false => gauche();avance()
   	} 
 	}
-}
-
-def trouverNord(){
-  var fini:Boolean = false
-  setDirection(Direction.NORTH)
-  while(!estFaceMur()){
-    avance()
+  getDirection() match{
+    case Direction.EAST => return -1
+    case Direction.WEST => return 1
+    case _ => return 0
+    
   }
-  while(!verifierMurGauche()){
-    droite()
-  }
-  do{
-    keepHandOnSideWall()
-    if (estSurBiscuit()){
-      prendBiscuit()
-      fini = true
-    }
-  }while(getDirection()!=Direction.NORTH && fini == false)
 }
 
 def verifierMurGauche():Boolean={
@@ -52,5 +37,13 @@ def verifierMurGauche():Boolean={
     case true => droite();return true
     case false => droite();return false
   }
-  
+}
+
+def isDirectionFree(dir:Direction):Boolean{
+  var mem=getDirection()
+  setDirection(dir)
+  estFaceMur() match{
+    case true => setDirection(mem);return false
+    case false => setDirection(mem);return true
+  }
 }
