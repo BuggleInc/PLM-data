@@ -6,16 +6,6 @@ def cocktailSort3() {
   var end=len-2
   while(k){
     k = false ;
-    
-    for(i<- beg to end){
-      if(!isSmaller(i, i+1)){
-        swap(i,i+1);
-        k = true ;
-        
-      } 
-    }
-    end -= 1;
-    
     for(i<- beg to end){
       j = len-2-i ;
       if(!isSmaller(j, j+1)){
@@ -27,5 +17,13 @@ def cocktailSort3() {
       return
     }
     beg += 1;
+    for(i<- beg to end){
+      if(!isSmaller(i, i+1)){
+        swap(i,i+1);
+        k = true ;
+        
+      } 
+    }
+    end -= 1;
   }
 }
