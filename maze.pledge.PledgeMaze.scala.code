@@ -1,26 +1,32 @@
 override def run() {
   var dir:Int=0;
-  while (!isOverBaggle()) {
-    left();dir+=1
-    if (!isFacingWall()) {
+  setDirection(Direction.NORTH)
+  while(!isOverBaggle()) {
+    while (!isFacingWall()) {
       forward()
     }
-    else {
-      right();dir-=1
-      if (isFacingWall()) {
+    while (!isOverBaggle()) {
+      left();dir+=1
+      if (!isFacingWall()) {
+        forward()
+      }
+      else {
         right();dir-=1
         if (isFacingWall()) {
           right();dir-=1
-          forward()
+          if (isFacingWall()) {
+            right();dir-=1
+            forward()
+          }
+          else {
+            forward()
+          }
         }
         else {
           forward()
         }
       }
-      else {
-        forward()
-      }
     }
+    pickupBaggle()
   }
-  pickupBaggle()
 }
