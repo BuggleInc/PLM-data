@@ -10,8 +10,8 @@ override def run() {
 }
 
 
-def keepHandOnSideWall(){
-  if (estFaceMur(sommeAngle:Int)):Int{
+def keepHandOnSideWall():Int={
+  if (estFaceMur()){
     verifierMurGauche() match{
       case true => droite();if(!estFaceMur()){avance()}
       case false => while (estFaceMur()){gauche()};avance()
