@@ -17,16 +17,19 @@ override def run()
     minY = -1;
     xMinY = 0;
     
-    do
+    if (getY() > 0)
     {
-      keepHandOnSideWall();
-      if (!estMurNord() && (getY() < minY || minY == -1))
+      do
       {
-        minY = getY();
-        xMinY = getX();
+        keepHandOnSideWall();
+        if (!estMurNord() && (getY() < minY || minY == -1))
+        {
+          minY = getY();
+          xMinY = getX();
+        }
       }
+      while (getX() != iniPosX || getY() != iniPosY)
     }
-    while (getX() != iniPosX || getY() != iniPosY)
       
     //Se rend sur ce point le plus eleve
     while ((getX() != xMinY || getY() != minY) && getY() != 0) keepHandOnSideWall();
