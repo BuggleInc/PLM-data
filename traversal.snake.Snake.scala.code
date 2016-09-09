@@ -2,15 +2,17 @@ override def run() {
   brushDown();
   while (!estFaceMur) {
     forward();
+  }
   if (getDirection() == Direction.EST) {
+    left(); 
     if (!estFaceMur) {
-      left(); forward();
+      forward(); left();
     }
   }
   if (getDirection() == Direction.OUEST) {
-   	if (!estFaceMur) {
-      right(); forward();
+    right();
+    if (!estFaceMur) {
+      forward(); right();
     }
-  }
   }
 }
