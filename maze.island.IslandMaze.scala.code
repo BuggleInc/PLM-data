@@ -10,7 +10,13 @@ override def run() {
 }
 
 def aGaucheToute(){
-    
+  while (getDirection!=Direction.NORD){
+    droite()
+    if (!estFaceMur){
+      forward()
+    }
+  }
+ etat=1   
 }
 
 def auNordChef(){
@@ -20,6 +26,5 @@ def auNordChef(){
   droite()
   if (estFaceMur){
     etat=0
-  }
-  
+  } 
 }
