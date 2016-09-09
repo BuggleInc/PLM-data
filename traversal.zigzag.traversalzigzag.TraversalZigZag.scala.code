@@ -10,13 +10,15 @@ override def run() {
   	y=getY()
     if(cpt%2==0 && estFaceMur()==true){
       setPos(x,y+1)
+      cpt+=1
+      ecritMessage(cpt)
 			while(estDosMur()==false){
         parcours1()
         cpt+=1
         ecritMessage(cpt)
       }
       
-    }else {
+    }else if(cpt%2==1 && estDosMur()==true) {
       parcours2()
     }
     cpt+=1
