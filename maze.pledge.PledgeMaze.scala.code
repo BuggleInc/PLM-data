@@ -6,15 +6,16 @@ override def run() {
       forward()
     }
     while (!isOverBaggle() && dir !=4) {
+      right():dir+=1
       if (!isFacingWall()) {
         forward()
       }
       else {
         left();dir-=1
         if (isFacingWall()) {
-          left();left();dir-=2
+          left();dir-=1
           if (isFacingWall()) {
-            right();dir+=1
+            left();dir-=1
             forward()
           }
           else {
