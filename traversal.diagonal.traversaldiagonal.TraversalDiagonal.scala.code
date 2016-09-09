@@ -9,10 +9,12 @@ override def run() {
     var y:Int = getY()
     message()
     
-    if(y == 0) {
+    if(y == 0 && x != largeur - 1) {
     	diag += 1
       setPos(0, diag)
-
+    } else if(x == largeur - 1) {
+      diag += 1
+    	setPos(diag - hauteur + 1, 6)
     } else setPos(x + 1, y - 1)
   }
   
