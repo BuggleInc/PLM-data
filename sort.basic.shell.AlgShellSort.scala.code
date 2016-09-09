@@ -11,11 +11,13 @@ def shellSort()  {
       for(it<-gap to n-1){
 
 				var k : Int = 1
+        var valeur : Int = getValue(it)
         
-        while(it - k*gap >=0 && isSmaller(it-(k-1)*gap,it-k*gap)){
-          swap(it-k*gap,it-(k-1)*gap)
+        while(it - k*gap >0 && !isSmaller(it-k*gap,value)){
+          copy(it-k*gap,it-(k-1)*gap)
           k+=1
         }
+        setValue(it-k*gap,valeur)
         
       }
     	
