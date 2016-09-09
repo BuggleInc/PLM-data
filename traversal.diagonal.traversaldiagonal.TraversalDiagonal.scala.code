@@ -1,0 +1,18 @@
+var diag = 0;
+override def run() {def positionFinale():Boolean= {if (getX()==getMondeHauteur()-1&&getY()==getMondeLargeur()-1) {return true}
+                                                  else {return false}}
+ var a:Int = 0;                   
+ var b:Int = getMondeLargeur()-1;                 
+                    
+                    def marche() {while (!positionFinale()) 
+                                {ecritMessage(a);a+=1;
+                                 if (getY()==0&&diag<7) {diag+=1;setPos(0,diag);}
+                                 if (getY()==0&&diag>6) {diag+=1;setPos(0,6);}
+                                 if (getX()!=0)
+                                 {setPos(getX()+1,getY()-1);}
+                                 
+                                 
+                                 }
+                                 }
+                                
+marche();ecritMessage(48);}
