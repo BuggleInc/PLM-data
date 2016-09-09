@@ -5,7 +5,11 @@ override def run() {
     while (!isFacingWall()) {
       forward()
     }
-    left();left();
+    right()
+    while (!isFacingWall()) {
+      forward();
+    }
+    right()
     while (!isOverBaggle() && dir !=2) {
       left();dir+=1
       if (!isFacingWall()) {
