@@ -5,18 +5,21 @@ def cocktailSort2() {
   var debut:Int=0
   while (compteur!=0) {
     compteur=0
-    for (k <- debut to fin){
-      if (!plusPetit(k,k+1)){
-        echange(k,k+1)
-        compteur=1
-      }
-    }
-    fin=fin-1
     for (k <- fin to debut){
       if(!plusPetit(k,k+1)) {
         echange(k,k+1)
         compteur=1
       }
+      debut=debut+1
+      for (k <- debut to fin){
+        if (!plusPetit(k,k+1)){
+          echange(k,k+1)
+          compteur=1
+        }
+      }
+      fin=fin-1
+
     }
   }
+}
 }
