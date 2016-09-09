@@ -1,16 +1,21 @@
 def bubbleSort3() {
   val len:Int = getNombreValeurs()
   var fin:Boolean = false
+  var end:Boolean = false
   while (!fin) {
     fin = true
   	for (i <- (len - 2) to 0 by -1) {
+      end = true
     	for (j <- 0 to i) {
       	if (plusPetit((j+1),j)) {
         	echange(j,(j+1))
         	fin = false
+          end = false
       	}
     	}
-      return
+      if (end == true) {
+        return
+      }
  	 	}
 	}
 }
