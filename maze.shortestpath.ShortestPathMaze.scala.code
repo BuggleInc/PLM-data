@@ -35,14 +35,14 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   setIndication(x,y,i);
   
-  //var indics:List[Int] = List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
+  var indics:List[Int] = List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
   
   var min = i;
-  /*
+  
   for (j <- 0 to 2)
   {
     if (indics(j)+1 < min) min = indics(j)+1;
-  }*/
+  }
   
   if (y>0 && getIndication(x,y-1) > min && !aMurNord(x,y)) noteIndication(x, y-1, min+1);
   if (x<n && getIndication(x+1,y) > min && !aMurOuest(x+1,y)) noteIndication(x+1, y, min+1);
@@ -58,7 +58,7 @@ def trouverChemin()
   var xModDir:List[Int] = List(0, 1, 0, -1);
   var yModDir:List[Int] = List(1, 0, -1, 0);
   
-  for (i <- 1 to 4)
+  for (i <- 0 to 3)
   {
     if (!estFaceMur())
     {
