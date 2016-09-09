@@ -1,7 +1,13 @@
 override def run() {
   while (getY()!=0) {
     if (isFacingWall()) {
-      right();forward();left()
+      right()
+      if (!isFacingWall()) {
+        forward();left()
+      }
+      else {
+        left();left();forward();right()
+      }
     }
     else {
       forward()
