@@ -1,0 +1,27 @@
+override def run() {
+  var cpt:Int = 0
+  
+  while(!positionFinale()){
+    var largeur:Int = getMondeLargeur()
+    var x:Int = getX()
+    var y:Int = getY()
+    message()
+    
+    if(x == largeur - 1)
+      setPos(0, y + 1)
+    else
+      setPos(x + 1, y)
+  }
+  
+  def positionFinale():Boolean = {
+    if(getX() == getMondeLargeur() - 1 && getY() == getMondeHauteur() - 1) {
+    	message()
+    	return true
+    } else return false
+  }
+  
+  def message() {
+    ecritMessage(cpt)
+    cpt += 1
+  }
+}
