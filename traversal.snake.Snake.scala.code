@@ -1,24 +1,25 @@
 override def run() {
   var test:Boolean = false
   brushDown();
-  while (test ==false && !estFaceMur) {
+  while (test ==false) {
     forward();
-    if (getDirection()==Direction.EST) {
-      left();
-      if (estFaceMur) {
-        test = true
-      } else {
-        forward(); left();
+    if (estFaceMur) {
+      if (getDirection() == Direction.EST) {
+        left();
+        if (!estFaceMur) {
+          forward(); left();
+        } else {
+          test=true
+        }
+      }
+      if (getDirection() == Direction.OUEST) {
+        right();
+        if (!estFaceMur) {
+          forward(); right();
+        } else {
+          test=true
+        }
       }
     }
-    if (getDirection()==Direction.EST) {
-      right();
-      if (estFaceMur) {
-        test=true
-      } else {
-        forward(); right();
-      }
-    }
-	return test
-  }
+    return test
 }
