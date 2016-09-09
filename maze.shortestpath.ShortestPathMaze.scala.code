@@ -19,7 +19,7 @@ override def run() {
 }
 
 def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) : (Boolean, NeighborPos) = {
-  var (xn, yn, canAccess) getNeighborRelativePos(x, y, np);
+  var (xn, yn, canAccess) = getNeighborRelativePos(x, y, np);
   if (!canAccess) return (min, minNeighbor);
   
   var indication = getIndicationSafe(xn, yn);
