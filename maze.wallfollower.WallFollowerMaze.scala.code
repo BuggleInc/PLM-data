@@ -10,6 +10,19 @@ def keepHandOnSideWall(){
     gauche()
   }
   else{
-    avance()
+    verifierMurGauche() match{
+      case true avance()
+      case false gauche()
+    }
+    
 }
+}
+
+def verifierMurGauche():Boolean={
+  gauche()
+  estFaceMur() match{
+    case true => droite();return true
+    case false => droite();return false
+  }
+  
 }
