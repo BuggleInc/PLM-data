@@ -1,0 +1,44 @@
+override def run() {
+  var cpt:Int = 0
+  var colonne:Int = 0
+  var ligne:Int = 0
+  var tourne:Int = 0
+  var tourneboucleavant:Boolean = false
+  ecritMessage(cpt)
+  cpt+=1
+  colonne+=1
+  setPos(colonne,ligne)
+  ecritMessage(cpt)
+  while (!positionfinale) {
+    if (((cpt-tourne)%6==0) && (!tourneboucleavant)) {
+    	ligne+=1
+    	tourne+=1
+      tourneboucleavant=true
+    }
+    else {
+      tourneboucleavant=false
+  		if (tourne%2==0)
+    		colonne+=1
+    	else
+    		colonne-=1
+    }
+    cpt+=1
+    setPos(colonne,ligne)
+    ecritMessage(cpt)
+  }
+}
+
+def positionfinale():Boolean = {
+  if (estDosMur()) {
+    gauche()
+    if (estDosMur()) {
+    	droite()
+    	return true
+    }
+    else {
+      droite()
+    	return false   
+  	}
+  }
+  return false
+}

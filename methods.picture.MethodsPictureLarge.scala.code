@@ -1,0 +1,48 @@
+override def run() {
+  colonnerangeecarreV(9,9,5)
+}
+
+def faireV(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  droite
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche() 
+}
+
+def carreV(t:Int) {
+  faireV(Color.YELLOW)
+	faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  for (i <-1 to t)
+  	avance()
+}
+
+def rangeecarreV(nb:Int,t:Int) {
+  for (i <- 1 to nb)
+ 		carreV(t)
+}
+
+def colonnerangeecarreV(c:Int,r:Int,t:Int) {
+  for (i <- 1 to c) {
+  	rangeecarreV(r,t)
+  	gauche()
+  	for (i <- 1 to t)
+  		avance()
+  	droite()
+  }
+}
