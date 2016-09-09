@@ -1,13 +1,14 @@
 def cocktailSort2() {
   var mouv:Boolean=true
-  val lgr:Int=getNombreValeurs()
-  var fin=lgr-2
+  var N=getNombreValeurs()-2
   var deb=0
-  while(mouv){
-    mouv=false
-   for(i<-deb to fin){if(plusPetit(i+1,i)){echange(i,i+1);mouv=true}}
-    fin-=1
-   for(i<-fin to deb){if(plusPetit(i+1,i)){echange(i,i+1);mouv=true}}
-    deb+=1
-  }
+  while(mouv){mouv=false
+             for(x<-deb to N){if(plusPetit(x+1,x)){echange(x,x+1);mouv=true}
+                            N-=1
+                             }
+             for(x<-deb to N){
+               var j=N-x
+               if(plusPetit(j+1,j)){echange(j,j+1);mouv=true}
+             deb+=1}
+             }
 }
