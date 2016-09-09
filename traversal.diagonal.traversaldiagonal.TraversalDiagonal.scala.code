@@ -5,6 +5,21 @@ val y = getWordlHeight();
 
 
 override def run() {
+  while (! isInPosition(x,y))
+}
+
+
+
+def isInPosition(x: Int, y: Int):Boolean = {
+  if ( (x -1 == getX()) && (y -1 == getY())) {
+    writeMessage(x * y -1)
+    return true
+  }
+  else {return false}
+}
+
+
+override def run() {
   while (! isInPosition(x,y)) match {
     case (_,0) => {for (X <- 0 to diag){
       for (Y <- diag to 0) {
@@ -26,19 +41,3 @@ override def run() {
   }
  }
 }
-
-
-
-def isInPosition(x: Int, y: Int):Boolean = {
-  if ( (x -1 == getX()) && (y -1 == getY())) {
-    writeMessage(x * y -1)
-    return true
-  }
-  else {return false}
-}
-
-
-
-setPos(i,i)
-      writeMessage(n)
-      n=n+1
