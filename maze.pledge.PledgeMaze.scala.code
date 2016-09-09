@@ -1,19 +1,23 @@
 override def run() {
   def keepLeftHand() {
-    
+    	var angleSum:Int =0
       left()
+    	angleSum+=1
       if ( ! isFacingWall()) {
         forward() 
         } else {
     					right()
+        			angleSum-=1
     					if (! isFacingWall()) {
                 forward
               } else {
                 	right()
+                	angleSum-=1
                 	if (! isFacingWall()) {
                   	forward
                 	} else {
                   right()
+                  angleSum-=1
                 }
               }
             }
