@@ -1,11 +1,21 @@
 override def run() {
   val L:Int=getMondeLargeur()
   val H:Int=getMondeHauteur()
-  val xBis = trouverBis()(0)
-  val yBis = trouverBis()(1)
+  val xBis = trouverBis(0,H,L)
+  val yBis = trouverBis(1,H,L)
     // Your code here
 }
 
-def trouverBis():(Int,Int) = {
-  return (1,2)
+def trouverBis(i:Int,H:Int,L:Int):() = {
+  // i = 0 pour x, 1 pour y
+  for ( x <- 0 to L-1){
+    for (y <- 0 to H-1){
+      if (aBiscuit(x,y)){
+        i match{
+          case 0 => return x 
+          case 1 => return y
+        }
+      }
+    }
+  }
 }
