@@ -1,0 +1,27 @@
+def wall(){
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true
+  }
+  else{
+    return false
+  }
+}
+
+override def run() {
+  while (wall && !estSurBiscuit){
+    if (estFaceMur){
+      gauche()
+      if (estFaceMur){
+      gauche()
+    }
+    else{
+      avance()
+    }
+    }
+    else{
+      avance()
+    }
+  }
+}
