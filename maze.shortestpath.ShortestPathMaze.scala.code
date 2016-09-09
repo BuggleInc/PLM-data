@@ -41,13 +41,13 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   for (j <- 0 to 3)
   {
-    if (indics(j)+1 < i) min = indics(j)+1;
+    if (indics(j)+1 < min) min = indics(j)+1;
   }
   
-  if (y>0 && getIndication(x,y-1) > i && !aMurNord(x,y)) noteIndication(x, y-1, i+1);
-  if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) noteIndication(x+1, y, i+1);
-  if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) noteIndication(x, y+1, i+1);
-  if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) noteIndication(x-1, y, i+1);
+  if (y>0 && getIndication(x,y-1) > min && !aMurNord(x,y)) noteIndication(x, y-1, min+1);
+  if (x<n && getIndication(x+1,y) > min && !aMurOuest(x+1,y)) noteIndication(x+1, y, min+1);
+  if (y<m && getIndication(x,y+1) > min && !aMurNord(x,y+1)) noteIndication(x, y+1, min+1);
+  if (x>0 && getIndication(x-1,y) > min && !aMurOuest(x,y)) noteIndication(x-1, y, min+1);
 }
 
 def trouverChemin()
