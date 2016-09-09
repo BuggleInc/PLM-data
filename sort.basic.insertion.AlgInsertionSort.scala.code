@@ -1,23 +1,22 @@
 def insertionSort() {
   
   for(i<- 1 to getValueCount()-1){
-	  var indLastValue = i;
-    var v = getValue(i);
-    
-		sauter(i, indLastValue, v);
+  	backMinus(i);
   }
   
 }
 
 
-def sauter(i:Int, indLastValue:Int, v:Int){
-  for(j <- 0 to i-1){
-    if(getValue(i-j-1) > v){
-      copy(i-j-1,i-j);
+def backMinus(indSorted){
+  var v = getValue(indSorted+1)
+  for(i <- 0 to indSorted){
+    if(isSmaller(v, getValue(i-1))){
+      swap(i, i-1);
     }
-    else {
-    	setValue(i-j-1, v);
-    	return;
+    else{
+      setValue(i, v);
+      return;
     }
   }
+  
 }
