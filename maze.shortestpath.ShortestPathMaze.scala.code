@@ -1,5 +1,6 @@
 override def run() {
   marquerCases()
+  allerObjectif()
 }
 
 
@@ -77,14 +78,32 @@ def allerObjectif()
 {
   while(!estSurBiscuit())
   {
-    (x, y) = (getX(), getY())
+    var (x, y) = (getX(), getY())
     indice = getIndication(x, y)
-    
+    plusCourt(x, y, indice)
   }
 }
 
 def plusCourt(x:Int, y:Int, ind:Int)
 {
   if(y != getMondeHauteur()-1 && getIndication(x, y+1) == ind-1)
-  	setDirection(Direction.Sud)
+  {
+    setDirection(Direction.Sud)
+    avance()
+  }
+  if(y != 0 && getIndication(x, y-1) == ind-1)
+  {
+    setDirection(Direction.Nord)
+    avance()
+  }
+  if(x != getMondeLargeur()-1 && getIndication(x+1, y) == ind-1)
+  {
+    setDirection(Direction.Est)
+    avance()
+  }
+  if(x != 0 && getIndication(x-1, y) == ind-1)
+  {
+    setDirection(Direction.Ouest)
+    avance()
+  }
 }
