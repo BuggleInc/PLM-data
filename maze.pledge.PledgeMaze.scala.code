@@ -2,13 +2,15 @@ override def run() {
   var state = 0;
   var nbTurns = 0;
   while(!isOverBaggle()){
-		state match {
+		
+    state match {
       case 0 => 
       	while(!isFacingWall())
 	      	forward();
       	right();
       	nbTurns -= 1;
       	state = 1;
+
       case 1 =>
       	nbTurns += keepHandOnSideWall();
       	if(isDirFree(Direction.NORTH) && nbTurns==0)
