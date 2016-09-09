@@ -1,0 +1,32 @@
+override def run()
+{
+  var n = getMondeLargeur();
+  var m = getMondeHauteur();
+  
+  var xSortie = 0;
+  var ySortie = 0;
+  
+  for (x <- 0 to n-1)
+  {
+    for (y <- 0 to m-1)
+    {
+      if (aBiscuit(x,y))
+      {
+        xSortie = x;
+        ySortie = y;
+      }
+    }
+  }
+    
+	noteIndication(xSortie, ySortie, 0);
+}
+
+def noteIndication(x:Int, y:Int, i:Int)
+{
+  setIndication(x,y,i);
+  
+  if (!aMurNord(x,y) && y>0) noteIndication(x,y-1);
+  if (!aMurOuest(x,y) && x>0) noteIndication(x-1,y);
+  if (!aMurNord(x,y+1) && y>m) noteIndication(x,y+1);
+  if (!aMurOuest(x+1,y) && x<n) noteIndication(x+1,y);
+}
