@@ -52,18 +52,24 @@ def fini(H:Int,L:Int):Boolean={
 def ecrireAdj(x:Int,y:Int,indic:Int,H:Int,L:Int){
   var adjX = 0
   var adjY = 0
-  for (adjX <- -1 to 1;adjY <- -1 to 1){
-    if (Math.abs(adjX)+Math.abs(adjY)==1 && 0<x+adjX &&x+adjX<L && 0<y+adjY && y+adjY<H){
-      adjX match{
-        case -1 => if(!aMurOuest(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY,indic+1)}
-        case 1 => if (!aMurOuest(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
-        case _ => println("rien")
-      }
-      adjY match{
-        case -1 => if(!aMurNord(x+adjX,y+adjY) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
-        case 1 => if(!aMurNord(x,y) && getIndication(x+adjX,y+adjY)==9999){setIndication(x+adjX,y+adjY, indic+1)}
-        case _ => println("rien")
-      }
-    }
+  // Case gauche
+  if(x-1>=0 && !aMurOuest(x,y) && getIndication(x-1,y)==9999){
+    setIndication(x-1,y,indic+1)
   }
+  // Case droite
+  if (x+1<L && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999){
+    setIndication(x+1,y,indic+1)
+  }
+  // Case haut
+  if(y-1>=0 && !aMurNord(x,y) && getIndication(x,y-1)==9999){
+    setIndication(x,y-1, indic+1)
+  }
+  //Case Bas
+  if(y+1<H && !aMurNord(x,y+1) && getIndication(x,y+1)==9999){
+    setIndication(x,y+1, indic+1)
+  }
+       
+      
+    
+  
 }
