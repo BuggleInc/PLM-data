@@ -1,18 +1,19 @@
 def shellSort()  {
   var ecart = (getNombreValeurs)/2
+  var j = 1
   while (ecart > 0){
-   var j = 1
-   for ( i <- 1 to getNombreValeurs()-1){
-    if (i-j*ecart>0){
-   		var a = getValeur(i-(j-1)*ecart)
-    	var c = getValeur(i-j*ecart)
-    	while ( a<c && j>0){
-      	setValeur(i-(j-1)*ecart, getValeur(i-j*ecart))
-    		j += 1
-    	}
-   		setValeur(i-j*ecart , a)
-    }
+   for ( i <- 0 to getNombreValeurs-2){
+     var a = getValeur(i+(j-1)*ecart)
+     var b = getValeur(i +j*ecart)
+     while (b < a && ( (i + j*ecart < getNombreValeurs-1 )|| (i+(j-1)*ecart>0))){
+       echange(i+j*ecart, i+(j-1)*ecart)
+       if ((i+ (j+1)*ecart) < getNombreValeurs){
+         j += 1
+       } else if ((i + (j-2)*ecart)>0){
+         j -= 1
+       }
+     }
    }
-   ecart = ecart/2
+  	ecart = ecart / 2
 	}
 }
