@@ -75,8 +75,12 @@ def trouveForce(){
   var ici = getIndication(getX(),getY())
   if(ici - getIndication(x,y-1)>0){
     setDirection(Direction.NORD)
-    if(!estFaceMur())
-    avance()
+    if(!aMurNord()){
+      avance()
+    }else{
+      gauche()
+      avance()
+    }
   }else if(ici - getIndication(x-1,y)>0){
     setDirection(Direction.OUEST)
     if(!estFaceMur())
