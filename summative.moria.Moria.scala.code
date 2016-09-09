@@ -1,0 +1,15 @@
+do{
+  x = getX()
+  y = getY()
+  if(!estSurBiscuit())
+  	setPos(x + 1, y)
+  else {
+    prendBiscuit()
+    setPos(x - 1, y)
+    if(estSurBiscuit()) {
+  		setPos(x + 1,y)
+      poseBiscuit()
+  	}
+  }
+} while(x != getMondeLargeur() - 4)
+setPos(getMondeLargeur() - 2, y + 1)
