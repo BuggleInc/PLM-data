@@ -5,10 +5,12 @@ override def run() {
   while(!verifierMurGauche()){
     gauche()
   }
-  while(!estSurBiscuit() && !porteBiscuit()){
+  while(!porteBiscuit()){
     keepHandOnSideWall()
+    if(estSurBiscuit()){
+      prendBiscuit()
+    }
   }
-  prendBiscuit()
 }
 
 def keepHandOnSideWall(){
