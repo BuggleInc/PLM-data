@@ -5,20 +5,10 @@ def insertionSort() {
   for(i <- 1 to getValueCount()-1){
     v = getValue(i)
     
-    for(j <- 1 to i){
-      
-      if(isSmallerThan(i-j,v)){
-        setValue(i-j+1,v)
-      }
-      
-      else{
-        copy(i-j,i-j+1) 
-        
-        if(i-j == 0){
-          setValue(0,v)
-        }
-      }
+    while(!isSmallerThan(n,v) && n>0){
+      copy(n,n+1)
+      n = n-1
     }
-    
+   setValue(n,v)
   }
 }
