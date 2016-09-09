@@ -18,10 +18,33 @@ override def run()
     }
   }
   
-	noteIndication(xSortie, ySortie, 0);
+	setIndication(xSortie, ySortie, 0);
   
   var i = 0;
   var termine = false;
+  
+  while(!termine)
+  {
+    termine = true;
+    for (x <- 0 to n-1)
+    {
+      for (y <- 0 to m-1)
+      {
+        if (getIndication(x,y) == i) 
+        {
+          if (y>0 && !aMurNord(x,y))
+          {
+            if (x<n && getIndication(x,y-1) > i && !aMurNord(x,y-1)) setIndication(x, y-1, i+1);
+            if (x<n && getIndication(x+1,y) > i && !aMurOuest(x+1,y)) setIndication(x+1, y, i+1);
+            if (y<m && getIndication(x,y+1) > i && !aMurNord(x,y+1)) setIndication(x, y+1, i+1);
+            if (x>0 && getIndication(x-1,y) > i && !aMurOuest(x,y)) setIndication(x-1, y, i+1);
+            termine = false;
+          }
+        }
+      }
+    }
+    i+=1;
+  }
   
   return;
   while (!estSurBiscuit()) trouverChemin();
@@ -35,25 +58,11 @@ def noteIndication(x:Int, y:Int, i:Int)
   
   setIndication(x,y,i);
   
-  var indic = 0;
-  var xModDir = List(0, 1, 0, -1);
-  var yModDir = List(1, 0, -1, 0);
-  
-  List(getIndication(x,y-1), getIndication(x+1,y), getIndication(x,y+1), getIndication(x-1,y));
-  
-  var min = i;
-  
-  for (i <- 0 to 3)
+  if (y>0 && !aMurNord(x,y))
   {
-    if (!estFaceMur())
-    {
-      indic = getIndication(getX()+xModDir(i), getY()+yModDir(i))+1;
-      
-      if (indic < min) min = indic;
-    }
+    if (getIndication(x,y-1)+1 > i) noteIndication(x, y-1, i+1);
+    noteIndication(x, y-1, min+1);
   }
-  
-  if (y>0 && getIndication(x,y-1) > min && !aMurNord(x,y)) noteIndication(x, y-1, min+1);
   if (x<n && getIndication(x+1,y) > min && !aMurOuest(x+1,y)) noteIndication(x+1, y, min+1);
   if (y<m && getIndication(x,y+1) > min && !aMurNord(x,y+1)) noteIndication(x, y+1, min+1);
   if (x>0 && getIndication(x-1,y) > min && !aMurOuest(x,y)) noteIndication(x-1, y, min+1);
