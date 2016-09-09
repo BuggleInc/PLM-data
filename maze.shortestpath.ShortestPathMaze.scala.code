@@ -49,10 +49,10 @@ def moveToExit() {
   var x = getX();
   var y = getY();
   
-  var a = processNeighborForExit(x, y, TOP, NO_INDICATION);
-  a = processNeighborForExit(x, y, BOTTOM, a._1);
-  a = processNeighborForExit(x, y, LEFT, a._1);
-  a = processNeighborForExit(x, y, RIGHT, a._1);
+  var a = processNeighborForExit(x, y, TOP, NO_INDICATION, TOP);
+  a = processNeighborForExit(x, y, BOTTOM, a._1, a._2);
+  a = processNeighborForExit(x, y, LEFT, a._1), a._2;
+  a = processNeighborForExit(x, y, RIGHT, a._1, a._2);
   
   moveToNeighbor(a._2);
 }
