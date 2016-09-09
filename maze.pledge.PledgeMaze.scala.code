@@ -1,0 +1,56 @@
+override def run() {
+  while(getY()!=0 && !porteBiscuit()){
+    trouverNord()
+  }
+  while(!verifierMurGauche()){
+    gauche()
+  }
+  while(!porteBiscuit()){
+    keepHandOnSideWall()
+    if(estSurBiscuit()){
+      prendBiscuit()
+    }
+  }
+}
+
+def keepHandOnSideWall(){
+  if (estFaceMur()){
+    verifierMurGauche() match{
+      case true => droite();if(!estFaceMur()){avance()}
+      case false => while (estFaceMur()){gauche()};avance()
+    }
+  }
+  else{
+  	verifierMurGauche() match{
+      	case true => avance()
+      	case false => gauche();avance()
+  	} 
+	}
+}
+
+def trouverNord(){
+  var fini:Boolean = false
+  setDirection(Direction.NORTH)
+  while(!estFaceMur()){
+    avance()
+  }
+  while(!verifierMurGauche()){
+    droite()
+  }
+  do{
+    keepHandOnSideWall()
+    if (estSurBiscuit()){
+      prendBiscuit()
+      fini = true
+    }
+  }while(getDirection()!=Direction.NORTH && fini == false)
+}
+
+def verifierMurGauche():Boolean={
+  gauche()
+  estFaceMur() match{
+    case true => droite();return true
+    case false => droite();return false
+  }
+  
+}
