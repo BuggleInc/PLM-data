@@ -2,7 +2,6 @@ gauche()
 gauche()
 while(!estFaceMur){
   findBiscuit()
-  demiPosDemi
 }
 while(!estFaceMur){
   avance()
@@ -16,23 +15,23 @@ avance()
 
 
 def demiPosDemi(){
-  do{
-    if(estSurBiscuit){
-    prendBiscuit()
-    recule()
-  }else{
-      recule()
-    }
-  }while(!estSurBiscuit)
-  avance()
-  poseBiscuit()
-  avance()
+
+  
 
 }
 
 def findBiscuit(){
   while(!estSurBiscuit && !estFaceMur){
     avance()
+    if(estSurBiscuit){
+      prendBiscuit()
+      while(!estSurBiscuit){
+        recule()
+      }
+      avance()
+  		poseBiscuit()
+  		avance()
+    }
 
   	}
 
