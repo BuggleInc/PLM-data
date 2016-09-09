@@ -23,9 +23,13 @@ override def run() {
       //si ya un mur
       else { //on tourne pour continuer
         right(); angle+=1;
-        /*if (!isFacingWall()) {
-          forward();
-        }*/
+        forward(); left()
+        if (!isFacingWall()) {
+          forward()
+        }
+        else {
+          left()
+        }
       }
     } while (angle!=0 && !isOverBaggle())
   }
