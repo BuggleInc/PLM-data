@@ -1,14 +1,16 @@
 var x = Array(
-  Array((right:Int => Unit), 45),
-	Array((left:Int => Unit), 90),
-  Array((right:Int => Unit), 45),
-  Array((right:Int => Unit), 90),
-  Array((left:Int => Unit), 45),
-  Array((left:Int => Unit), 90 + 45),
-  Array((right:Int => Unit), 45)
+  (right:Int => Unit),
+	(left:Int => Unit),
+  (right:Int => Unit),
+  (right:Int => Unit),
+  (left:Int => Unit),
+  (left:Int => Unit),
+  (right:Int => Unit)
 )
 
-
+var y = Array(
+	45, 90, 45, 90, 45, 90 + 45, 45
+)
 
 override def run():Unit= { 
   for(i <- 1 to 8) {
@@ -19,7 +21,7 @@ override def run():Unit= {
 
 def makePattern() {
   for(i <- 0 to x.length - 1) {
-    x(i)(20)
+    x(i)(y(i))
   }
   /*
   forward(20)
