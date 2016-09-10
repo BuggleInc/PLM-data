@@ -1,0 +1,35 @@
+var message:String = ""
+var continue:Boolean = true
+
+while(continue) {
+  message = readMessage();
+  
+  message match {
+    case "R" => {
+      right()
+      forward()
+    }
+    case "L" => {
+      left()
+      forward()
+    }
+    case "I" => {
+      right()
+      right()
+      forward()
+    }
+    case "A" => forward()
+    case "B" => for(i <- 1 to 2) forward()
+    case "C" => for(i <- 1 to 3) forward()
+    case "D" => for(i <- 1 to 4) forward()
+    case "E" => for(i <- 1 to 5) forward()
+    case "F" => for(i <- 1 to 6) forward()
+    case "Z" => backward()
+    case "Y" => for(i <- 1 to 2) backward()
+    case "X" => for(i <- 1 to 3) backward()
+    case "W" => for(i <- 1 to 4) backward()
+    case "V" => for(i <- 1 to 5) backward()
+    case "U" => for(i <- 1 to 6) backward()
+    case _ => continue = false
+  }
+}

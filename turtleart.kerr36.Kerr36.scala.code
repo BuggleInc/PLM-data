@@ -1,0 +1,37 @@
+var x = Array(
+  (right:Int => Unit),
+	(left:Int => Unit),
+  (right:Int => Unit),
+  (right:Int => Unit),
+  (left:Int => Unit),
+  (left:Int => Unit),
+  (right:Int => Unit)
+)
+
+var y = Array(
+	45, 90, 45, 90, 45, 90 + 45, 45
+)
+
+override def run():Unit= { 
+ for(i <- 1 to 8) {
+  	makePattern()
+    right(360/8)
+  }
+}
+
+def makePattern() {
+  for(i <- 0 to x.length - 1) {
+    forward(20)
+    x(i)(y(i))
+  }
+  
+  forward(20)
+  left(90)
+  
+  for(i <- x.length - 1 to 0 by -1) {
+    forward(20)
+    x(i)(y(i))
+  }
+  
+  forward(20)
+}
