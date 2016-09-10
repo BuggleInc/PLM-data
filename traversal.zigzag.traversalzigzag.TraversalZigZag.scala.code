@@ -1,24 +1,30 @@
 override def run() {
-  var count:Int=0;
   var y:Int=0;
+  var count:Int=0;
   
-  def ligne(y:Int){
-    var x:Int=0
-    while (x!=getWorldWidth){
+  for(i<- 1 to 3){
+    colonne(y);
+    y=y+1;
+    colonneInverse(y)
+    y=y+1;
+  }
+  colonne(y);
+  def colonne(y:Int){
+  	var x:Int=0
+  	while(x!=getWorldHeight()){
+    	setPos(x,y);
+    	writeMessage(count);
+    	x=x+1;
+    	count=count+1;
+  	}
+ }
+  def colonneInverse(y:Int){
+    var x:Int=6
+    for(j<-0 to 6){
       setPos(x,y);
       writeMessage(count);
-      count+=1;
-      x+=1;
-    }
-  }
-  def changercolonne(x,y){
-    while (y!=getWorldHeight()){
-      if (x==getWorldWidth()){
-        y+=1;
-        count+=1
-        setPos(x,y);
-        writeMessage(count);
-      }
+      x=x-1;
+      count=count+1
     }
   }
 }
