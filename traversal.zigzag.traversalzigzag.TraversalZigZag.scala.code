@@ -5,14 +5,24 @@ override def run() {
   while(y!=getWorldHeight()){
     colonne(y);
     y=y+1;
+    colonneInverse(y)
   }
   def colonne(y:Int){
-  var x:Int=0
-  while(x!=getWorldHeight()){
-    setPos(x,y);
-    writeMessage(count);
-    x=x+1;
-    count=count+1;
+  	var x:Int=0
+  	while(x!=getWorldHeight()){
+    	setPos(x,y);
+    	writeMessage(count);
+    	x=x+1;
+    	count=count+1;
   }
     }
+  def colonneInverse(y:Int){
+    var x:Int=6
+    while(x!=0){
+      setPos(x,y);
+      writeMessage(count);
+      x=x-1;
+      count=count+1
+    }
+  }
 }
