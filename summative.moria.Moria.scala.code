@@ -1,11 +1,14 @@
-while(!isOverBaggle()){
-  backward();
-}
-pickupBaggle();
-
-while(!isOverBaggle()){
+var baggle:Int=0;
+var step:Int=0
+left();left();
+while(!isFacingWall()){
   forward();
+  step+=1;
+  if(isOverBaggle()){
+    baggle+=1;
+  }
 }
-backward();
-dropBaggle();
-backward();
+for(a<-1 to step){
+    backward();
+  }
+left();left();
