@@ -1,0 +1,43 @@
+override def run() {
+  for(i <- 1 to 3){
+    maison(30);
+    tp(50,0);
+    
+  }
+  for(i <- 1 to 2){
+    maison(30);
+    tp(0,-75);
+  }
+  for(i <- 1 to 3){
+    maison(30);
+    tp(-50,0);
+    
+  }
+  for(i <- 1 to 2){
+    maison(30);
+    tp(0,75);
+  }
+  tp(0,-225);
+  
+}
+def maison(taille:Int) {
+  baisseCrayon;
+  avance(taille);
+  droite(90);
+  avance(taille);
+  recule(taille);
+  gauche(60);
+  avance(taille);
+  droite(120);
+  avance(taille);
+  droite(30);
+  for(i <- 1 to 2){
+    avance(taille);
+    droite(90);
+  }
+}
+
+def tp(x:Int, y:Int){
+  setX(getX+x);
+  setY(getY+y);
+}

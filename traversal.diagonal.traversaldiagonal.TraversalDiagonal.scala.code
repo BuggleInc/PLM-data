@@ -1,0 +1,32 @@
+var diag = 0;
+override def run() {
+  var max = (getMondeHauteur*getMondeLargeur) - 1;
+  var cpt = 0;
+  var lastX = 0;
+  var lastY = 0;
+  
+  while(cpt < max){
+    ecritMessage(cpt);
+    cpt += 1;
+    
+    if (versLeBord){
+      setPos(lastX, lastY);
+      diag += 1;
+      if(getY == getMondeHauteur-1){
+       setPos(getX + 1, getY);
+       lastX += 1;
+        
+      }
+      else{
+        setPos(getX, getY + 1);
+        lastY += 1;
+      }
+    }
+    else setPos(getX+1, getY-1);
+  }
+  ecritMessage(cpt)
+}
+
+def versLeBord():Boolean = {
+  return(getY == 0)||(getX == getMondeLargeur-1)
+}
