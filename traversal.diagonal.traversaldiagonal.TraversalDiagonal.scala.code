@@ -2,19 +2,18 @@ var diag = 1;
 var count:Int=1;
 var y:Int=1;
 override def run() {
-  
   setPos(0,0);
-  writeMessage(0)
-    diagonale(6);
-  }
+  writeMessag(0);
   
-  def diagonale(y:Int){
-  var x:Int=0
-  setPos(0,y);
-  while(y!=0){
-    writeMessage(count);
-    x=x+1;
-    y=y+(-1);
-    count=count+1;
-  	}
-	}
+  def diagonale(y){
+    var x:Int=0
+    setPos(x,y);
+    while(y!=0){
+      x+=1;
+      y-=1;
+      count+=1;
+      setPos(x,y);
+      writeMessage(count);
+    }
+  }
+}
