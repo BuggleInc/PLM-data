@@ -29,6 +29,13 @@ override def run() {
   }
 
   def conditionSuivreMur(dir1, dir2) {
-    avance()
+    dir1
+    if(estFaceMur()) {
+      dir2
+      if(!estFaceMur())
+      	avance()
+      else dir2
+    } else avance()
+    return
   }
 }
