@@ -1,6 +1,5 @@
 override def run() {
-  var e = 0
-  etat(e)
+  etat(0)
   
   def etat(e:Int) {
     e match {
@@ -27,12 +26,16 @@ override def run() {
   
   def nord() {
     setDirection(Direction.NORTH)
-    while(!estFaceMur()) {
-      avance()
-      if(estFaceMur())
-				etat(1)
+    while(getY() != 0) {
+      if(getDirection == Direction.NORTH && !estFaceMur())
+      	avance()
+      else {
+        droite()
+        avance()
+        gauche()
+        if(!estFaceMur())
+          avance()
+      }
     }
-		if(estFaceMur())
-      etat(1)
   }
 }
