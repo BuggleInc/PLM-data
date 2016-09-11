@@ -30,15 +30,27 @@ override def run() {
       if(getDirection == Direction.NORTH && !estFaceMur())
       	avance()
       else {
-        droite()
-      	if(estFaceMur()) {
-       		gauche()
-        	if(!estFaceMur())
-        		avance()
-        	else
-          	gauche()
-      	} else
-      	avance()
+        if(getDirection == Direction.EAST) {
+          gauche()
+          if(estFaceMur()) {
+            droite()
+            if(!estFaceMur())
+              avance()
+            else
+              droite()
+          } else
+          avance()
+        } else {
+          droite()
+          if(estFaceMur()) {
+            gauche()
+            if(!estFaceMur())
+              avance()
+            else
+              gauche()
+          } else
+          avance()
+        }
       }
     }
   }
