@@ -1,0 +1,34 @@
+def hunt() {
+    while(!isOverBaggle()) {
+      brushDown()
+      brushUp()
+      
+      while(!isFacingTrail()) {
+        left()
+      }
+      
+      forward()
+    }
+  
+  brushDown()
+  brushUp()
+  pickupBaggle()
+}
+
+def isFacingTrail():Boolean = {
+  if(isFacingWall()) {
+    return false
+  }
+  else {
+    forward()
+    
+    if(getGroundColor() == Color.green) {
+      backward()
+      return true
+    }
+    else {
+      backward()
+      return false
+    }
+  }
+}

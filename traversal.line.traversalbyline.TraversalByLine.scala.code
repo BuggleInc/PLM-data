@@ -1,0 +1,19 @@
+override def run() {
+  var counter:Int = 0;
+  
+  for(i <- 0 to getWorldWidth() - 1) {
+    for(j <- 0 to getWorldHeight() - 1) {
+      setPos(j, i);
+      writeMessage(counter);
+      counter += 1;
+    }
+  }
+}
+
+def isEndOfWorld():Boolean = {
+  if(getX() == getWorldWidth() - 1 && getY() == getWorldHeight() - 1) {
+    return true;
+  }
+  
+  return false;
+}

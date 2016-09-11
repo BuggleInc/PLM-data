@@ -1,0 +1,53 @@
+override def run() {
+  makePolygone(8, 50)
+  forward(25)
+  makeInner()
+  
+  right(45)
+  forward(25)
+  makeHeart()
+  left(90)
+}
+
+def makePolygone(nbSides:Int, length:Int) {
+  var angle = 360.0 / nbSides.toDouble
+  
+  for(i <- 1 to nbSides) {
+    forward(length)
+    right(angle)
+  }
+}
+
+def makeInner() {
+  for(i <- 1 to 4) {
+    right(45)
+    forward(25)
+    left(45)
+    forward(25)
+    right(90)
+    forward(25)
+    left(45)
+    forward(25)
+    right(45)
+  }
+}
+
+def makeHeart() {
+  for(i <- 1 to 4) {
+    right(45)
+    forward(25)
+    right(45)
+    forward(25)
+    backward(25)
+    left(90 + 45)
+    forward(25)
+    right(90 + 45)
+    forward(25)
+    right(45)
+    forward(25)
+    backward(25)
+    left(90 + 45)
+    forward(25)
+    right(90)
+  }
+}
