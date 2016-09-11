@@ -6,7 +6,7 @@ override def run() {
 }
 
 def positionFinale():Boolean={
-  if ((getMondeLargeur()-2,getMondeHauteur()-2)==(getX(),getY())){
+  if ((getMondeLargeur()-1,getMondeHauteur()-1)==(getX(),getY())){
     return true
   } else {
     return false
@@ -16,7 +16,7 @@ def positionFinale():Boolean={
 def Next() {
   var N=0
   while (positionFinale()==false){
-    while (getY() != 6){
+    while (getY() < 6){
       ecritMessage(N)
       setPos(getX(),getY()+1)
       N=N+1
