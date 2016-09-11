@@ -31,10 +31,14 @@ override def run() {
       	avance()
       else {
         droite()
-        avance()
-        gauche()
-        if(!estFaceMur())
-          avance()
+      	if(estFaceMur()) {
+       		gauche()
+        	if(!estFaceMur())
+        		avance()
+        	else
+          	gauche()
+      	} else
+      	avance()
       }
     }
   }
