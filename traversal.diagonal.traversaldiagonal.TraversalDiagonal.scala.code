@@ -4,16 +4,22 @@ var y:Int=1;
 override def run() {
   setPos(0,0);
   writeMessage(0);
-  
-  def diagonale(y:Int){
-    var x:Int=0
-    setPos(x,y);
-    while(y!=0){
-      x+=1;
-      y=y-1;
-      count+=1;
-      setPos(x,y);
-      writeMessage(count);
-    }
+  for(i<-1 to 6){
+    diagonale();
   }
+}
+
+def diagonale(){
+   while(y!=0){
+    changerLigne();
+    changerColonne();
+    }
+   }
+def changerColonne(y:Int){
+  x+=1;
+  setPos(x,y);
+}
+def changerLigne(x:Int){
+  y=y-1
+  setPos(x,y);
 }
