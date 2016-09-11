@@ -1,0 +1,25 @@
+override def run() {
+  var etat = 0
+  etat match {
+    case 0 =>
+    	setDirection(Direction.NORTH)
+    	while(!estFaceMur()) {
+        avance()
+        if(estFaceMur())
+        	etat = 1
+      }
+    case 1 =>
+      while(!estSurBiscuit()) {
+        droite()
+        if(estFaceMur()) {
+           gauche()
+           if(!estFaceMur())
+              avance()
+        else
+          gauche()
+        } else
+          avance()
+      }
+      prendBiscuit()
+  }
+}
