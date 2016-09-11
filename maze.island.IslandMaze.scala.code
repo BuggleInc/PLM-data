@@ -1,26 +1,34 @@
 override def run() {
-  var etat = 0
-  etat match {
-    case 0 =>
-    	setDirection(Direction.NORTH)
-    	while(!estFaceMur()) {
-        avance()
-        if(estFaceMur())
-        	etat = 1
-      }
-    case 1 =>
-      while(!estSurBiscuit()) {
-        droite()
-        if(estFaceMur()) {
-           gauche()
-           if(!estFaceMur())
-              avance()
+  var e = 0
+  def etat(e:Int) {
+    e match {
+      case 0 => nord()
+      case 1 => suivreMur()
+      case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+    }
+  }
+  
+  def suivreMur() {
+    while(!estSurBiscuit()) {
+      droite()
+      if(estFaceMur()) {
+        gauche()
+        if(!estFaceMur())
+        	avance()
         else
           gauche()
-        } else
-          avance()
-      }
-      prendBiscuit()
-    case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
+      } else
+      avance()
+    }
+    prendBiscuit()
+  }
+  
+  def nord() {
+    setDirection(Direction.NORTH)
+    while(!estFaceMur()) {
+      avance()
+      if(estFaceMur())
+        etat(1)
+    }
   }
 }
