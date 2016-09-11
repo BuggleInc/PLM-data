@@ -1,12 +1,9 @@
 override def run() {
   while(!estSurBiscuit()) {
-    if(estFaceMur()) {
+    if(!estFaceMur()) {
+      avance()
+    } else {
       gauche()
-      if(!estFaceMur())
-      	avance()
-      else
-      	gauche()
-    } else
-      droite()
+    }
   }
 }
