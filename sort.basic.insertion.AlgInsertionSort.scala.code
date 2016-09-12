@@ -1,14 +1,12 @@
 def insertionSort() {
   for( i <- 1 to getNombreValeurs()-1){
 		var v=getValeur(i);
-    var stop=false;
-		for(a <- i-1 to 1 by -1){
-      if(stop!=true){
-        if(!plusPetitQue(a, v)){
-          var temp=getValeur(a)
-          setValeur(a-1, temp)
-        }
-      }
+		a=1
+		while(i-a>=0 && !plusPetitQue(i-a,v)){
+      temp=getValeur(i);
+      copie(i-a, i-a+1)
+      a=a+1;
     }
+    setValeur(a-i+1,v);
   }
 }
