@@ -1,0 +1,48 @@
+def go(){
+  droite()
+  droite()
+  while(!estFaceMur()){
+    if(estSurBiscuit()){
+  	  prendBiscuit()
+      return
+    }
+    else avance()
+  }
+  if(estSurBiscuit()){
+  	prendBiscuit()
+  }
+}
+
+def stop(){
+  droite()
+  droite()
+  while(!estSurBiscuit()){
+    avance()
+  }
+  recule()
+  if(porteBiscuit()){
+  	poseBiscuit()
+  }
+  recule()
+}
+
+def sortie(){
+  while(!estFaceMur()){
+    avance()
+  }
+  droite()
+  avance()
+  gauche()
+  avance()
+}
+
+
+while(!estFaceMur()){
+	go()
+  if(estFaceMur()){
+    sortie()
+    return
+  }
+  else stop()
+}
+sortie()

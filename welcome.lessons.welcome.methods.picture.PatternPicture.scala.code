@@ -1,0 +1,56 @@
+def brosse(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def slash(c:Color){
+  avance()
+  brosse(c)
+  recule()
+  gauche()
+  avance()
+  brosse(c)
+  recule()
+  droite()
+}
+
+def aslash(c:Color){
+  brosse(c)
+  avance()
+  gauche()
+  avance()
+  brosse(c)
+  recule()
+  droite()
+  recule()
+}
+
+def motif(){
+  slash(Color.red)
+  avance(2)
+  aslash(Color.blue)
+  gauche()
+  avance(2)
+  droite()
+  slash(Color.green)
+  recule(2)
+  aslash(Color.yellow)
+  droite()
+  avance(2)
+  gauche()
+}
+
+override def run() {
+  motif()
+  avance(4)
+  motif()
+  recule(4)
+  gauche()
+  avance(4)
+  droite()
+  motif()
+  avance(4)
+  motif()
+  
+}

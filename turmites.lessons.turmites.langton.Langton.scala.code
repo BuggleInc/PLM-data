@@ -1,0 +1,21 @@
+def tag(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+
+def step() {
+  if(getCouleurSol()==Color.white){
+    tag(Color.black)
+    droite()
+    avance()
+  }
+  else if(getCouleurSol()==Color.black){
+    tag(Color.white)
+    gauche()
+    avance()
+  }
+  else return
+}

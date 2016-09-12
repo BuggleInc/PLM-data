@@ -1,0 +1,74 @@
+def brosse(c:Color){
+  setCouleurBrosse(c)
+  baisseBrosse()
+  for (i <- 0 to 1){
+    avance()
+  }
+  leveBrosse()
+}
+
+def flower(c:Color){
+  brosse(c)
+  recule()
+  gauche()
+  recule()
+  brosse(c)
+  recule()
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse()
+  leveBrosse()
+  droite()
+  recule()
+}
+
+def place(){
+  recule(2)
+  gauche()
+  recule(2)
+  droite()  
+}
+
+def place2(){
+  avance(2)
+  gauche()
+  avance(2)
+  droite()  
+}
+
+def flowers(){
+  flower(Color.red)
+	avance(4)
+  flower(Color.cyan)
+	place()
+  flower(Color.orange)
+  place()
+  flower(Color.pink)
+  avance(4)
+  flower(Color.green)
+  place2()
+  flower(Color.blue)
+  place2()
+  flower(Color.red)
+	avance(4)
+  flower(Color.cyan)
+	place()
+  flower(Color.orange)
+  place()
+  flower(Color.pink)
+  avance(4)
+  flower(Color.green)
+}
+
+def growFlowers(){
+  flowers()
+  recule(4)
+  droite()
+  avance()
+  gauche()
+  recule(8)
+  droite()
+  avance(3)
+  gauche()
+  flowers()
+  recule(4)
+}
