@@ -1,0 +1,50 @@
+def fonctionTest():Boolean={
+  if (estFaceMur() ){
+    if (getDirection() == Direction.EST)
+    {
+      gauche();
+      if(estFaceMur()){
+        droite();
+        return true
+      }
+      droite();
+    }
+    if (getDirection() == Direction.OUEST)
+    {
+      droite();
+      if(estFaceMur()){
+        gauche();
+        return true
+      }
+      gauche();
+    }
+   if(getDirection() == Direction.NORD){
+    droite();
+    if (getDirection() == Direction.EST)
+    {
+      return true
+    }
+    gauche();
+  }
+}
+  return false
+}
+
+override def run() {
+  baisseBrosse();
+  while(fonctionTest() == false){
+    for (i <- 0 to 5){
+      avance();
+    }
+    if (getDirection()==Direction.EST && fonctionTest() == false)
+    {
+      gauche();avance();gauche();
+    }
+    else{if (getDirection()==Direction.OUEST && fonctionTest() == false)
+    {
+      droite();avance();droite();
+    }
+        }
+  }
+  
+}

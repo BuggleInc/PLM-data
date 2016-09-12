@@ -1,0 +1,46 @@
+def faireV() {
+  avance();avance();
+  baisseBrosse();leveBrosse();
+  gauche();avance();droite();avance();
+  baisseBrosse();leveBrosse();
+  droite();avance();gauche();avance();
+  baisseBrosse();leveBrosse();
+  avance();avance();gauche()
+}
+
+def faireLigne(){
+  for(j<-0 to 2){
+  for (i <- 0 to 3){
+    faireV();
+  }
+   avance();avance();avance();avance();avance();avance();avance();
+  }
+}
+
+def sautLigne(){
+  for(i <- 0 to 13)
+  {
+    recule();
+  }
+  gauche();
+  for(i <- 0 to 6)
+  {
+    avance();
+  }
+  droite
+}
+
+def faireMotif(){  
+  for (i<-0 to 2){
+    faireLigne();
+    sautLigne();
+  }
+    sautLigne();
+}
+
+override def run() {
+  faireMotif();
+  recule();recule();recule();recule();recule();recule();recule();
+  gauche();recule();recule();recule();recule();recule();recule();recule();
+  droite();
+}

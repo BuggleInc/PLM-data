@@ -1,0 +1,48 @@
+def motif(c:Color){
+  setCouleurBrosse(c);
+  baisseBrosse();avance();avance();leveBrosse();
+  droite();avance();droite();avance();droite();
+  baisseBrosse();avance();avance();leveBrosse();
+  setCouleurBrosse(Color.yellow)
+  recule();baisseBrosse();leveBrosse();droite();recule()
+}
+
+def growFlowers1(){
+  motif(Color.red);avance();avance();avance();avance();
+  motif(Color.cyan);droite();avance();avance();droite();
+  motif(Color.orange);gauche();avance();avance();gauche();
+  motif(Color.green);recule();recule();recule();recule();
+  motif(Color.pink);
+}
+
+def faireLigne(){
+  growFlowers1()
+  for(i<- 0 to 5)
+  {
+    avance();
+  }
+  gauche();avance();avance();droite();
+  motif(Color.blue);
+  avance();avance();gauche();avance();avance();droite();
+  growFlowers1()
+}
+
+def sautLigne(){
+  droite();avance();gauche();
+  for(i<- 0 to 7)
+  {
+    recule();
+  }
+  gauche();
+  for(i<- 0 to 2)
+  {
+    recule();
+  }
+  droite();
+}
+
+def growFlowers(){
+  faireLigne();
+  sautLigne();
+  faireLigne();
+}

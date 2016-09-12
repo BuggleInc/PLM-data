@@ -1,0 +1,51 @@
+def sousMotif(c:Color)
+{
+ 	setCouleurBrosse(c); 
+  gauche();avance();
+  baisseBrosse();leveBrosse();
+  droite();avance();droite();avance();
+  baisseBrosse();leveBrosse();
+
+}
+
+def motif(){
+  sousMotif(Color.red)
+  gauche();avance();avance();gauche();
+  sousMotif(Color.blue)
+  gauche();avance();avance();gauche();
+  sousMotif(Color.green)
+  gauche();avance();avance();gauche();
+  sousMotif(Color.yellow)
+  gauche();avance();avance();
+}
+
+def faireLigne(){
+   motif();
+   gauche();avance();avance();avance();avance();
+   motif();
+   gauche();avance();avance();
+}
+
+def sautLigne(){
+    for(i <- 0 to 5)
+  {
+    recule();
+  }
+  gauche();
+  for(i <- 0 to 3)
+  {
+    avance();
+  }
+  droite
+}
+
+def faireMotif(){  
+  faireLigne();
+  sautLigne();
+  faireLigne();
+  recule();recule();
+}
+
+override def run() {
+  faireMotif();
+}
