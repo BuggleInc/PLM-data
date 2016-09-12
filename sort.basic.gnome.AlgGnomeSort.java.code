@@ -1,0 +1,32 @@
+def gnomeSort() {
+  var i=0;
+  var stop=false;
+  var stop2=false;
+  while(i!=getNombreValeurs()-1){
+    
+		stop=false;
+    while(stop!=true && i!=getNombreValeurs()-1){
+      if(!plusPetit(i,i+1)){
+        echange(i,i+1);
+        stop=true;
+        i=i-1;
+      }
+      else{i=i+1}
+    }
+    
+    stop2=false
+    while(stop2!=true){
+      if(i<1){
+        stop2=true;
+        i=i+1;
+      }
+      if(!plusPetit(i-1,i)){
+        echange(i-1,i);
+        stop2=true;
+        i=i+1;
+      }
+      else{i=i-1}
+    }
+    
+  }
+}
