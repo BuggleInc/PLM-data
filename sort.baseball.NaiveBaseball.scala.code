@@ -1,0 +1,44 @@
+override def run() {
+  val nbBases = getBasesAmount();
+  val nbPosB = getPositionsAmount();
+  
+  while(!isSorted()){
+		var holeBase = getHoleBase();
+    
+    var valMax = 0;
+    var idMax = 0;
+    
+    if(holeBase == 0){
+      var currBase = nbBases;
+    }else{
+      var currBase = holeBase-1;
+    }
+    
+    for(currPos <- 0 until nbPosB){
+      if(currPos != getHolePosition()){
+        
+        var currVal = nbBasesParcourir(currBase, currPos);
+      	if(currVal > varMax){
+          valMax = currVal;
+          idMax = currPos;
+        }
+      
+      }
+      
+    move(currBase, idMax);
+    
+    }
+  }
+}
+
+
+
+def nbBasesParcourir(base:Int, position:Int) : Int = {
+  val color = getPlayerColor(base, position);
+  
+  if(color >= base)
+  	return color - base;
+  else
+  	return nbBases - (color - base);
+  
+}
