@@ -1,42 +1,42 @@
 override def run() {
   
-  
+   def findExit() : List[Int] = {
+    for(x <- 0 until X){
+      for(y <- 0 until Y){
+        if(hasBaggle(x,y)){
+          return List(x,y);
+        }
+      }
+    }
+    return List(0,0);
+  }
+ 
   val sortie = findExit();
   marquerSol(sortie, 0);
 //  parcourirPath();
-  
 
 
-val X = getWorldWidth();
-val Y = getWorldHeight();
 
-def findExit() : List[Int] = {
-  for(x <- 0 until X){
-	  for(y <- 0 until Y){
-  		if(hasBaggle(x,y)){
-  			return List(x,y);
-      }
-    }
+  val X = getWorldWidth();
+  val Y = getWorldHeight();
+
+
+  def marquerSol(casee: List[Int], numero:Int) {
+    val x = casee(0);
+    var y = casee(1);
+    setIndication(x, y, numero);
+
+
+    if(y > 0 && !hasTopWall(x,y))
+      marquerSol(List(x,y-1), numero+1);
+    if(y < Y-1 && !hasTopWall(x, y+1))
+      marquerSol(List(x,y+1), numero+1);
+
+
+    if(x > 0 && !hasLeftWall(x, y))
+      marquerSol(List(x-1,y), numero+1);
+    if(x < X-1 && !hasLeftWall(x+1, y))
+      marquerSol(List(x+1,y), numero+1);
+
   }
-  return List(0,0);
-}
-
-def marquerSol(casee: List[Int], numero:Int) {
-  val x = casee(0);
-  var y = casee(1);
-  setIndication(x, y, numero);
-  
-  
-  if(y > 0 && !hasTopWall(x,y))
-  	marquerSol(List(x,y-1), numero+1);
-  if(y < Y-1 && !hasTopWall(x, y+1))
-  	marquerSol(List(x,y+1), numero+1);
-  
-  
-  if(x > 0 && !hasLeftWall(x, y))
-  	marquerSol(List(x-1,y), numero+1);
-  if(x < X-1 && !hasLeftWall(x+1, y))
-  	marquerSol(List(x+1,y), numero+1);
-  
-}
 }
