@@ -1,11 +1,13 @@
 def selectionSort() {
   var lgr=getNombreValeurs()
   var idx=0
+  var stop=0
   for (i<-0 to lgr-1) {
       var min=getValeur(i)
     for (j <- i to lgr-1) {
       if (plusPetitQue(j, min)) {idx=j;min=getValeur(j)}
     }
-    echange(i,idx)
+    if (stop!=lgr-1) {echange(i,idx)} else {return}
+    
   }
 }
