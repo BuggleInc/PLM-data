@@ -51,11 +51,14 @@ def trouverTrou():Int = {
   return 0
 }
 
-def bougerTrou(col:Int){
+def bougerTrouG(col:Int){
   val nbBases = getNombreBases()
-  while(!bonJoueurDroite(col)){
-    deplace((trouverTrou()-1+nbBases)%nbBases,1)
-  }
+  deplace((trouverTrou()-1+nbBases)%nbBases,1)  
+}
+
+def bougerTrouD(col:Int){
+  val nbBases = getNombreBases()
+  deplace((trouverTrou()+1+nbBases)%nbBases,1)
 }
 
 def bonJoueurDroite(col:Int):Boolean = {
