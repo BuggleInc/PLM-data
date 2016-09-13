@@ -19,22 +19,19 @@ override def run() {
   var distance = 0
   var compteurCases = 0
   setIndication(xSortie,ySortie,distance)
+  distance = distance + 1
+  compteurCases = compteurCases + 1
   //Marquer le reste de la grille
   while (compteurCases < Largeur*Hauteur) {
     
     //Chercher des cases à marquer
     for (x <- 0 to Largeur-1; y <- 0 to Hauteur-1) {
       
-      var indic = getIndication(x,y)
-      
-      if (indic == distance-1) {
+      if (getIndication(x,y) == distance-1) {
         //Les Marquer
         
-        setIndication(x-1,y,distance)
-        compteurCases = compteurCases + 1
-        
         //Nord
-        /*if (y>0 && !aMurNord(x,y) && getIndication(x,y-1)==9999) {
+        if (y>0 && !aMurNord(x,y) && getIndication(x,y-1)==9999) {
           
           setIndication(x,y-1,distance)
           compteurCases = compteurCases + 1
@@ -57,7 +54,7 @@ override def run() {
           setIndication(x-1,y,distance)
           compteurCases = compteurCases + 1
           
-        }*/
+        }
       
       
     	}
