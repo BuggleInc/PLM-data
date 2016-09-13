@@ -7,7 +7,7 @@ def solve() {
   	var rouge = 0;
     fini = true;
     for(i<-bleu to lgr-rouge-1){
-      getCouleur(i) match {
+/*      getCouleur(i) match {
         case BLEU => if (getCouleur(bleu+1) != BLEU){echange(i,bleu+1)}; bleu += 1;
         case BLANC => blanc += 1;
         case ROUGE => if(getCouleur(lgr-rouge-1) != ROUGE){echange(i,lgr-rouge-1)}; rouge += 1;
@@ -15,6 +15,26 @@ def solve() {
     }
     if (getCouleur(bleu+1)==ROUGE){
       
-    }
+    }*/
+      
+      if (getCouleur(i) == BLEU){
+  echange(i,bleu+1);
+  bleu += 1;
+} else {
+  if(getCouleur(i) == ROUGE){
+    echange(i,lgr-rouge-1);
+    rouge += 1;
+  } else {
+    echange(i,bleu+blanc+1);
+    blanc += 1;
   }
 }
+
+  }
+}
+
+
+
+
+
+
