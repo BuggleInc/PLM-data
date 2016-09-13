@@ -1,4 +1,4 @@
-def cocktailSort3() {
+def cocktailSort2() {
   var beg = 0
   var end = getValueCount() - 2
   var swaped = false
@@ -9,6 +9,7 @@ def cocktailSort3() {
     for(i <- beg to end) {
       if(isSmaller(i + 1, i)) {
         swap(i, i + 1)
+        
         swaped = true
       }
     }
@@ -18,11 +19,17 @@ def cocktailSort3() {
     for(i <- end to beg by -1) {
       if(isSmaller(i + 1, i)) {
         swap(i, i + 1)
+        
         swaped = true
       }
+      else {
+        swaped = false
+      }
     }
-
+    
     beg += 1
+    
+    
     
   } while(swaped)
 }
