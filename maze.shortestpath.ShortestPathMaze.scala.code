@@ -48,12 +48,12 @@ def marquage(x:Int,y:Int,sol:Int){
 
 def check(x:Int,y:Int,sol:Int):Boolean = {
   var etat = true
-  if (!aMurNord && y!=0){
+  if (!aMurNord(x,y) && y!=0){
     if (sol>=abs(sol-getIndication(x,y-1))>=2){
       etat=false
     }
   }
-  if (!aMurOuest && x!=0){
+  if (!aMurOuest(x,y) && x!=0){
     if (sol>=abs(sol-getIndication(x-1,y))>=2){
       etat = false 
     }
