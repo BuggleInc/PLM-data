@@ -1,15 +1,11 @@
 override def run() {
-    if(!estFaceMur() && !estSurBiscuit()){
-      avance();
-    } else {
-      var r = random3();
-      if(r == 1){
-        droite();
-      } else {
-        gauche();
-      }
+  var r = 0;
+  while(!estSurBiscuit()){
+    r = radom3();
+    r match {
+      case 0 => if(!faceMur()){avance()};
+      case 1 => droite();
+      case 2 => gauche();
     }
-  if(estSurBiscuit()){
-    prendBiscuit();
   }
 }
