@@ -1,22 +1,27 @@
 override def run() {
     def keepLeftHand() {
       left()
+      turn+=1
       if ( ! isFacingWall()) {
         forward() 
         } else {
     					right()
+        			turn-=1
     					if (! isFacingWall()) {
                 forward
               } else {
                 	right()
+                turn-=1
                 	if (! isFacingWall()) {
                   	forward
                 	} else {
                   right()
+                    turn-=1
                 }
               }
             }
 			}
+  
   	def dirFree(d:Direction):Boolean  = { 
       var dir:Direction = getDirection()
     	setDirection(d)
@@ -28,6 +33,7 @@ override def run() {
         return true
       }
     }
+  var turn:Int=0
   setDirection(Direction.NORTH)
    while (!isOverBaggle()) {
     setDirection(Direction.NORTH)
