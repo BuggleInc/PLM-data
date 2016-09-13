@@ -1,13 +1,11 @@
 var sommeAngle = 0
+var mem : Direction = Direction.NORTH
 override def run() {
   while (!estNord) {
-		if (estFaceMur) {
-      if (sommeAngle==4) {
-        isDirectionFree(getDirection)
-      }
-      keepHandOnSideWall
-    } else {
-    	avance()
+    while (estFaceMur) {
+      while (sommeAngle!=0 && !isDirectionFree) {
+      	keepHandOnSideWall
+    	}
     }
   }
   while (!estSurBiscuit) {
@@ -18,7 +16,6 @@ override def run() {
 }
 
 def isDirectionFree(dir:Direction): Boolean = {
-  var mem : Direction = Direction.NORTH
   mem=getDirection
   setDirection(dir)
   if (estFaceMur) {
