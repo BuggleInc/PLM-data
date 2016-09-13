@@ -1,6 +1,7 @@
 override def run() {
   hexagone();
   couronne();
+  rosace();
 }
 
 
@@ -19,5 +20,23 @@ def couronne() {
     left(45);
     forward(25);
     right(45);
+  }
+}
+
+def rosace() {
+  right(45);
+  forward(25);
+  for (i<-1 to 8) {
+    for(j<-1 to 4) {
+      if (j==3) {
+        right(90)
+      }
+    	right(45); 
+      forward(25);
+    }
+    right(45);
+    foward(25);
+    right(90);
+    forward(25);
   }
 }
