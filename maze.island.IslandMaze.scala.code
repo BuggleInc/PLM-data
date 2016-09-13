@@ -8,35 +8,22 @@ override def run() {
 def rejoindrelenord() {
   var pseudorandom = 0
   while (getY()!=0) {
-    pseudorandom+=1
     if (getDirection()==Direction.NORTH) {
-      if (!estFaceMur()) {
+      if (!estFaceMur())
       	avance()
-        pseudorandom+=1
-      }
       else {
-      	while (estFaceMur()) {
-          if (pseudorandom%2==0) {
-          	droite()
-          	pseudorandom+=1
-          }
-          else     	
-      			gauche()
-      	}
+      	while (estFaceMur())
+          droite()
         avance()
-    	}
     }
     else {
-      if (getDirection()==Direction.WEST) {
-        pseudorandom+=1
+      if (getDirection()==Direction.WEST)
       	droite()
-      }
       if (getDirection()==Direction.EAST)
       	gauche()
       if (getDirection()==Direction.SOUTH) {
         droite()
         droite()
-        pseudorandom+=1
       }  	
     }
   }
