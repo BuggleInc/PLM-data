@@ -48,8 +48,10 @@ def makeMoving() {
 }
 
 override def run() { 
-  forward();
-  left();
-  forward();
+  if (!isFacingWAll()) {
+    forward();
+    left();
+    forward();
+  }
   leftFollowerMode();
 }
