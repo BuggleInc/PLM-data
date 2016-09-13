@@ -2,22 +2,23 @@ override def run() {
   while (!fonctionTest()) {
     baisseBrosse();
     avance(); 
-  }
-  if (!estFaceMur()) {
-    avance();
-  }  
-  else { 
-    if (getDirection() == Direction.OUEST) { 
-      droite();
+
+    if (!estFaceMur()) {
       avance();
-      droite();
-      avance(7);
-    }
-    if  (getDirection() == Direction.EST) {
-      gauche();
-      avance();
-      gauche();
-      avance(7);
+    }  
+    else { 
+      if (getDirection() == Direction.OUEST) { 
+        droite();
+        avance();
+        droite();
+        avance(7);
+      }
+      if  (getDirection() == Direction.EST) {
+        gauche();
+        avance();
+        gauche();
+        avance(7);
+      }
     }
   }
 }
