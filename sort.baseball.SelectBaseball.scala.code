@@ -19,6 +19,11 @@ override def run() {
       }
       deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
 			while (getCouleurJoueur(B,P)!=B){
+        if (getCouleurJoueur(trouverTrou()-1,P)==B && getCouleurJoueur(trouverTrou()-1,(P+1)%2)==B){
+          bougerTrouG(P)
+          bougerTrouG(P)
+          deplace(((trouverTrou()+1%)nbBases),bonJoueurDroite(B))
+        }
         if (getCouleurJoueur(trouverTrou()-1,P)==B){
           bougerTrouG((P+1)%2)
         }
