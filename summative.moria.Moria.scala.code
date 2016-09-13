@@ -1,55 +1,43 @@
 def proche() : Boolean =
 {
-  if (estDosMur() && getX()!=0)
+  if (estDosMur())
   {
     return true
   }
-  else 
+  else
   {
-    return false  
+    return false
   }
 }
+
+
 
 def deplacement() 
 {
-
-
-  while (!estSurBiscuit() )
+  if (!porteBiscuit())
   {
-    if (!estDosMur)
+    if (estSurBiscuit())
     {
-
-    recule()
+      prendBiscuit()
     }
-
-  }
-  prendBiscuit()
-  while (!estSurBiscuit() )
-  {
-    if (!estDosMur)
+    else
     {
-      
+      recule()
+    }
+  }
+  
+  else 
+  {
+    while (!estSurBiscuit)
     avance()
-    }
-
   }
-  if (!estDosMur)
-  {
-
-
   recule()
   poseBiscuit()
   recule()
-  }
-
-
-
+  
 }
-
-
 
 while (!proche())
 {
   deplacement()
 }
-
