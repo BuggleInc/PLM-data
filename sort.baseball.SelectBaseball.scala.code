@@ -15,10 +15,12 @@ override def run() {
     if (!estBaseTriee(base)) {     
       if (getCouleurJoueur(base, 0)!=base) { //Si le joueur en (base, 0) n'est pas bien placé,
         
-        chercheJoueur(base, n) match {       //on cherche le joueur qui doit venir dans la base.
-          case (baseDepart,posDepart) => ameneJoueur(baseDepart, posDepart, base, 0)
-          case _                      => ()    //Ne doit pas arriver.
-        }
+        chercheJoueur(base, n)       //on cherche le joueur qui doit venir dans la base.
+          
+        baseDepart=getTrouBase()
+        poseDepart=(getTrouPosition()+1)%2
+          ameneJoueur(baseDepart, posDepart, base, 0)
+
       }
       
       if (getCouleurJoueur(base, 1)!=base) { //Si le joueur en (compt, 1) n'est pas bien placé,
@@ -57,7 +59,7 @@ def ameneJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace l
 
 
       
-def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la position du joueur qui doit être déplacé.
+def chercheJoueur(base:Int, n:Int) {  //Renvoie la base et la position du joueur qui doit être déplacé.
   
   var result:Int = (base+1)%n
   var couleur0:Int = getCouleurJoueur(result, 0)
@@ -65,18 +67,15 @@ def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la positi
   
   while ((couleur0!=0) && (couleur1!=0)) {
     deplace(result, 0)
-    result = result+5
+    result = result+1
     couleur0 = getCouleurJoueur(result, 0)
     couleur1 = getCouleurJoueur(result, 1)
   }
   if (couleur0==base) {
     deplace(result,1)
-    return (result,0)
-
   }
   else {    
     deplace(result,0)
-    return (result,1)
   }
 }
 
