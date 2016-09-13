@@ -22,7 +22,7 @@ override def run() {
     if(isDirectionFree(Direction.NORTH)){setDirection(Direction.NORTH)
                                          avance()}else{
 			droite()
-      var sommeAngl=0
+      var sommeAngl=1
       do{
         if(!murGauche()){gauche()
                         avance()
@@ -36,7 +36,7 @@ override def run() {
             avance()
             sommeAngl+=2}
     
-      }while(!estSurBiscuit && sommeAngl!=0 && !isDirectionFree(Direction.NORTH))
+      }while(!estSurBiscuit && sommeAngl!=0 || !isDirectionFree(Direction.NORTH))
 
     } 
   }while(!estSurBiscuit)
