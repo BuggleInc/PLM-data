@@ -1,8 +1,23 @@
 override def run() {
   var cpt = 0
   while(getY()!=0){
-    if(cpt==0){
-      keepHandOnSideWall(cpt)
+    if(cpt!=0){
+      cpt=0
+ 	if(estFaceMur()){
+    droite()
+    cpt=cpt+ 1
+  }  
+  if(estFaceMur()){
+    droite()
+    cpt=cpt+1
+  }
+  if(estFaceMur()){
+    droite()
+    cpt=cpt+1
+  }
+  avance()
+  gauche()
+  cpt=cpt-1
     }
     else{
       avance()
