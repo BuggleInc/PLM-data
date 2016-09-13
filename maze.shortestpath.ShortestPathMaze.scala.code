@@ -79,16 +79,16 @@ override def run() {
     var Directions = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
     
     //Nord
-    if (getY()>0 && !aMurNord(getX(),getY())) {valDirection(0) = getIndication(x,y-1)}
+    if (getY()>0 && !aMurNord(getX(),getY())) {valDirection(0) = getIndication(getX(),getY()-1)}
     
     //Sud
-    if (getY()<Hauteur-1 && !aMurNord(getX(),getY()+1)) {valDirection(1) = getIndication(x,y+1)}
+    if (getY()<Hauteur-1 && !aMurNord(getX(),getY()+1)) {valDirection(1) = getIndication(getX(),getY()+1)}
     
     //Est
-    if (getX()<Largeur-1 && !aMurOuest(getX()+1,getY())) {valDirection(2) = getIndication(x+1,y)}
+    if (getX()<Largeur-1 && !aMurOuest(getX()+1,getY())) {valDirection(2) = getIndication(getX()+1,getY())}
     
     //Ouest
-    if (getX()>0 && !aMurOuest(getX(),getY())) {valDirection(3) = getIndication(x-1,y)}
+    if (getX()>0 && !aMurOuest(getX(),getY())) {valDirection(3) = getIndication(getX()-1,getY())}
     
     
     var dirMin = Directions(valDirection.indexOf(valDirection.min))
