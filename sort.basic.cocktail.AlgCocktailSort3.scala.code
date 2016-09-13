@@ -1,0 +1,27 @@
+def cocktailSort3()  {
+  var debut = 0
+  var fin = getNombreValeurs -2
+  var nbEchangesC = 1
+  var nbEchangesD = 1
+  while(nbEchangesD!=0 ) {
+    nbEchangesC=0
+    nbEchangesD=0
+    for(i<- debut to fin) {
+      if(plusPetit(i+1, i)) {
+        echange(i,i+1)
+        nbEchangesC=nbEchangesC+1
+      }
+    }
+    if(nbEchangesC == 0) {
+      return
+    }
+    fin=fin-1
+    for(i<- fin to debut by -1) {
+      if(plusPetit(i+1, i)) {
+        echange(i,i+1)
+        nbEchangesD=nbEchangesD+1
+      }
+    }
+    debut=debut+1
+  }
+}
