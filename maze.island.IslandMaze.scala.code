@@ -1,4 +1,5 @@
 override def run() {
+  var dir:direction=NORTH
   while (getY()!=0) {
   	while(porteBiscuit()==false) {
       if (getDirection()==Direction.NORTH&&estFaceMur()==false) {
@@ -10,12 +11,20 @@ override def run() {
     	if (estSurBiscuit()==true) {
       	prendBiscuit()
     	}
+      dir=getDirection()
+      setDirection(Direction.NORTH:Direction)
+      if (estFaceMur()==false) {
+        avance()
+      }
+      setDirection(dir:Direction)
   	}
   }
   while(porteBiscuit()==false) {
     	keepHandOnSideWall()
+    if (estSurBiscuit()==true) {
+      	prendBiscuit()
       }
-    	
+  } 	
 }
 
 
