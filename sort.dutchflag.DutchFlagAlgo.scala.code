@@ -1,11 +1,20 @@
 def solve() {
   var afterBlue =0
   var beforeRed =getSize()-1
-  while (getColor(beforeRED)==RED){
+  while (getColor(beforeRed)==RED){
     beforeRed=beforeRed-1
   }
   
   while (getColor(afterBlue)==BLUE){
-    beforeBLUE=beforeBlue+1
+    afterBlue=afterBlue+1
+  }
+  for (i <- afterBlue+1 to beforeRED-1){
+    if (getColor(i)==BLUE){
+      swap(afterBlue+1,i)
+      afterBlue=afterBlue+1
+    }
+    else if (getColor(i)==RED){
+      swap(beforeRed-1,i)
+    }
   }
 }
