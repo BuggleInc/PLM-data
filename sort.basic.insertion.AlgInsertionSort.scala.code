@@ -5,10 +5,8 @@ def insertionSort() {
   for(i<- getNombreValeurs() -1  to 0 by -1) {
     v=getValeur(i)
     while(ok==false) {
-      if(plusPetit(i -k,i-1 -k)) {
-        copie(i-1, i)
-      }
-      else {
+      copie(i-1, i)
+      if(!plusPetit(i -k,i-1 -k)) {
         setValeur(i-k-1,v)
         ok= true
       }
