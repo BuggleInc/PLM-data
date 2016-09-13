@@ -1,4 +1,5 @@
 override def run() {
+  setTrouToOne()
   deplace(1)
 }
 
@@ -12,4 +13,19 @@ def deplace(pos:Int) {
 
 def trouveTrou():Int = {
   return 2*getTrouBase()+getTrouPosition()
+}
+
+
+def setTrouToOne() { //On amène le trou à la position 1
+  var trou = trouveTrou()
+  
+  if (trou>1) {
+    for (i <- trou-1 to 1 by -1) {
+      deplace(i)
+    }
+  }
+  
+  else if (trou==0) {
+    deplace(1)
+  }
 }
