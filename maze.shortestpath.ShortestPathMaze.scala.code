@@ -1,6 +1,6 @@
 def trouveSortie():(Int,Int)={
-  for (j <- 1 to getMondeLargeur()){
-    for (i <- 1 to getMondeHauteur()) {
+  for (j <- 0 to getMondeLargeur()-1){
+    for (i <- 0 to getMondeHauteur()-1) {
       if (aBiscuit(i,j)) {
         return (i,j)
       }
@@ -15,13 +15,13 @@ def numero(){
   var nb = 1
   setIndication(x,y,0)
   while (nb != getMondeHauteur()*getMondeLargeur()){
-    for (i <- 1 to getMondeHauteur()){
-      for (j <- 1 to getMondeLargeur()){
+    for (i <- 0 to getMondeHauteur()-1){
+      for (j <- 0 to getMondeLargeur()-1){
         if (getIndication(i,j) == n-1) {
-          if (!aMurNord(i,j) && getIndication(i-1,j)==9999) {setIndication(i-1,j,n);nb +=1}
-          if (!aMurOuest(i,j) && getIndication(i,j-1)==9999) {setIndication (i,j-1,n);nb +=1}
-          if (!aMurNord(i+1,j) && getIndication(i+1,j)==9999) {setIndication(i+1,j,n);nb +=1}
-          if (!aMurOuest(i,j-1) && getIndication(i,j-1)==9999) {setIndication (i,j-1,n);nb +=1}
+          if (!aMurNord(i,j) && getIndication(i-1,j)==9999 && i !=0) {setIndication(i-1,j,n);nb +=1}
+          if (!aMurOuest(i,j) && getIndication(i,j-1)==9999 && j != 0) {setIndication (i,j-1,n);nb +=1}
+          if (!aMurNord(i+1,j) && getIndication(i+1,j)==9999 && i != getMondeHauteur()-1) {setIndication(i+1,j,n);nb +=1}
+          if (!aMurOuest(i,j+1) && getIndication(i,j+1)==9999 && j != getMondeLargeur()-1) {setIndication (i,j-1,n);nb +=1}
         }
       }
     }
