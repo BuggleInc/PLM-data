@@ -1,5 +1,18 @@
 def solve() {
   while(!estTrie()){
-    
+    insertionSort()
+  }
+}
+
+def insertionSort() {
+  var n:Int=getNombreValeurs()
+  for ( k <- 1 to (n-1)){
+    var stock:Int=getValeur(k)
+    var l:Int=k-1
+    while ((l>=0)&&(stock<getValeur(l))){
+      setValeur(l+1,getValeur(l))
+      l=l-1
+    }
+    setValeur(l+1,stock)
   }
 }
