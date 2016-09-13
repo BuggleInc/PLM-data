@@ -38,13 +38,9 @@ override def run() {
 
 
 def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace le joueur de (baseDepart,posDepart) à
-  var baseTemp:Int = baseDepart-1                                     //(base,pos).
-  var compt:Int = baseDepart-base-2
-  
-  if (baseDepart!=base+1) {
-    deplace(baseDepart,posDepart)
-    deplace(baseTemp,1)                //On place le joueur en (baseDepart-1,0) et le trou en (baseDepart-1,1).
-    
+  var baseTemp:Int = baseDepart                                       //(base,pos).
+  var compt:Int = baseDepart-base-1
+      
     while (compt>0) {                  //Tant qu'on est pas à la base juste après "base", on continue.
       baseTemp = baseTemp-1
       compt = compt-1
@@ -72,11 +68,13 @@ def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la positi
     couleur1 = getCouleurJoueur(result, 1)
   }
   if (getCouleurJoueur(result, 0)==base) {
-      return (result,1)
+      deplace(result,1)
+      return (result,0)
 
   }
   else {
-    return (result,0)
+    deplace(result,0)
+    return (result,1)
   }
 }
 
