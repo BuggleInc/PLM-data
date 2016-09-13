@@ -1,144 +1,16 @@
 override def run() {
+  chercheJoueur(0,0)
+}
+
+
+def chercheJoueur(couleur:Int, baseDepart:Int) {
   
-  var n:Int = getNombreBases()
-  var baseLibre:Int = getTrouBase()
-  var trouLibre:Int = getTrouPosition()
-  var baseDepart:Int = 0
-  var posDepart:Int = 0
+  var baseTestee:Int = depart+1
   
-  for (base <- 0 to n-1) {
-    
-    if (baseLibre==base) {
-      deplace((base+1)%n,0)
-    }
-    
-    baseLibre=getTrouBase()
-    
-    if (!estBaseTriee(base)) {     
-      if (getCouleurJoueur(base, 0)!=base) { //Si le joueur en (base, 0) n'est pas bien placé,
-        
-        chercheJoueur(base, n)       //on cherche le joueur qui doit venir dans la base.
-          
-        baseDepart=getTrouBase()
-        posDepart=(getTrouPosition()+1)%2
-        ameneJoueur(baseDepart, posDepart, base, 0)
-
-      }
-      
-      if (getCouleurJoueur(base, 1)!=base) { //Si le joueur en (compt, 1) n'est pas bien placé,
-        
-        chercheJoueur(base, n)      //on cherche le joueur qui doit venir dans la base.
-        
-        baseDepart=getTrouBase()
-        posDepart=(getTrouPosition()+1)%2
-        ameneJoueur(baseDepart, posDepart, base, 1)
-        
-      }
-      
-    }
-    baseLibre = getTrouBase()
+  while ((getCouleurJoueur(baseTestee,0)!=couleur) && (getCouleurJoueur(baseTestee,1)!=couleur)) {
+    deplace(baseTestee,0)
+    baseTestee = baseTestee+1
   }
-}
-
-
-
-
-def ameneJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace le joueur de (baseDepart,posDepart) à
-
-  var baseTemp:Int = baseDepart                                       //(base,pos).
-  var compt:Int = baseDepart-base-1
-      
-    while (compt>0) {                  //Tant qu'on est pas à la base juste après "base", on continue.
-      baseTemp = baseTemp-1
-      compt = compt-1
-      deplace(baseTemp,posDepart)
-      deplace(baseTemp+1,posDepart)
-      deplace(baseTemp,(posDepart+1)%2)
-    }
-  //Là, le joueur est en (base+1,0)
-  deplace(base,pos)
-  deplace(base+1,0)
-}
-
-
-
-      
-def chercheJoueur(base:Int, n:Int) {  //Renvoie la base et la position du joueur qui doit être déplacé.
   
-  var result:Int = (base+1)%n
-  var couleur0:Int = getCouleurJoueur(result, 0)
-  var couleur1:Int = getCouleurJoueur(result, 1)
   
-  while ((couleur0!=base) && (couleur1!=base)) {
-    deplace(result, 0)
-    result = result+1
-    couleur0 = getCouleurJoueur(result, 0)
-    couleur1 = getCouleurJoueur(result, 1)
-  }
-  if (couleur0==base) {
-    deplace(result,1)
-  }
-  else {    
-    deplace(result,0)
-  }
 }
-
-     
-
-
-
-/*      
-      baseCible = getCouleurJoueur(base, 0)
-      if (baseCible!=base) {                 //Si le joueur en (base, 0) n'est pas bien placé, on le déplace.
-        deplaceTrou(baseLibre, base, 1, n)
-        baseLibre = base
-        deplaceJoueur(baseLibre, baseCible, 0, n)
-        baseLibre = (baseCible-1)%n
-        derniereEtape(baseLibre, baseCible, 0)
-      }
-      baseCible = getCouleurJoueur(base, 1)
-      if (baseCible!=base) {                 //Si le joueur en (base, 0) n'est pas bien placé, on le déplace.
-        deplaceTrou(baseLibre, base, 0, n)
-        baseLibre = base
-        deplaceJoueur(baseLibre, baseCible, 1, n) 
-        baseLibre = (baseCible-1)%n
-        derniereEtape(baseLibre, baseCible, 1)
-      }
-    } 
-  }
-}
-
-def derniereEtape(baseLibre:Int, baseCible:Int, position:Int) {
-  if (getCouleurJoueur(baseCible, 0)!=baseCible) {
-    deplace(baseCible, 0)
-    deplace(baseLibre, position)
-  }
-  else {
-    deplace(baseCible, 1)
-    deplace(baseLibre,position)
-  }
-}
-
-def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
-  var temp:Int = baseLibre
-  if ((baseLibre-baseCible+n-1)%n!=n) {
-    val nbMoves:Int = (baseLibre-baseCible+n-1)%n
-    for (compt <- 1 to nbMoves) {
-      deplace((temp+1+n)%n, position)
-      deplace(temp, position)
-      deplace((temp+1+n)%n, (position+1)%2)
-      temp = (temp+1+n)%n
-    }
-  }
-  else {
-    ()
-  }
-}
-
-def deplaceTrou(baseLibre:Int, baseCible:Int, position:Int, n:Int) { //On déplace le trou dans la base du joueur.
-  var temp:Int = baseLibre
-  while (temp!=baseCible) {
-    deplace((temp+1+n)%n,position)
-    temp = (temp+1+n)%n
-  }
-} */
