@@ -1,0 +1,28 @@
+n = getWorldWidth()
+m = getWorldHeight()
+
+x = n-1
+y = 0
+whilenot(hasBaggle(x,y)):
+  y+=1
+ 
+
+chemin = [ (x,y,0) ]
+
+while len(chemin) != 0 :
+  
+  x,y,n=chemin.pop()
+  setIndication(x,y,n)
+  
+  if(x>0 and not(hasLeftWall(x,y)) and getIndication(x-1,y)==9999):
+    chemin.append((x-1,y,n+1))
+  
+  if(y>0 and not(hasTopWall(x,y)) and getIndication(x,y-1)==9999 ):
+    chemin.append((x,y-1,n+1))
+  
+  if(x<n-1 and not(hasLeftWall(x+1,y)) and getIndication(x+1,y)==9999 ):
+    chemin.append((x+1,y,n+1))
+  
+  if(y<m-1 and not(hasTopWall(x,y+1)) and getIndication(x,y+1)==9999):
+    chemin.append((x,y+1,n+1))
+ 
