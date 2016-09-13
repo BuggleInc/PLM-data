@@ -45,9 +45,10 @@ override def run() {
   }
   var nextCase:List[Tuple2[Int,Int]]=Nil
   while (getIndication(getX(),getY())==9999) {
-    setIndication(0,0,i)
+    
     nextCase=nexts(i)
     for ((a,b) <- nextCase) {
+      setIndication(0,0,i)
       setIndication(a,b,i)
     }
     i+=1
