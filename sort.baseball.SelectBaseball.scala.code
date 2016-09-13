@@ -4,9 +4,22 @@ override def run() {
   var B=0
   var P=0
   var col = 0
-  for (P <- 0 to 100){
-    bougerTrouG(B)
-  }
+  for (B <- 0 to nbBases - 1){
+    for (P <- 0 to 1){
+      col = getCouleurJoueur(B,P) 
+      // On regarde si le buggles est de la bonne couleur
+      if(!(col == B)){
+        while (!bonJoueurGauche(col)){
+          bougerTrouG(P:Int)
+        }
+       
+      // Sinon on fait bouger le trou jusqu'à ce que le buggle qui est la bonne couleur soit dans la base b-1
+     
+      // On fait alors bouger ce buggle jusqu'à ce qu'il soit dans la bonne base
+      }
+      
+    }
+  }  
 }
 
 
@@ -41,17 +54,17 @@ def trouverTrou():Int = {
   return 0
 }
 
-def bougerTrouG(col:Int){
+def bougerTrouG(P:Int){
   val nbBases = getNombreBases()
-  deplace((trouverTrou()-1+nbBases)%nbBases,1)  
+  deplace((trouverTrou()-1+nbBases)%nbBases,P)  
 }
 
-def bougerTrouD(col:Int){
+def bougerTrouD(P:Int){
   val nbBases = getNombreBases()
-  deplace((trouverTrou()+1+nbBases)%nbBases,1)
+  deplace((trouverTrou()+1+nbBases)%nbBases,P)
 }
 
-def bonJoueurDroite(col:Int):Boolean = {
+def bonJoueurGauche(col:Int):Boolean = {
   var b=trouverTrou()
   val nbBases = getNombreBases()
   var col0=getCouleurJoueur((b-1+nbBases)%nbBases,0)
