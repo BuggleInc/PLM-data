@@ -15,42 +15,66 @@ def trouverSortie():Tuple2[Int,Int] {
   
 }
 
-def marquerCase(X:Int,Y:Int,distance:Int) {
-  
-  //Marque le Contour d'une case définie par ces coordonéees X et Y
-  //Au Nord
-  if (Y>0) { //Si on est pas au bord du mur Nord
-    
-    if (!aMurNord(X,Y) && getIndication(X,Y-1)==9999) { //Qu'il n'y a pas de mur vers le haut et que la case n'est pas encore marquée
-      
-      setIndication(X,Y-1,distance)
-      
-    }
-  
-  //Au Sud
-  } else if (Y<Hauteur-1) { //Si on est pas au bord du mur Sud
-    
-    if (!aMurNord(X,Y+1) && getIndication(X,Y+1)==9999) { //Pas de mur au nord de la case du bas (au sud) et pas de marquage
-      
-      setIndication(X,Y+1,distance)
-      
-    }
-    
-  } else if ()
-  
-}
-
-def marquerSol(X:Int,Y:Int) {
+def marquerSol(xSortie:Int,ySortie:Int) {
   
   var distance = 0
   var numMarques = 0
   //On utilise le nombre de cases marquées comme indicateur de sortie de boucle, normalement c'est plus rapide
-  setIndication(X,Y,distance)
+  setIndication(xSortie,ySortie,distance)
   numMarques = numMarques + 1
   distance = disatnce + 1
   while (numMarques < Largeur*Hauteur) {
     
-    for
+    for (X <- 1 to Largeur-1,Y <- 1 to Hauteur-1) {
+      
+      if getIndication(X,Y)==distance-1 {
+        
+        if (Y>0) { //Si on est pas au bord du mur Nord
+
+          if (!aMurNord(X,Y) && getIndication(X,Y-1)==9999) { //Qu'il n'y a pas de mur vers le haut et que la case n'est pas encore marquée
+
+            setIndication(X,Y-1,distance)
+            numMarques = numMarques + 1
+
+          }
+
+          //Au Sud
+        } else if (Y<Hauteur-1) { //Si on est pas au bord du mur Sud
+
+          if (!aMurNord(X,Y+1) && getIndication(X,Y+1)==9999) { //Pas de mur au nord de la case du bas (au sud) et pas de marquage
+
+            setIndication(X,Y+1,distance)
+            numMarques = numMarques + 1
+
+          }
+
+          //A l'Est
+        } else if (X<Largeur-1) { //Si on est pas au bord du mur Droit (Est)
+
+          if (!aMurOuest(X+1,Y) && getIndication(X+1,Y==9999)) { //Pas de mur à gauche de la case de droite (à droite) et pas de marquage
+
+            setIndication(X+1,Y,distance)
+            numMarques = numMarques + 1
+
+          }
+
+          //A l'Ouest
+        } else if (X>0) { //Si on est pas au bord du mur Ouest    
+
+          if (!aMurOuest(X,Y) && getIndication(X-1,Y)==9999) { //Pas de mur à l'ouest, pas de marquage sur cette case
+
+            setIndication(X-1,Y,distance)
+            numMarques = numMarques + 1
+
+          }
+
+        }
+        
+      }
+      
+    }
+    
+    distance = distance + 1
     
   }
   
@@ -67,12 +91,12 @@ override def run() {
   
   var xSortie,ySortie = trouverSortie()
   marquerSol(xSortie,ySortie)
-  while (!estSurBiscuit()) {
+  /*while (!estSurBiscuit()) {
     
     remonterTraces()
     
   }
   
-  prendBiscuit()
+  prendBiscuit()*/
   
 }
