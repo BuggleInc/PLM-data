@@ -20,11 +20,11 @@ override def run() {
   
   
   
+	var valMaxMarque = 0;
+
   val sortie = findExit();
   marquerSol(sortie, 0);
 //  parcourirPath();
-
-	var valMaxMarque = 0;
 
   def marquerSol(casee: List[Int], numero:Int) {
     val x = casee(0);
@@ -33,7 +33,7 @@ override def run() {
     var nb = getIndication(x,y);
     if(nb > valMaxMarque)
     	return;
-
+		
 
     if(y > 0 && !hasTopWall(x,y) && getIndication(x,y-1) > nb){
     	setIndication(x, y-1, numero+1);
@@ -48,7 +48,7 @@ override def run() {
     	setIndication(x+1, y, numero+1);
 		}
     
-    
+    valMaxMarque += 1;
     
     if(y > 0 && !hasTopWall(x,y) && getIndication(x,y-1) > nb){
     	setIndication(x, y-1, numero+1);
