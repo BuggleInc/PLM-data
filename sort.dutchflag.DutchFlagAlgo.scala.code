@@ -8,13 +8,14 @@ def solve() {
   while (getColor(afterBlue)==BLUE){
     afterBlue=afterBlue+1
   }
-  for (i <- afterBlue+1 to beforeRed-1){
+  for (i <- afterBlue to beforeRed){
     if (getColor(i)==BLUE){
-      swap(afterBlue+1,i)
+      swap(afterBlue,i)
       afterBlue=afterBlue+1
     }
     else if (getColor(i)==RED){
-      swap(beforeRed-1,i)
+      swap(beforeRed,i)
+      beforeRed=beforeRed+1
     }
   }
 }
