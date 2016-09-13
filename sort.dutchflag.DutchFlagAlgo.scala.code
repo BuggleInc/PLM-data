@@ -3,20 +3,11 @@ def solve() {
   var blancRouge= getTaille() -1
   var apresBlanc= getTaille() -1
   while(!estTrie){
-  	for(i<- 1 to getTaille()-1){
-    	var j=i
-    	if(getCouleur(i)== Color.BLUE){
-      	while(j>apresBleu){
-        	echange(j-1,j)
-        	j=j-1
-      	}
-      	apresBleu+=1
-    	}
-    	j=i
-    	if(getCouleur(i)== Color.WHITE){
-      	while(j>apresBleu+1 && getCouleur(j-1)!=getCouleur(j)){
-        	echange(j-1,j)
-        	j=j-1
+  	getCouleur(apresBleu) match{
+      case Color.BLUE => apresBleu +=1
+      case Color.WHITE => echange(apresBleu,avantBlanc);avantBlanc+=1
+      case Color.RED => echange(apresBleu,blancRouge);blancRouge+=1;if(blancRouge<apresBlanc){apresBlanc=blancRouge}
+    }
         
       }
     }
