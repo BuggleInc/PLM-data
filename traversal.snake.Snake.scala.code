@@ -10,12 +10,12 @@ override def run() {
         droite();
         avance();
         droite();
-        }
+      }
       if  (getDirection() == Direction.EST) {
         gauche();
         avance();
         gauche();
-       }
+      }
     }
   } 
 }
@@ -26,19 +26,21 @@ def fonctionTest() : Boolean = {
   if (estFaceMur()) {
     if (getDirection() == Direction.EST) {
       retourne();
+      gauche();
       if (estFaceMur()) {
         return true
+        droite()
       }
     }
     if (getDirection() == Direction.OUEST) {
       retourne();
+      droite();
       if (estFaceMur()) {
         return true
+        gauche()
       }
     }
-    else {
-      return false
-    }
+
   }
   return false
 }
