@@ -1,0 +1,40 @@
+def checkMur():Boolean = {
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true
+  }
+  droite()
+  return false
+}
+
+def keepHandOnSideWall(){
+  if(!estFaceMur()){
+    if (checkMur()){
+      avance()
+    } else {
+      gauche()
+      avance()
+    }
+  } else{
+    if (checkMur()){
+    	droite()
+      if (!estFaceMur()){
+      	avance()
+      } else {
+        droite()
+        avance()
+      }
+    } else {
+      gauche()
+      avance()
+    }
+  }
+}
+
+override def run() {
+  while (!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
