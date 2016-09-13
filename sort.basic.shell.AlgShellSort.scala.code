@@ -1,0 +1,22 @@
+def shellSort()  {
+  ecart=getNombreValeurs()/2
+  while (ecart>0){
+    insertionSort(ecart)
+    ecart=ecart/2
+  }
+  
+}
+
+def insertionSort(ecart : Int) {
+  var memoire = 0
+  var longueur = getNombreValeurs()-1
+  for (i <- 1 to longueur){
+    memoire=getValeur(i)
+    var k=ecart
+    while (i-k >= 0 && getValeur(i-k)>memoire){
+      setValeur(i-k+ecart,getValeur(i-k))
+      k=k+ecart
+    }
+    setValeur(i-k+ecart,memoire)
+  }
+}
