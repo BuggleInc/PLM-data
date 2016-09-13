@@ -4,21 +4,22 @@ override def run() {
     avance();
     if (!estFaceMur()) {
       avance();
-    }  
-    else { 
-      if (getDirection() == Direction.OUEST) { 
-        droite();
-        avance();
-        droite();
-        avance(7);
+
+      else { 
+        if (getDirection() == Direction.OUEST) { 
+          droite();
+          avance();
+          droite();
+          avance(7);
+        }
+        if  (getDirection() == Direction.EST) {
+          gauche();
+          avance();
+          gauche();
+          avance(7);
+        }
       }
-      if  (getDirection() == Direction.EST) {
-        gauche();
-        avance();
-        gauche();
-        avance(7);
-      }
-    }
+    } 
   }
 }
 
