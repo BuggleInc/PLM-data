@@ -1,48 +1,24 @@
 override def run() {
-  	nord();
-    while(!estSurBiscuit()){
-    	nord();
-      run1();
+  var etat = 0;
+  while(!estSurBiscuit()){
+    etat match {
+      case 0 => marcheNord(); etat = 1;
+      
+      case 1 => suit(); etat = 0;
+      
+      case _ => ();
+    }
   }
-  prendBiscuit();
+	
 }
 
-def nord (){
-  while(!estFaceMur()){
+def marcheNord () {
+  while(!estFaceMur() && (getDirection() == Direction.NORTH)){
     avance();
   }
 }
 
-def run1 () {
-  var fini = false;
-    while(!fini){
-    if (estSurBiscuit()){
-      fini = true;
-    } else {
-      if(!estFaceMur() && getDirection == Direction.NORTH ){
-        fini = true
-      }
-    }
-    if(estFaceMur() && !fini){
-      gauche();
-      if(estFaceMur() && !fini){
-        droite();droite();
-      } else {
-        avance();
-      }
-    } else {
-      gauche();
-      if(estFaceMur() && !fini){
-        droite();avance();
-      } else {
-        avance();gauche();
-        if(!estFaceMur() && !fini){
-          avance();
-        } else {
-          droite();
-        }
-      }
-    }
-  }
+def suit() {
 
+  
 }
