@@ -8,18 +8,19 @@ def insertionSort() {
   var n:Int=getTaille()
   for ( k <- 1 to (n-1)){
     var stock:Int=getCouleur(k)
-    var l:Int=k-1
+    var l:Int=0
+    var h=n-1
     if (stock==BLEU){
-      while((l>=0) && getCouleur(l)!=BLEU){
-        l-=1
+      while(getCouleur(l)==BLEU){
+        l+=1
       }
-      echange(k,l+1)
+      echange(k,l)
     } else {
       if(stock==ROUGE){
-        while((l<=n-1) && getCouleur(l)!=ROUGE){
-          l+=1
+        while(getCouleur(h)==Rouge){
+          h-=1
         }
-        echange(k,l-1)
+        echange(k,h)
       }
     }
 
