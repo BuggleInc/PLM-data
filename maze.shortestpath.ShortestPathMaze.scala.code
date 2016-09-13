@@ -24,7 +24,7 @@ def traceChemin(){
   var xBuggle = getX()
   var yBuggle = getY()
   var k = 0
-  while((xBuggle,yBuggle) != (9999,9999)){
+  while(k<88){
     for(i<-0 to getMondeLargeur()-1){
       for(j<-0 to getMondeHauteur()-1){
         if(getIndication(i,j) == k){
@@ -70,31 +70,28 @@ def aMurEst(x:Int,y:Int): Boolean ={
 
 
 def trouveForce(){
-  var m = getX()
-  var n = getY()
+  var x = getX()
+  var y = getY()
   var ici = getIndication(getX(),getY())
-  setDirection(Direction.NORD)
-  if(!estFaceMur){
-    if(ici - getIndication(getX(),getY()-1)>0){
+  if(ici - getIndication(x,y-1)>0){
+    setDirection(Direction.NORD)
+    if(!aMurNord(x,y)){
+      avance()
+    }else if(!aMurOuest(x,y)){
+      gauche()
       avance()
     }
-  }
-   setDirection(Direction.SUD)
-  if(!estFaceMur){
-    if(ici - getIndication(getX(),getY()+1)>0){
-      avance()
-    }
-  }
-   setDirection(Direction.OUEST)
-  if(!estFaceMur){
-    if(ici - getIndication(getX()-1,getY())>0){
-      avance()
-    }
-  }
+  }else if(ici - getIndication(x-1,y)>0){
+    setDirection(Direction.OUEST)
+    if(!estFaceMur())
+    avance()
+  }else if(ici - getIndication(x+1,y)>0){
     setDirection(Direction.EST)
-  if(!estFaceMur){
-    if(ici - getIndication(getX()+1,getY())>0){
-      avance()
-    }
+    if(!estFaceMur())
+    avance()
+  }else if(ici - getIndication(x,y+1)>0){
+    setDirection(Direction.SUD)
+    if(!estFaceMur())
+    avance()
   }
 }
