@@ -1,5 +1,6 @@
 override def run() {
   var etat = 0
+  while(!estSurBiscuit){
   etat match{
     case 0 => while(getDirection()!= Direction.NORTH){gauche()};while(!estFaceMur){avance()};etat=1
     case 1 =>while(getDirection() != Direction.NORTH && !estFaceMur){
@@ -15,8 +16,8 @@ override def run() {
     etat=0
     case _ => etat=0
   }
-  prendBiscuit()
-  
+  }
+    prendBiscuit()
 }
 def keepHandOnSideWall(){
   gauche()
