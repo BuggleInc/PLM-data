@@ -4,7 +4,11 @@ def gnomeSort() {
   n=getNombreValeurs()
   while(k<n){
     if(plusPetit(k,k+1)){
-      k=k+1
+      if(k<n){
+      	k=k+1
+      }else{
+        return
+      }
     }else{
       echange(k,k+1)
       if(k>0){
