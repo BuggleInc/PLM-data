@@ -11,7 +11,11 @@ def mur():Boolean={
 
 override def run() {
   while (!estSurBiscuit()){
-    if (mur()){
+    if (getDirection()==NORTH && !estFaceMur()){
+      avance()
+    }
+    else {
+      if (mur()){
       print(getDirection())
       right()
       if (estFaceMur()==false){
@@ -28,6 +32,7 @@ override def run() {
       else{
         right()
       }
+    }
     }
 }
   prendBiscuit()
