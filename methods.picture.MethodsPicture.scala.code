@@ -1,3 +1,5 @@
+val colors = Array(Color.yellow, Color.red, Color.blue, Color.green)
+
 def makePattern(c:Color) {
   setBrushColor(c)
   
@@ -16,9 +18,9 @@ def makePattern(c:Color) {
   forward()
 }
 
-def makeSquare(c:Color) {
+def makeSquare() {
   for(i <- 1 to 4) {
-    makePattern(c)
+    makePattern(colors(i - 1))
     left()
   }
 }
@@ -29,5 +31,5 @@ def colorize() {
 }
 
 override def run() {
-  makeSquare(Color.yellow)
+  makeSquare()
 }
