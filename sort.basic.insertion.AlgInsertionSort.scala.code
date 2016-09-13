@@ -1,20 +1,17 @@
 def insertionSort() {
   var compte = -1
   var v = 0
-  var b = false
   for(i<- 1 to getNombreValeurs()-1){
     v = getValeur(i)
     var j=i
     while(j>0 && getValeur(j-1)>v){
       if(getValeur(j-1)>v){
         copie(j-1,j)
-        compte = j-1
         j=j-1
       }
     }
-    if(compte != -1){
-    	setValeur(compte, v)
+    if(j!=i){
+    	setValeur(j, v)
     }
-    compte = -1
   }
 }
