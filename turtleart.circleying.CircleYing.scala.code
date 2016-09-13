@@ -1,37 +1,42 @@
 override def run()
 {
-  val rayon = 105;
-  val demiRayon = rayon/2;
-  
-  demiCercle(demiRayon);
-  
-  leveCrayon();
-  demiCercle(demiRayon);
-  droite(90);
-	avance(rayon);
-  gauche(90);
-  
-  baisseCrayon();
-  cercle(rayon);
-  leveCrayon();
-  
-  demiCercle(demiRayon);
-  baisseCrayon();
-  demiCercle(demiRayon);
-  
-  leveCrayon();
-  droite(90);
-  avance(rayon);
-  gauche(90);
+	cercletTroue2();
+  zigZag();
 }
 
-def demiCercle(rayon:Int)
-{
-  val cote = rayon*2*3.14/360;
- 
+def cercleTroue2()
+{  
+  for (i <- 1 to 181)
+  {
+    avance(2);
+    droite(1);
+	}
+  
+  leveCrayon();
+  for (i <- 1 to 3)
+  {
+    avance(2);
+    droite(1);
+	}
+  baisseCrayon();
+  
+  for (i <- 1 to 176)
+  {
+    avance(2);
+    droite(1);
+	}
+}
+
+def zigZag()
+{  
   for (i <- 1 to 180)
   {
-    avance(cote);
+    avance(1);
     droite(1);
+	}
+  for (i <- 1 to 180)
+  {
+    avance(1);
+    gauche(1);
 	}
 }
