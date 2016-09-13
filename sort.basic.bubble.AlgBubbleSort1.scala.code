@@ -1,17 +1,18 @@
 def bubbleSort()  
 {
-  for(i<-0 to (getNombreValeurs()-2)) 
-  //on prend chaque élément de la liste pour le remonter
+  do
   	{
-      var depart=getValeur(i)//valeur de la case de départ de chaque boucle
-      var indice=i+1 //indice de l'élément auquel on va comparer i
-      while(getValeur(i)==depart)
+  		for(i<-0 to (getNombreValeurs()-2)) 
       	{
-          if (plusPetit(getValeur(indice),getValeur(i)))
+  				var j=i+1
+          var echanger=false //on definit un booleen qui nous permettra d'avoir une condition d'arrêt: si on n'a pas échangé deux valeurs précédemment, alors c'est que le tableau est correctement ordonné, donc on arrete la boucle
+					if (plusPetit(getValeur(indice),getValeur(i)))
       			{
-          		echange(i,indice)
-        		}
-          indice+=1
+							echange(i,indice)
+          		echanger=true
+       			}
+          j+=1
         }
 		}
+	while(!echanger)
 }
