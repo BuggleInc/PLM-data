@@ -19,11 +19,13 @@ override def run() {
     }
   }
   while (finale==0) {
+    finale=1
 		for (i<-0 to getMondeLargeur-1) {
    		for (j<-0 to getMondeHauteur-1) {
         x=i
         y=j
         if (getIndication(x,y)==(cpt-1)) {
+          finale=0
           if (!aMurNord(x,y) && getIndication(x,y-1)==9999) {
             setIndication(x,y-1,cpt)
           }
