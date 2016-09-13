@@ -8,6 +8,7 @@ def isWallAtLeft () : Boolean = {
 // convoluted with staying the wall at the left :
 def leftFollowerMode() {
   while ((getDirection() != Direction.NORTH) && !isFacingWall()) {
+    // pour tester la fonction seule, mettre un ||
   	if (!isFacingWall()) {
     	forward();
      	if (!isWallAtLeft()) {
@@ -47,5 +48,8 @@ def makeMoving() {
 }
 
 override def run() {
-  makeMoving();
+  forward();
+  left();
+  forward();
+  leftFollowerMode();
 }
