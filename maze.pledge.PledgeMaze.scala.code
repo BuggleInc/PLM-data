@@ -2,15 +2,18 @@ override def run() {
   var nord=grandNord()
   var sommeAngle=0
   while (!estSurBiscuit()){
-    while(!estFaceMur){
+    while(!estFaceMur && nord==false){
       if (isDirectionFree(Direction.NORTH)){
         setDirection(Direction.NORTH)
         avance()
+        nord=grandNord()
       }else{
         gauche()
         avance()
       }
     }
+    gauche()
+    sommeAngle+=1
   }
   prendBiscuit()
 }
