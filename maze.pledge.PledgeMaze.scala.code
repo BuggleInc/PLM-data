@@ -1,8 +1,8 @@
-def hand() {
-  if (!estFaceMur()) {avance()}  
+def hand(tour:Int)={
+  if (!estFaceMur()) {avance();tour -=1}  
   else {
     droite()   
-    if (estFaceMur()) {droite();if (estFaceMur()) {droite()}}
+    if (estFaceMur()) {droite();tour+=1;if (estFaceMur()) {droite()}}
     avance()
   }
 }
@@ -11,10 +11,12 @@ def hand() {
 
 
 override def run() {
+  var tour = 0
   while (!estSurBiscuit()) {
     while (getDirection() == Direction.NORTH){
     if (estFaceMur()) {
-      droite();hand()};else{avance()}
+      while tour != 0{
+      droite();hand(tour)};else{avance()}
     };gauche();hand()
   };prendBiscuit()
 }
