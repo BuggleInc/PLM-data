@@ -9,8 +9,9 @@ def selectionSort() {
     min_indice = i;
     mem_j = mem_i ;
     for(j <- i+1 to len-1){
-      if(isSmallerThan(j, getValue(min_indice))){
+      if(isSmallerThan(j, mem_j)){
         min_indice = j;
+        mem_j = getValue(j);
       }
     }
   	swap(i,min_indice);
