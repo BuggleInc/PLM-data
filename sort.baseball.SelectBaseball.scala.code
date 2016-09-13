@@ -5,7 +5,7 @@ override def run()
   var posJoueur = 0;
   var baseJoueur = 0;
   
-  for (nCouleur <- 0 to nbBases-1)
+  for (nCouleur <- 0 to 0)
   {
     for (j <- 0 to nbBases-1)
     {
@@ -13,10 +13,8 @@ override def run()
       {
         if (getCouleurJoueur(j,k) != nCouleur)
         {
-          baseJoueur = j;
-          posJoueur = k;
-          deplacerTrou((baseJoueur+1)%nbBases, 1);
-          deplace(baseJoueur, posJoueur);
+          deplacerTrou((j+1)%nbBases, 1);
+          deplace(j, k);
         }
       }
   	}
