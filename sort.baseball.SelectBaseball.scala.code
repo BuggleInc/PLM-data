@@ -37,7 +37,8 @@ override def run() {
 
 
 
-def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace le joueur de (baseDepart,posDepart) à
+def ameneJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace le joueur de (baseDepart,posDepart) à
+
   var baseTemp:Int = baseDepart                                       //(base,pos).
   var compt:Int = baseDepart-base-1
       
@@ -64,7 +65,7 @@ def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la positi
   
   while ((couleur0!=0) && (couleur1!=0)) {
     deplace(result, 0)
-    result = result+3
+    result = result+1
     couleur0 = getCouleurJoueur(result, 0)
     couleur1 = getCouleurJoueur(result, 1)
   }
