@@ -11,3 +11,16 @@ override def run() {
     }
   }
 }
+
+def keepHandOnSideWall(){
+  if (estFaceMur()){
+    droite()
+  }
+  else {
+    avance();gauche()
+    while (!estFaceMur()){
+      avance();gauche()
+    }
+    droite()
+  }
+}
