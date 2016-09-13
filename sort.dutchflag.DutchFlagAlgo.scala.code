@@ -46,6 +46,37 @@
 }
 */
 
-def solve(){
-  
+
+def solve()  {
+  var longueur=0
+  longueur=getTaille()-2
+  var i=0
+  var k=0
+  var pos1=0
+  var pos2=0
+  while (k!=longueur){
+    for(i<- 0 to longueur-k){
+      pos1=comparaison(i)
+      pos2=comparaison(i+1)
+      if ((pos2<pos1)){
+        echange(pos1,pos2)
+      }
+  	}
+    k+=1
+  }  
+}
+
+
+def comparaison(i):Double={
+  var num=0
+  if (getCouleur(i)==BLEU){
+    num=0
+  }
+  else if(getCouleur(i)==Blanc){
+    num=1
+  }
+  else{
+    num=2
+  }
+  return num
 }
