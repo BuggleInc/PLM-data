@@ -1,0 +1,39 @@
+def cocktailSort()  {
+  
+  var tri = false
+  var compt = 0
+  var a = 0
+  var b = 0
+  var long = getNombreValeurs()-1
+  
+  while (tri == false)
+  {
+    tri = true
+    compt += 1
+    for (i <- 0 to long-compt)
+    {
+      a = getValeur(i)
+      b = getValeur(i+1)
+      if (a > b)
+      {
+        setValeur(i,b)
+        setValeur(i+1,a)
+        tri = false
+      }
+    }
+    if (tri == true)
+    	return
+    for (i <- 0 to long-compt)
+    {    
+      a = getValeur(long-i)
+      b = getValeur(long-i-1)
+      if (a < b)
+      {
+        setValeur(long-i,b)
+        setValeur(long-i-1,a)
+        tri = false
+      }
+    }
+
+  }
+}
