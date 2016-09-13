@@ -13,10 +13,11 @@ def insertionSort(ecart : Int) {
   for (i <- 0 to longueur){
     memoire=getValeur(i)
     var k=ecart
-    while (i-k >= 0 && getValeur(i-k)>memoire){
+    do{
       setValeur(i-k+ecart,getValeur(i-k))
       k=k+ecart
     }
+    while (i-k >= 0 && getValeur(i-k)>memoire)
     setValeur(i-k+ecart,memoire)
   }
 }
