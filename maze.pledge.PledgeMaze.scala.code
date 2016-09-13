@@ -4,7 +4,7 @@ override def run() {
       var turn:Int=t
       left()
       turn=turn+1
-      if ( ! isFacingWall()) {
+      if (! isFacingWall()) {
         forward() ; return turn
         } else {
     					right()
@@ -42,7 +42,8 @@ override def run() {
     
     do {
      turn= keepLeftHand(turn)
-    } while (! dirFree(Direction.NORTH) && turn!=0)
+    } while (! dirFree(Direction.NORTH) && turn==0)
+    
     while (! isFacingWall()) {
       forward()
     }
