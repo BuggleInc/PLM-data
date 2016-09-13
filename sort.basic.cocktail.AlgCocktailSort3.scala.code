@@ -1,0 +1,27 @@
+def cocktailSort2() {
+  var debut = 0
+  var fin = getNombreValeurs() - 2
+  var cpt1 = 1
+  var cpt2 = 1
+  while (cpt1 != 0 || cpt2 != 0) {
+    cpt1 = 0
+    for (i <- debut to fin){
+      if (plusPetit(i+1,i)) {
+        echange(i,i+1)
+        cpt1 += 1
+      }
+    }
+    if (cpt1 == 0) {
+      return
+    }
+    fin -= 1
+    cpt2 = 0
+    for (i <- fin to debut by -1) {
+      if (plusPetit(i+1,i)) {
+        echange(i,i+1)
+        cpt2 += 1
+      }
+    }
+    debut += 1
+  }
+}
