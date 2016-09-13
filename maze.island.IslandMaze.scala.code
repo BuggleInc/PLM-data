@@ -19,6 +19,27 @@ def marcheNord () {
 }
 
 def suit() {
-
+  while (!estSurBiscuit() || !(getDirection() == Direction.NORTH && !estFaceMur())){
+    if(estFaceMur()){
+      droite();
+      if(estFaceMur()){
+        droite();droite();
+        if(estFaceMur()){
+          gauche();
+        } else {
+          avance();
+        }
+      } else {
+        avance();
+      }
+    } else {
+      gauche();
+      if(estFaceMur()){
+        droite();avance();
+      } else {
+        avance();droite();
+      }
+    }
+  }
   
 }
