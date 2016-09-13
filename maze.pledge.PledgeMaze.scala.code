@@ -6,22 +6,23 @@ override def run() {
       avance()
     }
     do{
-      sommeAngle=keepHandOnSideWall(sommeAngle)
+      sommeAngle+=keepHandOnSideWall()
     }
     while(sommeAngle!=0 || isDirectionFree(Direction.NORD)==false)
   }
   prendBiscuit()
 }
 
-def keepHandOnSideWall(sommeAngle : Int) : Int = {
+def keepHandOnSideWall() : Int = {
+  var s=0
   gauche()
-  sommeAngle=sommeAngle+1
+  s+=1
   while(estFaceMur()==true){
     droite()
-    sommeAngle-=1
+    s-=1
   }
   avance()
-  return sommeAngle
+  return s
 }
 
 def isDirectionFree(dir : Direction) : Boolean = {
