@@ -19,6 +19,9 @@ def distance(base:Int, position:Int, nbBases:Int):Int={
   var dist = 0
   var cBase = base
   val col = getCouleurJoueur(base,position)
+  if col==cBase{
+    return 9
+  }
   while (cBase != col && col != -1){
     dist += 1
    	cBase = (cBase+1)%nbBases
