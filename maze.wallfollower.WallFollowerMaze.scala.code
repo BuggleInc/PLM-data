@@ -10,8 +10,15 @@ override def run() {
 }
 
 def keepHandOnSideWall(x : Int) {
-  if (murcote(x))
-  	avance()
+  if (murcote(x)){
+    if (!estFaceMur())
+    	avance()
+    else if (x==0)
+    	droite()
+    else
+    	gauche()
+    
+  }
  
   else {
     if (x==0) {
