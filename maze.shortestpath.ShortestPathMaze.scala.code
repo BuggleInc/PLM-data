@@ -25,8 +25,8 @@ override def run() {
    		for (j<-1 to getMondeHauteur-1) {
         x=i
         y=j
-        cpt+=1
-        while (getIndication(x,y)!=9999) {
+        if (getIndication(x,y)!=9999) {
+          cpt+=1
           if (!aMurNord(x,y)) {
             setIndication(x,y-1,cpt)
           }
