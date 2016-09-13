@@ -1,26 +1,23 @@
-def cocktailSort3() {
+def cocktailSort2() {
   var x=0
   x=getNombreValeurs
   var debut=0
   var fin=x-2
   var ok:Boolean=false
-  var fini:Boolean=false
   do  {
     ok=false
     for (i <- debut to fin) {
       if (plusPetit(i+1,i)) {
         echange(i+1,i)
         ok=true
-        fini=true
       }
     }
     fin-=1
-    if (!fini) {
     for (i <- fin to debut by -1) {
       if (plusPetit(i+1,i)) {
         echange(i+1,i)
         ok=true
-      }}
+      }
     }
     debut+=1
   } while (ok)
