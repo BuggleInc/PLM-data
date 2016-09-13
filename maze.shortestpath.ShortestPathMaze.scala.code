@@ -21,27 +21,35 @@ override def run() {
   }    
   setIndication(x,y,i)
   
-  
+  def nexts(i:Int):Array ={
+    var next:List = List.nil
+    for (x<-0 to width-1 ) {
+      for (y <- 0 to height-1) {
+        if (getIndication(x,y)==i) {
+          if (! hasTopWall(x,y)) {
+            (x,y-1)::next
+          }
+           if (! hasLeftWall(x,y)) {
+             (x-1,y)::next
+           }
+          if (!(x==width-1 || hasLeftWall(x+1,y))) {
+            (x+1,y)::next
+          }
+          if (!(y==height-1 || hasTopWall(x,y+1))) {
+          	(x,y+1)::next
+          }
+        }
+  		}
+    }
+    return next
+  }
+  var nextCase:List=List.nil
   while (getIndication(getX(),getY())==9999) {
+    
+    nextCase=nexts(i)
+    for ((a,b) in nextCase) {
+      setIndication(a,b,i)
+    }
     i+=1
-    for (x<-0 to width ) {
-      for (y <- 0 to height) {
-    if (! hasTopWall(x,y)) {
-      
-      setIndication(x,y-1,min(i,getIndication(x,y-1)))
-    }
-    if (! hasLeftWall(x,y)) {
-      
-       setIndication(x-1,y,min(i,getIndication(x-1,y)))
-    }
-    if (!(x==width-1 || hasLeftWall(x+1,y))) {
-     
-        setIndication(x+1,y,min(i,getIndication(x+1,y))) 
-    }
-    if (!(y==height-1 || hasTopWall(x,y+1))) {
-      
-        setIndication(x,y+1,min(i,getIndication(x,y+1)))
-    }
-      }
-    }}
+  }
 }
