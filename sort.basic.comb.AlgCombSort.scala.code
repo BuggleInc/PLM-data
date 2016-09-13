@@ -1,0 +1,13 @@
+def combSort() {
+  var echange:Boolean = true
+  var ecart:Int = getNombreValeurs()
+  do {
+    echange=false
+    if (ecart>1) ecart=(ecart.toDouble / 1.3).toInt
+    var i:Int = 0
+    while(i+ecart<getNombreValeurs) {
+      if (estPlusPetit(i+ecart, i)) echange (i, i+ecart); echange=true
+      i+=1
+    }
+  } while (ecart>1 && echange)
+}
