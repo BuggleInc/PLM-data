@@ -1,6 +1,17 @@
 override def run() {
    def force(n:Int,x:Int,y:Int){
      if(!estSurMessage()){ecritMessage(n)
-                         }
+                         if(aMurNord(x,y)){force(n+1,x,y-1)}
+                         if(aMurOuest(x,y)){force(n+1,x+1,y)}
+                         if(aMurEst(x,y)){force(n+1,x-1,y)}
+                         if(aMurSud(x,y)){force(n+1,x,y+1)}}
    }
+  for(x<- 0 to getMondeLargeur()-1){
+    for(y<- 0 to getMondeHauteur()-1){
+      if(aBiscuit(x,y)){val X=x
+                       val Y=y}
+    }
+  }
+  force(X,Y)
+  
 }
