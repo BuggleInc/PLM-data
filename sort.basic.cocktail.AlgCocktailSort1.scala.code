@@ -5,24 +5,26 @@ def cocktailSort() {
   var a = 0;
   var b = getNombreValeurs();
   
-  for (i <- 0 to b-2){
-    if (plusPetit(i, i+1) == false) {
-      echange(i, i+1);
-      a = 1
-
-    }
-  }
-
-  for (i <- b-2 to 0 by -1) {
+  do {
+    a = 0
   
-    if (plusPetit(j, j+1) == false) {
-      echange(j, j+1);
-      a = 1
+    for (i <- 0 to b-2){
+      if (plusPetit(i, i+1) == false) {
+        echange(i, i+1);
+        a = 1
 
+      }
     }
-  }
-  if (a == 0){
-    return
-  }
+
+    for (i <- b-2 to 0 by -1) {
+
+      if (plusPetit(j, j+1) == false) {
+        echange(j, j+1);
+        a = 1
+
+      }
+    }
+  
+  }while (a == 1)
 
 }
