@@ -50,9 +50,11 @@ override def run() {
     
     setIndication(0,0,i)
     
-    for ((a,b) <- nextCase) {
+    for (c <- nextCase) {
+      c match {
+        case (a,b) -> setIndication(a,b,i)
+      }
       
-      setIndication(a,b,i)
     }
     i+=1
   }
