@@ -1,6 +1,7 @@
 override def run() {
   while (!estSurBiscuit()){
     if (allerAuNord){
+      setDirection(Direction.NORTH)
       avance()
     }
     else if (keepHandOnSideWall()==true){
@@ -33,8 +34,12 @@ def keepHandOnSideWall():Boolean={
 }
 
 def allerAuNord():Boolean={
+  var direction=getDirection()
+  setDirection(Direction.NORTH)
   if (estFaceMur){
+    setDirection(direction)
     return false
   }
+  setDirection(direction)
 	return true
 }
