@@ -11,7 +11,12 @@ def checkMur():Boolean = {
 def keepHandOnSideWall(a:Int):Int = {
   var sommeAngle:Int = a
   if(!estFaceMur()){
-    avance()
+    if (checkMur()){
+      avance()
+    } else {
+      gauche()
+      avance()
+    }
   } else{
     droite()
     if(estFaceMur()){
