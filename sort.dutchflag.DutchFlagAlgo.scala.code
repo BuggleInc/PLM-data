@@ -1,13 +1,16 @@
 def solve() {
   val size = getSize();
   var afterBlue = 0; /* before that is blue */
-  var whiteRed = size-1; /* after that is red */
-  var beforeWhite = size-1; /* after that is white until whiteRed */
+  var beforeRed = size-1; /* after that is red */
+  var betweenWhite = size-1; /* after that is white until beforeRed */
   for(i <- 0 to size-1){
     if(getColor(i)==BLUE){ 
-          swap(i, afterBlue) ; 
-          afterBlue += 1;
-       
+      swap(i, afterBlue) ; 
+      afterBlue += 1;
+  	}
+    if(getColor(i)==red){ 
+      swap(i, beforeRed) ; 
+      beforeRed -= 1;
   	}
   }
 }
