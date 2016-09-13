@@ -3,7 +3,12 @@ override def run() {
     while (!estNord) {
       if (!estFaceMur && getDirection==Direction.NORD) {
         avance()
-      } else {
+      }
+      for (i<-1 to 4) {
+        if (getDirection==Direction.NORD) {
+        	gauche()
+      	}
+      else {
         if (keepHandOnSideWall && !estFaceMur) {
           avance()
         } else if (!keepHandOnSideWall) {
