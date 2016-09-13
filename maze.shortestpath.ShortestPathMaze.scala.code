@@ -21,29 +21,29 @@ override def run() {
   }    
   setIndication(x,y,i)
   
-  def nexts(i:Int):List[Tuple2[Int,Int]] ={
+  def nexts(i:Int):Vector ={
     var next:List[Tuple2[Int,Int]] = Nil
     for (x<-0 to width-1 ) {
       for (y <- 0 to height-1) {
         if (getIndication(x,y)==i) {
           if (! hasTopWall(x,y)) {
-            (x,y-1)::next
+            yield (x,y-1)
           }
            if (! hasLeftWall(x,y)) {
-             (x-1,y)::next
+             yield (x-1,y)
            }
           if (!(x==width-1 || hasLeftWall(x+1,y))) {
-            (x+1,y)::next
+            yield (x+1,y)
           }
           if (!(y==height-1 || hasTopWall(x,y+1))) {
-          	(x,y+1)::next
+          	yield (x,y+1)
           }
         }
   		}
     }
     return next
   }
-  var nextCase:List[Tuple2[Int,Int]]=Nil
+  var nextCase:Vector=Nil
   while (getIndication(getX(),getY())==9999) {
     
     nextCase=nexts(i)
