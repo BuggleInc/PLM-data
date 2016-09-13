@@ -1,4 +1,16 @@
-def cocktailSort2() {
+$package 
+
+import plm.universe.sort.SortingEntity;
+
+class AlgCocktailSort3 extends SortingEntity {
+
+	override def run() {
+		cocktailSort3();
+	}
+
+	/* BEGIN TEMPLATE */
+	def cocktailSort3() {
+		/* BEGIN SOLUTION */
 		var swapped=false;
 		var begin=0;
 		var end=getValueCount()-2;
@@ -9,6 +21,10 @@ def cocktailSort2() {
 					swap(i,i+1);
 					swapped =true;
 				}
+			if (!swapped) 
+				return;
+			
+			swapped=false;
 			end-=1;
 			for (i <- end to begin by -1)
 				if (!isSmaller(i,i+1)) {
@@ -17,4 +33,7 @@ def cocktailSort2() {
 				}
 			begin+=1;
 		} while (swapped && end-begin>1);
+		/* END SOLUTION */
+	}
+	/* END TEMPLATE */
 }

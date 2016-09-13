@@ -1,0 +1,23 @@
+def gnomeSort() {
+  var position = 0;
+  
+  while(position != getValueCount() -1 )
+  	position = gnomeLook(position);
+  
+  return 0;
+  
+}
+
+
+def gnomeLook(pos:Int) : Int = {
+  var rightOrder = isSmaller(pos,pos+1);
+  if(rightOrder){
+    return pos+1;
+  }else{
+    swap(pos, pos+1);
+    if(pos==0)
+    	return pos+1;
+		else    
+    	return pos-1;
+  }
+}

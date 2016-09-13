@@ -1,0 +1,36 @@
+def shellSort()  {
+
+  var gap = getValueCount()/2;
+  while(gap > 0){
+  	insertionSort(gap);
+    gap = gap/2;
+  }
+  
+}
+
+
+def insertionSort(gap:Int) {
+  
+  for(j <- 1 to getValueCount()-1){
+  	backMinus(j, gap);
+  }
+  
+}
+
+
+def backMinus(indSorted:Int, gap:Int){
+  var v = getValue(indSorted);
+  var indLastCopied = indSorted;
+  for(i <- 1 to indSorted / gap){
+    if(!isSmallerThan(indSorted-gap*i, v)){
+      copy(indSorted-i*gap,indSorted-gap*(i-1));
+      indLastCopied = indSorted-gap*i;
+    }else{
+  		setValue(indLastCopied, v);
+      return ;
+    }
+  }
+  setValue(indLastCopied, v);
+  
+  
+}

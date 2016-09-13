@@ -1,20 +1,20 @@
-def cocktailSort2() {
-		var swapped=false;
+def cocktailSort3() {
+		var swapped1, swapped2 =false;
 		var begin=0;
 		var end=getValueCount()-2;
 		do {
-			swapped = false;
+			swapped1 = false; swapped2 = false;
 			for (i <- begin to end)
 				if (!isSmaller(i,i+1)) {
 					swap(i,i+1);
-					swapped =true;
+					swapped1 =true;
 				}
 			end-=1;
 			for (i <- end to begin by -1)
 				if (!isSmaller(i,i+1)) {
 					swap(i,i+1);
-					swapped =true;
+					swapped2 =true;
 				}
 			begin+=1;
-		} while (swapped && end-begin>1);
+		} while (swapped1 && swapped2 && end-begin>1);
 }

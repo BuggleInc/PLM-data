@@ -1,0 +1,38 @@
+override def run() {
+  var state = 0;
+  while(!isOverBaggle()){
+		state match {
+      case 0 => 
+      	while(!isFacingWall())
+	      	forward();
+      	right();
+      	state = 1;
+      case 1 =>
+      	keepHandOnSideWall();
+      	if(getDirection == Direction.NORTH && northOK())
+      		state = 0;
+      
+    }
+    
+  }
+  pickupBaggle();
+
+}
+  
+
+
+def keepHandOnSideWall() {
+  while(!isFacingWall()){
+    forward();
+    left();
+  }
+  right();
+}
+
+def northOK() : Boolean = {
+  var dir = getDirection();
+  setDirection(Direction.NORTH);
+  var nOK = !isFacingWall();
+  setDirection(dir);
+  return nOK;
+}

@@ -1,0 +1,34 @@
+override def run() {
+  
+  if(!hasWallLeft())
+  	placeWallLeft();
+  
+  while(!isOverBaggle())
+  	keepHandOnSideWall();
+  
+  pickupBaggle();
+}
+
+
+def keepHandOnSideWall() {
+  while(!isFacingWall()){
+    forward();
+    left();
+  }
+  right();
+}
+
+def hasWallLeft() : Boolean = {
+  left();
+  var isThere = isFacingWall();
+  right();
+  return isThere;
+}
+
+def placeWallLeft(){
+  while(!isFacingWall()){
+    forward();
+  }
+  right();
+  
+}
