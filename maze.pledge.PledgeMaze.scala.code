@@ -15,36 +15,37 @@ def keepHandOnSideWall(a:Int):Int = {
       avance()
     } else {
       gauche()
-      sommeAngle += 1
+      sommeAngle += 1 //
       avance()
       if (!checkMur()){
         gauche()
-        sommeAngle += 1
+        sommeAngle += 1 //
         avance()
         if(!checkMur){
           recule()
           droite()
-          sommeAngle += -2
+          sommeAngle += -1 /**/
           recule()
           droite()
+          sommeAngle += -1 /**/
           avance()
         }
       }
     }
   } else{
     droite()
-    sommeAngle += -1
+    sommeAngle += -1 /**/
     if(estFaceMur()){
-      gauche();gauche();sommeAngle += 2
+      gauche();gauche();sommeAngle += 2 //   //
       if(estFaceMur()){
         gauche()
-        sommeAngle += 1
+        sommeAngle += 1 //
         avance()
       } else {avance()}
     } else {avance()}
   }
-  while (sommeAngle >= 4){sommeAngle -= 4}
-  while (sommeAngle <= -4){sommeAngle += 4}
+  //while (sommeAngle >= 4){sommeAngle -= 4}
+  //while (sommeAngle <= -4){sommeAngle += 4}
   return sommeAngle
 }
 
