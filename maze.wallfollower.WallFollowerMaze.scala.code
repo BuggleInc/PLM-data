@@ -1,0 +1,19 @@
+override def run() {
+  def go(){
+    if(!isFacingWall()){
+      forward();
+    }
+  }
+  def keepHandOnSideWall() {
+    go();
+    left();
+    if(!isFacingWall()){
+      forward();
+      left();
+      if(!isFacingWall()){
+        forward();
+        left();
+      }
+    }
+  }
+}
