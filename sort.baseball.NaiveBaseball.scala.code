@@ -21,10 +21,9 @@ def distance(base:Int, position:Int, nbBases:Int):Int={
     return 0
   }
   while (cBase != col && col != -1){
-    dist += 2
    	cBase = (cBase+1)%nbBases
   }
-  return dist
+  return dist%3
 }
 
 def trouverTrou(nbBases:Int,nbPos:Int):Int = {
@@ -45,7 +44,7 @@ def deplace(nbBases:Int,nbPos:Int,trou:Int){
   var b=(trou+1)%nbBases
   var dist0 = distance(b,0,nbBases)
   var dist1 = distance(b,1,nbBases)
-  if ( dist0 > dist1){
+  if ( dist0 >= dist1){
     deplace(b,0)
   }
   else{
