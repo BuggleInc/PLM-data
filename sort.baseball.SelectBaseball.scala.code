@@ -62,7 +62,7 @@ def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace
 
       
 def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la position du joueur qui doit être déplacé.
-  var result:Int = (base)%n
+  var result:Int = (base-1)%n
   while ((getCouleurJoueur(result, 0)!=base) && (getCouleurJoueur(result, 1)!=base)) {
     deplace(result, 0)
     result = result+1
