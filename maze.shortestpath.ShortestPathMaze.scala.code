@@ -19,11 +19,15 @@ override def run() {
     if (!aMurOuest(x,y)) {
       setIndication(x,y-1,cpt)
     }
-    if (!aMurSud(x,y)) {
-      setIndication(x-1,y,cpt)
+    if (y>0) {
+    	if (!aMurNord(x,y-1)) {
+      	setIndication(x-1,y,cpt)
+    	}
     }
-    if (!aMurEst(x,y)) {
-      setIndication(x,y+1,cpt)
+    if (x<getMondeLargeur) {
+    	if (!aMurOuest(x+1,y)) {
+      	setIndication(x,y+1,cpt)
+    	}
     }
   }
 }
