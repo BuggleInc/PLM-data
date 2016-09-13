@@ -1,10 +1,15 @@
 def bubbleSort()  
 {
-  for(i<-0 to (getNombreValeurs()-2))
+  for(i<-0 to (getNombreValeurs()-2)) 
+  //on prend chaque élément de la liste pour le remonter
   	{
-      if (plusPetit(getValeur(i+1),getValeur(i)))
+      for (j<-1 to (getNombreValeurs()-i))
+      //chaque élément va être comparé lgr-i fois
       	{
-          echange(i,i+1)
-        }
-    }
+      		if (plusPetit(getValeur(j),getValeur(i)))
+      			{
+          		echange(i,j)
+        		}
+    		}
+		}
 }
