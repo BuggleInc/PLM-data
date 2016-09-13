@@ -1,0 +1,30 @@
+override def run() {
+  def go(){
+    if(!isFacingWall()){
+      forward();
+    }
+    else {
+      right();
+    }
+  }
+  
+  def keepHandOnSideWall() {
+    go();
+    left();
+    if(!isFacingWall()){
+      forward();
+      left();
+      if(!isFacingWall()){
+        forward();
+        left();
+      }
+    }
+    right();
+  }
+  
+  while(!isOverBaggle()){
+    keepHandOnSideWall()
+  }
+  pickupBaggle();
+  
+}
