@@ -12,33 +12,17 @@ def proche() : Boolean =
 
 def deplacement() 
 {
-  if (getDirection()==Direction.EST)
-  {
-    if (estSurBiscuit())
-    {
-    prendBiscuit()
-    setDirection(Direction.OUEST)
-    }
-    else
+  while (!estSurBiscuit)
     {
       avance()
     }
-    
-  }
-  
-  if (getDirection()==Direction.EST)
+  prendBiscuit()
+  while (!estSurbiscuit)
   {
-    if (!estSurBiscuit)
-    {
-      avance()
-    }
-    else
-    {
-      recule()
-      poseBiscuit()
-      setDirection(Direction.EST)
-    }
+    recule()
   }
+  avance()
+  poseBiscuit()
 
 }
 
@@ -50,4 +34,3 @@ def solution()
   }
   droite();avance();gauche();avance()
 }
-
