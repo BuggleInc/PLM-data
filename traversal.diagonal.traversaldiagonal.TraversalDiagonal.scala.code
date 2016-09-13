@@ -1,0 +1,63 @@
+var diag = 0;
+override def run() {
+  
+  var cpt = 0;
+  var diag2 = -1;
+  
+  def changeDiag() {
+    
+    if (diag < 6) { //1ere moitie du carre + grde diag
+      diag += 1;
+      diag2 +=1;
+      setPos(0,diag);
+      
+    } else if (diag >= 6) {
+      diag += 1;
+      setPos(getMondeHauteur()-1 - diag2,6);
+      diag2 -=1;
+      
+      
+    } 
+  }
+  
+  def diagonale() {
+    
+    if ((getX() == 0) && (getY() == 0)) {
+      ecritMessage(cpt);
+      changeDiag();
+      cpt += 1;
+      
+    } else {
+      ecritMessage(cpt);
+      setPos(getX()+1 , getY()-1);
+      cpt +=1;
+      
+      
+      if (estFaceMur == true) {
+        ecritMessage(cpt);
+        changeDiag();
+        cpt += 1;
+        
+      }
+      
+      if (diag >6) {
+        droite();
+        if (estFaceMur == true) {
+          ecritMessage(cpt);
+        	changeDiag();
+        	cpt += 1;
+        }
+        gauche();
+      }
+      
+    }
+    
+    
+  }
+  
+  while (!((getX() == 6) && (getY() == 6))) {
+    diagonale();
+  }
+  ecritMessage(cpt);
+  
+}

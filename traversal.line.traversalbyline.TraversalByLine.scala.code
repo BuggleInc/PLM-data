@@ -1,0 +1,35 @@
+override def run() {
+    
+   
+  def posFinal() : Boolean =  {
+    
+    var H = getMondeHauteur()-1;
+  	var L = getMondeLargeur()-1;
+        
+    if ((getX() == L) && (getY() == H)) {
+      return true
+    }
+    return false
+    
+  }
+  
+  var cpt = 0
+  
+  while(!posFinal()) {
+    
+    ecritMessage(cpt);
+    
+    if (getX() == getMondeHauteur()-1) {
+      
+      setPos(0, getY()+1)
+      
+    } else {
+  
+      setX(getX()+1)
+    }
+    cpt += 1
+       
+  }
+  ecritMessage(cpt)
+  
+}
