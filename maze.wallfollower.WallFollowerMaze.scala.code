@@ -7,10 +7,12 @@ override def run() {
     return false
   }
   
-  def keepHandOnSideWall() {
+  def keepHandOnSideWall():Boolean = {
+    var t=false
 
     if (!estFaceMur && testgauche) {
       avance()
+      t=true
       if (!testgauche()) {
         gauche();
         avance();
@@ -19,13 +21,14 @@ override def run() {
           avance();
           
         }}}
+    return t
                            
   }
   
   droite()
   while (!estSurBiscuit) {
     
-    if (!estFaceMur) {keepHandOnSideWall()}
+    if (!keepHandOnSideWall()) {droite;avance}
   }
   
   
