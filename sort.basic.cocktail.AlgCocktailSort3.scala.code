@@ -2,29 +2,32 @@ def cocktailSort3() {
   var debut:Int = 0
   var fin:Int = getNombreValeurs() - 2
   var fin2:Boolean = false
-  var echangeFait = true
+  var echangeFaitCroissant = true
+  var echangeFaitDecroissant = true
   
   do {
     fin2 = true
-    echangeFait = false
+    echangeFaitCroissant = false
+    echangeFaitDecroissant = false
     
     for(i <- debut to fin) {
       if(plusPetit(i + 1, i)) {
         echange(i, i + 1)
         fin2 = false
-        echangeFait = true
+        echangeFaitCroissant = true
       }
     }
     
     fin -= 1
-    if(echangeFait == true) {
+    if(echangeFaitCroissant) {
       for(i <- fin to debut by -1) {
         if(plusPetit(i + 1, i)) {
           echange(i + 1, i)
           fin2 = false
+          echangeFaitDecroissant = true
         }
       }
     }
     debut += 1
-  } while(!fin2 && echangeFait)
+  } while(!fin2 && echangeFaitCroissant && (echangeFaitDecroissant && !echangeFaitCroissant)
 }
