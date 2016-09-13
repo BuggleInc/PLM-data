@@ -1,16 +1,9 @@
 override def run() {
   
-   def findExit() : List[Int] = {
-    for(x <- 0 until X){
-      for(y <- 0 until Y){
-        if(hasBaggle(x,y)){
-          return List(x,y);
-        }
-      }
-    }
-    return List(0,0);
+  def parcourirPath{
+    
   }
- 
+  
   val sortie = findExit();
   marquerSol(sortie, 0);
 //  parcourirPath();
@@ -20,6 +13,16 @@ override def run() {
   val X = getWorldWidth();
   val Y = getWorldHeight();
 
+  def findExit() : List[Int] = {
+    for(x <- 0 until X){
+      for(y <- 0 until Y){
+        if(hasBaggle(x,y)){
+          return List(x,y);
+        }
+      }
+    }
+    return List(0,0);
+  }
 
   def marquerSol(casee: List[Int], numero:Int) {
     val x = casee(0);
