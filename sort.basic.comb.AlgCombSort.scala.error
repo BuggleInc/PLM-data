@@ -18,14 +18,14 @@ Note that implicit conversions are not applicable because they are ambiguous:
     i = 0
     ^AlgCombSort:10: error: not found: value i
     while(i+ecart<lgr){
-          ^AlgCombSort:11: error: Int.type does not take parameters
-      if(plusPetit(Int(i+ecart),Int(i))){
-                      ^AlgCombSort:11: error: Int.type does not take parameters
-      if(plusPetit(Int(i+ecart),Int(i))){
-                                   ^AlgCombSort:12: error: Int.type does not take parameters
-        echange(Int(i),Int(i+ecart))
-                   ^AlgCombSort:12: error: Int.type does not take parameters
-        echange(Int(i),Int(i+ecart))
-                          ^AlgCombSort:13: error: not found: value i
+          ^AlgCombSort:11: error: not found: type +
+      if(plusPetit(Int:i+ecart,Int:i)){
+                        ^AlgCombSort:11: error: not found: type i
+      if(plusPetit(Int:i+ecart,Int:i)){
+                                   ^AlgCombSort:12: error: not found: type i
+        echange(Int:i,Int:i+ecart)
+                    ^AlgCombSort:12: error: not found: type +
+        echange(Int:i,Int:i+ecart)
+                           ^AlgCombSort:13: error: not found: value i
         i = i+1
         ^
