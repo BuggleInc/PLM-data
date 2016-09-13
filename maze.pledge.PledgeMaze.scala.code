@@ -5,7 +5,9 @@ override def run() {
     while (!estFaceMur() && getDirection()==Direction.NORTH){
       avance()
     }
-    do {  
+    droite()
+    sommeAngle=-1
+    while (sommeAngle!=0 && !isDirectionFree(Direction.NORTH) ) {  
       if (estFaceMur()){
         droite()
         sommeAngle=sommeAngle-1
@@ -16,8 +18,9 @@ override def run() {
           avance();gauche()
           sommeAngle=sommeAngle+1
         }
-        droite()}
-    } while(sommeAngle!=0 && !isDirectionFree(Direction.NORTH))  
+        droite()
+      }
+    }   
   }
   prendBiscuit()
 }
