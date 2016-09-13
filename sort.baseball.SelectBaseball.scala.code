@@ -4,7 +4,7 @@ override def run() {
   var baseLibre:Int = getTrouBase()
   var trouLibre:Int = getTrouPosition()
   
-  for (base <- 1 to n) {
+  for (base <- 2 to n) {
     
     if (!estBaseTriee(base)) {
       
@@ -28,6 +28,9 @@ override def run() {
   }
 }
 
+
+
+
 def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace le joueur de (baseDepart,posDepart) à
   var baseTemp:Int = baseDepart-1                                     //(base,pos).
   var compt:Int = baseDepart-base-2
@@ -48,6 +51,9 @@ def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace
   deplace(base,pos)
   deplace(base+1,0)
 }
+
+
+
       
 def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la position du joueur qui doit être déplacé.
   var result:Int = (base+1+n)%n
@@ -64,7 +70,10 @@ def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la positi
   }
 }
 
-      
+     
+
+
+
 /*      
       baseCible = getCouleurJoueur(base, 0)
       if (baseCible!=base) {                 //Si le joueur en (base, 0) n'est pas bien placé, on le déplace.
