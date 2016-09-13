@@ -1,14 +1,17 @@
 def bubbleSort2() {
-  var ech: Boolean = false
-  while (ech == false) {
-  	for (i<- getNombreValeurs()-2 to 0) {
-      for (j<- 0 to i) {
-        if (plusPetit(j+1,j)) {
-      		echange(j,j+1);
-      	} else {
-          ech = true
-        }   
-    	}
-  	}
+  var compte: Int = 0
+  for (i<- getNombreValeurs()-2 to 0) {
+    for (j<- 0 to i) {
+      if (plusPetit(j+1,j)) {
+      	echange(j,j+1); compte = compte +1
+      }
+    }
+    if (compte !=0) {
+      bubbleSort();
+    }
   }
 }
+      
+    
+      
+    
