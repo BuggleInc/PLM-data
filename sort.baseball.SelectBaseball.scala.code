@@ -22,8 +22,8 @@ override def run() {
         bougerTrouG(alterneP)
         if (bonJoueurDroite(B) != 9999){
           deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
-          alterneP = (alterneP+1)%2
-        }
+          if (trouverTrou()!=B+1){alterneP = (alterneP+1)%2}
+          }
       }
       
       // On regarde si le buggles est de la bonne couleur
