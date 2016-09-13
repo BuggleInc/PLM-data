@@ -2,28 +2,31 @@ override def run() {
   var cpt=0
   do(if(estFaceMur){
   	while(cpt!=0 && isDirectionFree(Direction.NORTH)){
-    	keepHandOnSideWall(cpt)
+    	keepHandOnSideWall()
+      cpt=dir
     }
     avance()
   })while(!estSurBiscuit)
 }
 
-def keepHandOnSideWall(cpt:Int){
+def keepHandOnSideWall(){
+  var dir = 0
  	if(estFaceMur()){
     gauche()
-    cpt=cpt+1
+    dir=dir+1
   }  
   if(estFaceMur()){
     gauche()
-    cpt=cpt+1
+    dir=dir+1
   }
   if(estFaceMur()){
     gauche()
-    cpt=cpt+1
+    dir=dir+1
   }
   avance()
   droite()
-  cpt=cpt-1
+  dir=dir-1
+  return dir
 }
 
 def isDirectionFree(dir:Direction): Boolean ={
