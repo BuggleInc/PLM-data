@@ -71,6 +71,34 @@ override def run() {
   
   
   }
-  //Remonter la Grille
+  
+  while (!estSurBiscuit()) {
+    
+    //Determiner La Meilleure Direction™
+    var valDirection =  Array(9999,9999,9999,9999) //N S E O
+    var Directions = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
+    
+    //Nord
+    if (getY()>0 && !aMurNord(x,y)) {valDirection[0] = getIndication(x,y-1)}
+    
+    //Sud
+    if (getY()<Hauteur-1 && !aMurNord(x,y+1)) {valDirection[1] = getIndication(x,y+1)}
+    
+    //Est
+    if (getX()<Largeur-1 && !aMurOuest(x+1,y)) {valDirection[2] = getIndication(x+1,y)}
+    
+    //Ouest
+    if (getX()>0 && !aMurOuest(x,y)) {valDirection[3] = getIndication(x-1,y)}
+    
+    
+    var dirMin = Directions[valDirection.indexOf(valDirection.min)]
+    //S'orienter vers elle
+    setDirection(dirMin)
+    //avancer
+    avance()
+    
+  }
+ 
+ prendBiscuit()
 
 }
