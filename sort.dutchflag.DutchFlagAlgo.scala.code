@@ -3,17 +3,15 @@ def solve() {
   var blancRouge= getTaille() -1
   var apresBlanc= getTaille() -1
   while(!estTrie){
-  var v = 0
-  for(i<- 1 to getTaille()-1){
-    v = getCouleur(i)
-    var j=i
-    if(getCouleur(i)== Color.BLUE){
-      while(j>apresBleu){
-        echange(j-1,j)
-        j=j-1
-      }
-      apresBleu+=1
-    }
+  	for(i<- 1 to getTaille()-1){
+    	var j=i
+    	if(getCouleur(i)== Color.BLUE){
+      	while(j>apresBleu){
+        	echange(j-1,j)
+        	j=j-1
+      	}
+      	apresBleu+=1
+    	}
     j=i
     if(getCouleur(i)== Color.WHITE){
       while(j>apresBleu+1 && getCouleur(j-1)!=getCouleur(j)){
