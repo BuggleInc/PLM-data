@@ -19,26 +19,28 @@ def solve() {
   var posBleu=0
   var posBlanc=blue+1
   var posRouge=posBlanc+1
-
-  for (j<- 0 to lgr-1){
-    if (getCouleur(j)==BLEU){
-      if (j>blue-1){
-      	echange(j,posBleu)
+	
+  while (estTrie()!=false){
+    for (j<- 0 to lgr-1){
+      if (getCouleur(j)==BLEU){
+        if (j>blue-1){
+          echange(j,posBleu)
+        }
+        posBleu+=1
       }
-      posBleu+=1
-    }
-    else if(getCouleur(j)==BLANC){
-      if ((j>blue-1)&&(j<lgr-red)){
-      }else{
-        echange(j,posBlanc)
+      else if(getCouleur(j)==BLANC){
+        if ((j>blue-1)&&(j<lgr-red)){
+        }else{
+          echange(j,posBlanc)
+        }
+        posBlanc+=1
       }
-      posBlanc+=1
-    }
-    else{
-      if (j<(lgr-red)){
-      	echange(j,posRouge)
+      else{
+        if (j<(lgr-red)){
+          echange(j,posRouge)
+        }
+        posRouge+=1
       }
-      posRouge+=1
     }
   }
 }
