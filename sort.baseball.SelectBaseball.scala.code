@@ -4,8 +4,9 @@ override def run() {
   var base:Int = primeHole
   var nbMP:Int = 0 //nombre de joueurs qu'il manque dans la base
   
-  for (i <- 0 to n-2) {
-    base = (primeHole+i)%n
+  ameneTrouLibreAuDepart()
+  
+  for (base <- 0 to n-2) {
   
     nbMP = nbMissingPlayers(base)
     
@@ -32,6 +33,13 @@ override def run() {
     
   }
   
+}
+
+
+def ameneTrouLibreAuDepart(primeHole:Int) {
+  for (i <- 0 to primeHole) {
+    deplace(primeHole-i, 0)
+  }
 }
 
 
