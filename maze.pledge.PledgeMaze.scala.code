@@ -1,0 +1,57 @@
+override def run() {
+  var nord=grandNord()
+  while (!estSurBiscuit()){
+    if (allerAuNord && nord==false){
+      setDirection(Direction.NORTH)
+      avance()
+      nord=grandNord()
+      if (nord==true){
+        retourne()
+      }
+    }
+    else if (keepHandOnSideWall()==true){
+      if (!estFaceMur()){
+        avance()
+      }else{
+        droite()
+        if (estFaceMur()){
+          droite()
+        }
+        avance()
+      }
+    }else{
+      gauche()
+      avance()
+    }
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall():Boolean={
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true;
+  }else{
+    droite()
+    return false;
+  }
+}
+
+def allerAuNord():Boolean={
+  var direction=getDirection()
+  setDirection(Direction.NORTH)
+  if (estFaceMur){
+    setDirection(direction)
+    return false
+  }
+  setDirection(direction)
+	return true
+}
+
+def grandNord():Boolean={
+  if (getY()==0){
+    return true
+  }
+  return false
+}
