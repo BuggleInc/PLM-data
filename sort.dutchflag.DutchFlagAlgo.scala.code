@@ -4,13 +4,13 @@ def solve() {
     var k = getSize()-1
     var j = i
     if (getColor(i)==RED){
-      while (getColor(j)==RED){
-        j=j+1
+      while (getColor(k)==RED && k>0){
+        k=k-1
       }
-      swap(i,j)
+      swap(i,k)
     }
-    if (getColor(k)==BLUE){
-      k=k+1
+    if (getColor(k)==BLUE && j<getSize-1){
+      j=j+1
     }
     swap (i,k)
   }
