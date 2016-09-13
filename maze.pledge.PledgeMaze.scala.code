@@ -1,23 +1,23 @@
 override def run() {
   var turn:Int=0
-    def keepLeftHand() {
+    def keepLeftHand(turn:Int):Int {
       left()
       turn+=1
       if ( ! isFacingWall()) {
-        forward() 
+        forward() ; return turn
         } else {
     					right()
         			turn-=1
     					if (! isFacingWall()) {
-                forward
+                forward ; return turn
               } else {
                 	right()
                 turn-=1
                 	if (! isFacingWall()) {
-                  	forward
+                  	forward ; return turn
                 	} else {
                   right()
-                    turn-=1
+                    turn-=1 ; return turn
                 }
               }
             }
@@ -34,13 +34,13 @@ override def run() {
         return true
       }
     }
-  
+  var turn:Int=0
   setDirection(Direction.NORTH)
    while (!isOverBaggle()) {
     setDirection(Direction.NORTH)
     if (! isFacingWall()) {forward}
     else { while (! dirFree(Direction.NORTH) && turn!=0)
-      keepLeftHand()
+     turn= keepLeftHand(turn)
     }
   }
   pickupBaggle()
