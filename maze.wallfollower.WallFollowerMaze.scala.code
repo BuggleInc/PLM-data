@@ -1,13 +1,15 @@
 override def run() {
   
-  def keepHandOnSideWall() {
+  def bloque() {
     var t1=estDosMur
  		var t2=estFaceMur
-    while (!(t1&&(!t2))) {
+    return t1&&t2
+  }
+  
+  def keepHandOnSideWall() {
+    while (estFaceMur) {
       droite()
-      t1=estDosMur
-			t2=estFaceMur
-      if (estDosMur) {return}
+      if (!bloque) {return}
     }
     
   }
