@@ -4,7 +4,6 @@ def cocktailSort3() {
   var debut=0
   var fin=x-2
   var ok:Boolean=false
-  var na=0
   do  {
     ok=false
     for (i <- debut to fin) {
@@ -14,16 +13,17 @@ def cocktailSort3() {
         na+=1
       }
     }
-    if (na==0 | na=getNombreValeurs-2) {
+    if (!ok) {
       return
-    } else {
+    }
+    ok=false
     fin-=1
     for (i <- fin to debut by -1) {
       if (plusPetit(i+1,i)) {
         echange(i+1,i)
         ok=true
       }
-    } }
+    }
     debut+=1
-    } while (ok)
+    } while (ok & fin-debut>1)
 }
