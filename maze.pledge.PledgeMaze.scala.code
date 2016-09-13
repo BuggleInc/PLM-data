@@ -44,11 +44,9 @@ def estSurMurNord():Boolean = {
 
 def eviteObstacle(){
   var sommeAngle:Int = 0
-  if (estFaceMur()){
-    do{
-    	sommeAngle = keepHandOnSideWall(sommeAngle)
-    }while (sommeAngle != 0 && isDirectionFree(Direction.NORTH))
-  } else {avance()}
+  do{
+  	sommeAngle = keepHandOnSideWall(sommeAngle)
+  }while (sommeAngle != 0 && isDirectionFree(Direction.NORTH))
 }
 
 def isDirectionFree(dir:Direction):Boolean = {
