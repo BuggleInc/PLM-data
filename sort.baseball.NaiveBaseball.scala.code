@@ -14,9 +14,9 @@ override def run()
 
     for (i <- 0 to nbPos-1)
     {
-      if (currBase-getCouleurJoueur(currBase, i) != 0 && getCouleurJoueur(currBase, i)-currBase >= maxDist)
+      if (currBase-getCouleurJoueur(currBase, i) != 0 && abs(getCouleurJoueur(currBase, i)-currBase) >= maxDist)
       {
-        maxDist = getCouleurJoueur(currBase, i)-currBase;
+        maxDist = abs(getCouleurJoueur(currBase, i)-currBase);
         posMaxBuggle = i;
       }
     }
@@ -24,4 +24,10 @@ override def run()
   	deplace(currBase, posMaxBuggle);
   }
   deplace(getTrouBase(), 1)
+}
+
+def abs(x:Int):Int =
+{
+  if (x > 0) return x;
+  else return -x;
 }
