@@ -1,8 +1,32 @@
 override def run() {
-  do (baisseBrosse();
-      avance();)
-  while { (estFaceMur()) && (if (getDirection() == Direction.EST)) || (if getDirection() == Direction.OUEST)) {
-    estFaceMur();
-
+  while (!fonctionTest()) {
+    baisseBrosse();
+    avance();
   }
-        }
+}
+
+def fonctionTest() : Boolean = {
+  if (estFaceMur()) {
+    if (getDirection() == Direction.EST)
+    { retourne();
+     if (estFaceMur()) {
+       gauche();
+       avance();
+       gauche();
+       avance();
+     }
+
+    }
+    if (getDirection() == Direction.OUEST)
+    { retourne();
+     if (estFaceMur()) {
+       droite();
+       avance();
+       droite();
+       avance();
+     }
+
+    }
+  }
+  else {avance();}
+}
