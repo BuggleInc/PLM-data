@@ -1,8 +1,17 @@
 def combSort11() {
-  while(i+ecart < getNombreValeurs()){
+  var ecart:Int = getNombreValeurs()
+  var i:Int = 1 
+  var a:Boolean =true
+  while(ecart > 1|| a )  {
+    a= false
+     if (ecart > 1){ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]}
+    i = 0
+    while(i+ecart < getNombreValeurs()){
       if (!plusPetit(i,i+ecart)){
-        echange (i,i+ecart)
-        i +=1
+        echange(i,i+ecart)
+        a=true
       }
+      i+=1
     }
+  }
 }
