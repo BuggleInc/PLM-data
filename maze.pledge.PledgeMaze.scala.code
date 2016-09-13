@@ -8,7 +8,7 @@ def checkMur():Boolean = {
   return false
 }
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(sommeAngle:Int):Int = {
   if(!estFaceMur()){
     if (checkMur()){
       avance()
@@ -34,6 +34,7 @@ def keepHandOnSideWall(){
       avance()
     }
   }
+  return sommeAngle
 }
 
 def estSurMurNord():Boolean = {
@@ -44,7 +45,7 @@ def eviteObstacle(){
   var sommeAngle:Int = 0
   if (estFaceMur()){
     do{
-    	keepHandOnSideWall()
+    	sommeAngle = keepHandOnSideWall(sommeAngle)
     }while (sommeAngle != 0 && isDirectionFree(Direction.NORTH))
   } else {avance()}
 }
