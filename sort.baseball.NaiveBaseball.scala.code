@@ -14,10 +14,10 @@ override def run()
 
     for (i <- 0 to nbPos-1)
     {
-      if (getCouleurJoueur(currBase, i)-i > maxDist)
+      if (currBase-getCouleurJoueur(currBase, i) > maxDist)
       {
-        maxDist = getCouleurJoueur(currBase, i)-i;
-        posMaxBuggle = i;
+        maxDist = currBase-getCouleurJoueur(currBase, i);
+        posMaxBuggle = currBase;
       }
     }
     
