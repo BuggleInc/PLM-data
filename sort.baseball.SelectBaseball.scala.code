@@ -1,0 +1,22 @@
+override def run()
+{
+  var nbBases = getNombreBases();
+  
+  for (i <- 0 to nbBases-1)
+  {
+  }
+}
+
+def trouverJoueur(couleur:Int):(Int,Int) =
+{
+  var nbBases = getNombreBases();
+  
+  for (i <- 0 to nbBases-1)
+  {
+    for (j <- 0 to nbPos-1)
+    {
+      if (getCouleurJoueur(i,j) != couleur) return (i,j);
+    }
+  }
+  return (-1, -1);
+}
