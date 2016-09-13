@@ -1,0 +1,53 @@
+def proche() : Boolean =
+{
+  if (estFaceMur() && !estSurBiscuit())
+  {
+    return true
+  }
+  else 
+  {
+    return false  
+  }
+}
+
+def deplacement() 
+{
+  if (getDirection()==Direction.EST)
+  {
+    if (estSurBiscuit())
+    {
+    prendBiscuit()
+    setDirection(Direction.OUEST)
+    }
+    else
+    {
+      avance()
+    }
+    
+  }
+  
+  if (getDirection()==Direction.EST)
+  {
+    if (!estSurBiscuit)
+    {
+      avance()
+    }
+    else
+    {
+      recule()
+      poseBiscuit()
+      setDirection(Direction.EST)
+    }
+  }
+
+}
+
+def solution()
+{
+  while (!proche())
+  {
+    deplacement()
+  }
+  droite();avance();gauche();avance()
+}
+
