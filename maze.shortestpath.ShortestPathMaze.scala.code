@@ -1,5 +1,13 @@
 var x = 0
 var y = 0
+var xNord = 0
+var yNord = 0
+var xOuest = 0
+var yOuest = 0
+var xSud = 0
+var ySud = 0
+var xEst = 0
+var yEst = 0
 var cpt = 1
 override def run() {
 	for (i<-1 to getMondeLargeur-1) {
@@ -12,22 +20,30 @@ override def run() {
     }
   }
   while (true) {
-    if (!aMurNord(x,y)) {
-      setIndication(x,y-1,cpt)
-      cpt+=1
-    }
-    if (!aMurOuest(x,y)) {
-      setIndication(x-1,y,cpt)
-    }
-    if (y>0) {
-    	if (!aMurNord(x,y-1)) {
-      	setIndication(x,y+1,cpt)
-    	}
-    }
-    if (x<getMondeLargeur) {
-    	if (!aMurOuest(x+1,y)) {
-      	setIndication(x+1,y,cpt)
-    	}
+		for (i<-1 to getMondeLargeur-1) {
+   		for (j<-1 to getMondeHauteur-1) {
+        x=i
+        y=j
+        while (getIndication(x,y)!=9999) {
+          if (!aMurNord(x,y)) {
+            setIndication(x,y-1,cpt)
+            cpt+=1
+          }
+          if (!aMurOuest(x,y)) {
+            setIndication(x-1,y,cpt)
+          }
+          if (y>0) {
+            if (!aMurNord(x,y-1)) {
+              setIndication(x,y+1,cpt)
+            }
+          }
+          if (x<getMondeLargeur) {
+            if (!aMurOuest(x+1,y)) {
+              setIndication(x+1,y,cpt)
+            }
+          }
+        }
+      }
     }
   }
 }
