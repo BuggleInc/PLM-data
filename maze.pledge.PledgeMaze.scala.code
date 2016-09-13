@@ -29,8 +29,21 @@ override def run() {
       if (sommeAngle==0){
         angleSomme=true
       }
-    }while(nord){
-      
+    }while(nord==true){
+      if (keepHandOnSideWall()==true){
+      if (!estFaceMur()){
+        avance()
+      }else{
+        droite()
+        if (estFaceMur()){
+          droite()
+        }
+        avance()
+      }
+    }else{
+      gauche()
+      avance()
+    }
     }
   }
   prendBiscuit()
