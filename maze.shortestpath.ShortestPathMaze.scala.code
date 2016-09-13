@@ -12,17 +12,14 @@ override def run() {
   
   
   
-  var _C : Queue[Int] = new Queue[Int] ()
+  var _C:Queue[Int]=Queue[Int](x+100*y+10000*0)
   
-  _C(1)=x+100*y+10000*0
   
   while(_C.size != 0){
     
     
-    var elements : Int = 4 * _C.size
-    var _C_ : Array[Int] = new Array[Int] (elements)
 
-    for(it <- 0 to _C.size -1){
+    
       
       
       var x = _C(it)%100
@@ -32,51 +29,28 @@ override def run() {
 
       if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
         setIndication(x-1,y,num+1)
-        _C_(4*it)=x-1 + 100*y + 10000*(num+1)
+        _C += x-1 + 100*y + 10000*(num+1)
       }
-      else{
-        _C_(4*it)= (-1)
-        elements-=1
-      }
+
       
       if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999 ){
         setIndication(x,y-1,num+1)
-        _C_(4*it+1)=x+100*(y-1)+10000*(num+1)
-      }
-      else{
-        _C_(4*it+1)= (-1)
-        elements-=1
+        _C += x+100*(y-1)+10000*(num+1)
       }
       
       if(x<n-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)==9999 ){
         setIndication(x+1,y,num+1)
-        _C_(4*it+2)=x+1+100*y+10000*(num+1)
+        _C += x+1+100*y+10000*(num+1)
       }
-      else{
-        _C_(4*it+2)= (-1)
-        elements-=1
-      }
+
       
       if(y<m-1 && !hasTopWall(x,y+1) && getIndication(x,y+1)==9999){
         setIndication(x,y+1,num+1)
-        _C_(4*it+3)=x+100*(y+1)+10000*(num+1)
-      }
-      else{
-        _C_(4*it+3)= (-1)
-        elements-=1
+        _C += x+100*(y+1)+10000*(num+1)
       }
 
-    }
-    _C=new Array[Int](elements)
-    var it : Int = 0
-    var j : Int = 0
-    while(j < _C_.size && j<_C.size){
-       if(_C_(j) != (-1) ){
-       	_C(it)=_C_(j)
-        it += 1 
-       }
-       j+=1
-     }
+    
+    
   }
 }
 
