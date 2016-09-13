@@ -8,9 +8,11 @@ def cocktailSort2() {
   
   do{
     fini = true;
-    if(leftToRight) for (i <- debut to fin) if (plusPetit(i+1, i)){
+    if(leftToRight) for (i <- debut to fin) {
+      if (plusPetit(i+1, i)){
       echange(i,i+1);
       fini = false;
+      }
       fin -= 1;
     }
     else for(i <- debut to fin){
@@ -20,6 +22,7 @@ def cocktailSort2() {
         fini = false;
         debut += 1;
       }
+      debut += 1;
     }
     
     leftToRight = !leftToRight;
