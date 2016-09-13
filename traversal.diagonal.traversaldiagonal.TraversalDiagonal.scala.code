@@ -1,5 +1,6 @@
 var diag = 0;
-var count:Int = 0
+var count:Int = 0;
+var a:Int = 1;
 
 override def run() {
   
@@ -21,11 +22,12 @@ def avancer1(){
 
 def avancer2(){
   
-  for (x <- 1 to 6){
-    for (y <- 0 to x){
-      setPos(x,-y+x);
+  for (y <- a to 6 by -1){
+    for (x <- a to y){
+      setPos(x,y);
       ecritMessage(count);
       count+=1;
+      a+=1;
     }
   }
 }
