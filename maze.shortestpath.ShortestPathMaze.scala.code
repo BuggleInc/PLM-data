@@ -1,5 +1,25 @@
 override def run() {
 
-  setIndication(0,0,0)
+ 	//Trouver la Sortie
+  var xSortie = 0
+  var ySortie = 0
+  var Largeur = getMondeLargeur()
+  var Hauteur = getMondeHauteur()
+  
+  for (x <- 0 to Largeur-1; y <- 0 to Hauteur-1) {
+    
+    if (aBiscuit(x,y)) {
+      
+      xSortie = x; ySortie = y;
+      
+    }
+    
+  }
+  //Lui Mettre 0
+  var distance = 0
+  var compteurCases = 0
+  setIndication(xSortie,ySortie,distance)
+  //Marquer le reste de la grille
+  //Remonter la Grille
   
 }
