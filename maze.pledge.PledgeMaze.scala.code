@@ -2,22 +2,22 @@ override def run() {
   
     def keepLeftHand(turn:Int):Int ={
       left()
-      turn+=1
+      turn=turn+1
       if ( ! isFacingWall()) {
         forward() ; return turn
         } else {
     					right()
-        			turn-=1
+        			turn=turn-1
     					if (! isFacingWall()) {
                 forward ; return turn
               } else {
                 	right()
-                turn-=1
+                turn=turn - 1
                 	if (! isFacingWall()) {
                   	forward ; return turn
                 	} else {
                   right()
-                    turn-=1 ; return turn
+                    turn= turn - 1 ; return turn
                 }
               }
             }
