@@ -3,7 +3,7 @@ def cocktailSort3()  {
   var fin = getNombreValeurs -2
   var nbEchangesC = 1
   var nbEchangesD = 1
-  while(nbEchangesD!=0 ) {
+  while(nbEchangesD!=0 && nbEchangesC!=0) {
     nbEchangesC=0
     nbEchangesD=0
     for(i<- debut to fin) {
@@ -21,6 +21,9 @@ def cocktailSort3()  {
         echange(i,i+1)
         nbEchangesD=nbEchangesD+1
       }
+    }
+    if(nbEchangesD == 0) {
+      return
     }
     debut=debut+1
   }
