@@ -1,21 +1,20 @@
 def cocktailSort() {
   var n = getValueCount();
-  var isSorted = false;
+  var hadInversed = true;
   do {
-    isSorted =true;
+    hadInversed =false;
     for (i <- 0 to n-2) {
       if (isSmaller(i, i+1)) {
         swap(i, i+1);
-        isSorted = false;
+        hadInversed = true;
       }
     }
-    if (!isSorted) {
-    	for (i <- (n-2) to 0 by -1) {
-      	if (isSmaller(i, i+1)) {
-        	swap(i, i+1);
-        	isSorted = false;
+    for (i <- (n-2) to 0 by -1) {
+      if (isSmaller(i, i+1)) {
+        swap(i, i+1);
+        hadInversed = true;
       	}
     	}
   	}
-  } while (!isSorted)
+  } while (hadInversed)
 }
