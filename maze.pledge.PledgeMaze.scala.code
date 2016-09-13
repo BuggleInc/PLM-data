@@ -8,7 +8,7 @@ override def run() {
     droite()
     cmp = cmp-1
     while((cmp != 0)&&(!(isDirectionFree(dir)))){
-      keepHandOnSideWall()
+      cmp = cmp + keepHandOnSideWall()
     }
   }
   prendBiscuit()
@@ -17,21 +17,21 @@ override def run() {
 
 
 def keepHandOnSideWall():Int = {
-  var dir:Int = +1
-  gauche
+  var tmp:Int = +1
+  gauche()
   if (estFaceMur()){
     droite()
   }
-  if (estFaceMur()){
+  else if (estFaceMur()){
     droite()
-    dir = dir -1
+    tmp = tmp -1
   }
-  if (estFaceMur()){
+  else if (estFaceMur()){
     droite()
-    dir = dir -1
+    tmp = tmp -1
   }
   avance()
-  return dir
+  return tmp
 }
 
 def isDirectionFree(dir:Direction):Boolean = {
