@@ -1,10 +1,20 @@
 override def run() {
-   def force(n:Int,x:Int,y:Int){
+   def aMurEst(x:Int,y:Int):Boolean={
+     if(x<getMondeLargeur() && !aMurOuest(x+1,y)){return false}
+     return true
+   }
+  def aMurSur(x:Int,y:Int):Boolean={
+    if(y<getMondeHauteur() && !aMurNord(x,y+1)){return false}
+    return true}
+  
+  
+  
+  def force(n:Int,x:Int,y:Int){
      if(!estSurMessage()){ecritMessage(n)
-                         if(aMurNord(x,y)){force(n+1,x,y-1)}
-                         if(aMurOuest(x,y)){force(n+1,x+1,y)}
-                         if(aMurEst(x,y)){force(n+1,x-1,y)}
-                         if(aMurSud(x,y)){force(n+1,x,y+1)}}
+                         if(!aMurNord(x,y)){force(n+1,x,y-1)}
+                         if(!aMurOuest(x,y)){force(n+1,x+1,y)}
+                         if(!aMurEst(x,y)){force(n+1,x-1,y)}
+                         if(!aMurSud(x,y)){force(n+1,x,y+1)}}
    }
   for(x<- 0 to getMondeLargeur()-1){
     for(y<- 0 to getMondeHauteur()-1){
