@@ -1,11 +1,10 @@
 def insertionSort() {
   for (i<- 1 to getNombreValeurs()-1){
     var v = getValeur(i)
-    var j = i
+
     if (plusPetit(v,getValeur(j-1))){
-    while (j>1 && plusPetit(v,getValeur(j-1))){
-      copy(j-1,j)
-      j-=1
+			for (j<- 1 to i){
+      copy(i-j-1,i-j)
     }
     
 		setValeur(j-1,v)
