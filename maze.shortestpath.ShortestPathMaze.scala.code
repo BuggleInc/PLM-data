@@ -28,18 +28,42 @@ override def run() {
       if (getIndication(x,y)==distance-1) {
         //Les Marquer
         
-        avance()
-        compteurCases = compteurCases + 20
+        //Nord
+        if (y>0 && !aMurNord(x,y) && getIndication(x,y-1)==9999) {
+          
+          setIndication(x,y-1,distance)
+          compteurCases = CompteurCases + 1
+          
+        //Sud
+        } else if (y<Hauteur-1 && !aMurNord(x,y+1) && getIndication(x,y+1)==9999) {
+          
+          setIndication(x,y+1,distance)
+          compteurCases = CompteurCases + 1
+          
+        //Est  
+        } else if (x<Largeur-1 && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999) {
+          
+          setIndication(x+1,y,distance)
+          compteurCases = CompteurCases + 1
         
-      }
+        //Ouest  
+      	} else if (x>0 && !aMurOuest(x,y) && getIndication(x-1,y)==9999) {
+          
+          setIndication(x-1,y,distance)
+          compteurCases = CompteurCases + 1
+          
+        }
       
       
-    }
+    	}
     	
     //Augmenter la distance
     distance = distance + 1
     
+  	}
+  
+  
   }
   //Remonter la Grille
-  
+
 }
