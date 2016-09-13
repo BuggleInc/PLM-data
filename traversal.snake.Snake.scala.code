@@ -1,7 +1,6 @@
 override def run() {
   while (!fonctionTest()) {
     baisseBrosse();
-    avance();
     if (!estFaceMur()) {
       avance();
     }
@@ -30,17 +29,17 @@ def fonctionTest() : Boolean = {
       retourne();
       gauche();
       if (estFaceMur()) {
+        retourne();
         return true
-        droite()
       }
     }
     if (getDirection() == Direction.OUEST) {
       retourne();
       droite();
       if (estFaceMur()) {
+        retourne();
         return true
-        gauche()
-      }
+        }
     }
 
   }
