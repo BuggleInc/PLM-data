@@ -1,10 +1,14 @@
 override def run() {
-  var cmpt:Int = 0
+  while(!estFaceMur){
+    avance()
+  }
+  var cmpt:Int = -1
+  droite()
   while(!estSurBiscuit){
-    if((!(isDirectionFree(Direction.NORTH)))|(!(cmpt==0))) {
-      cmpt = keepHandOnSideWall() + cmpt
-    } else {
-      setDirection(Direction.NORTH)
+    while(cmpt!=0){
+    	cmpt = cmpt + keepHandOnSideWall()
+    }
+    if (!estFaceMur){
       avance()
     }
   }
@@ -15,8 +19,6 @@ override def run() {
 
 def keepHandOnSideWall():Int = {
   var dir:Int = 0
-  gauche()
-  dir = dir + 1
   if (estFaceMur()){
     droite()
     dir = dir -1
