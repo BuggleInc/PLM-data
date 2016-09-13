@@ -1,0 +1,66 @@
+override def run() {
+  def isDirectionFree(dir:Direction):Boolean={
+    var dirM:Direction=getDirection()
+    setDirection(dir)
+    if estFaceMur(){setDirection(dirM)
+                   return false}
+    setDirection(dirM)
+    return true}
+  
+  def murGaucheL():Boolean={gauche()
+                           if(estFaceMur()){droite()
+                                            return false}
+                           droite()
+                           return true}
+  def murDroitL():Boolean={droite()
+                           if(estFaceMur()){gauche()
+                                            return false}
+                           gauche()
+                           return true}
+  
+  do{
+    if(isDirectionFree(Direction.NORTH)){setDirection(Direction.NORTH)
+                                         avance()}else{
+
+      var sommeAngl=0
+      do{
+        if(!murGaucheL()){gauche()
+                        avance()
+                        sommeAngl-=1}
+        else if(!estFaceMur()){avance()}
+        else if(!murDroitL()){droite()
+                             avance()
+                             sommeAngl+=1}
+        else{droite()
+            droite()
+            avance()
+            sommeAngl+=2}
+        
+        
+        
+        
+        
+      }while(!estSurBiscuit && sommeAngl!=0 && !isDirectionFree(Direction.NORTH))
+      
+      
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }while(!estSurBiscuit)
+}
