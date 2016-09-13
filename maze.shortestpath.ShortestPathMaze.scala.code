@@ -24,14 +24,14 @@ override def run() {
         x=i
         y=j
         if (getIndication(x,y)==(cpt-1)) {
-          if (!aMurNord(x,y) && getIndication(x,y)!=9999) {
+          if (!aMurNord(x,y) && getIndication(x,y-1)!=9999) {
             setIndication(x,y-1,cpt)
           }
-          if (!aMurOuest(x,y) && getIndication(x,y)!=9999) {
+          if (!aMurOuest(x,y) && getIndication(x-1,y)!=9999) {
             setIndication(x-1,y,cpt)
           }
           if (y>0) {
-            if (!aMurNord(x,y-1) && getIndication(x,y-1)!=9999) {
+            if (!aMurNord(x,y+1) && getIndication(x,y+1)!=9999) {
               setIndication(x,y+1,cpt)
             }
           }
