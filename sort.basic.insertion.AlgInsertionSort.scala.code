@@ -1,11 +1,12 @@
 def insertionSort() {
-  for (i<- 0 to getValueCount() -2){
-    for (j <-0 to i){
-      if (isSmaller(j+1,j)){
-        copy(j,j+1)
-      }
+	var n=getValueCount()-1
+  for (i<-2 to n){
+    var v=table(i)
+    var j=i
+    while(table(j-1)>v){
+      table(j)=table(j-1)
+      j=j-1
+    }
+    table(j)=v
     }
   }
-}
-  
-
