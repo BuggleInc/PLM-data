@@ -2,13 +2,18 @@ override def run() {
   var sommeAngle=0
   if (isDirectionFree(Direction.NORD))
   {setDirection(Direction.NORD)}
+  while (!estSurBiscuit()) {sommeAngle=0
+    allerAuNord();
+    do            {keepHandOnSideWall()}            
+                            
+    while (!isDirectionFree(Direction.NORD)&&sommeAngle!=0)
   
   
   
   
 }
 
-
+}
 
 
 
@@ -36,10 +41,10 @@ setDirection(or);
 
 def keepHandOnSideWall() {gauche ();
                           if (!estFaceMur())
-                          {avance();return()}
+                          {avance();sommeAngle+=1;return()}
                           droite();
                           if (!estFaceMur())
                           {avance;return()};
-                          droite();}
+                          droite();sommeAngle-=1;}
                          
                           
