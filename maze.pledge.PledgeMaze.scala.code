@@ -35,14 +35,17 @@ override def run() {
         return true
       }
     }
+  
   var turn:Int=0
   setDirection(Direction.NORTH)
    while (!isOverBaggle()) {
     setDirection(Direction.NORTH)
     if (! isFacingWall()) {forward}
-    else { while (! dirFree(Direction.NORTH) && turn!=0)
+    else { 
+     do {
      turn= keepLeftHand(turn)
+    } while (! dirFree(Direction.NORTH) && turn!=0)
     }
-  }
+   }
   pickupBaggle()
 }
