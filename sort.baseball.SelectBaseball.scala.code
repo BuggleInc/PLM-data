@@ -5,7 +5,11 @@ override def run() {
   
 //  for (i <- 0 to n-1) {
     base = primeHole//+i
-    chercheJoueur(base, n)
+  
+    chercheJoueur(base, n) match {
+      case (baseAct, posAct) => joueurEtTrou(baseAct, posAct, base, n)
+      case _                 => () //N'arrive pas.
+    }
     
 //  }
   
@@ -14,7 +18,7 @@ override def run() {
 }
 
 
-def chercheJoueur(couleur:Int, n:Int) {
+def chercheJoueur(couleur:Int, n:Int):(Int,Int) = {
   
   var baseTestee:Int = (couleur+1)%n
   
@@ -25,11 +29,28 @@ def chercheJoueur(couleur:Int, n:Int) {
   
   if (getCouleurJoueur(baseTestee,0)==couleur) {
     deplace(baseTestee, 1)
+    return (baseTestee, 0)
   }
   
   else {
     deplace(baseTestee, 0)
+    return (baseTestee, 1)
   }
   
+}
+
+
+def joueurEtTrou(baseTemp:Int, posTemp:Int, base:Int, n:Int) {
+  var baseAct:Int = baseTemp
+  var posAct:Int = posTemp
   
+  while (baseAct != ((base+1)%n) {
+    
+    deplace((baseAct-1+n)%n, 0)
+    deplace(baseAct,posAct)
+    deplace((baseAct-1+n)%n, 1)
+    
+    baseAct = (baseAct-1+n)%n
+    posAct = 0
+  }
 }
