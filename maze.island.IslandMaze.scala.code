@@ -1,6 +1,10 @@
 override def run() {
   
-  trouverNord()
+    
+  while(estSurBiscuit()==false){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
   
   
   
@@ -8,10 +12,20 @@ override def run() {
 
 
 
-def trouverNord(){
-  while(estFaceMur()==false){
-    setDirection(Direction.NORTH)
-  }
-  
+def keepHandOnSideWall(){
+    
+  	gauche()
+    if(estFaceMur()==true){
+      droite()
+      if(estFaceMur()==true){
+        droite()
+      }else{
+        avance()
+      }
+
+    }else{
+      avance()
+    }
+
   
 }
