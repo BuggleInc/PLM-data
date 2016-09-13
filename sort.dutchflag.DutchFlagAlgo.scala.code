@@ -6,7 +6,8 @@ def solve() {
 
 def insertionSort() {
   var n:Int=getTaille()
-  for ( k <- 0 to (n-1)){
+  var compteur:Int=0
+  for ( k <- 0 to (n-1-comtpeur)){
     var stock:Int=getCouleur(k)
     var l:Int=0
     var h=n-1
@@ -19,6 +20,7 @@ def insertionSort() {
       if(stock==ROUGE){
         while(getCouleur(h)==ROUGE){
           h-=1
+          compteur+=1
         }
         echange(k,h)
       }
