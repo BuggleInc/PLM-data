@@ -4,14 +4,14 @@ def shellSort()  {
     var v = 0
   	for(i<- 1 to getNombreValeurs()-1){
     	v = getValeur(i)
-    	var j=i
-    	while(j>0 && getValeur(j-ecart)>v){
-        copie(j-ecart,j)
-        j=j-ecart
-    	}
-  	setValeur(j, v)
+      if(i-ecart > 0){
+    		while(i>0 && getValeur(i-ecart)>v){
+        	copie(j-ecart,j)
+        	j=j-ecart
+    		}
+  			setValeur(j, v)
   	}
-    
+    }
   }
   
 }
