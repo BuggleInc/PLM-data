@@ -6,8 +6,13 @@ override def run() {
   
   for (base <- 0 to n-1) {
     
-    if (!estBaseTriee(base)) {
-      
+    if (baseLibre==base) {
+      deplace(base+1,0)
+    }
+    
+    baseLibre=getTrouBase()
+    
+    if (!estBaseTriee(base)) {     
       if (getCouleurJoueur(base, 0)!=base) { //Si le joueur en (base, 0) n'est pas bien placé,
         
         chercheJoueur(base, n) match {       //on cherche le joueur qui doit venir dans la base.
@@ -56,7 +61,7 @@ def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace
 
       
 def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la position du joueur qui doit être déplacé.
-  var result:Int = (base+2)%n
+  var result:Int = (base+1)%n
   while ((getCouleurJoueur(result, 0)!=base) && (getCouleurJoueur(result,1)!=base)) {
     deplace(result, 0)
     result = result+1
