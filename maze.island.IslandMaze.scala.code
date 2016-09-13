@@ -9,21 +9,11 @@ override def run() {
       }
     }
     if (estFaceMur) {
-      while (estFaceMur) {
-        droite()
-      }
-      avance()
+			tournerIle()
     }
   }
   while (!estSurBiscuit) {
-    if (keepHandOnSideWall && !estFaceMur) {
-      avance()
-    } else if (!keepHandOnSideWall) {
-      gauche()
-      avance()
-    } else {
-      droite()
-    }
+    tournerIle
   }
   prendBiscuit()
 }
@@ -43,5 +33,16 @@ def estNord(): Boolean = {
     return true
   } else {
     return false
+  }
+}
+
+def tournerIle() {
+  if (keepHandOnSideWall && !estFaceMur) {
+    avance()
+  } else if (!keepHandOnSideWall) {
+    gauche()
+    avance()
+  } else {
+    droite()
   }
 }
