@@ -42,13 +42,21 @@ def keepHandOnSideWall(){
 }
 
 def isDirectionFree(dir:Direction): Boolean ={
+  var cpt=0
   while(getDirection!=dir){
     droite()
+    cpt+=1
   }
   if(estFaceMur){
+    while(cpt!=0){
+      cpt-=1
+    }
     return false
   }
   else{
+    while(cpt!=0){
+      cpt-=1
+    }
     return true
   }
 }
