@@ -1,0 +1,34 @@
+def mur():Boolean={
+  left()
+  if (estFaceMur()==true){
+    return true
+  }
+  else{
+  	return false
+   } 
+}
+
+
+override def run() {
+  while (!estSurBiscuit()){
+    if (mur()){
+      print(getDirection())
+      right()
+      if (estFaceMur()==false){
+        avance()
+      }
+      else{
+        right()
+      }
+  }
+    else{
+      if (!estFaceMur()){
+        avance()
+      }
+      else{
+        right()
+      }
+    }
+}
+  prendBiscuit()
+}
