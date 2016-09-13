@@ -21,9 +21,11 @@ override def run() {
   setIndication(xSortie,ySortie,distance)
   distance = distance + 1
   compteurCases = compteurCases + 1
+  var aMarqué = true
   //Marquer le reste de la grille
-  while (compteurCases < Largeur*Hauteur) {
+  while (aMarque) {
     
+    aMarque = false
     //Chercher des cases à marquer
     for (x <- 0 to Largeur-1; y <- 0 to Hauteur-1) {
       
@@ -35,6 +37,7 @@ override def run() {
           
           setIndication(x,y-1,distance)
           compteurCases = compteurCases + 1
+          aMarque = true
           
         //Sud
         }
@@ -42,6 +45,7 @@ override def run() {
           
           setIndication(x,y+1,distance)
           compteurCases = compteurCases + 1
+          aMarque = true
           
         //Est  
         }
@@ -49,6 +53,7 @@ override def run() {
           
           setIndication(x+1,y,distance)
           compteurCases = compteurCases + 1
+          aMarque = true
         
         //Ouest  
       	}
@@ -56,6 +61,7 @@ override def run() {
           
           setIndication(x-1,y,distance)
           compteurCases = compteurCases + 1
+          aMarque = true
           
         }
       
