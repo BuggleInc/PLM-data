@@ -7,7 +7,10 @@ override def run() {
     }
     do {
       keepHandOnSideWall
-    } while (sommeAngle!=0 || !isDirectionFree(Direction.NORTH) && !estSurBiscuit)
+      if (estSurBiscuit) {
+        break
+      }
+    } while (sommeAngle!=0 || !isDirectionFree(Direction.NORTH))
   }
   prendBiscuit()
   setDirection(Direction.EAST)
