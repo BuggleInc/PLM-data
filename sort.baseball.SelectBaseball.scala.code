@@ -19,17 +19,27 @@ override def run() {
       }
       deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
 			while (getCouleurJoueur(B,P)!=B){
+        if (trouverTrou()==B & getCouleurJoueur(trouverTrou(),(P+1)%2)==B){
+          bougerTrouD(0)
+          bougerTrouG(1)
+          bougerTrouD(1)
+        }
+        
+        // On agit même si deux Buggles de la même couleur sont précedent au Trou
         if (getCouleurJoueur(trouverTrou()-1,P)==B && getCouleurJoueur(trouverTrou()-1,(P+1)%2)==B){
           bougerTrouG(P)
           bougerTrouG(P)
           deplace(((trouverTrou()+1)%nbBases),bonJoueurDroite(B))
         }
+        // On ne veut pas echanger en boucle Buggle et Trou !
         if (getCouleurJoueur(trouverTrou()-1,P)==B){
           bougerTrouG((P+1)%2)
         }
+        // On bouge d'un cran à gauche
         else{
           bougerTrouG(P)
         }
+        // Si le Buggle est à gauche on échange de place le Buggle et le Trou
         if (bonJoueurDroite(B) != 9999){
           deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
           }
