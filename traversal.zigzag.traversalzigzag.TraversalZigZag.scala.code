@@ -1,76 +1,77 @@
 override def run() {
   var cpt : Int = 0
-  def arrive() : Boolean = 
-  {
-    if ( getX()==(getMondeLargeur()-1) && getY()==(getMondeHauteur()-1) )
-    {
-      return true
-    }
-    else
-    {
-      return false
-    }
-  }
-  
-  def deplacement()
-  {
-   
-    
-    if (getY()!=0 && getX()==0)
-    {
-      ecritMessage(cpt)
-      cpt+=1
-      setPos(getX(),getY()+1)
-      for (i<-1 to 6)
-      {
-        ecritMessage(cpt)
-        cpt+=1
-       
-        
-        
-        setPos(getX()+1,getY())}
-        
-      
-    }
-   if (getX()==6 && getY()!=6)
-   {
-     ecritMessage(cpt)
-     cpt+=1
-     setPos(6,getY()+1)
-     for (i<-1 to 6)
-     
-      {
-        
-        ecritMessage(cpt)
-        cpt+=1
-        setPos(getX()-1,getY())
-        
-      } 
-   }
-   else
-   {
-     for (i<-1 to 6)
-      {
-        ecritMessage(cpt)
-        cpt+=1
-        
-        setPos(getX()+1,getY())
-      }
-     
-   }
-   
-    
-    
-  }
-  
-  
+
   while(!arrive)
   {
     deplacement()
-    
-    
+
+
   }
-    
-  
-  
+
+
+
+}
+
+def arrive() : Boolean = 
+{
+  if ( getX()==(getMondeLargeur()-1) && getY()==(getMondeHauteur()-1) )
+  {
+    return true
+  }
+  else
+  {
+    return false
+  }
+}
+
+def deplacement()
+{
+
+
+  if (getY()!=0 && getX()==0)
+  {
+    ecritMessage(cpt)
+    cpt+=1
+    setPos(getX(),getY()+1)
+    for (i<-1 to 6)
+    {
+      ecritMessage(cpt)
+      cpt+=1
+
+
+
+      setPos(getX()+1,getY())
+    }
+
+
+  }
+  else if (getX()==6 && getY()!=6)
+  {
+    ecritMessage(cpt)
+    cpt+=1
+    setPos(6,getY()+1)
+    for (i<-1 to 6)
+
+    {
+
+      ecritMessage(cpt)
+      cpt+=1
+      setPos(getX()-1,getY())
+
+    } 
+  }
+  else
+  {
+    for (i<-1 to 6)
+    {
+      ecritMessage(cpt)
+      cpt+=1
+
+      setPos(getX()+1,getY())
+    }
+
+  }
+
+
+
 }
