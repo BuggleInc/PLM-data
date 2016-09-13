@@ -1,0 +1,37 @@
+override def run() {
+  while (!estNord) {
+		if (estFaceMur) {
+      keepHandOnSideWall
+    } else {
+    	avance()
+    }
+  }
+  while (!estSurBiscuit) {
+    keepHandOnSideWall
+  }
+  prendBiscuit()
+  setDirection(Direction.EAST)
+}
+
+
+def estNord(): Boolean = {
+  if (getY==0) {
+    return true
+  } else {
+    return false
+  }
+}
+
+def keepHandOnSideWall() {
+	if (estFaceMur) {
+    gauche()
+  }
+  if (estFaceMur) {
+    gauche()
+  }
+  if (estFaceMur) {
+    gauche()
+  }
+  avance()
+  droite()
+}
