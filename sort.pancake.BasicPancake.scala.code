@@ -1,12 +1,13 @@
 def solve() {
-  var posPancakeMax = 2
+  var posPancakeMax = 0
   
-  while(!isSorted()){
+  while(isSorted() == false){
     for (i <- 0 to getStackSize() - 1){
       if (getPancakeRadius(i) > getPancakeRadius(posPancakeMax)){
         posPancakeMax = i
       }
-      flip(posPancakeMax)
+      
     }
+    flip(posPancakeMax)
   }
 }
