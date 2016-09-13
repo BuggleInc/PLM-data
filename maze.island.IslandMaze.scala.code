@@ -14,21 +14,29 @@ def nord (){
 }
 
 def run1 () {
-    while(!estSurBiscuit() && (getDirection() == Direction.NORTH && estFaceMur())){
-    if(estFaceMur()){
+  var fini = false;
+    while(!fini){
+    if (estSurBiscuit()){
+      fini = true;
+    } else {
+      if(!estFaceMur() && getDirection == Direction.NORTH ){
+        fini = true
+      }
+    }
+    if(estFaceMur() && !fini){
       gauche();
-      if(estFaceMur()){
+      if(estFaceMur() && !fini){
         droite();droite();
       } else {
         avance();
       }
     } else {
       gauche();
-      if(estFaceMur()){
+      if(estFaceMur() && !fini){
         droite();avance();
       } else {
         avance();gauche();
-        if(!estFaceMur()){
+        if(!estFaceMur() && !fini){
           avance();
         } else {
           droite();
