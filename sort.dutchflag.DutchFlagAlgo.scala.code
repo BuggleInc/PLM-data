@@ -7,7 +7,7 @@ def solve() {
     for(i<- apresBleu to avantBlanc){
       if(getCouleur(i)==ROUGE){
         var k=i
-        for(j<- i to blancRouge){
+        for(j<- i+1 to blancRouge){
           echange(k,j)
           k+=1
         }
@@ -15,7 +15,7 @@ def solve() {
         avantBlanc-=1
       }else if(getCouleur(i)==BLANC){
         var k=i
-        for(l<- i to apresBleu+1){
+        for(l<- i+1 to apresBleu+1){
           echange(l,k)
           k+=1
         }
