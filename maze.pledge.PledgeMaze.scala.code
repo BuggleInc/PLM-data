@@ -1,13 +1,9 @@
 override def run() {
-  while(!estSurBiscuit){
-    if (isDirectionFree(Direction.EAST)==true){
-      while(!estFaceMur){
-        avance()
-    	}
-    }else{
-      keepHandOnSideWall()
+  do(if(estFaceMur){
+  	while(cpt!=0 && isDirectionFree(Direction.NORTH)){
+    	keepHandOnSideWall()
     }
-  }
+  })while(!estSurBiscuit)
 }
 
 def keepHandOnSideWall(){
