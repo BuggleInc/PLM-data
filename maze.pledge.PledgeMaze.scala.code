@@ -1,0 +1,41 @@
+override def run() {
+  
+}
+
+
+def isDirectionFree(dir:Direction):Boolean = {
+  
+}
+
+
+def keepHandOnSideWall() {
+  var sommeAngle:Int = 0
+  if ((checkLeftWall) && (!estFaceMur)) {
+    avance()
+    while (!checkLeftWall) {
+      gauche()
+      sommeAngle += 1
+      avance()
+    }
+  } else if (!checkLeftWall) {
+    while (!checkLeftWall) {
+      gauche()
+      sommeAngle += 1
+      avance()
+    }
+  } else if (estFaceMur) {
+    droite()
+    sommeAngle -= 1
+  }  
+}
+
+def checkLeftWall():Boolean = {
+  gauche()
+  if (estFaceMur) {
+    droite()
+    return true
+  } else {
+    droite()
+    return false
+  }
+}
