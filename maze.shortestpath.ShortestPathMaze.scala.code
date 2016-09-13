@@ -1,0 +1,36 @@
+def trouveSortie():(Int,Int)={
+  for (j <- 1 to getMondeLargeur()){
+    for (i <- 1 to getMondeLongueur()) {
+      if (aBiscuit(i,j)) {
+        return (i,j)
+      }
+    } 
+  }
+}
+
+
+def numero(){
+  var (x,y) = trouveSortie()
+  var n = 1
+  var nb = 1
+  setIndication(x,y,0)
+  while (nb != getMondeLongueur()*getMondeLargeur()){
+    for (i <- 1 to getMondeLongeur()){
+      for (j <- 1 to getMondeLargeur()){
+        if (getIndication(i,j) == n-1) {
+          if (!aMurNord(i,j) && getIndication(i-1,j)==9999) {setIndication(i-1,j,n);nb +=1}
+          if (!aMurOuest(i,j) && getIndication(i,j-1)==9999) {setIndication (i,j-1,n);nb +=1}
+          if (!aMurNord(i+1,j) && getIndication(i+1,j)==9999) {setIndication(i+1,j,n);nb +=1}
+          if (!aMurOuest(i,j-1) && getIndication(i,j-1)==9999) {setIndication (i,j-1,n);nb +=1}
+        }
+      }
+    }
+    n += 1
+  }
+}
+
+
+
+override def run() {numero()
+    
+}
