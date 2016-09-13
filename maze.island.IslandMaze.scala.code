@@ -3,16 +3,16 @@ override def run() {
 		if (!estFaceMur) {
       avance()
     } else {
-    tournerIle()
+    	keepHandOnSideWall
     }
   }
   while (!estSurBiscuit) {
-    tournerIle
+    keepHandOnSideWall
   }
   prendBiscuit()
 }
 
-def keepHandOnSideWall(): Boolean = {
+def coteMur(): Boolean = {
   gauche()
   if (estFaceMur) {
     droite()
@@ -30,12 +30,16 @@ def estNord(): Boolean = {
   }
 }
 
-def tournerIle() {
-  if (keepHandOnSideWall && !estFaceMur) {
+def keepHandOnSideWall() {
+  if (coteMur && !estFaceMur) {
     avance()
-  } else if (!keepHandOnSideWall) {
+  } else if (!coteMur) {
     gauche()
     avance()
+  } else if (!coteMur && estFaceMur) {
+    gauche()
+    avance()
+  }
   } else {
     droite()
   }
