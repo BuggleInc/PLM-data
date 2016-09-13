@@ -1,12 +1,13 @@
 def insertionSort() {
 	var n=getValueCount()-1
-  for (i<-2 to n){
+  for (i<-1 to n){
     var v=getValue(i)
     var j=i
-    while(getValue(j-1)>v && j>1){
-      swap(j,j-1)
-      j=j-1
+    while(j>0 && getValue(pos-1)>j){
+      copy(pos-1,pos)
+      pos=pos -1
     }
-    setValue(j,v)
+    if(pos!=i)
+    setValue(pos,j)
     }
   }
