@@ -6,13 +6,20 @@ override def run() {
 }
 
 def rejoindrelenord() {
+  var pseudorandom = 0
   while (!estFaceMur() && getDirection()==Direction.NORTH) {
+    pseudorandom+=1
     if (getDirection()==Direction.NORTH) {
-      if (!estFaceMur())
+      if (!estFaceMur()) {
       	avance()
+        pseudorandom+=1
+      }
       else {
-      	while (estFaceMur())
-      		gauche()
+      	while (estFaceMur()) {
+          if (pseudorandom%2==0)
+          	droite()
+          else     	
+      			gauche()
       }
     }
     else {
@@ -23,6 +30,7 @@ def rejoindrelenord() {
       if (getDirection()==Direction.SOUTH) {
         droite()
         droite()
+        pseudorandom+=1
       }  	
     }
   }
