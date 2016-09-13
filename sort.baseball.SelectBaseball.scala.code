@@ -13,8 +13,9 @@ override def run() {
       while (trouverTrou() != B){
         bougerTrouG(P)
       }
+      //Tant qu'un Buggle est pas à droite du trou, on bouge le trou
    		while(bonJoueurDroite(B) == 9999){
-        bougerTrouD((P+1)%2)
+        bougerTrouD(P)
       }
       deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
 			while (getCouleurJoueur(B,P)!=B){
@@ -28,12 +29,6 @@ override def run() {
           deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
           }
       }
-      
-      // On regarde si le buggles est de la bonne couleur
-     
-      // Sinon on fait bouger le trou jusqu'à ce que le buggle qui est la bonne couleur soit dans la base b-1
-     
-      // On fait alors bouger ce buggle jusqu'à ce qu'il soit dans la bonne base
       
       
     }
