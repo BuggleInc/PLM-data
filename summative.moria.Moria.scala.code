@@ -1,6 +1,6 @@
 def proche() : Boolean =
 {
-  if (estDosMur() && getX()!=0)
+  if (estDosMur() && !estSurBiscuit() && getX()!=0)
   {
     return true
   }
@@ -16,10 +16,7 @@ def deplacement()
 
   while (!estSurBiscuit() )
   {
-    if (estDosMur())
-    {
-      gauche();avance();gauche();avance();avance()
-    }
+    
 
 
     recule()
