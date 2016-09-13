@@ -3,6 +3,8 @@ override def run() {
   var n:Int = getNombreBases()
   var baseLibre:Int = getTrouBase()
   var trouLibre:Int = getTrouPosition()
+  var baseDepart:Int = 0
+  var posDepart:Int = 0
   
   for (base <- 0 to n-1) {
     
@@ -18,8 +20,8 @@ override def run() {
         chercheJoueur(base, n)       //on cherche le joueur qui doit venir dans la base.
           
         baseDepart=getTrouBase()
-        poseDepart=(getTrouPosition()+1)%2
-          ameneJoueur(baseDepart, posDepart, base, 0)
+        posDepart=(getTrouPosition()+1)%2
+        ameneJoueur(baseDepart, posDepart, base, 0)
 
       }
       
