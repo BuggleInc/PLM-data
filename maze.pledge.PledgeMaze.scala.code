@@ -7,9 +7,6 @@ override def run() {
     }
     do {
       keepHandOnSideWall
-      if (estSurBiscuit) {
-        sommeAngle=0
-      }
     } while (sommeAngle!=0 || !isDirectionFree(Direction.NORTH))
   }
   prendBiscuit()
@@ -17,13 +14,17 @@ override def run() {
 }
 
 def isDirectionFree(dir:Direction): Boolean = {
-  mem=getDirection
-  setDirection(dir)
-  if (estFaceMur) {
-    setDirection(mem)
-    return false
+  if (!estSurBiscuit) {
+    mem=getDirection
+    setDirection(dir)
+    if (estFaceMur) {
+      setDirection(mem)
+      return false
+    } else {
+      setDirection(mem)
+      return true
+    }
   } else {
-    setDirection(mem)
     return true
   }
 }
