@@ -1,12 +1,78 @@
+var Largeur = getMondeLargeur()
+var Hauteur = getMondeHauteur()
+
 def trouverSortie():Tuple2[Int,Int] {
   
-  //Trouve la sortie
+  for(x <- 0 to Largeur-1,y <- 0 to Hauteur-1) {
+    
+    if (aBiscuit(x,y)) {
+      
+      return (x,y)
+      
+    }
+    
+  }
+  
+}
+
+def marquerCase(X:Int,Y:Int,distance:Int) {
+  
+  //Marque le Contour d'une case définie par ces coordonéees X et Y
+  //Au Nord
+  if (Y>0) { //Si on est pas au bord du mur Nord
+    
+    if (!aMurNord(X,Y) && getIndication(X,Y-1)==9999) { //Qu'il n'y a pas de mur vers le haut et que la case n'est pas encore marquée
+      
+      setIndication(X,Y-1,distance)
+      
+    }
+  
+  //Au Sud
+  } else if (Y<Hauteur-1) { //Si on est pas au bord du mur Sud
+    
+    if (!aMurNord(X,Y+1) && getIndication(X,Y+1)==9999) { //Pas de mur au nord de la case du bas (au sud) et pas de marquage
+      
+      setIndication(X,Y+1,distance)
+      
+    }
+    
+  } else if ()
+  
+}
+
+def marquerSol(X:Int,Y:Int) {
+  
+  var distance = 0
+  var numMarques = 0
+  //On utilise le nombre de cases marquées comme indicateur de sortie de boucle, normalement c'est plus rapide
+  setIndication(X,Y,distance)
+  numMarques = numMarques + 1
+  distance = disatnce + 1
+  while (numMarques < Largeur*Hauteur) {
+    
+    for
+    
+  }
+  
+}
+
+
+def remonterTraces() {
+  
+  //Avance vers la case la moins valuée
   
 }
 
 override def run() {
   
-  //je referrai le code plus tard il etait trop moche
-  while (true) {gauche();avance()}
+  var xSortie,ySortie = trouverSortie()
+  marquerSol(xSortie,ySortie)
+  while (!estSurBiscuit()) {
+    
+    remonterTraces()
+    
+  }
+  
+  prendBiscuit()
   
 }
