@@ -1,8 +1,12 @@
 override def run()
 {
   val rayon = 50;
+  val demiRayon = rayon/2;
+  
+  demiCercle(demiRayon);
   
   leveCrayon();
+  demiCercle(demiRayon);
   droite(90);
 	avance(rayon);
   
@@ -10,6 +14,18 @@ override def run()
   cercle(rayon);
   leveCrayon();
   
-  avance(rayon/2);
-  
+  demiCercle(demiRayon);
+  baissecrayon();
+  demiCercle(demiRayon)
+}
+
+def demiCercle(rayon:Int)
+{
+  val cote = rayon*2*3.14/360;
+ 
+  for (i <- 1 to 180)
+  {
+    avance(cote);
+    droite(1);
+	}
 }
