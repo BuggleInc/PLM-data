@@ -27,10 +27,13 @@ def keepHandOnSideWall() : Int = {
 }
 
 def isDirectionFree(dir : Direction) : Boolean = {
+  var d=getDirection()
   setDirection(dir)
   if(!estFaceMur()){
+    setDirection(d)
     return false
   }else{
+    setDirection(d)
     return true
   }
 }
