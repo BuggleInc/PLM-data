@@ -41,10 +41,10 @@ def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
   if ((baseLibre-baseCible+n-1)%n!=n) {
     val nbMoves:Int = (baseLibre-baseCible+n-1)%n
     for (compt <- 1 to nbMoves) {
-      deplace((temp-1+n)%n, position)
+      deplace((temp+1+n)%n, position)
       deplace(temp, position)
-      deplace((temp-1+n)%n, (position+1)%2)
-      temp = (temp-1+n)%n
+      deplace((temp+1+n)%n, (position+1)%2)
+      temp = (temp+1+n)%n
     }
   }
   else {
@@ -55,7 +55,7 @@ def deplaceJoueur(baseLibre:Int, baseCible:Int, position:Int, n:Int) {
 def deplaceTrou(baseLibre:Int, baseCible:Int, position:Int, n:Int) { //On déplace le trou dans la base du joueur.
   var temp:Int = baseLibre
   while (temp!=baseCible) {
-    deplace((temp-1+n)%n,position)
-    temp = (temp-1+n)%n
+    deplace((temp+1+n)%n,position)
+    temp = (temp+1+n)%n
   }
 }
