@@ -1,4 +1,4 @@
-  def arrive() : Boolean = 
+def arrive() : Boolean = 
 {
   if ( getX()==(getMondeLargeur()-1) && getY()==(getMondeHauteur()-1) )
   {
@@ -12,15 +12,16 @@
 
 def deplacement() 
 {
-  var diag = 0;
-  if (diag < 6) // si avant gd diago 
+    
+	var diag = 0;
+  if (diag < 5) // si avant gd diago 
   {
     if (getY()==0)
     {
-      if(getX()!=6)
+      if(getX()!=6)//si en Y=0 on revient en X=0 et incrémente diag
       
       {
-        setPos(0,getY()+1)
+        setPos(0,getX()+1)
       	diag+=1
       }
       else // si dans le coin haut droit attention on revient en (1,6)
@@ -35,7 +36,7 @@ def deplacement()
     }
     
   }
-  else // si apr?s gd diago (plus besoin de compteur)
+  else if(diag>=6) // si apr?s gd diago (plus besoin de compteur)
   {
     if (getX()==6)
     {
@@ -51,6 +52,8 @@ def deplacement()
   
   
 }
+
+
 override def run() {
   var cpt = 0
   while(!arrive)
