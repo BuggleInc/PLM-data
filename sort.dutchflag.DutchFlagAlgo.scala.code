@@ -5,14 +5,23 @@ def solve() {
 }
 
 def insertionSort() {
-  var n:Int=getNombreValeurs()
+  var n:Int=getTaille()
   for ( k <- 1 to (n-1)){
-    var stock:Int=getValeur(k)
+    var stock:Int=getCouleur(k)
     var l:Int=k-1
-    while ((l>=0)&&(stock<getValeur(l))){
-      setValeur(l+1,getValeur(l))
-      l=l-1
+    if (stock==BLEU){
+      while((l!=-1) && getCouleur(l)!=BLEU){
+        l-=1
+      }
+      echange(k,l+1)
+    } else {
+      if(stock==ROUGE){
+        while((l!=-1) && getCouleur(l)!=ROUGE){
+          l-=1
+        }
+        echange(k,l+1)
+      }
     }
-    setValeur(l+1,stock)
+
   }
 }
