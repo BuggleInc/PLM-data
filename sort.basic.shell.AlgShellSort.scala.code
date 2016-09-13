@@ -4,25 +4,15 @@ def shellSort()  {
     insertionSort();
     ecart=ecart/2;
   }
-  for(i<-0 to 1){
-  var x:Int=getValue(i);
-  var j:Int=i-1;
-  while(j>=0 && getValue(j)>x){
-    setValue(j+1,getValue(j))
-    j=j-1
-  }
-  setValue(j+1,x)
-  }
-}
 
 def insertionSort(){
   for(i<-1 to getValueCount()-1){
     var x:Int=getValue(i);
-    var j:Int=i-1;
+    var j:Int=i-ecart;
     while(j>=0 && getValue(j)>x){
-      setValue(j+1,getValue(j))
-      j=j-1
+      setValue(j+ecart,getValue(j))
+      j=j-ecart
     }
-    setValue(j+1,x)
+    setValue(j+ecart,x)
   }
 }
