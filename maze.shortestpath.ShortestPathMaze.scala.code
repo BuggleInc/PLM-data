@@ -1,0 +1,16 @@
+def keepHandOnSideWall() {
+  while (estDosMur()){gauche()}
+  recule();droite()
+  
+}
+
+override def run() {
+  var i : Int = 0
+  while(!estSurBiscuit() && i!=20){
+    keepHandOnSideWall()
+    i=i+1
+    if (i==20){while(!estFaceMur()){avance()};gauche();gauche();i=0}
+  }
+  prendBiscuit()
+ while(estDosMur()){gauche()}
+}
