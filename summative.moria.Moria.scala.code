@@ -1,28 +1,15 @@
 var arrive=0
 while (getCouleurSol()!=Color.green){
-  while(!estSurBiscuit() && arrive<2){
+  while(!estSurBiscuit()){
     backward()
-    if (getY()==18){
-      arrive = arrive + 1
-    }
   }
-  if (arrive<2){
   prendBiscuit()
-  }
-  while (!estSurBiscuit() && arrive<2){
+  while (!estSurBiscuit()){
     forward()
   }
-  if (arrive<2){
   backward()
   poseBiscuit()
   backward()
   }
-  if (arrive>=2){
-    left()
-    forward()
-    left()
-    forward()
-  }
-}
 
 
