@@ -1,0 +1,30 @@
+def cocktailSort3() {
+	var l = getNombreValeurs;
+  sort(0, l-2, true);
+  sort(0, l-3, true);
+  
+  getValeur(0);
+  getValeur(0);
+}
+
+def sort(debut:Int, fin:Int, leftToRight:Boolean){
+  var j = 0;
+  
+
+  var fini = true;
+  if(leftToRight) for (i <- debut to fin) {
+    if (!plusPetit(i, i+1)){
+      echange(i,i+1);
+      fini = false;
+    }
+  }
+  else for(i <- debut to fin){
+    j = fin - i + debut;
+    if(!plusPetit(j, j+1)){
+      echange(j, j+1);
+      fini = false;
+    }
+  }
+    	
+	if(!fini) sort(debut+1, fin-1, !leftToRight);
+}
