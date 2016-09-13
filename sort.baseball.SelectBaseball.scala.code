@@ -25,21 +25,6 @@ override def run()
 }
 
 
-def trouverJoueur(couleur:Int):(Int,Int) =
-{
-  var nbBases = getNombreBases();
-  var nbPos = getNombrePositions();
-  
-  for (i <- 0 to nbBases-1)
-  {
-    for (j <- 0 to nbPos-1)
-    {
-      if (getCouleurJoueur(i,j) != couleur) return (i,j);
-    }
-  }
-  return (-1, -1);
-}
-
 def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
 {
   if (arrive == getTrouBase()) return;
