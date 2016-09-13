@@ -31,47 +31,26 @@ def fonctionTest():Boolean= {
 def explorer() = {
   baisseBrosse()
   
-  while (fonctionTest()==false) {
-   
-  
-  	
-  			
-  		 
+  for(i<-1 to 7) {
+    for(i<-1 to 6){
+      avance()
+    }
+    if(fonctionTest()==false) {
       if (getDirection() == Direction.EST) {
-    		
-    		for(i<-1 to 6) {
-      		avance()
-  				}			
-        
-       	
         gauche()
-        
-    			avance()
-    			gauche()
-  		}
-  		if (getDirection() == Direction.OUEST) {
-    			
-    		for(i<-1 to 6) {
-      		avance()
-  				}
-    			
-    		 
+        avance()
+        gauche()
+      }
+      if (getDirection() == Direction.OUEST) {
         droite()
         avance()
         droite()
-  		}}
+      }
+      
+    }
+}}  
   
   
-
-}
-
-
-
-
-
-
-
-
 override def run() {
   explorer()
   droite()
