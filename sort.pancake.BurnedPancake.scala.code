@@ -1,0 +1,18 @@
+def solve() {
+  var a = 0
+  var b = getTaillePile()
+  while(!estTriee()){
+    var a = 0
+    for (i <- 1 to b-1){
+        if (getRayonCrepe(a)<=getRayonCrepe(i)){
+          a=i
+      }
+    }
+    retourne(a+1)
+    if (!estCrepeRetournee(0)){
+      retourne(1)
+    }
+    retourne(b)
+    b-=1
+  }
+}
