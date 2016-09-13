@@ -15,18 +15,18 @@ override def run() {
 def writePath(x : Int , y : Int, num : Int , n : Int, m : Int){
     
   setIndication(x,y,num)
-	num=num+1
+
   
   if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
-    writePath(x-1,y,num,n,m)
+    writePath(x-1,y,num+1,n,m)
   }
   if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999){
-    writePath(x,y-1,num,n,m)
+    writePath(x,y-1,num+1,n,m)
   }
   if(x<n-1 && !hasRightWall(x,y) && getIndication(x+1,y)==9999){
-    writePath(x+1,y,num,n,m)
+    writePath(x+1,y,num+1,n,m)
   }
   if(y<m-1 && !hasBottomWall(x,y) && getIndication(x,y+1)==9999){
-    writePath(x,y+1,num,n,m)
+    writePath(x,y+1,num+1,n,m)
   }
 }
