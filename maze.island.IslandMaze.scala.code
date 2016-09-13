@@ -19,7 +19,8 @@ def marcheNord () {
 }
 
 def suit() {
-  while (!estSurBiscuit() && !(getDirection() == Direction.NORTH && !estFaceMur())){
+  var aret = !(getDirection() == Direction.NORTH && !estFaceMur());
+  while (!estSurBiscuit() && aret){
     if(estFaceMur()){
       gauche();
       if(estFaceMur()){
@@ -38,6 +39,7 @@ def suit() {
       }
       droite();
     }
+    aret = !(getDirection() == Direction.NORTH && !estFaceMur());
   } 
 }
 
