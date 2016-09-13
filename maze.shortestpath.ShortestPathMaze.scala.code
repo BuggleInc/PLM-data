@@ -27,14 +27,14 @@ def marquerSol(casee: List[Int], numero:Int) {
   
   
   if(y > 0 && !hasTopWall(x,y))
-  	marquerSol((x,y-1), numero+1);
+  	marquerSol(List(x,y-1), numero+1);
   if(y < Y-1 && !hasTopWall(x, y+1))
-  	marquerSol((x,y+1), numero+1);
+  	marquerSol(List(x,y+1), numero+1);
   
   
   if(x > 0 && !hasLeftWall(x, y))
-  	marquerSol((x-1,y), numero+1);
+  	marquerSol(List(x-1,y), numero+1);
   if(x < X-1 && !hasLeftWall(x+1, y))
-  	marquerSol((x+1,y), numero+1);
+  	marquerSol(List(x+1,y), numero+1);
   
 }
