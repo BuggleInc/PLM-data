@@ -27,10 +27,12 @@ override def run() {
       
       if (getCouleurJoueur(base, 1)!=base) { //Si le joueur en (compt, 1) n'est pas bien placé,
         
-        chercheJoueur(base, n) match {       //on cherche le joueur qui doit venir dans la base.
-          case (baseDepart,posDepart) => ameneJoueur(baseDepart, posDepart, base, 1)
-          case _                      => ()    //Ne doit pas arriver.
-        }
+        chercheJoueur(base, n)      //on cherche le joueur qui doit venir dans la base.
+        
+        baseDepart=getTrouBase()
+        posDepart=(getTrouPosition()+1)%2
+        ameneJoueur(baseDepart, posDepart, base, 1)
+        
       }
       
     }
