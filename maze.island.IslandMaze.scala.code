@@ -16,16 +16,20 @@ def rejoindrelenord() {
       }
       else {
       	while (estFaceMur()) {
-          if (pseudorandom%2==0)
+          if (pseudorandom%2==0) {
           	droite()
+          	pseudorandom+=1
+          }
           else     	
       			gauche()
       }
     	}
     }
     else {
-      if (getDirection()==Direction.WEST)
+      if (getDirection()==Direction.WEST) {
+        pseudorandom+=1
       	droite()
+      }
       if (getDirection()==Direction.EAST)
       	gauche()
       if (getDirection()==Direction.SOUTH) {
