@@ -1,0 +1,32 @@
+override def run() {
+    
+  val n = getWorldWidth()
+  val m = getWorldHeight()
+  
+  var x = n-1
+  var y = 0
+  while(!hasBaggle(x,y))
+    y+=1
+  
+  writePath(x,y, 0, n,m )
+}
+
+
+def writePath(x : Int , y : Int, num : Int , n : Int, m : Int){
+    
+  setIndication(x,y,num)
+	num+=1
+  
+  if(x>0 && !hasLeftWall() && getIndication(x-1,y)==9999){
+    writePath(x-1,y,num,n,m)
+  }
+  if(y>0 && !hasTopWall() && getIndication(x,y-1)==9999){
+    writePath(x,y-1,num,n,m)
+  }
+  if(x<n-1 && !hasRightWall() && getIndication(x+1,y)==9999){
+    writePath(x+1,y,num,n,m)
+  }
+  if(y<m-1 && !hasBottomWall() && getIndication(x,y+1)==9999){
+    writePath(x,y+1,num,n,m)
+  }
+}
