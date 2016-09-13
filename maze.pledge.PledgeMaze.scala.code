@@ -2,13 +2,13 @@ override def run() {
   var cpt=0
   do(if(estFaceMur){
   	while(cpt!=0 && isDirectionFree(Direction.NORTH)){
-    	keepHandOnSideWall()
+    	keepHandOnSideWall(cpt)
     }
     avance()
   })while(!estSurBiscuit)
 }
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(cpt:Int){
  	if(estFaceMur()){
     gauche()
     cpt=cpt+1
