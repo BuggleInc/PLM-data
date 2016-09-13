@@ -16,11 +16,18 @@ def makePattern(c:Color) {
   forward()
 }
 
+def makeSquare(c:Color) {
+  for(i <- 1 to 4) {
+    makePattern(c)
+    left()
+  }
+}
+
 def colorize() {
   brushDown()
   brushUp()
 }
 
 override def run() {
-  makePattern(Color.yellow)
+  makeSquare(Color.yellow)
 }
