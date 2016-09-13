@@ -58,6 +58,10 @@ def eviteObstacle(){
   	sommeAngle = keepHandOnSideWall(sommeAngle)
     print(sommeAngle + " ")
   }while (sommeAngle != 0)
+  if (isDirectionFree(Direction.NORTH)){
+    setDirection(Direction.NORTH)
+    while(!estFaceMur()){avance()}
+  }
 }
 
 def isDirectionFree(dir:Direction):Boolean = {
