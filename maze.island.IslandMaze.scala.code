@@ -1,6 +1,20 @@
 override def run() {
   	nord();
     while(!estSurBiscuit()){
+    nord();
+      run();
+  }
+  prendBiscuit();
+}
+
+def nord (){
+  while(!estFaceMur()){
+    avance();
+  }
+}
+
+def run () {
+    while(!estSurBiscuit() && (getDirection() == Direction.NORTH && !estFaceMur())){
     if(estFaceMur()){
       gauche();
       if(estFaceMur()){
@@ -22,11 +36,5 @@ override def run() {
       }
     }
   }
-  prendBiscuit();
-}
 
-def nord (){
-  getDirection() match{
-    case Direction.NORTH => ();
-  }
 }
