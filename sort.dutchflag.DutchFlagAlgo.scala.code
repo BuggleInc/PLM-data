@@ -1,0 +1,26 @@
+def solve() {
+  var lgr=getTaille()
+  
+  while(estTrie()==false){
+    for (i<- 0 to lgr-1){
+      if (getCouleur(i)==BLEU){
+        
+      }
+      else if (getCouleur(i)==BLANC){
+        
+      }
+      else{//c'est rouge
+        if (getCouleur(lgr-1)!=ROUGE){
+          echange(lgr-1,i)
+        }else{
+          for (j<- 2 to i){
+            if (getCouleur(lgr-j)!=ROUGE){
+              echange(lgr-j,i)
+              return
+            }
+          }
+        }
+      }
+    }
+  }
+}
