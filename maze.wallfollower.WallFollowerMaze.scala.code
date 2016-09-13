@@ -1,0 +1,64 @@
+override def run() {
+  if (gauche())
+  	var x = 0
+  else
+  	var x = 1
+  while(!estSurBiscuit()){
+    keepHandOnSideWall(x)
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall(x : Int) {
+  if (murcote(x))
+  	avance()
+ 
+  else {
+    if (x==0) {
+      gauche()
+    }
+    else
+    	droite()
+  }
+  
+  
+}
+
+
+def gauche() : Boolean ={
+  gauche()
+  if (estFaceMur()){
+  	droite()
+    return true}
+  else{
+    droite()
+    return false
+  }
+  	
+}
+
+def murcote(x:Int) : Boolean = {
+  if (x==0){
+    gauche()
+    if (estFaceMur()){
+      droite()
+      return true
+    }
+    else {
+      droite()
+      return false
+    }
+  }
+  else {
+     droite()
+    if (estFaceMur()){
+      gauche()
+      return true
+    }
+    else {
+      gauche()
+      return false
+    }
+    
+  }
+}
