@@ -12,18 +12,21 @@ def proche() : Boolean =
 
 def deplacement() 
 {
-  while (!estSurBiscuit())
+  if (!estDosmur())
+  {
+    while (!estSurBiscuit())
     {
       recule()
     }
-  prendBiscuit()
-  while (!estSurBiscuit())
-  {
-    avance()
+    prendBiscuit()
+    while (!estSurBiscuit())
+    {
+      avance()
+    }
+    recule()
+    poseBiscuit()
+    recule()
   }
-  recule()
-  poseBiscuit()
-  recule()
 
 }
 
