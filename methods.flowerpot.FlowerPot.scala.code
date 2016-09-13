@@ -1,0 +1,40 @@
+def growFlowers() {
+  fleur(Color.RED)
+  avance(2:Int)
+  fleur(Color.CYAN)
+  droite()
+  avance(2:Int)
+  droite()
+  avance(4:Int)
+  gauche()
+  gauche()
+  fleur(Color.ORANGE)
+  droite()
+  avance(2:Int)
+  gauche()
+  fleur(Color.GREEN)
+  recule(6:Int)
+  fleur(Color.PINK)
+  recule(2:Int)
+}
+
+def Brosse(c:Color) {
+  setCouleurBrosse(c:Color)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def fleur(c:Color) {  //début pétale gauche
+  Brosse(c:Color)
+  avance()
+  Brosse(Color.YELLOW)
+  gauche()
+  avance()
+  Brosse(c:Color)
+  recule(2:Int)
+  Brosse(c:Color)
+  avance()
+  droite()
+  avance()
+  Brosse(c:Color)    //fin pétale droite
+}

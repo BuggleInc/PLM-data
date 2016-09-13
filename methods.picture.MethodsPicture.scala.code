@@ -1,0 +1,66 @@
+override def run() {
+  for (k<-1 to 3) {
+    faireV(Color.YELLOW:Color,0:Int)
+    gauche()
+    avance(5:Int)
+    droite()
+   }
+  gauche()
+  for(k<-1 to 3) {
+  	faireV(Color.GREEN:Color,1:Int)
+  	droite()
+  	avance(5:Int)
+  	gauche()
+  }
+  recule()
+  for  (k<-1 to 3) {
+    avance(5:Int)
+    droite()
+    faireV(Color.BLUE,1:Int)
+    gauche()
+  }
+  avance()
+  droite()
+  recule()
+  for (k<-1 to 3) {
+    avance(5:Int)
+    gauche()
+    faireV(Color.RED,0:Int)
+    droite()
+    }
+  avance()
+}
+
+def Brosse() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color,cote:Int) {  //0=gauche, 1=droite
+  for (k<-1 to 3) {
+  avance()
+  setCouleurBrosse(c:Color)
+  Brosse()
+  avance()
+  if (cote==0) { gauche()}
+  else {droite()}
+  avance()
+  Brosse()
+  if (cote==0) {droite()}
+  else {gauche()}
+  avance()
+  if (cote==0) {droite()}
+  else {gauche()}
+  avance()
+  Brosse()
+  if (cote==0) {gauche()}
+  else {droite()}
+  avance()
+  avance()
+  }
+}
+
+
+
+
+

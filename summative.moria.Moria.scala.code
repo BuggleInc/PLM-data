@@ -1,0 +1,37 @@
+def run() {
+  gauche()
+  gauche()
+  while (estFaceMur()==false) {
+    moria()
+  }
+  if (estSurBiscuit()==true) {
+    moria()
+    moria()
+  }
+  
+  droite()
+  avance()
+  gauche()
+  avance()
+  
+}
+
+run()
+
+def moria() {
+  if (estSurBiscuit()==true) {
+      prendBiscuit()
+      recule()
+      while (estSurBiscuit()==false) {
+        recule()
+      }
+      avance()
+      poseBiscuit()
+      avance()
+    }
+    else {
+      while(estSurBiscuit()==false&&estFaceMur()==false) {
+        avance()
+      }
+    }
+}
