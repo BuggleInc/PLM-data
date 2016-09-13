@@ -38,9 +38,13 @@ def estSurMurNord():Boolean = {
 
 def eviteObstacle(){
   if (estFaceMur()){
-    droite()
-    
-  }
+    if (checkMur()){
+      droite()
+      if (!estFaceMur()){
+        avance()
+      }
+    } else {gauche();avance()}  
+  } else {avance()}
 }
 
 override def run() {
