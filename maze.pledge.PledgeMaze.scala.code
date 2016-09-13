@@ -1,28 +1,31 @@
 override def run() {
-  setDirection(Direction.NORTH)
-  
+  var sommeAngle:Int=0
+  setDirection(Direction.NORTH)  
   while(!estSurBiscuit()){
-    if (!estFaceMur() && getDirection()==Direction.NORTH){
+    while (!estFaceMur() && getDirection()==Direction.NORTH){
       avance()
     }
-    else if((estFaceMur() || getDirection()!=Direction.NORTH)&& !estSurBiscuit()){
-      do {keepHandOnSideWall()} while(sommeAngle!=0 && !isDirectionFree(Direction.NORTH))
+      do {keepHandOnSideWall(sommeAngle)} while(sommeAngle!=0 && !isDirectionFree(Direction.NORTH))
     }
   }
   prendBiscuit()
 }
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(c:Int){
   if (estFaceMur()){
     droite()
+    c=c-1
   }
   else {
     avance();gauche()
+    c=c+1
     while (!estFaceMur()){
       avance();gauche()
+      c=c+1
     }
     droite()
   }
+  return c
 }
 
 def isDirectionFree(dir:Direction):Boolean ={
