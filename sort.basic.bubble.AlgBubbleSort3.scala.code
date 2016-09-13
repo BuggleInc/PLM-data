@@ -1,16 +1,16 @@
 var counter : Int = 0
 def bubbleSort3() {
-  while (counter < 96){
   	for (i <- 0 to getValueCount()-2){
     	for (j <- 0 to getValueCount() -2 -i){
         if (isSmaller(j,j+1)==false){
           swap(j,j+1)
-          counter = counter + 1
         }
       else {
-        return
+        counter = counter + 1
       }
+        if (getValueCount()-i-1 == counter){
+          return
+        }
      }
     }
   }
-}
