@@ -1,0 +1,34 @@
+override def run() {
+  while (getY()!=0){
+    setDirection(Direction.NORTH)
+    if (!estFaceMur){
+      avance()
+    } else {keepHandOnSideWall()}
+  }
+  parcourtFinale()
+}
+
+def parcourtFinale() {
+  while(!estFaceMur){
+    avance()
+  }
+  droite()
+  while (!estSurBiscuit){
+    keepHandOnSideWall()
+  }
+  prendBiscuit
+}
+
+def keepHandOnSideWall(){
+  gauche()
+  if (estFaceMur()){
+    droite()
+  }
+  if (estFaceMur()){
+    droite()
+  }
+  if (estFaceMur()){
+    droite()
+  }
+  avance()
+}
