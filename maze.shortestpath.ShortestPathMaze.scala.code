@@ -10,14 +10,14 @@ override def run() {
 val X = getWorldWidth();
 val Y = getWorldHeight();
 
-def findExit() : Tuple2[Int, Int] = {
+def findExit() : List[Int] = {
   for(x <- 0 until X)
 	  for(y <- 0 until Y)
   		if(hasBaggle(x,y))
   			return (x,y);
 }
 
-def marquerSol(casee: Tuple2[Int, Int], numero:Int) {
+def marquerSol(casee: List[Int], numero:Int) {
   val x = casee(0);
   var y = casee(1);
   setIndication(x, y, numero);
