@@ -1,47 +1,40 @@
 override def run() {
-  var cpt = 0
-  while(getY()!=0){
-    if(cpt!=0){
-      cpt=0
- 	if(estFaceMur()){
-    droite()
-    cpt=cpt+ 1
-  }  
-  if(estFaceMur()){
-    droite()
-    cpt=cpt+1
-  }
-  if(estFaceMur()){
-    droite()
-    cpt=cpt+1
-  }
-  avance()
-  gauche()
-  cpt=cpt-1
-    }
-    else{
+  while(!estSurBiscuit){
+    if(cpt==0 && !estFaceMur){
       avance()
     }
+    else{
+      keepHandOnSideWall
+    }
   }
-  while(!estSurBiscuit){
-    cpt=0
+}
+
+def keepHandOnSideWall(Int){
  	if(estFaceMur()){
     droite()
-    cpt=cpt+ 1
+    cpt+=1
   }  
   if(estFaceMur()){
     droite()
-    cpt=cpt+1
+    cpt+=1
   }
   if(estFaceMur()){
     droite()
-    cpt=cpt+1
+    cpt+=1
   }
   avance()
   gauche()
-  cpt=cpt-1
-  }
-  prendBiscuit()
-  setDirection(Direction.EAST)
+  cpt-=1
 }
 
+def isDirectionFree(dir){
+  while(getDirection!=dir){
+    droite()
+  }
+  if(estFaceMur){
+    return false
+  }
+  else{
+    return true
+  }
+}
