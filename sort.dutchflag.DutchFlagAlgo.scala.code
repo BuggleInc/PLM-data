@@ -1,0 +1,17 @@
+def solve() {
+  for (i <- 0 to getSize()-1){
+    getColor(i)
+    var k = getSize()-1
+    var j = i
+    if (getColor(i)==RED){
+      while (getColor(k)==RED){
+        k=k-1
+      }
+      swap(i,k)
+    }
+    if (getColor(j)==BLUE){
+      j=j+1
+    }
+    swap (i,j)
+  }
+}
