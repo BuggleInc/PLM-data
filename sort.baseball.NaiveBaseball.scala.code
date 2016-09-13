@@ -1,4 +1,26 @@
 override def run()
 {
-  deplace(1, 0);
+  val nbBases = getNombreBases();
+  val nbPos = getNombrePositions();
+  val posMaxBuggle = 0;
+  val maxDist = 0;
+  val currBase = 0;
+  
+  while(!estTrie)
+  {
+    currBase = (getTrouBase()+1)%nbBases;
+    posMaxBuggle = 0;
+    maxDist = 0;
+
+    for (i <- 1 to nbPos)
+    {
+      if (getCouleurJoueur(currBase, i)-i > maxDist)
+      {
+        maxDist = getCouleurJoueur(i, j)-i;
+        posMaxBuggle = i;
+      }
+    }
+    
+  	deplace(currBase, posMaxBuggle);
+  }
 }
