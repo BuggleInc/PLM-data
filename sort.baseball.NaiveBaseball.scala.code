@@ -8,6 +8,7 @@ override def run() {
 
 
 def distance(base:Int, position:Int, nbBases:Int):Int={
+  //Donne la distance du buggle en position (base,position) à la base de sa couleur
   var dist = 0
   var cBase = base
   var col = getCouleurJoueur(base,position)
@@ -15,10 +16,12 @@ def distance(base:Int, position:Int, nbBases:Int):Int={
     dist += 1
    	cBase = (cBase + 1)%nbBases
   }
+  print("fini")
   return dist
 }
 
 def actualDist(nbBases:Int,nbPos:Int):Array[Int] = {
+  //Actualiste la liste des distances
   var i:Int=0
  	var j:Int=0
   var cpt=0
