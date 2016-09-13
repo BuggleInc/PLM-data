@@ -1,6 +1,6 @@
 def trouveSortie():(Int,Int)={
   for (j <- 1 to getMondeLargeur()){
-    for (i <- 1 to getMondeLongueur()) {
+    for (i <- 1 to getMondeHauteur()) {
       if (aBiscuit(i,j)) {
         return (i,j)
       }
@@ -14,8 +14,8 @@ def numero(){
   var n = 1
   var nb = 1
   setIndication(x,y,0)
-  while (nb != getMondeLongueur()*getMondeLargeur()){
-    for (i <- 1 to getMondeLongeur()){
+  while (nb != getMondeHauteur()*getMondeLargeur()){
+    for (i <- 1 to getMondeHauteur()){
       for (j <- 1 to getMondeLargeur()){
         if (getIndication(i,j) == n-1) {
           if (!aMurNord(i,j) && getIndication(i-1,j)==9999) {setIndication(i-1,j,n);nb +=1}
