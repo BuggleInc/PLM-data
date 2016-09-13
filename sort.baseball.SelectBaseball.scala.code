@@ -1,16 +1,34 @@
 override def run() {
-  chercheJoueur(0,0)
-  deplace(4,0)
+  var n:Int = getNombreBases()
+  val primeHole:Int = getTrouBase()
+  var base:Int = primeHole
+  
+//  for (i <- 0 to n-1) {
+    base = primeHole+i
+    chercheJoueur(base, n)
+    
+//  }
+  
+
+  
 }
 
 
-def chercheJoueur(couleur:Int, depart:Int) {
+def chercheJoueur(couleur:Int, n:Int) {
   
-  var baseTestee:Int = (depart+1)%5
+  var baseTestee:Int = (couleur+1)%n
   
   while ((getCouleurJoueur(baseTestee,0)!=couleur) && (getCouleurJoueur(baseTestee,1)!=couleur)) {
     deplace(baseTestee,0)
-    baseTestee = (baseTestee+1)%5
+    baseTestee = (baseTestee+1)%n
+  }
+  
+  if (getCouleurJoueur(baseTestee,0)==couleur) {
+    deplace(baseTestee, 1)
+  }
+  
+  else {
+    deplace(baseTestee, 0)
   }
   
   
