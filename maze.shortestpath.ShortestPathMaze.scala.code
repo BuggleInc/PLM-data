@@ -1,0 +1,33 @@
+override def run() {
+  
+  var width:Int = getWorldWidth()
+  var height:Int = getWorldHeight()
+  var x:Int=0
+  var y:Int=0
+  var i:Int=0
+  while (! hasBaggle(x,y)) {
+    if (x<width-1) {
+    	x+=1
+    } else {
+      y+=1
+      x=0
+    }
+  }    
+  setIndication(x,y,i)
+  
+  while (x==getX() && y ==getY()) {
+    if (! hasTopWall(x,y)) {
+      setIndication(x,y-1,i+1)
+    }
+    if (! hasLeftWall(x,y)) {
+       setIndication(x-1,y,i+1)
+    }
+    if (!(x==width-1 || hasLeftWall(x+1,y))) {
+        setIndication(x+1,y,i+1) 
+    }
+    if (!(y==height-1 || hasTopWall(x,y+1))) {
+        setIndication(x,y+1,i+1)
+    }
+   i+=1
+  }
+}
