@@ -1,11 +1,15 @@
 def solve() {
-  while(!isSorted()){
+  var term = false
+  do{
+    term = true
     for(i <- 0 to getStackSize()-2){
       if(getPancakeRadius(i) > getPancakeRadius(i+1)){
         flip(i+1)
         flip(i+2)
+        term = false
         }
       }
+  } while (term = false)
     
   	for(k <- 0 to getStackSize()-1){
       if (isPancakeUpsideDown(k)==false){
