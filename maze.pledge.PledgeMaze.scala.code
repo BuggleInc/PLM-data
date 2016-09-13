@@ -45,7 +45,16 @@ def eviteObstacle(){
   } else {avance()}
 }
 
-
+def isDirectionFree(dir:Direction):Boolean = {
+  var direct:Direction = getDirection()
+  setDirection(dir)
+  if (estFaceMur()){
+    setDirection(direct)
+    return true
+  }
+  setDirection(direct)
+  return false
+}
 
 override def run() {
   while (!estSurMurNord()){
