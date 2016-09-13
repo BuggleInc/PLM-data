@@ -9,11 +9,13 @@ def checkMur():Boolean = {
 }
 
 def keepHandOnSideWall(){
+  var sommeAngle:Int = 0
   if(!estFaceMur()){
     if (checkMur()){
       avance()
     } else {
       gauche()
+      sommeAngle += 1
       avance()
     }
   } else{
@@ -27,6 +29,7 @@ def keepHandOnSideWall(){
       }
     } else {
       gauche()
+      sommeAngle += 1
       avance()
     }
   }
@@ -41,6 +44,8 @@ def eviteObstacle(){
     keepHandOnSideWall()
   } else {avance()}
 }
+
+
 
 override def run() {
   while (!estSurMurNord()){
