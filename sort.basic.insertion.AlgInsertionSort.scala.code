@@ -3,10 +3,17 @@ def insertionSort() {
   	{
       var v = getValeur(i)
       var k = i-1
-      while(!plusPetitQue(k,v))
+      while(!plusPetitQue(k,v) && k!=0)
       	{
 					setValeur(k+1,getValeur(k))
           k=k-1
+          if(k==0)
+          	{
+              if(!plusPetitQue(k,v))
+              	{
+                  setValeur(1,getValeur(0)); setValeur(0,v)
+                }
+            }
         }
       setValeur(k+1,v)
     }
