@@ -1,21 +1,30 @@
 override def run() {
-  
-  def bloque():Boolean= {
-    var t1=estDosMur
- 		var t2=estFaceMur
-    return t1&&t2
+  	
+  def testgauche()=Boolean {
+    gauche()
+    if (estFaceMur()) {droite(),return true}
+    droite()
+    return false
   }
   
   def keepHandOnSideWall() {
-    while (estFaceMur) {
-      droite()
-      if (!bloque) {return}
-    }
-    
+
+    if (!estFaceMur && testgauche) {
+      avance()
+      if (!testgauche()) {
+        gauche();
+        avance();
+        if (!testgauche()) {
+          gauche();
+          avance();
+          
+        }}}
+                           
   }
+  
+  
   while (!estSurBiscuit) {
     keepHandOnSideWall()
-    if (!estFaceMur) {avance()}
   }
   
   
