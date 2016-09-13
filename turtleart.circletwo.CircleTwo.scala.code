@@ -1,20 +1,30 @@
 override def run()
+{  
+  cercleTroue(2);
+  cercleTroue(1);
+}
+
+def cercleTroue(cote: Int)
 {
-  val rayon = 57.4;
+  val angle = cote.toDouble/2;
   
-  droite(90);
+  for (i <- 1 to 174)
+  {
+    avance(cote);
+    droite(angle);
+	}
+  
   leveCrayon();
-  avance(rayon);
+  for (i <- 1 to 7)
+  {
+    avance(cote);
+    droite(angle);
+	}
   baisseCrayon();
-  cercle(rayon);
   
-  leveCrayon();
-  avance(rayon);
-  baisseCrayon();
-  cercle(rayon*2);
-  
-  leveCrayon();
-  gauche(180);
-  avance(rayon*2);
-  droite(90);
+  for (i <- 1 to 179)
+  {
+    avance(cote);
+    droite(angle);
+	}
 }
