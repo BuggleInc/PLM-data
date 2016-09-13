@@ -1,4 +1,5 @@
 var step = 0;
+var c : Boolean  
 for (stepper <- 1 to 5){
   forward()
   if(isOverBaggle()){
@@ -27,10 +28,11 @@ while  (!exitReached()){
     }
   }
 }
-if (isGroundWhite()){
+c=getGroundColor()
+do{
   right()
   forward()
 }else {
   left()
   forward()
-}
+}while (c != orange)
