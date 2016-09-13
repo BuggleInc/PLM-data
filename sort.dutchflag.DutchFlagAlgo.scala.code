@@ -4,16 +4,18 @@ def solve() {
   var whiteRed = size-1; /* after that is red */
   var beforeWhite = size-1; /* after that is white until whiteRed */
   for(i <- 0 to size-1){
-    getColor(i) match {
-      case BLUE => 
-        swap(i, afterBlue) ; 
-        afterBlue += 1;
-      case WHITE => 
-				whiteRed = whiteRed;
-      case RED => 
-      	swap(i,whiteRed);
-        whiteRed -= 1;
-    }
+    if(beforeWhite<i)
+      getColor(i) match {
+        case BLUE => 
+          swap(i, afterBlue) ; 
+          afterBlue += 1;
+        case WHITE => 
+          whiteRed = whiteRed;
+        case RED => 
+          swap(i,whiteRed);
+          whiteRed -= 1;
+      }
+  	}
   }
 }
 /*
