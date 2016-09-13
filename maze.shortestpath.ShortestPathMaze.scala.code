@@ -22,7 +22,7 @@ override def run() {
   setIndication(x,y,i)
   
   def nexts(i:Int):List[Int] ={
-    var next:List = List.nil
+    var next:List[Int] = List.nil
     for (x<-0 to width-1 ) {
       for (y <- 0 to height-1) {
         if (getIndication(x,y)==i) {
@@ -43,7 +43,7 @@ override def run() {
     }
     return next
   }
-  var nextCase:List=List.nil
+  var nextCase:List[Int]=List.nil
   while (getIndication(getX(),getY())==9999) {
     
     nextCase=nexts(i)
