@@ -3,7 +3,7 @@ override def run() {
   
   while (!isSorted()) {
     var holeBase = getHoleBase();
-    var previousBase = (holeBase - 1 + n) % n;
+    var previousBase = (holeBase + 1) % n;
     
     if (distanceToDestination(previousBase, 0) > distanceToDestination(previousBase, 1)) {
       move(previousBase, 0);
