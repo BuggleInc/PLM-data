@@ -43,7 +43,9 @@ override def run() {
     do {
      turn= keepLeftHand(turn)
     } while (! dirFree(Direction.NORTH) && turn!=0)
-    
+    while (! isFacingWall()) {
+      forward()
+    }
    //}
   pickupBaggle()
 }
