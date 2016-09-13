@@ -13,10 +13,17 @@ override def run() {
         bougerTrouG(P)
       }
    		while(bonJoueurDroite(B) == 9999){
-        bougerTrouD(P)
+        bougerTrouD((P+1)%2)
       }
       deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
-
+			while (trouverTrou() != B){
+        bougerTrouG(P)
+        if (bonJoueurDroite(B) != 9999){
+          deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
+        }
+      }
+      deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
+      
       
       // On regarde si le buggles est de la bonne couleur
      
