@@ -1,27 +1,32 @@
 override def run() {
-  var dir:Direction=Direction.NORTH
-  while (getY()!=0) {
-  	while(porteBiscuit()==false) {
-      dir=getDirection()
-      setDirection(Direction.NORTH:Direction)
-      while (estFaceMur()==false) {
-        avance()
-      }
-    	keepHandOnSideWall()
-    	if (estSurBiscuit()==true) {
-      	prendBiscuit()
-    	}
-      
-  	}
-  }
-  while(porteBiscuit()==false) {
-    	keepHandOnSideWall()
+  droite()
+  while (porteBiscuit()==false) {
+    courirEAST()
     if (estSurBiscuit()==true) {
-      	prendBiscuit()
-      }
-  } 	
+      prendBiscuit()
+    }
+    keepHandOnSideWall()
+    if (estSurBiscuit()==true) {
+      prendBiscuit()
+    }
+  }
+
 }
 
+def courirEAST {
+  while (getDirection()=Direction.EAST && estFaceMur()==false) {
+    avance()
+  }
+}
+  
+def suivreGauche() {
+  while(porteBiscuit()==false) {
+    keepHandOnSideWall()
+    if (estSurBiscuit()==true) {
+      prendBiscuit()
+    }
+  }
+}
 
 def keepHandOnSideWall() {
   gauche()
