@@ -4,27 +4,27 @@ override def run() {
   var baseLibre:Int = getTrouBase()
   var trouLibre:Int = getTrouPosition()
   
-  for (compt <- 0 to n-1) {
+  for (base <- 0 to n-1) {
     
-    if (baseLibre==compt) {
-      deplace((compt+1)%n,0)
+    if (baseLibre==base) {
+      deplace((base+1)%n,0)
     }
     
     baseLibre=getTrouBase()
     
-    if (!estBaseTriee(compt)) {     
-      if (getCouleurJoueur(compt, 0)!=compt) { //Si le joueur en (compt, 0) n'est pas bien placé,
+    if (!estBaseTriee(base)) {     
+      if (getCouleurJoueur(base, 0)!=base) { //Si le joueur en (base, 0) n'est pas bien placé,
         
-        chercheJoueur(compt, n) match {       //on cherche le joueur qui doit venir dans la base compt.
-          case (baseDepart,posDepart) => deplaceJoueur(baseDepart, posDepart, compt, 0)
+        chercheJoueur(base, n) match {       //on cherche le joueur qui doit venir dans la base.
+          case (baseDepart,posDepart) => deplaceJoueur(baseDepart, posDepart, base, 0)
           case _                    => ()    //Ne doit pas arriver.
         }
       }
       
-      if (getCouleurJoueur(compt, 1)!=compt) { //Si le joueur en (compt, 1) n'est pas bien placé,
+      if (getCouleurJoueur(base, 1)!=base) { //Si le joueur en (compt, 1) n'est pas bien placé,
         
-        chercheJoueur(compt, n) match {       //on cherche le joueur qui doit venir dans la base compt.
-          case (baseDepart,posDepart) => deplaceJoueur(baseDepart, posDepart, compt, 1)
+        chercheJoueur(base, n) match {       //on cherche le joueur qui doit venir dans la base.
+          case (baseDepart,posDepart) => deplaceJoueur(baseDepart, posDepart, base, 1)
           case _                    => ()    //Ne doit pas arriver.
         }
       }
