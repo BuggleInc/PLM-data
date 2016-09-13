@@ -11,15 +11,7 @@ override def run() {
     return b
   }
   
-  while (! hasBaggle(x,y)) {
-    if (x<width-1) {
-    	x+=1
-    } else {
-      y+=1
-      x=0
-    }
-  }    
-  setIndication(x,y,i)
+
   
   def nexts(i:Int):List[Tuple2[Int,Int]] ={
     var next:List[Tuple2[Int,Int]] = Nil
@@ -43,6 +35,18 @@ override def run() {
     }
     return next
   }
+  
+  while (! hasBaggle(x,y)) {
+    if (x<width-1) {
+    	x+=1
+    } else {
+      y+=1
+      x=0
+    }
+  }  
+  
+  setIndication(x,y,i)
+  
   var nextCase:List[Tuple2[Int,Int]]=Nil
   while (getIndication(getX(),getY())==9999) {
     
@@ -51,6 +55,7 @@ override def run() {
     
     i+=1
     for (c <- nextCase) {
+      setIndication(0,0,c._1)
       setIndication(c._1,c._2,i)
       
     }
