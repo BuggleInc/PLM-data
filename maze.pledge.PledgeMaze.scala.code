@@ -1,24 +1,24 @@
 override def run() {
   
-    def keepLeftHand(t:Int):Int ={
+    def keepRightHand(t:Int):Int ={
       var turn:Int=t
-      left()
-      turn=turn+1
+      right()
+      turn=turn-1
       if (! isFacingWall()) {
         forward() ; return turn
         } else {
-    					right()
-        			turn=turn-1
+    					left()
+        			turn=turn+1
     					if (! isFacingWall()) {
                 forward ; return turn
               } else {
-                	right()
-                turn=turn - 1
+                	left()
+                turn=turn + 1
                 	if (! isFacingWall()) {
                   	forward ; return turn
                 	} else {
-                  right()
-                    turn= turn - 1 ; return turn
+                  left() ;forward()
+                    turn= turn + 1 ; return turn
                 }
               }
             }
@@ -46,7 +46,7 @@ override def run() {
     }
      turn=0
      while (turn!=0 || ! dirFree(Direction.NORTH)) {
-     turn= keepLeftHand(turn)
+     turn= keepRightHand(turn)
     }
     
     
