@@ -11,16 +11,16 @@ override def run()
     currBase = (getTrouBase()+1)%nbBases;
     posMaxBuggle = 0;
     maxDist = -10;
-/*
+
     for (i <- 0 to nbPos-1)
     {
-      if (currBase-getCouleurJoueur(currBase, i) > maxDist)
+      if (currBase-getCouleurJoueur(currBase, i) > maxDist && currBase-getCouleurJoueur(currBase, i) != 0)
       {
         maxDist = currBase-getCouleurJoueur(currBase, i);
         posMaxBuggle = i;
       }
-    }*/
+    }
     
-  	deplace(currBase, 0);
+  	deplace(currBase, posMaxBuggle);
   }
 }
