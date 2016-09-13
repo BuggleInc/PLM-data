@@ -1,0 +1,23 @@
+def shellSort()  {
+  var nbValeurs = getNombreValeurs()
+  var ecart = nbValeurs
+  var auMoinsUnEchange = 0
+  while(ecart > 1 || auMoinsUnEchange == 1)
+  {
+    auMoinsUnEchange = 0
+    if(ecart>1)
+    	ecart = (ecart.toDouble / 1.3).toInt
+    if(ecart == 9 || ecart == 10)
+    	ecart = 11
+    var i = 0
+    while (i+ecart < nbValeurs)
+    {
+      if (plusPetit(i+ecart, i))
+      {
+        echange(i, i+ecart)
+        auMoinsUnEchange = 1
+      }
+      i += 1
+    }
+  }
+}
