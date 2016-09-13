@@ -9,15 +9,14 @@ override def run() {
     var idMax = 0;
     var currBase = 0;
     
-    if(holeBase == 0){
-      currBase = nbBases;
+    if(holeBase == nbBases){
+      currBase = 0;
     }else{
-      currBase = holeBase-1;
+      currBase = holeBase+1;
     }
     
     for(currPos <- 0 until nbPosB){
       if(currPos != getHolePosition()){
-        
         var currVal = nbBasesParcourir(currBase, currPos);
       	if(currVal > valMax){
           valMax = currVal;
