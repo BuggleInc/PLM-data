@@ -7,49 +7,10 @@ override def run() {
   var col = 0
   var col1 = 9999
   var col2 = 9999
-  for (B <- 0 to nbBases - 1){
+  for (B <- 0 to nbBases - 2){
     for (P <- 0 to 1){
-      if (estTrie()){
-        return
+      bienPositionner(B:Int,P:Int)
       }
-      // On pose le trou à la pos initiale
-      while (trouverTrou() != B){
-        bougerTrouG(P)
-      }
-      //Tant qu'un Buggle est pas à droite du trou, on bouge le trou
-   		while(bonJoueurDroite(B) == 9999){
-        bougerTrouD(P)
-      }
-      deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
-			while (getCouleurJoueur(B,P)!=B){
-        if (trouverTrou()==B & getCouleurJoueur(trouverTrou(),(P+1)%2)==B){
-          bougerTrouD(0)
-          bougerTrouG(1)
-          bougerTrouD(1)
-        }
-        
-        // On agit même si deux Buggles de la même couleur sont précedent au Trou
-        if (getCouleurJoueur(trouverTrou()-1,P)==B && getCouleurJoueur(trouverTrou()-1,(P+1)%2)==B){
-          bougerTrouG(P)
-          bougerTrouG(P)
-          deplace(((trouverTrou()+1)%nbBases),bonJoueurDroite(B))
-        }
-        // On ne veut pas echanger en boucle Buggle et Trou !
-        if (getCouleurJoueur(trouverTrou()-1,P)==B){
-          bougerTrouG((P+1)%2)
-        }
-        // On bouge d'un cran à gauche
-        else{
-          bougerTrouG(P)
-        }
-        // Si le Buggle est à gauche on échange de place le Buggle et le Trou
-        if (bonJoueurDroite(B) != 9999){
-          deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
-          }
-      }
-      
-      
-    }
   }  
 }
 
@@ -107,4 +68,42 @@ def bonJoueurDroite(col:Int):Int = {
 		return 1
   }
   return 9999
+}
+
+def bienPositionner(B:Int,P:Int){
+      // On pose le trou à la pos initiale
+      while (trouverTrou() != B){
+        bougerTrouG(P)
+      }
+      //Tant qu'un Buggle est pas à droite du trou, on bouge le trou
+   		while(bonJoueurDroite(B) == 9999){
+        bougerTrouD(P)
+      }
+      deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
+			while (getCouleurJoueur(B,P)!=B){
+        if (trouverTrou()==B & getCouleurJoueur(trouverTrou(),(P+1)%2)==B){
+          bougerTrouD(0)
+          bougerTrouG(1)
+          bougerTrouD(1)
+        }
+        
+        // On agit même si deux Buggles de la même couleur sont précedent au Trou
+        if (getCouleurJoueur(trouverTrou()-1,P)==B && getCouleurJoueur(trouverTrou()-1,(P+1)%2)==B){
+          bougerTrouG(P)
+          bougerTrouG(P)
+          deplace(((trouverTrou()+1)%nbBases),bonJoueurDroite(B))
+        }
+        // On ne veut pas echanger en boucle Buggle et Trou !
+        if (getCouleurJoueur(trouverTrou()-1,P)==B){
+          bougerTrouG((P+1)%2)
+        }
+        // On bouge d'un cran à gauche
+        else{
+          bougerTrouG(P)
+        }
+        // Si le Buggle est à gauche on échange de place le Buggle et le Trou
+        if (bonJoueurDroite(B) != 9999){
+          deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
+          }
+      }
 }
