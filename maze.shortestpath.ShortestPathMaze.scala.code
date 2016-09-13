@@ -5,6 +5,12 @@ override def run() {
   var x:Int=0
   var y:Int=0
   var i:Int=0
+  
+  def min(a:Int,b:Int):Int ={
+    if (a<=b) {return a}
+    return b
+  }
+  
   while (! hasBaggle(x,y)) {
     if (x<width-1) {
     	x+=1
@@ -15,19 +21,25 @@ override def run() {
   }    
   setIndication(x,y,i)
   
-  while (x==getX() && y ==getY()) {
+  
+  while (getIndication(getX(),getY())==9999) {
+    i+=1
     if (! hasTopWall(x,y)) {
-      setIndication(x,y-1,i+1)
+      y=y-1
+      setIndication(x,y,min(i,getIndication(x,y))
     }
     if (! hasLeftWall(x,y)) {
-       setIndication(x-1,y,i+1)
+      x=x-1
+       setIndication(x,y,min(i,getIndication(x,y))
     }
     if (!(x==width-1 || hasLeftWall(x+1,y))) {
-        setIndication(x+1,y,i+1) 
+      x+=1
+        setIndication(x,y,min(i,getIndication(x,y)) 
     }
     if (!(y==height-1 || hasTopWall(x,y+1))) {
-        setIndication(x,y+1,i+1)
+      y+=1
+        setIndication(x,y,min(i,getIndication(x,y))
     }
-   i+=1
+   
   }
 }
