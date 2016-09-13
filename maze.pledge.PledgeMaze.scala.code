@@ -1,7 +1,7 @@
 override def run() {
   var cmpt:Int = 0
   while(!estSurBiscuit){
-    if((!(isDirectionFree(Direction.NORTH)))&&(!cmpt==0)) {
+    if((isDirectionNotFree(Direction.NORTH))&&(!cmpt==0)) {
       cmpt = keepHandOnSideWall() + cmpt
     } else {
       setDirection(Direction.NORTH)
@@ -33,14 +33,14 @@ def keepHandOnSideWall():Int = {
   return dir
 }
 
-def isDirectionFree(dir:Direction):Boolean = {
+def isDirectionNotFree(dir:Direction):Boolean = {
   var tmp:Direction = getDirection()
   setDirection(dir)
   if (estFaceMur) {
     setDirection(tmp)
-    return false
+    return true
   } else {
     setDirection(tmp)
-    return true
+    return false
   }
 }
