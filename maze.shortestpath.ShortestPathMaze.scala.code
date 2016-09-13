@@ -8,7 +8,42 @@ override def run() {
   while(!hasBaggle(x,y))
     y+=1
   
-  writePath(x,y, 0, n,m )
+  
+  
+  var _C : Array[Int] = new Array[Int] (1)
+	Math.ceil
+  
+  _C(1)=x+100*y+10000*0
+  
+  while(_X.size != 0){
+    var _X_ : Array[Int] = new Array[Int] (4*_X.size)
+  	var _Y_ : Array[Int] = new Array[Int] (4*_Y.size)
+    var _N_ : Array[Int] = new Array[int] (4*_N.size)
+    
+    for(it <- 0 to _X.size -1){
+      
+      if(_X(it) != -1){
+        var x = _X(it)
+        var y = _Y(it)
+        var num = _N(it)
+
+        if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
+          setIndication(x-1,y,num+1)
+          _X_(4*it)=x-1
+        }
+        if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999 ){
+          writePath(x,y-1,num+1,n,m)
+        }
+        if(x<n-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)==9999 ){
+          writePath(x+1,y,num+1,n,m)
+        }
+        if(y<m-1 && !hasTopWall(x,y+1) && getIndication(x,y+1)==9999){
+          writePath(x,y+1,num+1,n,m)
+        }
+      }
+
+    }
+  }
 }
 
 
