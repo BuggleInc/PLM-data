@@ -48,7 +48,7 @@ override def run() {
   setIndication(x,y,i)
   
   var nextCase:List[Tuple2[Int,Int]]=Nil
-  while (getIndication(getX(),getY())==9999) {
+  while (i!=width*height) {
     
     nextCase=nexts(i)
     
@@ -61,4 +61,14 @@ override def run() {
     }
     
   }
+  
+  def move() {
+    i=getIndication(getX(),getY())-1
+    
+  }
+  
+  while (! isOverBaggle()) {
+    move()
+  }
+  pickupBaggle()
 }
