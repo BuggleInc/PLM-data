@@ -1,0 +1,52 @@
+def isWallAtLeft () : Boolean = {
+  left();
+  var answer = isFacingWall();
+  right();
+  return answer;
+}
+
+// convoluted with staying the wall at the left :
+def leftFollowerMode() {
+  while ((getDirection() != Direction.NORTH) || isFacingWall()) {
+    if (isOverBaggle()) {return();} else {
+  	if (!isFacingWall()) {
+    	forward();
+     	if (!isWallAtLeft()) {
+      	left();
+       	forward();
+     	 	if (!isWallAtLeft()) {
+       		left();
+       		forward();
+       }
+   		}
+  	} else { right(); } 
+	}
+  }
+}
+
+def northRunnerMode () {
+  while (getDirection() != Direction.NORTH) { // auto-orientation
+    right();
+  }
+  while (!isFacingWall()) { // forward as long is possible
+  		forward();
+  }
+}
+
+def makeMoving() {
+  var state = 0;
+  while (!isOverBaggle()) {
+    state match {
+      case 0 => northRunnerMode(); state = 1; // tant qu'on a pas rencontre un mur au nord
+      case 1 =>  while (!isWallAtLeft()) { 
+        						right(); // on s'assure qu'il y ait un mur gauche
+      					 }; leftFollowerMode(); state = 0;
+      case _ => println("Error : this case should not happen.")
+    }
+  }
+  pickupBaggle();
+}
+
+override def run() { 
+  makeMoving();
+}
