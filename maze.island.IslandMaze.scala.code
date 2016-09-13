@@ -1,0 +1,43 @@
+override def run() {
+  var etat = 0
+  etat match{
+    case 0 => while(getDirection()!= Direction.NORTH){gauche()};while(!estFaceMur){avance()},etat=1
+    case 1 =>while(getDirection() != Direction.NORTH && !estFaceMur){
+      gauche()
+  		while(!estFaceMur()){
+   		  avance()
+ 			}
+  		droite()
+  		while(!estSurBiscuit){
+    		keepHandOnSideWall()  
+    }
+    }
+    etat=0
+    case _ => etat=0
+  }
+  prendBiscuit()
+  
+}
+def keepHandOnSideWall(){
+  gauche()
+  if(estFaceMur){
+      droite()
+      if(!estFaceMur){
+      avance()
+      }else{
+        droite()
+      }
+    }else{
+      avance()
+    }
+}
+
+gauche()
+  while(!estFaceMur()){
+    avance()
+  }
+  droite()
+  while(!estSurBiscuit){
+    keepHandOnSideWall()
+    
+    
