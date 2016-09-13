@@ -1,20 +1,11 @@
 override def run() {
   while (!estSurBiscuit())
-  {while (!(getDirection() == Direction.NORTH && !estFaceMur()))
+  {while (!(getDirection() == Direction.NORTH && !estFaceMur()&& (!estSurBiscuit())))
    {keepHandOnSideWall()};allerAuNord()
                     
   }                   
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+         
                     
  prendBiscuit()                   
 }
@@ -32,8 +23,8 @@ def allerAuNord()
 
 
 def keepHandOnSideWall()
-{if (!estSurBiscuit()){;gauche();
+{gauche();
  if (estFaceMur())
  {droite();if (estFaceMur()) {droite(); if (estFaceMur()){droite()}}; avance()}
  else
-                          {avance()}}}
+                          {avance()}}
