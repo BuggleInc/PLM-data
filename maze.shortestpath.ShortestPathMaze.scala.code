@@ -10,4 +10,21 @@ override def run() {
     }
   }
   setIndication(x,y,0)
+  while(true){
+    cpt+=1
+    if(aMurNord(x,y)){
+      if(aMurOuest(x,y)){
+        u=x+1
+        v=y+1
+        if(aMurOuest(u,y)){
+          setIndication(x,v,cpt)
+        }else{
+          setIndication(u,y,cpt)
+          if(!aMurNord(x,v)){
+            setIndication(x,v,cpt)
+          }
+        }
+      }
+    }
+  }
 }
