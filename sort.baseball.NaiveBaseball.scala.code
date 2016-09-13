@@ -7,13 +7,13 @@ override def run() {
 }
 
 
-def distance(base:Int, position:Int):Int={
+def distance(base:Int, position:Int, nbBases:Int):Int={
   var dist = 0
   var cBase = base
   var col = getCouleurJoueur(base,position)
   while (col != base){
     dist += 1
-   	cBase = cBase + 1 
+   	cBase = (cBase + 1)%nbBases
   }
   return dist
 }
@@ -25,7 +25,7 @@ def actualDist(nbBases:Int,nbPos:Int):Array[Int] = {
   var liste=new Array[Int](6)
   for (i <- 0 to nbBases-1 ){
     for (j <- 0 to nbPos-1){
-      liste(cpt)=distance(i,j)
+      liste(cpt)=distance(i,j,nbBases)
     }
   }	
   return liste
