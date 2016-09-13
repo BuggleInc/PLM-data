@@ -15,14 +15,25 @@ override def run() {
     droite()
     var angleSomme=false
     while (!angleSomme && !nord){
-      while (keepHandOnSideWall() && !estFaceMur){
+      while (keepHandOnSideWall() && !estFaceMur()){
         avance()
       }
-      
+      if (estFaceMur() && keepHandOnSideWall()){
+        droite()
+        sommeAngle-=1
+      }else{
+        gauche()
+        sommeAngle+=1
+      }
+      if (sommeAngle==0){
+        angleSomme=true
+      }
     }
   }
   prendBiscuit()
 }
+
+
 
 def keepHandOnSideWall():Boolean={
   gauche()
