@@ -1,25 +1,27 @@
 override def run() {
-  setDirection(Direction.NORTH)
-  while(!estSurBiscuit()){
-    while(!estFaceMur() && getDirection()==Direction.NORTH){
-      avance()
-    }
-    while((estFaceMur() || getDirection()!=Direction.NORTH)&& !estSurBiscuit()){
-      keepHandOnSideWall()
-    }
-  }
-  prendBiscuit()
 }
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(c:Int){
   if (estFaceMur()){
     droite()
+    c-=1
   }
   else {
     avance();gauche()
     while (!estFaceMur()){
       avance();gauche()
+      c+=1
     }
     droite()
+  }
+}
+
+def is DirectionFree(dir:Direction):Boolean ={
+  setDirection(dir)
+  if(estFaceMur()){
+    return false
+  }
+  else {
+    return true
   }
 }
