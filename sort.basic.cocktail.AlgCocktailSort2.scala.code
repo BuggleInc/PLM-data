@@ -3,14 +3,27 @@ def cocktailSort2() {
   var debut = 0;
   var fin = l-2;
   var fini = false;
+  var leftToRight = true;
+  var j = 0;
   
   do{
     fini = true;
-    for (i <- debut to fin) if (plusPetit(i+1, i)){
+    if(leftToRight) for (i <- debut to fin) if (plusPetit(i+1, i)){
       echange(i,i+1);
       fini = false;
+      fin -= 1;
+    }
+    else for(i <- debut to fin){
+      j = fin - i + debut;
+      if(plusPetit(j+1, j)){
+        echange(j, j+1);
+        fini = false;
+        debut += 1
+      }
     }
     
+    leftToRight = !leftToRight;
+    if(debut >= fin) fini = true;
     	
   }while(!fini)
 }
