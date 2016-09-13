@@ -4,7 +4,6 @@ override def run() {
   var B=0
   var P=0
   var col = 0
-  //
   for (B <- 0 to nbBases - 1){
     for (P <- 0 to 1){
       // On pose le trou à la pos initiale
@@ -67,11 +66,11 @@ def bougerTrouD(P:Int){
   deplace((trouverTrou()+1+nbBases)%nbBases,P)
 }
 
-def bonJoueurGauche(col:Int):Boolean = {
+def bonJoueurDroite(col:Int):Boolean = {
   var b=trouverTrou()
   val nbBases = getNombreBases()
-  var col0=getCouleurJoueur((b-1+nbBases)%nbBases,0)
-  var col1=getCouleurJoueur((b-1+nbBases)%nbBases,1)
+  var col0=getCouleurJoueur((b+1+nbBases)%nbBases,0)
+  var col1=getCouleurJoueur((b+1+nbBases)%nbBases,1)
   if (col0==col || col1==col){
     return true
   }
