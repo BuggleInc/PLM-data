@@ -1,8 +1,22 @@
 override def run() {
-  trouvemuragauche()
+  rejoindrelenord()
   while (!estSurBiscuit())
   	keepHandOnSideWall()
   prendBiscuit()
+}
+
+def rejoindrelenord() {
+  var r = random3()
+  while (!estFaceMur() & getDirection()=Direction.NORTH) {
+    r = random3()
+    if (r==0 && !estFaceMur())
+      avance()
+    if (r==1)
+      gauche()
+    if (r==2)
+      droite()
+  }
+droite()
 }
 
 def keepHandOnSideWall() {
@@ -16,10 +30,4 @@ def keepHandOnSideWall() {
   }
   else
   	avance()
-}
-
-def trouvemuragauche() {
-  while (!estFaceMur())
-  	avance()
-  droite()
 }
