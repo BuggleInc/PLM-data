@@ -1,0 +1,28 @@
+var step = 0
+forward()
+do {
+  forward()
+  step = step + 1
+}while (!crossing())
+
+while  (!exitReached()){
+  if (step < 3){
+    right()
+    step = 0
+    for (stepper <- 1 to 5){
+      forward()
+      if(isOverBaggle()){
+        step =step + 1
+      } 
+    }
+  }else {
+    left()
+    step = 0
+    for (stepper <- 1 to 5){
+      forward()
+      if(isOverBaggle()){
+        step =step + 1
+      } 
+    }
+  }
+}
