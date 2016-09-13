@@ -3,6 +3,7 @@ override def run() {
   val nbPos = getNombrePositions()
   var B=0
   var P=0
+  var alternP = 0
   var col = 0
   var col1 = 9999
   var col2 = 9999
@@ -15,11 +16,13 @@ override def run() {
    		while(bonJoueurDroite(B) == 9999){
         bougerTrouD((P+1)%2)
       }
+      alerneP = P
       deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
 			while (getCouleurJoueur(B,P)!=B){
         bougerTrouG(P)
         if (bonJoueurDroite(B) != 9999){
           deplace((trouverTrou()+1)%nbBases,bonJoueurDroite(B))
+          alerneP = (alterneP+1)%2
         }
       }
       
