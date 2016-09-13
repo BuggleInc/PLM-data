@@ -45,27 +45,3 @@ def isInPosition(x: Int, y: Int):Boolean = {
   }
   else {return false}
 }
-
-
-override def run() {
-  while (! isInPosition(x,y)) match {
-    case (_,0) => {for (X <- 0 to diag){
-      for (Y <- diag to 0) {
-        setPos(X,Y)
-        writeMessage(n)
-        n = n + 1
-      }
-    }
-    diag = diag + 1
-  }
-    case (x-1,_) => {for (X <- 0 to diag){
-      for (Y <- diag to 0) {
-        setPos(X,Y)
-        writeMessage(n)
-        n = n + 1
-      }
-    }
-    diag = diag - 1
-  }
- }
-}
