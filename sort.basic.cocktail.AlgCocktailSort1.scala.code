@@ -3,18 +3,20 @@ def cocktailSort() {
   var hadInversed = true;
   do {
     hadInversed =false;
-    for (i <- 0 to n-2) {
-      if (isSmaller(i+1, i)) {
-        swap(i, i+1);
-        hadInversed = true;
+    for (j <- 0 to (n-1)) {
+      for (i <- 0 to n-2-j) {
+        if (isSmaller(i+1, i)) {
+          swap(i, i+1);
+          hadInversed = true;
+        }
       }
-    }
-    for (i <- (n-1) to 1 by -1) {
-      if (isSmaller(i, i-1)) {
-        swap(i, i+1);
-        hadInversed = true;
-      	}
-    	}
+      for (i <- (n-1-j) to 1 by -1) {
+        if (isSmaller(i, i-1)) {
+          swap(i, i+1);
+          hadInversed = true;
+          }
+        }
+      }
   	}
 	 	while (hadInversed) 
 }
