@@ -1,5 +1,5 @@
 def mur():Boolean={
-  right()
+  left()
   if (estFaceMur()==true){
     return true
   }
@@ -11,8 +11,14 @@ def mur():Boolean={
 
 override def run() {
   while (!estSurBiscuit()){
-    if (getDirection()==Direction.NORTH && !estFaceMur()){
-      avance()
+    if (getDirection()==Direction.NORTH){
+      if(!estFaceMur()){
+        avance()
+      }
+      else{
+        retourne()
+      }
+      
     }
     else {
       if (mur()){
@@ -22,7 +28,7 @@ override def run() {
         avance()
       }
       else{
-        left()
+        right()
       }
   }
     else{
@@ -30,7 +36,7 @@ override def run() {
         avance()
       }
       else{
-        left()
+        right()
       }
     }
     }
