@@ -2,31 +2,18 @@ var sommeAngle:Int = 0
 
 override def run() {
   var dir:Direction = Direction.NORTH
-  
+  setDirection(dir)
   while (!estSurBiscuit) {
-    
-    if (getDirection() == dir) {
-      
-      if (sommeAngle == 0) {
-        
-        if (isDirectionFree(dir)) {
-          setDirection(dir)
-          
-      		while (!estFaceMur) {
-        		avance()
-      		}
-          sommeAngle = 0
-      		droite()
-          sommeAngle += 1
-    		}
-      }
-    } else {
-      while (getDirection() != dir) {
-        keepHandOnSideWall()
-      }
+    while (isDirectionFree(dir)) {
+      setDirection(dir)
+      avance()
     }
-  }
-  prendBiscuit
+    sommeAngle = 0
+    droite()
+    sommeAngle += 1
+    while ((!isDirectionFree(dir)) && (sommeAngle != 0)) {
+      keepHandOnSideWall()
+    }
 }
 
 
