@@ -1,0 +1,38 @@
+override def run() {
+  
+  
+  sortie = findExit();
+  marquerSol(sortie, 0);
+  parcourirPath();
+  
+}
+
+var X = getWorldWidth();
+var Y = getWorldHeight();
+
+def findExit() : Tuple = {
+  for(x <- 0 until X)
+	  for(y <- 0 until Y)
+  		if(HasBaggle())
+  			return (x,y);
+}
+
+def marquerSol(casee, numero){
+  var x, y = case(0), case(1);
+  setPos(x,y);
+  setIndication(x, y, numero)
+  
+  
+  setHeading(Direction.NORTH);
+  if(isFacingWall() && y > 0)
+  	marquerSol((x,y-1), numero+1);
+  if(isFacingWall() && y < Y-1)
+  	marquerSol((x,y+1), numero+1);
+  
+  setHeading(Direction.EAST);
+  if(isFacingWall() && x > 0)
+  	marquerSol((x-1,y), numero+1);
+  if(isFacingWall() && x < X-1)
+  	marquerSol((x+1,y), numero+1);
+  
+}
