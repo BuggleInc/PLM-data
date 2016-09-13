@@ -31,7 +31,7 @@ override def run() {
         _C_(4*it)=x-1 + 100*y + 10000*(num+1)
       }
       else{
-        _C_(4*it)=-1
+        _C_(4*it)= (-1)
         elements-=1
       }
       
@@ -40,7 +40,7 @@ override def run() {
         _C_(4*it+1)=x+100*(y-1)+10000*(num+1)
       }
       else{
-        _C_(4*it+1)=-1
+        _C_(4*it+1)= (-1)
         elements-=1
       }
       
@@ -49,7 +49,7 @@ override def run() {
         _C_(4*it+2)=x+1+100*y+10000*(num+1)
       }
       else{
-        _C_(4*it+2)=-1
+        _C_(4*it+2)= (-1)
         elements-=1
       }
       
@@ -58,31 +58,19 @@ override def run() {
         _C_(4*it+3)=x+100*(y+1)+10000*(num+1)
       }
       else{
-        _C_(4*it+3)=-1
+        _C_(4*it+3)= (-1)
         elements-=1
       }
-     
 
     }
+    _C=new Array[Int](elements)
+    var it : Int = 0
+    for(j <- 0 to _C_.size -1 ){
+       if(_C_(j)!=-1){
+       	_C(it)=_C_(j)
+        it + = 1 
+       }
+     }
   }
 }
 
-
-def writePath(x : Int , y : Int, num : Int , n : Int, m : Int){
-    
-  setIndication(x,y,num)
-
-  
-  if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
-    writePath(x-1,y,num+1,n,m)
-  }
-  if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999 ){
-    writePath(x,y-1,num+1,n,m)
-  }
-  if(x<n-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)==9999 ){
-    writePath(x+1,y,num+1,n,m)
-  }
-  if(y<m-1 && !hasTopWall(x,y+1) && getIndication(x,y+1)==9999){
-    writePath(x,y+1,num+1,n,m)
-  }
-}
