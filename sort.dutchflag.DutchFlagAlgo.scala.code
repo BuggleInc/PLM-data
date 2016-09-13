@@ -6,25 +6,22 @@ def solve() {
 
 def insertionSort() {
   var n:Int=getTaille()
-  var compteur:Int=0
-  for ( k <- 0 to (n-1-compteur)){
+  for ( k <- 1 to (n-1)){
     var stock:Int=getCouleur(k)
-    var l:Int=0
+    var l:Int=k
     var h=n-1
     if (stock==BLEU){
-      while(getCouleur(l)==BLEU){
-        l+=1
+      while(getCouleur(l!=BLEU)&& l>=0){
+        l-=1
       }
       echange(k,l)
     } else {
-      if(stock==ROUGE){
-        while(getCouleur(h)==ROUGE){
-          h-=1
-          compteur+=1
+      if(stock==BLANC){
+        while(getCouleur(h)==ROUGE && l>=0){
+          l-=1
         }
-        echange(k,h)
+        echange(k,l)
       }
     }
-
   }
 }
