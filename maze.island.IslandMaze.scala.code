@@ -1,30 +1,24 @@
 override def run() {
-  while ((getY() != 1) || (getY() != 0)) {
+  while (getY() != 0) {
     if (goNorth) {
       setDirection(Direction.NORTH)
       avance()
     } else {
-      outtaHere()
+      contourner()
     }
   }
-  reallyOuttaHere()
+  sortie()
 }
 
 
-
-def outtaHere() {
-  if (!checkLeftWall) {
-    while (!estFaceMur) {
-      avance()
-    }
-    droite()
-  }
-  while ((!goNorth) || (getDirection() != Direction.SOUTH)) {
+def contourner() {
+  while(!goNorth) {
     keepHandOnSideWall()
   }
 }
 
-def reallyOuttaHere() {
+
+def sortie() {
   if (!checkLeftWall) {
     while (!estFaceMur) {
       avance()
@@ -36,7 +30,6 @@ def reallyOuttaHere() {
   }
   prendBiscuit
 }
-
 
 
 def keepHandOnSideWall() {
@@ -57,7 +50,6 @@ def keepHandOnSideWall() {
 }
 
 
-
 def checkLeftWall():Boolean = {
   gauche()
   if (estFaceMur) {
@@ -68,6 +60,7 @@ def checkLeftWall():Boolean = {
     return false
   }
 }
+
 
 def goNorth():Boolean = {
   var maRoute:Direction = Direction.NORTH
