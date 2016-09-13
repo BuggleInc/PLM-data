@@ -2,8 +2,10 @@ def insertionSort() {
   val lgr = getNombreValeurs()
   for (i <- 1 to (lgr - 1)) {
   	var v = getValeur(i)
-    while (getValeur(i-1) > v) {
-      echange(i,i-1)
+    var compt = i
+    while (getValeur(compt-1) > v) {
+      echange(compt,compt-1)
+      compt = compt - 1
     }
   }
 }
