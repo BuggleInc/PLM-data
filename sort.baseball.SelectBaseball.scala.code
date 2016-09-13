@@ -1,0 +1,54 @@
+override def run() {
+  val nbBases = getNombreBases()
+  val nbPos = getNombrePositions()
+  var liste = new Array[Int](8)
+  //
+  var trou=0
+  while (!estTrie()){
+    trou=trouverTrou(nbBases,nbPos)
+    deplace(nbBases,nbPos,trou)
+  }
+  return
+}
+
+
+def distance(base:Int, position:Int, nbBases:Int):Int={
+  //Donne la distance du buggle en position (base,position) à la base de sa couleur
+  var dist = 0
+  var cBase = base
+  val col = getCouleurJoueur(base,position)
+  if (col==cBase){
+    return 0
+  }
+  while (cBase != col && col != -1){
+    dist += 1
+   	cBase = (cBase+1)%nbBases
+  }
+  return 4 - dist //On parcout le terrain dans l'ordre inverse des aiguilles d'une montre !
+}
+
+def trouverTrou(nbBases:Int,nbPos:Int):Int = {
+  //Renvoie la base du Trou
+  var i=0
+  var j=0
+  var col=0
+  for (i<- 0 to nbBases - 1; j<- 0 to nbPos - 1 ){
+    col = getCouleurJoueur(i,j)
+    if (col == -1){
+      return i
+    }
+  }
+  return 0
+}
+  
+def deplace(nbBases:Int,nbPos:Int,trou:Int){
+  var b=(trou+1)%nbBases
+  var dist0 = distance(b,0,nbBases)
+  var dist1 = distance(b,1,nbBases)
+  if ( dist0 >= dist1){
+    deplace(b,0)
+  }
+  else{
+    deplace(b,1)
+  }
+}
