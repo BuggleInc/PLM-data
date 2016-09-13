@@ -3,6 +3,9 @@ override def run() {
   while(!estSurBiscuit){
     if((!(isDirectionFree(Direction.NORTH)))&&(!cmpt==0)) {
       cmpt = keepHandOnSideWall() + cmpt
+    } else {
+      setDirection(Direction.NORTH)
+      avance()
     }
   }
   prendBiscuit()
@@ -41,6 +44,3 @@ def isDirectionFree(dir:Direction):Boolean = {
     return true
   }
 }
-
-
-
