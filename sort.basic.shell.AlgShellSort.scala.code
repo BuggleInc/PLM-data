@@ -5,12 +5,13 @@ def shellSort()  {
     for (i<-1 to n){
       var j=getValue(i)
       var pos=i
-      while(pos>0 && getValue(pos-1)>j){
-        copy(pos-1,pos)
+      while(pos>0 && getValue(pos-gap)>j){
+        copy(pos-gap,pos)
         pos=pos -1
       }
       if(pos!=i)
       setValue(pos,j)
+      gap=gap/2
 
     }
   }
