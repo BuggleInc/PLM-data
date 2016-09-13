@@ -31,11 +31,11 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
   
   var nbBases = getNombreBases();
   var nbPos = getNombrePositions();
-  var currBase = getTrouBase()+sens;
+  var currBase = (getTrouBase()+sens)%nbBases;
   
 	for (i <- 0 to nbPos-1)
   {
-    if (getCouleurJoueur(currBase+1, i) != currBase)
+    if (getCouleurJoueur(currBase, i) != currBase)
     {
       deplace(currBase, i);
       deplacerTrou(arrive, sens);
