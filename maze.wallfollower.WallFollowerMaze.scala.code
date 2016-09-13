@@ -9,25 +9,13 @@ def chekMur():Boolean = {
 }
 
 def keepHandOnSideWall(){
-  var continuer:Boolean = true
-  if (!estFaceMur()){
-    gauche()
-    if (estFaceMur()){
-      droite()
+  if(!estFaceMur()){
+    if (checkMur()){
       avance()
-    }else{
-      droite()
-      
+    } else {
+      gauche()
     }
-  }else{
-    while(continuer){
-      droite()
-      if (!estFaceMur()){
-        avance()
-        continuer = false
-    	}
-  	}
-	}
+  }
 }
 
 override def run() {
