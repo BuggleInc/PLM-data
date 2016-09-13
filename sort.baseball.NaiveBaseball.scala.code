@@ -1,6 +1,6 @@
 override def run() {
-  var nbBases = getNombreBases()
-  var nbPos = getNombrePositions()
+  val nbBases = getNombreBases()
+  val nbPos = getNombrePositions()
   var liste = new Array[Int](6)
   liste=actualDist(nbBases,nbPos)
   
@@ -9,10 +9,11 @@ override def run() {
 
 def distance(base:Int, position:Int):Int={
   var dist = 0
+  var cBase = base
   var col = getCouleurJoueur(base,position)
   while (col != base){
     dist += 1
-   	base = base + 1 
+   	cBase = cBase + 1 
   }
   return dist
 }
