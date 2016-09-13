@@ -70,27 +70,22 @@ def aMurEst(x:Int,y:Int): Boolean ={
 
 
 def trouveForce(){
-  var x = getX()
-  var y = getY()
   var ici = getIndication(getX(),getY())
-  if(ici - getIndication(x,y-1)>0){
+  if(ici - getIndication(getX(),getY()-1)>0){
     setDirection(Direction.NORD)
-    if(!aMurNord(x,y)){
+    if(!estFaceMur()){
       avance()
     }
-  }else if(ici - getIndication(x-1,y)>0){
+  }else if(ici - getIndication(getX()-1,getY())>0){
     setDirection(Direction.OUEST)
     if(!estFaceMur())
     avance()
-    if(!aMurOuest(x,y)){
-      gauche()
-      avance()
-    }
-  }else if(ici - getIndication(x+1,y)>0){
+    
+  }else if(ici - getIndication(getX()+1,getY())>0){
     setDirection(Direction.EST)
     if(!estFaceMur())
     avance()
-  }else if(ici - getIndication(x,y+1)>0){
+  }else if(ici - getIndication(getX(),getY()+1)>0){
     setDirection(Direction.SUD)
     if(!estFaceMur())
     avance()
