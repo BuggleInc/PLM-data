@@ -20,20 +20,18 @@ def findExit() : Any = {
 def marquerSol(casee: Any, numero:Int) {
   val x = casee(0);
   var y = casee(1);
-  setPos(x,y);
   setIndication(x, y, numero);
   
   
-  setHeading(Direction.NORTH);
-  if(isFacingWall() && y > 0)
+  if(y > 0 && !hasTopWall(x,y))
   	marquerSol((x,y-1), numero+1);
-  if(isFacingWall() && y < Y-1)
+  if(y < Y-1 && !hasTopWall(x, y+1))
   	marquerSol((x,y+1), numero+1);
   
-  setHeading(Direction.EAST);
-  if(isFacingWall() && x > 0)
+  
+  if(x > 0 && !hasLeftWall(x, y))
   	marquerSol((x-1,y), numero+1);
-  if(isFacingWall() && x < X-1)
+  if(x < X-1 && !hasLeftWall(x+1, y))
   	marquerSol((x+1,y), numero+1);
   
 }
