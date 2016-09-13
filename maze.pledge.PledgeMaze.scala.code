@@ -5,9 +5,9 @@ override def run() {
     while (!estFaceMur) {
       avance()
     }
-    while (sommeAngle!=0 && !isDirectionFree(Direction.NORTH)) {
+    do {
       keepHandOnSideWall
-    }
+    } while (sommeAngle!=0 && !isDirectionFree(Direction.NORTH))
   }
   prendBiscuit()
   setDirection(Direction.EAST)
