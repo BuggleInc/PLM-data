@@ -20,7 +20,7 @@ override def run() {
   
   
   
-	var valMaxMarque = 0;
+	var valCoursMarque = 0;
 
   val sortie = findExit();
   marquerSol(sortie, 0);
@@ -31,7 +31,7 @@ override def run() {
     var y = casee(1);
     setIndication(x, y, numero);
     var nb = getIndication(x,y);
-    if(nb >= valMaxMarque)
+    if(nb != valCoursMarque)
     	return;
 		
 
@@ -48,7 +48,7 @@ override def run() {
     	setIndication(x+1, y, numero+1);
 		}
     
-    valMaxMarque += 1;
+    valCoursMarque += 1;
     
     if(y > 0 && !hasTopWall(x,y) && getIndication(x,y-1) > nb){
     	setIndication(x, y-1, numero+1);
