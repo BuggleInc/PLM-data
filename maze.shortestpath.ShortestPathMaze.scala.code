@@ -1,29 +1,12 @@
 var x = 0
 var y = 0 
 var sol = 0
-
 override def run() {
   chercherLeBiscuit()
   setIndication(x,y,sol)
   marquage(x,y,sol)
 }
 
-def marquage(x:Int,y:Int,sol:Int){
-  if (!aMurNord(x,y) && y!=0 && (getIndication(x,y-1)==9999 || getIndication(x,y-1)>sol)){
-    setIndication(x,y-1,sol+1); marquage(x,y-1,sol+1)
-  }
-  if (!aMurOuest(x,y) && x!=0 && (getIndication(x-1,y)==9999 || getIndication(x-1,y)>sol)){
-    setIndication(x-1,y,sol+1); marquage(x-1,y,sol+1)
-  }
-  if (x!=getMondeLargeur()-1 && !aMurOuest(x+1,y) && (getIndication(x+1,y)==9999 || getIndication(x+1,y)>sol)){
-    setIndication(x+1,y,sol+1); marquage(x+1,y,sol+1)
-  }
-  if (y!=getMondeHauteur()-1 && !aMurNord(x,y+1) && (getIndication(x,y+1)==9999 || getIndication(x,y+1)>sol)){
-    setIndication(x,y+1,sol+1); marquage(x,y+1,sol+1)
-}
-	
-
-}
 
 def chercherLeBiscuit(){
   while (!aBiscuit(x,y)){
@@ -34,4 +17,36 @@ def chercherLeBiscuit(){
       y = 0
     }
   }
+}
+
+def marquage(x:Int,y:Int,sol:Int){
+  var a = 0; var b = 0; var c = 0; var d = 0
+  if (!aMurNord(x,y) && y!=0 && (getIndication(x,y-1)==9999 || getIndication(x,y-1)>sol)){
+    setIndication(x,y-1,sol+1);
+    a=1
+  }
+  if (!aMurOuest(x,y) && x!=0 && (getIndication(x-1,y)==9999 || getIndication(x-1,y)>sol)){
+    setIndication(x-1,y,sol+1);
+    b=1
+  }
+  if (x!=getMondeLargeur()-1 && !aMurOuest(x+1,y) && (getIndication(x+1,y)==9999 || getIndication(x+1,y)>sol)){
+    setIndication(x+1,y,sol+1);
+    c=1
+  }
+  if (y!=getMondeHauteur()-1 && !aMurNord(x,y+1) && (getIndication(x,y+1)==9999 || getIndication(x,y+1)>sol)){
+    setIndication(x,y+1,sol+1);
+    d=1
+	}
+ if (a==1){
+   marquage(x,y-1,sol+1)
+ }
+ if (b==1){
+   marquage(x-1,y,sol+1)
+ }
+ if (c==1){
+   marquage(x+1,y,sol+1)
+ }
+ if (d==1){
+   marquage(x,y+1,sol+1)
+ }
 }
