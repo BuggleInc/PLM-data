@@ -1,11 +1,14 @@
 def insertionSort() {
   var memoire = 0
   for (i <- 1 to getNombreValeurs()-1){
+    memoire=getValeur(i)
     var n=1
-    while (i-n >= 0 && getValeur(i-n)>getValeur(i-n+1)){
-      echange(i-n,i-n+1)
+    while (i-n >= 0 && getValeur(i-n)>memoire){
       n=n+1
-    }   
+    }
+    for (j <- i-n to i){
+      echange(i-n,i-n+1)
+    }
 
   }
 }
