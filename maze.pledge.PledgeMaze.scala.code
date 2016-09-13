@@ -40,14 +40,14 @@ override def run() {
   setDirection(Direction.NORTH)
    while (!isOverBaggle()) {
    	turn=0
-    while (! isFacingWall()) {
+    while (! isFacingWall() && !isOverBaggle())
       setDirection(Direction.NORTH)
       forward()
     }
      if (isOverBaggle()) {return}
      left()
      turn=1
-     while (turn!=0 || ! dirFree(Direction.NORTH)) {
+     while ((turn!=0 || ! dirFree(Direction.NORTH) ) && !isOverBaggle()) {
      turn= keepRightHand(turn)
     }
     
