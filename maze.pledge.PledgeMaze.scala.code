@@ -1,5 +1,5 @@
 override def run() {
-  var dir = 0
+  var somme = 0
   while(!estSurBiscuit){
     while(!estFaceMur){
       avance()
@@ -7,26 +7,25 @@ override def run() {
   }
   	do(
       keepHandOnSideWall()
-  	)while(dir!=0 || isDirectionFree(Direction.NORTH)==true)
+  	)while(somme!=0 || isDirectionFree(Direction.NORTH)==true)
 }
 
-def keepHandOnSideWall():Int={ 
+def keepHandOnSideWall(){ 
  	if(estFaceMur()){
     gauche()
-    dir=dir+1
+    somme=somme+1
   }  
   if(estFaceMur()){
     gauche()
-    dir=dir+1
+    somme=somme+1
   }
   if(estFaceMur()){
     gauche()
-    dir=dir+1
+    somme=somme+1
   }
   avance()
   droite()
-  dir=dir-1
-  return dir
+  somme=somme-1
 }
 
 def isDirectionFree(dir:Direction): Boolean ={
