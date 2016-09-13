@@ -4,7 +4,7 @@ override def run() {
   {setDirection(Direction.NORD)}
   while (!estSurBiscuit()) {sommeAngle=0
     allerAuNord();
-    do            {keepHandOnSideWall()}            
+    do            {sommeAngle = keepHandOnSideWall(sommeAngle)}            
                             
     while (!isDirectionFree(Direction.NORD)&&sommeAngle!=0)
   
@@ -39,12 +39,12 @@ setDirection(or);
  return(!e)}
 
 
-def keepHandOnSideWall() {gauche ();
+def keepHandOnSideWall(s) {gauche ();
                           if (!estFaceMur())
-                          {avance();sommeAngle+=1;return()}
+                          {avance();return(s+1)}
                           droite();
                           if (!estFaceMur())
-                          {avance;return()};
-                          droite();sommeAngle-=1;}
+                          {avance;return(d)};
+                          droite();return(s-1);}
                          
                           
