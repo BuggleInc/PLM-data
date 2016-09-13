@@ -1,5 +1,5 @@
 override def run() {
-  	setPos(0,0);
+  	nord();
     while(!estSurBiscuit()){
     if(estFaceMur()){
       gauche();
@@ -24,4 +24,12 @@ override def run() {
   }
   prendBiscuit();
 }
-
+def nord (){
+  while(getX()>0){
+    if(estFaceMur()){
+      droite();
+    } else {
+      avance();
+    }
+  }
+}
