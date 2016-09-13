@@ -1,7 +1,16 @@
 override def run() {
   var nord=grandNord()
+  var sommeAngle=0
   while (!estSurBiscuit()){
-    
+    while(!estFaceMur){
+      if (isDirectionFree(Direction.NORTH)){
+        setDirection(Direction.NORTH)
+        avance()
+      }else{
+        gauche()
+        avance()
+      }
+    }
   }
   prendBiscuit()
 }
@@ -17,11 +26,6 @@ def keepHandOnSideWall():Boolean={
   }
 }
 
-
-
-def sommeAngle(x:Int,y:Int):Int={
-  
-}
 
 def isDirectionFree(dir:Direction):Boolean={
   var posInitiale=getDirection()
