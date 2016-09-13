@@ -2,15 +2,12 @@ def insertionSort() {
 
   for(i<- 1 to getNombreValeurs()-1){
     var v = getValeur(i)
-    var l=i
-    for(j<- i-1 to 0 by -1){
-      
-      if(getValeur(j)>v){
-        setValeur(j+1,getValeur(j))
-        l=j
-      }
+    var j=i
+    while(getValeur(j)<getValeur(j-1)){
+ 			setValeur(j,getValeur(j-1))
+      j=j-1
     }
-    setValeur(l,v)
+    setValeur(j,v)
     
   }
 }
