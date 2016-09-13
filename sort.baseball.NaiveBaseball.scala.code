@@ -2,13 +2,11 @@ override def run() {
   val nbBases = getNombreBases()
   val nbPos = getNombrePositions()
   var liste = new Array[Int](8)
-  liste = actualDist(nbBases,nbPos)
   //
   var trou=0
-  while (liste != (9,9,9,9,9,9,9,9)){
+  while (!estTrie()){
     trou=trouverTrou(nbBases,nbPos)
     deplace(nbBases,nbPos,trou)
-    liste = actualDist(nbBases,nbPos)
   }
   return
 }
@@ -20,28 +18,13 @@ def distance(base:Int, position:Int, nbBases:Int):Int={
   var cBase = base
   val col = getCouleurJoueur(base,position)
   if (col==cBase){
-    return 9
+    return 0
   }
   while (cBase != col && col != -1){
     dist += 1
    	cBase = (cBase+1)%nbBases
   }
   return dist
-}
-
-def actualDist(nbBases:Int,nbPos:Int):Array[Int] = {
-  //Actualiste la liste des distances
-  var i:Int=0
- 	var j:Int=0
-  var cpt=0
-  var liste=new Array[Int](nbBases * nbPos)
-  for (i <- 0 to nbBases-1 ){
-    for (j <- 0 to nbPos-1){
-      liste(cpt)=distance(i,j,nbBases)
-      cpt += 1
-    }
-  }	
-  return liste
 }
 
 def trouverTrou(nbBases:Int,nbPos:Int):Int = {
