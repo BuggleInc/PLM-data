@@ -32,23 +32,14 @@ def keepHandOnSideWall(){
 }
 
 def isDirectionFree(dir:Direction){
-  var c=0
   while(getDirection!=dir){
-    c+=1
     droite()
   }
   if(estFaceMur){
-    while(c!=0){
-      gauche()
-      c-=1
-    }
     return false
   }
   else{
     while(c!=0){
-      gauche()
-      c-=1
-    }
     return true
   }
 }
