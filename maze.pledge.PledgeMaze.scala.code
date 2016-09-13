@@ -1,4 +1,40 @@
 override def run() {
-  setPos(20,20)
+    def keepLeftHand() {
+      left()
+      if ( ! isFacingWall()) {
+        forward() 
+        } else {
+    					right()
+    					if (! isFacingWall()) {
+                forward
+              } else {
+                	right()
+                	if (! isFacingWall()) {
+                  	forward
+                	} else {
+                  right()
+                }
+              }
+            }
+			}
+  	def dirFree(d:Direction) = { 
+      var dir:Direction = getDirection()
+    	setDirection(d)
+      if (isFacingWall) {
+        setDirection(dir)
+        return false
+      } else {
+        setDirection(dir)
+        return true
+      }
+    }
+  setDirection(Direction.NORTH)
+   while (!isOverBaggle()) {
+    setDirection(Direction.NORTH)
+    if (! isFacingWall()) {forward}
+    else { while (dirFree(Direction.NORTH) && turn==0)
+      keepLeftHand()
+    }
+  }
   pickupBaggle()
 }
