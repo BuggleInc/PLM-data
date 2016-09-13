@@ -4,8 +4,6 @@ override def run() {
   var baseLibre:Int = getTrouBase()
   var trouLibre:Int = getTrouPosition()
   
-  print (baseLibre,trouLibre)
-  
   for (base <- 0 to n-1) {
     
     if (!estBaseTriee(base)) {
@@ -36,7 +34,8 @@ def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace
   
   if (baseDepart!=base+1) {
     deplace(baseDepart,posDepart)
-    deplace(baseTemp,1)
+    deplace(baseTemp,1)                //On place le joueur en (baseDepart-1,0) et le trou en (baseDepart-1,1).
+    
     while (compt>0) {                  //Tant qu'on est pas à la base juste après "base", on continue.
       baseTemp = baseTemp-1
       compt = compt-1
@@ -51,7 +50,7 @@ def deplaceJoueur(baseDepart:Int, posDepart:Int, base:Int, pos:Int) { //Déplace
 }
       
 def chercheJoueur(base:Int, n:Int):(Int,Int) = {  //Renvoie la base et la position du joueur qui doit être déplacé.
-  var result:Int = (base+2)%n
+  var result:Int = (base+1+n)%n
   while ((getCouleurJoueur(result, 0)!=base) && (getCouleurJoueur(result,1)!=base)) {
     deplace(result, 0)
     result = result+1
