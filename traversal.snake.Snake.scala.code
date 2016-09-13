@@ -1,17 +1,28 @@
 override def run() {
-  while (!fonctionTest()) {
-    baisseBrosse();
-    avance();
-  }
-}
-
-def fonctionTest() : Boolean = {
-  if (estFaceMur()) {
-    gauche();
-    if (estFaceMur()) {
+  for (i <- 1 to 48) {
+    while (!fonctionTest()) {
+      baisseBrosse();
+      avance();
+    }
+    if (getDirection() == Direction.EAST) {
+      gauche();
+      avance();
+      gauche();
+    }
+    if (getDirection() == Direction.WEST) {
+      droite();
+      avance();
       droite();
     }
-    return true }
+  }
 
-  return false
-}
+  def fonctionTest() : Boolean = {
+    if (estFaceMur()) {
+      gauche();
+      if (estFaceMur()) {
+        droite();
+      }
+      return true }
+
+    return false
+  }
