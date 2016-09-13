@@ -24,7 +24,22 @@ override def run() {
     }
   }
   while(!estSurBiscuit){
-    keepHandOnSideWall(cpt)
+    cpt=0
+ 	if(estFaceMur()){
+    droite()
+    cpt=cpt+ 1
+  }  
+  if(estFaceMur()){
+    droite()
+    cpt=cpt+1
+  }
+  if(estFaceMur()){
+    droite()
+    cpt=cpt+1
+  }
+  avance()
+  gauche()
+  cpt=cpt-1
   }
   prendBiscuit()
   setDirection(Direction.EAST)
