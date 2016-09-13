@@ -1,5 +1,17 @@
 override def run() {
     while(!estSurBiscuit()){
+    var possible = true;
+    while(possible){
+      getDirection() match{
+        case EST => gauche();
+        case WEST => droite();
+      }
+      if(!estFaceMur()){
+        avance();
+      } else {
+        possible = false;
+      }
+    }
     if(estFaceMur()){
       gauche();
       if(estFaceMur()){
@@ -23,3 +35,7 @@ override def run() {
   }
   prendBiscuit();
 }
+
+def vaAuNord(){
+  
+} 
