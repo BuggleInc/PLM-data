@@ -57,7 +57,7 @@ def eviteObstacle(){
   do{
   	sommeAngle = keepHandOnSideWall(sommeAngle)
     print(sommeAngle + " ")
-  }while (sommeAngle != 0)
+  }while (sommeAngle < 4 || sommeAngle > -4)
   /*if (isDirectionFree(Direction.NORTH)){
     setDirection(Direction.NORTH)
     while(!estFaceMur()){avance()}
@@ -79,6 +79,9 @@ def isDirectionFree(dir:Direction):Boolean = {
 override def run() {
   while (!estSurBiscuit()){
     eviteObstacle()
+    if(!estFaceMur()){
+      while(!estFaceMur()){avance()}
+    }
   }
   prendBiscuit()
 }
