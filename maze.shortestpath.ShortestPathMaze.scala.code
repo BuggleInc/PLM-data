@@ -24,22 +24,24 @@ override def run() {
   
   while (getIndication(getX(),getY())==9999) {
     i+=1
+    for (x<-0 to width) {
+      for (y <- 0 to height) {
     if (! hasTopWall(x,y)) {
-      y=y-1
-      setIndication(x,y,min(i,getIndication(x,y)))
+      
+      setIndication(x,y-1,min(i,getIndication(x,y-1)))
     }
     if (! hasLeftWall(x,y)) {
-      x=x-1
-       setIndication(x,y,min(i,getIndication(x,y)))
+      
+       setIndication(x-1,y,min(i,getIndication(x-1,y)))
     }
     if (!(x==width-1 || hasLeftWall(x+1,y))) {
-      x+=1
-        setIndication(x,y,min(i,getIndication(x,y))) 
+     
+        setIndication(x+1,y,min(i,getIndication(x+1,y))) 
     }
     if (!(y==height-1 || hasTopWall(x,y+1))) {
-      y+=1
-        setIndication(x,y,min(i,getIndication(x,y)))
+      
+        setIndication(x,y+1,min(i,getIndication(x,y+1)))
     }
-   
-  }
+      }
+    }}
 }
