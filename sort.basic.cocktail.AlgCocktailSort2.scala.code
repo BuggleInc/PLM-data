@@ -1,16 +1,17 @@
 def cocktailSort2() {
       var fini:Boolean=false
       var nop:Int=0
+      var a:Int=0
 
       while(!fini){
-        for(i<-0 to getNombreValeurs()-2){
+        for(i<-0 to getNombreValeurs()-2-a){
           if(!plusPetit(i,i+1)){
             echange(i,i+1)
             nop=1
           }
       }
 
-        for(i<-0 to getNombreValeurs()-2){
+        for(i<-0 to getNombreValeurs()-2-a){
           if(!plusPetit(getNombreValeurs()-i-2 , getNombreValeurs()-i-1)){
             echange(getNombreValeurs()-i-2 , getNombreValeurs()-i-1)
             nop=1
@@ -23,5 +24,9 @@ def cocktailSort2() {
         else{
           nop=0
         }
+      a+=1  
     }
 }
+
+
+
