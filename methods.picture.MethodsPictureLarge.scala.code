@@ -1,0 +1,48 @@
+val colors = Array(Color.yellow, Color.red, Color.blue, Color.green)
+
+def makePattern(c:Color) {
+  setBrushColor(c)
+  
+  forward()
+	colorize()
+  left()
+  forward()
+  right()
+  forward()
+  colorize()
+  forward()
+  right()
+  forward()
+  colorize()
+  left()
+  forward()
+}
+
+def makeLine() {
+  for(i <- 1 to 9) {
+  	makeSquare()
+    
+    for(j <- 1 to 5) forward()
+  }
+}
+
+def makeSquare() {
+  for(i <- 1 to 4) {
+    makePattern(colors(i - 1))
+    left()
+  }
+}
+
+def colorize() {
+  brushDown()
+  brushUp()
+}
+
+override def run() {
+  for(i <- 1 to 9) {
+  	makeLine()
+    left()
+    for(i <- 1 to 5) forward()
+    right()
+  }
+}
