@@ -8,7 +8,7 @@ var xSud = 0
 var ySud = 0
 var xEst = 0
 var yEst = 0
-var cpt = 0
+var cpt = 1
 var finale = 0
 override def run() {
 	for (i<-1 to getMondeLargeur-1) {
@@ -25,8 +25,7 @@ override def run() {
    		for (j<-1 to getMondeHauteur-1) {
         x=i
         y=j
-        if (getIndication(x,y)==cpt) {
-          cpt+=1
+        if (getIndication(x,y)==cpt-1) {
           if (!aMurNord(x,y)) {
             setIndication(x,y-1,cpt)
           }
@@ -43,6 +42,7 @@ override def run() {
               setIndication(x+1,y,cpt)
             }
           }
+          cpt+=1
         }
       }
     }
