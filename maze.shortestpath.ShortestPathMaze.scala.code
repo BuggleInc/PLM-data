@@ -11,19 +11,23 @@ override def run() {
   
   def force(n:Int,x:Int,y:Int){
      if(getIndication(x,y)==9999){setIndication(x,y,n)
-                         if(!aMurNord(x,y)){force(n+1,x,y-1)}
-                         if(!aMurOuest(x,y)){force(n+1,x+1,y)}
-                         if(!aMurEst(x,y)){force(n+1,x-1,y)}
-                         if(!aMurSud(x,y)){force(n+1,x,y+1)}}
-   }
+                                  if(!aMurNord(x,y)){force(n+1,x,y-1)}
+                                  if(!aMurOuest(x,y)){force(n+1,x+1,y)}
+                                  if(!aMurEst(x,y)){force(n+1,x-1,y)}
+                                  if(!aMurSud(x,y)){force(n+1,x,y+1)}}}
   var X=0
 	var Y=0
+  
+  
+  
   for(x<- 0 to getMondeLargeur()-1){
     for(y<- 0 to getMondeHauteur()-1){
       if(aBiscuit(x,y)){ X=x
                         Y=y}
     }
   }
+  
+  
   force(0,X,Y)
   
 }
