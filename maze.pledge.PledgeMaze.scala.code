@@ -17,9 +17,13 @@ def keepHandOnSideWall(a:Int):Int = {
       gauche()
       avance()
       if (!checkMur()){
-        recule()
-        droite()
+        gauche()
         avance()
+        if(!checkMur){
+          recule()
+          droite()
+          avance()
+        }
       }
     }
   } else{
