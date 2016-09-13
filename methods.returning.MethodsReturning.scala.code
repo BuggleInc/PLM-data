@@ -1,17 +1,13 @@
-var seenBaggle : Boolean = false
-def haveBaggle():Boolean = {
-  if (seenBaggle){
+def haveBaggle():Boolean {
     for (stepper <-1 to 6){
       forward()
       if (isOverBaggle){
-        return true
+        return sawBaggle=true
+      }
+      if (sawBaggle){
         for (stepper1 <- 1 to 6){
           backward()
         }
-        right()
-        forward()
-        left()
-      }
+      } 
     }
-  }
 }
