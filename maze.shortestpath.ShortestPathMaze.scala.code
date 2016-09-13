@@ -63,8 +63,27 @@ override def run() {
   }
   
   def move() {
-    i=getIndication(getX(),getY())-1
-    
+    x=getX()
+    y=getY()
+    i=getIndication(x,y)-1
+    if ((! hasTopWall(x,y)) && i==getIndication(x,y-1)) {
+      setDirection=Direction.North
+      forward()
+          }
+    if ((! hasLeftWall(x,y))&& i==getIndication(x-1,y)) {
+      setDirection=Direction.WEST
+      forward()
+           }
+    if ((!(x==width-1 || hasLeftWall(x+1,y))) && i==getIndication(x+1,y)) {
+      setDirection=Direction.EAST
+      forward()
+          }
+    if ((!(y==height-1 || hasTopWall(x,y+1))) && i==getIndication(x,y+1)) {
+      setDirection=Direction.SOUTH
+      forward()
+      
+      
+    }
   }
   
   while (! isOverBaggle()) {
