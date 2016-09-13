@@ -5,8 +5,11 @@ def keepHandOnSideWall() {
 }
 
 override def run() {
-  while(!estSurBiscuit()){
+  var i : Int = 0
+  while(!estSurBiscuit() && i!=20){
     keepHandOnSideWall()
+    i=i+1
+    if (i==20){while(!estFaceMur()){avance()};gauche();gauche()}
   }
   prendBiscuit()
  while(estDosMur()){gauche()}
