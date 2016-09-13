@@ -8,9 +8,8 @@ override def run() {
     }else{
       droite()
       sommeAngle= -1
-    	//while(sommeAngle!=0 || isDirectionFree(Direction.NORD)==false){
-      keepHandOnSideWall()
-      //}
+    	longe()
+      }
     }
   }
   prendBiscuit()
@@ -35,5 +34,11 @@ def isDirectionFree(dir : Direction) : Boolean = {
   }else{
     setDirection(d)
     return true
+  }
+}
+
+def longe(){
+  while(sommeAngle!=0 || isDirectionFree(Direction.NORD)==false){
+    keepHandOnSideWall()
   }
 }
