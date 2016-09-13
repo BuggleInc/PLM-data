@@ -1,19 +1,13 @@
-while(true)
+while(!estFaceMur())
 {
-	avance()
-  if (estSurBiscuit())
-		{
-  		if(getDirection()==Direction.EAST)
-  			{
-      		prendBiscuit()
-					retourne()
-    		}
-      else if(getDirection()==Direction.WEST)
+  while(!porteBiscuit())
+  	{
+      avance()
+      if(estSurBiscuit())
       	{
-          recule()
-          poseBiscuit()
+        	prendBiscuit()
           retourne()
-        }
+      	}
+    }
 
-		}
 }
