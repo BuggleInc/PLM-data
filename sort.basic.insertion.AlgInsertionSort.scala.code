@@ -1,21 +1,12 @@
 def insertionSort() {
-  var ok = false
-  var v = 0
   var k = 0
-  for(i<- 0 to getNombreValeurs()) {
-    v=getValeur(i+1)
-    k=0
-    ok=false
-    while(ok==false) {
-     if(plusPetit(i+k,i+k+1)) {
-        ok= true
-      }
-      else {
-      copie(i+k, i+k+1)
-        setValeur(i+k,v)
-      
+  var v = 0
+  for (i<- 1 to getNombreValeurs() -1) {
+    k=1
+    v=getValeur(i)
+    while(plusPetit(i+k+1,i+k) && i+k+1<getNombreValeurs()) {
+      copie(i-k-1,i-k)
     }
-      k=k+1
+    set(i-k,v)
   }
-}
 }
