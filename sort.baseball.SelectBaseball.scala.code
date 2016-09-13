@@ -51,15 +51,16 @@ def trouverTrou():Int = {
 }
 
 def bougerTrou(col:Int){
+  val nbBases = getNombreBases()
   while(!bonJoueurDroite(col)){
-    deplace(trouverTrou()+1,0)
+    deplace((trouverTrou()+1)%nbBases,0)
   }
 }
 
 def bonJoueurDroite(col:Int):Boolean = {
   var b=trouverTrou()
-  var col0=getCouleurJoueur(b+1,0)
-  var col1=getCouleurJoueur(b+1,1)
+  var col0=getCouleurJoueur((b+1)%nbBases,0)
+  var col1=getCouleurJoueur((b+1)%nbBases,1)
   if (col0==col || col1==col){
     return true
   }
