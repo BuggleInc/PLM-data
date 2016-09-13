@@ -23,10 +23,15 @@ def nord(){
   if(!estFaceMur()){
     avance()
   }else{
-    while(estFaceMur()){
+    gauche()
+    if(!estFaceMur()){
+      avance()
       droite()
+    }else{
+      droite()
+      droite()
+      avance()
+      gauche()
     }
-    avance()
   }
-  setDirection(Direction.NORTH)
 }
