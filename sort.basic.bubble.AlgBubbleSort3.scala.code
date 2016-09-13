@@ -1,20 +1,17 @@
-def bubbleSort3() 
+def bubbleSort2() 
 {
-  var echanger=false
-  do
+  for (i<- getNombreValeurs()-2 to 0 by -1)
   	{
-      echanger=false
-  		for (i<- getNombreValeurs()-2 to 0 by -1)
-  			{
-      		for (j<-0 to i)
+      for (j<-0 to i)
+      	{
+      		if (plusPetit(j+1,j))
       			{
-      				if (plusPetit(j+1,j))
-      					{
-          				echange(j+1,j)
-              		echanger=true
-        				}
-    				}
+          		echange(j+1,j)
+        		}
+          else
+          	{
+              return
+            }
     		}
     }
-  while(echanger)
 }
