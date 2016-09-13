@@ -11,9 +11,12 @@ override def run() {
       droite()
     }
     sommeAngle = 0
-    do {
+    while (getDirection() != dir) {
       keepHandOnSideWall()
-    } while ((getDirection() != dir) && (sommeAngle != 0))
+      if (sommeAngle == 0) {
+        return
+      }
+    }
   }
   prendBiscuit
 }
