@@ -9,7 +9,6 @@ def checkMur():Boolean = {
 }
 
 def keepHandOnSideWall(){
-  var sommeAngle:Int = 0
   if(!estFaceMur()){
     if (checkMur()){
       avance()
@@ -21,10 +20,12 @@ def keepHandOnSideWall(){
   } else{
     if (checkMur()){
     	droite()
+      sommeAngle += -1
       if (!estFaceMur()){
       	avance()
       } else {
         droite()
+        sommeAngle += -1
         avance()
       }
     } else {
@@ -40,8 +41,11 @@ def estSurMurNord():Boolean = {
 }
 
 def eviteObstacle(){
+  var sommeAngle:Int = 0
   if (estFaceMur()){
-    keepHandOnSideWall()
+    do{
+    	keepHandOnSideWall()
+    }while (sommeAngle != 0 && isDirectionFree(Direction.NORTH))
   } else {avance()}
 }
 
@@ -57,12 +61,8 @@ def isDirectionFree(dir:Direction):Boolean = {
 }
 
 override def run() {
-  while (!estSurMurNord()){
-    eviteObstacle()
-  }
-  droite()
   while (!estSurBiscuit()){
-    keepHandOnSideWall()
+    eviteObstacle()
   }
   prendBiscuit()
 }
