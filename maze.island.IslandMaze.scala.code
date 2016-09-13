@@ -1,12 +1,10 @@
 override def run() {
-  var nord=false
+  var nord=grandNord()
   while (!estSurBiscuit()){
     if (allerAuNord && nord==false){
       setDirection(Direction.NORTH)
       avance()
-      if (getY()==0){
-        nord==true
-      }
+      nord=grandNord()
     }
     else if (keepHandOnSideWall()==true){
       if (!estFaceMur()){
@@ -46,4 +44,11 @@ def allerAuNord():Boolean={
   }
   setDirection(direction)
 	return true
+}
+
+def grandNord():Boolean={
+  if (getY()==0){
+    return true
+  }
+  return false
 }
