@@ -1,24 +1,18 @@
 override def run() {
-  while (!estSurBiscuit) {
-    while (!estNord) {
-      if (!estFaceMur && getDirection==Direction.NORD) {
-        avance()
-      }
-      for (i<-1 to 4) {
-        if (getDirection==Direction.NORD) {
-        	gauche()
-      	}
-      else {
-        if (keepHandOnSideWall && !estFaceMur) {
-          avance()
-        } else if (!keepHandOnSideWall) {
-          gauche()
-          avance()
-        } else {
-          droite()
-        }
+  while (!estNord) {
+    if (!estFaceMur && getDirection==Direction.NORD) {
+      avance()
+    }
+    for (i<-1 to 4) {
+      if (getDirection!=Direction.NORD) {
+        gauche()
       }
     }
+    if (!estFaceMur) {
+      avance()
+    }
+  }
+  while (!estSurBiscuit) {
     if (keepHandOnSideWall && !estFaceMur) {
       avance()
     } else if (!keepHandOnSideWall) {
