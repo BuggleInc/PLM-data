@@ -1,0 +1,35 @@
+override def run() {
+  var etat = 0
+  etat match {
+    case 0 => goNord()
+    	etat = 1
+    case 1 => suivreGauche()
+    	etat = 0
+    case _ => println("erreur")
+  }
+  prendBiscuit()
+}
+
+def suivreGauche() {
+  avance()
+  while (getDirection() =! Direction.NORTH) {
+    gauche()
+    if (!estFaceMur) {
+      avance()
+    }
+    else {
+      droite()
+    	while (estFaceMur) {
+    		droite()
+      }
+      avance()
+    }
+  }
+}
+
+def goNord() {
+  while (!estFaceMur()) {
+    avance()
+  }
+  droite()
+}
