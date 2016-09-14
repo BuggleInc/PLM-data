@@ -1,11 +1,11 @@
 
 override def run() {var state=0;
-state match  {
+                    while (!isOverBaggle) {state match  {
   case 0 => {while (!isFacingWall()) {forward()}}; // North runner
 
      state = 1;
-  case 1 =>left(); {while (!isFacingWall()) {right()}; left();
-  while (!isOverBaggle) {while (!isFacingWall()) {forward(); right()}; left()}}// Left follower
+  case 1 =>{while (!isFacingWall()) {right()}; left();
+  {while (!isFacingWall()) {forward(); right()}; left()}}// Left follower
      state = 0;
   case _ => println("This case should not happen. Please fix me")
 }
