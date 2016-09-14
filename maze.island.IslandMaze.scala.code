@@ -1,6 +1,6 @@
 override def run() {
   
-  /*def avanceVersNord () {
+  def avanceVersNord () {
     
     setDirection(Direction.NORTH);
     while (estFaceMur != true) {
@@ -8,7 +8,18 @@ override def run() {
     }
     etat = 1
     
-  }*/
+  }
+  
+  def suitAGauche () {
+    
+    gauche();
+        while (estFaceMur() == true ) {
+          droite();
+        }
+        avance();
+     		etat = 0;
+    
+  }
   
   def keepHandOnSideWall()  {
     
@@ -16,24 +27,11 @@ override def run() {
     
     etat match {
       
-      case 0 => 
+      case 0 => avanceVersNord();
       
-        setDirection(Direction.NORTH);
-        while (estFaceMur != true) {
-          avance();
-        }
-        etat = 1
+      case 1 => suitAGAuche();
       
-      
-      case 1 => 
-        gauche();
-        while (estFaceMur() == true ) {
-          droite();
-        }
-        avance();
-     		etat = 0;
-      
-      case_ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ")
+      case_ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ");
       
       
     }
