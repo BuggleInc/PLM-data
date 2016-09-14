@@ -1,0 +1,30 @@
+override def run() {
+  setCouleurBrosse(Color.red);
+  leveBrosse()
+  baisseBrosse()
+
+while (!posiFinal) {
+  if (!estFaceMur) {
+    avance;
+  }
+  else {
+    if (getDirection==Direction.EAST) {gauche;
+       avance;
+       gauche}
+    else {droite;
+         avance;
+          droite}}
+}
+}
+def posiFinal():Boolean = {
+  return (estFaceMur && estDroiteMur && getDirection==Direction.EAST)
+    
+}
+
+def estDroiteMur():Boolean = {
+   var a:Boolean=false ;
+   gauche;
+   a=estFaceMur
+   droite ;
+  return a
+}
