@@ -4,27 +4,23 @@ def solve() {
   var fin = getTaille()-1
 	var avantBlanc= fin
   while ((debut<avantBlanc)&&(debut<fin)){
-    if (i!=debut){
-      if (getCouleur(i)==BLEU){
-        echange(i, debut)
-        debut +=1
-      }
+    var c= getCouleur(i)
+    c match{
+      BLEU => if (i> debut){
+        				echange(i, debut)
+        				debut +=1
+      				}
+      BLANC => while (getCouleur(avantBlanc)==BLANC){
+        					avantBlanc -=1
+      					}
+      					echange(i, avantBlanc)
+      					avantBlanc -=1
+      ROUGE => while (getCouleur(fin)==ROUGE){
+        					echange(fin-1, avantBlanc-1)
+        					fin -=1
+        					avantBlanc -=1
+      					}
+      					echange(i, fin-1)
+      					fin-=1
     }
-    if (getCouleur(i)==ROUGE){
-      echange(i, fin)
-      fin -=1
-      avantBlanc -=1
-      if (getCouleur(i)==BLANC){
-      	echange(i, avantBlanc)
-      	avantBlanc-=1
-      }
-      if (getCouleur(i)==BLEU){
-        debut +=1
-      }
-    }else if (getCouleur(i)==BLANC){
-      echange(avantBlanc, i)
-      avantBlanc-=1
-    }
-    i+=1
-  }
 }
