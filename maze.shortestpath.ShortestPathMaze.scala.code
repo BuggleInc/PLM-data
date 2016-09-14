@@ -14,7 +14,37 @@ override def run() {
       tagCaseAdj(i,j)
     } 
   }
-  
+  while (!estSurBiscuit){
+    var min:Int = getIndication()
+    setDirection(Direction.NORTH)
+    if (!estFaceMur){
+      avance()
+      if (getIndication()<min){
+        min = getIndication()
+      } else {recule()}
+    }
+    setDirection(Direction.WEST)
+    if (!estFaceMur){
+      avance()
+      if (getIndication()<min){
+        min = getIndication()
+      } else {recule()}
+    }
+    setDirection(Direction.SOUTH)
+    if (!estFaceMur){
+      avance()
+      if (getIndication()<min){
+        min = getIndication()
+      } else {recule()}
+    }
+    setDirection(Direction.EAST)
+    if (!estFaceMur){
+      avance()
+      if (getIndication()<min){
+        min = getIndication()
+      } else {recule()}
+    }
+  }
 }
 
 def tagCaseAdj(x:Int,y:Int):Unit = {
