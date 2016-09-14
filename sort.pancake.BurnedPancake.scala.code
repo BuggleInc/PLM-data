@@ -1,11 +1,13 @@
 def solve() {
-  flip(1)
   var n= getStackSize();
   var finished=n-1;
   var chgmt=0;
   while (finished != 0) {
     chgmt = getMax(finished);
     flip(chgmt+1);
+    if (isPancakeUpsideDown(0)){
+      flip(1)
+    }
     flip(finished+1);
     finished -= 1;
   }
