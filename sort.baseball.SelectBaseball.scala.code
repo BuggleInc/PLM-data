@@ -7,16 +7,16 @@ override def run()
   
   for (nCouleur <- 0 to 0) //On trie chacune des bases (=couleurs)
   {
-    for (j <- 0 to nbBases-1)
+    for (nBase <- 0 to nbBases-1)
     {
-      if (j != nCouleur) //On ne regarde pas la base en cours de tri
+      if (nBase != nCouleur) //On ne regarde pas la base en cours de tri
       {
-        for (k <- 0 to nbPos-1)
+        for (nPos <- 0 to nbPos-1)
         {
-          if (getCouleurJoueur(j,k) == nCouleur)
+          if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
-            deplacerTrou((j+1)%nbBases, 1);
-            deplace(j, k);
+            deplacerTrou((nPos+1)%nbBases, 1);
+            deplace(nBase, nPos);
             //deplacerJoueur(k, nCouleur, 1);
           }
         }
