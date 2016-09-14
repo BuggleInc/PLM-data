@@ -3,7 +3,14 @@ override def run() {
  	while (!estFaceMur())
   	avance()
   while (!estSurBiscuit())
-  	virage = keepHandOnSideWall(virage)
+  	if (getDirection()=Direction.NORTH) {
+  		while (!estFaceMur())
+      	avance()
+    }
+    else {
+  		while (virage!=0 && !isDirectionFree())
+  			virage = keepHandOnSideWall(virage)
+    }
   prendBiscuit()
 }
 
@@ -24,4 +31,31 @@ def keepHandOnSideWall(virage:Double):Double = {
   	v=virage-1
   }
   return v
+}
+
+def isDirectionFree():Boolean = {
+  var d = 0
+  var free = true
+  if (getDirection()==Direction.SOUTH) {
+  	retourne()
+    d=1
+  }
+  if (getDirection()==Direction.EAST) {
+  	gauche()
+    d=2
+  }  
+  if (getDirection()==Direction.WEST) {
+  	droite()
+  	d=3
+  }
+  if (estFaceMur())
+  	tree=false
+  if (d==1)
+  	retourne()
+  if (d==2)
+  	droite()
+  if (d==3)
+  	gauche()
+  return free
+ 	
 }
