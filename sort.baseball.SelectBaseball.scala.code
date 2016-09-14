@@ -1,41 +1,48 @@
-trouverJoueur(couleur:Int):Array[Int](2) = {
+def getDistance(base:Int,position:Int):Int = {
   
-  //retourne [Base,Position] du premier jouer de la couleur spécifiée
-  var Base = -1
-  var Pos = -1
+  // Renvoie la distance à la position triée du joueur en position dans la base
   
-  for (b <- 0 to getNombreBases(), p <- 0 to getNombrePositions()) {
+  if (getCouleurJoueur(base,position)<base) { //Si on doit passer la base zéro
     
-    if (getCouleurJoueur(b,p) == couleur) {
-      
-      return [Base,Pos]
-      
-    }
+    return getCouleurJoueur(base,position)+getNombreBases-base
+    
+  } else {
+    
+    return getCouleurJoueur(base,position)-base
     
   }
-  
-  return [Base,Pos]
   
 }
 
-def rameneTrou(base:Int) {
+def trier() {
   
-  //ramene le trou devant la base spécifiée, ne fait rien si ça touche à ce qui est déjà trié
-  if (getTrouBase() > base+1) {
+  var baseCandidate = -1
+  getTrouBase() match {
     
-    for (c <- getTrouBase-1 to base+1) {}
+    case 0 => baseCandidate = getNombreBases()-1
+    case _ => baseCandidate = getTrouBase-1
     
   }
+  
+  var distances = new Array[Int](getNombrePositions())
+  
+  for (c <- 0 to getNombrePositions()-1) {
+   	
+    distances(c) = getDistance(baseCandidate,c)
+    
+  }
+  
+  deplace(baseCandidate,distances.indexOf(distances.max))
   
 }
+
 override def run() {
-  
-  for (c <- 0 to getNombreBases()-1) {
+
+	while (!estTrie) {
     
-    //premier de la base
-    
-    //deuxième de la base
+    trier()
     
   }
-  
+
+
 }
