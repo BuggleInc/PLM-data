@@ -1,33 +1,19 @@
-def switch(indiceHaut:Int) {
-  
-  //switch la crèpe indiceHaut avec indicaHaut+1, sans toucher au reste
-  
-  retourne(indiceHaut+1)
-  retourne(2)
-  retourne(indiceHaut+1)
-  
-}
-
-def plusPetit(indiceHaut:Int): Boolean = {
-  
-  //Renvoie si indiceHaut est plus petit que indiceHaut+1
-  return getRayonCrepe(indiceHaut)<getRayonCrepe(indiceHaut+1)
-  
-}
 def solve() {
   
   for (c <- 0 to getTaillePile()-1) {
     
-    for (x <- getTaillePile()-1 to c by -1) {
+    for (x <- getTaillePile()-1 to c-1 by -1) {
       
-      if (!plusPetit(x+1)) {
+      if (getRayonCrepe(x)<getRayonCrepe(x-1)) {
         
-        switch(x+1)
+        retourne(x+1)
+        retourne(2)
+        retourne(x+1)
         
       }
-      
+        
     }
-    
+      
   }
-  
+    
 }
