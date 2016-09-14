@@ -1,0 +1,24 @@
+def solve() {
+  var n= getStackSize();
+  var finished=n-1;
+  var chgmt=0;
+  while (finished != 0) {
+    chgmt = getMax(finished);
+    flip(chgmt+1);
+    flip(finished+1);
+    finished -= 1;
+  }
+}
+
+
+def getMax(lim:Int):Int= {
+  var position:Int = 0;
+  var max:Int = getPancakeRadius(0);
+  for (i<-1 to lim){
+    if (getPancakeRadius(i) > max){
+      max = getPancakeRadius(i);
+      position = i;
+    }
+  }
+  return position
+}
