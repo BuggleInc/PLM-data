@@ -8,20 +8,20 @@ override def run() {
 }
 
 def keepHandOnSideWall(virage:Double):Double = {
-  gauche()
+  droite()
   var v:Double = 0
   if (estFaceMur()) {
-  	droite()
+  	gauche()
     if (estFaceMur()) {
-    	droite()
-    	v=virage-1
+    	gauche()
+    	v=virage+1
     }
     else
     	avance()
   }
   else {
   	avance()
-  	v=virage+1
+  	v=virage-1
   }
   return v
 }
