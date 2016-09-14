@@ -1,5 +1,44 @@
-override def run() { 
-  do {
+override def run() {
+  var direction=false
+  do{
+
+    avance()
+    if (estFaceMur()){
+      if (getDirection()== Direction.OUEST){
+        droite()
+        if (estFaceMur())
+        	direction=true
+        else{
+          avance()
+          droite()
+        }}
+      else if (getDirection()== Direction.EST) {
+        gauche()
+
+        if (estFaceMur())
+        	direction=true
+        else {
+          avance()
+          gauche()}}
+    }
+
+
+
+
+
+  } while {direction==false}
+  
+
+  
+   
+  
+  
+}
+
+def positionFinale():Boolean = {
+	return ((estFaceMur()==true ) && C)
+
+/*  do {
     avance()
       if (estFaceMur() && getDirection()== Direction.EST){
     			gauche()
@@ -21,11 +60,11 @@ override def run() {
   
   
   
-}
+}*/
 
 def positionFinale():Boolean = {
 	return ((estFaceMur()==true ) && (getDirection()== Direction.NORD))
     
   
      
-  }
+  
