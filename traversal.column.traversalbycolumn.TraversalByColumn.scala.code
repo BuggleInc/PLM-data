@@ -1,0 +1,37 @@
+override def run() {
+  while (!fonctionTest()) {
+    for (i <- 0 to 6) {
+      for (j <- 0 to 6) {
+        setPos(x,y)
+      }
+    }
+  }
+}
+
+
+def fonctionTest() : Boolean = {
+  if (estFaceMur()) {
+    if (getDirection() == Direction.EST) {
+      gauche();
+      if (estFaceMur()) {
+        droite();
+        return true
+      }
+      else {
+        droite(); } 
+      return false
+    }
+    if (getDirection() == Direction.OUEST) {
+      droite();
+      if (estFaceMur()) {
+        gauche();    
+        return true
+      }
+      else {
+        gauche();
+      }
+      return false
+    }
+  }
+  return false
+}
