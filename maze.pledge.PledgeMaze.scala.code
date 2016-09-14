@@ -1,14 +1,13 @@
 override def run() {
   var dir:Direction = getDirection()
   var cmp = 0
-  while(!estFaceMur){
-    avance()
-  }
-  droite()
-  cmp = -1
   while(!estSurBiscuit){
   	if((cmp == 0)&&(isDirectionFree(dir))){
-      avance()
+      while(!estFaceMur){
+        avance()
+      }
+      droite()
+      cmp = -1
     } else {
       cmp = cmp + keepHandOnSideWall()
     }
