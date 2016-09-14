@@ -7,7 +7,9 @@ def solve() {
     t = getRayonCrepe(0)
     tplus1 = trouverTPlus1(t)
     tmoins1 = trouverTMoins1(t)
-    casA(t,tplus1,tmoins1)
+    if (!casA(t,tplus1,tmoins1)){
+      casB(t,tplus1,tmoins1)
+    }
     
   }
 }
@@ -42,6 +44,12 @@ def trouverTMoins1(t:Int):Int={
   return 9999
 }
 
+def estPremier(rang:Int):Boolean={
+  if (!estLibre(rang) && getRayonCrepe(rang - 1) != getRayonCrepe(rang) - 1){
+    return true
+  }
+  return false
+}
 //LES CAS
 //
 def casA(t:Int,tplus1:Int,tmoins1:Int):Boolean={
@@ -56,7 +64,16 @@ def casA(t:Int,tplus1:Int,tmoins1:Int):Boolean={
   return false
 }
 //
-def casB():Boolean={
+def casB(t:Int,tplus1:Int,tmoins1:Int):Boolean={
+  if (estLibre(0) && tplus1 != 9999 && estPremier(tplus1)){
+    retourne(tplus1)
+    return true
+  }
+  if (estLibre(0) && tmoins1 != 9999 && estPremier(tmoins1)){
+    retourne(tmoins1)
+    return true
+  }
+  
   return false
 	
 }
