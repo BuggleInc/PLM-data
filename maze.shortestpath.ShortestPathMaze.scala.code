@@ -13,12 +13,14 @@ def trouveDonut() : (Int, Int) = {
 
 def Cartographie(i:Int, j:Int, done: Int) {
   var Done : Int = done
-  while(Done != (getMondeHauteur()*getMondeLargeur())){
+  val hauteur : Int = getMondeHauteur()-1
+  val largeur : Int = getMondeLargeur() - 1
+  while(Done != (hauteur*largeur)){
     if (getIndication(i,j)!=9999){
       setIndication(i,j,Done)
       Done=Done+1
       (i,j) match {
-        case (getMondeLargeur()-1,getMondeHauteur()-1) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        case (largeur,hauteur) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
       }
     }
   }
