@@ -2,16 +2,17 @@ var al=0
 override def run() {
   while (estSurBiscuit()==false){
     al=random3()
-    if (estFaceMur()==false){
-      avance()
-      al=random3()
-    } else if (al=0){
-      gauche()
-      } else {
+    if (al=1){
       droite()
+    } else if (al=2){
+      gauche()
+    } else {
+      if (estFaceMur()==false){
+        avance()
+      }else{
+        random3()
+      }
     }
-
-
-
+  }
 }
-}
+      
