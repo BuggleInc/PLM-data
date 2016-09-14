@@ -58,7 +58,7 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   
   var currBase = mod(getTrouBase()-sens, nbBases);
     
-  while(currBase != mod(arrive-1, nbBases)) //On deplace le joueur dans sa base
+  while (currBase != mod(arrive-1, nbBases)) //On deplace le joueur dans sa base
   {
     //Le trou est au dessus du joueur
     currBase = mod(getTrouBase()-sens, nbBases);
@@ -72,11 +72,11 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   }
   
   deplace(currBase, pos);
-  currBase = mod(getTrouBase()-1, nbBases);
+  currBase = getTrouBase();
   
-   var posEchange = (pos+1)%nbPos;
+  var posEchange = (pos+1)%nbPos;
   
-  while(currBase != mod(baseTrou-1, nbBases)) //On annule les autres changements
+  while (currBase != mod(baseTrou-1, nbBases)) //On annule les autres changements
   {
     //Le trou est sur le joueur
     deplace(mod(currBase-1, nbBases), 0);
