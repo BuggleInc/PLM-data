@@ -1,8 +1,8 @@
 def shellSort()  {
   var eca = getNombreValeurs()/2
   while (eca>0) {
-    var t = true
-    var v = getValeur(eca)
+      for (i<- 1 to getNombreValeurs()-1){
+    var v = getValeur(i)
 		var k = eca
    while (k>0 && !plusPetitQue(k-eca,v)){
       
@@ -10,8 +10,24 @@ def shellSort()  {
       k-=eca
     }
 		setValeur(k,v)
+      }
     eca = eca/2
   }
   
 }
 
+
+
+def insertionSort() {
+  for (i<- 1 to getNombreValeurs()-1){
+    var v = getValeur(i)
+		var k = i
+    while (k>0 && !plusPetitQue(k-1,v)){
+      
+      copy(k-1,k)
+      k-=1
+    }
+		setValeur(k,v)
+    
+}
+}
