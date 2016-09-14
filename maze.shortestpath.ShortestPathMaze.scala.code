@@ -1,6 +1,6 @@
 override def run() {
   var(x,y):(Int,Int)=trouverSortie
- Numeroter(x,y)
+  Numeroter(x,y)
 }
 
 def trouverSortie():(Int,Int)={
@@ -37,8 +37,16 @@ def Numeroter(x:Int,y:Int) {
         }
         else {
           compteur=1
-          var sup:Int=getIndication(k,l-1)
-          var gauche:Int=getIndication(k-1,l)
+          if(!aMurNord()){
+            var sup:Int=getIndication(k,l-1)}
+          else{
+            var sup:Int=9999
+          }
+          if (!aMurOuest()){
+            var gauche:Int=getIndication(k-1,l)}
+          else{
+            var gauche:Int=9999
+          }
           if(sup<gauche && sup !=9999 && !aMurNord(k,l)){
             setIndication(k,l,sup+1)
           }
@@ -50,7 +58,7 @@ def Numeroter(x:Int,y:Int) {
         }
       }
     }
-    
+
   }
   setIndication(0,0,getIndication(0,1)+1)
 }
