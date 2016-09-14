@@ -15,7 +15,7 @@ def isDirectionFree (direction : Direction) : Boolean = {
   return answer;
 }
 
-// convoluted with staying the wall at the left :
+// convoluted with staying the wall at the left and refresh sommeAngle's state
 def leftFollowerMode(sommeAngle : Int) : Int = {
   var x = sommeAngle;
   while ((getDirection() != Direction.NORTH) || isFacingWall()) {
@@ -35,7 +35,6 @@ def leftFollowerMode(sommeAngle : Int) : Int = {
   } ; return x;
 }
 
-// this method works
 def northRunnerMode (sommeAngle: Int) {
   if (sommeAngle%4 != 0) { // if we didn't just made a loop before
     while (getDirection() != Direction.NORTH) { // auto-orientation
@@ -64,5 +63,5 @@ def makeMoving() {
 }
 
 override def run() { 
-	makeMoving();
+	northRunnerMode(1);
 }
