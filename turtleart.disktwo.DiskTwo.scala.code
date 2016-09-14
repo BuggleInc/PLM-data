@@ -1,0 +1,17 @@
+override def run() {
+  var x:Double = getX()
+  var y:Double = getY()
+  for(i <- 1 to 18) {
+    i % 2 match {
+        case 0 => setCouleur(Color.RED)
+        case 1 => setCouleur(Color.BLACK)
+        case _ => setCouleur(getCouleur())
+    }
+    
+    for(j <- 1 to 10) {
+      avance(100)
+      setPos(x, y)
+      droite(1)
+    }
+  }
+}
