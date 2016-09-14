@@ -26,12 +26,12 @@ def deplace(index:Int){
   var nbBases = getNombreBases()
   var b= index/2
   var p =index%2
-  deplace(b%nbBases,p)
+  deplace((b+nbBases)%nbBases,p)
 }
 
 def initialiser(){
   var nbBases=getNombreBases()
-  while (trouveTrou()!=1){
-    deplace(trouveTrou()+1)
+  while (trouveTrou()!!=1){
+    deplace(trouveTrou()-1)
   }
 }
