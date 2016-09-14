@@ -49,29 +49,29 @@ def marquage(x:Int,y:Int,sol:Int){
 def check(x:Int,y:Int,sol:Int):Boolean = {
   var etat = true
   if (!aMurNord(x,y) && y!=0){
-    if (sol>=Abs(sol-getIndication(x,y-1))>=2){
+    if (sol>=Abso(sol-getIndication(x,y-1))>=2){
       etat=false
     }
   }
   if (!aMurOuest(x,y) && x!=0){
-    if (sol>=Abs(sol-getIndication(x-1,y)) && Abs(sol-getIndication(x-1,y)>=2)){
+    if (sol>=Abso(sol-getIndication(x-1,y)) && Abso(sol-getIndication(x-1,y)>=2)){
       etat = false 
     }
   }
   if (x!=getMondeLargeur-1 && !aMurOuest(x+1,y)){
-    if (sol>=Abs(sol-getIndication(x+1,y)) && Abs(sol-getIndication(x+1,y))>=2){
+    if (sol>=Abso(sol-getIndication(x+1,y)) && Abso(sol-getIndication(x+1,y))>=2){
       etat=false
     }
   }
   if (y!=getMondeHauteur-1 && !aMurNord(x,y-1)){
-    if (sol>=Abs(sol-getIndication(x,y-1)) && Abs(sol-getIndication(x,y-1))>=2){
+    if (sol>=Abso(sol-getIndication(x,y-1)) && Abso(sol-getIndication(x,y-1))>=2){
       etat=false
     }
   }
  return etat
 }
 
-def Abs(x: Int): Int={
+def Abso(x: Int): Int={
   if (x<0){
     return -x
   }
