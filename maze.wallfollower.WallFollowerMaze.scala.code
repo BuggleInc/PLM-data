@@ -6,35 +6,29 @@ override def run() {
 }
 
 def keepHandOnSideWall() {
-  if (murcote()){
-    if (!estFaceMur())
-    	avance()
-    else
+  gauche()
+  if (estFaceMur()){
+    droite()
+    if (estFaceMur()){
     	droite()
+      avance()}
+    else
+    	avance()
+  }
+  else {
+    avance()
+    gauche()
+    avance()
+  }
 
     
-  }
+  
  
   
 }
 
 
 
-def murcote() : Boolean = {
 
-    if (estFaceMur())
-    	droite()
-    else {
-    	gauche()
-    	if (estFaceMur()){
-      	droite()
-      	return true
-    	}
-    	else {
-      	droite()
-      	return false
-    	}
-    }
+
   
-  
-}
