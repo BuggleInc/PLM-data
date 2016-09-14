@@ -1,14 +1,18 @@
 override def run() {
   var etat = 0;
-  while(!estSurBiscuit() && getX() != 0){
-    etat match {
-      case 0 => marcheNord(); etat = 1;
-      
-      case 1 => run2(); etat = 0;
-      
-      case _ => ();
-    }
+  while(getY() != 0){
+   if(estFaceMur()){
+     gauche();
+     if(estFaceMur()){
+       droite();droite();avance();gauche();
+     } else {
+       avance();
+     }
+   } else {
+     avance();
+   }
   }
+  run2();
   prendBiscuit();
 }
 
