@@ -70,18 +70,17 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   var posTrou = getTrouPosition();
   var currBase = mod(baseTrou-1, nbBases);
   
-  var nouvPos = pos;
+  var posEchange = origPosTrou;
+  if (posEchange == pos) posEchange = mod(origPosTrou+1, nbPos);
     
   while (currBase != mod(arrive-1, nbBases)) //On deplace le joueur dans sa base
   {
     //Le trou est au dessus du joueur    
-    deplace(currBase, nouvPos);
+    deplace(currBase, pos);
     currBase = mod(currBase+1, nbBases);
     
-    deplace(currBase, origPosTrou);
-    deplace(mod(currBase+1, nbBases), origPosTrou);
-    
-    if (pos == origPosTrou) nouvPos = mod(origPosTrou+1, nbPos);
+    deplace(currBase, posEchange);
+    deplace(mod(currBase+1, nbBases), posEchange);
   }
   
   deplace(currBase, pos);
@@ -91,14 +90,14 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   while (currBase != baseTrou)
   {
     //Le trou est sur le joueur
-    deplace(mod(currBase-1, nbBases), origPosTrou);
+    deplace(mod(currBase-1, nbBases), posEchange);
     deplace(currBase, pos);
     
     currBase = mod(getTrouBase()-1, nbBases);    
-    deplace(currBase, origPosTrou);
+    deplace(currBase, posEchange);
   }
   
-  deplace(mod(currBase-1, nbBases), origPosTrou);
+  deplace(mod(currBase-1, nbBases), posEchange);
   deplace(currBase, pos);
   
   if (getTrouBase() != origBaseTrou) 
