@@ -33,7 +33,7 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
   var nbPos = getNombrePositions();
   var currBase = (getTrouBase()+sens)%nbBases;
   
-  var pos = cherchePasJoueur(arrive, currBase);
+  var pos = cherchePasJoueur(currBase, currBase);
   
   if (pos != -1)
   {
@@ -60,7 +60,7 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
     deplace(currBase, pos);
     //currTrou et currBase sont maintenant inverses
     
-    deplace(currBase, cherchePasJoueur(arrive, currTrou));
+    deplace(currBase, cherchePasJoueur(currTrou, currTrou));
     deplacerJoueur(chercheJoueur(arrive, currTrou), arrive, sens)
   }
 }
