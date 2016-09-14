@@ -1,10 +1,23 @@
-override def run() {var test1:Boolean=false; var test2:Boolean=false;
-                    
-while((!test1)||(!test2))
-                    {test1=false; test2=false; {while (!isFacingWall()) {forward()}; right();
-                      
-                      while ((!test1)&&(!isFacingWall())) {forward(); left(); if (!isFacingWall()) {test1=true} else {right()}};
-                      
-                      left(); left();
-                      
-                      while ((!test1)&&(!test2)&&(!isFacingWall())) {forward(); right(); if (!isFacingWall()) {test2=true} else {left()}}}}}
+
+override def run() {var state=0;
+state match  {
+  case 0 => {while (!isFacingWall()) {forward()}}; // North runner
+
+     state = 1;
+  case 1 =>override def run() {while (!isFacingWall()) {right()}; left();
+  while (!isOverBaggle) {while (!isFacingWall()) {forward(); right()}; left()}}// Left follower
+     state = 0;
+  case _ => println("This case should not happen. Please fix me")
+}
+ 
+}
+
+
+
+
+
+
+
+
+
+
