@@ -1,0 +1,48 @@
+override def run() {
+  var angleSum:Int =0;
+  var dir:Direction = getDirection();
+  
+  while (getY()!=0) {
+    toTheNorth(dir);
+  }
+  right();
+  
+  while (!isOverBaggle()) {
+    angleSum += keepHandOnSideWall()
+  }
+  
+  pickupBaggle();
+}
+
+def keepHandOnSideWall():Int = {
+  left();
+  
+  if (isFacingWall()) {
+    right();
+    if (isFacingWall()) {
+      right();
+      return -1
+    }
+    else {
+    	forward();
+      return 0
+    }
+  }
+  else {
+    forward();
+    return 1
+  }
+}
+
+def toTheNorth(dir:Direction) {
+  var dir2 = getDirection();
+  setDirection(Direction.NORTH);
+  if (!isFacingWall()) {
+    forward();
+  }
+  else {
+   	setDirection(dir2);
+    keepHandOnSideWall();
+  }
+
+}
