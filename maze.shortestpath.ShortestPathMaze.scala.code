@@ -46,13 +46,11 @@ override def run() {
     ind=getIndication(x,y)
     if(!aMurNord(x,y)){
       if(getIndication(x,y-1)==ind-1){
-        y=y-1
         avance()
       }
     }
     else if(!aMurOuest(x,y)){
       if(getIndication(x-1,y)==ind-1){
-        x=x-1
         gauche()
         avance()
         droite()
@@ -61,7 +59,6 @@ override def run() {
     else if (y!=getMondeLargeur-1){
     	if(!aMurNord(x,y+1)){
         if(getIndication(x,y+1)==ind-1){
-          y=y+1
           recule()
         }
     	}
@@ -69,7 +66,6 @@ override def run() {
     else if (x!=getMondeLargeur -1){
     	if(!aMurOuest(x+1,y)){
         if(getIndication(x+1,y)==ind-1){
-          x=x+1
           droite()
           avance()
           gauche()
