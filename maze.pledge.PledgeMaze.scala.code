@@ -1,15 +1,11 @@
 override def run() {
   
-  
   def testgauche():Boolean = {
     gauche()
     if (estFaceMur()) {droite();return true}
     droite()
     return false
   }
-  
-
-  var sommeAngle:Int=(-1)
   
   def keepHandOnSideWall():Boolean = {
     var t=false
@@ -19,12 +15,12 @@ override def run() {
       t=true
       if (!testgauche()) {
         gauche();
-        sommeAngle+=1
         avance();
+        sA+=1
         if (!testgauche()) {
           gauche();
-          sommeAngle+=1
           avance();
+          sA+=1
           
         }}}
     return t
@@ -32,13 +28,12 @@ override def run() {
   }
   
   droite()
-
+  var sA:Int=(-1)
   while (!estSurBiscuit) {
-
-    if (!estFaceMur && sommeAngle==0) {
+    if (getDirection==Direction.NORTH && !estFaceMur() && sA!=0) {
       avance()
     } else {
-    	if (!keepHandOnSideWall()) {droite; sommeAngle-=1}
+    	if (!keepHandOnSideWall()) {droite;sA-=1}
     }
   }
   prendBiscuit()
