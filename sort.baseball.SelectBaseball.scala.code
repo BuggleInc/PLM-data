@@ -51,6 +51,7 @@ def deplacerTrou(arrive:Int, pos:Int, sens:Int) //sens:-1 ou 1
 def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
 {
   var nbBases = getNombreBases();
+  var nbPos = getNombrePositions();
   var baseTrou = getTrouBase();
   var posTrou = getTrouPosition();
   var nouvPos = 0;
@@ -64,10 +65,10 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
     nouvPos = getTrouPosition();
     
     deplace(currBase, pos);
-    currBase = (currBase+sens)%nbBases;
+    currBase = mod(currBase+sens, nbBases);
     
-    deplace(currBase, (nouvPos+1)%nbBases);
-    deplace((currBase+sens)%nbBases, 0);
+    deplace(currBase, (nouvPos+1)%nbPos);
+    deplace(mod(currBase+sens, nbBases), 0);
   }
 }
   
