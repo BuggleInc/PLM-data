@@ -18,7 +18,7 @@ def isDirectionFree (direction : Direction) : Boolean = {
 // convoluted with staying the wall at the left :
 def leftFollowerMode(sommeAngle : Int) : Int = {
   var x = sommeAngle;
-  while ((getDirection() != Direction.NORTH) || !isFacingWall()) { // !isfac
+  while ((getDirection() != Direction.NORTH) || isFacingWall()) {
      if (!isFacingWall()) {
      	forward();
       if (!isWallAtLeft()) {
@@ -36,11 +36,11 @@ def leftFollowerMode(sommeAngle : Int) : Int = {
 }
 
 // this method works
-def northRunnerMode () {
+def northRunnerMode (sommeAngle: Int) {
   while (getDirection() != Direction.NORTH) { // auto-orientation
     right();
   }
-  while (!isFacingWall()) { // forward as long is possible
+  while (!isFacingWall() || (sommeAngle%4 != 0) { // forward as long is possible if we didn't just made a loop before
   		forward();
   }
 }
@@ -50,9 +50,8 @@ def makeMoving() {
   var sommeAngle = 0;
   while (!isOverBaggle()) {
     state match {
-      case 0 => if (sommeAngle%4 != 0) { // not 360 degres turn accomplished
-        						northRunnerMode(); // while we don't find a wall on the north
-      					}; state = 1;
+      case 0 => northRunnerMode(sommeAngle); // while we don't find a wall on the north
+      					state = 1;
       case 1 =>  while (!isWallAtLeft()) { 
         						right(); // make sure that there is a wall on the left
       					 }; sommeAngle = leftFollowerMode(sommeAngle); state = 0;
