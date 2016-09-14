@@ -1,52 +1,30 @@
-def fonctionTest():Boolean = {
-  if (estFaceMur==true) {
-    if (getDirection() == Direction.EST) {
-      gauche()
-      if (estFaceMur==true) {
-        droite()
-        return true
-      }
-      else {
-        droite()
-      }
-    }
-    if (getDirection() == Direction.OUEST) {
-      droite()
-      if (estFaceMur==true) {
-        gauche()
-        return true
-      }
-      else {
-      	gauche()
-    }}
+def posTest():Boolean = { 
+  if (getX()==getMondeLargeur()-1 && getY()==getMondeHauteur()-1) {
+  	return true
   }
-return false
+  return false
 }
 
-   
-      
-def explorer() {      
-baisseBrosse()
-while (!fonctionTest) {
-	if (!estFaceMur) {
-    avance()
-  }
-  else {
-    if (getDirection() == Direction.EST) {
-      gauche()
-      avance()
-      gauche()
-    }
-    else {
-      (getDirection() == Direction.OUEST) 
-      droite()
-      avance()
-      droite()
-    }
-  }
+
+
+def colonne() {
+	var j=0
+  var cpt=0
   
+  while (!posTest()) {
+    for(i<-0 to 6) {
+      setPos(i,j)
+      
+      ecritMessage(cpt:Int)
+    	cpt=cpt+1
+    }
+    
+    j=j+1
+  }
 }
-}
+      
+
+
 
 
 
