@@ -44,12 +44,12 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
 {  
   var nbBases = getNombreBases();
   var nbPos = getNombrePositions();
-  var baseTrou = getTrouBase();
-  var posTrou = getTrouPosition();
-  var nouvPos = 0;
   
   deplacerTrou((depart+1)%nbBases, 0, -1);
 
+  var baseTrou = getTrouBase();
+  var posTrou = getTrouPosition();
+  var nouvPos = 0;
   var currBase = mod(getTrouBase()-1, nbBases);
     
   while (currBase != mod(arrive-1, nbBases)) //On deplace le joueur dans sa base
@@ -79,7 +79,7 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
     currBase = mod(getTrouBase()-1, nbBases);    
     deplace(currBase, 1);
   }
-  /*
+  
   deplace(mod(currBase-1, nbBases), 0);
   deplace(currBase, posEchange);
   
@@ -87,7 +87,7 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   {
     deplacerTrou((baseTrou+1)%nbBases, 0, 1);
     deplace(origBaseTrou, origPosTrou);
-  }*/
+  }
 }
   
 def chercheJoueur(couleur:Int, base:Int):Int =
