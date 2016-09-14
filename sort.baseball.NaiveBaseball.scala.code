@@ -4,8 +4,10 @@ override def run() {
   var numABouger:Int = 0;
   
   while (!isSorted()) {
-    posBABouger = (getHoleBase()-1)%nbrB;
-    
+    posBABouger = (getHoleBase()-1);
+    if (posBABouger==-1) {
+      posBABouger = 3
+    }
     
     numABouger = longerWay(nbrB, posBABouger)
     move(posBABouger,numABouger)
