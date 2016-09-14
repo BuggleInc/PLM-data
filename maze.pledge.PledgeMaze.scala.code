@@ -1,7 +1,8 @@
 override def run() {
   var nord=grandNord()
   var sommeAngle=0
-  while (!estSurBiscuit()){
+  
+  while (!estSurBiscuit()){ //va au nord dès que possible
     while(!estFaceMur && nord==false){
       if (isDirectionFree(Direction.NORTH)){
         setDirection(Direction.NORTH)
@@ -12,8 +13,10 @@ override def run() {
       }
     }
     droite()
+    
     var angleSomme=false
-    while (!angleSomme && !nord){
+    
+    while (!angleSomme && nord==false){ //le buggle étudie sil est dans un piège
       while (keepHandOnSideWall() && !estFaceMur()){
         avance()
       }
@@ -30,7 +33,8 @@ override def run() {
         angleSomme=true
       }
     }
-    while(nord==true && !estSurBiscuit()){
+    
+    while(nord==true && !estSurBiscuit()){ //le buggle est sorti du piège et il a trouvé le mur extérieur nord
       if (keepHandOnSideWall()==true){
         if (!estFaceMur()){
           avance()
