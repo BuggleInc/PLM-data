@@ -22,12 +22,18 @@ def solve() {
         				debut +=1
       				})
       case BLANC =>
-      					echange(i, avantBlanc)
+      					echange(i, avantBlanc-1)
       					avantBlanc -=1
+      					var d= getCouleur(i)
+      					d match{
+                  case BLEU => debut +=1
+                  						 i+=1
+                  case ROUGE => echange(i, fin)
+                  		fin -=1
+                }
       case ROUGE =>
       					echange(i, fin)
       					fin-=1
-    }
-    i+=1
+    } i+=1
 	}
 }
