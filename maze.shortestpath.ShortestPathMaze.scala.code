@@ -60,21 +60,21 @@ def findBaggle(){
     var y = getY()
     var numb = getIndication(x,y)
     
-    if(x>0 && getIndication(x-1,y)==numb-1){
+    if(x>0 && getIndication(x-1,y)==numb-1)
       setDirection(Direction.WEST)
-      forward()
-    }
-    else if(x<n-1 && getIndication(x+1,y)==numb-1){
+    if(!isFacingWall())
+	    forward()
+    if(x<n-1 && getIndication(x+1,y)==numb-1)
       setDirection(Direction.EAST)
-      forward()
-    }
-    else if(y>0 && getIndication(x,y-1)==numb-1){
+    if(!isFacingWall())
+	    forward()
+    if(y>0 && getIndication(x,y-1)==numb-1)
       setDirection(Direction.NORTH)
-      forward()
-    }
-    else if(y<m-1 && getIndication(x,y+1)==numb-1){
+    if(!isFacingWall())
+	   forward()
+    if(y<m-1 && getIndication(x,y+1)==numb-1){
       setDirection(Direction.SOUTH)
-      forward()
-    }
+    if(!isFacingWall())
+	    forward()
   }
 }
