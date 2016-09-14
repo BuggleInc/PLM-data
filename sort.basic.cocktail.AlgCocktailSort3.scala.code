@@ -3,17 +3,26 @@ def cocktailSort3() {
   var lgr= getNombreValeurs() 
   var fin = lgr-2
   var cpt =0
+  var cptc=0
+  var cptd=0
   
   do
   {
     cpt=0
+    cptc=0
+    cptd=0
     for (i<- debut to fin)
     {
       if (plusPetit(i+1,i))
       {
         echange(i+1,i)
+        cptc+=1
         cpt+=1
       }
+    }
+    if (cptc==0)
+    {
+      return false
     }
     
     fin = fin -1
@@ -23,10 +32,14 @@ def cocktailSort3() {
       {
         echange(i+1,i)
         cpt+=1
+        cptd+=1
       }
       
     }
-    
+    if (cptd==0)
+    {
+      return false
+    }
     debut+=1
     
   }
