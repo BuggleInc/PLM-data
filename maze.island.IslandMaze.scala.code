@@ -1,100 +1,33 @@
 override def run() 
 {
-  var gauche=false
-  var murD=false
-  var murG=false
-  while(!porteBiscuit())
+  while(!estSurBiscuit())
   {
-    murD=murDroite()
-    murG=murGauche()
-    if (murG && !murD)	
+    if(!getDirection()==Direction.NORTH || estFaceMur())
+    {
+    	keepHandOnSideWall()
+  	}
+    else
     	{
-    		keepHandsOnLeftWall()
-        gauche=true
-      }
-    if (murG && murD)
-    	{
-        if(gauche)
-        	{
-            keepHandsOnRightWall()
-            gauche=false
-          }
-        else
-        	{
-            keepHandsOnLeftWall()
-            gauche=true
-          }
-      }
-    if (murD && !murG)
-    	{
-        keepHandsOnRightWall()
-        gauche=false
-      }
-    if (estSurBiscuit())
-    	{
-        prendBiscuit()
+        avance()
       }
   }
+	prendBiscuit()
 }
 
-def keepHandsOnLeftWall()
+def keepHandOnSideWall()
 {
-  if(murGauche())
+  do
   	{
-      if(!estFaceMur())
-  			{
-      		avance()
-    		}
-      else
-      	{
-          droite()
-        }
-    }
-  else
-  	{
+      avance()
       gauche()
-      avance()
     }
+  while(!estFaceMur())  
+  //tant qu'on a pas de mur devant nous après avoir tourné à gauche, on avance puis on tourne à gauche 
+  droite() //si on a un mur à notre gauche, on revient tout droit puis à nouveau on avance et tourne à gauche
 }
 
-def keepHandsOnRightWall()
-{
-  if(murDroite())
-  	{
-      if(!estFaceMur())
-  			{
-      		avance()
-    		}
-      else
-      	{
-          gauche()
-        }
-    }
-  else
-  	{
-      droite()
-      avance()
-    }
-}
 
-def murGauche():Boolean=
-{
-  gauche()
-  var mur=estFaceMur()
-  droite()
-  return mur
-}
 
-def murDroite():Boolean=
-{
-  droite()
-  var mur=estFaceMur()
-  gauche()
-  return mur
-}
 
-//Si on a pas de mur en face on avance puis on regarde à gauche
-//		Si on a toujours un mur à gauche, on avance
-//		Si on n'a pas à gauche,on tourne à gauche et on avance puis 2 solutions:
-			// Si on a pas de mur à gauche on retourne à gauche
-			// Si on a un mur à gauche on avance
+
+//On sait qu'on a un mur à gauche initialement. Donc on suit le mur de gauche.
