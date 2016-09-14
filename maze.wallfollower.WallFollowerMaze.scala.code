@@ -46,25 +46,33 @@ def gauche() : Boolean ={
 
 def murcote(x:Int) : Boolean = {
   if (x==0){
-    gauche()
-    if (estFaceMur()){
-      droite()
-      return true
-    }
+    if (estFaceMur())
+    	droite()
     else {
-      droite()
-      return false
+    	gauche()
+    	if (estFaceMur()){
+      	droite()
+      	return true
+    	}
+    	else {
+      	droite()
+      	return false
+    	}
     }
   }
   else {
-     droite()
-    if (estFaceMur()){
-      gauche()
-      return true
-    }
+    if (estFaceMur())
+    	droite()
     else {
-      gauche()
-      return false
+     	droite()
+   		if (estFaceMur()){
+      	gauche()
+      	return true
+    	}
+    	else {
+      	gauche()
+      	return false
+    }
     }
     
   }
