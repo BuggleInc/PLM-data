@@ -7,7 +7,6 @@ def shellSort()  {
      var j= 1
      d=0
      while (( ((i+j*ecart) <= getNombreValeurs-1 ) && (i+(j-1)*ecart>=0))){
-       var c = 0
        if (getValeur(i+j*ecart) < getValeur(i+(j-1)*ecart)){
        	echange(i+j*ecart, i+(j-1)*ecart)
         c += 1
@@ -16,10 +15,9 @@ def shellSort()  {
          j += 1
        } else {
          j -= 1
-         d = 1
-       }
-       if (c==0){
-         j = getNombreValeurs-1
+         if (d==0){
+           d=1
+         }
        }
      }
    }
