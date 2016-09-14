@@ -14,7 +14,7 @@ def isDirectionFree (direction : Direction) : Boolean = {
 }
 
 // convoluted with staying the wall at the left :
-def leftFollowerMode(sommeAngle : Int) {
+def leftFollowerMode(sommeAngle : Int) : Int = {
   while ((getDirection() != Direction.NORTH) || isFacingWall()) {
     if (isOverBaggle()) {
       return();
@@ -23,7 +23,7 @@ def leftFollowerMode(sommeAngle : Int) {
           forward();
           if (!isWallAtLeft()) {
             left();
-            sommeAngle = sommeAngle + 1;
+            sommeAngle += 1;
             forward();
             if (!isWallAtLeft()) {
               left();
