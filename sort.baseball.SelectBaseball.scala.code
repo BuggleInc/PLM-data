@@ -5,16 +5,19 @@ override def run()
   var posJoueur = 0;
   var baseJoueur = 0;
   
-  for (nCouleur <- 0 to 1)
+  for (nCouleur <- 0 to 1) //On trie chacune des couleurs
   {
     for (j <- 0 to nbBases-1)
     {
-      for (k <- 0 to nbPos-1)
+      if (j != nCouleur) //On ne bouge pas ceux qui sont déja dans la base de la couleur courante
       {
-        if (getCouleurJoueur(j,k) != nCouleur)
+        for (k <- 0 to nbPos-1)
         {
-          deplacerTrou((j+1)%nbBases, 1);
-          deplace(j, k);
+          if (getCouleurJoueur(j,k) == nCouleur)
+          {
+            deplacerTrou((j+1)%nbBases, 1);
+            deplace(j, k);
+          }
         }
       }
   	}
