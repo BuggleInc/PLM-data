@@ -87,6 +87,9 @@ def eviteObstacle(){
     if (sommeAngle >= 4/* || sommeAngle <= -4*/){
       continuer = false
     }
+    if (estSurBiscuit()){
+      continuer = false
+    }
   }
 }
 
@@ -104,9 +107,7 @@ def isDirectionFree(dir:Direction):Boolean = {
 override def run() {
   while (!estSurBiscuit()){
     eviteObstacle()
-    print("c")
     if(!estFaceMur()){
-      print("b")
       while(!estFaceMur()){avance()}
     }
   }
