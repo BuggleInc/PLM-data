@@ -43,13 +43,13 @@ def trouve() : Direction =
  var h = getMondeHauteur()
  var (x,y) = (getX(),getY())
  var i = getIndication(x,y)
- if (x<l-1 && getIndication(x+1,y)==i-1)
+ if (x<l-1 && getIndication(x+1,y)==i-1 && !aMurOuest(x+1,y))
           {return(Direction.EAST)}
- if (x>0 && getIndication(x-1,y)==i-1)
+ if (x>0 && getIndication(x-1,y)==i-1 && !aMurOuest(x,y))
           {return(Direction.WEST)}
- if (y<h-1 && getIndication(x,y+1)==i-1)
+ if (y<h-1 && getIndication(x,y+1)==i-1 && !aMurNord(x,y+1))
           {return(Direction.SOUTH)}
- if (y>0 && getIndication(x,y-1)==i-1)
+ if (y>0 && getIndication(x,y-1)==i-1 && !aMurNord(x,y))
           {return(Direction.NORTH)}
      return(Direction.NORTH)
     }
