@@ -1,0 +1,22 @@
+override def run() {
+  var n:Int = getNombreBase()
+  
+  while (!estTrie()) {
+    for (i <- 1 to n-1) {
+      if (getCouleurJoueur(i, 0)>getCouleurJoueur(i, 1)) {
+        deplace(i, 1)
+      }
+      else {
+        deplace(i, 0)
+      }
+    }
+    for (j <- n-2 to 0 by -1) {
+      if (getCouleurJoueur(j, 0)>getCouleurJoueur(j, 1)) {
+        deplace(j, 0)
+      }
+      else {
+        deplace(j, 1)
+      }
+    }
+  }
+}
