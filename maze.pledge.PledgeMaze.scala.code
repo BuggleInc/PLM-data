@@ -14,22 +14,26 @@ def isDirectionFree (direction : Direction) : Boolean = {
 }
 
 // convoluted with staying the wall at the left :
-def leftFollowerMode() {
+def leftFollowerMode(sommeAngle : Int) {
   while ((getDirection() != Direction.NORTH) || isFacingWall()) {
-    if (isOverBaggle()) {return();} else {
-  	if (!isFacingWall()) {
-    	forward();
-     	if (!isWallAtLeft()) {
-      	left();
-       	forward();
-     	 	if (!isWallAtLeft()) {
-       		left();
-       		forward();
-       	}
-   		}
-  	} else { right(); } 
-		}
-  }
+    if (isOverBaggle()) {
+      return();
+    } else {
+        if (!isFacingWall()) {
+          forward();
+          if (!isWallAtLeft()) {
+            left();
+            sommeAngle += 1;
+            forward();
+            if (!isWallAtLeft()) {
+              left();
+              sommeAngle += 1;
+              forward();
+            }
+          }
+        } else { right(); sommeAngle -= 1;} 
+     }
+	}
 }
 
 def northRunnerMode () {
@@ -43,12 +47,16 @@ def northRunnerMode () {
 
 def makeMoving() {
   var state = 0;
+  var sommeAngle = 0;
   while (!isOverBaggle()) {
     state match {
-      case 0 => northRunnerMode(); state = 1; // tant qu'on a pas rencontre un mur au nord
+      case 0 => if (sommeAngle%4 != 0) {
+        						northRunnerMode(); 
+        						state = 1;
+      					} // tant qu'on a pas rencontre un mur au nord
       case 1 =>  while (!isWallAtLeft()) { 
         						right(); // on s'assure qu'il y ait un mur gauche
-      					 }; leftFollowerMode(); state = 0;
+      					 }; leftFollowerMode(sommeAngle); state = 0;
       case _ => println("Error : this case should not happen.")
     }
   }
