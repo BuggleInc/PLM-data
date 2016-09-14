@@ -28,3 +28,20 @@ def setTrouToOne() { //On amène le trou à la position 1
     deplace(1)
   }
 }
+
+def placeNvJoueur(pos:Int, couleur:Int) {
+  var i:Int = pos-2
+  var compt:Int = 0
+  
+  while (i>=0 && couleurJoueur(i)>couleur) {
+    deplace(i)
+    deplace(i+2)
+    deplace(i+1)
+    deplace(i)    // Si 1 2 4 . 3 alors 1 2 . 3 4
+    compt = compt+1
+  }
+  
+  for (j <- 0 to compt) {
+    deplace(trouveTrou()+1)
+  }
+}
