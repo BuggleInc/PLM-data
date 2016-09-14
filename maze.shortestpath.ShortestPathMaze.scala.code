@@ -23,7 +23,7 @@ def Cartographie(i:Int, j:Int, done: Int) {
       
       case (_,hauteur) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
        
-      case (largeur,_)=> if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}
+      case (largeur,_)=> if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)};if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
         
       case (_,_) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}; if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}; if(!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
     }
