@@ -4,9 +4,8 @@ def insertionSort() {
   var a= getNombreValeurs()
   for ( i<-1 to a-1){
     v=getValeur(i); 
-    j=i
-    while(j>0 && (!plusPetit(j-1,v))){
-      echange(j,j-1);j=j-1
-      }
-    setValeur(j,v)
-  }}
+    if (!plusPetit(i-1,v)){
+      setValeur(i,getValeur(i-1))
+    }
+    }
+  }
