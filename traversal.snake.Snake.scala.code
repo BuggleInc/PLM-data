@@ -23,8 +23,8 @@ override def run() {
 
 
 def fonctionTest() : Boolean = {
-  if (estFaceMur()) {
-    if (getDirection() == Direction.EST) {
+  if (getDirection() == Direction.EST) {
+    if (estFaceMur()) {
       gauche();
       if (estFaceMur()) {
         droite();
@@ -34,9 +34,12 @@ def fonctionTest() : Boolean = {
         droite(); } 
       return false
     }
-    if (getDirection() == Direction.OUEST) {
+  }
+  if (getDirection() == Direction.OUEST) {
+    if (estFaceMur()) {
       droite();
       if (estFaceMur()) {
+
         gauche();    
         return true
       }
@@ -45,6 +48,6 @@ def fonctionTest() : Boolean = {
       }
       return false
     }
-  }
-  return false
+  } }
+return false
 }
