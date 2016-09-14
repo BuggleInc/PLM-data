@@ -1,0 +1,30 @@
+def MarquerSol(){
+  var largeur:Int = getMondeLargeur()
+  var hauteur:Int = getMondeHauteur()
+  var X:Int = 0
+  var Y:Int = 0
+  var Xi:Int = getX()
+  var Yi:Int = getY()
+  var N:Boolean = false
+  var S:Boolean = false
+  var E:Boolean = false
+  var O:Boolean = false
+  for (i <- 0 to largeur - 1){
+    for (j <- 0 to hauteur - 1){
+      if(aBiscuit(i,j)){
+        X = i
+        Y = j
+      }
+    }
+  }
+  while (X != Xi && Y != Yi){
+    N = aMurNord(X,Y)
+    S = aMurSud(X,Y)
+    E = aMurEst(X,Y)
+    O = aMurOuest(X,Y)
+  }
+}
+
+override def run() {
+    // Your code here
+}
