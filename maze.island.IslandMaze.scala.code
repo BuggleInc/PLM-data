@@ -29,19 +29,20 @@ override def run() {
   }
   
   def conditionSuivreMur(droiteTrue:Boolean) {
-    if(droiteTrue) {
-    	var dir1 = droite()
-    	var dir2 = gauche()
-    } else {
-      var dir1 = gauche()
-    	var dir2 = droite()
-    }
-    dir1
+    if(droiteTrue)
+    	droite()
+    else gauche()
     if(estFaceMur()) {
-      dir2
+      if(droiteTrue)
+        gauche()
+    	else droite()
       if(!estFaceMur())
       	avance()
-      else dir2
+      else {
+        if(droiteTrue)
+        	gauche()
+    		else droite()
+      }
     } else avance()
   }
 }
