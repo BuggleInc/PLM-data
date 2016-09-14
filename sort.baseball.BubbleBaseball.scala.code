@@ -19,7 +19,7 @@ override def run() {
 
 def trouveTrou():Int ={
   var nbPos = getNombrePositions()
-  var b= getTrouBase()
+  var b = getTrouBase()
   var p = getTrouPosition()
   return b*nbPos + p
 }
@@ -37,20 +37,5 @@ def deplace(index:Int){
   var nbBases = getNombreBases()
   var b= index/nbPos
   var p =index%nbPos
-  deplace((b+nbBases)%nbBases,(p+nbPos)%nbPos)
-}
-
-//Permet de positionner le trou à sa position initiale
-def initialiser(){
-  var nbBases=getNombreBases()
-  while (trouveTrou()!=1){
-    deplace(trouveTrou()-1)
-  }
-}
-
-//Apres avoir mis un element à sa place
-def reinitialise(index:Int){
-  while (trouveTrou()!=index){
-    deplace(trouveTrou()+1)
-  }
+  deplace((b+nbBases)%nbBases,(p+2*nbPos)%nbPos)
 }
