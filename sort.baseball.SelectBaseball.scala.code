@@ -1,48 +1,120 @@
-def getDistance(base:Int,position:Int):Int = {
+def memeCouleurSous(a:Int,couleur:Int) {
   
-  // Renvoie la distance à la position triée du joueur en position dans la base
+  //renvoie si l'autre joueur de couleur est présent sous l'indice a
+  for (c <- 0 to a-1) {
+    
+    if getCouleurJoueur(index2pos(a)(0),index2pos(a)(0)) == couleur {
+      
+      return true
+    
+    }
+    
+  }
   
-  if (getCouleurJoueur(base,position)<base) { //Si on doit passer la base zéro
+  return false
+}
+
+def getCouleurIndice(a:Int) {
+  
+  return getCouleurJoueur(index2pos(a)(0),index2pos(a)(1))
+  
+}
+
+def eval(a:Int):Int = {
+  
+  //évalue le buggle en indice a
+	if memeCouleurSous(a,getCouleurIndice(a)) { //Je le conscidère alors comme le deuxième de ça base
     
-    return getCouleurJoueur(base,position)+getNombreBases-base
+    return pos2index(getCouleurIndex(a),1)
     
-  } else {
+  }
+  
+  return pos2index(getCouleurIndex(a),0)
+  
+}
+
+def getNombreIndex():Int = {
+  
+  //retourne le nombre d'indices
+  return getNombreBases()*getNombrePositions()
+  
+}
+
+def index2pos(index:Int):Array[Int](2) = {
+  
+  return Array(index/getNombrePositions(),index%getnombrePosition())
+  
+}
+
+def pos2index(pos:Array[Int](2)):Int = {
+  
+  return pos(0)*getNombrePositions() + pos(1)
+  
+}
+
+def getTrouIndex():Int = {
+  
+  return pos2index(Array(getTrouBase(),getTrouPosition()))
+  
+}
+
+def deplacer(index:Int) {
+  
+  deplace(index2pos(index)(0),index2pos(index)(1))
+  
+}
+
+def tasser() {
+  
+  for (x <- getTrouIndex()+1 to getNombreIndex()-1) {
     
-    return getCouleurJoueur(base,position)-base
+    deplacer(x)
     
   }
   
 }
 
-def trier() {
+def switch(a:Int) {
   
-  var baseCandidate = -1
-  getTrouBase() match {
+  //échange a et le suivant sur le terrain (a est repéré par son index)
+  //en supposant que le terrain est tassé
+  
+  //amener le trou devant a et b
+  //
+  // a|b|_   a|_|b  _|a|b  b|a|_
+  //   >-^   >-^    ^---<
+  //
+  //tasser
+  
+  for (x <- getTrouIndex()-1 to a+2 by -1) {
     
-    case 0 => baseCandidate = getNombreBases()-1
-    case _ => baseCandidate = getTrouBase-1
+    deplacer(x)
     
   }
   
-  var distances = new Array[Int](getNombrePositions())
+  deplacer(a+1)
+  deplacer(a)
+  deplacer(a+2)
   
-  for (c <- 0 to getNombrePositions()-1) {
-   	
-    distances(c) = getDistance(baseCandidate,c)
-    
-  }
-  
-  deplace(baseCandidate,distances.indexOf(distances.max))
-  
+  tasser()
 }
 
 override def run() {
-
-	while (!estTrie) {
+  
+  tasser()
+  
+  for (c <- 0 to getNombreIndex()-1) {
     
-    trier()
+  	for (x <- 0 to getNombreIndex()-c-2) {
+      
+    	if (eval(x)>eval(x+1)) {
+	
+      	switch(x)
+	
+   	 }
+      
+ 	 }
     
-  }
-
-
+	}
+  
 }
