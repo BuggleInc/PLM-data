@@ -12,6 +12,7 @@ def memeCouleurSous(a:Int,couleur:Int):Boolean = {
   }
   
   return false
+  
 }
 
 def getCouleurIndice(a:Int):Int = {
@@ -38,25 +39,25 @@ def eval(a:Int):Int = {
 def getNombreIndex() :Int = {
   
   //retourne le nombre d'indices
-  return getNombreBases()*getNombrePositions()
+  return(getNombreBases()*getNombrePositions())
   
 }
 
 def index2pos(index:Int):Array[Int](2) = {
   
-  return Array(index/getNombrePositions(),index%getnombrePosition())
+  return (Array(index/getNombrePositions(),index%getnombrePosition()))
   
 }
 
 def pos2index(pos:Array[Int](2)):Int = {
   
-  return pos(0)*getNombrePositions() + pos(1)
+  return (pos(0)*getNombrePositions() + pos(1))
   
 }
 
 def getTrouIndex():Int = {
   
-  return pos2index(Array(getTrouBase(),getTrouPosition()))
+  return (pos2index(Array(getTrouBase(),getTrouPosition())))
   
 }
 
@@ -109,7 +110,7 @@ override def run() {
     
   	for (x <- 0 to getNombreIndex()-c-2) {
       
-    	if (eval(x)>eval(x+1)) {
+    	if (eval(x) > eval(x+1)) {
 	
       	switch(x)
 	
