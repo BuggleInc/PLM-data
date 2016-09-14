@@ -1,14 +1,14 @@
 var step = 0;
-do{
-  forward() 
-  while (!exitReached()){
-  if(isOverBaggle()){
+while (!exitReached()){
+  do{
+    forward() 
+    if(isOverBaggle()){
        step =step + 1
+    }
+    if (step < 3){
+      right()
+    }else {
+      left()
+    }
   }
-  if (step < 3){
-    right()
-  }else {
-    left()
-  }
-}
 }while (!crossing())
