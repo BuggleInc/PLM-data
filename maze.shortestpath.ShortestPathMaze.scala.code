@@ -1,5 +1,5 @@
-var x = 0
-var y = 0
+var x = getX
+var y = getY
 var cpt=0
 var mem=1
 var ind=0
@@ -7,12 +7,10 @@ override def run() {
   for(i<-0 to getMondeLargeur-1){
     for(j<-0 to getMondeHauteur-1){
       if(aBiscuit(i,j)){
-        x=i
-        y=j
+        setIndication(i,j,0)
       }
     }
   }
-  setIndication(x,y,cpt)
   while(mem==1){
     mem=0
     cpt+=1
@@ -40,4 +38,38 @@ override def run() {
       }
     }
   }
+  while(!estSurBiscuit){
+    x=getX()
+    y=getY()
+    ind=getIndication(x,y)
+    if(!aMurNord(x,y)){
+      if(getIndication(x,y-1)==ind-1){
+        avance()
+      }
+    }
+    else if(!aMurOuest(x,y)){
+      if(getIndication(x-1,y)==ind-1){
+        gauche()
+        avance()
+        droite()
+      }
+    }
+    else if (y!=getMondeLargeur-1){
+    	if(!aMurNord(x,y+1)){
+        if(getIndication(x,y+1)==ind-1){
+          recule()
+        }
+    	}
+    }
+    else if (x!=getMondeLargeur -1){
+    	if(!aMurOuest(x+1,y)){
+        if(getIndication(x+1,y)==ind-1){
+          droite()
+          avance()
+          gauche()
+        }
+      }
+    }
+	}
+  prendBiscuit()
 }
