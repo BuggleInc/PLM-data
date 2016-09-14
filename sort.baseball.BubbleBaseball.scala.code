@@ -2,6 +2,7 @@ override def run() {
   var nbBases = getNombreBases()
   var nbPos = getNombrePositions()
   while (!estTrie()){
+    {
     if (couleurJoueur(trouveTrou()+1) >= couleurJoueur(trouveTrou()-1)){
       deplace(trouveTrou()+1)
     }
@@ -28,14 +29,14 @@ def couleurJoueur(index:Int) : Int={
   var nbPos = getNombrePositions()
  	var b= index/nbPos
  	var p= index%nbPos
-  return getCouleurJoueur(b,(p+nbPos)%nbPos)
+  return getCouleurJoueur(b%nbBases,(p+nbPos)%nbPos)
 }
 
 //Deplace selon l'index
 def deplace(index:Int){
   var nbPos = getNombrePositions()
   var nbBases = getNombreBases()
-  var b= index/nbPos
+  var b = index/nbPos
   var p =index%nbPos
   deplace((b+nbBases)%nbBases,(p+nbPos)%nbPos)
 }
