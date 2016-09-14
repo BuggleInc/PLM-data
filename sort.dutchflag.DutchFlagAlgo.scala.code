@@ -1,14 +1,13 @@
-override def solve() {
-  var c=0
+def solve() {
   while (c!=15){
    for (i <- 1 to getTaille-1){
      for (j <- 1 to getTaille-i-1){
-       if (getCouleur(i)==Color.red){
-         if (getCouleur(getTaille-j)==Color.blue || getCouleur(getTaille-j)==Color.white){
+       if (getCouleur(i)==1){
+         if (getCouleur(getTaille-j)==0 || getCouleur(getTaille-j)==2){
            echange(i,getTaille-j)
          }
-     	 } else if (getCouleur(i)==Color.white) {
-         if (getCouleur(getTaille-j)==Color.blue){
+     	 } else if (getCouleur(i)==1) {
+         if (getCouleur(getTaille-j)==0){
            echange(i,getTaille-j)
          }
        }
