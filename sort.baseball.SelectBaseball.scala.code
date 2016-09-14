@@ -76,7 +76,7 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   
   var posEchange = (pos+1)%nbPos;
   
-  while (currBase != baseTrou) //On annule les autres changements
+  while (currBase != mod(baseTrou-1, nbBases)) //On annule les autres changements
   {
     //Le trou est sur le joueur
     deplace(mod(currBase-1, nbBases), 0);
