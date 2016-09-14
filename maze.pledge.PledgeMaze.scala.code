@@ -8,6 +8,15 @@ override def run() {
     return false
   }
   
+  def isDirectionFree(dir):Boolean = {
+    if (!estFaceMur) {return true}
+    return false
+  }
+  
+  
+  
+  def 
+  
 
 
   
@@ -19,9 +28,11 @@ override def run() {
       t=true
       if (!testgauche()) {
         gauche();
+        sommeAngle+=1
         avance();
         if (!testgauche()) {
           gauche();
+          sommeAngle+=1
           avance();
           
         }}}
@@ -30,12 +41,13 @@ override def run() {
   }
   
   droite()
+  var sommeAngle=-1
   while (!estSurBiscuit) {
     
-    if (getDirection==dir() && !estFaceMur()) {
+    if (isDirectionFree(getDirection()) && sommeAngle=0) {
       avance()
     } else {
-    	if (!keepHandOnSideWall()) {droite}
+    	if (!keepHandOnSideWall()) {droite; sommeAngle-=1}
     }
   }
   prendBiscuit()
