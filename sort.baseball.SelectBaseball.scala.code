@@ -10,7 +10,7 @@ override def run()
   var baseTrou = getTrouBase();
   var posTrou = getTrouPosition();
   
-  for (nCouleur <- 0 to nbBases-1) //On trie chacune des bases (=couleurs)
+  for (nCouleur <- 0 to 0) //On trie chacune des bases (=couleurs)
   {
     for (nBase <- 0 to nbBases-1)
     {
@@ -20,14 +20,7 @@ override def run()
         {
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
-            deplacerTrou((nBase+1)%nbBases, 0, -1);
             deplacerJoueur(nPos, nCouleur, 1);
-            
-            if (getTrouBase() != baseTrou) 
-            {
-              deplacerTrou((baseTrou+1)%nbBases, 0, 1);
-              deplace(baseTrou, posTrou);
-            }
             return;
           }
         }
@@ -47,25 +40,26 @@ def deplacerTrou(arrive:Int, pos:Int, sens:Int) //sens:-1 ou 1
   deplacerTrou(arrive, pos, sens);
 }
 
-
-def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
+def deplacerJoueur(pos:Int, arrive:Int)
 {
+  deplacerTrou((nBase+1)%nbBases, 0, -1);
+  
   var nbBases = getNombreBases();
   var nbPos = getNombrePositions();
   var baseTrou = getTrouBase();
   var posTrou = getTrouPosition();
   var nouvPos = 0;
   
-  var currBase = mod(getTrouBase()-sens, nbBases);
+  var currBase = mod(getTrouBase()-1, nbBases);
     
   while (currBase != mod(arrive-1, nbBases)) //On deplace le joueur dans sa base
   {
     //Le trou est au dessus du joueur
-    currBase = mod(getTrouBase()-sens, nbBases);
+    currBase = mod(getTrouBase()-1, nbBases);
     nouvPos = getTrouPosition();
     
     deplace(currBase, pos);
-    currBase = mod(currBase+sens, nbBases);
+    currBase = mod(currBase+1, nbBases);
     
     deplace(currBase, (nouvPos+1)%nbPos);
     deplace(mod(currBase+sens, nbBases), 0);
@@ -88,6 +82,12 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   
   deplace(mod(currBase-1, nbBases), 0);
   deplace(currBase, posEchange);
+  
+  if (getTrouBase() != baseTrou) 
+  {
+    deplacerTrou((baseTrou+1)%nbBases, 0, 1);
+    deplace(baseTrou, posTrou);
+  }
 }
   
 def chercheJoueur(couleur:Int, base:Int):Int =
