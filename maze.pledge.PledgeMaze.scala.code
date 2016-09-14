@@ -1,0 +1,37 @@
+override def run() {
+  var dir:Direction=Direction.NORTH;
+  var angle=0;
+  while (!isOverBaggle()) {
+    while (!isFacingWall() && !isOverBaggle()) {
+      setDirection(Direction.NORTH)
+      forward()
+    }
+    right();angle+=1
+    do {
+      //si ya pas de mur
+      if (!isFacingWall()) {
+        //on tourne a gauche pour vérif
+        left();angle-=1
+        //si ya pas de mur on trace dedans
+        if (!isFacingWall()) {
+          forward()
+        }
+        //si yen a un on continue tout droit
+        else {
+          right();angle+=1;forward()
+        }
+      }
+      //si ya un mur
+      else { //on tourne pour continuer
+        left();
+        if (!isFacingWall()) {
+          angle-=1;forward()
+        }
+        else {
+          right();right(); angle+=1;
+        }
+      }
+    } while (angle!=0 && !isOverBaggle())
+  }
+  pickupBaggle()
+}

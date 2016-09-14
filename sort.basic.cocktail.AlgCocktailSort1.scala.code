@@ -1,0 +1,18 @@
+def cocktailSort() {
+  var sp=false
+  do {
+    sp=false
+    for (i <- 0 to getValueCount()-2) {
+      if (!isSmaller(i,i+1)) {
+        swap(i,i+1)
+        sp=true
+      }
+    }
+    for ( i <- 0 to getValueCount()-2) {
+      if (!isSmaller(getValueCount()-i-2,getValueCount()-i-1)) {
+        swap(getValueCount()-i-2,getValueCount()-i-1)
+        sp=true
+      }
+    }
+  }while (sp == true)
+}

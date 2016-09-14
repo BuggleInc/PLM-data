@@ -1,0 +1,41 @@
+override def run() {
+  var reached=false;
+  while (getY()!=0 && reached!=true) {
+    if (isFacingWall()) {
+      right()
+      if (!isFacingWall()) {
+        forward();left()
+      }
+      else {
+        left();left();forward();right()
+      }
+    }
+    else {
+      forward()
+    }
+  }
+  reached=true
+  while (!isOverBaggle()) {
+    right()
+    if (!isFacingWall()) {
+      forward()
+    }
+    else {
+      left();
+      if (isFacingWall()) {
+        left()
+        if (isFacingWall()) {
+          left()
+          forward()
+        }
+        else {
+          forward()
+        }
+      }
+      else {
+        forward()
+      }
+    }
+  }
+  pickupBaggle()
+}

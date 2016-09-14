@@ -1,0 +1,28 @@
+def growFlowers() {
+  printYellow()
+  printFlower(Color.RED)
+  forward(4)
+  printFlower(Color.CYAN)
+  right();forward(4);left();
+  printFlower(Color.GREEN);
+  backward(4);
+  printFlower(Color.PINK)
+  forward(2);left();forward(2);right();
+  printFlower(Color.ORANGE);
+  backward(2);right();forward(2);left();
+}
+
+def printYellow() {
+  setBrushColor(Color.YELLOW);
+  forward();brushDown();brushUp();forward(4);brushDown();brushUp();right();forward(4);brushDown();brushUp();right();
+  forward(4);brushDown();brushUp();right();forward(2);right();forward(2);brushDown();brushUp();backward(3);left();
+  forward(2);right()
+}
+
+def printFlower(c:Color) {
+  setBrushColor(c);left();
+  for (i <- 1 to 4) {
+    brushDown();brushUp();forward();right();forward()
+  }
+  right()
+}

@@ -1,0 +1,19 @@
+override def run() {
+  //premierement on repere la sortie
+  var exitFound=false;
+  var i =0;var j=0;
+  while (exitFound!=true) {
+    if (hasBaggle(i,j)) {
+      exitFound=true
+    }
+    else {
+      j+=1
+    }
+    if (j==getWorldHeight()) {
+      j=0
+      i+=1
+    }
+  }
+  setIndication(i,j,0) 
+  //une fois repérée, on doit marquer les autres
+}
