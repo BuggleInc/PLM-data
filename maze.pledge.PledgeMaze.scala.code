@@ -51,9 +51,9 @@ def makeMoving() {
   while (!isOverBaggle()) {
     state match {
       case 0 => if (sommeAngle%4 != 0) {
-        						northRunnerMode(); 
+        						northRunnerMode(); // while we don't find a wall on the north
         						state = 1;
-      					} // while we don't find a wall on the north
+      					} 
       case 1 =>  while (!isWallAtLeft()) { 
         						right(); // make sure that there is a wall on the left
       					 }; leftFollowerMode(sommeAngle); state = 0;
