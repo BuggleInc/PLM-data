@@ -1,0 +1,23 @@
+override def run() {
+  var xMax:Int = getWorldWidth();
+  var yMax:Int = getWorldHeight();
+  
+	x,y = findBaggle(xMax,yMax)
+}
+
+
+def findBaggle(xMax:Int, yMax:Int){
+  var i:Int =0;
+  var j:Int =0;
+  while (!hasBaggle(i,j)){
+    if (i==xMax) {
+      i = 0;
+      j += 1
+    }
+    else {
+      i += 1
+    }
+  }
+  return i,j
+  
+}
