@@ -1,10 +1,6 @@
 override def run() {
-
-  while(!estSurBiscuit()) {
     
-    randMove()
-    
-  }
+  randMove()
   
   prendBiscuit()
   
@@ -15,7 +11,7 @@ def randMove() {
   
 	var nbPas = random3()
   
-  while (!estFaceMur() && nbPas != 0) {
+  while (!estFaceMur() && nbPas != 0 && !estSurBiscuit()) {
     
     avance()
     nbPas = nbPas - 1
