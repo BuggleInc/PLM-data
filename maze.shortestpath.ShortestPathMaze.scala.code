@@ -31,14 +31,17 @@ def marque(){
   var possible=true
   listeX=x::listeX
   listeY=y::listeY
+  var lX:List=Nil
+  var lY:List=Nil
   //while(possible==true){
   while (c< getMondeLargeur()*getMondeHauteur()) {
+    
     for(i <- 0 to listeX.length-1){
       setIndication(listeX(i),listeY(i),min(c,getIndication(listeX(i),listeY(i))))
       possible=pos(listeX(i),listeY(i))
     }
-    listeX=Nil
-    listeY=Nil
+    listeX=lX
+    listeY=lY
     c+=1
   }
   
@@ -47,23 +50,23 @@ def marque(){
 def pos(x:Int,y:Int): Boolean ={
   var test=false
   if(y!=0 && aMurNord(x,y)==false){
-    listeX=x::listeX
-    listeY=y-1::listeY
+    lX=x::lX
+    lY=y-1::lY
     test=true
   }
   if(x!=0 && aMurOuest(x,y)==false){
-    listeX=x-1::listeX
-    listeY=y::listeY
+    lX=x-1::lX
+    lY=y::lY
     test=true
   }
   if(y!=getMondeHauteur()-1 && !aMurNord(x,y+1)){
-    listeX=x::listeX
-    listeY=y+1::listeY
+    lX=x::lX
+    lY=y+1::lY
     test=true
   }
   if(x!=getMondeLargeur()-1 && !aMurOuest(x+1,y)){
-    listeX=x+1::listeX
-    listeY=y::listeY
+    lX=x+1::lX
+    lY=y::lY
     test=true
   }
   return test
