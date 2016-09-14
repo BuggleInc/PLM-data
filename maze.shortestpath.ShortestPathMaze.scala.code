@@ -56,23 +56,20 @@ override def run() {
         droite()
       }
     }
-    else if (y!=getMondeLargeur-1){
-    	if(!aMurNord(x,y+1)){
-        if(getIndication(x,y+1)==ind-1){
-          y=y+1
-          recule()
-        }
+    if(!aMurNord(x,y+1)){
+       if(getIndication(x,y+1)==ind-1){
+         y=y+1
+         recule()
     	}
     }
-    else if (x!=getMondeLargeur -1){
-    	if(!aMurOuest(x+1,y)){
-        if(getIndication(x+1,y)==ind-1){
-          x=x+1
-          droite()
-          avance()
-          gauche()
-        }
+    if(!aMurOuest(x+1,y)){
+       if(getIndication(x+1,y)==ind-1){
+         x=x+1
+         droite()
+         avance()
+         gauche()
       }
     }
 	}
+  prendBiscuit()
 }
