@@ -1,19 +1,22 @@
+var move : Int = 0
 override def run() {
     while (isOverBaggle == false){
-      if (isFacingWall==true){
-        for (a <- 0 to random3()){
+      move = random3()
+      if (isFancingWall()){
+        if (move == 0){
+          left()
+          move = random3()
+        }
+        else if ( move == 0){
+          forward()
+        }
+        else if ( move == 1){
           left()
         }
-        
-      }
-      else {
-          for (a <- 0 to random3()){
-            while (isFacingWall==false){
-              forward()
+        else if (move == 2){
+          right()
         }
+          
         }
       }
-    }
-  pickupBaggle()
-  return
 }
