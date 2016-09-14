@@ -2,16 +2,24 @@ override def run() {
     
   while (!estSurBiscuit()) {
   
-  randMove()
+  	randMove()
   
-  gauche()
+  	if (!estSurBiscuit) {
     
-  if (estFaceMur()) {
+    	gauche()
+    
+  		if (estFaceMur()) {
       
-  	droite()
-    droite()
+  			droite()
+    		droite()
+    	  
+  		}
       
-  }
+		else {
+      
+      prendBiscuit()
+      
+    }
    
     
   }
