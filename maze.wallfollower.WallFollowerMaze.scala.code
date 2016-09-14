@@ -10,13 +10,13 @@ def keepHandOnSideWall()
 {
   if(!estFaceMur())
   	{
-  		if(murGauche())
-  			{
-      		avance()
-    		}
+      if (murGauche())
+      	{
+          avance()
+        }
       else
       	{
-          droite()
+          gauche()
         }
     }
   else
@@ -34,3 +34,10 @@ def murGauche():Boolean=
   droite()
   return mur
 }
+
+
+//Si on a pas de mur en face on avance puis on regarde à gauche
+//		Si on a toujours un mur à gauche, on avance
+//		Si on n'a pas à gauche,on tourne à gauche et on avance puis 2 solutions:
+			// Si on a pas de mur à gauche on retourne à gauche
+			// Si on a un mur à gauche on avance
