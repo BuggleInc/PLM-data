@@ -30,34 +30,38 @@ def trouverNord(){
 }
 
 def keepHandOnSideWall(){
-
-  	
-    if(estFaceMur()==true){
-      droite()
+		var sommeAngle():Int
+  	while(sommeAngle!=0){
       if(estFaceMur()==true){
-        gauche()
+        droite()
+        sommeAngle-=1
+        if(estFaceMur()==true){
+          gauche()
+        }else{
+          avance()
+          gauche()
+          while(estFaceMur()==false){
+            avance()
+            gauche()
+        }
+
+        }
+
       }else{
         avance()
         gauche()
         while(estFaceMur()==false){
           avance()
           gauche()
-      }
-      
-      }
+          sommeAngle+=1
+        }
 
-    }else{
-      avance()
-      gauche()
-      while(estFaceMur()==false){
-        avance()
-        gauche()
-      }
-      while(estFaceMur()==true){
-        droite()
-      }
-      
+        while(estFaceMur()==true){
+          droite()
+          sommeAngle-=1
+        }
+
     }
   
-  
+    }
 }
