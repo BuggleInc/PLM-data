@@ -1,33 +1,25 @@
-def getMondeHauteur():Int = {
-  var h=0
-  droite()
-  droite()
-  while (!estFaceMur()) {
-    avance()
-    h=h+1
+def posTest():Boolean = {
+  if (getX()==getMondeLargeur()-1) && (getY()==getMondeHauteur()-1) {
+  	return true
   }
-	droite()
-  droite()
-  setPos(0, 0)
-  return h
-
+  return false
 }
 
 
-def getMondeLargeur():Int = {
-  var l=0
-  droite()
-  while (!estFaceMur()) {
-    avance()
-    l=l+1
-  gauche()
-  setPos(0, 0)
-  return l
-  
-}}
 
 def colonne() {
-	
+	var j=0
+  var cpt=0
+  while (!posTest()) {
+    for(i<-1 to 6) {
+      setPos(i,j)
+      cpt=cpt+1
+      ecritMessage(cpt:String)
+    
+    }
+    
+    j=j+1
+  }
 }
 
 
@@ -37,4 +29,5 @@ def colonne() {
 
 
 override def run() {
+  colonne()
 }
