@@ -9,15 +9,14 @@ override def run()
   {
     for (j <- 0 to nbBases-1)
     {
-      if (j != nCouleur) //On ne regarde pas la base en cours de trie
+      if (j != nCouleur) //On ne regarde pas la base en cours de tri
       {
         for (k <- 0 to nbPos-1)
         {
           if (getCouleurJoueur(j,k) == nCouleur)
           {
             deplacerTrou((j+1)%nbBases, 1);
-            deplace(j, k);
-            
+            deplacerJoueur(i, nCouleur, 1);
           }
         }
       }
@@ -47,7 +46,7 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
   //deplacerTrou(arrive, -sens);
 }
 
-def deplacerJoueur(couleur:Int, pos:Int, arrive:Int, sens:Int)
+def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
 {
   //requis: le trou se trouve à côté de la base du joueur
   var nbBases = getNombreBases();
@@ -63,8 +62,8 @@ def deplacerJoueur(couleur:Int, pos:Int, arrive:Int, sens:Int)
     deplace(currBase, pos);
     //currTrou et currBase sont maintenant inverses
     
-    deplace(currBase, cherchePasJoueur(couleur, currTrou));
-    deplacerJoueur(couleur, chercheJoueur(couleur, currTrou), arrive, sens)
+    deplace(currBase, cherchePasJoueur(arrive, currTrou));
+    deplacerJoueur(couleur, chercheJoueur(arrive, currTrou), arrive, sens)
   }
 }
   
