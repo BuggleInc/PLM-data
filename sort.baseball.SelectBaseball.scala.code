@@ -23,7 +23,7 @@ def getCouleurIndice(a:Int):Int = {
 
 def eval(a:Int):Int = {
   
-  //évalue le buggle en indice a
+  var baseBuggle = getCouleurJoueur
 	if (memeCouleurSous(a,getCouleurIndice(a))) { //Je le conscidère alors comme le deuxième de sa base
     
     return pos2index(Array(getCouleurIndice(a),1))
@@ -110,7 +110,7 @@ override def run() {
     
   	for (x <- 0 to getNombreIndex()-c-1) {
       
-    	if (eval(x) > eval(x+1)) {
+    	if (eval(x) >= eval(x+1)) {
 	
       	switch(x)
 	
