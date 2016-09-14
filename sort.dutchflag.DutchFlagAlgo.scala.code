@@ -5,16 +5,9 @@ def solve() {
   
 		while (afterBlue <= beforeWhite) {
 			getCouleur(afterBlue) match {
-			case BLUE =>
-				afterBlue += 1
-			case WHITE =>
-				swap(afterBlue, beforeWhite)
-				beforeWhite -= 1
-			case RED =>
-				swap(afterBlue, beforeWhite)
-				swap(beforeRed, beforeWhite)
-				beforeWhite -= 1
-				beforeRed -= 1
+			case BLUE => afterBlue += 1
+			case WHITE => echange(afterBlue, beforeWhite); beforeWhite -= 1
+			case RED => echange(afterBlue, beforeWhite); swap(beforeRed, beforeWhite); beforeWhite -= 1; beforeRed -= 1
 			}
 		}
 	}
