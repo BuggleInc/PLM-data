@@ -1,0 +1,33 @@
+def rechercheMin(): Int = {
+  
+  var indMin = 0
+  
+  for (i <- 0 to getNombreValeurs()-2) {
+    
+		if (getValeur(i) <= getValeur(i+1)) {
+      
+			indMin = i
+      
+    }
+    
+    else {
+      
+      indMin = i+1
+      
+    }
+    
+  }
+  
+  return indMin
+  
+}
+
+def selectionSort() {
+  
+  for (i <- 1 to getNombreValeurs()-1) {
+    
+    echange(i,rechercheMin(i))
+    
+  }
+  
+}
