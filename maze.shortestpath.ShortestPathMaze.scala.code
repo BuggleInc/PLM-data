@@ -44,10 +44,29 @@ override def run() {
   }
   
   
-  //findBaggle(getX(),getY())
+  findBaggle(getX(),getY())
 }
 
 
-/*def findBaggle(x : Int , y : Int){
+def findBaggle(x : Int , y : Int){
+  while(!isOverBaggle()){
   
-}*/
+    var numb = getIndication(x,y)
+    if(getIndication(x-1,y)==numb-1){
+      setDirection(Direction.WEST)
+      forward()
+    }
+    else if(getIndication(x+1,y)==numb-1){
+      setDirection(Direction.EAST)
+      forward()
+    }
+    else if(getIndication(x,y-1)==numb-1){
+      setDirection(Direction.NORTH)
+      forward()
+    }
+    else if(getIndication(x,y+1)==numb-1){
+      setDirection(Direction.SOUTH)
+      forward()
+    }
+  }
+}
