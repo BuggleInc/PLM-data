@@ -4,7 +4,11 @@ override def run()
   var nbPos = getNombrePositions();
   var posJoueur = 0;
   var baseJoueur = 0;
-  var origineTrou = getTrouBase();
+  
+  //D abord placer le trou au bonne endroit
+  
+  var baseTrou = getTrouBase();
+  var posTrou = getTrouPosition();
   
   for (nCouleur <- 0 to 0) //On trie chacune des bases (=couleurs)
   {
@@ -18,7 +22,8 @@ override def run()
           {
             deplacerTrou((nBase+1)%nbBases, 1);
             //deplacerJoueur(nPos, nCouleur, 1);
-            deplacerTrou(origineTrou, -1);
+            deplacerTrou(baseTrou+1, -1);
+            deplace(baseTrou, posTrou);
           }
         }
       }
