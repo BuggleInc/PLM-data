@@ -1,0 +1,32 @@
+override def run() {
+	serieHouse()
+  setPos(getX,getY-75)
+  house()
+  setPos(getX-150,getY)
+  house()
+  setPos(getX,getY-75)
+  serieHouse()
+}
+
+def house() {
+  avance(30)
+  droite(30)
+  avance(30)
+  droite(120)
+  avance(30)
+  droite(120)
+  avance(30)
+  recule(30)
+  gauche(90)
+  avance(30)
+  droite(90)
+  avance(30)
+  droite(90)
+}
+
+def serieHouse() {
+  for (i<-1 to 4) {
+    house()
+		setPos(getX+50,getY)
+  }
+}
