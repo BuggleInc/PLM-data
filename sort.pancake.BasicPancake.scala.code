@@ -1,4 +1,16 @@
 def solve() {
-  flip(2)
-  flip(5)
+  var n = getStackSize()
+  while(!isSorted()){
+    var max = getPancakeRadius(0)
+    var maxId = 0
+    for(it <- 1 to n-1){
+      if(max<getPancakeRadius(it)){
+        max=getPancakeRadius(it)
+        maxId=it
+      }
+    }
+    flip(maxId+1)
+    flip(n)
+  }
+  
 }
