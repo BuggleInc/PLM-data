@@ -39,4 +39,31 @@ override def run() {
       }
     }
   }
+  while(!estSurBiscuit){
+    ind=getIndication(x,y)
+    if(!aMurNord(x,y)){
+      if(getIndication(x,y-1)==ind-1){
+        y=y-1
+      }
+    }
+    else if(!aMurOuest(x,y){
+      if(getIndication(x-1,y)==ind-1){
+        x=x-1
+      }
+    }
+    else if (y!=getMondeLargeur-1){
+    	if(!aMurNord(x,y+1)){
+        if(getIndication(x,y+1)==ind-1){
+          y=y+1
+        }
+    	}
+    }
+    else if (x!=getMondeLargeur -1){
+    	if(!aMurOuest(x+1,y)){
+        if(getIndication(x+1,y)==ind-1){
+          x=x+1
+        }
+      }
+    }
+  }
 }
