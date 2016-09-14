@@ -10,28 +10,10 @@ override def run() {
 
 
 def fonctionTest() : Boolean = {
-  if (estFaceMur()) {
-    if (getDirection() == Direction.EAST) {
-      gauche();
-      if (estFaceMur()) {
-        droite();
-        return true
-      }
-      else {
-        droite(); } 
-      return false
-    }
-    if (getDirection() == Direction.WEST) {
-      droite();
-      if (estFaceMur()) {
-        gauche();    
-        return true
-      }
-      else {
-        gauche();
-      }
-      return false
-    }
+  if (getX() == getMondeHauteur()) && (getY() == getMondeLargeur()) {
+    return true    
   }
-  return false
+  else {
+    return false
+  }
 }
