@@ -1,6 +1,6 @@
 override def run() {
   var virage:Double = 0
-  while (!estSurBiscuit())
+  while (!estSurBiscuit()) {
   	if (getDirection()==Direction.NORTH && isDirectionFree()) {
   		while (!estFaceMur())
       	avance()
@@ -8,7 +8,9 @@ override def run() {
     else {
       do { virage = keepHandOnSideWall(virage) }
       while (virage!=0 && !isDirectionFree())
+    }
   prendBiscuit()
+  }
 }
 
 def keepHandOnSideWall(virage:Double):Double = {
