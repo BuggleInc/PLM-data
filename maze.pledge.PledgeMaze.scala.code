@@ -4,10 +4,12 @@ override def run() {
   	if (getDirection()==Direction.NORTH && isDirectionFree()) {
   		while (!estFaceMur())
       	avance()
+      droite()
+      virage-=1
     }
     else {
-      do { virage = keepHandOnSideWall(virage) }
       while (virage!=0 && !isDirectionFree())
+      	virage = keepHandOnSideWall(virage) 
     }
   }
   prendBiscuit()
