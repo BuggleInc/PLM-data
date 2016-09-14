@@ -1,0 +1,52 @@
+def solve() {
+  var t= getTaille()
+  var apresBleu = 0
+  //var BlancRouge t-1
+  var apresBlanc = t-1
+  for (i <- 0 to t-1){
+    if (getCouleur(i)==BLEU){
+      echange(i, i+1)
+      apresBleu+=1
+    }else if (getCouleur(i)==Rouge){
+      echange(i,apresBlanc)
+      apresBlanc-=1
+    }
+  }
+  
+  }
+}
+
+
+
+/**
+def nextBleu(dbt:int){
+  var cand=
+  for (i <- dbt to getTaille()-1){
+    if getCouleur
+  }
+}
+def insertionSort() {
+  for (i <- 1 to getNombreValeurs()-1){
+    var v=getValeur(i)
+    var j=i
+    while(j>0 && !isSmallerThan(j-1,v)){
+      copie(j-1,j)
+      j-=1
+    }
+    setValeur(j,v)
+  }
+}
+
+	echange(x:Int, y:Int)			Échange les lignes numéros x et y.
+	getTaille()  :Int					Retourne le nombre de lignes sur ce drapeau.
+	getCouleur(ligne:Int)			Retourne la couleur d'une ligne donnée.
+	estTrie() :Boolean				Renvoie si le drapeau est correctement trié.
+	estSelectionne() :Boolean	Renvoi si le monde actuel est sélectionné dans l'interface graphique. 
+    
+    apresBleu est initialisé à 0. Assurez vous de n'avoir que des cellules bleues entre 0 et apresBleu à tout moment.
+    blancRouge est initialisé à taille-1. Assurez vous de n'avoir que des cellules rouges après blancRouge.
+    avantBlanc est initialisé à taille-1. Assurez vous de n'avoir que des cellules blanches entre avantBlanc et blancRouge.
+
+Remarques que les cellules non triées sont toujours entre apresBleu et avantBlanc.
+À chaque étape de votre traversée, regardez la couleur de la case pointée par apresBleu et effectuez les échanges qui s'imposent. La boucle s'arrête quand apresBleu devient plus grand que avantBlanc. 
+*/
