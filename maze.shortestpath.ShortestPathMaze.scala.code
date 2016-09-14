@@ -1,8 +1,8 @@
 var biscuitX=0
 var biscuitY=0
 var c=0
-var listeX=Array()
-var listeY=Array()
+var listeX=Nil
+var listeY=Nil
 
 override def run() {
 	trouveSortie()
@@ -27,42 +27,50 @@ def marque(){
   var y=biscuitY
   var i=0
   var j=0
-  listeX=Array(x)
-  listeY=Array(y)
-  while(pos()==true){
+  var possible=true
+  listeX=x::listeX
+  listeY=y::listeY
+  while(possible==true){
     for(i <- 0 to listeX.length-1){
       setIndication(listeX(i),listeY(i),c)
     }
     var lX=listeX
     var lY=listeY
-    listeX=Array()
-    listeY=Array()
+    listeX=Nil
+    listeY=Nil
     for(j <- 0 to lX.length){
-      pos(j)
+      possible=pos(j)
     }
+    c+=1
   }
   
 }
 
-def pos(j:Int){
+def pos(j:Int): Boolean ={
   var x=lX(j)
   var y=lY(j)
+  var test=false
   if(y!=0 && aMurNord(x,y)==false){
-    concat(listeX,Array(x))
-    concat(listeY,Array(y-1))
+    listeX=x::listeX
+    listeY=y-1::listeY
+    test=true
   }
   if(x!=0 && aMurOuest(x,y)==false){
-    concat(listeX,Array(x-1))
-    concat(listeY,Array(y))
+    listeX=x-1::listeX
+    listeY=y::listeY
+    test=true
   }
   if(y!=getMondeHauteur()-1 && aMurNord(x,y-1)){
-    concat(listeX,Array(x))
-    concat(listeY,Array(y+1))
+    listeX=x::listeX
+    listeY=y+1::listeY
+    test=true
   }
   if(x!=getMondeLargeur()-1 && aMurOuest(x+1,y)){
-    concat(listeX,Array(x+1))
-    concat(listeY,Array(y))
+    listeX=x+1::listeX
+    listeY=y::listeY
+    test=true
   }
+  return test
 }
 
 
