@@ -17,24 +17,20 @@ def isDirectionFree (direction : Direction) : Boolean = {
 def leftFollowerMode(sommeAngle : Int) : Int = {
   var x = sommeAngle;
   while ((getDirection() != Direction.NORTH) || isFacingWall()) {
-    if (isOverBaggle()) {
-      return(x);
-    } else {
-        if (!isFacingWall()) {
+     if (!isFacingWall()) {
+     	forward();
+      if (!isWallAtLeft()) {
+    	 	left();
+        x += 1;
+        forward();
+        if (!isWallAtLeft()) {
+      	  left();
+          x += 1;
           forward();
-          if (!isWallAtLeft()) {
-            left();
-            x += 1;
-            forward();
-            if (!isWallAtLeft()) {
-              left();
-              x += 1;
-              forward();
-            }
-          }
-        } else { right(); x -= 1;} 
-     }
-	} ; return x;
+        }
+      }
+     } else { right(); x -= 1;} 
+  } ; return x;
 }
 
 def northRunnerMode () {
