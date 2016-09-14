@@ -44,15 +44,18 @@ override def run() {
   }
   
   
-  findBaggle(getX(),getY())
+  findBaggle()
   setDirection(Direction.EAST)
 }
 
 
-def findBaggle(x : Int , y : Int){
+def findBaggle(){
   while(!isOverBaggle()){
-  
+  	
+    var x = getX()
+    var y = getY()
     var numb = getIndication(x,y)
+    
     if(getIndication(x-1,y)==numb-1){
       setDirection(Direction.WEST)
       forward()
