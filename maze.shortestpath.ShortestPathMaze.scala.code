@@ -4,6 +4,11 @@ override def run() {
 
 	var x:Int = findBaggle(xMax,yMax)._1;
 	var y:Int = findBaggle(xMax,yMax)._2;  
+  var num = 0;
+  
+  while(true) {
+    numerote(x,y,num)
+  }
 }
 
 
@@ -21,4 +26,10 @@ def findBaggle(xMax:Int, yMax:Int): (Int,Int) = {
   }
   return (i,j)
   
+}
+
+def numerote(x:Int,y:Int,num:Int) {
+  if (!hasTopWall(x,y) && y!= yMax && getIndication(x,y-1)==9999) {
+    setIndication(x,y-1,num);
+  }
 }
