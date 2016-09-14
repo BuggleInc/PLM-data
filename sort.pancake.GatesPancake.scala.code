@@ -1,0 +1,49 @@
+def solve() {
+  var n:Int = getStackSize();
+  while (!isSorted){
+    triRapide(n)
+  }
+}
+
+
+
+def triRapide(n:Int) {
+  var posVoisin:Int =chercheVoisin(getPancakeRadius(0),n);
+  
+  if (estLibre(0,n,getPancakeRadius(0)) && estLibre(0,n,getPancakeRadius(posVoisin))) {
+    swap(posVoisin)
+  }
+  
+  else if (estLibre(0,n,getPancakeRadius(0)) && posVoisin !=n && getPancakeRadius(posVoisin)== getPancakeRadius(posVoisin+1)-1) {
+    swap(posVoisin)
+  }
+  
+  else if (estLibre(0,n,getPancakeRadius(0))
+  
+}
+
+def chercheVoisin(t:Int,n:Int):Int = {
+  for (i<-1 to n) {
+    if (getPancakeRadius(i) == t-1 | getPancakeRadius(i) == t+1){
+      return i
+    }
+  }
+}
+
+def estLibre(pos:Int,n:Int,t:Int):Boolean =  {
+  if (pos!=0) {
+  	var tDessus = getPancakeRadius(pos-1);
+  }
+  if (pos!=n) {
+  	var tDessous = getPancakeRadius(pos+1);
+  }
+  if (pos== n && (tDessus == t+1 | tDessus == t-1)) {
+    return false
+  }
+  else if (pos== 0 && (tDessous == t+1 | tDessous == t-1)) {
+    return false
+  }
+  else if (tDessus == t+1 | tDessus == t-1 | tDessous == t+1 | tDessous == t-1 ) {
+    return false
+  }  
+}
