@@ -7,7 +7,8 @@ override def run() {
 	var listeY : List[Int] = Nil
   var lX:List[Int]=Nil
   var lY:List[Int]=Nil
-
+	var largeur:Int = getMondeLargeur()
+  var hauteur:Int = getMondeHauteur()
 	trouveSortie()
   marque()
 
@@ -15,8 +16,8 @@ override def run() {
 def trouveSortie(){
   var i=0
   var j=0
-  for(i <- 0 to getMondeLargeur()-1){
-    for(j <- 0 to getMondeHauteur()-1){
+  for(i <- 0 to largeur-1){
+    for(j <- 0 to hauteur-1){
       if(aBiscuit(i,j)){
         biscuitX=i
         biscuitY=j
@@ -25,21 +26,18 @@ def trouveSortie(){
   } 
 }
 
-def marque(){
-  var x=biscuitX
-  var y=biscuitY
+def marque() {
   var i=0
   var j=0
-  var possible=true
-  listeX=x::listeX
-  listeY=y::listeY
+  listeX=biscuitX::listeX
+  listeY=biscuitY::listeY
   //while(possible==true){
-  while (c< getMondeLargeur()*getMondeHauteur()) {
+  while (c< largeur*hauteur {
     lX=Nil
     lY=Nil
     for(i <- 0 to listeX.length-1){
       setIndication(listeX(i),listeY(i),min(c,getIndication(listeX(i),listeY(i))))
-      possible=pos(listeX(i),listeY(i))
+      pos(listeX(i),listeY(i))
     }
     listeX=lX
     listeY=lY
@@ -48,37 +46,37 @@ def marque(){
   
 }
 
-def pos(x:Int,y:Int): Boolean ={
-  var test=false
+def pos(x:Int,y:Int) {
+  
   if(y!=0 && aMurNord(x,y)==false){
     lX=x::lX
     lY=y-1::lY
-    test=true
+    
   }
   if(x!=0 && aMurOuest(x,y)==false){
     lX=x-1::lX
     lY=y::lY
-    test=true
+    
   }
-  if(y!=getMondeHauteur()-1 && !aMurNord(x,y+1)){
+  if(y!=hauteur-1 && !aMurNord(x,y+1)){
     lX=x::lX
     lY=y+1::lY
-    test=true
+    
   }
-  if(x!=getMondeLargeur()-1 && !aMurOuest(x+1,y)){
+  if(x!=largeur-1 && !aMurOuest(x+1,y)){
     lX=x+1::lX
     lY=y::lY
-    test=true
+    
   }
-  return test
+  
 }
   
 def min(a:Int,b:Int):Int = {
   if(a<=b){
     return a
-  }else{
-    return b
   }
+  return b
+  
 }
   
 }
