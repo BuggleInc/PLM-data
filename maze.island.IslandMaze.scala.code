@@ -1,8 +1,10 @@
 override def run() {
   var etat = 0;
-  etat match {
-    case 0 => courirNord(); etat = 1;
-    case 1 => suivreEst(); etat = 0;
+  while (!estSurBiscuit) {
+    etat match {
+    	case 0 => courirNord(); etat = 1;
+    	case 1 => suivreEst(); etat = 0;
+    }
   }
 }
 
@@ -13,15 +15,8 @@ def courirNord() {
   }
 }
 
-def suivreEst() {
-  right();
-  if (!estFaceMur) {
-    forward();
-  }
-}
 
-
-def keepHandOnSideWall() {
+def suivreEST() {
   left();
   while (estFaceMur()) {
     right();
