@@ -2,12 +2,20 @@ override def run() {
   
   def keepHandOnSideWall()  {
     
+    var a = 0
+    
     while (estSurBiscuit() == false) {
       
       while (estFaceMur() == true) {
         droite();
+        a += 1
       }
       avance();
+      if (a == 3) {
+        droite();
+        
+      }
+      a = 0
       
     }
     
