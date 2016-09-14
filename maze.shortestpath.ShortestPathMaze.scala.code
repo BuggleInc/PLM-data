@@ -26,6 +26,17 @@ def Cartographie(i:Int, j:Int, done: Int) {
       case (_,_) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}; if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}; if(!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
     }
   }
+  else {
+    if (getIndication(x,y)>done){setIndication(x,y,done);done=done+1;(i,j) match {
+      case (11,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+      
+      case (_,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+       
+      case (11,_)=> if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)};if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        
+      case (_,_) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}; if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}; if(!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+    } }
+  }
 }
 
 override def run() {
