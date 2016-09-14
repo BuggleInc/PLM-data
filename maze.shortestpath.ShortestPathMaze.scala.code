@@ -29,13 +29,11 @@ override def run() {
   k+=1
     }
   while (!estSurBiscuit() && !porteBiscuit())
-      {setDirection(trouve());avance()}
+  {if (!estSurBiscuit()){setDirection(trouve());avance()}}
   
 
   prendBiscuit()
 }
-
-
 
 def trouve() : Direction =
     {val (x,y) = (getX(),getY())
