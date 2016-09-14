@@ -7,14 +7,14 @@ override def run() {
     right()
     count=count-1
     while (getDirection != Direction.NORTH && isOverBaggle()==false && count==0){
-    keepHandOnSideWall()
+    keepHandOnSideWall(count)
     }
   }
   pickupBaggle()
 }
 
 
-def keepHandOnSideWall(){
+def keepHandOnSideWall(count){
   left()
   count=count+1
   if (isFacingWall()==true){
