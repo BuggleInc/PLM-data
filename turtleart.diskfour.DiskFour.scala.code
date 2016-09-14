@@ -3,15 +3,16 @@ override def run() {
   var y:Double = getY()
   for(i <- 1 to 4) {
     for(j <- 1 to 90) {
-      i match {
+      avance(100)
+      setPos(x, y)
+      droite(1)
+    }
+    
+    i match {
         case 2 => setCouleur(Color.RED)
         case 3 => setCouleur(Color.YELLOW)
         case 4 => setCouleur(Color.BLUE)
         case _ => setCouleur(getCouleur())
-      }
-      avance(100)
-      setPos(x, y)
-      droite(1)
     }
   }
 }
