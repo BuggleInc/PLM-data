@@ -1,15 +1,19 @@
 def solve() {
   var l=getStackSize()
-  for( i <- 0 to l-1){
+  var i = l-1
+  while(i >= 0){
 
-    for(j <- 0 to l-i-2){
+    for(j <- 0 to i-1){
       if(getPancakeRadius(j)>getPancakeRadius(j+1))
-	    	swap(j+1)
+	    	swap(j)
     }
-    if(isPancakeUpsideDown(l-(i+2))){
-      flip(l-(i+2))
-      flip(l-(i+2))
+    if(isPancakeUpsideDown(i)){
+      flip(i+1)
+      flip(i+1)
     }
+    
+    
+    i-=1
   }
 }
 
