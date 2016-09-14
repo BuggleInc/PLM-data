@@ -37,12 +37,15 @@ def keepHandOnSideWall()
           }
       }
   
-  }
-override def run() 
-    {
-  while(!estSurBiscuit())
+  } 
+
+override def run(){
+ while(!estSurBiscuit())
   	{
-     	keepHandOnSideWall()
+      while(!estFaceMur())
+      	{
+          avance()
+        }
+      keepHandOnSideWall()
     }
-  prendBiscuit()
 }
