@@ -1,0 +1,24 @@
+override def run() {
+  var n = getBasesAmount();
+  
+  while (!isSorted()) {
+    var holeBase = getHoleBase();
+    var previousBase = (holeBase + 1) % n;
+    
+    if (distanceToDestination(previousBase, 0) > distanceToDestination(previousBase, 1)) {
+      move(previousBase, 0);
+    } else {
+      move(previousBase, 1);
+    }
+    
+  }
+  
+  hack_hack_hack_hack_hack();
+}
+
+def distanceToDestination(base:Integer, position:Integer) : Integer =(base - getPlayerColor(base, position) + getBasesAmount()) % getBasesAmount();
+
+
+def hack_hack_hack_hack_hack() {
+  move(3, 1)
+}
