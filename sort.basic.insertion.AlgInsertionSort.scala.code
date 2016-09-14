@@ -2,17 +2,16 @@ def insertionSort() {
   
   for (i <- 1 to getNombreValeurs()-1) {
     
-    var v = getValeur(i)
     var w = i
     
-    while (w > 0 && getValeur(w-1) > v) {
+    while (w > 0 && getValeur(w-1) > getValeur(i)) {
       
       echange(w,w-1)
       w = w - 1
       
     }
     
-    setValeur(w,v)
+    setValeur(w,getValeur(i))
     
   }
   
