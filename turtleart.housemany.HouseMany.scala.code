@@ -1,14 +1,22 @@
 override def run() {
-  for(i <- 1 to 4){
-    forward(100);
+  def maison(){
+    for(i <- 1 to 4){
+      forward(30);
+      right(360/4);
+    }
+    forward(30);
+    right(360/12)
+    for(i <- 1 to 3){
+      forward(30);
+      right(360/3);
+    }
+    left(360/12);
+    backward(30);
+  }
+  for(i<-1 to 4){
+    maison();
     right(360/4);
+    forward(50);
+    left(360/4);
   }
-  forward(100);
-  right(360/12)
-  for(i <- 1 to 3){
-    forward(100);
-    right(360/3);
-  }
-  left(360/12);
-  backward(100);
 }
