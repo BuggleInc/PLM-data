@@ -73,18 +73,7 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   
   deplace(currBase, pos);
   
-  while(currBase != baseTrou) //On deplace le joueur dans sa base
-  {
-    //Le trou est au dessus du joueur
-    currBase = mod(getTrouBase()+1, nbBases);
-    nouvPos = getTrouPosition();
-    
-    deplace(currBase, pos);
-    currBase = mod(currBase-1, nbBases);
-    
-    deplace(currBase, (nouvPos+1)%nbPos);
-    deplace(mod(currBase-1, nbBases), 0);
-  }
+  deplacerTrou(baseTrou, 0, -1);
 }
   
 def chercheJoueur(couleur:Int, base:Int):Int =
