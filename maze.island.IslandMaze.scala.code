@@ -1,8 +1,8 @@
 override def run() {
   var etat = 0;
   etat match {
-    case 0 => courirNord(); etat = 1
-    case 1 => suiveurEst(); etat = 0
+    case 0 => courirNord(); 
+    case 1 => suiveurEst();
     
   }
 }
@@ -13,13 +13,9 @@ def courirNord() {
     forward();
   }
   if (estFaceMur) {
-    right();
-    if (estFaceMur) {
-      right;
-    }
+    etat = 1
   }
 }
-
 
 
 def suiveurEst() {
