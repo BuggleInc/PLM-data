@@ -35,6 +35,7 @@ def leftFollowerMode(sommeAngle : Int) : Int = {
   } ; return x;
 }
 
+// this method works
 def northRunnerMode (sommeAngle: Int) {
   if (sommeAngle%4 != 0) { // if we didn't just made a loop before
     while (getDirection() != Direction.NORTH) { // auto-orientation
@@ -51,10 +52,10 @@ def makeMoving() {
   var sommeAngle = 0;
   while (!isOverBaggle()) {
     state match {
-      case 0 => northRunnerMode(sommeAngle); // while we don't find a wall on the north
-      					state = 1;
+      case 0 => northRunnerMode(sommeAngle); // while we don't find a wall at the north
+      					state = 1; // switch with the leftFollowerMode
       case 1 =>  while (!isWallAtLeft()) { 
-        						right(); // make sure that there is a wall on the left
+        						right(); // make sure that there is a wall on the left before run the leftFollower mode
       					 }; sommeAngle = leftFollowerMode(sommeAngle); state = 0;
       case _ => println("Error : this case should not happen.")
     }
@@ -63,5 +64,5 @@ def makeMoving() {
 }
 
 override def run() { 
-	northRunnerMode(0);
+	makeMoving();
 }
