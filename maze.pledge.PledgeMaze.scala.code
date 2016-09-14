@@ -11,13 +11,13 @@ override def run(){
 }
 
 def contourne(){
-  if(getY()==0){
-    return
-  }
   droite()
   sommeAngle-=1
   while(sommeAngle!=0 || isDirectionFree(Direction.NORD)==false){
   	keepHandOnSideWall()
+    if(estSurBiscuit()){
+      return
+    }
   }
 }
 
