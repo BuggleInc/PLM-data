@@ -12,12 +12,15 @@ override def run() {
         deplace(i, 0)
       }
     }
-    for (j <- n-2 to 0 by -1) {
-      if (getCouleurJoueur(j, 0)>getCouleurJoueur(j, 1)) {
-        deplace(j, 0)
-      }
-      else {
-        deplace(j, 1)
+    
+    if (!estTrie()) {
+      for (j <- n-2 to 0 by -1) {
+        if (getCouleurJoueur(j, 0)>getCouleurJoueur(j, 1)) {
+          deplace(j, 0)
+        }
+        else {
+          deplace(j, 1)
+        }
       }
     }
   }
