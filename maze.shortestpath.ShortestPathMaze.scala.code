@@ -50,25 +50,29 @@ override def run() {
 
 
 def findBaggle(){
+  
+  val n = getWorldWidth()
+  val m = getWorldHeight()
+  
   while(!isOverBaggle()){
   	
     var x = getX()
     var y = getY()
     var numb = getIndication(x,y)
     
-    if(getIndication(x-1,y)==numb-1){
+    if(x>0 && getIndication(x-1,y)==numb-1){
       setDirection(Direction.WEST)
       forward()
     }
-    else if(getIndication(x+1,y)==numb-1){
+    else if(x<n-1 && getIndication(x+1,y)==numb-1){
       setDirection(Direction.EAST)
       forward()
     }
-    else if(getIndication(x,y-1)==numb-1){
+    else if(y>g && etIndication(x,y-1)==numb-1){
       setDirection(Direction.NORTH)
       forward()
     }
-    else if(getIndication(x,y+1)==numb-1){
+    else if(y<m-1 && getIndication(x,y+1)==numb-1){
       setDirection(Direction.SOUTH)
       forward()
     }
