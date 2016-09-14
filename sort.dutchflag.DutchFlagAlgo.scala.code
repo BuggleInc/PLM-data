@@ -1,0 +1,37 @@
+def solve() {
+  var i=0
+  var debut=0
+  var fin = getTaille()-1
+	var avantBlanc= fin
+  while (i<=fin &&){
+    while(getCouleur(debut)==BLEU){
+      if (debut==i){
+        debut+=1
+        i+=1
+      } else {debut+=1}
+    }
+    while(getCouleur(fin)==ROUGE){
+      fin-=1
+    }
+  	while(getCouleur(avantBlanc)==BLANC){
+      avantBlanc-=1
+    }
+    var c= getCouleur(i)
+    c match{
+      case BLEU => (if (i> debut){
+        				echange(i, debut)
+        				debut +=1
+      				})
+      case BLANC =>()
+      case ROUGE =>
+      					echange(i, fin)
+      					fin-=1
+      					if (getCouleur(i)==BLEU){
+                  echange(i, debut)
+                  debut+=1
+                }
+    }
+    i+=1
+	}
+}def solve() {
+}
