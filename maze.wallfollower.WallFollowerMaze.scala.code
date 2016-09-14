@@ -1,0 +1,42 @@
+def keepHandOnSideWall()
+	{
+    if(!estFaceMur())
+    	{
+        gauche()
+        if(estFaceMur()) // si il y a un mur à sa gauche et pas en face de lui
+        	{
+            droite(); avance();
+          }
+        else
+        	{
+            avance()
+          }
+        
+      }
+    else
+    	{
+        gauche()
+        if(estFaceMur())
+      	{
+          retourne();avance()
+        }
+        else
+        	{
+            avance()
+          }
+      }
+  }
+
+override def run() {
+  gauche()
+  while(!estFaceMur())
+  {
+    avance();droite()
+  }
+    
+  while(!estSurBiscuit())
+  	{
+     	keepHandOnSideWall()
+      
+    }
+}
