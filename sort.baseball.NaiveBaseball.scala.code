@@ -1,11 +1,15 @@
 override def run() {
-  var n=0
+	val NbB=getNombreBases()
   do{
-    var trouB=getTrouBase()
-    var trouBP=getTrouPosition()
-    if(n%5==0){
-      deplace((trouB+1)%4,1)}else{deplace((trouB+1)%4,0)}
-    n+=1
-    
+    var trouB=(getTrouBase()+1)%NbB
+    var dMax=0
+    var (bas,posi)=(getTrouBase(),getTrouPosition())
+    for (base<-0 to 3){
+      for (position<-0 to 1){
+        var d=(getCouleurJoueur(base,position)-base)%4
+        if(d>dMax){(bas,posi)=(base,position)}
+      }
+    }
+    deplace(bas,posi)
   }while(!estTrie())
 }
