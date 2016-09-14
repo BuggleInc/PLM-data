@@ -1,6 +1,8 @@
 override def run() {
   var n:Int = getNombreBases()
   
+  setTrouToOne()
+  
   while (!estTrie()) {
     for (i <- 1 to n-1) {
       if (getCouleurJoueur(i, 0)>getCouleurJoueur(i, 1)) {
@@ -20,3 +22,12 @@ override def run() {
     }
   }
 }
+
+def setTrouToOne() { //On amène le trou à la position 1
+  var trou = getTrouPosition()
+  
+  if (trou>0) {
+    for (i <- trou-1 to 1 by -1) {
+      deplace(i, 1)
+    }
+  }
