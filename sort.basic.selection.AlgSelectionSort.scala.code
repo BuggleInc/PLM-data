@@ -1,34 +1,39 @@
-def rechercheMin(N: Int): Int = {
-  
-  var indMin = N
-  
-  for (i <- N to getNombreValeurs()-2) {
-    
-    if (plusPetit(i,i+1)) {
-      
-      indMin = i
-      
-    }
-    
-    else {
-      
-      indMin = i+1
-      
-    }
-    
-  }
-  
-  return indMin
-  
-}
-
-
 def selectionSort() {
   
-  for (i <- 0 to getNombreValeurs()-2) {
+  for (i <- 1 to getNombreValeurs()-1) {
     
-    echange(i,rechercheMin(i))
+    var min = i
+    
+    for (j <- i+1 to n) {
+      
+      if (plusPetit(j,min)) {
+        
+        min = j
+        
+      }
+      
+    }
+    
+    if (min != i) {
+      
+      echange(i,min)
+      
+    }
     
   }
   
 }
+
+
+
+
+/* procédure tri_selection(tableau t, entier n)
+      pour i de 1 à n - 1
+          min ← i
+          pour j de i + 1 à n
+              si t[j] < t[min], alors min ← j
+          fin pour
+          si min ≠ i, alors échanger t[i] et t[min]
+      fin pour
+  fin procédure
+
