@@ -48,7 +48,7 @@ def makeMoving() {
   var cpt = 1; // to enter in the first boucle
   while (!isOverBaggle()) {
     state match {
-      case 0 => if ((sommeAngle%4 != 0) && cpt ==1) { // not 360 degres turn accomplished
+      case 0 => if ((sommeAngle%4 != 0) || cpt ==1) { // not 360 degres turn accomplished
         						northRunnerMode(); // while we don't find a wall on the north
       							cpt += 1;
       					}; state = 1;
