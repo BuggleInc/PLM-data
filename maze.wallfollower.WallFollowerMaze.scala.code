@@ -2,11 +2,12 @@ override def run() {while (!estSurBiscuit())
                     {keepHandOnSideWall()};prendBiscuit()
 
 }
-def keepHandOnSideWall() {
-  gauche ();
-  if (!estFaceMur())
-    {avance();return()}
-  droite();
-                          
-                         
-                          }
+
+def keepHandOnSideWall(s:Int): Int = {gauche ();
+                          if (!estFaceMur())
+                              {avance();return(s+1)}
+                          droite();
+                          if (!estFaceMur())
+                              {avance;return(s)};
+                          droite();
+                          return(s-1);}
