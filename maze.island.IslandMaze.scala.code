@@ -11,15 +11,7 @@ override def run() {
   
   def suivreMur() {
     while(!estSurBiscuit()) {
-      droite()
-      if(estFaceMur()) {
-        gauche()
-        if(!estFaceMur())
-          avance()
-        else
-          gauche()
-      } else
-      avance()
+      conditionSuivreMur(droite(), gauche())
     }
     prendBiscuit()
   }
@@ -31,28 +23,22 @@ override def run() {
       	avance()
       else {
         if(getDirection == Direction.EAST) {
-          gauche()
-          if(estFaceMur()) {
-            droite()
-            if(!estFaceMur())
-              avance()
-            else
-              droite()
-          } else
-          avance()
+          conditionSuivreMur(gauche(), droite())
         } else {
-          droite()
-          if(estFaceMur()) {
-            gauche()
-            if(!estFaceMur())
-              avance()
-            else
-              gauche()
-          } else
-          avance()
+					conditionSuivreMur(droite(), gauche())
         }
       }
     }
     etat(1)
+  }
+  
+  def conditionSuivreMur(dir1:Unit, dir2:Unit) {
+    dir1
+    if(estFaceMur()) {
+      dir2
+      if(!estFaceMur())
+      avance()
+      else dir2
+    } else avance()
   }
 }
