@@ -1,0 +1,30 @@
+def selectionSort() {
+  
+	var n = getNombreValeurs()
+  
+  for (i <- 0 to n-2) {
+    
+    echange(i,rechMin(i))
+    
+  }
+  
+}
+
+
+def rechMin(N: Int): Int = {
+  
+	var indMin = N
+  
+  for (j <- indMin to getNombreValeurs()-2) {
+    
+    if (getValeur(j) <= getValeur(j+1)) {
+      
+      indMin = j
+      
+    }
+    
+  }
+  
+  return indMin
+  
+}
