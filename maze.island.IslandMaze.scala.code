@@ -4,9 +4,9 @@ override def run() {
   
   etat match {
     
-    case 0 => run2North(); etat = 1
-    case 1 => keepHandOnSideWall(); etat = 0
-    case _ => printIn("Scumbag")
+    case 0 => run2North(); gauche() if (estFaceMur()) { etat = 1; }
+    case 1 => keepHandOnSideWall(); ; etat = 0;
+    case _ => printIn("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
     
   }
   
