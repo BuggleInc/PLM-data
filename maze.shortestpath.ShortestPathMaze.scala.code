@@ -15,10 +15,8 @@ override def run() {
   var _C:Queue[Int]=Queue[Int](x+100*y+10000*0)
   
   setIndication(x,y,0)
+  
   while(_C.size != 0){
-    
-    
-
     
       val cell = _C.dequeue() 
       
@@ -26,35 +24,30 @@ override def run() {
       var y = (cell/100).toInt % 100
       var num = (cell/10000).toInt
 
-
       if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
         setIndication(x-1,y,num+1)
         _C += x-1 + 100*y + 10000*(num+1)
       }
-
-      
       if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999 ){
         setIndication(x,y-1,num+1)
         _C += x+100*(y-1)+10000*(num+1)
       }
-      
       if(x<n-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)==9999 ){
         setIndication(x+1,y,num+1)
         _C += x+1+100*y+10000*(num+1)
       }
-
-      
       if(y<m-1 && !hasTopWall(x,y+1) && getIndication(x,y+1)==9999){
         setIndication(x,y+1,num+1)
         _C += x+100*(y+1)+10000*(num+1)
       }
-
-    
     
   }
   
   
-  while(!isOverBaggle()){
-    //damn
-  }
+  //findBaggle(getX(),getY())
 }
+
+
+/*def findBaggle(x : Int , y : Int){
+  
+}*/
