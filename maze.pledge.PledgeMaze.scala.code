@@ -17,19 +17,19 @@ override def run() {
 
 def keepHandOnSideWall(virage:Double):Double = {
   gauche()
-  var v:Double = 0
+  var v:Double = virage
   if (estFaceMur()) {
   	droite()
     if (estFaceMur()) {
     	droite()
-    	v=virage-1
+    	v-=1
     }
     else
     	avance()
   }
   else {
   	avance()
-  	v=virage-1
+  	v+=1
   }
   return v
 }
