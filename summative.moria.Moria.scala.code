@@ -1,0 +1,24 @@
+var isOVer : Bolean = false
+def Moria() {
+  while (isOVer == false ){
+    if (isFacingWall==true && isOverBaggle==false){
+      isOver = true
+    }
+    else {
+      while(isOverBaggle()==false){
+       backward() 
+      }
+      pickupBaggle()
+      forward()
+      while (isOverBaggle==false){
+        forward()
+      }
+      backward()
+      dropBaggle()
+    }
+  }
+  left()
+  forward()
+  left()
+  forward()
+}
