@@ -4,12 +4,11 @@ override def run() {
     var trouB=(getTrouBase()+1)%NbB
     var dMax=0
     var (bas,posi)=(getTrouBase(),getTrouPosition())
-    for (base<-0 to 3){
       for (position<-0 to 1){
-        var d=(getCouleurJoueur(base,position)-base)%4
-        if(d>dMax){bas=base
+        var d=(getCouleurJoueur(trouB,position)-base)%4
+        if(d>dMax){bas=trouB
                    posi=position}
-      }
+      
     }
     deplace(bas,posi)
   }while(!estTrie())
