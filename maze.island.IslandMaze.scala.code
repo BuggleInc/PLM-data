@@ -1,5 +1,5 @@
 override def run() {
-  	
+  
   def testgauche():Boolean = {
     gauche()
     if (estFaceMur()) {droite();return true}
@@ -27,8 +27,11 @@ override def run() {
   
   droite()
   while (!estSurBiscuit) {
-    
-    if (!keepHandOnSideWall()) {droite}
+    if (getDirection==Direction.NORTH && !estFaceMur()) {
+      avance()
+    } else {
+    	if (!keepHandOnSideWall()) {droite}
+    }
   }
   prendBiscuit()
   
