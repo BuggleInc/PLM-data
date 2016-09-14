@@ -2,6 +2,9 @@ override def run() {
   	val NbB=getNombreBases()
   do{
     var trouB=(getTrouBase()+1)%NbB
+    	while(!estBaseTrie(trouB)){
+        trouB=(trouB+1)%NbB
+      }
     var dMax=0
     var posi=getTrouPosition()
       for (position<-0 to 1){
