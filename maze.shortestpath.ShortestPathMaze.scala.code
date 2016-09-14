@@ -1,24 +1,3 @@
-
-override def run() {
-    // Your code here
-  var x = getMondeLargeur() -1
-  var y = getMondeHauteur() -1
-  var xo = 0
-  var yo = 0
-  
-  for (i<- 0 to x){
-    for (j<-0 to y){
-      if (aBiscuit(i,j)){
-        xo = i
-        yo = j
-      }
-    }
-  }
-  setIndication(xo,yo,0)
-  
-  
-}
-
 def ecritPos(x:Int,y:Int,a:Int):Boolean= {
   
   if ((aMurNord(x,y) && aMurOuest(x,y) && aMurNord(x,y+1) ) || (aMurNord(x,y) && aMurNord(x+1,y) && aMurOuest(x,y+1) ) || (aMurNord(x,y) && aMurOuest(x,y) && aMurOuest(x,y+1) ) || ( aMurOuest(x,y) && aMurOuest(x,y+1) && aMurNord(x+1,y))){
@@ -56,7 +35,26 @@ def ecritPos(x:Int,y:Int,a:Int):Boolean= {
   }
   
 }
-}
- 
+
                                                   
 
+
+override def run() {
+    // Your code here
+  var x = getMondeLargeur() -1
+  var y = getMondeHauteur() -1
+  var xo = 0
+  var yo = 0
+  
+  for (i<- 0 to x){
+    for (j<-0 to y){
+      if (aBiscuit(i,j)){
+        xo = i
+        yo = j
+      }
+    }
+  }
+  setIndication(xo,yo,0)
+  
+  
+}
