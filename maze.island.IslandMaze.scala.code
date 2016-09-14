@@ -1,4 +1,5 @@
 override def run() {
+  vaNord()
   while(!estSurBiscuit())
   	longeGch()
   prendBiscuit()
@@ -14,4 +15,15 @@ def longeGch(){
       droite()
     avance()
        }
+}
+
+def vaNord() {
+  setDirection(Direction.Nord)
+  do {
+    if (!estFaceMur())
+    	avance()
+    gauche()
+    avance()
+    droite()
+  }while(!estFaceMur())
 }
