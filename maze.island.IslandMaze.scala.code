@@ -3,7 +3,9 @@ override def run() {
     while (!estFaceMur) {
       forward();
     }
-    keepHandOnSideWall();
+    if (estFaceMur()) {
+      right(); keepHandOnSideWall();
+  	}
   }
   prendBiscuit();
 }
