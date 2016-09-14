@@ -2,14 +2,13 @@ override def run() {
   var nbBases = getNombreBases()
   var nbPos = getNombrePositions()
   while (!estTrie()){
-    if (couleurJoueur(trouveTrou()+1) >= couleurJoueur(trouveTrou()-1)){
-      deplace(trouveTrou()+1)
+    while(!estTrie() && (getTrouBase() < nbBases - 1)){
+      deplace(getTrouBase()+1,min(getTrouBase()+1))
     }
-    else{
-  	deplace(trouveTrou()+1)
-  	deplace(trouveTrou()-2)
-		}
-  }
+    while(!estTrie() && (getTrouBase() > 0)){
+      deplace(getTrouBase()-1,max(getTrouBase()-1))
+    }
+  
 }
 
 //Nouvelles fonction
@@ -39,4 +38,34 @@ def deplace(index:Int){
   var b = index/nbPos
   var p =index%nbPos
   deplace((b+nbBases)%nbBases,(p+nbPos)%nbPos)
+}
+
+//On regarde le plus petit de la base
+def min(base:Index):Int{
+  nbPos = getNombrePositions()
+  pos = 0
+  retour = 0
+  col = 9999
+  for (pos <-0 to nbPos-1){
+    if (getCouleurJoueur(base,pos) < col){
+      col = getCouleurJoueur(base,pos)
+      retour = pos
+    }
+  }
+  return retour
+}
+
+//On regarde le plus haut de la base
+def max(base:Index):Int{
+  nbPos = getNombrePositions()
+  pos = 0
+	retour = 0
+  col = -1
+  for (pos <- 0 to nbPos-1){
+    if (getCouleurJoueur(base,pos) > col){
+      col = getCouleurJoueur(base,pos)
+      retour = pos
+    }
+  }
+	return retour
 }
