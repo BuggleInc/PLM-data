@@ -1,34 +1,29 @@
+var c = 0;
+
 override def run() {
   var c = 0;
   while ((c == 0) && (getDirection() == Direction.NORTH)){
     avance();
   }
-	gauche();
-  c -=1 ;
-  while(((c%4) != 0) && !estSurBiscuit()){
-  	gauche();
-    c -=1 ;
- 		while(estFaceMur())
-  	{
-    	droite();
-      c += 1
-  	}
-  	avance();
-  }
+  droite();
+  c += 1;
+  run2();
   
 }
 
 def run2(){
-  while(!estSurBiscuit()){
+  while(!estSurBiscuit() && (c%44 != 0)){
     fun();
   }
 }
 
 def fun(){
-  gauche();
+  gauche(); 
+  c -= 1 ;
   while(estFaceMur())
   {
     droite();
+    c += 1;
   }
   avance();
 }
