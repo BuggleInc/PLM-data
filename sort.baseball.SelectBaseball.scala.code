@@ -3,7 +3,7 @@ def memeCouleurSous(a:Int,couleur:Int):Boolean = {
   //renvoie si l'autre joueur de couleur est présent sous l'indice a
   for (c <- 0 to a-1) {
     
-    if (getCouleurJoueur(index2pos(a)(0),index2pos(a)(0)) == couleur) {
+    if (getCouleurJoueur(index2pos(a)(0),index2pos(a)(1)) == couleur) {
       
       return true
     
@@ -24,7 +24,7 @@ def getCouleurIndice(a:Int):Int = {
 def eval(a:Int):Int = {
   
   //évalue le buggle en indice a
-	if (memeCouleurSous(a,getCouleurIndice(a))) { //Je le conscidère alors comme le deuxième de ça base
+	if (memeCouleurSous(a,getCouleurIndice(a))) { //Je le conscidère alors comme le deuxième de sa base
     
     return pos2index(Array(getCouleurIndice(a),1))
     
@@ -89,7 +89,7 @@ def switch(a:Int) {
   //
   //tasser
   
-  for (x <- getTrouIndex()-1 to a by -1) {
+  for (x <- getTrouIndex()-1 to a+2 by -1) {
     
     deplacer(x)
     
