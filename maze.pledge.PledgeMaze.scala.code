@@ -23,8 +23,12 @@ def keepHandOnSideWall() {
     droite()
     if (estFaceMur())
     	droite()
-    else
-      gauche()
+    else {
+    	if (getDirection()==Direction.NORTH)
+    		avance()
+    	else
+      	gauche()
+    }
   	avance()
   }
 }
