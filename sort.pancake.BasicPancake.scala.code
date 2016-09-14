@@ -1,14 +1,14 @@
 def solve() {
   val n = getTaillePile()
-  var min = 0
+  var max = 0
   var idMin = 0
   for(i <- 0 to n-2) {
     idMin = i
-    min = getRayonCrepe(i)
+    max = getRayonCrepe(i)
     for(j <- i+1 to n-1) {
-      if(min>getRayonCrepe(j)) {
+      if(max<getRayonCrepe(j)) {
         idMin = j
-        min = getRayonCrepe(j)
+        max = getRayonCrepe(j)
       }
     }
     retourne(idMin+1)
