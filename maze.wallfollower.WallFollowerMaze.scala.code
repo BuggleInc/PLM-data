@@ -1,15 +1,15 @@
 override def run() {
-  if (gauche()) {
-    var x = 0}
-  else{
-    var x = 1}
+  var x=0
+  if (!gauche())
+  		x=1
+
   while(!estSurBiscuit()){
     keepHandOnSideWall(x)
   }
   prendBiscuit()
 }
 
-def keepHandOnSideWall(x : Int) ={
+def keepHandOnSideWall(x : Int) {
   if (murcote(x)){
     if (!estFaceMur())
     	avance()
