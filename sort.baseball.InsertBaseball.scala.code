@@ -1,9 +1,11 @@
 override def run() {
   var nbBases = getNombreBases()
-  var nbPos = getNombrePositions()
 }
 
 //Nouvelles fonction
+//base=index/2
+//pos=index%2
+//index=base*2+pos
 
 def trouveTrou():Int ={
   var b= getTrouBase()
@@ -11,12 +13,24 @@ def trouveTrou():Int ={
   return b*2 + p
 }
 
-def indexToBP(index:Int) : (Int,Int) ={
-  return (index/2, index%2)
-}
+
 
 def couleurJoueur(index:Int) : Int={
  	var b= index/2
  	var p= index%2
   return getCouleurJoueur(b,p)
+}
+
+def deplace(index:Int) : Int={
+  var nbBases = getNombreBases()
+  var b= index/2
+  var p =index%2
+  deplace(b%nbBase,p)
+}
+
+def initialiser(){
+  var nbBases=getNombresBases()
+  while (trouveTrou()!=1){
+    deplace(trouveTrou()+1)
+  }
 }
