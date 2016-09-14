@@ -1,5 +1,7 @@
-def ecritPos(x:Int,y:Int,a:Int):Boolean= {
-  
+def ecritPos(x:Int,y:Int,a:Int,k:Int):Boolean= {
+  if (k == 100){
+    return true
+  }
   if ((getIndication(x+1,y)!=9999 || aMurOuest(x+1,y)) && (getIndication(x-1,y)!=9999 || aMurOuest(x,y)) && (getIndication(x,y+1)!=9999 || aMurNord(x,y+1)) && (getIndication(x,y-1)!=9999|| aMurNord(x,y))) {
     
     setIndication(x,y,a)
@@ -11,25 +13,25 @@ def ecritPos(x:Int,y:Int,a:Int):Boolean= {
     
     if (!aMurNord(x,y)){
       
-      ecritPos(x,y-1,a+1)
+      ecritPos(x,y-1,a+1,k+1)
     
     }
     if (!aMurOuest(x,y)){
       
-      ecritPos(x-1,y,a+1)
+      ecritPos(x-1,y,a+1,k+1)
     }
     
     if (y != getMondeHauteur()-1){
       if (!aMurNord(x,y+1)){
       
-      ecritPos(x,y+1,a+1)
+      ecritPos(x,y+1,a+1,k+1)
       }
     }
       
     if (x != (getMondeHauteur()-1)){
       if (!aMurOuest(x+1,y)){
       
-      ecritPos(x+1,y,a+1)
+      ecritPos(x+1,y,a+1,k+1)
       }
     }
   }
@@ -55,7 +57,7 @@ override def run() {
     }
   }
 
-  ecritPos(xo,yo,0)
+  ecritPos(xo,yo,0,0)
   
   
 }
