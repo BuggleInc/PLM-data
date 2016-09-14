@@ -1,11 +1,13 @@
 override def run() {
   var etat = 0
-  etat match {
-    case 0 => goNord()
-    	etat = 1
-    case 1 => suivreGauche()
-    	etat = 0
-    case _ => println("erreur")
+  while (!estSurBiscuit()) {
+    etat match {
+      case 0 => goNord()
+        etat = 1
+      case 1 => suivreGauche()
+        etat = 0
+      case _ => println("erreur")
+    }
   }
   prendBiscuit()
 }
