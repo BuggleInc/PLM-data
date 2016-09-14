@@ -1,0 +1,74 @@
+var biscuitX=0
+var biscuitY=0
+var c=0
+var listeX=Array()
+var listeY=Array()
+
+override def run() {
+	trouveSortie()
+  marque()
+}
+
+def trouveSortie(){
+  var i=0
+  var j=0
+  for(i <- 0 to getMondeLargeur()-1){
+    for(j <- 0 to getMondeHauteur()-1){
+      if(aBiscuit(i,j)){
+        biscuitX=i
+        biscuitY=j
+      }
+    }
+  } 
+}
+
+def marque(){
+  var x=biscuitX
+  var y=biscuitY
+  var i=0
+  var j=0
+  listeX=Array(x)
+  listeY=Array(y)
+  while(pos()==true){
+    for(i <- 0 to listeX.length-1){
+      setIndication(listeX(i),listeY(i),c)
+    }
+    var lX=listeX
+    var lY=listeY
+    listeX=Array()
+    listeY=Array()
+    for(j <- 0 to lX.length){
+      pos(j)
+    }
+  }
+  
+}
+
+def pos(j) : Array ={
+  var x=lX(j)
+  var y=lY(j)
+  if(y!=0 && aMurNord(x,y)==false){
+    concat(listeX,Array(x))
+    concat(listeY,Array(y-1))
+  }
+  if(x!=0 && aMurOuest(x,y)==false){
+    concat(listeX,Array(x-1))
+    concat(listeY,Array(y))
+  }
+  if(y!=getMondeHauteur()-1 && aMurNord(x,y-1)){
+    concat(listeX,Array(x))
+    concat(listeY,Array(y+1))
+  }
+  if(x!=getMondeLargeur()-1 && aMurOuest(x+1,y)){
+    concat(listeX,Array(x+1))
+    concat(listeY,Array(y))
+  }
+}
+
+
+
+
+
+
+
+
