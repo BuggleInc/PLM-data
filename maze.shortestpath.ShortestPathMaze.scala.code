@@ -35,14 +35,10 @@ def marque(){
   while (c< getMondeLargeur()*getMondeHauteur()) {
     for(i <- 0 to listeX.length-1){
       setIndication(listeX(i),listeY(i),min(c,getIndication(listeX(i),listeY(i))))
+      possible=pos(listeX(i),listeY(i))
     }
-    var lX=listeX
-    var lY=listeY
     listeX=Nil
     listeY=Nil
-    for(j <- 0 to lX.length-1) {
-      possible=pos(lX(j),lY(j))
-    }
     c+=1
   }
   
