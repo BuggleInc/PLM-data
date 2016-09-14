@@ -5,6 +5,8 @@ override def run() {
 	var c=0
 	var listeX : List[Int] = Nil
 	var listeY : List[Int] = Nil
+  var lX:List[Int]=Nil
+  var lY:List[Int]=Nil
 
 	trouveSortie()
   marque()
@@ -31,11 +33,10 @@ def marque(){
   var possible=true
   listeX=x::listeX
   listeY=y::listeY
-  var lX:List[Int]=Nil
-  var lY:List[Int]=Nil
   //while(possible==true){
   while (c< getMondeLargeur()*getMondeHauteur()) {
-    
+    lX=Nil
+    lY=Nil
     for(i <- 0 to listeX.length-1){
       setIndication(listeX(i),listeY(i),min(c,getIndication(listeX(i),listeY(i))))
       possible=pos(listeX(i),listeY(i))
