@@ -12,10 +12,6 @@ def arrive() : Boolean =
 
 def deplacement() 
 {
-  if (!estFaceMur() && getX()!=6) 
-  {
-    setPos(getX()+1,getY()-1)
-  }
 
   if (estFaceMur() && getX()!=6)
   {
@@ -25,7 +21,10 @@ def deplacement()
   {
     setPos(getY()+1,6)
   }
-  
+  else 
+  {
+    setPos(getX()+1,getY()-1)
+  }
 }
 
 override def run() {
