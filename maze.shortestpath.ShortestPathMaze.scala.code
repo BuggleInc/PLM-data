@@ -35,13 +35,14 @@ override def run() {
   var n:Int=litMessage().toInt
     var x=getX()
     var y=getY()
-    if(!aMurNord(x,y) && getIndication(x,y-1)<n){var dir=Direction.NORD
+    var dir:Direction=Direction.NORD
+    if(!aMurNord(x,y) && getIndication(x,y-1)<n){dir=Direction.NORD
                                              n=getIndication(x,y-1)}
-    if(!aMurSud(x,y) && getIndication(x,y+1)<n){var dir=Direction.SUD
+    if(!aMurSud(x,y) && getIndication(x,y+1)<n){dir=Direction.SUD
                                              n=getIndication(x,y+1)}
-    if(!aMurOuest(x,y) && getIndication(x-1,y)<n){var dir=Direction.OUEST
+    if(!aMurOuest(x,y) && getIndication(x-1,y)<n){dir=Direction.OUEST
                                              n=getIndication(x-1,y)}
-    if(!aMurEst(x,y) && getIndication(x+1,y)<n){var dir=Direction.EST
+    if(!aMurEst(x,y) && getIndication(x+1,y)<n){dir=Direction.EST
                                              n=getIndication(x+1,y)}
     setDirection(dir)
     }while(!estSurBiscuit())
