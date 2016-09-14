@@ -1,10 +1,12 @@
 override def run() {
+  var count=0
   while (isOverBaggle()==false){
       while(isFacingWall()==false){
         forward()
   }
     right()
-    while (getDirection != Direction.NORTH && isOverBaggle()==false){
+    count=count-1
+    while (getDirection != Direction.NORTH && isOverBaggle()==false && count==0){
     keepHandOnSideWall()
     }
   }
@@ -13,7 +15,6 @@ override def run() {
 
 
 def keepHandOnSideWall(){
-  var count=0
   left()
   count=count+1
   if (isFacingWall()==true){
