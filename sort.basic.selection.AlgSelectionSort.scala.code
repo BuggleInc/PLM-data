@@ -2,11 +2,11 @@ def rechercheMin(N: Int): Int = {
   
   var indMin = N
   
-  for (i <- N to getNombreValeurs()-2) {
+  for (i <- N to getNombreValeurs()-1) {
     
-		if (getValeur(i) <= getValeur(i+1)) {
+    if plusPetit(i,i+1)  {
       
-			indMin = i
+      indMin = i
       
     }
     
@@ -19,7 +19,7 @@ def rechercheMin(N: Int): Int = {
 
 def selectionSort() {
   
-  for (i <- 0 to getNombreValeurs()-1) {
+  for (i <- 0 to getNombreValeurs()-2) {
     
     echange(i,rechercheMin(i))
     
