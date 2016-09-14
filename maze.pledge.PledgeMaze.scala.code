@@ -1,10 +1,23 @@
 override def run() {
   
+  
   def testgauche():Boolean = {
     gauche()
     if (estFaceMur()) {droite();return true}
     droite()
     return false
+  }
+  
+  def dir() {
+    var d2=Direction.North
+    var d=getDirection()
+    if (d==Direction.NORTH) {d2=Direction.EAST}
+    if (d==Direction.EAST) {d2=Direction.SOUTH}
+    if (d==Direction.SOUTH) {d2=Direction.WEST}
+    if (d==Direction.WEST) {d2=Direction.NORTH}
+    
+    
+    return d2
   }
 
   
@@ -28,7 +41,8 @@ override def run() {
   
   droite()
   while (!estSurBiscuit) {
-    if (getDirection==Direction.NORTH && !estFaceMur()) {
+    
+    if (getDirection==dir() && !estFaceMur()) {
       avance()
     } else {
     	if (!keepHandOnSideWall()) {droite}
