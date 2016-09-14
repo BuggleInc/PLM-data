@@ -1,21 +1,21 @@
 var beg : Int = 0
-var isOver : Boolean = false
+var isOver : Boolean = true
 def cocktailSort2() {
   var end : Int = getValueCount()-2
-  while (isOver == false){
-    isOver = true
+  while (isOver == true){
+    isOver = false
     for (i <- beg to end){
       if (isSmaller(i,i+1)== false){
         swap(i,i+1)
         end = end - 1
-        isOver = false
+        isOver = true
       }
     }
-    for ( i <- end+1 to beg+1){
-      if (isSmaller(i-1,i)== false){
-        swap(i-1,i)
+    for ( i <- end to beg){
+      if (isSmaller(i,i+1)== false){
+        swap(i,i+1)
         beg = beg +1
-        isOver = false
+        isOver = true
     }
   }
 }
