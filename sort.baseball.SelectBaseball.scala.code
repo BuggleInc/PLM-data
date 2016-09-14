@@ -80,14 +80,10 @@ def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
   {
     //Le trou est sur le joueur
     deplace(mod(currBase-1, nbBases), 0);
-    
-    currBase = mod(getTrouBase()-1, nbBases);
-    
-    //nouvPos = getTrouPosition();
-    
     deplace(currBase, posEchange);
+    posEchange = 0;
+    currBase = mod(getTrouBase()-1, nbBases);    
     deplace(currBase, pos);
-    currBase = mod(currBase-1, nbBases);
   }
 }
   
