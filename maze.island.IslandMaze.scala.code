@@ -1,0 +1,42 @@
+override def run() {
+		var state = 0 ;
+		setDirection(chosenDirection);
+		while ( !isOverBaggle() ) { 
+			state match {
+			case 0 => 
+				while ( !isFacingWall() )
+					forward();
+				right();
+				state = 1;
+			case 1 => 
+				stepHandOnWall();
+				if ( isChosenDirectionFree() && (getDirection() == chosenDirection)  ) 
+					state =0;
+			case _ =>
+			}
+		}
+		pickupBaggle();
+	}
+
+	def stepHandOnWall(){
+		while ( ! isFacingWall() )
+		{
+			forward();
+			left();
+		}
+		right();
+	}
+
+	var chosenDirection = Direction.NORTH;
+
+	def isChosenDirectionFree():Boolean = {
+		var memorizedD = getDirection();
+		setDirection(chosenDirection);
+		var isFree = ! isFacingWall();
+		setDirection(memorizedD);
+		return isFree;
+
+	}
+
+
+
