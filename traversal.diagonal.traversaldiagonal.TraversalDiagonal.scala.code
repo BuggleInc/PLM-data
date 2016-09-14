@@ -12,27 +12,33 @@ def arrive() : Boolean =
 
 def deplacement() 
 {
+  var cpt = 0
 
   if (estFaceMur() && getX()!=6)
   {
     setPos(0,getX()+1)
+    ecritMessage(cpt)
+    cpt+=1
   }
   if (getX==6)
   {
     setPos(getY()+1,6)
+    ecritMessage(cpt)
+    cpt+=1
   }
   else 
   {
     setPos(getX()+1,getY()-1)
+    ecritMessage(cpt)
+    cpt+=1
   }
 }
 
 override def run() {
-  var cpt = 0
+  
   while(!arrive)
   {
-    ecritMessage(cpt)
-    cpt+=1
+    
     deplacement()
   }
   
