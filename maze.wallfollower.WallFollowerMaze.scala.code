@@ -6,7 +6,7 @@ override def run() {
 }
 
 def keepHandOnSideWall(x : Int) {
-  if (murcote(x)){
+  if (murcote()){
     if (!estFaceMur())
     	avance()
     else if (x==0)
@@ -21,8 +21,8 @@ def keepHandOnSideWall(x : Int) {
 
 
 
-def murcote(x:Int) : Boolean = {
-  if (x==0){
+def murcote() : Boolean = {
+
     if (estFaceMur())
     	droite()
     else {
@@ -36,21 +36,6 @@ def murcote(x:Int) : Boolean = {
       	return false
     	}
     }
-  }
-  else {
-    if (estFaceMur())
-    	gauche()
-    else {
-     	droite()
-   		if (estFaceMur()){
-      	gauche()
-      	return true
-    	}
-    	else {
-      	gauche()
-      	return false
-    }
-    }
-    
-  }
+  
+  
 }
