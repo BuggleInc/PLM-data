@@ -1,6 +1,16 @@
 override def run() {
   var nbBases = getNombreBases()
   initialiser()
+  var Index = 2
+  var col=0
+  for (Index <- 2 to nbBases*2 - 1){
+    col = couleurJoueur(Index)
+    while (col < couleurJoueur(trouveTrou()-1) && trouveTrou()!= 0){
+      echangeIndex()
+    }
+    
+  }
+  
 }
 
 //Nouvelles fonction
@@ -13,8 +23,6 @@ def trouveTrou():Int ={
   var p = getTrouPosition()
   return b*2 + p
 }
-
-
 
 def couleurJoueur(index:Int) : Int={
  	var b= index/2
@@ -29,9 +37,24 @@ def deplace(index:Int){
   deplace((b+nbBases)%nbBases,(p+2)%2)
 }
 
+//Permet de positionner le trou à sa position initiale
 def initialiser(){
   var nbBases=getNombreBases()
   while (trouveTrou()!=1){
     deplace(trouveTrou()-1)
   }
 }
+
+//Apres avoir mis un element à sa place
+def reinitialise(index:Int){
+  while (trouveTrou()!=index+1){
+    deplace(trouveTrou()+1)
+  }
+}
+
+//Permet d'échanger la position entre le buggle avant et après le trou
+def echangeIndex(){
+  deplace(trouveTrou()+1)
+  deplace(trouveTrou()-2)
+}
+
