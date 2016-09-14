@@ -27,7 +27,7 @@ def Cartographie(i:Int, j:Int, done: Int) {
     }
   }
   else {
-    if (getIndication(i,j)>done){setIndication(x,y,done);done=done+1;(i,j) match {
+    if (getIndication(i,j)>done){setIndication(i,j,done);done=done+1;(i,j) match {
       case (11,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
       
       case (_,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
