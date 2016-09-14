@@ -10,7 +10,7 @@ override def run()
   }
 }
 
-def keepHandOnSideWall()
+def keepHandOnLeftWall()
 {
   if(murGauche())
   	{
@@ -30,6 +30,25 @@ def keepHandOnSideWall()
     }
 }
 
+def keepHandOnRightWall()
+{
+  if(murDroite())
+  	{
+      if(!estFaceMur())
+  			{
+      		avance()
+    		}
+      else
+      	{
+          gauche()
+        }
+    }
+  else
+  	{
+      droite()
+      avance()
+    }
+}
 
 def murGauche():Boolean=
 {
@@ -39,6 +58,13 @@ def murGauche():Boolean=
   return mur
 }
 
+def murDroite():Boolean=
+{
+  droite()
+  var mur=estFaceMur()
+  gauche()
+  return mur
+}
 
 //Si on a pas de mur en face on avance puis on regarde à gauche
 //		Si on a toujours un mur à gauche, on avance
