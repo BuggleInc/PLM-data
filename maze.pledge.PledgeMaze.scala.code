@@ -1,66 +1,100 @@
+import scala.collection.mutable.Queue
+
 override def run() {
+    
+  val n = getWorldWidth()
+  val m = getWorldHeight()
   
-  while(getY()!=0){
+  var x = n-1
+  var y = 0
+  while(!hasBaggle(x,y))
+    y+=1
+  
+  
+  
+  var _C:Queue[Int]=Queue[Int](x+100*y+10000*0)
+  
+  setIndication(x,y,0)
+  
+  while(_C.size != 0){
     
-    while(getDirection() != Direction.NORTH)
-    	right();
-    
-    
-    if(!isFacingWall())
-    {
-      forward()
-    }
-    else if(!wallToLeft())
-    {
-      left();forward()
-    }
-    else if(!wallToRight())
-    {
-      right();forward()
-    }
-    else{
-      right();right();forward()
-    }
-  }
-  while(getDirection() != Direction.EAST)
-    	right();
-  while(!isOverBaggle()){
+      val cell = _C.dequeue() 
+      
+      var x = cell%100
+      var y = (cell/100).toInt % 100
+      var num = (cell/10000).toInt
 
-    	while(!isFacingWall() && wallToLeft()){
-        forward()
+      if(x>0 && !hasLeftWall(x,y) && getIndication(x-1,y)==9999){
+        setIndication(x-1,y,num+1)
+        _C += x-1 + 100*y + 10000*(num+1)
       }
-    
-      if(isFacingWall()){
-        if(wallToLeft()){
-          right()
-        }
-        else{
-          left()
-          forward()
-        }
+      if(y>0 && !hasTopWall(x,y) && getIndication(x,y-1)==9999 ){
+        setIndication(x,y-1,num+1)
+        _C += x+100*(y-1)+10000*(num+1)
       }
-      else{
-        left()
-        forward()
+      if(x<n-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)==9999 ){
+        setIndication(x+1,y,num+1)
+        _C += x+1+100*y+10000*(num+1)
+      }
+      if(y<m-1 && !hasTopWall(x,y+1) && getIndication(x,y+1)==9999){
+        setIndication(x,y+1,num+1)
+        _C += x+100*(y+1)+10000*(num+1)
       }
     
   }
+  
+  
+  findBaggle()
   pickupBaggle()
-  while(isFacingWall())
-  	right()
-  right();right()
+  //setDirection(Direction.NORTH)
 }
 
-def wallToLeft() : Boolean = {
-  left()
-  var mur : Boolean = isFacingWall()
-  right()
-  return mur
-}
 
-def wallToRight() : Boolean = {
-  right()
-  var mur : Boolean = isFacingWall()
-  left()
-  return mur
+def findBaggle(){
+  
+  val n = getWorldWidth()
+  val m = getWorldHeight()
+  
+  var x = getX()
+  var y = getY()
+  var numb = getIndication(x,y)
+  
+  while(!isOverBaggle()){
+  	
+    
+    
+    
+    if(x>0 && getIndication(x-1,y)==numb-1){
+      setDirection(Direction.WEST)
+    	if(!isFacingWall()){
+	    	forward()
+        x-=1
+        numb-=1
+      }
+    }
+    if(x<n-1 && getIndication(x+1,y)==numb-1){
+      setDirection(Direction.EAST)
+    	if(!isFacingWall()){
+	    	forward()
+        x+=1
+        numb-=1
+      }
+    }
+    if(y>0 && getIndication(x,y-1)==numb-1){
+      setDirection(Direction.NORTH)
+    	if(!isFacingWall()){
+	   		forward()
+        y-=1
+        numb-=1
+      }
+    }
+    if(y<m-1 && getIndication(x,y+1)==numb-1){
+      setDirection(Direction.SOUTH)
+    	if(!isFacingWall()){
+	    	forward()
+        numb-=1
+        y+=1
+      }
+    }
+  }
 }
