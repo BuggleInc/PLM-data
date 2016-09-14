@@ -1,24 +1,21 @@
 override def run() {
   
-  def avanceVersNord (etat : Int) {
+  def avanceVersNord () {
     
     setDirection(Direction.NORTH);
     while (estFaceMur != true) {
       avance();
     }
-    etat = 1;
-    return etat;
+    
   }
   
-  def suitAGauche (etat : Int) {
+  def suitAGauche () {
     
     gauche();
     while (estFaceMur() == true ) {
       droite();
     }
     avance();
-    etat = 0;
-    return etat;
     
   }
   
@@ -28,9 +25,9 @@ override def run() {
     
     etat match {
       
-      case 0 => avanceVersNord(etat);
+      case 0 => avanceVersNord(etat); etat = 1;
       
-      case 1 => suitAGauche(etat);
+      case 1 => suitAGauche(etat); etat = 0;
       
       case_ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ");
          
