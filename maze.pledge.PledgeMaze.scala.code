@@ -1,0 +1,44 @@
+override def run() {
+  
+  def testgauche():Boolean = {
+    gauche()
+    if (estFaceMur()) {droite();return true}
+    droite()
+    return false
+  }
+  
+  def isDirectionFree(dir):Boolean = {
+    
+  }
+  
+  def keepHandOnSideWall():Boolean = {
+    var t=false
+
+    if (!estFaceMur && testgauche) {
+      avance()
+      t=true
+      if (!testgauche()) {
+        gauche();
+        avance();
+        if (!testgauche()) {
+          gauche();
+          avance();
+          
+        }}}
+    return t
+                           
+  }
+  
+  droite()
+  while (!estSurBiscuit) {
+    if (getDirection==Direction.NORTH && !estFaceMur()) {
+      avance()
+    } else {
+    	if (!keepHandOnSideWall()) {droite}
+    }
+  }
+  prendBiscuit()
+  
+  
+  
+}
