@@ -17,11 +17,19 @@ def MarquerSol(){
       }
     }
   }
-  while (X != Xi && Y != Yi){
-    N = aMurNord(X,Y)
-    S = aMurNord(X,Y+1)
-    E = aMurOuest(X+1,Y)
-    O = aMurOuest(X,Y)
+  for (x <- 0 to largeur - 1){
+    for (y <- 0 to hauteur - 1){
+      N = aMurNord(X,Y)
+      S = aMurNord(X,Y+1)
+      E = aMurOuest(X+1,Y)
+      O = aMurOuest(X,Y)
+      if(!aMurNord(i,j) && getIndication(x,y-1) != 9999){
+        setIndication(x,y,getIndication(x,y-1)+1)
+      }
+      if(!aMurNord(i,j+1) && getIndication(x,y-1) != 9999){
+        setIndication(x,y,getIndication(x,y-1)+1)
+      }
+    }
   }
 }
 
