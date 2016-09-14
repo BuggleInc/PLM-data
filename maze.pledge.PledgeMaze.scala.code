@@ -1,16 +1,13 @@
 override def run() {
   var virage:Double = 0
- 	while (!estFaceMur())
-  	avance()
   while (!estSurBiscuit())
-  	if (getDirection()==Direction.NORTH) {
+  	if (getDirection()==Direction.NORTH && isDirectionFree()) {
   		while (!estFaceMur())
       	avance()
     }
     else {
-  		while (virage!=0 && !isDirectionFree())
-  			virage = keepHandOnSideWall(virage)
-    }
+      do { virage = keepHandOnSideWall(virage) }
+      while (virage!=0 && !isDirectionFree())
   prendBiscuit()
 }
 
