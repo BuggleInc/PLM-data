@@ -20,7 +20,9 @@ def Cartographie(i:Int, j:Int, done: Int) {
       setIndication(i,j,Done)
       Done=Done+1
       (i,j) match {
+        case (0,0) => 
         case (largeur,hauteur) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        case (_,hauteur) => 
       }
     }
   }
