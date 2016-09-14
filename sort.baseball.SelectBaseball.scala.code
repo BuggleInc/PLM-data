@@ -41,7 +41,8 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
     deplace(currBase, pos);
     deplacerTrou(arrive, sens);
   }
-  else deplacerTrou(arrive, -sens);
+  else if (sens == 1) deplacerTrou(arrive, -sens);
+  else return;
 }
 
 def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
