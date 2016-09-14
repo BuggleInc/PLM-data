@@ -8,35 +8,11 @@ def mur():Boolean={
    } 
 }
 
-
-def wall() {
-  
-  while (!estSurBiscuit()){
-    if (mur()){
-      print(getDirection())
-      right()
-      if (estFaceMur()==false){
-        avance()
-      }
-      else{
-        right()
-      }
-  }
-    else{
-      if (!estFaceMur()){
-        avance()
-      }
-      else{
-        right()
-      }
-    }
-}
-}
-
 override def run() {
   var dir :Int =0
   while (!estSurBiscuit()){
-    if (getDirection()==Direction.NORTH && dir ==0){
+    if (getDirection()==Direction.NORTH && dir!=0){
+      var dir :Int =0
       if(!estFaceMur()){
         avance()
       }
