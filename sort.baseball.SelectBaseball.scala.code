@@ -87,15 +87,15 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   while (currBase != baseTrou)
   {
     //Le trou est sur le joueur
-    deplace(mod(currBase-1, nbBases), posEchange);
-    deplace(currBase, origPosTrou);
+    deplace(mod(currBase-1, nbBases), origPosTrou);
+    deplace(currBase, pos);
     
     currBase = mod(getTrouBase()-1, nbBases);    
     deplace(currBase, origPosTrou);
   }
   
-  deplace(mod(currBase-1, nbBases), posEchange);
-  deplace(currBase, origPosTrou);
+  deplace(mod(currBase-1, nbBases), origPosTrou);
+  deplace(currBase, posEchange);
   
   if (getTrouBase() != origBaseTrou) 
   {
