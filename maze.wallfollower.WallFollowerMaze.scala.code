@@ -9,7 +9,10 @@ def keepHandOnSideWall()
           }
         else
         	{
-            avance()
+            while(!estFaceMur())
+            	{
+                avance()
+              }
           }
         
       }
@@ -18,7 +21,15 @@ def keepHandOnSideWall()
         gauche()
         if(estFaceMur())
       	{
-          retourne();avance()
+          retourne();
+          if(estFaceMur())
+          	{
+              droite();avance()
+            }
+          else
+          	{
+              avance()
+            }
         }
         else
         	{
