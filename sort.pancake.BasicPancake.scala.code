@@ -1,0 +1,29 @@
+def solve() {
+  val taile = getTaillePile()
+  var N=0
+  var aRetourner = 0
+  while(!estTriee()){
+    aRetourner = tailleMax(N)
+    retourne(aRetourner+1)
+    if (estCrepeRetournee(0)){
+      retourne(1)
+    }
+    retourne(taille)
+    N += 1
+  }
+  
+}
+
+def tailleMax(dejaRanges:Int):Int = {
+  val taille=getTaillePile()
+  var rayonMax = 0
+  var cpt = 0
+  var bonARetourner = 0
+  for (cpt -> 0,taille - 1 - N){
+    if(getRayonCrepe(cpt)>rayonMax){
+      rayonMax = getRayonCrepe(cpt)
+      bonARetourner = cpt
+    }
+  }
+  return bonARetourner
+}
