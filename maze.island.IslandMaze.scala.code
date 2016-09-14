@@ -1,9 +1,12 @@
 override def run() {
   var dir:Direction = getDirection();
   
-  while (!isOverBaggle()) {
+  while (getY()!=0) {
     toTheNorth(dir);
-    keepHandOnSideWall();
+  }
+  
+  while (!isOverBaggle()) {
+    keepHandOnSideWall()
   }
   
   pickupBaggle();
@@ -33,7 +36,8 @@ def toTheNorth(dir:Direction) {
       forward();
     }
     else {
-    setDirection(dir);      
+    	setDirection(dir);
+      keepHandOnSideWall();
     }
 
 }
