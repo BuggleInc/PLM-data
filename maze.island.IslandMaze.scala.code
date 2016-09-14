@@ -2,7 +2,7 @@ override def run() {var state=0;
 while (!isOverBaggle)
                     {state match  {
   case 0 =>while (getDirection()!=Direction.NORTH) {right()};
-  while (!isFacingWall()) {forward()}; right(); // North runner
+  while ((!isFacingWall())&&(getDirection()!=Direction.NORTH)) {forward()}; right(); // North runner
      state = 1;
   case 1 => {if (isFacingWall()) {right(); forward(); left(); forward()};
     
