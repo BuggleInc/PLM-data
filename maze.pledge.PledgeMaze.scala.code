@@ -9,6 +9,29 @@ def mur():Boolean={
 }
 
 
+def wall() {
+  while (dir==0){
+    if (mur()){
+      print(getDirection())
+      right()
+      if (estFaceMur()==false){
+        avance()
+      }
+      else{
+        right()
+      }
+  }
+    else{
+      if (!estFaceMur()){
+        avance()
+      }
+      else{
+        right()
+      }
+    }
+}
+}
+
 override def run() {
   var dir :Int =0
   while (!estSurBiscuit()){
