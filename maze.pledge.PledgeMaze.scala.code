@@ -8,8 +8,7 @@ override def run() {
     return false
   }
   
-  def isDirectionFree(dir:Direction):Boolean = {
-    setDirection(dir)
+  def isDirectionFree():Boolean = {
     if (!estFaceMur) {return true}
     return false
   }
@@ -39,10 +38,9 @@ override def run() {
   
   droite()
   var sommeAngle:Int=(-1)
-  var d:Direction=getDirection()
   while (!estSurBiscuit) {
-    d=getDirection()
-    if (isDirectionFree(d) && sommeAngle=0) {
+
+    if (isDirectionFree && sommeAngle=0) {
       avance()
     } else {
     	if (!keepHandOnSideWall()) {droite; sommeAngle-=1}
