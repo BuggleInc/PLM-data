@@ -7,8 +7,8 @@ override def run()
   
   //D abord placer le trou au bonne endroit
   
-  var baseTrou = getTrouBase();
-  var posTrou = getTrouPosition();
+  var origBaseTrou = getTrouBase();
+  var origPosTrou = getTrouPosition();
   
   for (nCouleur <- 0 to 0) //On trie chacune des bases (=couleurs)
   {
@@ -20,7 +20,7 @@ override def run()
         {
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
-            deplacerJoueur(nPos, nCouleur, 1);
+            deplacerJoueur(nPos, nBase, nCouleur, origBaseTrou, origPosTrou);
             return;
           }
         }
@@ -40,9 +40,9 @@ def deplacerTrou(arrive:Int, pos:Int, sens:Int) //sens:-1 ou 1
   deplacerTrou(arrive, pos, sens);
 }
 
-def deplacerJoueur(pos:Int, arrive:Int)
+def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTrou:Int)
 {
-  deplacerTrou((nBase+1)%nbBases, 0, -1);
+  deplacerTrou((depart+1)%nbBases, 0, -1);
   
   var nbBases = getNombreBases();
   var nbPos = getNombrePositions();
@@ -86,7 +86,7 @@ def deplacerJoueur(pos:Int, arrive:Int)
   if (getTrouBase() != baseTrou) 
   {
     deplacerTrou((baseTrou+1)%nbBases, 0, 1);
-    deplace(baseTrou, posTrou);
+    deplace(origBaseTrou, origPosTrou);
   }
 }
   
