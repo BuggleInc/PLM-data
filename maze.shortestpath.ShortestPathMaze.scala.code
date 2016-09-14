@@ -45,25 +45,25 @@ override def run() {
   }
   while (!estSurBiscuit) {
     if (getX<getMondeLargeur-1) {
-      if (getIndication(getX,getY)-1==getIndication(getX()+1,getY)) {
+      if (getIndication(getX,getY)-1==getIndication(getX()+1,getY) && !estFaceMur) {
         setDirection(Direction.EST)
         avance()
       }
     }
     if (getX>0) {
-      if (getIndication(getX,getY)-1==getIndication(getX()-1,getY)) {
+      if (getIndication(getX,getY)-1==getIndication(getX()-1,getY) && !estFaceMur) {
         setDirection(Direction.OUEST)
         avance()
       }
     }
     if (getY<getMondeHauteur-1) {
-      if (getIndication(getX,getY)-1==getIndication(getX(),getY()+1)) {
+      if (getIndication(getX,getY)-1==getIndication(getX(),getY()+1) && !estFaceMur) {
         setDirection(Direction.SUD)
         avance()
       }
     }
     if (getY>0) {
-      if (getIndication(getX,getY)-1==getIndication(getX(),getY()-1)) {
+      if (getIndication(getX,getY)-1==getIndication(getX(),getY()-1) && !estFaceMur) {
         setDirection(Direction.NORD)
         avance()
       }
