@@ -13,21 +13,27 @@ override def run() {
 
 
 def keepHandOnSideWall(){
+  var count=0
   left()
+  count=count+1
   if (isFacingWall()==true){
     right()
+    count=count-1
     if (isFacingWall()==false){
       forward()
     }
     else{
       right()
+      count=count-1
     }
   }
   else {
     forward()
     left()
+    count=count+1
     if (isFacingWall()==true){
       right()
+      count=count-1
       if (isFacingWall()==false){
         forward()
       }
