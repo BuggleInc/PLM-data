@@ -20,13 +20,15 @@ override def run()
         {
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
-            deplacerTrou((nBase+1)%nbBases, 1);
-            //deplacerJoueur(nPos, nCouleur, 1);
+            deplacerTrou((nBase+1)%nbBases, 0, 1);
+            deplacerJoueur(nPos, nCouleur, 1);
+            /*
             if (getTrouBase() != baseTrou) 
             {
-              deplacerTrou(baseTrou+1, -1);
+              deplacerTrou((baseTrou+1)%nbBases, 0, -1);
               deplace(baseTrou, posTrou);
-            }
+            }*/
+            return;
           }
         }
       }
@@ -35,35 +37,37 @@ override def run()
 }
 
 
-def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
+def deplacerTrou(arrive:Int, pos:Int, sens:Int) //sens:-1 ou 1
 {
   if (arrive == getTrouBase()) return;
   
   var nextBase = mod(getTrouBase()+sens, getNombreBases());
   
-  deplace(nextBase, 0);
-  deplacerTrou(arrive, sens);
+  deplace(nextBase, pos);
+  deplacerTrou(arrive, pos, sens);
 }
 
 
 def deplacerJoueur(pos:Int, arrive:Int, sens:Int)
 {
-  //requis: le trou se trouve à côté de la base du joueur
   var nbBases = getNombreBases();
-  var currTrou = getTrouBase(); //base où se trouve le trou
-  var currBase = (getTrouBase()-sens)%nbBases; //base où se trouve le joueur
-  
-  if (arrive == currTrou)
-  {
-    deplace(currBase, pos);
-  }
-  else
-  {
-    deplace(currBase, pos);
-    //currTrou et currBase sont maintenant inverses
+  var baseTrou = getTrouBase();
+  var posTrou = getTrouPosition();
+  var nouvPos = 0;
     
-    deplace(currBase, cherchePasJoueur(currTrou, currTrou));
-    deplacerJoueur(chercheJoueur(arrive, currTrou), arrive, sens)
+  var currBase = mod(getTrouBase()-sens, nbBases;
+  
+  while((currBase != arrive)
+  {
+    //Le trou est au dessus du joueur
+    currBase = mod(getTrouBase()-sens, nbBases);
+    nouvPos = getTrouPosition();
+    
+    deplace(currBase, pos);
+    currBase = (currBase+sens)%nbBases;
+    
+    deplace(currBase, (nouvPos+1)%nbBases);
+    deplace(currBase+sens)%nbBases, 0);
   }
 }
   
