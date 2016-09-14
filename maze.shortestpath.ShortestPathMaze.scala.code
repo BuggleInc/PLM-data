@@ -8,6 +8,7 @@ override def run() {
     }
   }
   setIndication(sortieX,sortieY,0)
+  
   }
   while (!estSurBiscuit){
     var min:Int = getIndication(getX,getY)
@@ -48,19 +49,15 @@ def tagCaseAdj(x:Int,y:Int):Unit = {
   if (i < 9999){
     if ((y>0)&&(!aMurNord(x,y))&&(getIndication(x,y-1)==9999)){
       setIndication(x,y-1,i+1)
-      tagCaseAdj(x,y-1)
     }
     if ((x>0)&&(!aMurOuest(x,y))&&(getIndication(x-1,y)==9999)){
       setIndication(x-1,y,i+1)
-      tagCaseAdj(x-1,y)
     }
     if ((y<(getMondeHauteur()-1))&&(!aMurNord(x,y+1))&&(getIndication(x,y+1)==9999)){
       setIndication(x,y+1,i+1)
-      tagCaseAdj(x,y+1)
     }
     if ((x<getMondeLargeur()-1)&&(!aMurOuest(x+1,y))&&(getIndication(x+1,y)==9999)){
       setIndication(x+1,y,i+1)
-      tagCaseAdj(x+1,y)
     }
   }
 }
