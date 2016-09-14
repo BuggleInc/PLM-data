@@ -1,7 +1,11 @@
 var mem = 0
 override def run() {
   while(!estTrie) {
-    if (getCouleurJoueur(getTrouBase(),0)< getCouleurJoueur(getTrouBase(),1)) {
+    mem=getTrouBase()+1
+    if (getTrouBase()+1>3) {
+      mem=mem%4
+    }
+    if (getCouleurJoueur(getTrouBase()+1,0)< getCouleurJoueur(getTrouBase()+1,1)) {
       deplace(getTrouBase+1,1)
     }
   }
