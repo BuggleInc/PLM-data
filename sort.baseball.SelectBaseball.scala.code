@@ -9,6 +9,7 @@ override def run()
   var origBaseTrou = 0;
   var cpt = 0;
   
+  //Trouve la couleur qui contient un trou
   for (i <- 0 to nbBases-1)
   {
     cpt = 0;
@@ -16,7 +17,7 @@ override def run()
     {
       for (k <- 0 to nbPos-1)
       {
-      	if (getCouleurJoueur(j,k) != -1) cpt += 1;
+      	if (getCouleurJoueur(j,k) == i) cpt += 1;
       }
     }
     if (cpt < nbPos) origBaseTrou = i;
