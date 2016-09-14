@@ -9,7 +9,7 @@ override def run() {
     right()
     count=count-1
     while (getDirection != Direction.NORTH && isOverBaggle()==false && count != 0){
-    keepHandOnSideWall(count)
+    count=keepHandOnSideWall(count)
     }
   }
   pickupBaggle()
@@ -18,25 +18,25 @@ override def run() {
 
 def keepHandOnSideWall(count : Int){
   left()
-  count=count+1
+  var count1=count+1
   if (isFacingWall()==true){
     right()
-    count=count-1
+    count1=count1-1
     if (isFacingWall()==false){
       forward()
     }
     else{
       right()
-      count=count-1
+      count1=count1-1
     }
   }
   else {
     forward()
     left()
-    count=count+1
+    count1=count1+1
     if (isFacingWall()==true){
       right()
-      count=count-1
+      count1=count1-1
       if (isFacingWall()==false){
         forward()
       }
@@ -45,4 +45,5 @@ def keepHandOnSideWall(count : Int){
       forward()
     }
   }
+  return(count1)
 }
