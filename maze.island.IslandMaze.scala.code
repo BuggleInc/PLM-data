@@ -1,19 +1,25 @@
 override def run() {
   
-    
-  while(estSurBiscuit()==false){
-    keepHandOnSideWall()
-  }
-  prendBiscuit()
-  
-  
-  
+ trouverNord()   
+ 
 }
 
 def trouverNord(){
-	while(getDirection()!=Direction.NORD){
-    droite()
-  }
+  var y:Int=getY()
+	while(y!=0){
+    setDirection()=Direction.NORD
+    if(estFaceMur()==true){
+      while(estFaceMur()==true){
+        droite()
+      }
+      avance()
+      setDirection()=Direction.NORD
+    }else{
+      avance()
+    }
+
+    
+    
   
 }
 
