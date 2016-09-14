@@ -51,7 +51,6 @@ def deplacerJoueur(couleur:Int, pos:Int, arrive:Int, sens:Int)
 {
   //requis: le trou se trouve à côté de la base du joueur
   var nbBases = getNombreBases();
-  var nbPos = getNombrePositions();
   var currTrou = getTrouBase(); //base où se trouve le trou
   var currBase = (getTrouBase()-sens)%nbBases; //base où se trouve le joueur
   
@@ -71,6 +70,8 @@ def deplacerJoueur(couleur:Int, pos:Int, arrive:Int, sens:Int)
   
 def chercheJoueur(couleur:Int, base:Int):Int =
 {
+  var nbPos = getNombrePositions();
+  
   for (i <- 0 to nbPos-1)
   {
     if (getCouleurJoueur(base, i) == couleur) return i;
@@ -80,6 +81,8 @@ def chercheJoueur(couleur:Int, base:Int):Int =
 
 def cherchePasJoueur(couleur:Int, base:Int):Int =
 {
+  var nbPos = getNombrePositions();
+  
   for (i <- 0 to nbPos-1)
   {
     if (getCouleurJoueur(base, i) != couleur) return i;
