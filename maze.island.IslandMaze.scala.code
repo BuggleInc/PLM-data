@@ -7,14 +7,6 @@ override def run() {
       right();
     }
   }
-  def headNorth(){
-    if(getDirection()==Direction.NORTH && !isFacingWall()){
-      forward();
-    }else{
-      println("You failed, Noob. Kappa.")
-    }
-  }
-  
   def keepHandOnSideWall() {
     go();
     left();
@@ -28,6 +20,14 @@ override def run() {
     }
     right();
   }
+  
+  def headNorth(){
+    if(getDirection()==Direction.NORTH && !isFacingWall()){
+      forward();
+    }else{
+      println("You failed, Noob. Kappa.")
+    }
+  }
   var state=2;
   while(!isOverBaggle()){
    
@@ -38,7 +38,9 @@ override def run() {
          }
          state = 1;
       case 1 => // Left follower
-         while(!(getDirection()==Direction.NORTH) && isFacingWall())
+         while(!(getDirection()==Direction.NORTH) && isFacingWall()){
+           keepHandOnSideWall()
+         }
          state = 0;
       case _ => println("This case should not happen. Please fix me")
     }
