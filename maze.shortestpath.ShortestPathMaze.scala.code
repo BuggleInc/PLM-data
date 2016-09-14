@@ -14,7 +14,6 @@ override def run() {
     while (compteur<h*l)
   
   {
-  
     for (x<- 0 to h-1){
         for(y<- 0 to l-1)
      {if ((getIndication(x,y)==9999) && y<l-1 && !aMurNord(x,y+1) && (getIndication(x,y+1)==k))
@@ -28,6 +27,22 @@ override def run() {
      
     }
   k+=1
-    }}
+    }
+  while (!estSurBiscuit())
+      {setDirection(trouve());avance()}
+  
 
-
+  prendBiscuit()
+}
+def trouve()
+    {val (x,y) = (getX(),getY())
+     val i = getIndication(x,y)
+     if (getIndication(x+1,y)==i-1)
+          {return(Direction.EAST)}
+     if (getIndication(x-1,y)==i-1)
+          {return(Direction.WEST)}
+     if (getIndication(x,y+1)==i-1)
+          {return(Direction.SOUTH)}
+     if (getIndication(x,y-1)==i-1)
+          {return(Direction.NORTH)}
+    }
