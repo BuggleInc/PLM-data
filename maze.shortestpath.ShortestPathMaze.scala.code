@@ -8,20 +8,20 @@ def ecritPos(x:Int,y:Int,a:Int):Boolean= {
       ecritPos(x,y-1,a+1)
     
     }
-    if (!aMurOuest(x,y)){
+    if (!aMurOuest(x,y)&& getIndication(x-1,y)==9999){
       
       ecritPos(x-1,y,a+1)
     }
     
     if (y != getMondeHauteur()-1){
-      if (!aMurNord(x,y+1)){
+      if (!aMurNord(x,y+1)&& getIndication(x,y+1)==9999){
       
       ecritPos(x,y+1,a+1)
       }
     }
       
     if (x != (getMondeHauteur()-1)){
-      if (!aMurOuest(x+1,y)){
+      if (!aMurOuest(x+1,y)&& getIndication(x+1,y)==9999){
       
       ecritPos(x+1,y,a+1)
       }
