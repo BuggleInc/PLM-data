@@ -8,16 +8,24 @@ override def run() {
 
 def keepHandOnSideWall(){
   left()
-  if (isFacingWall==true){
+  if (isFacingWall()==true){
     right()
-    if (isFacingWall==false){
+    if (isFacingWall()==false){
       forward()
     }
+  }
+  else {
+    forward()
+    left()
+    if (isFacingWall()==true){
+      right()
+      if (isFacingWall()==false){
+        forward()
+      }
+    }
     else{
-      right();right()
+      forward()
     }
   }
-  else{
-    right();right()
-  }
 }
+  
