@@ -3,7 +3,7 @@ var y = 0
 var sol = 0
 override def run() {
   chercherLeBiscuit()
-  var Coord = List((List(x,y)))
+  var Coord = Array((x,y))
   while(Coord(sol)!=()){
     var a = Coord(sol).size-1
     for (i <- 0 to a){
@@ -28,7 +28,7 @@ def chercherLeBiscuit(){
 }
 
 def marquage(x:Int,y:Int,sol:Int):List ={
-  var L = ()
+  var L = Array()
   if (!aMurNord(x,y) && y!=0 && getIndication(x,y-1)==9999){
     if (check(x,y-1,sol+1)==true){
     	setIndication(x,y-1,sol+1);
