@@ -13,16 +13,16 @@ override def run() {
   setIndication(x,y,cpt)
   while(true){
     cpt+=1
-    if(!aMurNord(x,y)){
+    if(!aMurNord(x,y) && getIndication(x,y-1)==9999){
     	setIndication(x,y-1,cpt)
     }
-    if(!aMurOuest(x,y)){
+    if(!aMurOuest(x,y) && getIndication(x-1,y)==9999){
     	setIndication(x-1,y,cpt)
     }
-    if(!aMurNord(x,y+1)){
+    if(!aMurNord(x,y+1) && getIndication(x,y+1)==9999){
     	setIndication(x,y+1,cpt)
     }
-    if(!aMurOuest(x+1,y)){
+    if(!aMurOuest(x+1,y) && getIndication(x+1,y)==9999)}
     	setIndication(x+1,y,cpt)
     }
 	}
