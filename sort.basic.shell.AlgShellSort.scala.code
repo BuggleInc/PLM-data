@@ -5,14 +5,19 @@ def shellSort()  {
   var long = getNombreValeurs()
   var ecart = long/2
   while(ecart > 0) {
+    
     for (i<- ecart to long - 1) {
     	v = getValeur(i)
    		a = getValeur(i-ecart)
    		compt = 0
-    	while (a>v && i-(compt+1)*ecart> 0) {
+      
+    	while (a>v && i-(compt+1)*ecart >= 0) {
+        
       	setValeur(i-compt*ecart,a)
       	compt += 1
-      	if (i-(compt+1)*ecart>=0) a = getValeur(i-(compt+1)*ecart)
+        
+      	if (i-(compt+1)*ecart >= 0) 
+        	a = getValeur(i-(compt+1)*ecart)
     }
     setValeur(i-compt*ecart,v)
   }
