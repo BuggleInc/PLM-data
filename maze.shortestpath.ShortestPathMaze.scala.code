@@ -1,8 +1,8 @@
 override def run() {
   var largeur = getMondeLargeur()
   var hauteur = getMondeHauteur()
-  var 
-  trouveBiscuit()
+  var compteur = 0
+  var (i,j) = trouveBiscuit()
 }
 
 def trouveBiscuit() {
@@ -11,7 +11,7 @@ def trouveBiscuit() {
   for (i <- 0 to largeur-1; j <- 0 to hauteur-1) {
   	if (aBiscuit(i,j)) {
     	setIndication(i,j,0)
-    	return
+    	return(i,j)
     }
   }
 }
