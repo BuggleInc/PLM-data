@@ -1,8 +1,31 @@
 override def run() 
 {
+  var gauche=false
   while(!porteBiscuit())
   {
-    keepHandOnSideWall()
+    if (murGauche() && !murDroite())	
+    	{
+    		keepHandOnLeftWall()
+        gauche=true
+      }
+    else if (murGauche() && murDroite())
+    	{
+        if(gauche)
+        	{
+            keepHandsOnRightWall()
+            gauche=false
+          }
+        else
+        	{
+            keepHandsOnLeftWall()
+            gauche=true
+          }
+      }
+    else
+    	{
+        keepHandsOnRightWall()
+        gauche=false
+      }
     if (estSurBiscuit())
     	{
         prendBiscuit()
