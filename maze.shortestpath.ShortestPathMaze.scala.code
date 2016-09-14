@@ -49,7 +49,7 @@ def marquage(x:Int,y:Int,sol:Int){
 def check(x:Int,y:Int,sol:Int):Boolean = {
   var etat = true
   if (!aMurNord(x,y) && y!=0){
-    if (sol>=Abs(sol-getIndication(x,y-1))>=2){
+    if (sol>=abs(sol-getIndication(x,y-1))>=2){
       etat=false
     }
   }
@@ -69,4 +69,11 @@ def check(x:Int,y:Int,sol:Int):Boolean = {
     }
   }
  return etat
+}
+
+def Abs(x:int):int{
+  if (x<0){
+    return -x
+  }
+  return x
 }
