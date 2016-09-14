@@ -5,11 +5,11 @@ override def run()
   var posJoueur = 0;
   var baseJoueur = 0;
   
-  for (nCouleur <- 0 to 0) //On trie chacune des couleurs
+  for (nCouleur <- 0 to 0) //On trie chacune des bases (=couleurs)
   {
     for (j <- 0 to nbBases-1)
     {
-      if (j != nCouleur) //On ne bouge pas ceux qui sont déja dans la base de la couleur courante
+      if (j != nCouleur) //On ne regarde pas la base en cours de trie
       {
         for (k <- 0 to nbPos-1)
         {
@@ -17,6 +17,7 @@ override def run()
           {
             deplacerTrou((j+1)%nbBases, 1);
             deplace(j, k);
+            
           }
         }
       }
@@ -44,4 +45,44 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
   }
   
   //deplacerTrou(arrive, -sens);
+}
+
+def deplacerJoueur(couleur:Int, pos:Int, arrive:Int, sens:Int)
+{
+  //requis: le trou se trouve à côté de la base du joueur
+  var nbBases = getNombreBases();
+  var nbPos = getNombrePositions();
+  var currTrou = getTrouBase(); //base où se trouve le trou
+  var currBase = (getTrouBase()-sens)%nbBases; //base où se trouve le joueur
+  
+  if (arrive == currTrou)
+  {
+    deplace(currBase, pos);
+  }
+  else
+  {
+    deplace(currBase, pos);
+    //currTrou et currBase sont maintenant inverses
+    
+    deplace(currBase, cherchePasjoueur(couleur, currTrou));
+    deplacerJoueur(couleur, chercheJoueur(couleur, currTrou), arrive, sens)
+  }
+}
+  
+def chercheJoueur(couleur:Int, base:Int):Int =
+{
+  for (i <- 0 to nbPos-1)
+  {
+    if (getCouleurJoueur(base, i) == couleur) return i;
+  }
+  return -1;
+}
+
+def cherchePasJoueur(couleur:Int, base:Int):Int =
+{
+  for (i <- 0 to nbPos-1)
+  {
+    if (getCouleurJoueur(base, i) != couleur) return i;
+  }
+  return -1;
 }
