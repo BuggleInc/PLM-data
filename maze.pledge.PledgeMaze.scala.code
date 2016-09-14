@@ -2,8 +2,10 @@ override def run() {
  var sommeAngle:Int=(-1)
  var dir:Direction=getDirection()
  var Angle:Boolean=false
+ var y:Int=getY()
  
-	while(estSurBiscuit()==false){
+	while(y!=0){
+   
    trouverNord()
    droite()
 
@@ -45,8 +47,13 @@ override def run() {
       }
     }
     Angle=false
+    y=getY()
   }
-
+  
+  while(estSurBiscuit()==false){
+    keepHandOnSideWall()
+  }
+	prendBiscuit()
   
 }
 
