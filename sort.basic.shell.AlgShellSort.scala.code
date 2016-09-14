@@ -2,49 +2,28 @@ def shellSort()  {
 
   var i = 0;
   var k = 0;
+  var j = 0;
   var v = 0;
   var ecart = getNombreValeurs()/2;
   
   while (ecart > 0) {
-    
-      /*for (i <- 1 to getNombreValeurs()-1) {*/
-      v = getValeur(i - k *  ecart);
 
-        while (((i - (k+1) * ecart) > 0) && plusPetitQue(i - (k) * ecart,v) == false) {
+    for (i <- ecart to getNombreValeurs()-1) {
+      v = getValeur(i);
+      j = i;
 
-          copie(i - k * ecart, i - (k+1) * ecart);        
-					k += 1
-        }
+      while ((j > 0) && plusPetitQue(j-ecart,v) == false) {
 
-      setValeur(i - (k/*+1*/) * ecart, v);
+        copie(j-ecart, j);
+        j -= ecart
 
-    }
-    
-  //}
-  
-}
+      }
 
-/*def insertionSort() {
-  
-  var i = 0;
-  var j = 0;
-  var v = 0;
-  
-  for (i <- 1 to getNombreValeurs()-1) {
-    v = getValeur(i);
-    j = i;
-    
-    while ((j > 0) && plusPetitQue(j-1,v) == false) {
-
-      copie(j-1, j);
-      j -= 1
+      setValeur(j, v);
 
     }
+    ecart = ecart/ 2
 
-    setValeur(j, v);
-
-    
   }
   
-  
-}*/
+}
