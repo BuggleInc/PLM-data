@@ -36,7 +36,8 @@ override def run() {
 }
 
 def trouve() : Direction =
-    {val (x,y) = (getX(),getY())
+{if !estSurBiscuit() {return(Direction.NORTH)}
+ val (x,y) = (getX(),getY())
      val i = getIndication(x,y)
      if (getIndication(x+1,y)==i-1)
           {return(Direction.EAST)}
