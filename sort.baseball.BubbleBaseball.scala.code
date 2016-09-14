@@ -5,26 +5,17 @@ override def run() {
   
   while (!estTrie()) {
     for (i <- 1 to n-1) {
-      if (getCouleurJoueur(i, 0)>getCouleurJoueur(i, 1)) {
-        deplace(i, 1)
-      }
-      else {
-        deplace(i, 0)
-      }
+      deplace(i, min(i))
     }
     
     if (!estTrie()) {
       for (j <- n-2 to 0 by -1) {
-        if (getCouleurJoueur(j, 0)>getCouleurJoueur(j, 1)) {
-          deplace(j, 0)
-        }
-        else {
-          deplace(j, 1)
-        }
+        deplace(j, max(j))
       }
     }
   }
 }
+
 
 def setTrouToOne() { //On amène le trou à la position 1
   var trou = getTrouPosition()
@@ -34,4 +25,36 @@ def setTrouToOne() { //On amène le trou à la position 1
       deplace(i, 1)
     }
   }
+}
+
+
+def max(i:Int):Int = {
+  var nbPositions:Int = getNombrePositions()
+  var maxi:Int = -1
+  var indice:Int = -1
+  
+  for (j <- 0 to nbPositions-1) {
+    if (getCouleurJoueur(i, j)>maxi) {
+      maxi = getCouleurJoueur(i, j)
+      indice = j
+    }
+  }
+  
+  return j
+}
+
+
+def min(i:Int):Int = {
+  var nbPositions:Int = getNombrePositions()
+  var mini:Int = -1
+  var indice:Int = -1
+  
+  for (j <- 0 to nbPositions-1) {
+    if (getCouleurJoueur(i, j)<mini) {
+      mini = getCouleurJoueur(i, j)
+      indice = j
+    }
+  }
+  
+  return j
 }
