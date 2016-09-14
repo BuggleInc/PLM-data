@@ -1,14 +1,45 @@
 override def run() {
  var sommeAngle:Int=0 
- var Angle:Boolean=false
+ var dir:Direction=getDirection()
  
   
  trouverNord()
  droite()
  
- //while(Angle==false)
- 	keepHandOnSideWall()
+ while(Angle==false){
+    keepHandOnSideWall()
+    if(getDirection()!=dir){
+      if(dir==Direction.NORTH && getDirection==Direction.EAST){
+        sommeAngle-=1
+      }
+      else if(dir==Direction.NORTH && getDirection==Direction.WEST){
+        sommeAngle+=1
+      }
+      else if(dir==Direction.SUD && getDirection==Direction.EAST){
+        sommeAngle+=1
+      }
+      else if(dir==Direction.SUD && getDirection==Direction.WEST){
+        sommeAngle-=1
+      } else  if(dir==Direction.EST && getDirection==Direction.NORTH){
+        sommeAngle+=1
+      }
+      else if(dir==Direction.EST && getDirection==Direction.SOUTH){
+        sommeAngle-=1
+      }
+      else if(dir==Direction.WEST && getDirection==Direction.NORTH){
+        sommeAngle-=1
+      }
+      else if(dir==Direction.WEST && getDirection==Direction.SOUTH){
+        sommeAngle+=1
+      }
+    }
 
+    if (sommeAngle==0){
+      Angle=true
+    }else{
+      Angle=false
+    }
+	}
 
 }
 
@@ -70,3 +101,9 @@ def keepHandOnSideWall(){
   
     
 }
+
+
+
+
+
+
