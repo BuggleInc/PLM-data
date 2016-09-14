@@ -1,8 +1,10 @@
 override def run() {
-  vaNord()
-  /*while(!estSurBiscuit())
-  	longeGch()
-  prendBiscuit()*/
+  while(!estSurBiscuit())
+  	setDirection(DirectionNord) 
+  	if (estFaceMur)
+  		longeGch()
+  	else(avance())
+  prendBiscuit()
 }
 
 def longeGch(){
@@ -15,14 +17,4 @@ def longeGch(){
       droite()
     avance()
        }
-}
-
-def vaNord() {
-  do {
-    if (!estFaceMur())
-    	avance()
-    	gauche()
-    	avance()
-      droite()
-  }while(!estFaceMur())
 }
