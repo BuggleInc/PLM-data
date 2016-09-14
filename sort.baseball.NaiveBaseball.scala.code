@@ -1,0 +1,37 @@
+override def run() {
+  var nbrB:Int = getBasesAmount();
+  var posTrouBase:Int = getHoleBase();
+  var posTrouPos:Int = getHolePosition();
+  var numABouger:Int = 0;
+  
+  while (!isSorted()) {
+    nbrB = getHoleBase();
+    posJABouger = (getHoleBase()-1)%nbrB;
+    
+    numABouger = longerWay(nbrB, posJABouger)
+    move(numABouger,)
+  }
+}
+
+def longerWay(nbrB:Int, numBase:Int){
+  var player1:Int = getPlayerColor(numBase,1);
+  var player2:Int = getPlayerColor(numBase,2);
+  if (player1 == numBase){
+    return player2
+  }
+  if (player1 < numBase) {
+    player1 += nbrB
+  }
+  if (player2 < numBase) {
+    player2 += nbrB
+  }  
+  
+  if (player1 > player2) {
+    return player1
+  }
+  
+  else {
+    return player2
+  }
+  
+}
