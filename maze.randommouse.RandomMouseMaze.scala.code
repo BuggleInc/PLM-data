@@ -13,21 +13,23 @@ override def run() {
 
 def randMove() {
   
-	while (!estFaceMur()) {
+	var nbPas = random3()
+  
+  while (!estFaceMur() && nbPas != 0) {
     
-    var nbPas = random3()
-    avance(nbPas)
+    avance()
+    nbpas = nbPas - 1
     
   }
     
-  droite()
+  gauche()
     
-  	if (estFaceMur()) {
+  if (estFaceMur()) {
       
-    	gauche()
-    	gauche()
+  	droite()
+    droite()
       
-    }
-  
+  }
+    
 }
   
