@@ -1,6 +1,7 @@
 var x = 0
 var y = 0
 var cpt=0
+var mem=1
 override def run() {
   for(i<-0 to getMondeLargeur-1){
     for(j<-0 to getMondeHauteur-1){
@@ -11,11 +12,13 @@ override def run() {
     }
   }
   setIndication(x,y,cpt)
-  while(!estSurBiscuit){
+  while(mem==1){
+    mem=0
     cpt+=1
     for(i<-0 to getMondeLargeur-1){
     	for(j<-0 to getMondeHauteur-1){
         if (getIndication(i,j)==cpt-1){
+          mem=1
     			if(!aMurNord(i,j) && getIndication(i,j-1)==9999){
     				setIndication(i,j-1,cpt)
     			}
@@ -31,9 +34,9 @@ override def run() {
     				if(!aMurOuest(i+1,j) && getIndication(i+1,j)==9999){
     					setIndication(i+1,j,cpt)
     				}
-          }
-        }
+        	}
+      	}
       }
     }
-	}
+  }
 }
