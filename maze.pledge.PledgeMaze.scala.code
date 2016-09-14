@@ -1,5 +1,5 @@
 override def run() {
-  
+  var sA=0
   def testgauche():Boolean = {
     gauche()
     if (estFaceMur()) {droite();return true}
@@ -26,11 +26,19 @@ override def run() {
   }
   
   droite()
+  dirpref=Direction.NORTH
   while (!estSurBiscuit) {
-    if (getDirection==Direction.NORTH && !estFaceMur()) {
+    if (sA==3) {
+      if (isDirectionFree(dirpref) and dirpref==Direction.EAST) {dirpref=Direction.SOUTH;setDirection(Direction.SOUTH)}
+      if (isDirectionFree(dirpref) and dirpref==Direction.WEST) {dirpref=Direction.NORTH;setDirection(Direction.NORTH)}
+      if (isDirectionFree(dirpref) and dirpref==Direction.NORTH) {dirpref=Direction.EAST;setDirection(Direction.EAST)}
+      if (isDirectionFree(dirpref) and dirpref==Direction.SOUTH) {dirpref=Direction.WEST;setDirection(Direction.WEST)}
+      sA=0
+    }
+    if (getDirection==dirpref && !estFaceMur()) {
       avance()
     } else {
-    	if (!keepHandOnSideWall()) {droite}
+    	if (!keepHandOnSideWall()) {droite; sA+=1}
     }
   }
   prendBiscuit()
