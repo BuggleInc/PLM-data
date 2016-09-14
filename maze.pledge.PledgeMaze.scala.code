@@ -30,8 +30,9 @@ def trouverNord(){
 }
 
 def keepHandOnSideWall(){
-		var sommeAngle():Int
+		var sommeAngle():Int=10
   	while(sommeAngle!=0){
+      sommeAngle=0
       if(estFaceMur()==true){
         droite()
         sommeAngle-=1
@@ -43,6 +44,7 @@ def keepHandOnSideWall(){
           while(estFaceMur()==false){
             avance()
             gauche()
+            sommeAngle+=1
         }
 
         }
