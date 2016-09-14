@@ -6,16 +6,16 @@ def solve() {
   while ((debut<avantBlanc)&&(debut<fin)){
     var c= getCouleur(i)
     c match{
-      BLEU => (if (i> debut){
+      case BLEU => (if (i> debut){
         				echange(i, debut)
         				debut +=1
       				})
-      BLANC => (while (getCouleur(avantBlanc)==BLANC){
+      case BLANC => (while (getCouleur(avantBlanc)==BLANC){
         					avantBlanc -=1
       					}
       					echange(i, avantBlanc)
       					avantBlanc -=1)
-      ROUGE => (while (getCouleur(fin)==ROUGE){
+      case ROUGE => (while (getCouleur(fin)==ROUGE){
         					echange(fin-1, avantBlanc-1)
         					fin -=1
         					avantBlanc -=1
