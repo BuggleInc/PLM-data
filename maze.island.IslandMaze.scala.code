@@ -1,13 +1,16 @@
 override def run() {
   
-  while (!estSurBiscuit()) {
+  var etat = 0
+  
+  etat match {
     
-    keepHandOnSideWall()
+    case 0 => run2North(); etat = 1
+    case 1 => keepHandOnSideWall(); etat = 0
+    case _ => printIn("Scumbag")
     
   }
   
   prendBiscuit()
-  
 }
 
 
@@ -38,4 +41,17 @@ def keepHandOnSideWall() {
     
   }
     
+}
+
+
+def run2North() {
+  
+  setDirection(Direction.NORTH)
+  
+  while (!estFaceMur()) {
+    
+    avance()
+    
+  }
+  
 }
