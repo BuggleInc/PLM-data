@@ -16,16 +16,34 @@ def posFinale():Boolean = {
   if (estFaceMur() && getDirection() == Direction.EST) {
      
       gauche();
-      return !estFaceMur()
       
-    } 
+      if (estFaceMur()) {
+        
+        return true
+        
+      } else {
+        
+        return false
+        
+      }
+      
+	} 
     
   else {
       
       if (estFaceMur() && getDirection() == Direction.OUEST) {
         
         droite();
-        return !estFaceMur()
+        
+        if (estFaceMur()) {
+        
+        return true
+        
+      	} else {
+        
+        return false
+        
+      	}
         
       }
     
@@ -60,8 +78,12 @@ def serpenter() {
       
     }
     
+    else {
+      
+      avance();
+      
+    }
+    
   }
-  
-  avance();
     
 }
