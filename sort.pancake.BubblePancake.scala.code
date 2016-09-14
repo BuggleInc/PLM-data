@@ -1,10 +1,10 @@
 def solve() {
   var l=getStackSize()
-  for( i <- 0 to l-1){
-    var j = i
-    while(getPancakeRadius(j)>getPancakeRadius(j+1)){
-    	swap(j)
-      j+=1
+  for( i <- 0 to l-2){
+
+    for(j <- i to l-1){
+      if(getPancakeRadius(j)>getPancakeRadius(j+1))
+	    	swap(j)
     }
   }
 }
