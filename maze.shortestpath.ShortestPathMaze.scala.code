@@ -28,7 +28,7 @@ def marque(){
   var i=0
   var j=0
   var possible=true
-  listeX = x :: listeX
+  listeX=x::listeX
   listeY=y::listeY
   while(possible==true){
     for(i <- 0 to listeX.length-1){
@@ -39,16 +39,14 @@ def marque(){
     listeX=Nil
     listeY=Nil
     for(j <- 0 to lX.length){
-      possible=pos(j)
+      possible=pos(lX(j),lY(j))
     }
     c+=1
   }
   
 }
 
-def pos(j:Int): Boolean ={
-  var x=lX(j)
-  var y=lY(j)
+def pos(x,y): Boolean ={
   var test=false
   if(y!=0 && aMurNord(x,y)==false){
     listeX=x::listeX
