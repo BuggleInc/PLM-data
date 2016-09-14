@@ -6,12 +6,12 @@ override def run() {
   while(finale==0) {
     finale=1
     mem=getTrouBase()+1
-    while (mem>getNombreBases()-1) {
+    while (mem>getNombreBases()) {
       mem=mem-getNombreBases()
     }
     pos1 = abs(getCouleurJoueur(mem,0)-mem)
     pos2 = abs(getCouleurJoueur(mem,1)-mem)
-    if (pos1 <= pos2) {
+    if (pos1 < pos2) {
       deplace(mem,1)
       finale=0
     } else {
