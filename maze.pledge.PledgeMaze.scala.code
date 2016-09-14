@@ -37,23 +37,24 @@ def leftFollowerMode(sommeAngle : Int) : Int = {
 
 // this method works
 def northRunnerMode (sommeAngle: Int) {
-  if (sommeAngle%4 != 0) { // if we didn't just made a loop before
-    while (getDirection() != Direction.NORTH) { // auto-orientation
-      right();
-    }
-    while (!isFacingWall()) { // forward as long is possible 
-        forward();
-    }
+	while (getDirection() != Direction.NORTH) { // auto-orientation
+  	right();
+  }
+  while (!isFacingWall()) { // forward as long is possible 
+  	forward();
   }
 }
 
 def makeMoving() {
   var state = 0;
   var sommeAngle = 0;
+  var numberOfAppeals = 0;
   while (!isOverBaggle()) {
     state match {
-      case 0 => northRunnerMode(sommeAngle); // while we don't find a wall at the north
-      					state = 1; // switch with the leftFollowerMode
+      case 0 => if (numberOfAppeals == 0 || sommeAngle != 0) { // if we didn't made a loop before or if it's the first turn
+        						northRunnerMode(); // while we don't find a wall at the north
+        						numberOfAppeals = 1;
+      							state = 1; // switch with the leftFollowerMode
       case 1 =>  while (!isWallAtLeft()) { 
         						right(); // make sure that there is a wall on the left before run the leftFollower mode
       					 }; sommeAngle = leftFollowerMode(sommeAngle); state = 0;
