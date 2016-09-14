@@ -1,11 +1,12 @@
 def hunt() {
   avance()
-  while (isFacingTrail()==true) {
-    avance()
-    if (isFacingTrail()==false) {
-      recule()
+  while (!estSurBiscuit()) {
+    if (isFacingTrail()) {
+      avance()
+    } else {
       gauche()
     }
+    
   }
 }
 def isFacingTrail():Boolean = {
