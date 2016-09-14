@@ -9,8 +9,14 @@ override def run() {
     while (mem>=getNombreBases()) {
       mem=mem-getNombreBases()
     }
-    pos1 = abs(getCouleurJoueur(mem,0)-mem)
-    pos2 = abs(getCouleurJoueur(mem,1)-mem)
+    pos1 = getCouleurJoueur(mem,0)-mem
+    pos2 = getCouleurJoueur(mem,1)-mem
+    if (pos1<0) {
+      pos1=pos1+getNombreBases()
+    }
+    if (pos2<0) {
+      pos2=pos2+getNombreBases()
+    }
     if (pos1 < pos2) {
       deplace(mem,1)
       finale=0
@@ -18,13 +24,5 @@ override def run() {
       deplace(mem,0)
       finale=0
     }
-  }
-}
-
-def abs(i:Int):Int={
-  if (i>=0) {
-    return i
-  } else {
-    return -i
   }
 }
