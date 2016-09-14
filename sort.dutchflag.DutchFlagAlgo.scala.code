@@ -1,16 +1,16 @@
 def solve() {
   var i=0
   var debut=0
-  var fin = getTaille()
+  var fin = getTaille()-1
 	var avantBlanc= fin
-  while (i<=fin){
+  while (i<fin){
     while(getCouleur(debut)==BLEU){
       if (debut==i){
         debut+=1
         i+=1
       } else {debut+=1}
     }
-    while(getCouleur(fin-1)==ROUGE){
+    while(getCouleur(fin)==ROUGE){
       fin-=1
     }
   	while(getCouleur(avantBlanc)==BLANC){
@@ -24,7 +24,7 @@ def solve() {
       				})
       case BLANC =>()
       case ROUGE =>
-      					echange(i, fin-1)
+      					echange(i, fin)
       					fin-=1
       					if (getCouleur(i)==BLEU){
                   echange(i, debut)
