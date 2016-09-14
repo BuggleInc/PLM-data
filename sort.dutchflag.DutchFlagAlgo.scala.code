@@ -3,7 +3,7 @@ def solve() {
   var debut=0
   var fin = getTaille()-1
 	var avantBlanc= fin
-  while (debut< avantBlanc){
+  while (debut< avantBlanc && debut <fin){
     if (i!=debut){
       if (getCouleur(i)==BLEU){
         echange(i, debut)
@@ -13,7 +13,6 @@ def solve() {
     if (getCouleur(i)==ROUGE){
       echange(i, fin)
       fin -=1
-      avantBlanc -=1
       if (getCouleur(i)==BLANC){
       	echange(i, avantBlanc)
       	avantBlanc-=1
