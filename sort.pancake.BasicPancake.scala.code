@@ -1,0 +1,33 @@
+def solve() {
+  val n = getTaillePile()
+  var min = 0
+  var idMin = 0
+  for(i <- 0 to n-2) {
+    idMin = i
+    min = GetRayonCrepe(i)
+    for(j <- i+1 to n-1) {
+      if(min>getRayonCrepe(j)) {
+        idMin = j
+        min = getRayonCrepe(j)
+      }
+    }
+    retourne(idMin)
+  }
+}
+
+def selectionSort() {
+  val n = getNombreValeurs()
+  var min = 0
+  var idMin = 0
+  for(i <- 0 to n-2) {
+    idMin = i
+    min=getValeur(i)
+    for(j <- i to n-1) {
+      if (plusPetitQue(j,min)) {
+        idMin = j
+        min = getValeur(j)
+      }
+    }
+    echange(i,idMin)
+  }
+}
