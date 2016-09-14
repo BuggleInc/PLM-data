@@ -23,7 +23,7 @@ def leftFollowerMode(sommeAngle : Int) {
           forward();
           if (!isWallAtLeft()) {
             left();
-            sommeAngle += 1;
+            sommeAngle = sommeAngle + 1;
             forward();
             if (!isWallAtLeft()) {
               left();
@@ -53,9 +53,9 @@ def makeMoving() {
       case 0 => if (sommeAngle%4 != 0) {
         						northRunnerMode(); 
         						state = 1;
-      					} // tant qu'on a pas rencontre un mur au nord
+      					} // while we don't find a wall on the north
       case 1 =>  while (!isWallAtLeft()) { 
-        						right(); // on s'assure qu'il y ait un mur gauche
+        						right(); // make sure that there is a wall on the left
       					 }; leftFollowerMode(sommeAngle); state = 0;
       case _ => println("Error : this case should not happen.")
     }
