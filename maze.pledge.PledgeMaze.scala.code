@@ -5,6 +5,13 @@ def isWallAtLeft () : Boolean = {
   return answer;
 }
 
+def isDirectionFree(direction) : Boolean = {
+  var pos = getDirection();
+  setDirection(direction);
+ 	var answer = !isFacingWall();
+  setDireciton(pos); // bring back to the initial position
+}
+
 // convoluted with staying the wall at the left :
 def leftFollowerMode() {
   while ((getDirection() != Direction.NORTH) || isFacingWall()) {
