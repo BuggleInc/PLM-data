@@ -37,10 +37,21 @@ def Numeroter(x:Int,y:Int) {
           }
 
         }
-
+        else {
+          var sup:Int=getIndication(k,l-1)
+          var gauche:Int=getIndication(k-1,l)
+          if(sup<gauche && sup !=9999 && !aMurNord(k,l)){
+            setIndication(k,l,sup+1)
+            compteur=1
+          }
+          else {
+            if (gauche<sup && gauche != 9999 && !aMurOuest(k,l)) {
+              setIndication(k,l,gauche+1)
+              compteur=1
+            }
+          }
+        }
       }
     }
   }
 }
-    
-  
