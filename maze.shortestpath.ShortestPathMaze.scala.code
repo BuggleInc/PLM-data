@@ -44,20 +44,20 @@ override def run() {
     ind=getIndication(x,y)
     if(!aMurNord(x,y)){
       if(getIndication(x,y-1)==ind-1){
-        setDirection=Direction.NORTH
+        setDirection(Direction.NORTH)
         avance()
       }
     }
     if(!aMurOuest(x,y)){
       if(getIndication(x-1,y)==ind-1){
-        setDirection=Direction.WEST
+        setDirection(Direction.WEST)
         avance()
       }
     }
     if (y!=getMondeLargeur-1){
     	if(!aMurNord(x,y+1)){
         if(getIndication(x,y+1)==ind-1){
-          setDirection=Direction.SOUTH
+          setDirection(Direction.SOUTH)
           avance()
         }
     	}
@@ -65,7 +65,7 @@ override def run() {
     if (x!=getMondeLargeur -1){
     	if(!aMurOuest(x+1,y)){
         if(getIndication(x+1,y)==ind-1){
-          setDirection=Direction.EAST
+          setDirection(Direction.EAST)
           avance()
         }
       }
