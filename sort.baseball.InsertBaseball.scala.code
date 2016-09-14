@@ -1,5 +1,11 @@
 override def run() {
+  var n:Int = 2*getNombreBase()-1 //Nombre de joueurs.
+  
   setTrouToOne()
+  
+  for (pos <- 2 to n-1) {
+    placeNvJoueur(pos, couleurJoueur(pos))
+  }
 }
 
 def couleurJoueur(pos:Int):Int = {
