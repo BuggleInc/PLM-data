@@ -17,26 +17,31 @@ def fonctionTest():Boolean = {
     }
   }
 return false
-} 
-      
-      
-      
-      
-      
-     
+}
 
-
-
-
+   
+      
+def explorer() {      
+baisseBrosse()
+while (!fonctionTest) {
+	if (!estFaceMur) {
+    avance()
+  }
+  else {
+    if (getDirection() == Direction.EST) {
+      gauche()
+      avance()
+      gauche()
+    }
+    if (getDirection() == Direction.OUEST) {
+      droite()
+      avance()
+      droite()
+    }
+  }
   
-  
-
-
-
-
-
-
-
+}
+}
 
 
 
@@ -47,6 +52,6 @@ return false
 
 
 override def run() {
-  
+  explorer()
   
 }
