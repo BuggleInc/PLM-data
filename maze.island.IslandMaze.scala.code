@@ -19,6 +19,32 @@ def marcheNord () {
   }
 }
 
+def run1(){
+      while(!estSurBiscuit()){
+    if(estFaceMur()){
+      gauche();
+      if(estFaceMur()){
+        droite();droite();
+      } else {
+        avance();
+      }
+    } else {
+      gauche();
+      if(estFaceMur()){
+        droite();avance();
+      } else {
+        avance();gauche();
+        if(!estFaceMur()){
+          avance();
+        } else {
+          droite();
+        }
+      }
+    }
+  }
+  prendBiscuit();
+}
+
 def suit() {
   var aret = !(getDirection() == Direction.NORTH && !estFaceMur());
   while (!estSurBiscuit() && aret){
