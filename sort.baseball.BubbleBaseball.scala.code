@@ -5,7 +5,7 @@ override def run() {
   
   while (!estTrie()) {
     for (i <- 1 to n-1) {
-      deplace(i, min(i))
+      deplace(i, min(i, n))
     }
     
     if (!estTrie()) {
@@ -44,9 +44,9 @@ def max(i:Int):Int = {
 }
 
 
-def min(i:Int):Int = {
+def min(i:Int, n:Int):Int = {
   var nbPositions:Int = getNombrePositions()
-  var mini:Int = -1
+  var mini:Int = n
   var indice:Int = -1
   
   for (j <- 0 to nbPositions-1) {
