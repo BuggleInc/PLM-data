@@ -19,6 +19,7 @@ override def run() {
     for(i<-0 to getMondeLargeur-1){
     	for(j<-0 to getMondeHauteur-1){
         if (getIndication(i,j)==cpt-1){
+          mem=1
     			if(!aMurNord(i,j) && getIndication(i,j-1)==9999){
     				setIndication(i,j-1,cpt)
     			}
@@ -35,12 +36,13 @@ override def run() {
     					setIndication(i+1,j,cpt)
     				}
         	}
-          mem=1
       	}
       }
     }
   }
   while(!estSurBiscuit){
+    x=getX()
+    y=getY()
     ind=getIndication(x,y)
     if(!aMurNord(x,y)){
       if(getIndication(x,y-1)==ind-1){
