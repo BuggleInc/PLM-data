@@ -1,2 +1,24 @@
+def cible() {
+  var (x,y) = (getTrouBase(),getPositionTrou())
+  var (m,p) = (x,y)
+  var max = 0
+  var n = getNombreBases()-1
+  for (i <- 0 to n) {
+    for (j <- 0 to 1) {
+      var d = getCouleurJoueur(i,j)-x
+      if (d < 0) {d = d + n}
+      if (d > max) {(m,p)=(i,j)}
+    }
+  }
+  deplace(m,p)
+}
+
+
+
+
+
 override def run() {
+  while (!estTrie()) {
+    cible()
+  }
 }
