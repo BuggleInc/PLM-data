@@ -1,13 +1,16 @@
 override def run() {
-  while (!estSurBiscuit) {
-    while (!estFaceMur) {
-      forward();
-    }
-    if (estFaceMur()) {
-      right(); keepHandOnSideWall();
-  	}
+  var etat = 0;
+  etat match {
+    case 0 => courirNord(); etat = 1;
+    case 1 => suivreEst(); etat = 0;
   }
-  prendBiscuit();
+}
+
+
+def courirNord() {
+  while(!estFaceMur) {
+    forward();
+  }
 }
 
 
