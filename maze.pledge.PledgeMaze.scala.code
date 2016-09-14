@@ -64,6 +64,8 @@ def makeMoving() {
 
 override def run() { 
   var bz = 0;
-  forward();
-  bz = leftFollowerMode(bz);
+  while (!isOverbaggle()) {
+    forward();
+    bz = leftFollowerMode(bz);
+  }
 }
