@@ -8,6 +8,30 @@ def checkMur():Boolean = {
   return false
 }
 
+def checkFinMur(){
+  gauche()
+  if(!estFaceMur()){
+    avance()
+    gauche()
+    if(!estFaceMur()){
+      avance()
+      if(!checkMur()){
+        recule()
+        droite()
+        recule()
+        droite()
+      } else {return true}
+    } else {
+      droite()
+      recule()
+      droite()
+    }
+  } else {
+    droite()
+  }
+  return false
+}
+
 def keepHandOnSideWall(a:Int):Int = {
   var sommeAngle:Int = a
   if(!estFaceMur()){
@@ -33,16 +57,18 @@ def keepHandOnSideWall(a:Int):Int = {
       }
     }
   } else{
-    droite()
-    sommeAngle += -1 /**/
-    if(estFaceMur()){
-      gauche();gauche();sommeAngle += 2 //   //
+      if (!checkFinMur()){
+      droite()
+      sommeAngle += -1 /**/
       if(estFaceMur()){
-        gauche()
-        sommeAngle += 1 //
-        avance()
+        gauche();gauche();sommeAngle += 2 //   //
+        if(estFaceMur()){
+          gauche()
+          sommeAngle += 1 //
+          avance()
+        } else {avance()}
       } else {avance()}
-    } else {avance()}
+    }
   }
   return sommeAngle
 }
