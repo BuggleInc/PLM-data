@@ -5,14 +5,12 @@ override def run() {
     e match {
       case 0 => nord()
       case 1 => suivreMur()
-      case _ => println("Ce cas ne devrait pas arriver. Corrigez ce problème svp.")
     }
   }
   
   def suivreMur() {
-    while(!estSurBiscuit()) {
-      conditionSuivreMur(droite(), gauche())
-    }
+    while(!estSurBiscuit())
+      conditionSuivreMur(true)
     prendBiscuit()
   }
   
@@ -22,22 +20,27 @@ override def run() {
       if(getDirection == Direction.NORTH && !estFaceMur())
       	avance()
       else {
-        if(getDirection == Direction.EAST) {
-          conditionSuivreMur(droite(), gauche())
-        } else {
-					conditionSuivreMur(gauche(), droite())
-        }
+        if(getDirection == Direction.EAST)
+          conditionSuivreMur(false)
+        else conditionSuivreMur(true)
       }
     }
     etat(1)
   }
   
-  def conditionSuivreMur(dir1:Unit, dir2:Unit) {
+  def conditionSuivreMur(droiteTrue:Boolean) {
+    if(droiteTrue) {
+    	var dir1 = droite()
+    	var dir2 = gauche()
+    } else {
+      var dir1 = gauche()
+    	var dir2 = droite()
+    }
     dir1
     if(estFaceMur()) {
       dir2
       if(!estFaceMur())
-      avance()
+      	avance()
       else dir2
     } else avance()
   }
