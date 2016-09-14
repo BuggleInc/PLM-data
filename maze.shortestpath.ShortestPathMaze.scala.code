@@ -8,18 +8,21 @@ def ecritPos(x:Int,y:Int)= {
         
 
     setIndication(i,j-1,a+1)
+    a+=1
     j-=1
     
     }
     if (!aMurOuest(i,j)&& getIndication(i-1,j)==9999){
       setIndication(i-1,j,a+1)
 			i-=1
+      a+=1
     }
     
     if (y != getMondeHauteur()-1){
       if (!aMurNord(i,j+1)&& getIndication(i,j+1)==9999){
       setIndication(i,j+1,a+1)
 			j+=1
+        a+=1
       }
     }
       
@@ -27,9 +30,10 @@ def ecritPos(x:Int,y:Int)= {
       if (!aMurOuest(i+1,j)&& getIndication(i+1,j)==9999){
       setIndication(i+1,j,a+1)
         i+=1
+        a+=1
       }
     }
-a+=1
+
 
 }
   
