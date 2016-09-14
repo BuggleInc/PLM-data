@@ -2,10 +2,10 @@ def solve() {
   val n = getTaillePile()
   var max = 0
   var idMin = 0
-  for(i <- 0 to n-1) {
+  for(i <- n-1 to 0 by -1) {
     idMin = i
     max = getRayonCrepe(i)
-    for(j <- i+1 to n-1) {
+    for(j <- n-1 to i by -1) {
       if(max<getRayonCrepe(j)) {
         idMin = j
         max = getRayonCrepe(j)
