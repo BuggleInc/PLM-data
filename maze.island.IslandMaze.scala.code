@@ -1,7 +1,7 @@
 override def run() {var state=0;
 state match  {
   case 0 =>while (getDirection()!=Direction.NORTH) {right()};
-  while (!isFacingWall()) {forward()}; // North runner
+  while (!isFacingWall()) {forward()}; right(); // North runner
      state = 1;
   case 1 => {while (!isOverBaggle) {while (!isFacingWall()) {forward(); right()}; left()}} // Left follower
      state = 0;
