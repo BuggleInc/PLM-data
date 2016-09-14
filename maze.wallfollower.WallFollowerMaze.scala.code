@@ -5,18 +5,15 @@ override def run() {
 }
 
 def longeGch(){
-  while (murAGch()){
-    if (!estFaceMur())
-    	avance()
-    else 
-    	droite()
-    	avance()
   gauche()
+  if(!estFaceMur())
     avance()
-  }
+  while(estFaceMur())
+    droite()
+ 	avance()
 }
 
-def murAGch() : Boolean={
+/**def murAGch() : Boolean={
   gauche()
   if (estFaceMur()){
   	droite()
@@ -24,4 +21,4 @@ def murAGch() : Boolean={
   }
   droite()
   return false  
-}
+}**/ 
