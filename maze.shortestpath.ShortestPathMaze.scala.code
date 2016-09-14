@@ -1,41 +1,38 @@
-def ecritPos(x:Int,y:Int)= {
-  var a  = 0
-  var i = x
-  var j = y
-  while(getIndication(getX(),getY())==9999){
+def ecritPos(x:Int,y:Int,a:Int):Boolean= {
+  
+  if ((getIndication(x+1,y)!=9999 || aMurOuest(x+1,y)) && (getIndication(x-1,y)!=9999 || aMurOuest(x,y)) && (getIndication(x,y+1)!=9999 || aMurNord(x,y+1)) && (getIndication(x,y-1)!=9999|| aMurNord(x,y))) {
     
-    if (!aMurNord(i,j) && getIndication(i,j-1)==9999){
-        
-
-    setIndication(i,j-1,a+1)
-    a+=1
-    j-=1
+    setIndication(x,y,a)
+  }
+  
+  else {
+    setIndication(x,y,a)
+    
+    if (!aMurNord(x,y)){
+      
+      ecritPos(x,y-1,a+1)
     
     }
-    if (!aMurOuest(i,j)&& getIndication(i-1,j)==9999){
-      setIndication(i-1,j,a+1)
-			i-=1
-      a+=1
+    if (!aMurOuest(x,y)){
+      
+      ecritPos(x-1,y,a+1)
     }
     
     if (y != getMondeHauteur()-1){
-      if (!aMurNord(i,j+1)&& getIndication(i,j+1)==9999){
-      setIndication(i,j+1,a+1)
-			j+=1
-        a+=1
+      if (!aMurNord(x,y+1)){
+      
+      ecritPos(x,y+1,a+1)
       }
     }
       
     if (x != (getMondeHauteur()-1)){
-      if (!aMurOuest(i+1,j)&& getIndication(i+1,j)==9999){
-      setIndication(i+1,j,a+1)
-        i+=1
-        a+=1
+      if (!aMurOuest(x+1,y)){
+      
+      ecritPos(x+1,y,a+1)
       }
     }
-
-
-}
+  }
+  return true
   
 }
 
@@ -57,8 +54,8 @@ override def run() {
       }
     }
   }
-	setIndication(xo,yo,0)
-  ecritPos(xo,yo)
+
+  ecritPos(xo,yo,0)
   
   
 }
