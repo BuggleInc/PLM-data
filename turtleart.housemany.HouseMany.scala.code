@@ -1,15 +1,19 @@
 override def run() {
-  for(i <- 0 to 1) {
+  for(i <- 0 to 2) {
     for(j <- 0 to 3) {
+      if(i == 1 && (j == 1 || j == 2))
+      	leveCrayon()
+      else
+      	baisseCrayon()
       faireMaison()
       droite(90)
       avance(50)
       gauche(90)
     }
-    setCouleur(Color.WHITE)
+    leveCrayon()
     setX(getX() - 200)
-    setY(getY() - 150)
-    setCouleur(Color.BLACK)
+    setY(getY() - 75)
+    baisseCrayon()
   }
   
   def faireMaison() {
