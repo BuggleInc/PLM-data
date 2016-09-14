@@ -10,13 +10,13 @@ def shellSort()  {
       for (i <- 1 to getNombreValeurs()-1) {
       v = getValeur(i - k *  ecart);
 
-        while (((i - (k+1) * ecart) > 0) && plusPetitQue(i - (k+1) * ecart,v) == false) {
+        while (((i - (k+1) * ecart) > 0) && plusPetitQue(i - (k) * ecart,v) == false) {
 
           copie(i - k * ecart, i - (k+1) * ecart);        
 					k += 1
         }
 
-      setValeur(i - (k) * ecart, v);
+      setValeur(i - (k/*+1*/) * ecart, v);
 
     }
     
