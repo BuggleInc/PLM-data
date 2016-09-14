@@ -1,14 +1,18 @@
 override def run() 
 {
   var gauche=false
+  var murD=false
+  var murG=false
   while(!porteBiscuit())
   {
-    if (murGauche() && !murDroite())	
+    murD=murDroite()
+    murG=murGauche()
+    if (murG && !murD)	
     	{
     		keepHandsOnLeftWall()
         gauche=true
       }
-    else if (murGauche() && murDroite())
+    if (murG && murD)
     	{
         if(gauche)
         	{
@@ -21,7 +25,7 @@ override def run()
             gauche=true
           }
       }
-    else
+    if (murD && !murG)
     	{
         keepHandsOnRightWall()
         gauche=false
@@ -55,7 +59,7 @@ def keepHandsOnLeftWall()
 
 def keepHandsOnRightWall()
 {
-  if(murDroite())
+  if(!gauche)
   	{
       if(!estFaceMur())
   			{
