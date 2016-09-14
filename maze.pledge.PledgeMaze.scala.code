@@ -1,0 +1,50 @@
+override def run() {
+  etat(0)
+  
+  def etat(e:Int) {
+    e match {
+      case 0 => nord()
+      case 1 => suivreMur()
+    }
+  }
+  
+  def suivreMur() {
+    while(!estSurBiscuit())
+      conditionSuivreMur(true)
+    prendBiscuit()
+  }
+  
+  def nord() {
+    setDirection(Direction.NORTH)
+    while(getY() != 0) {
+      if(getDirection == Direction.NORTH && !estFaceMur())
+      	avance()
+      else {
+        if(getDirection == Direction.EAST)
+          conditionSuivreMur(false)
+        else conditionSuivreMur(true)
+      }
+    }
+    etat(1)
+  }
+  
+  def conditionSuivreMur(droiteTrue:Boolean) {
+    if(droiteTrue)
+    	droite()
+    else gauche()
+    
+    if(estFaceMur()) {
+      if(droiteTrue)
+        gauche()
+    	else droite()
+      
+      if(!estFaceMur())
+      	avance()
+      else {
+        if(droiteTrue)
+        	gauche()
+    		else droite()
+      }
+    } else avance()
+  }
+}
