@@ -2,20 +2,18 @@ def insertionSort() {
   var lgr= getNombreValeurs()
   var v =0
   var cpt=0
+  var j =1
   for (i<- 1 to lgr-1)
   {
     v=getValeur(i)// algo
 
-    for (j<-1 to i)// cmt traduire ?
+    while (plusPetitQue(i-j,v) || j>=i)// cmt traduire ?
     {
-      if (!plusPetitQue(i-j,v) )
-      {
-        cpt=j
-        copie(i-j,i-j+1)
-
-      }
+      j+=1
+      
     }
-    setValeur(i-cpt,v)
+    copie(i-j,i-j+1)
+    setValeur(i-j,v)
 
   }
 }
