@@ -40,7 +40,7 @@ def deplacerTrou(arrive:Int, sens:Int) //sens:-1 ou 1
 {
   if (arrive == getTrouBase()) return;
   
-  var nextBase = (getTrouBase()+sens)%getNombreBases();
+  var nextBase = mod(getTrouBase()+sens, getNombreBases());
   
   deplace(nextBase, 0);
   deplacerTrou(arrive, sens);
@@ -88,4 +88,10 @@ def cherchePasJoueur(couleur:Int, base:Int):Int =
     if (getCouleurJoueur(base, i) != couleur) return i;
   }
   return -1;
+}
+
+def mod(x:int, n:Int):Int
+{
+  if (x >= 0) return mod(x, n);
+  else return mod(x, n)+x;
 }
