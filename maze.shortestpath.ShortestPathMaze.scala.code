@@ -39,16 +39,17 @@ override def run() {
 }
 
 def trouve() : Direction =
-{
+{var l = getMondeLargeur()
+ var h = getMondeHauteur()
  var (x,y) = (getX(),getY())
-     var i = getIndication(x,y)
-     if (getIndication(x+1,y)==i-1)
+ var i = getIndication(x,y)
+ if (x<l-1 && getIndication(x+1,y)==i-1)
           {return(Direction.EAST)}
-     if (getIndication(x-1,y)==i-1)
+ if (x>0 && getIndication(x-1,y)==i-1)
           {return(Direction.WEST)}
-     if (getIndication(x,y+1)==i-1)
+ if (y<h-1 && getIndication(x,y+1)==i-1)
           {return(Direction.SOUTH)}
-     if (getIndication(x,y-1)==i-1)
+ if (y>0 && getIndication(x,y-1)==i-1)
           {return(Direction.NORTH)}
      return(Direction.NORTH)
     }
