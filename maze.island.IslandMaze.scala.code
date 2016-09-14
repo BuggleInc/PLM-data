@@ -3,7 +3,7 @@ override def run() {var state=0;
                     while (!isOverBaggle) {state match  {
   case 0 => {while (!isFacingWall()) {forward()}}; // North runner
 
-                      state = 1; right(); while (!isFacingWall()) {forward()}; left()
+                      state = 1; left(); while (!isFacingWall()) {forward()}; right()
   case 1 =>{while (!isFacingWall()) {right()}; left();
   {while (!isFacingWall()) {forward(); right()}; left()}}// Left follower
      state = 0;
