@@ -5,8 +5,10 @@ override def run() {
   
   while (!isSorted()) {
     nbrB = getHoleBase();
-    posJABouger = (getHoleBase()-1)%(nbrB+1);
-    
+    posJABouger = getHoleBase();
+    if (posJABouger==0) {
+      posJABouger = nbrB;
+    }
     numABouger = longerWay(nbrB, posJABouger)
     move(numABouger,posJABouger)
   }
