@@ -92,6 +92,8 @@ def cherchePasJoueur(couleur:Int, base:Int):Int =
 
 def mod(x:int, n:Int):Int
 {
-  if (x >= 0) return mod(x, n);
-  else return mod(x, n)+x;
+  var res = x%n;
+  
+  if (res >= 0) return res;
+  else return mod(res+n, n);
 }
