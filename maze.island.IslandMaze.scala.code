@@ -1,28 +1,45 @@
 override def run() {
   
+  /*def avanceVersNord () {
+    
+    setDirection(Direction.NORTH);
+    while (estFaceMur != true) {
+      avance();
+    }
+    etat = 1
+    
+  }*/
+  
   def keepHandOnSideWall()  {
     
     var etat = 0
     
     etat match {
       
-      case 0 -> setDirection(Direction.NORTH)
+      case 0 => 
+      
+        setDirection(Direction.NORTH);
+        while (estFaceMur != true) {
+          avance();
+        }
+        etat = 1
+      
+      
+      case 1 => 
+        gauche();
+        while (estFaceMur() == true ) {
+          droite();
+        }
+        avance();
+     		etat = 0;
+      
+      case _ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ")
       
       
     }
     
-    
-    
-    gauche();
-    while (estFaceMur() == true ) {
-      droite();
-    }
-    avance();
-    if (getDirection() != Direction.NORTH) {
-      setDirection(Direction.NORTH)
-    }
-      
   }
+    
   
   while (estSurBiscuit == false) {
     keepHandOnSideWall();
