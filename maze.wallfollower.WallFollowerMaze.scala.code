@@ -9,12 +9,24 @@ override def run()
 
 def keepHandOnSideWall()
 {
-  gauche()
-  if (!estFaceMur())
+  if(!estFaceMur()) // s'il n'a pas de mur devant lui
   	{
-      avance()
+      gauche() //on vérifie qu'il y a un mur à gauche et on le suit
+  		if (!estFaceMur())
+  			{
+      		droite()
+      		avance()
+    		}
+      else
+      	{
+          gauche()
+        }
+      //s'il n'y a pas de mur à gauche, on revient en position initiale puis on tourne à gauche
     }
-  droite()
+  else
+  	{
+      droite()
+    }
 }
 
 
