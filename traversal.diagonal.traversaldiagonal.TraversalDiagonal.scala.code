@@ -56,58 +56,12 @@ def deplacement()
 
 
 override def run() {
+  var cpt = 0
   while(!arrive)
   {
-    var cpt = 0
     ecritMessage(cpt)
     cpt+=1
     deplacement()
   }
-  def deplacement() 
-{
-  var diag = 0;
-    
-	
-  if (diag < 5) // si avant gd diago 
-  {
-    if (getY()==0)
-    {
-      if(getX()!=6)//si en Y=0 on revient en X=0 et incrémente diag
-      
-      {
-        setPos(0,getX()+1)
-      	diag+=1
-      }
-      else // si dans le coin haut droit attention on revient en (1,6)
-      {
-        setPos(1,6)
-       diag+=1
-      }
-    }
-    else 
-    {
-      setPos(getX()+1,getY()-1)
-    }
-    
-  }
-  else if(diag>=6) // si apr?s gd diago (plus besoin de compteur)
-  {
-    if (getX()==6)
-    {
-      setPos(getY()+1,6)//cf apr?s grande diagonale
-    }
-    else 
-    {
-      setPos(getX()+1,getY()-1)
-    }
-  }
-  
-  
-  
-    
-  
-  
-}
-  
   
 }
