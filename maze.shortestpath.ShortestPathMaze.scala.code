@@ -37,5 +37,11 @@ override def run() {
     var y=getY()
     if(!aMurNord() && getIndication(x,y-1)<n){var dir=Direction.NORD
                                              n=getIndication(x,y-1)}
+    if(!aMurSud() && getIndication(x,y+1)<n){var dir=Direction.SUD
+                                             n=getIndication(x,y+1)}
+    if(!aMurOuest() && getIndication(x-1,y)<n){var dir=Direction.OUEST
+                                             n=getIndication(x-1,y)}
+    if(!aMurEst() && getIndication(x+1,y)<n){var dir=Direction.EST
+                                             n=getIndication(x+1,y)}
     }while(!estSurBiscuit())
 }
