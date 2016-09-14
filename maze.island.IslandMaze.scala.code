@@ -3,10 +3,13 @@ override def run() {
   def keepHandOnSideWall()  {
     
     gauche();
-    while (estFaceMur() == true && getDirection() == Direction.NORTH) {
+    while (estFaceMur() == true ) {
       droite();
     }
     avance();
+    if (getDirection() != Direction.NORTH) {
+      setDirection(Direction.NORTH)
+    }
       
   }
   
