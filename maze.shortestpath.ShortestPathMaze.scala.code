@@ -1,0 +1,85 @@
+
+override def run() {
+  var biscuitX=0
+	var biscuitY=0
+	var c=0
+	var listeX : List[Int] = Nil
+	var listeY : List[Int] = Nil
+  var lX:List[Int]=Nil
+  var lY:List[Int]=Nil
+	var largeur:Int = getMondeLargeur()
+  var hauteur:Int = getMondeHauteur()
+	trouveSortie()
+  marque()
+
+
+def trouveSortie(){
+  for(i <- 0 to largeur-1){
+    for(j <- 0 to hauteur-1){
+      if(aBiscuit(i,j)){
+        biscuitX=i
+        biscuitY=j
+      }
+    }
+  } 
+}
+
+def marque() {
+  listeX=biscuitX::listeX
+  listeY=biscuitY::listeY
+  //while(possible==true){
+  while (c< largeur*hauteur) {
+    lX=Nil
+    lY=Nil
+    for(i <- 0 to listeX.length-1){
+      setIndication(listeX(i),listeY(i),min(c,getIndication(listeX(i),listeY(i))))
+      pos(listeX(i),listeY(i))
+    }
+    listeX=lX
+    listeY=lY
+    c+=1
+  }
+  
+}
+
+def pos(x:Int,y:Int) {
+  
+  if(y!=0 && ! aMurNord(x,y)) {
+    lX=x::lX
+    lY=y-1::lY
+    
+  }
+  if(x!=0 && ! aMurOuest(x,y)) {
+    lX=x-1::lX
+    lY=y::lY
+    
+  }
+  if(y!=hauteur-1 && ! aMurNord(x,y+1)) {
+    lX=x::lX
+    lY=y+1::lY
+    
+  }
+  if(x!=largeur-1 && ! aMurOuest(x+1,y)) {
+    lX=x+1::lX
+    lY=y::lY
+    
+  }
+  
+}
+  
+def min(a:Int,b:Int):Int = {
+  if(a<=b){
+    return a
+  }
+  return b
+  
+}
+  
+}
+
+
+
+
+
+
+

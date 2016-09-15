@@ -1,0 +1,45 @@
+var sommeAngle=0
+
+override def run(){
+  while(!estSurBiscuit()){
+    while(!estFaceMur()){
+      avance()
+    }
+    contourne()
+  }
+  prendBiscuit()
+}
+
+def contourne(){
+  droite()
+  sommeAngle-=1
+  while(sommeAngle!=0 || isDirectionFree(Direction.NORD)==false){
+  	keepHandOnSideWall()
+    if(estSurBiscuit()){
+      return
+    }
+  }
+}
+
+def keepHandOnSideWall(){
+  gauche()
+  sommeAngle+=1
+  while(estFaceMur()==true){
+    droite()
+    sommeAngle-=1
+  }
+  avance()
+}
+
+def isDirectionFree(dir : Direction) : Boolean = {
+  var d=getDirection()
+  setDirection(dir)
+  if(!estFaceMur()){
+    setDirection(d)
+    return true
+  }else{
+    setDirection(d)
+    return false
+  }
+}
+
