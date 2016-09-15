@@ -1,0 +1,47 @@
+override def run() {
+  ligne()
+  gauche(90:Double)
+  avance(200:Int)
+  droite(90:Double)
+  avance(150:Int)
+  ligne()
+  gauche(90:Double)
+  avance(50:Int)
+  droite(90:Double)
+  recule(75:Int)
+  maison()
+  gauche(90:Double)
+  avance(150:Int)
+  droite(90:Double)
+  maison()
+  avance(150:Int)
+}
+
+def ligne () {
+  for (k<-1 to 4) {
+  	baisseCrayon()
+  	maison()
+  	leveCrayon()
+  	droite(90:Double)
+  	avance(50:Int)
+  	gauche(90:Double)
+  }
+}
+
+def maison() {
+  baisseCrayon()
+  for (k<-1 to 5) {
+    avance(30:Int)
+    droite(90:Double)
+  }
+  gauche(90:Double)
+  droite(30:Double)
+  for (k<-1 to 3){
+  	avance(30:Int)
+  	droite(120:Double)
+  }
+  gauche(210:Double)
+  avance(30:Int)
+  gauche(180:Double)
+  leveCrayon()
+}
