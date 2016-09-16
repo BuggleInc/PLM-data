@@ -1,0 +1,41 @@
+override def run() {
+  var sommeAngle:Int=0
+  setDirection(Direction.NORTH)  
+  while(!estSurBiscuit()){
+    while (!estFaceMur() && getDirection()==Direction.NORTH){
+      avance()
+    }
+    droite()
+    sommeAngle= -1
+    while ((sommeAngle!=0 || !isDirectionFree(Direction.NORTH)) && !estSurBiscuit() ) {  
+      if (estFaceMur()){
+        droite()
+        sommeAngle=sommeAngle-1
+      }
+      else {
+        avance();gauche()
+        while (!estFaceMur()){
+          avance();gauche()
+          sommeAngle=sommeAngle+1
+        }
+        droite()
+      }
+    }   
+  }
+  prendBiscuit()
+}
+
+
+
+  def isDirectionFree(dir:Direction):Boolean ={
+    var d:Direction=getDirection()
+    setDirection(dir)
+    if(estFaceMur()){
+      setDirection(d)
+      return false
+    }
+    else {
+      setDirection(d)
+      return true
+    }
+  }

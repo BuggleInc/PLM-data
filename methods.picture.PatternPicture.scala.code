@@ -1,0 +1,39 @@
+def dessiner(){
+  baisseBrosse()
+  leveBrosse
+}
+
+def faireDiag(){
+  gauche();avance()
+  dessiner()
+  for (k <- 1 to 2){
+    droite()
+    avance()
+  }
+  dessiner()
+  gauche()
+}
+
+def faireDoubleDiag() {
+  faireDiag()
+  avance(3)
+  faireDiag()
+}
+
+def faireMotif(c:Color){
+  setCouleurBrosse(c)
+  faireDoubleDiag()
+  recule(5);gauche();avance(4);droite()
+  faireDoubleDiag()
+  recule(5);gauche();avance(3);retourne
+ 
+}
+
+override def run() {
+  faireMotif(Color.RED)
+  faireMotif(Color.YELLOW)
+  faireMotif(Color.GREEN)
+  faireMotif(Color.BLUE)
+  avance(4);gauche();avance(4);droite()
+  setCouleurBrosse(Color.GREEN)
+}

@@ -1,0 +1,28 @@
+def dessiner(){
+  baisseBrosse()
+  leveBrosse
+}
+
+def faireFleur(c:Color){
+  setCouleurBrosse(c)
+  for (k <- 1 to 4){
+    dessiner()
+    avance();gauche();avance();retourne()
+  }
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  dessiner()  
+}
+
+def growFlowers() {
+  faireFleur(Color.RED)
+  avance(3)
+  faireFleur(Color.CYAN)
+  recule(3);droite();avance(2);gauche()
+  faireFleur(Color.ORANGE)
+  avance();droite();avance(2);gauche()
+  faireFleur(Color.GREEN)
+  recule(5)
+  faireFleur(Color.PINK)
+  recule()
+}

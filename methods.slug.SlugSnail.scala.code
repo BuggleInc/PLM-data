@@ -1,0 +1,37 @@
+def isFacingTrail(c:Color):Boolean = {
+  var couleur:Color=Color.white
+  if(estFaceMur()){
+    return false
+  } else {
+    avance()
+    couleur=getCouleurSol()
+    recule()
+  }
+  if (couleur==c){
+    return true
+  } else {
+    return false}
+}
+
+def effacerTraces() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def hunt(c:Color) {
+  while(!estSurBiscuit()){
+  	if (isFacingTrail(c)) {
+    	effacerTraces()
+    	avance()
+  	}
+ 		else {
+  	  gauche()
+ 		}
+  }
+  prendBiscuit()
+  effacerTraces()
+}
+
+
+
+ // here comes your isFacingTrail method

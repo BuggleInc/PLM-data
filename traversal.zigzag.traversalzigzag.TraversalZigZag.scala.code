@@ -1,0 +1,31 @@
+def fonctionTest():Boolean = {
+ var x:Int=getX()
+ var y:Int=getY()
+ var absMax:Int=getMondeLargeur()
+ var ordMax:Int=getMondeHauteur()
+ if (x==(absMax-1) && y==(ordMax-1)) {
+   return true
+ } else {
+   return false
+ }
+}
+
+
+override def run() {
+  var compteur:Int= 0
+  var absMax:Int=getMondeLargeur()
+	var ordMax:Int=getMondeHauteur()
+  while(!fonctionTest()){
+  	var x:Int=getX()
+ 	 	var y:Int=getY()
+  	ecritMessage(compteur.toString)
+  	compteur = compteur + 1
+  	(x,y) match {
+    	case (i,j) if (j==0 || j==2 || j==4)&& i==(absMax-1) => setPos(i,j+1)
+    	case (i,j) if (j==0 || j==2 || j==4 || j==6)=> setPos(i+1,j) 
+      case (i,j) if (j==1 || j==3 || j==5) && i==0 => setPos(i,j+1)
+      case (i,j) => setPos(i-1,j)
+  	}
+	}
+	ecritMessage((ordMax*absMax)-1)
+}

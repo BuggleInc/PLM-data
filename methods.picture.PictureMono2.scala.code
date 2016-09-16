@@ -1,0 +1,52 @@
+def dessiner(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  dessiner()
+  avance();gauche();avance()
+  dessiner
+  droite();avance();droite;avance()
+  dessiner()
+  gauche()
+}
+
+def faireDemiOvale() {
+  dessiner()
+  avance();droite()
+  for(k <- 1 to 2) {
+    avance()
+    dessiner()
+  }
+  avance();droite();avance()
+}
+
+def faireOvale(){
+  for(k <- 1 to 2){
+    faireDemiOvale()
+  }
+}
+
+def faireMotif(){
+  avance(2)
+  faireV()
+  avance();gauche();avance(3)
+  faireOvale()
+  droite();avance(5);gauche();avance(2);gauche()
+  faireOvale()
+  gauche();avance(2);gauche();avance(2);gauche()
+  faireOvale()
+  retourne();avance(3);droite();avance(3);retourne()
+  faireV()
+  avance(5)
+  faireV()
+  avance(2)
+  
+}
+
+override def run() {
+  for (k <- 1 to 4){
+    faireMotif();gauche()
+  }
+}

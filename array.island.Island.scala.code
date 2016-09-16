@@ -1,0 +1,26 @@
+// Manière itérative
+def island1(num:Array[Int]): Int = {
+  var x:Int=num.length
+  var compteur:Int=0
+  var actuel:Int=num(0)
+  for (i <- 1 to (x-1)){
+    if (num(i)>actuel){
+      compteur = compteur + 1
+    }
+    actuel = num(i)
+  }
+  return compteur
+}
+
+// Manière récursive
+
+def island(num:Array[Int]):Int = {
+  def islandRecursif(nume:Array[Int],x:Int,compteur:Int,actuel:Int,position:Int): Int = {
+   position match {
+    case i if  i>=x => return compteur
+    case i if (num(i)>actuel) => islandRecursif(nume,x,(compteur+1),num(i),(i+1))
+    case i if (num(i)<=actuel) => islandRecursif(nume,x,compteur,num(i),(i+1))
+  }
+  }
+   return islandRecursif(num,(num.length - 1),0,num(0),1)
+}

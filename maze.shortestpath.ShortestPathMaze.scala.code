@@ -1,0 +1,65 @@
+override def run() {
+  var(x,y):(Int,Int)=trouverSortie
+  Numeroter(x,y)
+}
+
+def trouverSortie():(Int,Int)={
+  var x:Int=getMondeLargeur()
+  var y:Int=getMondeHauteur()
+  for (k <- 0 to x-1){
+    for (l <- 0 to y-1){
+      if (aBiscuit(k,l)){
+        return (k,l)
+      }
+    }
+  }
+  return(9999,9999)
+}
+
+def Numeroter(x:Int,y:Int) {
+  var compteur:Int=1
+  var larg:Int=getMondeLargeur()
+  var haut:Int=getMondeHauteur()
+  setIndication(x,y,0)
+  while (compteur!=0){
+    compteur=0
+    for (l <- 1 to larg-1){
+      for (k <- 1 to haut-1){
+        var numSol:Int=getIndication(k,l)
+        if (numSol!=9999){
+          if (!aMurNord(k,l) && getIndication(k,l-1)==9999){
+            setIndication(k,l-1,numSol+1)
+          }
+          if(!aMurOuest(k,l) && getIndication(k-1,l)==9999){
+            setIndication(k-1,l,numSol+1)
+          }
+
+        }
+        else {
+          compteur=1
+          if(!aMurNord(k,l)){
+            var sup:Int=getIndication(k,l-1)}
+          else{
+            var sup:Int=9999
+          }
+          if (!aMurOuest(k,l)){
+            var gauche:Int=getIndication(k-1,l)}
+          else{
+            var gauche:Int=9999
+          }
+          if(sup<gauche && sup !=9999 && !aMurNord(k,l)){
+            
+            setIndication(k,l,sup+1)
+          }
+          else {
+            if (gauche<sup && gauche != 9999 && !aMurOuest(k,l)) {
+              setIndication(k,l,gauche+1)
+            }
+          }
+        }
+      }
+    }
+
+  }
+  setIndication(0,0,getIndication(0,1)+1)
+}

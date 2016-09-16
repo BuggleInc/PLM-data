@@ -1,0 +1,43 @@
+def dessiner(){
+  baisseBrosse()
+  leveBrosse
+}
+
+def faireFleur(c:Color){
+  setCouleurBrosse(c)
+  for (k <- 1 to 4){
+    dessiner()
+    avance();gauche();avance();retourne()
+  }
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  dessiner()  
+}
+
+def growMotif() {
+  faireFleur(Color.RED)
+  avance(3)
+  faireFleur(Color.CYAN)
+  recule(3);droite();avance(2);gauche()
+  faireFleur(Color.ORANGE)
+  avance();droite();avance(2);gauche()
+  faireFleur(Color.GREEN)
+  recule(5)
+  faireFleur(Color.PINK)
+}
+
+def growFlower() {
+    growMotif()
+    avance(5);gauche();avance(2);droite()
+    faireFleur(Color.BLUE)
+    avance();gauche();avance(2);droite()
+    growMotif()
+}
+
+def growFlowers() {
+  growFlower()
+  droite();avance();droite();avance(9)
+  gauche();avance(3);gauche()
+  growFlower()
+  recule()
+}
