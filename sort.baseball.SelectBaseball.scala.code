@@ -63,11 +63,11 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   var nbBases = getNombreBases();
   var nbPos = getNombrePositions();
   
-  var posEchange = getTrouPosition();;
+  var posEchange = (getTrouPosition()+1)%nbBases;
   if (pos != origPosTrou)
   {
+    posEchange = origPosTrou;
     deplace(origBaseTrou, origPosTrou);
-    posEchange = getTrouBase();
   }
   
   //On deplace le trou au dessus du joueur
