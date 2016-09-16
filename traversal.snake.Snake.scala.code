@@ -1,0 +1,40 @@
+override def run() {
+  def serpent(){
+    while(!estFaceMur){
+      avance()
+    }
+    if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }
+    else{
+      droite()
+      avance()
+      droite()
+    }
+  }
+  
+  def posFinale(){
+    if(estFaceMur){
+      if(getDirection()==Direction.EST){
+        gauche()
+        if(estFaceMur){
+          return true
+        }
+      }
+      if(getDirection()==Direction.OUEST){
+        droite()
+        if(estFaceMur){
+          return true
+        }
+      }
+      return false
+    }
+  }
+  
+  baisseBrosse()
+  while(!posFinale()){
+    serpent()
+  }
+}

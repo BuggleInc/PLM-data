@@ -1,0 +1,35 @@
+def haveBaggle():Boolean = {
+
+  var vuBiscuit:Boolean = false
+
+  def colonne(){
+    for (i<-1 to 6){
+      if (estSurBiscuit()){
+        vuBiscuit = true
+        avance()
+      }
+      else{
+        avance()
+      }
+    }
+    for (i<-1 to 6){
+      recule()
+    }
+
+  }
+
+
+
+  colonne() 
+  if (vuBiscuit){
+    return true
+  }
+
+  else{
+    droite()
+    avance()
+    gauche()
+    colonne()
+    return false
+  }
+}

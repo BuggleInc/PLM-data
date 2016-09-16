@@ -1,0 +1,50 @@
+override def run() {
+    def marquerSol(c:Color){
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+  
+  def faireV(c:Color){
+    avance()
+    marquerSol(c)
+    gauche()
+    avance()
+    droite()
+    avance()
+    marquerSol(c)
+    avance()
+    droite()
+    avance()
+    marquerSol(c)
+    gauche()
+    avance()
+    gauche()
+  }
+  
+  def comeOn(){
+    faireV(Color.YELLOW)
+    faireV(Color.RED)
+    faireV(Color.BLUE)
+    faireV(Color.GREEN)
+  }
+  
+  def ligne(){
+  for(i<-1 to 9){
+    comeOn()
+    for(k<-1 to 5){
+      avance()
+    }
+  }
+  }
+  
+  for(i<-1 to 9){
+    ligne()
+    gauche()
+    for(k<-1 to 5){
+      avance()
+    }
+    droite()
+  }
+ 
+}

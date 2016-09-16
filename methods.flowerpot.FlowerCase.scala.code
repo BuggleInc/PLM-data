@@ -1,0 +1,86 @@
+def marquerSol(c:Color){
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+  }
+
+def fleur(c:Color){
+  droite()
+  for(i<-1 to 4){
+    marquerSol(c)
+    avance()
+    gauche()
+    avance()
+  }
+  gauche()
+  avance()
+  marquerSol(Color.YELLOW)
+}
+
+def jardin(){
+fleur(Color.RED)
+for(i<-1 to 3){
+  avance()
+}
+fleur(Color.CYAN)
+droite()
+avance()
+avance()
+droite()
+for(i<-1 to 3){
+  avance()
+}
+droite()
+droite()
+fleur(Color.ORANGE)
+droite()
+avance()
+avance()
+gauche()
+avance()
+fleur(Color.GREEN)
+droite()
+droite()
+for(i<-1 to 5){
+  avance()
+}
+droite()
+droite()
+fleur(Color.PINK)
+recule()
+}
+
+
+def ligne(){
+  jardin()
+  for(i<-1 to 6){
+    avance()
+  }
+  gauche()
+  avance()
+  avance()
+  droite()
+  fleur(Color.BLUE)
+  avance()
+  gauche()
+  avance()
+  avance()
+  droite()
+  jardin()
+}
+
+def growFlowers(){
+  ligne()
+  droite()
+  avance()
+  droite()
+  for(i<-1 to 8){
+    avance()
+  }
+  gauche()
+  for(i<-1 to 3){
+    avance()
+  }
+  gauche()
+  ligne()
+}
