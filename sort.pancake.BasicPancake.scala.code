@@ -1,0 +1,19 @@
+def solve() {
+  var lgr = getTaillePile()
+  var i = 1
+  var maxtemp = getRayonCrepe(0)
+  var indicemax = 0
+  var rayon = 0
+  while (!estTriee()) {
+    for (j <- i to lgr-1) {
+      rayon = getRayonCrepe(j)
+    	if (rayon>maxtemp) {
+      	maxtemp = rayon
+        indicemax=j
+      }
+    }
+    retourne(indicemax+1)
+    retourne(lgr+1)
+    i+=1
+  }
+}
