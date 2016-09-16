@@ -17,7 +17,7 @@ override def run() {
   
   def suitAGauche() {
     
-    while (sommeAngle != 0 && isDirectionFree(getDirection())) {
+    while (sommeAngle != 0 && isDirectionFree(getDirection()) == false) {
       
       gauche();
       while (estFaceMur() == true) {
@@ -46,15 +46,17 @@ override def run() {
     
   }
   
-  def isDirectionFree(dir : Direction) {
+  def isDirectionFree(dir : Direction) : Boolean = {
     
     directionActuelle = dir;
     setDirection(Direction.NORTH);
     
     if (estFaceMur == true) {
       setDirection(directionActuelle)
+      return false
     } else {
       sommeAngle = 0
+      return true
     } 
     
   }
