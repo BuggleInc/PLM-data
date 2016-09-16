@@ -117,11 +117,11 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   
   deplace(mod(currBase-1, nbBases), pos);
   deplace(currBase, pos);
-  if (arrive == 5 && depart == 9) return;
+  
   
   if (depart == origBaseTrou) deplace(mod(origBaseTrou, nbBases), pos);
   else if (getTrouBase() != origBaseTrou) deplacerTrou(origBaseTrou, origPosTrou, 1);
-  
+  if (arrive == 5 && depart == 9) return;
   if (origPosTrou != getTrouPosition())
   {
     deplace(origBaseTrou, origPosTrou);
