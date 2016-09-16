@@ -1,0 +1,16 @@
+var c = 0;
+
+def solve() {
+  while(!estTriee()){
+    var j = 0;
+    for(i<- 1 to getTaillePile() - c - 1){
+      if(getRayonCrepe(i)> getRayonCrepe(j)){
+        j = i;        
+      }
+    }
+    retourne(j+1);
+    if (!estCrepeRetournee(0)){retourne(1);}
+    retourne(getTaillePile() - c );  
+    c += 1;
+  }
+}
