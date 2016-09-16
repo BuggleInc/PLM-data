@@ -4,7 +4,7 @@ def shellSort()  {
     for (i <- 1 to getValueCount() -1) {
       var j=1
       var v=getValue(i)
-      while (j*gap<=i && ! isSmallerThan(i-j*gap,v)) {
+      while (i-j*gap>=0 && ! isSmallerThan(i-j*gap,v)) {
         copy(i-j*gap,i-j*gap+1)
         j=j+1
       }
