@@ -1,0 +1,70 @@
+override def run() {
+  
+  var etat = 0;
+  var sommeAngle = 0;
+  
+  def avanceVersNord () {
+    
+    setDirection(Direction.NORTH)
+    sommeAngle = 0
+    while (estFaceMur() == false) {
+      avance();
+    }
+    droite();
+    sommeAngle += 1
+   
+  }
+  
+  def suitAGauche() {
+    
+    while (sommeAngle !0 && isDirectionFree(getDirection())) {
+      
+      gauche();
+      while (estFaceMur() == true) {
+        droite();
+      }
+      avance();
+      
+    }
+    
+  }
+  
+  def keepHandOnSideWall(etat1 : Int) : Int = {
+    
+    etat = etat1
+    
+    etat match {
+      
+      case 0 => avanceVersNord(); etat = 1;
+      
+      case 1 => suitAGauche(); etat = 0;
+      
+      case _ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ");
+         
+    }
+    return etat
+    
+  }
+  
+  def isDirectionFree(dir) {
+    
+    directionActuelle = dir;
+    setDirection(Direction.NORTH);
+    
+    if (estFaceMur == true) {
+      setDirection(directionActuelle)
+    } else {
+      sommeAngle = 0
+    } 
+    
+  }
+  
+  
+  while (estSurBiscuit == false) {
+    etat = keepHandOnSideWall(etat);
+  }
+  
+	prendBiscuit();
+  
+  
+}
