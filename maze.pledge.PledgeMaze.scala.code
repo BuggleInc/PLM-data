@@ -18,7 +18,7 @@ def isDirectionFree (direction : Direction) : Boolean = {
 // convoluted with staying the wall at the left and refresh sommeAngle's state
 def leftFollowerMode(sommeAngle : Int) : Int = {
   var x = sommeAngle;
-  while (sommeAngle != 0) {
+  while ((sommeAngle != 0) && !isDirectionFree(Direction.NORTH) {
      if (!isFacingWall()) {
      	forward();
       if (!isWallAtLeft()) {
@@ -46,27 +46,13 @@ def northRunnerMode () {
 }
 
 def makeMoving() {
-  var sommeAngle = -999;
+  var sommeAngle = -999 // to match with the begining case
   while (!isOverBaggle()) {
-    if (sommeAngle == -999) { // if it's the first loop
- 			sommeAngle = 0
-      northRunnerMode();
-      // make sure that there is a wall on the left before calling the leftFollower mode
-      while (!isWallAtLeft()) { 
-      	right();
-        sommeAngle -= 1;
-      } 
-      sommeAngle = leftFollowerMode(sommeAngle);
-    } else {
-      	if (sommeAngle != 0) { // if it hadn't made a loop
-    			northRunnerMode();
-     			while (!isWallAtLeft()) { // auto-orientation
-      			right();
-            sommeAngle -= 1;
-      		} 
-      		sommeAngle = leftFollowerMode(sommeAngle);
-    		} else { sommeAngle = leftFollowerMode(sommeAngle); northRunnerMode();}
-    	}    
+    sommeAngle match  {
+    	case -999 => sommeAngle = 0; sommeAngle = leftFollowerMode(sommeAngle);
+      case 0 => northRunnerMode();
+      case _ => sommeAngle = LeftFollowerMode(sommeAngle);
+    }    
   }
   pickupBaggle();
 }
