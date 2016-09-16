@@ -1,0 +1,27 @@
+def solve() {
+  lastSorted = getPancakeRadius();
+  
+  while (!isSorted()) {
+    var largest = findLargest();
+    flip(largest + 1);
+    flip(lastSorted);
+    lastSorted += 1;
+  }
+  
+  
+}
+
+def findLargest() : Integer = {
+  var max = getPancakeRadius(0);
+  var maxI = 0;
+  for (i <- 1 to (getStackSize() - 1)) {
+    var currentSize = getPancakeRadius(i);
+    
+    if (currentSize > max) {
+      max = currentSize;
+      maxI = i
+    }
+  }
+  
+  return maxI;
+}
