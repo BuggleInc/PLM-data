@@ -4,11 +4,8 @@ override def run() {
 
 	var x:Int = findBaggle(xMax,yMax)._1;
 	var y:Int = findBaggle(xMax,yMax)._2;  
-  var num = 0;
   
-  while(true) {
-    numerote(x,y,num,xMax,yMax)
-  }
+  numerote(x,y,xMax,yMax)
 }
 
 
@@ -28,32 +25,56 @@ def findBaggle(xMax:Int, yMax:Int): (Int,Int) = {
   
 }
 
-def listVoisins(x:Int,y:Int, xMax:Int, yMax:Int, num:Int):List(int,int)= {
+def listVoisins(listCoord:List(Int,Int), xMax:Int, yMax:Int, num:Int):List(int,int)= {
+  
   var voisins:List(int,int) = Nil;
+  var x:Int = 0;
+  var y:Int = 0;
   
-  if (y!= yMax-1 && !hasTopWall(x,y) && getIndication(x,y-1)>num) { 
-  	voisins = (x,y-1)::voisins
-  }
-  if (x!= 0 && !hasLeftWall(x,y) && getIndication(x-1,y)>num) {
-  	voisins = (x-1,y)::voisins
-  }
-  
-  if (x!= xMax-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)>num) {
-  	voisins = (x+1,y)::voisins
-  }
-  
-  if (y!= 0 && !hasTopWall(x,y+1) && getIndication(x,y+1)>num) {
-  	voisins = (x,y+1)::voisins
-  }
+  while (!listCoord.isEmpty) {
+		x = listCoord.head._1
+    y = listCoord.head._2
+    listCoord = listCoord.tail
+    
+    if (y!= yMax-1 && !hasTopWall(x,y) && getIndication(x,y-1)>num) { 
+      voisins = (x,y-1)::voisins
+    }
+    if (x!= 0 && !hasLeftWall(x,y) && getIndication(x-1,y)>num) {
+      voisins = (x-1,y)::voisins
+    }
+
+    if (x!= xMax-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)>num) {
+      voisins = (x+1,y)::voisins
+    }
+
+    if (y!= 0 && !hasTopWall(x,y+1) && getIndication(x,y+1)>num) {
+      voisins = (x,y+1)::voisins
+    }
+    
+  }  
   return voisins
   
   
 }
-def numerote(x:Int,y:Int,num:Int, xMax:Int, yMax:Int) {
-  val listV = listVoisins(x,y,xMax,yMax,num:Int);
-  while (!listV.isEmpty) {
-    setIndication()
-  }
+def numerote(x:Int,y:Int, xMax:Int, yMax:Int) {
+  val num = 0;
+  val listV = listVoisins(((x,y)::Nil),xMax,yMax,0);
+  val listVS:List(Int,Int) = Nil
   
+  while (true) {
+    
+    listVS = listVoisins(listV,xMax,yMax,num);
+    
+    while (!listV.isEmpty) {
+      
+      x = listV.head._1
+      y = listV.head._2
+      listV = listV.tail
+
+      setIndication(x,y,num)
+    }
+    num = num+1;
+  	listV = listVS;
+  }
   
 }  
