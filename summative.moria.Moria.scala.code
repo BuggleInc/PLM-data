@@ -1,5 +1,11 @@
 while (getCouleurSol()!=Color.green)
 while (!estSurBiscuit() && !estFaceMur())
-	{gauche();gauche();avance()}
-if (estSurBiscuit){porteBiscuit();gauche();gauche();while (!estSurBiscuit()){avance()};recule();poseBiscuit()}
+	{if (getDirection()!==Direction.EAST){
+    (gauche();gauche();avance())}
+   else{avance}}
+if (estSurBiscuit)
+{porteBiscuit();gauche();gauche()}
+while (!estSurBiscuit())
+    {avance()}
+recule();poseBiscuit()
 if(estFaceMur){droite();avance();gauche();avance()}
