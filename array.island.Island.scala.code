@@ -1,0 +1,10 @@
+def island(num:Array[Int]): Int = {
+  var len = num.length
+  var compt = 0
+  var prec = 0
+  for(n <- 0 to len-1) {
+    if (num(n)>prec) compt = compt+1
+    prec = num(n)
+  }
+  return(compt)
+}

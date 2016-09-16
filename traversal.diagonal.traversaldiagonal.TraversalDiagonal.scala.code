@@ -1,0 +1,19 @@
+var diag = 0;
+var compt = 0;
+override def run() {
+  var j = 0
+  val n = getMondeHauteur()-1
+  while (diag<13) {
+    for(i <- 0 to n) {
+      if (i<(diag+1)) {
+        j = diag-i
+        if (j<(n+1)) {
+          setPos(i,j)
+          ecritMessage(compt)
+          compt +=1
+        }
+      }
+    }
+    diag +=1
+  }
+}

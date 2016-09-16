@@ -1,0 +1,26 @@
+def shellSort()  {
+  val n = getNombreValeurs()
+  var ecart = n/2
+  var v = 0
+  while(ecart>0) {
+    v = insertionSort(ecart,v)
+    ecart = ecart/2
+  }
+}
+
+
+def insertionSort(ec : Int,x : Int):Int = {
+  val n = getNombreValeurs()
+  var i = 0
+  var v = x
+  for (j <- 1 to (n-1)) {
+    v = getValeur(j)
+    i = j-1
+    while (i>=ec  && !plusPetitQue(i,v)) {
+      setValeur(i+1,getValeur(i))
+      i -= ec
+    }
+    setValeur(i+1,v)
+  }
+  return(v)
+}

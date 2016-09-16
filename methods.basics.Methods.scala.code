@@ -1,0 +1,17 @@
+var nbPas = 0
+
+def goAndGet() {
+  while(!estSurBiscuit()) {avance()
+                          nbPas = nbPas+1}
+  prendBiscuit
+  for(n <- 1 to nbPas) {recule()}
+  poseBiscuit()
+  nbPas = 0
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    droite();
+    avance();
+    gauche();
+}
