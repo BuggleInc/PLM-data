@@ -1,13 +1,15 @@
 def solve() {
   var lgr = getSize()
-  var cntb = 0
-  var cntw = 0 //count blue,  white, red
-  var cntr = 0
   for (i<-0 to lgr-2){
     getColor(i) match {
-      case BLUE => swap(cntb,i); cntb+=1
-      case RED => swap(lgr-1-cntr,i); cntr+=1
-      case WHITE=> cntw+=1
-    }    
+      case BLUE => 
+      case RED => if(getColor(i+1)!=RED){
+        swap(i,i+1)
+      }
+      case WHITE=> if(getColor(i+1)!=BLUE){
+        swap(i,i+1)
+      }
+    }
   }
+  
 }
