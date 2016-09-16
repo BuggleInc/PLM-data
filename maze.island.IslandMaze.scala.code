@@ -13,17 +13,18 @@ override def run() {
   def suitAGauche () {
    	droite();
     
-    while (getDirection() != Direction.NORTH) {
-    	if (estFaceMur == false) {
+    if (estFaceMur == false) {
+      while (getDirection() != Direction.NORTH) {
         // séparé les deux condition 
         gauche();
         while (estFaceMur() == true) {
           droite();
         }
         avance();
-      } else {
-        droite();
       }
+    } else {
+        droite();
+     
     }
     
     
