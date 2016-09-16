@@ -54,7 +54,7 @@ def makeMoving() {
   var sommeAngle = 0; // to match with the begining case
   while (!isOverBaggle()) {
     sommeAngle match  {
-      case 0 => northRunnerMode();
+      case 0 => northRunnerMode(); sommeAngle = leftFollowerMode(sommeAngle);
       case _ => sommeAngle = leftFollowerMode(sommeAngle);
     }    
   }
