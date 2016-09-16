@@ -1,9 +1,11 @@
 def insertionSort() {
-  for (i<- 0 to getNombreValeurs()-1 ){
-    var a:Int=i
-    while(a!=0 && plusPetit(a,a-1) ){
-      echange(a,a-1)
-      a-=1
+  for (j<- 0 to getNombreValeurs()-1 ){
+    var i:Int=j
+    var a:Int=getValeur(i)
+    while(i!=0 && a<getValeur(i-1) ){
+      setValeur(i,getValeur(i-1))
+      i-=1
     }
+    setValeur(i,a)
   }
 }
