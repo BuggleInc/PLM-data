@@ -4,8 +4,14 @@ def gnomeSort()
   var jSuiv = 3
   var iPrece = 0
 
-  while (iPrece >= 1 && jSuiv <= getNombreValeurs())
+  while (jSuiv <= getNombreValeurs())
   {
+    if (iPrece<1)
+  {
+    iPrece+=1
+    iSuiv+=1
+    jSuiv+=1
+  }
     if (plusPetit(iSuiv,jSuiv))
     {
       iPrece+=1
@@ -23,12 +29,7 @@ def gnomeSort()
     }
 
   }
-  if (iPrece<1)
-  {
-    iPrece+=1
-    iSuiv+=1
-    jSuiv+=1
-  }
+  
   if (jSuiv > getNombreValeurs())
   {
     return true
