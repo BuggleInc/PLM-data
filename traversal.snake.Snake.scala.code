@@ -1,6 +1,6 @@
 override def run() {
   baisseBrosse()
-  while (!positionFinale()){
+  while ((getX(),getY())!=(6,0)){
     pasDeSerpent()
   }
 
@@ -16,8 +16,8 @@ def positionFinale():Boolean = {
   }
   if (getDirection() == Direction.WEST) {
     droite()
-    if (estFaceMur()) {gauche();return true}
-    else {gauche();return false}
+    if (estFaceMur()) return true
+    else return false}
   }
   else return false
 }
