@@ -1,7 +1,5 @@
 override def run() {
-  for (i<-1 to 4) {
-    quart(c)
-  }
+  quart(Couleur.BLACK); quart(Couleur.RED); quart(Couleur.YELLOW); quart(Couleur.PINK);
 }
 
 
@@ -9,6 +7,11 @@ override def run() {
 def quart(c) {
   setCouleur(c)
   for (i<- 1 to 90) {
-    forward(100); backward(100); right(1)
+    ligne(c); right(1)
   }
 }
+
+def ligne(c) {
+  setCouleurBrosse(c);forward(100); backward();
+}
+
