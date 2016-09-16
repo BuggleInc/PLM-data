@@ -1,0 +1,22 @@
+def trouve(n : Int) : Int = {
+  var max = 0
+  for (i <- 1 to n){
+    if (getRayonCrepe (i) > getRayonCrepe(max)){max = i }
+  }
+  return max
+}
+
+
+
+def solve() {
+  var n = getTaillePile()-1
+  var i = 0
+  var max = trouve(n)
+  while (!estTriee()) {
+    retourne(max+1)
+    retourne (n+1-i)
+    if (!estCrepeRetournee(0)){retourne(1)}
+    i += 1
+    max = trouve (n-i)
+  }
+}
