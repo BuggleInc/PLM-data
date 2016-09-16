@@ -1,0 +1,23 @@
+var debut = 0
+var fin = getStackSize()
+
+def solve() {
+  
+	var pk = 0
+  
+  while(!isSorted()){
+    
+    pk=0
+    
+    for (i <- debut to fin){
+      if ((getPancakeRadius(pk)<getPancakeRadius(i))){pk=i}
+    }
+    
+    flip(pk)
+    flip(fin)
+    fin-=1
+    
+  }
+  
+}
+
