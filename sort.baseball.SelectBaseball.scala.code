@@ -38,7 +38,7 @@ override def run()
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
             deplacerJoueur(nPos, nBase, nCouleur, origBaseTrou, origPosTrou);
-            if (nCouleur == 5) return;
+            
           }
         }
       }
@@ -77,6 +77,8 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   var posTrou = getTrouPosition();
   var currBase = mod(baseTrou-1, nbBases);
   
+  if (arrive == 5 && depart == 9) return;
+
   while (currBase != mod(arrive-2, nbBases)) //On deplace le joueur dans sa base
   {
     //Le trou est au dessus du joueur 
