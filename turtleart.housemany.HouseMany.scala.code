@@ -1,0 +1,50 @@
+override def run() {
+  drawRow(30, 20, 4);
+  move(75);
+  drawRow(30, 20 * 2 + (20+20) * 2, 2);
+  move(75);
+  drawRow(30, 20, 4);
+  move(75);
+}
+
+def drawRow(size:Double, padding:Double, num:Integer) {
+  for (i <- 1 to num) {
+    drawHouse(size);
+    right(90);
+    move(size + padding)
+    left(90);
+  }
+  
+  left(90);
+  move(num * (padding + size))
+  right(90);
+}
+
+def drawHouse(size:Double) {
+  drawSquare(size);
+  move(size);
+  right(30);
+  drawEqTriangle(size);
+  left(30);
+  move(-size);
+}
+
+def drawSquare(size:Double) {
+  for (i <- 1 to 4) {
+    forward(size);
+    right(90);
+  }
+}
+
+def drawEqTriangle(size:Double) {
+  for (i <- 1 to 3) {
+    forward(size);
+    right(180-60);
+  }
+}
+
+def move(distance:Double) {
+  penUp();
+  forward(distance)
+  penDown();
+}

@@ -1,0 +1,47 @@
+override def run() {
+  
+  goToNorthWall();
+  followLeftWall();
+  
+  pickupBaggle();
+}
+
+def goToNorthWall() {
+  
+  while (getY() != 0) {
+    if (getDirection() == Direction.SOUTH) {
+      left();
+      if (isFacingWall()) {
+        right(); right();
+      }
+      
+      if (isFacingWall()) {
+        left();
+      }
+    } else if (getDirection() == Direction.EAST) {
+      left();
+      if (isFacingWall()) right();
+    } else if (getDirection() == Direction.WEST) {
+      right();
+      if (isFacingWall()) left();
+    }
+    
+    while (isFacingWall()) left();
+    
+    forward();
+  }
+  
+  while (getDirection() != Direction.EAST) left();
+}
+
+def followLeftWall() {
+  while (!isOverBaggle()) {
+    keepHandOnSideWall();
+    forward();
+  }
+}
+
+def keepHandOnSideWall() {
+  left();
+  while (isFacingWall()) right();
+}

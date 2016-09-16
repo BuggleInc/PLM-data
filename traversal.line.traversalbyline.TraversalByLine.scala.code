@@ -1,0 +1,14 @@
+override def run() {
+  var w = getWorldWidth();
+  var h = getWorldHeight();
+  
+  
+  for (i <- 0 to h*w-1) {
+    setPos(i%w, i/w)
+    writeMessage(i)
+  }
+}
+
+def isOnFinalDestination() : Boolean = {
+  return getX() == getWorldWidth() && getY() == getWorldHeight();
+}

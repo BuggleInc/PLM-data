@@ -1,0 +1,28 @@
+override def run() {
+  drawSquare(100);
+  move(100);
+  right(30);
+  drawEqTriangle(100);
+  left(30);
+  move(-100);
+}
+
+def drawSquare(size:Double) {
+  for (i <- 1 to 4) {
+    forward(size);
+    right(90);
+  }
+}
+
+def drawEqTriangle(size:Double) {
+  for (i <- 1 to 3) {
+    forward(size);
+    right(180-60);
+  }
+}
+
+def move(distance:Double) {
+  penUp();
+  forward(distance)
+  penDown();
+}

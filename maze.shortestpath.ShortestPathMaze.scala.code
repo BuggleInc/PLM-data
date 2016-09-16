@@ -1,0 +1,177 @@
+var EXIT_NOT_FOUND = (-1, -1);
+var NO_INDICATION = 9999;
+
+object NeighborPos extends Enumeration {
+	type NeighborPos = Value
+	val TOP, BOTTOM, RIGHT, LEFT = Value
+}
+import NeighborPos._
+
+
+override def run() {
+	var (exitX, exitY) = findExit();
+
+	markExit(exitX, exitY);
+	markOthers();
+  
+  goToExit();
+  pickupBaggle();
+}
+
+def processNeighborForExit(x:Int, y:Int, np:NeighborPos, min:Int, minNeighbor:NeighborPos) : (Int, NeighborPos) = {
+  var (xn, yn, canAccess) = getNeighborRelativePos(x, y, np);
+  if (!canAccess) return (min, minNeighbor);
+  
+  var indication = getIndicationSafe(x + xn, y + yn);
+  if (indication < min) {
+    return (indication, np);
+  }
+  
+  return (min, minNeighbor)
+}
+
+def moveToNeighbor(n:NeighborPos) {
+  n match {
+    case TOP =>
+    	setDirection(Direction.NORTH);
+    case BOTTOM =>
+    	setDirection(Direction.SOUTH);
+    case RIGHT =>
+    	setDirection(Direction.EAST);
+    case LEFT =>
+    	setDirection(Direction.WEST);
+  }
+  
+  forward();
+}
+
+def moveToExit() {
+  var x = getX();
+  var y = getY();
+  
+  var a = processNeighborForExit(x, y, TOP, NO_INDICATION, TOP);
+  a = processNeighborForExit(x, y, BOTTOM, a._1, a._2);
+  a = processNeighborForExit(x, y, LEFT, a._1, a._2);
+  a = processNeighborForExit(x, y, RIGHT, a._1, a._2);
+  
+  moveToNeighbor(a._2);
+}
+
+def goToExit() {
+  while (!isOverBaggle()) {
+    moveToExit();
+  }
+}
+
+def markOthers() {
+  var i = 1;
+  while (i+1 < NO_INDICATION) {
+    if (!mark(i)) return;
+    i += 1;
+  }
+}
+
+
+def findExit() : (Int, Int) = {
+  for (x <- 0 to getWorldWidth() - 1) {
+    for (y <- 0 to getWorldHeight() -1) {
+    	if (hasBaggle(x, y)) return (x, y);
+    }
+}
+
+return EXIT_NOT_FOUND; // Should never happen...
+}
+
+def markExit(exitX:Int, exitY:Int) {
+	setIndication(exitX, exitY, 0);
+}
+
+def isCurrentPositionMarked() =
+	getIndication(getX(), getY()) != NO_INDICATION;
+
+def getIndicationSafe(x:Int, y:Int) : Int = {
+	if (x < 0 || y < 0 || x >= getWorldWidth() || y >= getWorldHeight()) {
+	return NO_INDICATION;
+	}
+
+	return getIndication(x, y);
+}
+
+
+
+def hasBottomWall(x:Int, y:Int) : Boolean = {
+  if (y + 1 >= getWorldHeight()) {
+    return true;
+  }
+  
+  return hasTopWall(x, y + 1);
+}
+
+def hasRightWall(x:Int, y:Int) : Boolean = {
+  if (x + 1 >= getWorldWidth()) {
+    return true;
+  }
+  
+  return hasLeftWall(x + 1, y);
+}
+
+def getNeighborRelativePos(x:Int, y:Int, np:NeighborPos) : (Int, Int, Boolean) = {
+  var canAccess = true;
+  var xn:Int = 0;
+  var yn:Int = 0;
+  
+  np match {
+    case TOP =>
+    	if (hasTopWall(x, y)) canAccess = false;
+    	xn = 0;
+    	yn = -1;
+    case BOTTOM =>
+    	if (hasBottomWall(x, y)) canAccess = false;
+    	xn = 0;
+    	yn = 1;
+    case RIGHT =>
+    	if (hasRightWall(x, y)) canAccess = false;
+    	xn = 1;
+    	yn = 0;
+    case LEFT =>
+    	if (hasLeftWall(x, y)) canAccess = false;
+    	xn = -1;
+    	yn = 0;
+  }
+  
+  return (xn, yn, canAccess);
+}
+
+def processNeighbor(x:Int, y:Int, np:NeighborPos, min:Int) : Int = {
+  var (xn:Int, yn:Int, canAccess:Boolean) = getNeighborRelativePos(x, y, np);
+  if (!canAccess) return min;
+  
+	var indication = getIndicationSafe(x + xn, y + yn);
+
+  if (indication < min) {
+  	return indication;
+  }
+
+  	return min;
+ }
+
+ def mark(i:Int) : Boolean = {
+  var hasSetIndication = false;
+  for (x <- 0 to getWorldWidth() - 1) {
+    for (y <- 0 to getWorldHeight() - 1) {
+      if (getIndication(x, y) == NO_INDICATION) {
+        var min = processNeighbor(x, y, TOP, NO_INDICATION);
+        min = processNeighbor(x, y, BOTTOM, min);
+        min = processNeighbor(x, y, RIGHT, min);
+        min = processNeighbor(x, y, LEFT, min);
+
+        if (min != NO_INDICATION) {
+        	setIndication(x, y, min + 1)
+          hasSetIndication = true;
+        }
+      }
+    }
+  }
+   
+  return hasSetIndication;
+}
