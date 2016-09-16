@@ -9,7 +9,9 @@ def solve() {
     tplus1 = trouverTPlus1(t)
     tmoins1 = trouverTMoins1(t)
     if(!casA(t,tplus1,tmoins1)){
-    	casB(t,tplus1,tmoins1)
+    	if(!casB(t,tplus1,tmoins1)){
+        if(!casC(t,))
+      }
    	}
   }
 }
@@ -70,13 +72,15 @@ def casA(t:Int,tplus1:Int,tmoins1:Int):Boolean={
 }
 //
 def casB(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if (estLibre(0) && estPremier(tplus1)){
-    retourne(tplus1)
-    return true
-  }
-  if (estLibre(0) && estPremier(tmoins1)){
-    retourne(tmoins1)
-    return true
+  if estLibre(0){
+  	if	(estPremier(tplus1)){
+    	retourne(tplus1)
+    	return true
+  	}
+  	if (estPremier(tmoins1)){
+    	retourne(tmoins1)
+    	return true
+  	}
   }
   return false
 }
