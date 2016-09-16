@@ -5,6 +5,7 @@ override def run() {
   ecritMessage(cpt)
   var x=0
   var y=0
+  var i=0
   while (diag<=getMondeHauteur()-2){
     diag=diag+1
     y=diag
@@ -23,12 +24,14 @@ override def run() {
   while (diag<=(getMondeHauteur()*2)-2){
     diag=diag+1
     y=getMondeLargeur()-1
-    x=x+1
+    x=x+1-i
+
     while (x<=getMondeLargeur()-1) {
       setPos(x,y)
       cpt=cpt+1
       ecritMessage(cpt)
       x=x+1
+      i=i+1
       y=y-1
     }
 
