@@ -1,0 +1,16 @@
+def solve() {
+  while(!estTrie()) {
+    for(i <- 0 to getTaille()-1) {
+      if(getCouleur(i)==BLEU) {
+        if(i>0) {
+          echange(i,i-1)
+        }
+      }
+      if(getCouleur(i)==ROUGE) {
+        if(i<getTaille()) {
+          echange(i,i+1)
+        }
+      }
+    }
+  }
+}
