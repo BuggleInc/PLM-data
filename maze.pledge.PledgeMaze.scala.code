@@ -50,9 +50,10 @@ override def run() {
   def isDirectionFree(dir : Direction) : Boolean = {
     
     var directionActuelle = dir;
+    
     setDirection(Direction.NORTH);
     
-    if (estFaceMur == true) {
+    if (estFaceMur() == true) {
       setDirection(directionActuelle)
       return false
     } else {
