@@ -1,36 +1,33 @@
 def cocktailSort2() {
   var l = getNombreValeurs;
-  sort(0, l-2, true);
+  sort(0, l-2);
 }
 
-def sort(debut:Int, fin:Int, leftToRight:Boolean){
+def sort(debut:Int, fin:Int){
   var j = 0;
   var debut_ = debut;
   var fin_ = fin;
 
   var fini = true;
-  if(leftToRight) {
-    for (i <- debut to fin) {
-      if (!plusPetit(i, i+1)){
-        echange(i,i+1);
-        fini = false;
-      }
+  for (i <- debut to fin) {
+    if (!plusPetit(i, i+1)){
+      echange(i,i+1);
+      fini = false;
     }
-    fin_ -= 1;
   }
+  fin_ -= 1;
 
-  else {
-    for(i <- debut to fin){
-      j = fin - i + debut;
-      if(!plusPetit(j, j+1)){
-        echange(j, j+1);
-        fini = false;
-      }
+  for(i <- debut to fin){
+    j = fin - i + debut;
+    if(!plusPetit(j, j+1)){
+      echange(j, j+1);
+      fini = false;
     }
-    debut_ += 1;
   }
+  debut_ += 1;
+
 
   if(!fini) { 
-    sort(debut_, fin_, !leftToRight); 
+    sort(debut_, fin_); 
   }
 }
