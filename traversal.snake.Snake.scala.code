@@ -3,7 +3,7 @@ override def run() {
   while (!positionFinale()){
     pasDeSerpent()
   }
-  
+
 }
 
 
@@ -25,15 +25,16 @@ def positionFinale():Boolean = {
 def pasDeSerpent(){
   while (!estFaceMur){
     avance()
+
+    if (getDirection()== Direction.WEST){
+      droite()
+      avance()
+      droite()
+    }
+    if (getDirection()== Direction.EAST){
+      gauche()
+      avance()
+      gauche()
+    }
   }
-  if (getDirection()== Direction.WEST){
-    droite()
-    avance()
-    droite()
-  }
-  if (getDirection()== Direction.EAST){
-    gauche()
-    avance()
-    gauche()
-}
 }
