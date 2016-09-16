@@ -1,20 +1,15 @@
-import scala.util.control.Breaks._
 def solve() {
   var nbCrepes = getTaillePile()
   var t=0
   var tmoins1 = 0
   var tplus1 = 0
-  var bool = true
-  while(!estTriee()){
+  var bool = 1
+  for (bool <- 1 to 10){
     t = getRayonCrepe(0)
     tplus1 = trouverTPlus1(t)
     tmoins1 = trouverTMoins1(t)
-    if (tplus1 == 9999 && tmoins1 == 9999){
-      break 
-    }
-    bool = casA(t,tplus1,tmoins1)
-    if (!bool){
-    bool = casB(t,tplus1,tmoins1)
+    if(!casA(t,tplus1,tmoins1)){
+    	casB(t,tplus1,tmoins1)
    	}
   }
 }
@@ -57,7 +52,7 @@ def estPremier(rang:Int):Boolean={
   if (!estLibre(rang) && (rang==0 || (getRayonCrepe(rang-1)!=getRayonCrepe(rang)-1))){
     return true
   }
-  return true
+  return false
 }
 
 //LES CAS
@@ -75,11 +70,11 @@ def casA(t:Int,tplus1:Int,tmoins1:Int):Boolean={
 }
 //
 def casB(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if (estPremier(tplus1)){
+  if (estLibre(0) && estPremier(tplus1)){
     retourne(tplus1)
     return true
   }
-  if (estPremier(tmoins1)){
+  if (estLibre(0) && estPremier(tmoins1)){
     retourne(tmoins1)
     return true
   }
