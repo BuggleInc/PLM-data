@@ -1,0 +1,95 @@
+def growFlowers() {
+  right();
+  forwa(8);
+  left();
+	quarter();
+  forwa(6);
+  left();
+  forward();
+  right();
+  forwa(2);
+  left();
+  forwa(3);
+  right();
+  quarter();
+  left();
+  forwa(5);
+  left();
+  forwa(8);
+  right();
+  forwa(7);
+  right();
+  quarter();
+  forwa(6);
+  left();
+  forwa(2);
+  right();
+  forwa(2);
+  left();
+  forwa(2);
+  right();
+  quarter();
+  left();
+  forwa(2);
+  left();
+  forwa(2);
+  right();
+  right();
+  flower(Color.BLUE);
+  backwa(7);
+  right();
+  forwa(8);
+  left();
+  forwa(6);
+  flower(Color.BLUE);
+  forward();
+  right();
+  forwa(2);
+  left();
+}
+
+def quarter() {
+  flower(Color.RED);
+  forwa(3);
+  flower(Color.CYAN);
+  backwa(3);
+  right();
+  forwa(2);
+  left();
+  flower(Color.ORANGE);
+  right();
+  forwa(2);
+  left();
+  forward();
+  flower(Color.GREEN);
+  backwa(5);
+  flower(Color.PINK);
+  backwa(1);
+}
+
+def flower(c:Color) {
+  setBrushColor(c);
+  brushDown();
+  forwa(2);
+  backward();
+  right();
+  backward();
+  forwa(2);
+  backward();
+  setBrushColor(Color.YELLOW);
+  left();
+  brushUp();
+}
+
+
+def forwa(n:Int) {
+  for (i <- 1 to n) {
+    forward();
+  }
+}
+
+def backwa(n:Int) {
+  for (i <- 1 to n) {
+    backward();
+  }
+}

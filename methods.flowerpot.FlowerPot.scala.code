@@ -1,0 +1,46 @@
+def growFlowers() {
+  flower(Color.RED);
+  forwa(3);
+  flower(Color.CYAN);
+  backwa(3);
+  right();
+  forwa(2);
+  left();
+  flower(Color.ORANGE);
+  right();
+  forwa(2);
+  left();
+  forward();
+  flower(Color.GREEN);
+  backwa(5);
+  flower(Color.PINK);
+  backwa(1);  
+}
+
+
+def flower(c:Color) {
+  setBrushColor(c);
+  brushDown();
+  forwa(2);
+  backward();
+  right();
+  backward();
+  forwa(2);
+  backward();
+  setBrushColor(Color.YELLOW);
+  left();
+  brushUp();
+}
+
+
+def forwa(n:Int) {
+  for (i <- 1 to n) {
+    forward();
+  }
+}
+
+def backwa(n:Int) {
+  for (i <- 1 to n) {
+    backward();
+  }
+}

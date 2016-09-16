@@ -1,0 +1,54 @@
+override def run() {
+  makeV(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+  fiveSteps();
+  makeV(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+  left();
+  fiveSteps();
+  right();
+  makeV(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+  left();
+  left();
+  fiveSteps();
+  right();
+  right();
+  makeV(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+  fiveSteps();
+}
+
+def makeV(y:Color, r:Color, b:Color, g:Color) {
+  setBrushColor(y);
+  forward();
+  brushDown();
+  forward();
+  setBrushColor(r);
+  brushUp();
+  forward();
+  left();
+  forward();
+  brushDown();
+  forward();
+  setBrushColor(b);
+  brushUp();
+  forward();
+  left();
+  forward();
+  brushDown();
+  forward();
+  setBrushColor(g);
+  brushUp();
+  forward();
+  left();
+  forward();
+  brushDown();
+  forward();
+  setBrushColor(y);
+  brushUp();
+  forward();
+  left();
+}
+
+def fiveSteps() {
+  for (i <- 1 to 4) {
+    forward();
+  }
+}

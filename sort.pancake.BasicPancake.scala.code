@@ -1,0 +1,15 @@
+def solve() {
+  var len:Int = getStackSize()
+  var count:Int = 0
+  while (!isSorted) {
+    var max:Int=0
+    for (i <- 0 to len-2-count) {
+      if (getPancakeRadius(max)<getPancakeRadius(i+1)) {
+        max=i+1
+      }
+    }
+    flip(max+1)
+    flip(len-count)
+    count+=1
+  }
+}

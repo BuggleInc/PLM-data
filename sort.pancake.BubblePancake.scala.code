@@ -1,0 +1,13 @@
+def solve() {
+  var len:Int = getStackSize()
+  var count:Int=0
+  while (!isSorted) {
+    for (i <- 0 to len-2-count) {
+      if (getPancakeRadius(i)<getPancakeRadius(i+1)) {
+        flip(i+1)
+        flip(2)
+        flip(i+1)
+      }
+    }
+  }
+}

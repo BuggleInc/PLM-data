@@ -1,0 +1,29 @@
+override def run() {
+  writeMessage(counter)
+  counter+=1
+  for (i <- 0 to getWorldWidth()-2) {
+    moving();
+    setX(i+1);
+    setY(0);
+    writeMessage(counter);
+    counter+=1;
+  }
+  moving();     
+}
+
+var counter:Int = 0
+
+def checkFinal():Boolean = {
+  if (getWorldWidth-1==getX() && getWorldHeight-1==getY()) {
+    return true
+  }
+  return false
+}
+
+def moving() {
+  for (j <- 0 to getWorldHeight()-2) {
+      setY(j+1)
+      writeMessage(counter);
+      counter+=1;
+  }
+}
