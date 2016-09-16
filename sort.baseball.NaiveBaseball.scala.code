@@ -1,6 +1,6 @@
-def plusLong(J1:Int,J2:Int,base:Int) : Int = {
-  var d1 : Int = (base - J1)%GetNombreBases()
-  var d2 : Int = (base - J2)%GetNombreBases()
+def plusLong(J1:Int,J2:Int,base:Int,nbBase:Int) : Int = {
+  var d1 : Int = (base - J1)%nbBase
+  var d2 : Int = (base - J2)%nbBase
   if (d1>d2) {return(0)}
   else {return(1)}
 }
@@ -9,11 +9,12 @@ def plusLong(J1:Int,J2:Int,base:Int) : Int = {
 override def run() {
   while(!estTrie()){
     var trouBase : Int = getTrouBase()
+    var nbBase : Int =getNombreBases()
     var trouPos : Int = getTrouPosition()
-    var source : Int = (trouBase-1)%getNombreBases()
+    var source : Int = (trouBase-1)%nbBase
     var couleurJ1 : Int = getCouleurJoueur(source,0)
     var couleurJ2 : Int = getCouleurJoueur(source,1)
-    deplace(source,plusLong(couleurJ1,couleurJ2,trouBase))
+    deplace(source,plusLong(couleurJ1,couleurJ2,trouBase,nbBase))
     
     
     
