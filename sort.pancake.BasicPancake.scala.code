@@ -9,12 +9,13 @@ def trouve(n : Int) : Int = {
 
 
 def solve() {
-  var n = getTaillePile()
+  var n = getTaillePile()-1
   var i = 0
   var max = trouve(n)
   while (estTriee()) {
     retourne(max)
     retourne (n-i)
     i += 1
+    max = trouve (n-i)
   }
 }
