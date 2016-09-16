@@ -1,6 +1,22 @@
 override def run() {
   murExterne()
-  
+   while(!estFaceMur){
+    gauche()
+  }
+  droite()
+   while(!estSurBiscuit){
+    KeepHandOnSideWall()
+    
+  }
+  prendBiscuit()
+}
+
+def KeepHandOnSideWall(){
+  	while(!estFaceMur){
+      avance()
+      gauche()
+    }
+  droite()
 }
 
 def murExterne(){
@@ -12,10 +28,28 @@ def murExterne(){
       avance()
     }
     else{
-      droite()
-      avance()
-      gauche()
+      var n=1
+      if(n=1){
+        droite()
+        if(estFaceMur){
+          gauche()
+          
+          n=2
+        } else {
+          avance()
+          gauche()
+        }
+      } else {
+        gauche()
+        if(estFaceMur){
+          droite()
+          n=1
+        } else {
+          avance()
+          droite()
+        }
+      }
+      
     }
   }
 }
-
