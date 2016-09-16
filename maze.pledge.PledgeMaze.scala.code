@@ -51,7 +51,7 @@ def makeMoving() {
   var numberOfAppeals = 0;
   while (!isOverBaggle()) {
     state match {
-      case 0 => if (numberOfAppeals == 0 || sommeAngle != 0) { // if we didn't made a loop before or if it's the first turn
+      case 0 => if (numberOfAppeals == 0 || sommeAngle%4 != 0) { // if we didn't made a loop before or if it's the first turn
         						northRunnerMode(); // while we don't find a wall at the north
         						numberOfAppeals = 1;
      						}; state = 1; // switch with the leftFollowerMode
