@@ -1,21 +1,28 @@
-def selectionSort() {
-  var finale = 0
-  var temp = getNombreValeurs()
-  var temp2 = 0
-  var j = 0
-  while (finale==0) {
+var mem = 0
+var pos1 = 0
+var pos2 = 0
+var finale=0
+override def run() {
+  while(!estTrie) {
     finale=1
-    for (i <- j to getNombreValeurs-1) {
-      if (plusPetitQue(i,temp)) {
-        temp = getValeur(i)
-        temp2=i
-        finale=0
-      }
+    mem=getTrouBase()+1
+    while (mem>=getNombreBases()) {
+      mem=mem-getNombreBases()
     }
-    if (finale==0) {
-    	echange(temp2,j)
-      temp=getNombreValeurs()
-      j+=1
+    pos1 = getCouleurJoueur(mem,0)-mem
+    pos2 = getCouleurJoueur(mem,1)-mem
+    if (pos1<=0) {
+      pos1=pos1+getNombreBases()
+    }
+    if (pos2<=0) {
+      pos2=pos2+getNombreBases()
+    }
+    if (pos1 > pos2) {
+      deplace(mem,1)
+      finale=0
+    } else {
+      deplace(mem,0)
+      finale=0
     }
   }
 }
