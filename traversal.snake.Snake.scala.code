@@ -1,0 +1,58 @@
+def positionFinale():Boolean = {
+  
+  if (estFaceMur())
+  	{
+      if (getDirection()==Direction.EST)
+      	{
+          gauche()
+          if (estFaceMur())
+          	{
+              return true
+            }
+          else 
+            {
+              droite()
+              return false
+            }
+        }
+      else 
+      	{
+           droite()
+            if (estFaceMur())
+              {
+                return true
+              }
+            else 
+              {
+                  gauche()
+                  return false
+              }
+      	}
+    }
+  else
+  {
+    return false
+  }
+}
+
+override def run() {
+  baisseBrosse()
+  while(!positionFinale())
+  {
+    if(estFaceMur() && (getDirection()==Direction.EST))
+    	{
+        gauche();avance();gauche()
+        
+      }
+    else if(estFaceMur() && (getDirection()==Direction.OUEST))
+    	{
+        droite();avance();droite()
+        
+      }
+    else{
+      avance()
+    }
+  }
+  setDirection(Direction.EST)
+  
+}

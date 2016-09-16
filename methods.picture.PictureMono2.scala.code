@@ -1,0 +1,41 @@
+def marquer()
+	{
+    baisseBrosse()
+    leveBrosse()
+    
+  }
+
+def faireV()
+	{
+    marquer()
+    gauche; avance();droite();avance();
+    marquer()
+    avance();droite();avance();gauche();
+    marquer()
+  }
+
+def faireMotif()
+	{
+    for(compteur<-1 to 4)
+    	{
+        avance(2); faireV(); avance(2);gauche();
+        
+      }
+    
+  }
+override def run() {
+  var x=1
+  var y=21
+  for(compteur<-1 to 3)
+  	{
+      for(compteur2<-1 to 3)
+      {
+        setPos(x-1,y-1)
+        faireMotif()
+        x = x+7
+      }
+      y = y-7
+      x = 1
+    }
+  setPos(0,20)
+}

@@ -1,0 +1,42 @@
+def house(){
+  
+  avance(30)
+  droite(30)
+  avance(30)
+  droite(120)
+  avance(30)
+  droite(120)
+  avance(30)
+  droite(180)
+  avance(30)
+  droite(90)
+  avance(30)
+  droite(90)
+  avance(30)
+  droite(90)
+}
+
+override def run() {
+  var i = getX()
+  var e = getY()
+  for(i<-1 to 4)
+  {
+  house()
+  setPos(getX()+50,getY())
+  }
+  setPos(getX()-200,getY()-75)
+  
+  for(i<-1 to 2)
+  {
+  house()
+  setPos(getX()+150,getY())
+  }
+  setPos(i,e-150)
+  for(i<-1 to 4)
+  {
+  house()
+  setPos(getX()+50,getY())
+  }
+  setPos(i,e-225)
+  
+}

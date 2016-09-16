@@ -1,27 +1,27 @@
-def marquer() {
-  
-  baisseBrosse()
-  leveBrosse()
-}
+def marquer()
+	{
+    baisseBrosse()
+    leveBrosse()
+    
+  }
 
-def faireV() {
-  gauche()
-  for(compteur<-1 to 3)
-  	{
-      marquer()
-      avance(); droite; avance();
-    }
-  recule(2); droite(); avance(2); gauche();
-  
-  
-}
+def faireV()
+	{
+    marquer()
+    gauche; avance();droite();avance();
+    marquer()
+    avance();droite();avance();gauche();
+    marquer()
+    avance(2);gauche();avance(2)
+    
+  }
 
 
 override def run() {
   avance(2)
-  for(compteur<-1 to 4) 
-  	{ 
-      faireV() 
+  for(compteur<-1 to 4)
+  	{
+      faireV()
     }
+  recule(2)
 }
-

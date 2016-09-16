@@ -1,0 +1,72 @@
+
+def marquer(c:Int){
+  
+  ecritMessage(c)
+  
+}
+def posFinale():Boolean ={
+  
+  var x = getX()
+  var y = getY()
+  var x_max = getMondeLargeur()
+  var y_max = getMondeHauteur()
+  if (x==(x_max-1) && y==(y_max-1))
+  	{
+      return true
+    }
+  else
+  	{
+
+      return false
+    }
+}
+
+override def run() {
+  var c = 0
+  var diag = 1
+  var i=1
+  while(!posFinale())
+  	{
+      	
+      	if(diag<=7)
+      	{
+          for(compteur<-1 to (diag-1))
+            {
+              var x = getX()
+              var y = getY()
+              marquer(c)
+              c = c+1
+              setPos(x+1,y-1)
+            }
+            marquer(c)
+            c=c+1
+            diag = diag+1
+            var x = getX()
+            var y = getY()
+          	if(diag!=8)
+          		{
+            setPos(0,(diag-1))
+              }
+        }
+      else
+      	{
+          for(compteur<-1 to (diag-3))
+            {
+              var x = getX()
+              var y = getY()
+              marquer(c)
+              c = c+1
+              setPos(x+1,y-1)
+            }
+            marquer(c)
+            c=c+1
+            diag = diag-1
+            var x = getX()
+            var y = getY()
+            setPos(i,6)
+          i=i+1
+        }
+      
+    }
+   marquer(48)
+}
