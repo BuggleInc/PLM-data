@@ -1,14 +1,14 @@
 def solve() {
   while (isSorted()==false){
-    var i =0
-    while (getPancakeRadius(i)<getPancakeRadius(i+1) && i < getStackSize()){
-      i=i+1
+    var i =1
+    var max=0
+    var n =0
+    for (i <- n to getStackSize()) {
+      if (getPancakeRadius(i)>max){
+      max=i
+      }
     }
-    if (i==getStackSize()){
-      return 0
-    }
-    else {
-      flip(i+1)
-    }
-  }
-}
+    flip(i-1)
+    flip(i+1)
+      
+    
