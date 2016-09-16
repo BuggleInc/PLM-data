@@ -7,42 +7,6 @@ override def run() {
       sortieY = j
     }
   }
-  setIndication(sortieX,sortieY,0)
-  
-  }
-  while (!estSurBiscuit){
-    var min:Int = getIndication(getX,getY)
-    setDirection(Direction.NORTH)
-    if (!estFaceMur){
-      avance()
-      if (getIndication(getX,getY)<min){
-        min = getIndication(getX,getY)
-      } else {recule()}
-    }
-    setDirection(Direction.WEST)
-    if (!estFaceMur){
-      avance()
-      if (getIndication(getX,getY)<min){
-        min = getIndication(getX,getY)
-      } else {recule()}
-    }
-    setDirection(Direction.SOUTH)
-    if (!estFaceMur){
-      avance()
-      if (getIndication(getX,getY)<min){
-        min = getIndication(getX,getY)
-      } else {recule()}
-    }
-    setDirection(Direction.EAST)
-    if (!estFaceMur){
-      avance()
-      if (getIndication(getX,getY)<min){
-        min = getIndication(getX,getY)
-      } else {recule()}
-    }
-  }
-  prendBiscuit
-}
 
 def tagCaseAdj(x:Int,y:Int):Unit = {
   var i:Int = getIndication(x,y)
@@ -60,13 +24,4 @@ def tagCaseAdj(x:Int,y:Int):Unit = {
       setIndication(x+1,y,i+1)
     }
   }
-}
-
-def isGridFull():Boolean = {
-  for (i<-0 to getMondeLargeur-1;j<-0 to getMondeHauteur-1){
-    if (getIndication(i,j)==9999){
-      return false
-    }
-  }
-  return true
 }
