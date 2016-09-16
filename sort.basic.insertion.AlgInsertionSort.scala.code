@@ -1,28 +1,11 @@
 def insertionSort() {
-  var fin=1
-  var finboucle=0
   var i=0
   var j=0
-  var k=0
-  var valeurreference=0
-  var valeurdeplacementadroite=0
-  var valeurdeplacementadroite2=0
-  while (fin!=getNombreValeurs()){
-    valeurreference=getValeur(fin-1)
-    finboucle=0
-    for (i <-0 to fin){
-      if (getValeur(i)>valeurreference && finboucle==0){
-        valeurdeplacementadroite=getValeur(i)
-        setValeur(i,valeurreference)
-        finboucle=1
-        j=i
+  for (i<- 1 to getNombreValeurs()){
+    for (j<- i to 1 by -1){
+      if (plusPetit(j-1,j)==false){
+        echange(j-1,j)
       }
     }
-    for (k <- j+1 to fin){
-      valeurdeplacementadroite2=getValeur(k)
-      setValeur(k,valeurdeplacementadroite)
-      valeurdeplacementadroite=valeurdeplacementadroite2
-    }
-    fin=fin+1
   }
 }
