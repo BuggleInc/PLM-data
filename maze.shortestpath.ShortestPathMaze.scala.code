@@ -28,26 +28,32 @@ def findBaggle(xMax:Int, yMax:Int): (Int,Int) = {
   
 }
 
-def numerote(x:Int,y:Int,num:Int, xMax:Int, yMax:Int) {
-  if (y!= yMax && !hasTopWall(x,y) && getIndication(x,y-1)>num) { 
-    setIndication(x,y-1,num);
-    numerote (x,y-1,num+1,xMax,yMax);
-  }
+def listVoisins(x:Int,y:Int, xMax:Int, yMax:Int, num:Int):List(int,int)= {
+  var voisins:List(int,int) = Nil;
   
+  if (y!= yMax-1 && !hasTopWall(x,y) && getIndication(x,y-1)>num) { 
+  	voisins = (x,y-1)::voisins
+  }
   if (x!= 0 && !hasLeftWall(x,y) && getIndication(x-1,y)>num) {
-    setIndication(x-1,y,num);
-    numerote (x-1,y,num+1,xMax,yMax);
+  	voisins = (x-1,y)::voisins
   }
   
   if (x!= xMax-1 && !hasLeftWall(x+1,y) && getIndication(x+1,y)>num) {
-    setIndication(x+1,y,num);
-    numerote (x+1,y,num+1,xMax,yMax);
+  	voisins = (x+1,y)::voisins
   }
   
   if (y!= 0 && !hasTopWall(x,y+1) && getIndication(x,y+1)>num) {
-    setIndication(x,y+1,num);
-    numerote (x,y+1,num+1,xMax,yMax);
+  	voisins = (x,y+1)::voisins
   }
-
+  return voisins
+  
   
 }
+def numerote(x:Int,y:Int,num:Int, xMax:Int, yMax:Int) {
+  val listV = listVoisins(x,y,xMax,yMax,num:Int);
+  while (!listV.isEmpty) {
+    setIndication()
+  }
+  
+  
+}  
