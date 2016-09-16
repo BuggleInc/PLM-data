@@ -18,7 +18,7 @@ def isDirectionFree (direction : Direction) : Boolean = {
 // convoluted with staying the wall at the left and refresh sommeAngle's state
 def leftFollowerMode(sommeAngle : Int) : Int = {
   var x = sommeAngle;
-  while ((getDirection() != Direction.NORTH) || isFacingWall()) {
+  while (sommeAngle != 0) {
      if (!isFacingWall()) {
      	forward();
       if (!isWallAtLeft()) {
@@ -58,7 +58,7 @@ def makeMoving() {
       } 
       sommeAngle = leftFollowerMode(sommeAngle);
     } else {
-      	if (sommeAngle%4 != 0) { // if it hadn't made a loop
+      	if (sommeAngle != 0) { // if it hadn't made a loop
     			northRunnerMode();
      			while (!isWallAtLeft()) { // auto-orientation
       			right();
