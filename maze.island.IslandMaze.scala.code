@@ -1,8 +1,12 @@
 override def run() {
   while(porteBiscuit()==false) {
-    if (getDirection()==Direction.NORTH && estFaceMur()==false) {
-      coureurNord()
-      
+    if (getDirection()==Direction.NORTH) {
+      if (estFaceMur()) {
+        droite()
+      }
+      else {
+        avance()
+      }
     }
     else {
       keepHandOnSideWall()
