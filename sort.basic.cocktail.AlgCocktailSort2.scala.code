@@ -5,23 +5,32 @@ def cocktailSort2() {
 
 def sort(debut:Int, fin:Int, leftToRight:Boolean){
   var j = 0;
+  var debut_ = debut;
+  var fin_ = fin;
 
   var fini = true;
-  if(leftToRight) for (i <- debut to fin) {
-    if (!plusPetit(i, i+1)){
-      echange(i,i+1);
-      fini = false;
+  if(leftToRight) {
+    for (i <- debut to fin) {
+      if (!plusPetit(i, i+1)){
+        echange(i,i+1);
+        fini = false;
+      }
     }
-  }
-  
-  
-  else for(i <- debut to fin){
-    j = fin - i /*+ debut*/;
-    if(!plusPetit(j, j+1)){
-      echange(j, j+1);
-      fini = false;
-    }
+    fin_ -= 1;
   }
 
-  if(!fini) sort(debut+1, fin-1, !leftToRight);
+  else {
+    for(i <- debut to fin){
+      j = fin - i + debut;
+      if(!plusPetit(j, j+1)){
+        echange(j, j+1);
+        fini = false;
+      }
+    }
+    debut_ += 1;
+  }
+
+  if(!fini) { 
+    sort(debut_, fin_, !leftToRight); 
+  }
 }
