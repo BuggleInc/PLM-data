@@ -1,25 +1,50 @@
-def plusLong(J1:Int,J2:Int,source:Int,nbBase:Int) : Int = {
-  var d1 : Int = (source - J1)
-  var d2 : Int = (source - J2)
-  if (d1<0){d1=d1+nbBase}
-  if (d2<0){d2=d2+nbBase}
-  if (d1>d2) {return(0)}
-  else {return(1)}
+def trouveJoueur(base : Int ) : (Int,Int) = {
+  var nbBase : Int = getNombreBases()
+  var i : Int = 0
+  var j : Int = 0
+  var trouve : Boolean = false 
+  while(!trouve){
+    if (getCouleurJoueur(i,j) == base) {trouve=true}
+    else {
+      j=1
+      if (getCouleurJoueur(i,j)== base) {trouve = true}
+      else {
+        j=0
+        if (i+1 != base){i=i+1}
+        else {i=i+2}
+        if (i>=nbBase) {i=i-nbBase}
+      }
+    }
+  }
+  return(i,j)
 }
+
+def positionneJoueur(base : Int, pos : Int ) {
+  var i : Int = trouveJoueur(base)._1
+  var j : Int = trouveJoueur(base)._2
+  var posTrou : Int = getTrouPosition()
+  while (getCouleurJoueur(base,pos) != base){
+    while(getTrouBase()>i+1){
+      deplace(getTrouBase()-1,0)
+    }
+    deplace(i,1-j)
+    while(i != base + 1){
+      deplace(i-1,0)
+      deplace(i,j)
+      i=i-1
+      j=0
+      deplace(i,1)
+    }
+    deplace(base,1-pos)
+    deplace(i,j)   
+  }
+}
+
 
 
 override def run() {
-  while(!estTrie()){
-    var trouBase : Int = getTrouBase()
-    var nbBase : Int =getNombreBases()
-    var trouPos : Int = getTrouPosition()
-    var source : Int = (trouBase+1)%nbBase
-    var couleurJ1 : Int = getCouleurJoueur(source,0)
-    var couleurJ2 : Int = getCouleurJoueur(source,1)
-    deplace(source,plusLong(couleurJ1,couleurJ2,source,nbBase))
-    
-    
-    
+  var i : Int = 0
+  positionneJoueur(0,1)
+        
   }
-  if (getTrouPosition()==0){deplace(getTrouBase(),1)}
-}
+   
