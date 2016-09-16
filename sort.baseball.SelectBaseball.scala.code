@@ -86,12 +86,12 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
     deplace(currBase, posEchange);
     deplace(mod(currBase+1, nbBases), pos);
   }
-  if (arrive == 3 && depart == 8) return;
+  
   deplace(currBase, pos);
   currBase = mod(currBase+1, nbBases);
     
   deplace(currBase, posEchange);
-  deplace(mod(currBase+1, nbBases), cherchePasJoueur(arrive, arrive));
+  deplace(arrive, cherchePasJoueur(arrive, arrive));
   
   deplace(currBase, pos);
   currBase = getTrouBase();
