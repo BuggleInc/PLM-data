@@ -1,9 +1,22 @@
 override def run() {
   baisseBrosse()
   while ((getX(),getY())!=(6,0)){
-    pasDeSerpent()
+    if(!estFaceMur()){
+      avance()
+    }
   }
-
+  else{
+    if (getDirection()== Direction.WEST){
+      droite()
+      avance()
+      droite()
+    }
+    if (getDirection()== Direction.EAST){
+      gauche()
+      avance()
+      gauche()
+    }
+  }
 }
 
 
