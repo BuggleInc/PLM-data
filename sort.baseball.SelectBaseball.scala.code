@@ -38,9 +38,9 @@ override def run()
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
             deplacerJoueur(nPos, nBase, nCouleur, origBaseTrou, origPosTrou);
-            return;
+            
           }
-        }
+        }return;
       }
   	}
   }
@@ -87,8 +87,7 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   currBase = mod(currBase+1, nbBases);
     
   deplace(currBase, posEchange);
-  deplace(mod(currBase+1, nbBases), cherchePasJoueur(arrive, arrive)+1);
-  
+  deplace(mod(currBase+1, nbBases), cherchePasJoueur(arrive, arrive));
   
   deplace(currBase, pos);
   currBase = getTrouBase();
