@@ -1,0 +1,21 @@
+def solve() {
+  var n = getTaillePile()
+  for (i<- 0 to n-2) {
+    var x = plusGrand(n-i)
+    retourne(x)
+    retourne(n)
+  }
+}
+
+
+def plusGrand(n : Int) x : Int = {
+  var p = getRayonCrepe(0)
+  var x = 0
+  for (i<- 1 to n) {
+    if (getRayonCrepe(i) > p){
+      x=i
+      p=getRayonCrepe(i)
+    }
+  }
+  return x
+}
