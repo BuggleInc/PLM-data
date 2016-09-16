@@ -27,7 +27,7 @@ override def run()
   var origPosTrou = getTrouPosition();
   
   //On trie
-  for (nCouleur <- 0 to 2) //On trie chacune des bases (=couleurs)
+  for (nCouleur <- 0 to 3) //On trie chacune des bases (=couleurs)
   {
     for (nBase <- 0 to nbBases-1)
     {
@@ -38,7 +38,7 @@ override def run()
           if (getCouleurJoueur(nBase, nPos) == nCouleur) //On a trouve un joueur de la bonne couleur
           {
             deplacerJoueur(nPos, nBase, nCouleur, origBaseTrou, origPosTrou);
-            
+            if (nCouleur == 3) return;
           }
         }
       }
