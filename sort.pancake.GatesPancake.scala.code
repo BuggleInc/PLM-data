@@ -10,10 +10,14 @@ def solve() {
     tmoins1 = trouverTMoins1(t)
     if(!casA(t,tplus1,tmoins1)){
     	if(!casB(t,tplus1,tmoins1)){
-        if(!casC(t,))
+        if(!casC()){
+          if(!casD(t,tplus1,tmoins1)){
+            casE(t,tplus1,tmoins1)
+        }
       }
    	}
   }
+}
 }
 //On se met d'accord : t c'est le rayon de la première crepe
 // tplus1 et tmoins1 sont les indices des crepes vérifiants les tailles respectives
@@ -35,6 +39,9 @@ def estLibre(rang:Int): Boolean={
 
 def trouverTPlus1(t:Int):Int={
   var i = 0
+  if (t == getTaillePile()-1){
+    return 9999
+  }
   for (i <- 1 to getTaillePile()-1){
     if (getRayonCrepe(i) == t+1){return i}
   }
@@ -43,6 +50,9 @@ def trouverTPlus1(t:Int):Int={
 
 def trouverTMoins1(t:Int):Int={
 	var i=0
+  if (t == 0){
+    return 9999
+  }
   for (i <- 1 to getTaillePile()-1){
     if (getRayonCrepe(i) == t-1){return i}
   }
@@ -56,6 +66,11 @@ def estPremier(rang:Int):Boolean={
   }
   return false
 }
+
+def estDernier(rang:Int):Boolean={
+  return(!estLibre(rang) && rang==getTaillePile()-1 || (getRayonCrepe(rang+1)!=getRayonCrepe(rang)+1))
+}
+
 
 //LES CAS
 //
@@ -84,18 +99,25 @@ def casB(t:Int,tplus1:Int,tmoins1:Int):Boolean={
   }
   return false
 }
-
 //
 def casC():Boolean={
-  return false
+	return false
   
 }
 //
-def casD():Boolean={
+def casD(t:Int,tplus1:Int,tmoins1:Int):Boolean={
+  if(!estLibre(0)){
+    if (tplus1!=9999 && estLibre(tplus1)){retourne(tplus1);return true}
+    if (tmoins1!=9999 && estLibre(tmoins1)){retourne(moins1);return true}
+  }
   return false
 }
 //
-def casE():Boolean={
+def casE(t:Int,tplus1:int,tmoins1:Int):Boolean={
+  if(!estLibre(0)){
+    if (tplus1!=9999 && estPremier(tplus1)){retourne(tplus1);return true}
+    if (tmoins1!=9999 && estPremier(tmoins1)){retourne(tmoins1);return true}
+  }
   return false
   
 }
