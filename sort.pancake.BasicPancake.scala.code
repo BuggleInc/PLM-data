@@ -3,12 +3,13 @@ var cpt = 2
 def solve() {
   while (!estTriee) {
     for (i<-1 to getTaillePile-cpt) {
-      if (getRayonCrepe(i)>getRayonCrepe(i+1)) {
+      if (getRayonCrepe(i)>getRayonCrepe(mem)) {
 				mem=i
       }
     }
     retourne(mem-1)
     retourne(getTaillePile-cpt+2)
     cpt+=1
+    mem=0
   }
 }
