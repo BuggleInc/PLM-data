@@ -1,24 +1,31 @@
 var compt:Int = 0;
 
+
 override def run(){
 
   while(!estSurBiscuit()){
+    
     while (!estFaceMur()){
       avance()   
     }
     gauche()
+    while (getDirection != Direction.NORD && compt != 0){
     while (!estSurBiscuit() && getDirection != Direction.NORD){  keepHandOnSideWall()
     }
-  }    
+  	}  
+  }  
   prendBiscuit()
 }
+
+
 
 def keepHandOnSideWall(){
 
   gauche()
   compt+=1;
   while (estFaceMur()){
-    droite()compt-=1;
+    droite()
+    compt-=1;
 
   }
   avance()
