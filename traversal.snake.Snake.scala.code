@@ -1,0 +1,63 @@
+override def run() {
+  
+  def murN:Boolean={
+    
+    
+    if(getDirection()==Direction.EST){
+      gauche()
+      if(estFaceMur==true){
+        return true
+     
+      }else{
+        return false
+
+      }
+      
+    }else if(getDirection()==Direction.OUEST){
+        droite()
+        if(estFaceMur==true){
+        return true
+   
+              }else{
+          return false
+     
+        }
+      
+    }else {
+        return true
+    }
+    
+  }
+  
+
+  
+ 
+  def fini():Boolean ={
+    if(estFaceMur==true && murN==true){
+      return true
+    }else{
+      return false
+    }
+  }
+  
+  while(fini()==false){
+    baisseBrosse()
+    while(estFaceMur==false){
+      avance()
+    }
+    if(getDirection()==Direction.OUEST){
+      droite()
+      avance()
+      droite()
+    }else if(getDirection()==Direction.EST){
+      gauche()
+      avance()
+      gauche()
+    }else{
+      return
+    }
+   
+  }
+
+  
+}
