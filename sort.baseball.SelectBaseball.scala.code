@@ -70,7 +70,12 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   var currBase = mod(baseTrou-1, nbBases);
   
   var posEchange = posTrou;
-  if (posEchange == pos) posEchange = mod(pos+1, nbPos);
+  if (posEchange == pos)
+  {
+    deplace(origBaseTrou, origPosTrou);
+    pos = posTrou;
+    posEchange = getTrouBase();;
+  };
   
   while (currBase != mod(arrive-2, nbBases)) //On deplace le joueur dans sa base
   {
