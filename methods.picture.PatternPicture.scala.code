@@ -1,0 +1,24 @@
+override def run() {
+  def Motif(c:Color){
+    setCouleurBrosse(c)
+    avance()
+    baisseBrosse();leveBrosse()
+    recule()
+    gauche();avance()
+    baisseBrosse();leveBrosse()
+    recule();droite();avance(3);gauche()
+  }
+def Motif2(){
+  Motif(Color.RED)
+  Motif(Color.BLUE)
+  Motif(Color.GREEN)
+  Motif(Color.YELLOW)
+  }
+
+def Ligne(){
+  Motif2();avance(4);Motif2()
+}
+  Ligne()
+	recule(4);gauche();avance(4);droite()
+  Ligne()
+}
