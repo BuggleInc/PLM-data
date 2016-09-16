@@ -33,6 +33,11 @@ def keepHandOnSideWall()
 
 def isDirectionFree(dir:Direction):Boolean=
 {
+  var free=false
+  var dirInit=getDirection()
   setDirection(dir)
-  return !estFaceMur()
+  free=!estFaceMur()
+  setDirection(dirInit)
+  return free
+  set
 }
