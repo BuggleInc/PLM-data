@@ -10,7 +10,7 @@ override def run() {
       avance();
     }
     droite();
-    sommeAngle += 1
+    sommeAngle -= 1
    
   }
   
@@ -19,8 +19,10 @@ override def run() {
     while (sommeAngle != 0 && isDirectionFree(getDirection()) == false) {
       
       gauche();
+      sommeAngle += 1
       while (estFaceMur() == true) {
         droite();
+        sommeAngle -= 1
       }
       avance();
       
