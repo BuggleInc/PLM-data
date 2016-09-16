@@ -1,16 +1,15 @@
 def bubbleSort3() {
-  var len=getValueCount();
-  var swapped:Boolean = true
-  for (i <- 0 to len-2) {
-    for (j <- 0 to len-2-i) {
-      while (swapped) {
+  var swapped:Boolean=true
+  var len:Int=getValueCount();
+  for (i <- len-2 to 0 by -1) {
+    while (swapped) {
+      for (j <- 0 to i) {
         swapped=false
         if (!isSmaller(j,j+1)) {
-          swap(j,j+1) ;
+          swap(j,j+1)
           swapped=true
         }
-     	}
+      }
     }
   }
-  return
 }

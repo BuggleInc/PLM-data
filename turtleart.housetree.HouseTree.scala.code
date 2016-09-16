@@ -1,20 +1,25 @@
 override def run() {
-  for (i<-1 to 4) {
-    for (i<-1 to 5) {
-      forward(30)
-      right(90)
-    }
-    left(60)
-    for (i<- 1 to 3) {
-      forward(30)
-      right(120)
-    }
-    left(30)
-    backward(30)
-    penUp()
-    right(90)
-    forward(50)
-    left(90)
-    penDown()
+  for (i <- 1 to 4) {
+    house();
+    penUp();
+    right(90);
+    forward(50);
+    left(90);
+    penDown();
   }
+}
+
+def house() {
+  for (i <- 1 to 5) {
+    forward(30);
+    right(90);
+  }
+  left(60);
+  forward(30);
+  right(120);
+  forward(30);
+  left(60);
+  backward(30);
+  left(90);
+  backward(30);
 }
