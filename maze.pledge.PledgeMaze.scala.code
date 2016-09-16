@@ -17,7 +17,12 @@ def isDirectionFree (direction : Direction) : Boolean = {
 
 // convoluted with staying the wall at the left and refresh sommeAngle's state
 def leftFollowerMode(sommeAngle : Int) : Int = {
-  var x = sommeAngle;
+  var x = sommeAngle; // to pass out the global var
+  // auto-orientation : make sure there is the wall at left
+  while (!isWallAtLeft()) {
+    right();
+    x += 1;
+  }
   while ((sommeAngle != 0) && !isDirectionFree(Direction.NORTH)) {
      if (!isFacingWall()) {
      	forward();
