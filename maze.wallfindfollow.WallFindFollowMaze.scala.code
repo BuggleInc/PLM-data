@@ -3,5 +3,12 @@ override def run() {
     gauche()
   }
   droite()
-  keepHandOnSideWall()
+  while (!estSurBiscuit) {
+    gauche()
+    while (estFaceMur) {
+      droite()
+    }
+    avance()
+  }
+  prendBiscuit()
 }
