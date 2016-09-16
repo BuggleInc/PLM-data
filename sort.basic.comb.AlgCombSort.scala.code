@@ -8,9 +8,6 @@ def aux(ecart:Int){
   var ecart_ = ecart;
   var changement = false;
 
-
-  ecart_ = (ecart_.toFloat/1.3).toInt;
-
   for(i <- 0 to l - ecart_ - 1){
     if(plusPetit(i+ecart_, i)){
       echange(i, i+ecart_);
@@ -19,6 +16,7 @@ def aux(ecart:Int){
   }
 
   if(changement || ecart > 1){
+    ecart_ = (ecart_.toFloat/1.3).toInt;
     aux(ecart_);
   }
 }
