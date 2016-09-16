@@ -3,13 +3,15 @@ def solve() {
   var t=0
   var tmoins1 = 0
   var tplus1 = 0
+  var bool = true
   while(!estTriee()){
     t = getRayonCrepe(0)
     tplus1 = trouverTPlus1(t)
     tmoins1 = trouverTMoins1(t)
-    casA(t,tplus1,tmoins1)
-    casB(t,tplus1,tmoins1)
-    casC()
+    bool = casA(t,tplus1,tmoins1)
+    if (!bool){
+      bool = casB(t,tplus1,tmoins1)
+    }
       
     }
 	}
