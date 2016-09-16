@@ -1,0 +1,34 @@
+def coin(c:Color) {
+  setCouleurBrosse(c)
+  while(!(estDosMur())) {gauche()}
+  for ( compteur <- 1 to 4) { baisseBrosse(); leveBrosse(); avance(); droite(); avance(); droite(); droite()}
+  avance(); setCouleurBrosse(Color.YELLOW); baisseBrosse(); leveBrosse(); avance(); avance(); avance(); avance(); gauche(); avance()
+}
+
+def carre() {coin(Color.RED);coin(Color.CYAN);coin(Color.GREEN);coin(Color.PINK)}
+
+def test() {
+
+  carre(); droite();droite()
+  avance(); avance(); avance(); droite(); avance(); setCouleurBrosse(Color.ORANGE)
+  for ( compteur <- 1 to 4) { baisseBrosse(); leveBrosse(); avance(); droite(); avance(); droite(); droite()}
+  avance(); setCouleurBrosse(Color.YELLOW); baisseBrosse(); leveBrosse()
+  avance(); avance(); droite(); avance(); avance(); avance(); droite(); droite()
+  
+}
+
+def transitionGD() {
+  avance(); avance(); avance(); avance(); avance(); avance(); gauche(); avance(); avance(); droite(); setCouleurBrosse(Color.BLUE)
+   for ( compteur <- 1 to 4) { baisseBrosse(); leveBrosse(); avance(); droite(); avance(); droite(); droite()}
+  avance(); setCouleurBrosse(Color.YELLOW); baisseBrosse(); leveBrosse()
+  avance(); gauche(); avance(); avance(); droite()  
+}
+
+def transitionHB() {
+  droite(); avance(); droite(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); avance(); gauche(); avance(); avance(); avance()
+}
+
+def growFlowers() {
+  test(); transitionGD(); test()
+  transitionHB(); test(); transitionGD(); test()
+}

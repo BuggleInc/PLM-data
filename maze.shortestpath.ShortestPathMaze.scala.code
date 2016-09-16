@@ -1,0 +1,59 @@
+def trouveDonut() : (Int, Int) = {
+  var i : Int = 0 
+  var j : Int = 0 
+  while (!aBiscuit(i,j)){
+    if (i==getMondeLargeur()-1){
+      i=0
+      j=j+1
+    }
+    i=i+1
+  }
+  return(i,j)
+}
+
+def Cartographie(i:Int, j:Int, done: Int) {
+  var Done : Int = done
+  if (getIndication(i,j)==9999){
+    setIndication(i,j,Done)
+    Done=Done+1
+    (i,j) match {
+      case (11,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+      
+      case (_,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+       
+      case (11,_)=> if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)};if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        
+      case (_,_) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}; if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}; if(!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+    }
+  }
+  else {
+    if (getIndication(i,j)>Done){
+      setIndication(i,j,Done)
+      Done=Done+1
+      (i,j) match {
+        
+        case (11,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        
+      
+      case (_,11) => if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)};if (!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+       
+      case (11,_)=> if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)};if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)};if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}
+        
+      case (_,_) =>if (!aMurOuest(i,j)){Cartographie(i-1,j,Done)}; if (!aMurNord(i,j)) {Cartographie(i,j-1,Done)}; if (!aMurNord(i,j+1)){Cartographie (i,j+1,Done)}; if(!aMurOuest(i+1,j)){Cartographie(i+1,j,Done)}
+      
+      }
+    }
+  }
+}
+
+override def run() {
+  var x : Int = trouveDonut()._1
+  var y : Int = trouveDonut()._2
+  var done : Int = 0
+  Cartographie(x,y,done)
+  while(!estSurBiscuit()){
+    val actuel : Int = getIndication(getX(),getY())
+    if (!estFaceMur()){avance(); if (getIndication(getX(),getY())>=actuel) {recule();gauche()}}
+    else {gauche()}
+    }
+  prendBiscuit()}

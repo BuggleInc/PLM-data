@@ -1,0 +1,18 @@
+override def run() {
+  val largeur : Int = getMondeLargeur()
+  val hauteur : Int = getMondeHauteur()
+  var cpt : Int = 0 
+  var fini : Boolean = false
+  var allerADroite : Boolean = true
+  while (!fini) {
+  (getX(),getY()) match {
+    case(0,0) => ecritMessage(cpt); cpt=cpt+1; setPos(getX()+1,getY())
+    case (6,6) => ecritMessage(cpt); fini = true
+    case (6,_) => ecritMessage(cpt); cpt= cpt + 1; setPos(getX(),getY()+1); allerADroite= !allerADroite; ecritMessage(cpt); cpt = cpt+1; if  (allerADroite) { setPos(getX()+1,getY())}
+  																					   else {setPos(getX()-1,getY())}
+    case (0,_) => ecritMessage(cpt); cpt = cpt + 1 ; setPos(getX(),getY()+1); allerADroite= !allerADroite; ecritMessage(cpt); cpt = cpt+1; if  (allerADroite) { setPos(getX()+1,getY())}
+  																					   else {setPos(getX()-1,getY())}
+    case (_,_)=> ecritMessage(cpt); cpt=cpt+1; if  (allerADroite) { setPos(getX()+1,getY())}
+  																					   else {setPos(getX()-1,getY())}
+  }
+  }}
