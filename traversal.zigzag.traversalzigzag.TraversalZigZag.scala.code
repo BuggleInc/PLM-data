@@ -1,0 +1,51 @@
+override def run() {
+  var abscisse : Int = 0
+  var ordonnee : Int = 0
+  var compteur : Int = 0
+  val hauteur : Int = getMondeHauteur()
+  val largeur : Int = getMondeLargeur()
+  while (abscisse < largeur && ordonnee < hauteur - 1) {
+    gauche()
+    if (estFaceMur()) {
+      ligneEst(compteur, abscisse, ordonnee, hauteur, largeur)
+      abscisse = largeur - 1
+      setPos(abscisse, ordonnee +1) 
+    }
+    else {
+      ligneOuest(compteur, abscisse, ordonnee, hauteur, largeur)
+      abscisse = 0
+      setPos(abscisse, ordonnee + 1)
+    }
+    droite()
+    ordonnee = ordonnee + 1
+    compteur = compteur + 7
+  }
+  gauche()
+  if (estFaceMur())
+    ligneEst(compteur, abscisse, ordonnee, hauteur, largeur)
+  else
+    ligneOuest(compteur, abscisse, ordonnee, hauteur, largeur)
+  droite()
+}
+
+def ligneEst(c : Int, abscisse : Int, ordonnee : Int, hauteur : Int, largeur : Int) {
+  var toto : Int = abscisse
+  var compteur2 : Int = c
+  for (colonne <- 1 to largeur) {
+    setPos(toto, ordonnee)
+    ecritMessage(compteur2)
+    toto = toto + 1
+    compteur2 = compteur2 + 1
+  }
+}
+
+def ligneOuest(c : Int, abscisse : Int, ordonnee : Int, hauteur : Int, largeur : Int) {
+  var toto : Int = abscisse
+  var compteur2 : Int = c
+  for (colonne <- 1 to largeur) {
+    setPos(toto, ordonnee)
+    ecritMessage(compteur2)
+    toto = toto - 1
+    compteur2 = compteur2 + 1
+  }
+}

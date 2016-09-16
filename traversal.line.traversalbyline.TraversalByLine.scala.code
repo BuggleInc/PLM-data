@@ -1,0 +1,22 @@
+override def run() {
+  var abscisse : Int = 0
+  var ordonnee : Int = 0
+  var compteur : Int = 0
+  var hauteur : Int = getMondeHauteur()
+  var largeur : Int = getMondeLargeur()
+  for (colonne <- 1 to hauteur) {
+    while (getX() != (largeur - 1)) {
+      ecritMessage(compteur)
+      abscisse = abscisse + 1
+      compteur = compteur + 1
+      setPos(abscisse, ordonnee)            
+    }
+    ecritMessage(compteur)
+    abscisse = 0
+    ordonnee = ordonnee + 1
+    if (abscisse < largeur && ordonnee < hauteur) {
+      setPos(abscisse,ordonnee)
+      compteur = compteur + 1
+    }
+  }
+}

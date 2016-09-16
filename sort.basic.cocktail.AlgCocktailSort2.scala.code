@@ -1,0 +1,23 @@
+def cocktailSort2() {
+  val lgr = getNombreValeurs()
+  var debut = 0
+  var fin = lgr - 2
+  var echangeFait : Boolean = false
+  do {
+    echangeFait = false
+    for (i <- debut to fin) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1)
+        echangeFait = true
+      }
+    }
+    fin -= 1
+    for (i <- fin to debut by -1) {
+      if (!plusPetit(i,i+1)) {
+        echange(i,i+1)
+        echangeFait = true
+      }
+    }
+    debut += 1
+  } while (echangeFait)
+}

@@ -1,0 +1,43 @@
+override def run() {
+  for (compteur <- 1 to 3) {
+    faireCarre()
+    avance(3)
+    if (!estFaceMur()) {
+      avance()
+    }
+    else {
+      recule(7)
+      gauche()
+      avance(4)
+      droite()
+    }
+  }
+  faireCarre() 
+}
+
+def faire(c:Color) {
+  setCouleurBrosse(c)
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  gauche()
+  avance()
+  gauche()
+  avance(3)
+  gauche()
+}
+
+def faireCarre() {
+  faire(Color.red)
+  faire(Color.blue)
+  faire(Color.green)
+  faire(Color.yellow)
+}
+
+
