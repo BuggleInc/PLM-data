@@ -1,0 +1,55 @@
+override def run() {
+  var diag=0
+  var x=0
+  var y=0
+  var compteur=0
+  while (compteur<=27){
+    while (y!=0){
+      ecritMessage(compteur)
+      y=y-1
+      x=x+1
+      compteur = compteur+1
+      setPos(x,y)
+    }
+    ecritMessage(compteur)
+    diag = diag +1
+    y=diag
+    x=0
+    compteur = compteur+1
+    if (y!=7){
+    	setPos(x,y)
+    }
+  }
+  compteur=48
+  x=6
+  y=6
+  setPos(x,y)
+  var s=1
+  while (x!=3){
+  	while (s!=7){
+    	ecritMessage(compteur)
+      compteur = compteur - s
+      	y = y - 1
+    		setPos(x,y)
+      	s = s+1
+      }
+    compteur=compteur+6
+    s= s-x+1
+    compteur=compteur+(x*2)+1
+    x=x-1
+    y=6
+    setPos(x,y)
+  }
+  ecritMessage(39)
+  setPos(3,5)
+  ecritMessage(35)
+  setPos(3,4)
+  ecritMessage(30)
+  setPos(2,6)
+  ecritMessage(34)
+  setPos(2,5)
+  ecritMessage(29)
+  setPos(1,6)
+  ecritMessage(28)
+  setPos(6,6)
+}
