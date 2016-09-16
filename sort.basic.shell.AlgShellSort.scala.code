@@ -1,18 +1,18 @@
 def shellSort()  {
   var v=0
   var k=0
-  var ecart:Int =getNombreValeurs()
+  var ecart:Int =getNombreValeurs()/2
   while (ecart>0) {
     for (i<-1 to getNombreValeurs()-1) {
     v=getValeur(i)
-    k=i
-    ecart= (ecart.toDouble/2).toInt  
+    k=i  
     while (k>0&&k-ecart>=0&& getValeur(k-ecart)>v) {
       setValeur(k,getValeur(k-ecart))
       k=k-ecart
     }
     setValeur(k,v)
   }
+    ecart= (ecart.toDouble/2).toInt 
   }
 }
 
