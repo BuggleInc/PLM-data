@@ -22,10 +22,11 @@ def trouveJoueur(base : Int ) : (Int,Int) = {
 def positionneJoueur(base : Int, pos : Int ) {
   var i : Int = trouveJoueur(base)._1
   var j : Int = trouveJoueur(base)._2
-  var posTrou : Int = getTrouPosition()
+  var baseTrou : Int = getTrouBase()
   while (getCouleurJoueur(base,pos) != base){
-    while(getTrouBase()>i+1){
-      deplace(getTrouBase()-1,0)
+    while(baseTrou>i+1){
+      deplace(baseTrou-1,0)
+      baseTrou=baseTrou-1
     }
     deplace(i,1-j)
     while(i != base + 1){
@@ -43,6 +44,16 @@ def positionneJoueur(base : Int, pos : Int ) {
 
 
 override def run() {
-  trouveJoueur(0)
+  var i : Int = 0
+while(!estTrie()){
+  if (getCouleurJoueur(i,0) != i){
+    positionneJoueur(i,0)
+  }
+  if (getCouleurJoueur(i,1) != i){
+    positionneJoueur(i,1)
+  }
+  i=i+1
+
+  }
 }
    
