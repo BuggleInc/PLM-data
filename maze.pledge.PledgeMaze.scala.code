@@ -1,0 +1,38 @@
+var sommeAngle=0
+override def run() 
+{
+  while(!estSurBiscuit())
+  	{
+      if(!estFaceMur() && sommeAngle!=0)
+      	{
+      		keepHandOnSideWall()
+        }
+      else
+      	{
+          droite()
+          sommeAngle-=1
+        }
+  	}
+    
+	prendBiscuit()
+}
+
+def keepHandOnSideWall()
+{
+  do
+  	{
+      avance()
+      gauche()
+  		sommeAngle+=1
+    }
+  while(!estFaceMur())  
+  droite()
+  sommeAngle-=1
+}
+
+
+def isDirectionFree(dir:Direction):Boolean=
+{
+  setDirection(dir)
+  return !estFaceMur()
+}
