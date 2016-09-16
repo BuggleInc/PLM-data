@@ -27,11 +27,11 @@ def solve() {
 def estLibre(rang:Int): Boolean={
   // On regarde si la crepe de rang (rang-1) et une taille en dessous de la crepe de rang (rang)
   if (rang>0){
-    if (getRayonCrepe(rang - 1) == getRayonCrepe(rang) - 1){return false}
+    if (getRayonCrepe(rang - 1)==getRayonCrepe(rang)-1 || getRayonCrepe(rang - 1)==getRayonCrepe(rang)+1){return false}
   }
   // On regarde si la crepe de rang (rang+1) est une taille au dessus de la crepe de rang (rang)
   if (rang < getTaillePile() - 1){
-  	if (getRayonCrepe(rang + 1) == getRayonCrepe(rang) + 1){return false}
+  	if (getRayonCrepe(rang + 1) == getRayonCrepe(rang) + 1 || getRayonCrepe(rang + 1) == getRayonCrepe(rang)-1){return false}
   }
   // Sinon la crepe est libre
   return true
