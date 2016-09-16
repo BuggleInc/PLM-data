@@ -1,33 +1,57 @@
-def cocktailSort3() {
+def cocktailSort2() {
 	
   var swap:Boolean = true
+  var debut = 0
+  var fin = getNombreValeurs()-2
   
   do {
     
-  	swap = false
+   swap = false
+   var comptr1 = 0
+   var comptr2 = 0
    
-		for (i <- 0 to getNombreValeurs()-2) {
+   for (i <- debut to fin) {
     
-			if (!plusPetit(i,i+1)) {
+   	if (!plusPetit(i,i+1)) {
       
-      	echange(i,i+1)
-      	swap = true
+      echange(i,i+1)
+      swap = true
+      comptr1 = comptr1 + 1
       
-    	}
+    }
     
-  	}
+	}
+    
+  fin = fin - 1
+    
+  if (comptr1 == 0) {
+    
+    
+    
+  }  
+    
   
-  	for (i <- 1 to getNombreValeurs()-1 by -1) {
+  for (i <- fin to debut by -1) {
     
-  		if (!plusPetit(i-1,i)) {
+    if (!plusPetit(i,i+1)) {
       
-      	echange(i,i+1)
-      	swap = true
+      echange(i,i+1)
+      swap = true
+      comptr2 = comptr2 + 1
       
-    	}
+    }
     
-  	}
+  }
+    
+  debut = debut + 1
+    
+  if (comptr1 !=0 && comptr2 == 0) {
+    
+    swap = false
+    
+  }  
 
-	} while (swap)
+   
+ } while (swap)
   
 }
