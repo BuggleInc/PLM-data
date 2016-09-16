@@ -1,6 +1,8 @@
 def plusLong(J1:Int,J2:Int,source:Int,nbBase:Int) : Int = {
-  var d1 : Int = (J1 - source)%nbBase
-  var d2 : Int = (J2 - source)%nbBase
+  var d1 : Int = (J1 - source)
+  var d2 : Int = (J2 - source)
+  if (d1<0){d1=d1+nbBase}
+  if (d2<0){d2=d2+nbBase}
   if (d1>d2) {return(0)}
   else {return(1)}
 }
