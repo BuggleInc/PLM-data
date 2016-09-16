@@ -1,0 +1,21 @@
+def solve() {
+  var size: Int = getStackSize()
+  var nonSorted:Int =size
+  while (! isSorted()) {
+    flip(rkMaxRad)
+    flip(nonSorted)
+    nonSorted-=1
+  }
+  
+  def rkMaxRad(nb:Int) :Int ={
+    var maxRad:Int = 0
+    var rkMax : Int = 0
+    for (i <- 0 to nb-1) {
+      if (getPancakeRadius(i) > maxRad ) {
+        rkMax=i
+        maxRad=getPancakeRadius(i)
+      }
+    }
+    return rkMax
+  }
+}
