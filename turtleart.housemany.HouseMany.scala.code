@@ -1,0 +1,41 @@
+override def run() {
+  DoLineHouse()
+  penUp()
+  moveTo(getX()-50,getY()+75)
+  penDown()
+  DoHouse()
+  penUp()
+  moveTo(getX()+150,getY())
+  penDown()
+  DoHouse()
+  penUp()
+  moveTo(getX(),getY()+75)
+  penDown()
+  DoLineHouse()
+}
+
+def DoLineHouse(){
+    for (i <- 1 to 4){
+    DoHouse()
+    penUp()
+    moveTo(getX()+50,getY())
+    penDown()
+  }
+}
+
+def DoHouse(){
+  for (i <- 1 to 4){
+  forward(30)
+  right(90)
+  }
+  forward(30)
+    right(30)
+  for (i <- 1 to 3){
+    forward(30)
+    right(120)
+  }
+  penUp()
+  right(150)
+  forward(30)
+  right(180)
+}
