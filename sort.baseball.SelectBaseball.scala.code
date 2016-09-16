@@ -1,24 +1,26 @@
 override def run() {
   var n = getBasesAmount();
+  var nextBaseToSort = 0;
   
   while (!isSorted()) {
-    var holeBase = getHoleBase();
-    var previousBase = (holeBase + 1) % n;
-    
-    if (distanceToDestination(previousBase, 0) > distanceToDestination(previousBase, 1)) {
-      move(previousBase, 0);
-    } else {
-      move(previousBase, 1);
-    }
-    
+    placePlayer(i, 0);
+    placePlayer(i, 1); 
   }
-  
-  hack_hack_hack_hack_hack();
 }
 
-def distanceToDestination(base:Integer, position:Integer) : Integer =(base - getPlayerColor(base, position) + getBasesAmount()) % getBasesAmount();
+def placePlayer(base, position) {
+  if ((getPlayerColor(base, 0)) != base) {
+      var (wrongBase, wrongPosition) = findPlayerToSort(base);
+      move(base, position);
+      move(wrongBase, wrongPosition);
+    }
+}
 
-
-def hack_hack_hack_hack_hack() {
-  move(3, 1)
+def findPlayerToSort(color:Integer) : (Integer, Integer) = {
+  for (i <- 0 to getBasesAmount() - 1) {
+    if (i != color) {
+      if (getPlayerColor(i, 0)) return (i, 0);
+      if (getPlayerColor(i, 1)) return (i, 1);
+    }
+  }
 }
