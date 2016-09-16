@@ -91,6 +91,7 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   
   deplace(currBase, pos);
   currBase = getTrouBase();
+  
   deplace(currBase, posEchange)
   
   //On annule tous les autres changements  
@@ -98,10 +99,10 @@ def deplacerJoueur(pos:Int, depart:Int, arrive:Int, origBaseTrou:Int, origPosTro
   {
     //Le trou est sur le nouveau joueur
     deplace(mod(currBase-1, nbBases), pos);
-    deplace(currBase, posEchange);
+    deplace(currBase, pos);
     
     currBase = mod(getTrouBase()-1, nbBases);    
-    deplace(currBase, pos);
+    deplace(currBase, posEchange);
   }
   
   deplace(mod(currBase-1, nbBases), posEchange);
