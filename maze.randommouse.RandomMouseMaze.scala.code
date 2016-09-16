@@ -1,0 +1,38 @@
+override def run() {
+    
+  while (!estSurBiscuit()) {
+  
+  	randMove()
+  
+  	if (!estSurBiscuit) {
+    
+    	gauche()
+    
+  		if (estFaceMur()) {
+      
+  			droite()
+    		droite()
+    	  
+  		}
+    
+  	}
+    
+  }
+  
+  prendBiscuit()
+  
+}
+
+
+def randMove() {
+  
+	var nbPas = random3()
+  
+  while (!estFaceMur() && nbPas != 0) {
+    
+    avance()
+    nbPas = nbPas - 1
+    
+  }
+     
+}

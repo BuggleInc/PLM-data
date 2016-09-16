@@ -1,0 +1,79 @@
+override def run() {
+    
+	jumpUp();
+    
+	pattern(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW)
+    
+  jumpDown();
+     
+	pattern(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW)
+    
+  jumpRight();
+ 	
+  pattern(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW)
+    
+  jumpUp();
+  
+  pattern(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW)
+  
+  
+}
+
+
+def motif(c:Color) {
+  
+  setCouleurBrosse(c);
+  gauche(); avance();
+  baisseBrosse();
+  leveBrosse();
+  droite(); avance(); droite(); avance();
+  baisseBrosse();
+  leveBrosse();
+  gauche(); avance(); avance(); gauche();
+  
+}
+
+def pattern(r:Color, b:Color, g:Color, y:Color) {
+  
+  motif(r);motif(b);motif(g);motif(y);
+  
+}
+
+
+def jumpUp() {
+  
+  gauche();
+  
+  for (i <- 1 to 4) {
+    
+    avance();
+    
+  }
+  
+  droite();
+  
+}
+
+def jumpDown() {
+  
+  gauche();
+  
+  for (i <- 1 to 4) {
+    
+    recule();
+    
+  }
+  
+  droite();
+  
+}
+
+def jumpRight() {
+  
+  for (i <- 1 to 4) {
+    
+    avance();
+    
+  }
+  
+}
