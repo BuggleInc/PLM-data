@@ -1,0 +1,21 @@
+override def run() {
+  while (isOverBaggle){
+    while(!isFacingWall) {
+      avance();
+    }
+    left();
+    while(!isFacingWall && getDirection!=NORTH) {
+      keepHandOnWall();
+    }
+    
+  }
+  pickupBaggle();
+}
+
+def keepHandOnWall() {
+  left();
+  while(isFacingWall) {
+    right();
+  }
+  forward();
+}
