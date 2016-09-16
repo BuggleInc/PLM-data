@@ -46,20 +46,25 @@ def northRunnerMode () {
 }
 
 def makeMoving() {
-  var state = 0;
-  var sommeAngle = 0;
-  var numberOfAppeals = 0;
+  var sommeAngle = -999;
   while (!isOverBaggle()) {
-    state match {
-      case 0 => if (numberOfAppeals == 0 || sommeAngle%4 != 0) { // if we didn't made a loop before or if it's the first turn
-        						northRunnerMode(); // while we don't find a wall at the north
-        						numberOfAppeals = 1;
-     						}; state = 1; // switch with the leftFollowerMode
-      case 1 =>  while (!isWallAtLeft()) { 
-        						right(); // make sure that there is a wall on the left before run the leftFollower mode
-      					 }; sommeAngle = leftFollowerMode(sommeAngle); state = 0;
-      case _ => println("Error : this case should not happen.")
-    }
+    if (sommeAngle == -999) { // if it's the first loop
+ 			sommeAngle = 0
+      northRunnerMode();
+      // make sure that there is a wall on the left before calling the leftFollower mode
+      while (!isWallAtLeft()) { 
+      	right();
+      } 
+      sommeAngle = leftFollowerMode(sommeAngle);
+    } else if { 
+      	if (sommeAngle%4 != 0) { // if it hadn't made a loop, 'else if' is very important
+    			northRunnerMode();
+     			while (!isWallAtLeft()) { // auto-orientation
+      			right();
+      		} 
+      		sommeAngle = leftFollowerMode(sommeAngle);
+    		} else { sommeAngle = leftFollowerMode(sommeAngle);}
+    	}    
   }
   pickupBaggle();
 }
