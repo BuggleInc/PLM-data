@@ -1,0 +1,21 @@
+def solve() {
+  var nbCrepe=getTaillePile()
+  for (i<- 0 to nbCrepe-1){
+    trouverBig(nbCrepe-i)
+    retourne(nbCrepe-i)
+  }
+}
+
+def trouverMin(c:Int){
+  var nbCrepe=c
+  var posBig=0
+  var max=0
+  
+  for (i<-0 to nbCrepe-1){
+    if (getRayonCrepe(i)>max){
+      max=getRayonCrepe(i)
+      posBig=i
+    }
+  }
+  retourne(posBig+1)
+}
