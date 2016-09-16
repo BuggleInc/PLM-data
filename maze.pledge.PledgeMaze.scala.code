@@ -1,0 +1,61 @@
+override def run() {
+  var virage:Double = 0
+  while (!estSurBiscuit()) {
+  	if (getDirection()==Direction.NORTH && isDirectionFree()) {
+  		while (!estFaceMur())
+      	avance()
+      droite()
+      virage-=1
+    }
+    else {
+      while (virage!=0 && !estSurBiscuit())
+      	virage = keepHandOnSideWall(virage) 
+    }
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall(virage:Double):Double = {
+  gauche()
+  var v:Double = virage
+  if (estFaceMur()) {
+  	droite()
+    if (estFaceMur()) {
+    	droite()
+    	v-=1
+    }
+    else
+    	avance()
+  }
+  else {
+  	avance()
+  	v+=1
+  }
+  return v
+}
+
+def isDirectionFree():Boolean = {
+  var d = 0
+  var free = true
+  if (getDirection()==Direction.SOUTH) {
+  	retourne()
+    d=1
+  }
+  if (getDirection()==Direction.EAST) {
+  	gauche()
+    d=2
+  }  
+  if (getDirection()==Direction.WEST) {
+  	droite()
+  	d=3
+  }
+  if (estFaceMur())
+  	free=false
+  if (d==1)
+  	retourne()
+  if (d==2)
+  	droite()
+  if (d==3)
+  	gauche()
+  return free
+}

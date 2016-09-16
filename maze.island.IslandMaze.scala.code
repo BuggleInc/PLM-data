@@ -1,0 +1,56 @@
+override def run() {
+  rejoindrelenord()
+  while (!estSurBiscuit())
+  	keepHandOnSideWall()
+  prendBiscuit()
+}
+
+def rejoindrelenord() {
+  var pseudorandom = 0
+  while (getY()!=0) {
+    if (getDirection()==Direction.NORTH) {
+      if (!estFaceMur()) {
+      	avance()
+        pseudorandom+=1
+      }
+      else {
+      	while (estFaceMur()) {
+          if (pseudorandom%2==0) {
+          	droite()
+          	pseudorandom+=1
+          }
+          else     	
+      			gauche()
+      	}
+        avance()
+    	}
+    }
+    else {
+      if (getDirection()==Direction.WEST) {
+        pseudorandom+=1
+      	droite()
+      }
+      if (getDirection()==Direction.EAST)
+      	gauche()
+      if (getDirection()==Direction.SOUTH) {
+        droite()
+        droite()
+        pseudorandom+=1
+      }  	
+    }
+  }
+  droite()
+}
+
+def keepHandOnSideWall() {
+  gauche()
+  if (estFaceMur()) {
+  	droite()
+    if (estFaceMur())
+    	droite()
+    else
+    	avance()
+  }
+  else
+  	avance()
+}
