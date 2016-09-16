@@ -1,0 +1,29 @@
+var diag = 0;
+override def run() {
+  var cpt:Int = 0
+  ecritMessage(cpt)
+ while(getX()!= 6 || getY()!=6){
+   if(getY()==0 || getX()==6){
+     changerdiag()
+     cpt+=1
+     ecritMessage(cpt)
+   }
+   else{
+     avancediag()
+     cpt+=1
+     ecritMessage(cpt)
+   }
+ } 
+}
+
+def avancediag(){
+  setPos(getX()+1,getY()-1)
+}
+def changerdiag(){
+  if(getX()==6){
+    setPos(getY()+1,6)
+  }
+  else{
+    setPos(0,getX()+1)
+}
+}
