@@ -3,27 +3,27 @@ def cocktailSort3() {
   var debut = 0
   var fin = lgr-2
   var echang = 0
-  for(k<-0 to lgr){
+  do{
+    echang = 0
     for(i<- debut to fin){
       if(plusPetit(i+1,i)){
         echange(i,i+1)
         echang = 1
       }
-      fin = fin -1
-      if(echang == 1){
-        echang = 0
-      }
     }
-    fin = lgr-2
+    fin = fin -1
+    if(echang == 0){
+      return
+    }
     for(j<- fin to debut){
       if(plusPetit(j,j+1)){
         echange(j,j+1)
         echang =1
       }
-      debut = debut +1
-      if(echang == 1){
-        echang = 0
-      }
     }
-  }
+    debut = debut +1
+    if(echang == 0){
+      return
+    }
+  }while(echang == 1)
 }
