@@ -1,5 +1,5 @@
 def shellSort()  {
-  var ecart = getNombreValeurs()/2
+  var ecart=getNombreValeurs()/2.
   while(ecart>0) {
     insertionSort(ecart)
     ecart = (ecart.toDouble / 2).toInt
@@ -9,13 +9,13 @@ def shellSort()  {
 def insertionSort(ecart: Int) {
   var k = 0
   var v = 0
-  for (i<- 0 to getNombreValeurs() -ecart) {
-    k=i-ecart
+  for (i<- 1 to getNombreValeurs() -1) {
+    k=i
     v=getValeur(i)
-    while((k >= 0) && getValeur(k)>v) {
-      setValue(j+ecart,getValue(j))
-      k-=ecart
+    while((k-ecart+1 > 0) && getValue(k-ecart)>v) {
+      copie(k-ecart,k)
+      k=k-ecart
     }
-    setValeur(k+ecart,v)
+    setValeur(k,v)
   }
 }
