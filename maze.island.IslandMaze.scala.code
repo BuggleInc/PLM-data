@@ -1,0 +1,44 @@
+override def run() {
+  var dir:Direction = getDirection();
+  
+  while (getY()!=0) {
+    toTheNorth(dir);
+  }
+  right();
+  
+  while (!isOverBaggle()) {
+    keepHandOnSideWall()
+  }
+  
+  pickupBaggle();
+}
+
+def keepHandOnSideWall() {
+  left();
+  
+  if (isFacingWall()) {
+    right();
+    if (isFacingWall()) {
+      right();
+    }
+    else {
+    	forward();
+    }
+  }
+  else {
+    forward();
+  }
+}
+
+def toTheNorth(dir:Direction) {
+  var dir2 = getDirection();
+  setDirection(Direction.NORTH);
+  if (!isFacingWall()) {
+    forward();
+  }
+  else {
+   	setDirection(dir2);
+    keepHandOnSideWall();
+  }
+
+}

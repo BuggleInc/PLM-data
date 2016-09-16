@@ -1,0 +1,74 @@
+def growFlowers() {
+  for (nbrRect<-1 to 2) {
+    forward();
+    createFlower(Color.red);
+    trajet(Color.cyan,2);
+    trajet(Color.red,3);
+    trajet(Color.cyan,4);
+    trajet(Color.orange,5);
+    trajet(Color.blue,6);
+    trajet(Color.orange,7);
+    trajet(Color.pink,8);
+    trajet(Color.green,9);
+    trajet(Color.pink,10);
+    trajet(Color.green,11);
+    chgmtRect(nbrRect);
+  }  
+}
+
+
+def createFlower(c:Color) {
+  setBrushColor(Color.yellow);
+  brushDown();
+  brushUp();
+  setBrushColor(c);
+  for (rot<-1 to 4) {
+    forward();
+    brushDown();
+  	brushUp();
+    backward();
+    left();
+  }
+}
+
+def trajet(c:Color,nbrFl:Int) {
+  var step:Int = 0;
+  while (step != 4) {
+    if (isFacingWall) {
+      if (nbrFl==3|| nbrFl == 10 || nbrFl == 14 || nbrFl == 21 ) {
+        contournement();
+        step = step +2;
+      }
+      else {
+        retourLigne();
+      }
+    }
+    forward();
+    step = step +1;
+  }
+  createFlower(c);
+  
+}
+
+def contournement() {
+   left();forward();right();forward();forward();right();forward();left();
+}
+
+def retourLigne() {  //en bout de ligne, ramène a la rangée suivante
+  right(); forward();right();
+  for (i<-1 to 14) {
+    forward();
+  }
+  left();forward();left();
+}
+
+def chgmtRect(n:Int) {
+  if (n==1) {
+    forward();
+    retourLigne();
+    right(); forward();forward(); left();
+  }
+  else {
+    backward();backward();backward();backward();backward();
+  }
+}

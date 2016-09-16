@@ -1,0 +1,26 @@
+def insertionSort() {
+  var n:Int = getValueCount();
+  var v:Int = 0;
+  var j:Int = 0;
+  var lastOne:Int = 0;
+  var casePrec:Int = 0;
+  
+  for (i<-1 to n-1) {
+  
+    v = getValue(i);
+    j = i;
+    
+    while (j!=0) {
+      casePrec = getValue(j-1);
+      if (isSmaller(v,casePrec)) {
+      	setValue(j-1,casePrec);
+        lastOne = j-1;
+      }
+      
+      j =  j-1;
+    }
+  
+    setValue(lastOne,v);
+  }
+}
+

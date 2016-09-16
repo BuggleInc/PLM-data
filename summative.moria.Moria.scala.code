@@ -1,0 +1,35 @@
+back();
+forward();
+while (!finished()) {
+		if (!isOverBaggle && !isCarryingBaggle) {
+			forward();
+    }
+    else if (isOverBaggle && !isCarryingBaggle) {
+      pickupBaggle();
+      back();
+    }
+    else if (isCarryingBaggle && !isOverBaggle) {
+			forward();
+    }
+    else {
+      back();
+			forward();
+      dropBaggle();
+      forward();
+      
+    }
+  }
+right();forward();left();forward();
+
+
+def finished(): Boolean = {
+  var width:Int = getWorldWidth;
+  var x:Int = getX;
+  if (isOverBaggle()) {
+    	return false
+    }
+  else if (x==width-3 && !isCarryingBaggle){
+    return true
+  }
+  return false
+}

@@ -1,0 +1,35 @@
+override def run() {
+  var xMax:Int = getWorldWidth();
+  var yMax:Int = getWorldHeight();
+
+	var x:Int = findBaggle(xMax,yMax)._1;
+	var y:Int = findBaggle(xMax,yMax)._2;  
+  var num = 0;
+  
+  while(true) {
+    numerote(x,y,num)
+  }
+}
+
+
+def findBaggle(xMax:Int, yMax:Int): (Int,Int) = {
+  var i:Int =0;
+  var j:Int =0;
+  while (!hasBaggle(i,j)){
+    if (i==xMax-1) {
+      i = 0;
+      j += 1
+    }
+    else {
+      i += 1
+    }
+  }
+  return (i,j)
+  
+}
+
+def numerote(x:Int,y:Int,num:Int) {
+  if (!hasTopWall(x,y) && y!= yMax && getIndication(x,y-1)==9999) {
+    setIndication(x,y-1,num);
+  }
+}

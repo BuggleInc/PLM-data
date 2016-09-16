@@ -1,0 +1,27 @@
+override def run() {
+  brushDown();
+  while (!finished()) {
+    if (isFacingWall) {
+      if (getDirection() == Direction. EST) {
+        left(); forward(); left();
+      }
+      else {
+        right(); forward(); right();
+      }
+    }
+    forward();
+  }
+  right();
+}
+
+def finished():Boolean ={
+  if (isFacingWall) {
+    var dir = getDirection();
+    setDirection(Direction.NORTH);
+    if (isFacingWall()) {
+      return true
+    }
+    setDirection(dir);
+  }
+  return false
+}

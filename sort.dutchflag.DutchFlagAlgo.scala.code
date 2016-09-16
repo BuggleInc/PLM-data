@@ -1,0 +1,24 @@
+def solve() {
+  var n :Int = getSize;
+  var li:Int = getColor(0);
+  var lj:Int = getColor(1);
+  
+  for (i<-0 to n-2) {
+    
+    
+    for (j<-i+1 to n-1) {
+    	li = getColor(i);
+      
+      lj = getColor(j);
+      
+      if (lj != li && li != BLUE && lj != RED) {
+      
+      	if ( (lj== WHITE && li==RED) || (lj== BLUE)) {
+          swap(i,j);
+          
+        }
+        
+      }
+    }
+  }
+}
