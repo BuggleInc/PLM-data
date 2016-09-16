@@ -1,24 +1,35 @@
 override def run() {
   var color0=0
   var color1=0
-  var FarColor=0
+  var pos_player=[]
   while(isSorted()==false){
     for (i <- 0 to getBasesAmount()-1){
       color0=getPlayerColor(i,0)
       color1=getPlayerColor(i,1)
-      if (getHoleBase()<=3*(getBasesAmount()-1)/4){
-        FarColor=3*(getBasesAmount()-1)/4
-      }
-      else{
-        FarColor=getHoleBase()- 3*(getHoleBase()-1)/4
-      }
-      if (color0==FarColor || color1==i){
-        move(i,0)
-      }
-      else {
-        move(i,1)
+      while (isBaseSorted(i)==false){
+        pos_player=findplayer()
+        
       }
     }
   }
-  move(getBasesAmount()-1,1)
 }
+
+def findplayer(i : Double ) : List[Double] ={
+  var colorPlayer0=getBasesAmount()
+  var colorPlayer1=getBasesAmount()
+  var j =0
+  while (colorPlayer0!=i || colorPlayer1!=i){
+    colorPlayer0=getPlayerColor(j,0)
+    colorPlayer1=getPlayerColor(j,1)
+    j=j+1
+  }
+  if (colorPlayer0==i){
+    return [j-1,0]
+  }
+  else{
+    return [j-1,1]
+  }
+}
+
+
+  
