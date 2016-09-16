@@ -1,0 +1,40 @@
+override def run() {
+  murgauche()
+  
+  while(!estSurBiscuit()){
+    keepHandOnSideWall()
+  }
+  prendBiscuit()
+}
+
+def keepHandOnSideWall() {
+  if (getDirection() == Direction.NORTH){
+    avance()
+    if (estFaceMur())
+    	droite()
+  }
+  else{
+  	gauche()
+  	if (estFaceMur()){
+    	droite()
+    	if (estFaceMur()){
+    			droite()
+      	}
+    	else
+    		avance()
+  	}
+  	else {
+    	avance()
+  	}
+  
+}
+
+
+
+def murgauche(){
+ 	gauche()
+  while (!estFaceMur()){
+    gauche()
+  }
+  droite()
+}
