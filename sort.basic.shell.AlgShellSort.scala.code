@@ -8,9 +8,9 @@ def shellSort()  {
 def insertionSort(){
   for(i<-0 to getValueCount()-ecart){
     var x:Int=getValue(i);
-    var j:Int=i;
-    while(j>=ecart && getValue(j-ecart)>x){
-      setValue(j+ecart,getValue(j))
+    var j:Int=i-ecart;
+    while(j>=0 && getValue(j)>x){
+      copy(j+ecart,getValue(j))
       j=j-ecart
     }
     setValue(j+ecart,x)
