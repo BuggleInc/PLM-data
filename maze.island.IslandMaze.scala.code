@@ -28,10 +28,8 @@ def keepHandOnSideWall(){
     }
 
 
-    case 1 => if (estFaceMur() && getDirection == Direction.NORD){ 
-      etat = 0;
-    }
-    else {
+    case 1 => while (!estFaceMur() && getDirection != Direction.NORD){ 
+       
     gauche()
     while (estFaceMur()){
       droite()
@@ -39,10 +37,7 @@ def keepHandOnSideWall(){
     }
     avance()
 
-    
-
-
-
   }
+    etat = 0;
 }
 }
