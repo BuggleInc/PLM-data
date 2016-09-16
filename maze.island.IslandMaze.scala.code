@@ -1,0 +1,15 @@
+override def run() {
+  var etat:Int = 0
+  etat match {
+    
+    case 0 => // courir vers le nord
+    setDirection(Direction.NORD)
+    while(!estFaceMur){
+      avance()
+    }
+    etat=1
+    
+    case 1 => // suivre mur de gauche
+    droite()
+  }
+}
