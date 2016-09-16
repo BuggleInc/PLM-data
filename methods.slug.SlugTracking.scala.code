@@ -1,0 +1,49 @@
+def check():Boolean = {
+  forward();
+  if (getGroundColor==Color.green) {
+    backward();
+    return true
+  } else {
+    backward();
+    left();
+    forward();
+    if (getGroundColor==Color.green) {
+      backward();
+      return true
+    } else {
+      backward();
+      left();
+      forward();
+      if (getGroundColor==Color.green) {
+        backward();
+        return true
+      } else {
+        backward();
+        left();
+        return true
+      }
+    }
+  }
+}
+
+
+
+def isFacingTrail():Boolean = {
+  if (!isFacingWall()) {
+    check();
+  } else {
+    left();
+    if (!isFacingWall()) {
+      check();
+    } else {
+      left();
+      if (!isFacingWall()) {
+        check();
+      } else {
+        left();
+        check();
+      }
+    }
+  }
+  
+}

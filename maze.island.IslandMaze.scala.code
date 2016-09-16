@@ -1,0 +1,49 @@
+override def run() {
+  var runner:Int=0
+  while (!isOverBaggle) {
+    runner match {
+      case 0 => northRun(); runner=1
+      case 1 => leftRun(); runner=0
+      case _ => println("fdp")
+    }
+  }
+  pickupBaggle();
+  right();
+  right();
+}
+
+def northRun() {
+  while (!isFacingWall) {
+    forward();
+  }
+}
+
+def leftRun() {
+  while(getDirection()!=Direction.NORTH || isFacingWall()) {
+    keepHandOnSideWall();
+  }
+}
+
+def keepHandOnSideWall() {
+  while (!isFacingWall) {
+    left();
+    if (isFacingWall) {
+      right();
+      forward();
+    } else {
+      forward();
+    }
+  }
+  left();
+  if (!isFacingWall()) {
+    forward();
+  } else {
+    right();
+    right();
+    if (!isFacingWall()) {
+      forward();
+    } else {
+      right();
+    }
+  }
+}

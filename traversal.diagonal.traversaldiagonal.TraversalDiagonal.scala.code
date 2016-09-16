@@ -1,0 +1,36 @@
+var diag = 0;
+var counter:Int = 0;
+override def run() {
+  writeMessage(counter);
+  counter+=1
+  for (i <- 0 to getWorldWidth()-2) {
+    diag+=1
+    setPos(0, diag);
+    writeMessage(counter);
+    counter+=1
+    moving1();
+  }
+  for (i <- 0 to getWorldHeight()-2) {
+    diag+=1
+    setPos(diag-getWorldWidth()+1, getWorldHeight()-1);
+    writeMessage(counter);
+    counter+=1;
+    moving2();
+  }
+}
+
+def moving1() {
+  for (i <- 0 to diag-1) {    
+    setPos(getX+1, getY-1);
+    writeMessage(counter);
+    counter+=1;
+  }
+}
+
+def moving2() {
+  for (i <- 0 to 12-diag-1) {
+    setPos(getX+1, getY-1);
+		writeMessage(counter);
+    counter+=1;
+  }
+}

@@ -1,0 +1,22 @@
+override def run() {
+  writeMessage(counter)
+  counter+=1
+  for (i <- 0 to getWorldHeight()-2) {
+    moving();
+    setY(i+1);
+    setX(0);
+    writeMessage(counter);
+    counter+=1;
+  }
+  moving();     
+}
+
+var counter:Int = 0
+
+def moving() {
+  for (j <- 0 to getWorldWidth()-2) {
+      setX(j+1)
+      writeMessage(counter);
+      counter+=1;
+  }
+}

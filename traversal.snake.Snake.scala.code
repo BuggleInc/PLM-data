@@ -1,0 +1,46 @@
+override def run() {
+  brushDown();
+  while (!checkFinal()) {
+    snakeSteps();
+  }
+  right();
+}
+
+def snakeSteps() {
+  if (!isFacingWall()) {
+    forward();
+  } else if (getDirection()==Direction.EAST) {
+    left();
+    forward();
+    left();
+  } else {
+    right();
+    forward();
+    right();
+  }
+}
+
+def checkFinal():Boolean = {
+  if (isFacingWall()) {
+    if (getDirection()==Direction.NORTH) {
+      return true
+    } else if (getDirection()==Direction.EAST) {
+      left();
+      if (isFacingWall()) {
+        return true
+      } else {
+        right();
+        return false
+      }
+    } else {
+      right();
+      if (isFacingWall()) {
+        return true
+      } else {
+        left();
+        return false
+      }
+    }
+  }
+  return false
+}
