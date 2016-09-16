@@ -1,0 +1,12 @@
+override def run() {
+  var nbBases: Int =getBasesAmount()
+  var hole : Int = 0
+  while (!isSorted()) {
+    hole=getHoleBase()
+    if (getPlayerColor(hole-1,0)!=hole-1) {
+      move(hole-1,0)
+    } else {
+      move(hole-1,1)
+    }
+  }
+}
