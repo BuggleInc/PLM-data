@@ -1,0 +1,51 @@
+override def run() {
+  def maison() {
+    for(i <- 1 to 4) {
+      forward(30)
+      right(90)
+    }
+    forward(30)
+    right(30)
+    for(j <- 1 to 3) {
+      forward(30)
+      right(120)
+    }
+    left(30)
+    backward(30)
+    right(90)
+    forward(30)
+  }
+  
+  
+  def rangee() {
+    for(k <- 1 to 4) {
+      penDown()
+      maison()
+      penUp()
+      forward(20)
+      left(90)
+    }
+  }
+  
+  def changeLigne(){
+    left(90)
+    forward(200)
+    right(90)
+    forward(75)
+    penDown()
+  }
+  
+  rangee()
+  changeLigne()
+  maison()
+  penUp()
+  forward(120)
+  left(90)
+  penDown()
+  maison()
+  penUp()
+  changeLigne()
+  rangee()
+  changeLigne()
+  
+}
