@@ -1,0 +1,28 @@
+def cocktailSort3() {
+  var passageUtile = true;
+  val len = getValueCount();
+	var beg=0; 
+  var end=len-2
+  while(passageUtile && beg<=end){
+    passageUtile = false ;
+    for(i<- beg to end){
+      if(!isSmaller(i, i+1)){
+        swap(i,i+1);
+        passageUtile = true ;
+        
+      } 
+    }
+    if(!passageUtile){
+      return ;
+    }
+    passageUtile = false ;
+    end -= 1;
+    for(i<- end to beg by -1){
+      if(!isSmaller(i, i+1)){
+        swap(i,i+1);
+        passageUtile = true ;
+      }
+    }
+    beg += 1;
+  }
+}

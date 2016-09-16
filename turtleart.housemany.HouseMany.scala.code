@@ -1,0 +1,47 @@
+override def run() {
+  def maison(){
+    penDown();
+    for(i <- 1 to 4){
+      forward(30);
+      right(360/4);
+    }
+    forward(30);
+    right(360/12)
+    for(i <- 1 to 3){
+      forward(30);
+      right(360/3);
+    }
+    left(360/12);
+    backward(30);
+    penUp();
+  }
+  penUp();
+  for(i<-1 to 4){
+    maison();  
+    right(360/4);
+    forward(50);
+    left(360/4);
+  }
+  right(360/4);
+  backward(200);
+  left(360/4);
+  forward(75);
+  maison();
+  forward(75);
+  for(i<-1 to 4){
+    maison();
+    right(360/4);
+    forward(50);
+    left(360/4);
+  }
+  right(360/4);
+  backward(50);
+  left(360/4);
+  backward(75);
+  maison();
+  forward(75);
+  left(360/4);
+  forward(150);
+  right(360/4);
+  forward(75);
+}

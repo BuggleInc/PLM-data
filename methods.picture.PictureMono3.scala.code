@@ -1,0 +1,49 @@
+override def run() {
+  val nbOfRow:Int = 9 //Considering that it's a square, count(row) = count(col)
+  def point() {
+    brushDown();
+    brushUp();
+  }
+  def makeV(n: Int) {
+    for(i <- 1 to n){
+      point();
+      forward();
+      left();
+      forward();
+      point();
+      backward();
+      right();
+      forward();
+      point();
+      forward(2);
+      left();
+      forward(2);
+    }
+  }
+  def makePattern() {
+    forward(2);
+    makeV(4);
+    backward(2);
+  }
+  def oneRight() {
+    forward(7);
+  }
+  def oneUp() {
+    left();
+    forward(7);
+    right();
+  }
+  def oneLine(n:Int){
+    for(i <- 1 to n){
+      makePattern();
+      oneRight();
+    }
+  }
+  def theWholeThing(n:Int){
+    for(i <- 1 to n){
+      oneLine(n);
+      oneUp();
+    }
+  }
+  theWholeThing(9)
+}

@@ -1,0 +1,40 @@
+/*"R"	Turn right and move one step forward	Right
+"L"	Turn left and move one step forward	Left
+"I"	Turn back (U-turn) and move one step forward	Inverse
+"A"	Move one step forward	First letter of the alphabet
+"B"	Move two steps forward	Second letter of the alphabet
+"C"	Move three steps forward	Third letter of the alphabet
+"Z"	Move one step backward	One letter before the end of the alphabet
+"Y"	Move two steps backward	Two letters before the end of the alphabet
+"X"	Move three steps backward	Three letters before the end of the alphabet
+"W"	Move four cells backward
+"V"	Move five cells backward
+"U"	Move six cells backward
+(anything else)	Stop dancing.	*/
+var dance = true;
+var message = "";
+while(dance){
+  if(isOverMessage()){
+    message = readMessage()
+    message match {
+      case "R" =>	right(); forward();
+      case "L" =>	left(); forward();
+      case "I" =>	right(); right(); forward();
+      case "A" =>	forward();
+      case "B" =>	forward(2);
+      case "C" =>	forward(3);
+      case "D" =>	forward(4);
+      case "E" =>	forward(5);
+      case "F" =>	forward(6);
+      case "Z" =>	backward();
+      case "Y" =>	backward(2);
+      case "X" =>	backward(3);
+      case "W" =>	backward(4);
+      case "V" =>	backward(5);
+      case "U" =>	backward(6);
+    }
+  }
+  else {
+    dance = false
+  }
+}

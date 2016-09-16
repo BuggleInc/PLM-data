@@ -1,0 +1,30 @@
+override def run() {
+  brushDown();
+  var running = true;
+  while(running){
+    if(!isFacingWall()){
+      forward();
+    } else {
+      getDirection() match {
+        case Direction.EAST => 
+          left();
+        	if(isFacingWall()){
+            right();
+            running = false ;
+          } else {
+            forward();
+            left();
+          }
+        case Direction.WEST =>
+        	right();
+        	if(isFacingWall()){
+            left();
+            running = false ;
+          } else {
+            forward();
+            right();
+          }
+      } 
+    }
+  }
+}

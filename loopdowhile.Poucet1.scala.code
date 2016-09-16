@@ -1,0 +1,19 @@
+var cookiesStomped:Int = 0 ;
+def runn() {
+  cookiesStomped = 0 ;
+  for(a <- 0 to 4){
+    forward();
+    if(isOverBaggle()){
+      cookiesStomped = cookiesStomped +1 ;
+    }
+  }
+  if(cookiesStomped <= 2)
+  	right();
+  else 
+  	left();
+}
+while (!exitReached()){
+  runn();
+}
+if(isFacingWall()) { right(); }
+forward();

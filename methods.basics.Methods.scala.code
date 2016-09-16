@@ -1,0 +1,20 @@
+var stepDone:Int = 0
+def goAndGet() {
+  while(!isOverBaggle()){
+    forward();
+    stepDone = stepDone + 1 ;
+  }
+  pickupBaggle()
+  while(stepDone > 0){
+    backward();
+    stepDone = stepDone - 1;
+  }
+  dropBaggle()
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}

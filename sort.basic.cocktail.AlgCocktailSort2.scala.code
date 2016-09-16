@@ -1,0 +1,24 @@
+def cocktailSort2() {
+  var k = true;
+  val len = getValueCount();
+	var beg=0; 
+  var end=len-2
+  while(k){
+    k = false ;
+    for(i<- beg to end){
+      if(!isSmaller(i, i+1)){
+        swap(i,i+1);
+        k = true ;
+        
+      } 
+    }
+    end -= 1;
+    for(i<- end to beg by -1){
+      if(!isSmaller(i, i+1)){
+        swap(i,i+1);
+        k = true ;
+      }
+    }
+    beg += 1;
+  }
+}

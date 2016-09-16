@@ -1,0 +1,37 @@
+def step() {
+    brushDown();
+    forward();
+    brushUp();
+  }
+
+def isFacingTrail():Boolean = {
+  var returnVar = false
+	if(!isFacingWall()){
+    forward();
+    returnVar = (getGroundColor() == Color.green);
+    backward();
+    return returnVar;
+    
+  }
+  else 
+    return false 
+}
+
+
+def hunt() {
+	while(!isOverBaggle()){
+    if(isFacingTrail()) {
+      step();
+    } else {
+      right();
+      if(isFacingTrail()) {
+        step();
+      } else {
+        right();
+        right();
+        step();
+      }
+    }
+  }
+  pickupBaggle()
+}

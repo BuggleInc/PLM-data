@@ -1,0 +1,28 @@
+def solve() {
+  val size = getSize();
+  var afterBlue = 0; /* before that is blue */
+  var beforeRed = size-1; /* after that is red */
+  var betweenWhite = size-1; /* after that is white until beforeRed */
+  for(i <- 0 to size-1){
+    if(getColor(i)==BLUE){ 
+      swap(i, afterBlue) ; 
+      afterBlue += 1;
+  	}
+  }
+  for(i <- 0 to size-1){
+  	if(getColor(size-1-i)==RED){ 
+      swap(size-1-i, beforeRed) ; 
+      beforeRed -= 1;
+  	}
+  }
+}
+/*
+Do a traversal over your data, saving 3 indices:
+
+    afterBlue is initialized to 0. Make sure that every cell below afterBlue is filled with blue elements.
+    whiteRed is initialized to size-1. Make sure that every cell after whiteRed is filled with red elements.
+    beforeWhite is initialized to size-1. Make sure that every cell after beforeWhite and before whiteRed is filled with white elements.
+
+Note that the unsorted cells are always between afterBlue and beforeWhite.
+At each step of your traversal, check the color of the cell at afterBlue and do the required exchanges. The loop ending condition is when afterBlue becomes larger than beforeWhite. 
+*/

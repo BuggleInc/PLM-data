@@ -1,0 +1,73 @@
+override def run() {
+  val nbOfRow:Int = 2; //Considering that it's a square, count(row) = count(col) and we're only counting preset
+  val nbCasePerRow = 4;
+  val SpaceBetween = 2;
+  def forwardD(n:Int) {
+    var ret = false
+    for(i <- 1 to n){
+      if(!isFacingWall()){
+        forward();
+      }
+      else {
+        ret = true ;
+      }
+    }
+    if(ret){
+      right();
+      right();
+      forward((nbOfRow*nbCasePerRow)-1);
+      right();
+      right();
+    }
+  }
+  def point() {
+    brushDown();
+    brushUp();
+  }
+  def makeV() {
+    for(i <- 1 to 4){
+      i match {
+        case 1 => setBrushColor(Color.BLUE);
+        case 2 => setBrushColor(Color.GREEN);
+        case 3 => setBrushColor(Color.YELLOW);
+        case 4 => setBrushColor(Color.RED);
+      }
+      point();
+      forward();
+      left();
+      forward();
+      point();
+      forward();
+    }
+  }
+  def makePattern() {
+    forward(SpaceBetween);
+    makeV();
+    backward(SpaceBetween);
+  }
+  def oneRight() {
+    forwardD(nbCasePerRow);
+  }
+  def oneUp() {
+    left();
+    forwardD(nbCasePerRow);
+    right();
+  }
+  def oneLine(n:Int){
+    for(i <- 1 to n){
+      makePattern();
+      oneRight();
+    }
+  }
+  def theWholeThing(n:Int){
+    for(i <- 1 to n){
+      oneLine(n);
+      oneUp();
+    }
+  }
+  theWholeThing(nbOfRow);
+  forward(nbCasePerRow);
+  left();
+  forward(nbCasePerRow);
+  right();
+}

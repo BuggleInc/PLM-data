@@ -1,0 +1,25 @@
+override def run() {
+  val width = getWorldWidth();
+  val height = getWorldHeight();
+  var i = 0;
+  var x = 0;
+  var y = 0;
+  var z = 0;
+  while(x!=width){
+    z = x*height + y
+    if(z%(2*width)<=6){
+   	  writeMessage(z);
+    } else {
+      writeMessage(x*height + width - y - 1)
+    }
+    
+    y=y+1;
+    if(y==height){
+      y=0;
+      x=x+1;
+    }
+    if(x!=width) {
+      setPos(y, x);
+    }
+  }
+}
