@@ -1,9 +1,11 @@
+var mem = 0
 def solve() {
   while (!estTriee) {
     for (i<-1 to getTaillePile-2) {
-      if (getRayonCrepe()) {
-				retourne(i)
+      if (getRayonCrepe(i)>getRayonCrepe(i+1)) {
+				mem=i
       }
     }
+    retourne(i+1)
   }
 }
