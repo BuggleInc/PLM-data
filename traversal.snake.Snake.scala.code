@@ -11,13 +11,13 @@ def positionFinale():Boolean = {
   if (!estFaceMur()) return(false);
   if (getDirection()== Direction.EAST){
     gauche()
-    if (estFaceMur()) {return true}
-    else return false
+    if (!estFaceMur()) {droite();return true}
+    else {droite();return false}
   }
   if (getDirection() == Direction.WEST) {
     droite()
-    if (estFaceMur()) {return true}
-    else return false
+    if (estFaceMur()) {gauche();return true}
+    else {gauche();return false}
   }
   else return false
 }
