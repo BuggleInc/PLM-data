@@ -1,0 +1,110 @@
+override def run() {
+
+ 	//Trouver la Sortie
+  var xSortie = 0
+  var ySortie = 0
+  var Largeur = getMondeLargeur()
+  var Hauteur = getMondeHauteur()
+  
+  for (x <- 0 to Largeur-1; y <- 0 to Hauteur-1) {
+    
+    if (aBiscuit(x,y)) {
+      
+      xSortie = x; ySortie = y;
+      
+    }
+    
+  }
+  //Lui Mettre 0
+  var distance = 0
+  var compteurCases = 0
+  setIndication(xSortie,ySortie,distance)
+  distance = distance + 1
+  compteurCases = compteurCases + 1
+  var aMarque = true
+  //Marquer le reste de la grille
+  while (aMarque) {
+    
+    aMarque = false
+    //Chercher des cases à marquer
+    for (x <- 0 to Largeur-1; y <- 0 to Hauteur-1) {
+      
+      if (getIndication(x,y) == distance-1) {
+        //Les Marquer
+        
+        //Nord
+        if (y>0 && !aMurNord(x,y) && getIndication(x,y-1)==9999) {
+          
+          setIndication(x,y-1,distance)
+          compteurCases = compteurCases + 1
+          aMarque = true
+          
+        //Sud
+        }
+        if (y<Hauteur-1 && !aMurNord(x,y+1) && getIndication(x,y+1)==9999) {
+          
+          setIndication(x,y+1,distance)
+          compteurCases = compteurCases + 1
+          aMarque = true
+          
+        //Est  
+        }
+        if (x<Largeur-1 && !aMurOuest(x+1,y) && getIndication(x+1,y)==9999) {
+          
+          setIndication(x+1,y,distance)
+          compteurCases = compteurCases + 1
+          aMarque = true
+        
+        //Ouest  
+      	}
+        if (x>0 && !aMurOuest(x,y) && getIndication(x-1,y)==9999) {
+          
+          setIndication(x-1,y,distance)
+          compteurCases = compteurCases + 1
+          aMarque = true
+          
+        }
+      
+      
+    	}
+    	
+    //Augmenter la distance
+    
+    
+  	}
+    
+    distance = distance + 1
+  
+  
+  }
+  
+  while (!estSurBiscuit()) {
+    
+    //Determiner La Meilleure Direction™
+    var valDirection =  Array(9999,9999,9999,9999) //N S E O
+    var Directions = Array(Direction.NORD,Direction.SUD,Direction.EST,Direction.OUEST)
+    
+    //Nord
+    if (getY()>0 && !aMurNord(getX(),getY())) {valDirection(0) = getIndication(getX(),getY()-1)}
+    
+    //Sud
+    if (getY()<Hauteur-1 && !aMurNord(getX(),getY()+1)) {valDirection(1) = getIndication(getX(),getY()+1)}
+    
+    //Est
+    if (getX()<Largeur-1 && !aMurOuest(getX()+1,getY())) {valDirection(2) = getIndication(getX()+1,getY())}
+    
+    //Ouest
+    if (getX()>0 && !aMurOuest(getX(),getY())) {valDirection(3) = getIndication(getX()-1,getY())}
+    
+    
+    var dirMin = Directions(valDirection.indexOf(valDirection.min))
+    //S'orienter vers elle
+    setDirection(dirMin)
+    //avancer
+    avance()
+    
+  }
+ 
+ prendBiscuit()
+
+}

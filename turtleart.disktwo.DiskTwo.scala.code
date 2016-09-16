@@ -1,0 +1,29 @@
+def disque(couleur:Color,ouverture:Double,divisions:Int,longeur:Double) {
+  
+  var angle = ouverture/divisions
+  setCouleur(couleur)
+  
+  for (div <- 1 to divisions) {
+    
+    avance(longeur)
+    recule(longeur)
+    droite(angle)
+    
+  }
+  
+}
+
+override def run() {
+  
+  for (disk <- 1 to 18) {
+    
+    disk%2 match {
+      
+      case 0 => disque(Color.RED,360/18,360/18,100)
+      case 1 => disque(Color.BLACK,360/18,360/18,100)
+      
+    }
+    
+  }
+  
+}

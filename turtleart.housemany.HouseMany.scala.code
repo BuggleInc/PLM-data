@@ -1,0 +1,44 @@
+def polygone(nbCotes:Int,longeur:Double,angleOffset:Double) {
+  
+  if (nbCotes<3) {return}
+  
+  droite(angleOffset)
+  
+  for (c <- 1 to nbCotes) {
+    
+    avance(longeur)
+    droite(360/nbCotes)
+    
+  }
+  
+}
+
+def maison(longeur:Double) {
+  
+  polygone(4,longeur,0)
+  avance(longeur)
+  polygone(3,longeur,30)
+  gauche(30)
+  recule(longeur)
+  
+}
+
+override def run() {
+  
+  val xDebut = getX()
+  val yDebut = getY()
+  
+  for(y <- 1 to 3;x <- 1 to 4) {
+    
+    if (!((x,y) == (2,2)||(x,y) == (3,2))) {
+      
+      setPos(xDebut+50*(x-1),yDebut-75*(y-1))
+      maison(30)
+      
+    }
+    
+  }
+  
+  setPos(xDebut,yDebut-75*3)
+  
+}

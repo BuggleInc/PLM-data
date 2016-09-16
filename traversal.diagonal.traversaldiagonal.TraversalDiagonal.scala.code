@@ -1,0 +1,57 @@
+def murADroite():Boolean = {
+  
+  var resultat = false
+  droite()
+  resultat = estFaceMur()
+  gauche()
+  return resultat
+  
+}
+
+def fini():Boolean = {
+  
+  return estDosMur()&&murADroite()
+  
+}
+
+def next() {
+  
+  if (!fini()) {
+    
+    var numDiag = getX()+getY() //le numéro de la diagonale
+    (getY()==0||murADroite()) match {
+      
+      case true => setPos(debutDiag(numDiag+1)._1,debutDiag(numDiag+1)._2)//on commence la prochaine diagonale
+      case false => setPos(getX()+1,getY()-1) //on est pas au bout : on avance en diago
+      
+    }
+    
+  }
+  
+}
+
+def debutDiag(num:Int):Tuple2[Int,Int] = {
+  
+  if (num<7) {
+    
+    return (0,num)
+    
+  } else {
+    
+    return (num-6,6)
+    
+  }
+  
+}
+var compteur = 0
+override def run() {
+  
+  for (c <- 1 to 49) {
+  
+    ecritMessage(compteur)
+    next()
+    compteur = compteur + 1
+    
+  }
+  
+}

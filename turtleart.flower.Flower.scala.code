@@ -1,0 +1,48 @@
+def polygone(nbCotes:Int,longeur:Double,angleOffset:Double) {
+  
+  if (nbCotes<3) {return}
+  
+  droite(angleOffset)
+  
+  for (c <- 1 to nbCotes) {
+    
+    avance(longeur)
+    droite(360.0/nbCotes) //ne pas oublier le .0 pour la précision
+    
+  }
+  
+}
+
+override def run() {
+  
+  polygone(8,50,0)
+  avance(25)
+  for (c <- 1 to 8) {
+    
+    droite(45)
+    avance(25)
+    gauche(45)
+    avance(25)
+    droite(45)
+    
+  }
+  
+  droite(45)
+  avance(25)
+  gauche(90)
+  recule(25)
+  
+  for (c <- 1 to 8) {
+    
+    avance(25)
+    droite(135)
+    avance(25)
+    droite(45)
+    avance(25)
+    recule(25)
+    gauche(135)
+    
+  }
+  
+  avance(25)
+}

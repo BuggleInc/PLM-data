@@ -1,0 +1,90 @@
+def murAGauche():Boolean = {
+  
+  var res = false
+  gauche()
+  res = estFaceMur()
+  droite()
+  return res 
+  
+}
+
+def murADroite():Boolean =  {
+  
+  var res = false
+  droite()
+  res = estFaceMur()
+  gauche()
+  return res
+  
+}
+
+def trouverLeNord() {
+  
+  while (getY != 0) {
+    
+    if (!estFaceMur()) {
+      
+      avance()
+      
+    } else {
+      
+      	if (murAGauche) {
+          
+          droite()
+          avance()
+          gauche()
+          
+        } else {
+          
+          gauche()
+          avance()
+          droite()
+          
+        }
+      
+    	}
+      
+    }
+    
+  }
+
+
+def longerMurGauche() {
+  
+  if (murAGauche()) {
+    
+    if (estFaceMur()) {
+      
+      droite()
+      return
+    
+    } else {
+      
+      avance()
+      
+    }
+    
+  } else {
+      
+    	gauche()
+      avance()
+    
+  }
+  
+}
+
+
+override def run() {
+  
+  trouverLeNord()
+  droite()
+  
+  while (!estSurBiscuit()) {
+    
+    longerMurGauche()
+    
+  }
+  
+  prendBiscuit()
+  
+}

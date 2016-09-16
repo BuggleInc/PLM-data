@@ -1,0 +1,42 @@
+var a = Array(1,4,10,23,57,132,301)
+var x = 5
+
+def shellSort()  {
+  
+  var ecart = getNombreValeurs()/2
+  if (getNombreValeurs() == 150) {
+    
+    ecart = a(x)
+    
+  }
+  
+  while (ecart>0 && x>=0) {
+  
+		for (i <- 1 to getNombreValeurs()-1 by ecart) {
+      
+      var v = getValeur(i)
+      var last = 0
+      var c = 1
+      
+      while (i-c*ecart >=0 && !plusPetitQue(i-c*ecart,v)) {
+        
+        copie(i-c*ecart,i-(c-1)*ecart)
+        last = c
+        c = c + 1
+        
+      }
+      
+      setValeur(i-last*ecart,v)
+      
+    }
+    
+    getNombreValeurs() match {
+      
+      case 150 => x = x-1; ecart = a(x)
+      case _ => ecart = ecart / 2
+  
+    }
+    
+  }
+  
+}

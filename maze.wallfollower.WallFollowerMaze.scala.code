@@ -1,0 +1,47 @@
+def murAGauche():Boolean = {
+  
+  var res = false
+  gauche()
+  res = estFaceMur()
+  droite()
+  return res 
+  
+}
+
+
+def longerMurGauche() {
+  
+  if (murAGauche()) {
+    
+    if (estFaceMur()) {
+      
+      droite()
+      return
+    
+    } else {
+      
+      avance()
+      
+    }
+    
+  } else {
+      
+    	gauche()
+      avance()
+    
+  }
+  
+}
+
+
+override def run() {
+  
+  while (!estSurBiscuit()) {
+    
+    longerMurGauche()
+    
+  }
+  
+  prendBiscuit()
+  
+}

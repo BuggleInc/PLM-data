@@ -1,0 +1,106 @@
+def tasser() {
+  
+  for (c <- getTrouIndice()+1 to getNombreIndices()-1) {
+    
+    deplacer(c)
+    
+  }
+  
+}
+
+def getTrouIndice():Int = { //renvoie l'indice du trou
+  
+  return pos2indice(Array(getTrouBase(),getTrouPosition()))
+  
+}
+
+def deplacer(c:Int) { //envoie le buggle d'indice c dans le trou
+  
+  deplace(indice2pos(c)(0),indice2pos(c)(1))
+  
+}
+
+def pos2indice(pos:Array[Int]):Int = {
+  
+  return pos(0)*getNombrePositions() + pos(1)
+  
+}
+
+def indice2pos(a:Int):Array[Int] = { //converti l'indice en position
+  
+  return Array(a/getNombrePositions(),a%getNombrePositions())
+  
+}
+
+def getNombreIndices():Int = { //Retourne le nombre d'indice de buggles existants
+  
+  return getNombreBases()*getNombrePositions()-1
+  
+}
+
+def eval(a:Int):Int = { //Retourne l'indice de la position cible du buggle en a
+  
+  return getCouleurIndice(a)*getNombrePositions + nombreCouleurSous(a)
+  
+}
+
+def nombreCouleurSous(a:Int):Int = {
+  
+  var compteur = 0
+  for (c <- 0 to a-1) {
+    
+    if (getCouleurIndice(c) == getCouleurIndice(a)) {
+      
+      compteur = compteur + 1
+      
+    }
+    
+  }
+  
+  return compteur
+  
+}
+
+def getCouleurIndice(a:Int):Int = { //Retourne la couleur (le num de la base d'origine) du joueur en a
+  
+  return getCouleurJoueur(indice2pos(a)(0),indice2pos(a)(1))
+  
+}
+
+def switch(a:Int) { //échange l'indice a avec le suivant en supposant que c'est tassé
+  
+  for (c <- getTrouIndice-1 to a+2 by -1) {
+    
+    deplacer(c)
+    
+  }
+  
+  deplacer(a+1)
+  deplacer(a)
+  deplacer(a+2)
+  
+  tasser()
+  
+}
+
+override def run() {
+  
+  tasser()
+  
+  for (c <- 0 to getNombreIndices()-1) {
+    
+  	for (x <- 0 to getNombreIndices()-c-2) {
+      
+    	if (eval(x) > eval(x+1)) {
+	
+      	switch(x)
+	
+      }
+      
+ 	  }
+  
+  }
+  
+  deplacer(getNombreIndices())
+  
+}

@@ -1,0 +1,30 @@
+def polygone(nbCotes:Int,longeur:Double,angleOffset:Double) {
+  
+  if (nbCotes<3) {return}
+  
+  droite(angleOffset)
+  
+  for (c <- 1 to nbCotes) {
+    
+    avance(longeur)
+    droite(360/nbCotes)
+    
+  }
+  
+}
+
+def maison(longeur:Double) {
+  
+  polygone(4,longeur,0)
+  avance(100)
+  polygone(3,longeur,30)
+  gauche(30)
+  recule(longeur)
+  
+}
+
+override def run() {
+  
+  maison(100)
+  
+}

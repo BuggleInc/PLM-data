@@ -1,0 +1,48 @@
+def getDistance(base:Int,position:Int):Int = {
+  
+  // Renvoie la distance à la position triée du joueur en position dans la base
+  
+  if (getCouleurJoueur(base,position)<base) { //Si on doit passer la base zéro
+    
+    return getCouleurJoueur(base,position)+getNombreBases-base
+    
+  } else {
+    
+    return getCouleurJoueur(base,position)-base
+    
+  }
+  
+}
+
+def trier() {
+  
+  var baseCandidate = -1
+  getTrouBase() match {
+    
+    case 0 => baseCandidate = getNombreBases()-1
+    case _ => baseCandidate = getTrouBase-1
+    
+  }
+  
+  var distances = new Array[Int](getNombrePositions())
+  
+  for (c <- 0 to getNombrePositions()-1) {
+   	
+    distances(c) = getDistance(baseCandidate,c)
+    
+  }
+  
+  deplace(baseCandidate,distances.indexOf(distances.max))
+  
+}
+
+override def run() {
+
+	while (!estTrie) {
+    
+    trier()
+    
+  }
+
+
+}
