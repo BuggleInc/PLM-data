@@ -2,7 +2,7 @@ def solve() {
   var lastSorted = getStackSize();
   
   while (!isSorted()) {
-    var largest = findLargest();
+    var largest = findLargest(lastSorted);
     flip(largest + 1);
     flip(lastSorted);
     lastSorted -= 1;
@@ -11,10 +11,10 @@ def solve() {
   
 }
 
-def findLargest() : Integer = {
+def findLargest(depth:Integer) : Integer = {
   var max = getPancakeRadius(0);
   var maxI = 0;
-  for (i <- 1 to (getStackSize() - 1)) {
+  for (i <- 1 to (depth - 1)) {
     var currentSize = getPancakeRadius(i);
     
     if (currentSize > max) {
