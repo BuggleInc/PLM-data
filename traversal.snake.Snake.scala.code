@@ -1,0 +1,34 @@
+override def run() {
+  baisseBrosse()
+  while (!postitionFinale){
+    pasDeSerpent()
+  }
+  
+}
+
+
+def positionFinale() {
+  if (!estFaceMur()) return(false);
+  if (getDirection()== Direction.Est){
+    gauche()
+    if (estFaceMur()) return True
+  }
+  if (getDirection()== Direction.Ouest){
+    droite()
+    if (estFaceMur()) return True
+  }
+}
+
+def pasDeSerpent(){
+  while (!estFaceMur){
+    avance()
+  }
+  if (getDirection()== Direction.Ouest){
+    droite()
+    avance()
+    droite()
+  if (getDirection()== Direction.Est){
+    gauche()
+    avance()
+    gauche()
+}
