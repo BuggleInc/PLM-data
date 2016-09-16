@@ -32,6 +32,7 @@ override def run() {
       case _ => println("Ce cas ne devrait pas arriver. Corrigez le problème SVP. ");
          
     }
+    return etat
     
     
   }
@@ -39,7 +40,7 @@ override def run() {
   var etat = 0;
   
   while (estSurBiscuit == false) {
-    keepHandOnSideWall();
+    etat = keepHandOnSideWall(etat);
   }
   
 	prendBiscuit();
