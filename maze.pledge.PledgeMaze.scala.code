@@ -9,10 +9,9 @@ override def run(){
       avance()   
     }
     gauche()
-    while (getDirection != Direction.NORD && compt != 0){
-    while (!estSurBiscuit() && getDirection != Direction.NORD){  keepHandOnSideWall()
+    while (!estSurBiscuit() && getDirection != Direction.NORD) || (getDirection != Direction.NORD && compt != 0){  			 			keepHandOnSideWall()
     }
-  	}  
+  	  
   }  
   prendBiscuit()
 }
