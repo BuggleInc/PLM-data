@@ -4,6 +4,7 @@ def solve() {
     trouverBig(nbCrepe-i)
     retourne(nbCrepe-i)
   }
+  bonneFace(nbCrepe)
 }
 
 def trouverBig(c:Int){
@@ -18,4 +19,14 @@ def trouverBig(c:Int){
     }
   }
   retourne(posBig+1)
+}
+
+def bonneFace(c:Int){
+  for (i<- 0 to c-1){
+    if (estCrepeRetournee(i)){//le côté brulé est en haut
+    	retourne(i+1)
+      retourne(1)
+      retourne(i+1)
+    }
+  }
 }
