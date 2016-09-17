@@ -1,0 +1,32 @@
+def solve() {
+  val taille = getTaillePile()
+  var N=0
+  var aRetourner = 0
+  while(!estTriee() && N!=taille){
+    aRetourner = tailleMax(N)
+    retourne(aRetourner+1)
+    if (!estCrepeRetournee(0)){
+      retourne(1)
+    }
+    retourne(taille-N)
+    N += 1
+  }
+ 	if (estCrepeRetournee(0)){
+      retourne(1)
+    }
+  
+}
+
+def tailleMax(dejaRangees:Int):Int = {
+  val taille=getTaillePile()
+  var rayonMax = 0
+  var cpt = 0
+  var bonARetourner = 0
+  for (cpt <- 0 to taille - 1 - dejaRangees){
+    if(getRayonCrepe(cpt)>rayonMax){
+      rayonMax = getRayonCrepe(cpt)
+      bonARetourner = cpt
+    }
+  }
+  return bonARetourner
+}
