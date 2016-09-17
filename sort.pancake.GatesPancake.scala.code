@@ -1,140 +1,29 @@
 def solve() {
-  var nbCrepes = getTaillePile()
-  var t=0
-  var tmoins1 = 0
-  var tplus1 = 0
-  var bool = 1
+  val taille = getTaillePile()
+  var N=0
+  var aRetourner = 0
   while(!estTriee()){
-    t = getRayonCrepe(0)
-    tplus1 = trouverTPlus1(t)
-    tmoins1 = trouverTMoins1(t)
-    if(!casA(t,tplus1,tmoins1)){
-    	if(!casB(t,tplus1,tmoins1)){
-        if(!casC()){
-          if(!casD(t,tplus1,tmoins1)){
-            casE(t,tplus1,tmoins1)
-        }
-      }
-   	}
+    aRetourner = tailleMax(N)
+    retourne(aRetourner+1)
+    if (estCrepeRetournee(0)){
+      retourne(1)
+    }
+    retourne(taille-N)
+    N += 1
   }
-}
-}
-//On se met d'accord : t c'est le rayon de la première crepe
-// tplus1 et tmoins1 sont les indices des crepes vérifiants les tailles respectives
-
-//Fonctions de bases
-
-def estLibre(rang:Int): Boolean={
-  // On regarde si la crepe de rang (rang-1) et une taille en dessous de la crepe de rang (rang)
-  if (rang>0){
-    if (getRayonCrepe(rang - 1)==getRayonCrepe(rang)-1 || getRayonCrepe(rang - 1)==getRayonCrepe(rang)+1){return false}
-  }
-  // On regarde si la crepe de rang (rang+1) est une taille au dessus de la crepe de rang (rang)
-  if (rang < getTaillePile() - 1){
-  	if (getRayonCrepe(rang + 1) == getRayonCrepe(rang) + 1 || getRayonCrepe(rang + 1) == getRayonCrepe(rang)-1){return false}
-  }
-  // Sinon la crepe est libre
-  return true
-}
-
-def trouverTPlus1(t:Int):Int={
-  var i = 0
-  if (t == getTaillePile()-1){
-    return 9999
-  }
-  for (i <- 1 to getTaillePile()-1){
-    if (getRayonCrepe(i) == t+1){return i}
-  }
-  return 9999
-}
-
-def trouverTMoins1(t:Int):Int={
-	var i=0
-  if (t == 0){
-    return 9999
-  }
-  for (i <- 1 to getTaillePile()-1){
-    if (getRayonCrepe(i) == t-1){return i}
-  }
-  return 9999
-}
-
-def estPremier(rang:Int):Boolean={
-  // On regatde si la crepe de rang (rang) n'est pas Libre et que la crepe d'avant n'est pas de rayon d'une taille en dessous
-  if (!estLibre(rang) && (rang==0 || (getRayonCrepe(rang-1)!=getRayonCrepe(rang)-1) || (getRayonCrepe(rang-1)!=getRayonCrepe(rang)+1))){
-    return true
-  }
-  return false
-}
-
-def estDernier(rang:Int):Boolean={
-  return(!estLibre(rang) && rang==getTaillePile()-1 || (getRayonCrepe(rang+1)!=getRayonCrepe(rang)+1))
-}
-
-
-//LES CAS
-//
-def casA(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if (estLibre(0) && tplus1 != 9999 && estLibre(tplus1)){
-    retourne(tplus1)
-    return true
-  }
-  if (estLibre(0) && tmoins1 != 9999 && estLibre(tmoins1)){
-    retourne(tmoins1)
-    return true
-  }
-  return false
-}
-//
-def casB(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if (estLibre(0)){
-  	if	(tplus1 != 9999 && estPremier(tplus1)){
-    	retourne(tplus1+1)
-    	return true
-  	}
-  	if (tmoins1 != 9999 && estPremier(tmoins1)){
-    	retourne(tmoins1+1)
-    	return true
-  	}
-  }
-  return false
-}
-//
-def casC():Boolean={
-	return false
   
 }
-//
-def casD(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if(!estLibre(0)){
-    if (tplus1!=9999 && estLibre(tplus1)){retourne(tplus1);return true}
-    if (tmoins1!=9999 && estLibre(tmoins1)){retourne(tmoins1);return true}
+
+def tailleMax(dejaRangees:Int):Int = {
+  val taille=getTaillePile()
+  var rayonMax = 0
+  var cpt = 0
+  var bonARetourner = 0
+  for (cpt <- 0 to taille - 1 - dejaRangees){
+    if(getRayonCrepe(cpt)>rayonMax){
+      rayonMax = getRayonCrepe(cpt)
+      bonARetourner = cpt
+    }
   }
-  return false
+  return bonARetourner
 }
-//
-def casE(t:Int,tplus1:Int,tmoins1:Int):Boolean={
-  if(!estLibre(0)){
-    if (tplus1!=9999 && estPremier(tplus1)){retourne(tplus1);return true}
-    if (tmoins1!=9999 && estPremier(tmoins1)){retourne(tmoins1);return true}
-  }
-  return false
-  
-}
-//
-def casF():Boolean={
-  return false
-}
-//
-def casG():Boolean={
-  return false
-}
-//
-def casH():Boolean={
-  return false
-}
-//
-def casI():Boolean={
-  return false
-}
-//
