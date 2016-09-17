@@ -2,15 +2,18 @@ def solve() {
   val taille = getTaillePile()
   var N=0
   var aRetourner = 0
-  while(!estTriee()){
+  while(!estTriee() && N!=taille){
     aRetourner = tailleMax(N)
     retourne(aRetourner+1)
-    if (estCrepeRetournee(0)){
+    if (!estCrepeRetournee(0)){
       retourne(1)
     }
     retourne(taille-N)
     N += 1
   }
+ 	if (estCrepeRetournee(0)){
+      retourne(1)
+    }
   
 }
 
