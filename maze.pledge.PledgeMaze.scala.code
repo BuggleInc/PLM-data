@@ -1,66 +1,94 @@
-// this method works
+// construction d'une methode 
 def isWallAtLeft () : Boolean = {
-  left();
-  var answer = isFacingWall();
-  right();
-  return answer;
+	left();
+	var answer = isFacingWall();
+	right();
+	return answer;
 }
 
-// says if the trip toward the selected direction is possible
 def isDirectionFree (direction : Direction) : Boolean = {
-  var pos = getDirection();
-  setDirection(direction);
- 	var answer = !isFacingWall();
-  setDirection(pos); // bring back to the initial position
-  return answer;
+	// save the initial position 
+	var pos = getDirection();
+	setDirection(direction);
+	var answer = !isFacingWall();
+	// bring back to the initial position
+	setDirection(pos);
+	return answer;
 }
 
-// convoluted with staying the wall at the left and refresh sommeAngle's state
-def leftFollowerMode(sommeAngle : Int) : Int = {
-  var x = sommeAngle; // to pass out the global var
-  while ((sommeAngle != 0) && !isDirectionFree(Direction.NORTH)) {
-     if (!isFacingWall()) {
-     	forward();
-      if (!isWallAtLeft()) {
-    	 	left();
-        x += 1;
-        forward();
-        if (!isWallAtLeft()) {
-      	  left();
-          x += 1;
-          forward();
-        }
-      }
-     } else { right(); x -= 1;} 
-  } ; return x;
+def northRunnerMode (sumTurns: Int) : Int = {
+	// to pass out the global variuable
+	var x = sumTurns;
+		// put the baggle in the north direction
+		while (getDirection() != Direction.NORTH) {
+			right();
+			x -= 1;
+		}
+		// forward as long is possible 
+		while (!isFacingWall()) {
+			// avoid continuing moving after have been passing over the baggle
+			if (isOverBaggle()) {
+				pickupBaggle(); 
+				return x;
+			} else { forward(); }
+		}
+		return x;
+} 
+
+// convoluted while letting the wall at the left and refresh the sumTurns' variable
+def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
+	// to pass out the global variable 
+	var x = sumTurns;
+	while (((x != 0) && (!isDirectionFree(Direction.NORTH))) || isFirstRun) {
+		if (!isFacingWall()) {
+			forward();
+			if (isOverBaggle()) {
+				pickupBaggle(); 
+				return x;
+			} else {
+				if (!isWallAtLeft()) {
+					left();
+					x += 1;
+					forward();
+					if (isOverBaggle()) {
+						pickupBaggle(); 
+						return x;
+					} else {
+						if (!isWallAtLeft()) {
+							left();
+							x += 1;
+							forward();
+							if (isOverBaggle()) {
+								pickupBaggle(); 
+								return x;
+							}
+						}
+					}
+				}
+			}
+		} else { right(); x -= 1;}
+	}
+	return x;
 }
 
-// this method works
-def northRunnerMode () {
-	while (getDirection() != Direction.NORTH) { // auto-orientation
-  	right();
-  }
-  while (!isFacingWall()) { // forward as long is possible 
-  	forward();
-  }
+def switcher () = {
+	var sumTurns = 0;
+  var isFirstRun = true;
+	while (!isOverBaggle()) {
+		// the following functions have an auto-interruption mode if the buggle reach the baggle during the exe
+		sumTurns = northRunnerMode(sumTurns);
+		if (!isOverBaggle()) {
+			// make sure there is a wall at the left before launching the leftFollowerMode()
+			while (!isWallAtLeft()) {
+				right();
+				sumTurns -= 1;
+			}
+			sumTurns = leftFollowerMode(sumTurns, isFirstRun);
+		} else { pickupBaggle(); return (); }
+    isFirstRun = false;
+	}
 }
 
-def makeMoving() {
-  var sommeAngle = 0; // to match with the begining case
-  while (!isOverBaggle()) {
-    sommeAngle match  {
-      case 0 => northRunnerMode(); 
-      					// auto-orientation : make sure there is the wall at left
-                while (!isWallAtLeft()) {
-                  right();
-                  sommeAngle -= 1;
-                }
-      case _ => sommeAngle = leftFollowerMode(sommeAngle);
-    }    
-  }
-  pickupBaggle();
-}
-
-override def run() { 
-	makeMoving();
+override def run () = {
+  switcher();
 }
