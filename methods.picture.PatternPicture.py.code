@@ -5,22 +5,28 @@ def trace() :
 def faireMotif(c) :
 	setCouleurBrosse(c)
 	avance()
-  trace()
-  recule()
-  gauche()
-  avance()
-  trace()
-  recule()
-  droite()
-  avance(3)
-  gauche()
+	trace()
+	recule()
+	gauche()
+	avance()
+	trace()
+	recule()
+	droite()
+	avance(3)
+	gauche()
     
 couleur = [Color.red, Color.blue, Color.green, Color.yellow]
 for k in range(0,2):
-    for j in range(0,2):
-        for i in range(0,4):
-            faireMotif(couleur[i])
-        avance(4)
-    gauche()
-    avance(4)
-    droite()
+	for j in range(0,2):
+		for i in range(0,4):
+			faireMotif(couleur[i])
+		if j == 0: #premi?re fois qu'on avance d'une colone
+			avance(4)
+		else:
+			recule(4)
+	gauche()
+	if k == 0: #premi?re fois qu'on monte d'une ligne
+		avance(4)
+	droite()
+
+avance(4) #on se place ? la pos. voulue...
