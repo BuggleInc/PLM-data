@@ -1,27 +1,29 @@
 def isFacingTrail(color):
-    """ cette fonction renvoie Vraie quand la Buggle est devant la case verte. S'il n'y a pas de case verte, elle renvoie Faux."""
-    #on liste toutes les directions dans lesquelles elle doit regarder
-    trail = False
-    if not(estFaceMur()):
-        avance()
-        if getCouleurSol() == color:
-            trail = True
-            recule()
-            return trail
-        else:
-            recule()
-    return trail
+	""" cette fonction renvoie Vraie quand la Buggle est devant la case verte. S'il n'y a pas de case verte, elle renvoie Faux."""
+	#on liste toutes les directions dans lesquelles elle doit regarder
+	trail = False
+	if not(estFaceMur()):
+		avance()
+		if getCouleurSol() == color:
+			trail = True
+			recule()
+			return trail
+		else:
+			recule()
+			return trail
 
 def hunt(color):
 	while not estSurBiscuit():
-	    head = [Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST]
-	    i = 0
-	    leveBrosse()
-	    while not isFacingTrail(color):
-	        setDirection(head[i])
-	        i += 1
+		head = [Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST]
+		i = 0
+		leveBrosse()
+		while not isFacingTrail(color):
+			setDirection(head[i])
+			i += 1
 	        
-	    baisseBrosse()
-	    avance()
+		baisseBrosse()
+		avance()
     #on devrait ?tre sur le biscuit
-    prendBiscuit()
+	prendBiscuit()
+    
+''' ce code compile sur PLM Offline 2.6'''
