@@ -1,0 +1,27 @@
+def isFacingTrail():
+    """ cette fonction renvoie Vraie quand la Buggle est devant la case verte. S'il n'y a pas de case verte, elle renvoie Faux."""
+    #on liste toutes les directions dans lesquelles elle doit regarder
+    trail = False
+    if not(estFaceMur()):
+        avance()
+        if getCouleurSol() == couleur:
+            trail = True
+            recule()
+            return trail
+        else:
+            recule()
+    return trail
+
+def hunt(couleur):
+    head = [Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST]
+    i = 0
+    while not isFacingTrail(couleur):
+        setDirection(head[i])
+        i += 1
+        
+    baisseBrosse()
+    avance()
+    leveBrosse()
+    if estSurBiscuit():
+        prendBiscuit()
+        
