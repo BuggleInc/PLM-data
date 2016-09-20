@@ -1,0 +1,8 @@
+def coupstylo(c:Color) {setCouleurBrosse(c);baisseBrosse();leveBrosse()}
+def faireU(c:Color) {gauche();avance();coupstylo(c);recule();droite();avance();coupstylo(c);avance();avance();gauche()}
+
+def motif() {faireU(Color.RED);faireU(Color.BLUE);faireU(Color.GREEN);faireU(Color.YELLOW)}
+def motifSuivant() {for (i <- 1 to 4) {avance()}}
+def ligneSuivante() {gauche();for (i<- 1 to 4) {avance};droite()}
+override def run() {motif();motifSuivant();motif();for (i <- 1 to 4) {recule()};ligneSuivante();motif();motifSuivant();motif()
+}

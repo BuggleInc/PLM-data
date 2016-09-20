@@ -1,0 +1,16 @@
+def cocktailSort2() {
+  val n = getNombreValeurs()
+  var e = 0
+  var d = 0
+  var f = n-2
+  do {e=0
+  for (i <- d to f) {
+    if (plusPetit(i+1,i)) {echange(i,i+1);e=e+1}
+  }
+      f-=1
+ 	for (i <- d to f) {
+    var j = (f + d - i)
+    if (!plusPetit(j,j+1)) {echange(j,j+1);e=e+1}
+  }
+    d+=1} while (e!=0)
+}

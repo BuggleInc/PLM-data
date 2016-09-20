@@ -1,0 +1,15 @@
+def solve() {
+  val n = getTaille()
+  var Bleu = 0
+  var Rouge = n-1
+  var Blanc = n-1
+  var c = BLEU
+  var i = 0
+  while (Bleu <= Blanc) {
+    var i = Bleu
+    c = getCouleur(Bleu)
+    if (c == ROUGE) {while (getCouleur(i) == ROUGE) {i+=1};echange(i-1,Rouge);Rouge -= 1;Blanc -=1}  
+    else {if (c == BLANC) {echange(Blanc,Bleu);Blanc -=1}
+          else {Bleu +=1}}
+  }
+}

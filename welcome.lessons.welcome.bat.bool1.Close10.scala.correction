@@ -1,0 +1,22 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class close10 extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = close10( t.getParameter(0).asInstanceOf[Int], t.getParameter(1).asInstanceOf[Int]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def close10(a:Int, b:Int): Int = {
+   if (Math.abs(10-a) == Math.abs(10-b))
+      return 0
+   else if (Math.abs(10-a) < Math.abs(10-b))
+      return a
+   else
+      return b
+} }

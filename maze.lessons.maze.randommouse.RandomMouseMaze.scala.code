@@ -1,0 +1,22 @@
+def avS() {if (!estFaceMur()) avance()}
+
+def cern():Boolean = {var b = false
+                     b = b && estFaceMur()
+                     droite();b = b && estFaceMur()
+                     droite();b = b && estFaceMur()
+                     droite();droite();return b}
+
+def demiTour() {droite();droite()}
+
+override def run() {
+  var d = 0
+  while (!estSurBiscuit()) {
+					d = random3()
+          d match {
+            case 0 => avS()
+            case 1 => droite()
+            case 2 => gauche()
+          }}
+  prendBiscuit()
+    // Your code here 
+}

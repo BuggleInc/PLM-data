@@ -1,0 +1,76 @@
+def testV(x:Int,y:Int):Boolean = {return (x <= getMondeLargeur() -1 && y <= getMondeHauteur() -1)} //Vérifie si les coordonnées (x,y) sont valides
+
+def casP(x:Int,y:Int,k:Int) { //Numérote les cases adjacentes, relance sur ces mêmes cases
+  var m = 0
+  if (testV(x,y-1)) {
+    if (!aMurNord(x,y)) {
+      m=Math.min(k+1,getIndication(x,y-1))
+    setIndication(x,y-1,m)
+     if (m==k+1) {
+    casP(x,y-1,m)
+     }
+    }
+  }
+  if (testV(x-1,y)) {
+    if (!aMurOuest(x,y)) {
+      m=Math.min(k+1,getIndication(x-1,y))
+        setIndication(x-1,y,m)
+      if (m==k+1) {
+      casP(x-1,y,m)
+      }
+    }
+  }
+  if (testV(x,y+1)) {
+    if (!aMurNord(x,y+1)) {
+      m=Math.min(k+1,getIndication(x,y+1))
+      setIndication(x,y+1,m)
+      if (m==k+1) {
+      casP(x,y+1,m)
+      }
+    }
+      
+  }
+  if (testV(x+1,y)) {
+    if (!aMurOuest(x+1,y)) {
+      m=Math.min(k+1,getIndication(x+1,y))
+      setIndication(x+1,y,m)
+      if (m==k+1) {
+      casP(x+1,y,m)
+      }
+    }
+  }                                                  
+}
+def ppC(x:Int,y:Int):Direction = {
+  var m = getIndication(x,y)
+  var d = Direction.EAST
+  var l = 0
+  if (testV(x+1,y)) {if (!aMurOuest(x+1,y)) {l = getIndication(x+1,y);if (l < m) {m=l;d=Direction.EAST}}}
+  if (testV(x-1,y)) {if (!aMurOuest(x,y)) {l = getIndication(x-1,y);if (l < m) {m=l;d=Direction.WEST}}}
+  if (testV(x,y-1)) {if (!aMurNord(x,y)) {l = getIndication(x,y-1);if (l < m) {m=l;d=Direction.NORTH}}}
+  if (testV(x,y+1)) {if (!aMurNord(x,y+1)) {l = getIndication(x,y+1);if (l < m) {m=l;d=Direction.SOUTH}}}
+  return d
+}
+
+
+
+override def run() {
+    // Your code here
+  var d = Direction.NORTH
+  var x = 0
+  var y = 0
+  while (!aBiscuit(x,y)) {
+    if (x!=getMondeLargeur()-1) {
+      x=x+1
+    } else {
+      x=0;y=y+1}}
+  var a=x
+  var b=y
+  setIndication(a,b,0)
+  casP(a,b,0)
+  while (!estSurBiscuit()) {
+    d = ppC(getX(),getY())
+    setDirection(d)
+    avance()
+  }
+  prendBiscuit()
+  }

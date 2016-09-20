@@ -1,0 +1,24 @@
+$package
+import plm.universe.bat.{BatEntity,BatWorld,BatTest}; 
+import plm.universe.World; 
+import scala.collection.JavaConverters._;
+class indexOfMaxValue extends BatEntity { 
+   override def run(t: BatTest) {
+ val res = indexOfMaxValue( t.getParameter(0).asInstanceOf[Array[Int]]);
+try {
+   t.setResult(if (res==null||res == Nil) {null} else {res.asInstanceOf[List[Int]].asJava})
+} catch {
+  case e:java.lang.ClassCastException => t.setResult(res)
+}
+
+   }
+def indexOfMaxValue(nums:Array[Int]):Int = {
+  var max=nums(0)
+  var maxIdx = 0
+  for (i <- 0 to nums.length-1)
+    if (nums(i)>max) {
+      max = nums(i)
+      maxIdx = i
+    }
+  return maxIdx
+} }
