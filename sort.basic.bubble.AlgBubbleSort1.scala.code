@@ -1,15 +1,19 @@
 def bubbleSort(tab: Array[Int]) = {
   var tab_has_changed = false;
   var tmp_value = 0;
+  
+  if (tab.length < 2)
+    return true
+  
   do{
-  	for(var i <- tab.length - 2){
-    	if(tab[i+1] > tab[i]){
+  	for (var i <- tab.length - 2){
+    	if (tab[i+1] > tab[i]){
         tmp_value = tab[i+1];
         tab[i+1] = tab[i];
         tab[i] = tmp_value;
         tab_has_changed = true;
       }
   	}
-  }while(tab_has_changed);
+  }while (tab_has_changed);
   
 }
