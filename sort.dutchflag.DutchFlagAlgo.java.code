@@ -1,24 +1,28 @@
 void solve() {
   
-  int couleur = 0;
+  int b = 1;
+  int bl = 1;
+  int r = getTaille();
+  int i = 0;
   
-  for(int i=0;i<getTaille();i++)
+  while(i<getTaille())
   {
-    int next_place = 0;
-
-    for(int j=i;j<getTaille();j++)
-    {
-       if(getCouleur(j)!=getCouleur(i))
-    	{
-    		next_place = j;
-         echange(i,j);
-         break;
-    	}
+  	if(getCouleur(i)==1)
+      {
+      echange(b,bl);
+      b++;
+      r++;
     }
-    
-    
-    
-	
-  
-}
+    else if(getCouleur(i)==0)
+      {
+     b++;
+    }
+    else
+      {
+      echange(bl,r);
+      r--;
+    }
+
+    i++;
+	}
 }
