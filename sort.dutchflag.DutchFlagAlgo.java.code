@@ -1,20 +1,20 @@
 void solve() {
   
-  int apresBleu = 0;
-  int blancRouge  = -1;
-  int avantBlanc = -1;
+  int bleu = getTaille();
+  int rouge  = 0;
+  int blanc = 0;
   int i = 0;
   
   while(apresBleu<=avantBlanc)
   {
   	if(getCouleur(i)==BLEU)
       {
-      echange(apresBleu,avantBlanc);
-      apresBleu++;
+      bleu++;
     }
-    else if(getCouleur(i)==BLANC)
+    else if(getCouleur(i)==ROUGE)
       {
-      avantBlanc++;
+      echange(rouge,blanc);
+      rouge++;blanc++;
     }
     else
       {
