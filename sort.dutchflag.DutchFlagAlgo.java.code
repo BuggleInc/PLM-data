@@ -4,10 +4,19 @@ void solve() {
   
   for(int i=0;i<getTaille()-1;i++)
   {
-    if(getCouleur(i)!=couleur)
+    int next_place = 0;
+    for(int j=0;j<getTaille();j++)
     {
-    	echange(i,i+1);
+       if(getCouleur(j)!=couleur)
+    	{
+    		next_place = j;
+         echange(i,j);
+         break;
+    	}
     }
-	}
+    
+    
+    
+	
   
 }
