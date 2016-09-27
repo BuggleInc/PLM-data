@@ -1,25 +1,23 @@
 void solve() {
   
-  int bleu = 0;
-  int rouge  = getTaille();
-  int blanc = getTaille();
+  int bleu = getTaille();
+  int rouge  = 0;
+  int blanc = 0;
   
-  while(bleu<=blanc)
+  while(blanc<=bleu)
   {
-  	if(getCouleur(bleu)==BLEU)
+  	if(getCouleur(bleu)==BLANC)
       {
-      bleu++;
+      blanc++;
     }
     else if(getCouleur(bleu)==ROUGE)
       {
-      echange(bleu,blanc);
-      blanc--;
+      echange(rouge,blanc);
+      rouge++; blanc++;
     }
     else{
-     echange(bleu,blanc);
-     echange(blanc,rouge);
-   	 rouge--;
-     blanc--;
+     echange(blanc,bleu);
+     bleu--;
   
     }
 
