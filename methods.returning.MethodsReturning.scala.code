@@ -1,7 +1,9 @@
 def haveBaggle():Boolean = {
   for (pas <- 1 to 7){
     avance()
-    if (estSurBiscuit()){return true;}
+    if (estSurBiscuit()){
+      for (retour <- 1 to pas){recule();}
+      return true
   }
   return false
 }
