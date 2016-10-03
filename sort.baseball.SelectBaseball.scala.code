@@ -10,12 +10,13 @@ override def run(){
 		posJB = trouveBaseJoueur(i,nbrB)._1
 		posJP = trouveBaseJoueur(i,nbrB)._2
     deplaceTrou(posJB,posJP)
+    placeJ(posJB,posJP,i)
   }
   
 }
 
 def init(){
-  var n = getHoleBase()
+  var n = getHoleBase();
   for (i<-0 to n) {
     if (getHoleBase()!=0) {
       move((getHoleBase()-1),0)
@@ -23,18 +24,16 @@ def init(){
   }
 }
 
-def trouveBaseJoueur(base:Int, nbrB:Int):(Int,Int)={
-  for (j<-0 to nbrB) {
-    if (j!= base) {
-      if (getPlayerColor(j,0)==base) {
-        return (j,0)
-      } 
-      else if (getPlayerColor(j,1)==base) {
-        return (j,1)
-      }
+def trouveBaseJoueur(posF:Int, nbrB:Int):(Int,Int)={
+  for (j<-posF+1 to nbrB) {
+    if (getPlayerColor(j,0)==p?sF) {
+			return (j,0)
+    } 
+    else if (getPlayerColor(j,1)==posF) {
+       return (j,1)
     }
   }
-  return (base,0)
+  return (posF,0)
 }
 
 def deplaceTrou(posJB:Int,posJP:Int){
@@ -42,6 +41,28 @@ def deplaceTrou(posJB:Int,posJP:Int){
   for (i<-pos to posJB-2){
     move(getHoleBase()+1,0);
   }
-  move(posJB,posJP)
     
 } 
+
+def placeJ(posJB:Int,posJP:Int,posF:Int) {
+  var n = getHoleBase();
+  var actJB = 0;
+  var actJP = 0;
+  while (posJB!=posF+1) {
+    if (getHoleBase() < posJB) {
+      actJB = getHoleBase();
+      actJP = getHolePOsition();
+      move(posJB,posJP);
+      posJB = actJB;
+      posJP = actJP;
+    }
+    else if (getHoleBase() > posJB){
+      move(posJB,(posJP+1)%2);
+    }
+    else {
+      move(posJB-1,0)
+    }
+  }
+  
+  
+}
