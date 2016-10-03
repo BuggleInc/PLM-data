@@ -4,16 +4,13 @@ override def run() {
   var numABouger:Int = 0;
   
   while (!isSorted()) {
-    posBABouger = (getHoleBase()-1);
-    if (posBABouger == -1) {
-      posBABouger = nbrB-1
-    }
+
     
   }
   
 }
 
-def trouveBaseJoueur(base:Int, nbrB:Int){
+def trouveBaseJoueur(base:Int, nbrB:Int)=Int{
   for (i<-0 to nbrB) {
     if (i!= base) {
       if (getPlayerColor(i,0)==base) {
@@ -25,4 +22,11 @@ def trouveBaseJoueur(base:Int, nbrB:Int){
     }
   }
   return (base,0)
+}
+
+def deplaceTrou(base:Int){
+  pos = getHolePosition();
+  for (i<-pos to base-1){
+    move(i+1,0);
+  }
 }
