@@ -1,0 +1,45 @@
+override def run() 
+
+// On se place de telle mani?re ? avoir un mur devant nous.
+while(!estFaceMur())
+{
+  avance();
+}
+keepHandOnSideWall();
+
+}
+
+
+
+// On suit le mur de gauche
+def keepHandOnSideWall():Unit = {
+  
+  droite();
+  avance();
+  avance();
+  droite();
+  droite();
+  
+  while(!estSurBiscuit())
+  {
+   // On v?rifie s'il y a un mur ? gauche
+    gauche();
+    if(estFaceMur())
+    {
+      droite();
+      while(estFaceMur())
+      {
+        droite();
+      }
+      avance();
+    }
+    else
+    {
+      avance();
+    }
+  }
+
+  prendBiscuit();
+  
+  
+}
