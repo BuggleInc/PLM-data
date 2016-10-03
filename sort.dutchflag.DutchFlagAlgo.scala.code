@@ -2,16 +2,16 @@ def solve() {
   var apresBleu=0
   var blancRouge=getTaille()-1
   var avantBlanc=getTaille()-1
-  while (estTrie()==false) {
-    for (i<-apresBleu to blancRouge) {
+  
+    for (i<-apresBleu to avantBlanc) {
       if (getCouleur(i)==0) {
         echange(i,apresBleu)
         apresBleu=apresBleu+1
       }
+      
       if (getCouleur(i)==2) {
         echange(i,blancRouge)
         blancRouge=blancRouge-1
       }
     }
   }
-}
