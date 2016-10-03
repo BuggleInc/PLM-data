@@ -1,9 +1,9 @@
 right();
 right();
 while (!isFacingWall()) {
-  do {
+  while(!isOverBaggle()) {
     forward();
-  } while(!isOverBaggle())
+  } 
   pickupBaggle();
   while(!isOverBaggle()) {
     backward();
@@ -11,4 +11,14 @@ while (!isFacingWall()) {
   forward();
   dropBaggle();
 }
-
+if (isOverBaggle()) {
+  pickupBaggle();
+  while(!isOverBaggle()) {
+    backward();
+  }
+  forward();
+  dropBaggle();
+  while(!isFacingWall()) {
+    forward();
+  }
+}
