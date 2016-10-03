@@ -1,21 +1,17 @@
 def solve() {
+  var length:Int = getTaille()-1
   var apresBleu:Int = 0
-  var BlancRouge:Int = getTaille()-1
-  var avantBlanc:Int = BlancRouge
-  for (i <- 0 to getTaille()-1){
-    if(getCouleur(i) == 0){
-      echange(i, apresBleu)
-      apresBleu += 1
-      echange(4,5)
-    }
-    if(getCouleur(i) == 2){
-      echange(i, BlancRouge)
-      BlancRouge -= 1
-      avantBlanc -= 1
-    }
-    if(getCouleur(i) == 1){
-      echange(i, avantBlanc)
-      avantBlanc -= 1
+  var BlancRouge:Int = length
+  var avantBlanc:Int = length
+  var continuer:Boolean = true
+  while(continuer){
+    continuer = false
+    for (i <- 0 to length-1){
+      if (getCouleur(i) == 0){
+        echange(i, apresBleu)
+        apresBleu += 1
+        continuer = true
+      }
     }
   }
 }
