@@ -1,27 +1,26 @@
 def solve() {
-  var n = getTaillePile()
-  for (i<-(n-2) to 0 by (-1)) {
-    var j = i
-    while (j!=(-1) && plusGrand(j,j+1)){
-      echange(j+1)
-      j = j-1
+	var n =getTaillePile()
+  while (!estTriee()) {
+    	for (i<- 0 to n-2) {
+        if (plusGrand(i,i+1)) {
+      		retourne(i)
+  				retourne(2)
+    			retourne(i)
+        }
+      
     }
   }
+
+  
+  
+  
 }
 
 
-def plusGrand(i : Int,j : Int) : Boolean = {
+
+def plusGrand(i,j) : Int = {
 	var x = getRayonCrepe(i)
   var y = getRayonCrepe(j)
-  return (x>y)
+  if (
 }
 
-
-def echange(i:Int) {
-
-  	retourne(i)
-  	retourne(2)
-    retourne(i)
-  
-  
-}
