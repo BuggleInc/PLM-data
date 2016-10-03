@@ -32,7 +32,7 @@ def northRunnerMode () = {
 def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 	// to pass out the global variable 
 	var x = sumTurns;
-	while ((x != 0) || isFirstRun) {
+	while (((x != 0) && !isDirectionFree(Direction.NORTH))|| isFirstRun) {
 		if (!isFacingWall()) {
 			forward();
 			if (isOverBaggle()) {
@@ -64,8 +64,13 @@ def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 	return x;
 }
 
+def switcher () = {
+  while (!isOverBaggle()) {
+    northRunnerMode();
+    
+  }
+}
 
 override def run () = {
-  left();
   northRunnerMode();
 }
