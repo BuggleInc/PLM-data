@@ -23,10 +23,10 @@ def wallMark(x:Int,y:Int,c:Int) {
   if (!hasLeftWall(x,y) && x!=0) {
     setIndication(x-1,y,c)
   }
-  if (!hasTopWall(x,y+1) && y!=getWorldHeight()-1) {
+  if (y!=getWorldHeight()-1 && !hasTopWall(x,y+1)) {
     setIndication(x,y+1,c)
   }
-  if (!hasLeftWall(x+1,y) && x!=getWorldWidth()-1) {
+  if (x!=getWorldWidth()-1 && !hasLeftWall(x+1,y)) {
     setIndication(x+1,y,c)
   }
 }
