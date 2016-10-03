@@ -64,13 +64,17 @@ def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 	return x;
 }
 
-def switcher () = {
+override def run () = {
+  var sumTurns = 0;
+  var isFirstTurn = true;
   while (!isOverBaggle()) {
-    northRunnerMode();
+    var isFirstTurn = false;
+  	northRunnerMode();
+    // let a wall at the left before calling the leftFollowerMode
+    while (!isWallAtLeft()) {
+      right();
+    }
+    sumTurns = letFollowerMode(sumTurns, isFirstRun);
     
   }
-}
-
-override def run () = {
-  northRunnerMode();
 }
