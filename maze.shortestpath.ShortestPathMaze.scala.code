@@ -30,17 +30,22 @@ override def run()
         setIndication(largeurDepart,hauteurDepart,compteur+1);
         compteur=compteur+1;
       }
-   if(hauteurDepart+1 <= hauteur && aMurNord(largeurDepart,hauteurDepart+1)== false)
+   if(hauteurDepart+1 <= hauteur)
+   	{
+  		if(aMurNord(largeurDepart,hauteurDepart+1)== false)
+  		{
+    	  setIndication(largeurDepart,hauteurDepart+1,compteur+1);
+    	  compteur=compteur+1;
+   	 	}
+  	 }
+  if(largeurDepart+1 <= largeur)
+  {
+  	if(aMurOuest(largeurDepart+1,hauteurDepart)== false )
   	{
       setIndication(largeurDepart,hauteurDepart+1,compteur+1);
       compteur=compteur+1;
     }
-  if(largeurDepart+1 <= largeur && aMurOuest(largeurDepart+1,hauteurDepart)== false )
-  	{
-      setIndication(largeurDepart,hauteurDepart+1,compteur+1);
-      compteur=compteur+1;
-    }
-    
+  }
 }
 
 
