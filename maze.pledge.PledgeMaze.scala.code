@@ -34,13 +34,13 @@ def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 	// to pass out the global variable 
 	var x = sumTurns;
 	while (((x != 0) && !isDirectionFree(Direction.NORTH)) || isFirstRun) {
-		if (!isFacingWall() || x !=0) {
+		if (!isFacingWall()) {
 			forward();
 			if (isOverBaggle()) {
 				pickupBaggle(); 
 				return x;
 			} else {
-				if (!isWallAtLeft() || x!=0) {
+				if (!isWallAtLeft()) {
 					left();
 					x += 1;
 					forward();
@@ -48,7 +48,7 @@ def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 						pickupBaggle(); 
 						return x;
 					} else {
-						if (!isWallAtLeft() || x!=0) {
+						if (!isWallAtLeft()) {
 							left();
 							x += 1;
 							forward();
