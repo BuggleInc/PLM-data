@@ -1,0 +1,108 @@
+override def run() {
+  var n:Int = getNombreBases()
+  val primeHole:Int = getTrouBase()
+  var base:Int = primeHole
+  var nbMP:Int = 0 //nombre de joueurs qu'il manque dans la base
+  
+  ameneTrouLibreAuDepart(primeHole)
+  
+  for (base <- 0 to n-2) {
+  
+    nbMP = nbMissingPlayers(base)
+    
+    chercheJoueur(base, n) match {
+      case (baseAct, posAct) => joueurEtTrou(baseAct, posAct, base, n)
+      case _                 => () //N'arrive pas.
+    }
+    
+    if ((nbMP == 2) && (getCouleurJoueur(base, 0) == base)) {
+      deplace(base, 1)
+      chercheJoueur(base, n) match {
+      case (baseAct, posAct) => joueurEtTrou(baseAct, posAct, base, n)
+      case _                 => () //N'arrive pas.
+      }
+    }
+    
+    else if ((nbMP == 2) && (getCouleurJoueur(base, 1) == base)) {
+      deplace(base, 0)
+      chercheJoueur(base, n) match {
+      case (baseAct, posAct) => joueurEtTrou(baseAct, posAct, base, n)
+      case _                 => () //N'arrive pas.
+      }
+    }
+    
+  }
+  
+}
+
+
+def ameneTrouLibreAuDepart(primeHole:Int) {
+  for (i <- 0 to primeHole) {
+    deplace(primeHole-i, 0)
+  }
+}
+
+
+def nbMissingPlayers(base:Int):Int = {
+  
+  var result:Int = 0
+  
+  if (getCouleurJoueur(base, 0) != base) {
+    result = result+1
+  }
+  
+  if (getCouleurJoueur(base, 1) != base) {
+    result = result+1
+  }
+  
+  return result
+}
+
+
+def chercheJoueur(couleur:Int, n:Int):(Int,Int) = {
+  
+  var baseTestee:Int = (couleur+1)%n
+  
+  while ((getCouleurJoueur(baseTestee,0)!=couleur) && (getCouleurJoueur(baseTestee,1)!=couleur)) {
+    deplace(baseTestee,0)
+    baseTestee = (baseTestee+1)%n
+  }
+  
+  if (getCouleurJoueur(baseTestee,0)==couleur) {
+    deplace(baseTestee, 1)
+    return (baseTestee, 0)
+  }
+  
+  else {
+    deplace(baseTestee, 0)
+    return (baseTestee, 1)
+  }
+  
+}
+
+
+def joueurEtTrou(baseTemp:Int, posTemp:Int, base:Int, n:Int) {
+  var baseAct:Int = baseTemp
+  var posAct:Int = posTemp
+  
+  while (baseAct != ((base+1)%n)) {
+    
+    deplace((baseAct-1+n)%n, 0)
+    deplace(baseAct,posAct)
+    deplace((baseAct-1+n)%n, 1)
+    
+    baseAct = (baseAct-1+n)%n
+    posAct = 0
+  }
+  
+  if (getCouleurJoueur(base, 0) != base) {
+    deplace(base, 0)
+    deplace(baseAct, posAct)
+  }
+  
+  else {
+    deplace(base, 1)
+    deplace(baseAct, posAct)
+  }
+  
+}

@@ -1,0 +1,19 @@
+def solve() {
+  var n:Int = getTaillePile()
+  for (compt <- 0 to n-1) {
+    retourne(max(n-compt)+1)
+    retourne(n-compt)
+  }
+}
+
+def max(n:Int):Int = {
+  var maxi = 0
+  var rgMaxi = 0
+  for (i <- 0 to n-1) {
+    if (getRayonCrepe(i)>maxi) {
+      maxi = getRayonCrepe(i)
+      rgMaxi = i
+    }
+  }
+  return rgMaxi
+}

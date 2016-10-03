@@ -1,0 +1,29 @@
+def solve() {
+  var n:Int = getTaillePile()
+  var rayon:Int = 0
+  var j:Int = 0
+  var nbEchanges:Int = 0
+  do {
+    nbEchanges = 0
+    for (i <- 0 to n-2) {
+      j = i+1
+      rayon = getRayonCrepe(i)
+      while (j<n && rayon>getRayonCrepe(j)) {
+        echange(j)
+        nbEchanges = nbEchanges+1
+        j = j+1
+      }
+    }
+  } while (nbEchanges!=0)
+}
+
+def echange(rg:Int) { //Echange les crêtes de rangs rg et rg-1
+  if (rg==1) {
+    retourne (2)
+  }
+  else {
+    retourne(rg+1)
+    retourne(2)
+    retourne(rg+1)
+  }
+}

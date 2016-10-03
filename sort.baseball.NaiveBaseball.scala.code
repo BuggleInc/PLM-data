@@ -1,0 +1,24 @@
+override def run() {
+  var baseLibre:Int = getTrouBase()
+  var n:Int = getNombreBases()
+  var baseCandidate:Int = (baseLibre+1)%n
+  while (!estTrie) {
+    distance(baseCandidate, n) match {
+      case (d1,d2) => if (d1<d2) {
+                       deplace(baseCandidate, 1)
+                     }
+                     else {
+                       deplace(baseCandidate, 0)
+                     }
+      case _      => println("Ne doit pas arriver.")
+    }
+    baseLibre = getTrouBase()
+    baseCandidate = (baseLibre+1)%n
+  }
+}
+
+def distance(base:Int, n:Int):(Int,Int) = {
+  var couleur1 = getCouleurJoueur(base, 0)
+  var couleur2 = getCouleurJoueur(base, 1)
+  return ((base-couleur1+n)%n,(base-couleur2+n)%n)
+}

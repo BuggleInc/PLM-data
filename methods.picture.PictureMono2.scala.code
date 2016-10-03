@@ -1,0 +1,53 @@
+def marquerSol() {
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV() {
+  marquerSol()
+  avance()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  droite()
+  avance()
+  marquerSol()
+  avance()
+  avance()
+  gauche()
+  avance()
+  avance()
+}
+
+def faireMotif() {
+  avance()
+	avance()
+  for (compteur <- 1 to 4) {
+    faireV()
+  }
+  recule()
+  recule()
+}
+
+def changeColonne() {
+  for (compt1 <- 1 to 7) {
+    avance()
+  }
+}
+
+def changeLigne() {
+  gauche()
+  changeColonne()
+  droite()
+}
+
+override def run() {
+  for (compteur1 <- 1 to 3) {
+    for (compteur2 <- 1 to 3) {
+      faireMotif()
+    	changeColonne()    
+    }
+		changeLigne()
+  }
+}

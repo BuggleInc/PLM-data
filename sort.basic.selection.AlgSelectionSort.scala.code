@@ -1,0 +1,18 @@
+def selectionSort() {
+  var n:Int = getNombreValeurs()
+  for (i <- 0 to n-2) {
+    echange(i, minimum(i, n-1))
+  }
+}
+
+def minimum(debut:Int, fin:Int):Int = { //Renvoie l'indice de la valeur minimum dans [debut;fin]
+  var mini:Int = getValeur(debut)
+  var result:Int = debut
+  for (j <- debut to fin) {
+    if (plusPetitQue(j, mini)) {
+      mini = getValeur(j)
+      result = j
+    }
+  }
+  return result
+}

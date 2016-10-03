@@ -1,0 +1,61 @@
+def marquerSol(c:Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireV(c:Color) {
+  marquerSol(c)
+  avance()
+  gauche()
+  avance()
+  marquerSol(c)
+  recule()
+  droite()
+  avance()
+  marquerSol(c)
+  avance()
+  gauche()
+  avance()
+}
+
+def faireMotif() {
+  avance()
+  faireV(Color.YELLOW)
+  faireV(Color.RED)
+  faireV(Color.BLUE)
+  faireV(Color.GREEN)
+  recule()
+}
+
+def faireGrandMotif() {
+  for (compteur1 <- 1 to 3) {
+    for (compteur2 <- 1 to 3) {
+      faireMotif()
+    	for (compteur3 <- 1 to 5) { //On change de 'colonne'
+        avance()
+      }
+    }
+		gauche() //Ici, on change...
+    for (compteur4 <- 1 to 5) {
+      avance()
+    }
+    droite() //... de ligne !
+  }
+}
+
+override def run() {
+  for (compt1 <- 1 to 3) {
+    for (compt2 <- 1 to 3) {
+      faireGrandMotif()
+      for (compt3 <- 1 to 15) { //On change de 'grande colonne'
+        avance()
+      }
+    }
+    gauche() //Ici, on change...
+    for (comt4 <- 1 to 15) {
+      avance()
+    }
+    droite() //... de 'grande ligne' !
+  }
+}

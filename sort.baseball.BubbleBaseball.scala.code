@@ -1,0 +1,60 @@
+override def run() {
+  var n:Int = getNombreBases()
+  
+  setTrouToOne()
+  
+  while (!estTrie()) {
+    for (i <- 1 to n-1) {
+      deplace(i, min(i, n))
+    }
+    
+    if (!estTrie()) {
+      for (j <- n-2 to 0 by -1) {
+        deplace(j, max(j))
+      }
+    }
+  }
+}
+
+
+def setTrouToOne() { //On amène le trou à la position 1
+  var trou = getTrouBase()
+  
+  if (trou>0) {
+    for (i <- trou-1 to 1 by -1) {
+      deplace(i, 1)
+    }
+  }
+}
+
+
+def max(i:Int):Int = {
+  var nbPositions:Int = getNombrePositions()
+  var maxi:Int = -1
+  var indice:Int = -1
+  
+  for (j <- 0 to nbPositions-1) {
+    if (getCouleurJoueur(i, j)>maxi) {
+      maxi = getCouleurJoueur(i, j)
+      indice = j
+    }
+  }
+  
+  return indice
+}
+
+
+def min(i:Int, n:Int):Int = {
+  var nbPositions:Int = getNombrePositions()
+  var mini:Int = n
+  var indice:Int = -1
+  
+  for (j <- 0 to nbPositions-1) {
+    if (getCouleurJoueur(i, j)<mini) {
+      mini = getCouleurJoueur(i, j)
+      indice = j
+    }
+  }
+  
+  return indice
+}

@@ -1,0 +1,21 @@
+def solve() {
+  var n:Int = getTaille()
+  var apresBleu:Int = 0
+  var blancRouge:Int = n-1
+  var avantBlanc:Int = n-1
+  while (apresBleu<=avantBlanc) {
+    getCouleur(apresBleu) match {
+    case ROUGE =>
+      echange(apresBleu, blancRouge)
+      blancRouge = blancRouge-1
+      if (blancRouge<avantBlanc) {
+        avantBlanc = blancRouge
+      }
+    case BLEU =>
+      apresBleu = apresBleu+1
+    case BLANC =>
+      echange(apresBleu, avantBlanc)
+      avantBlanc = avantBlanc-1
+    }
+  }
+}

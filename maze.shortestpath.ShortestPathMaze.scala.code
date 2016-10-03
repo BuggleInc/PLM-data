@@ -1,0 +1,112 @@
+override def run() {
+  val xMax:Int = getMondeLargeur()-1
+  val yMax:Int = getMondeHauteur()-1
+  chercheSortie(xMax, yMax) match {
+    case (xSortie, ySortie) => ecritIndications(xSortie, ySortie, xMax, yMax, 0) //On remplit les cases.
+  }
+  trouveSortie(xMax, yMax)
+  prendBiscuit()
+}
+
+def chercheSortie(xMax:Int, yMax:Int):(Int,Int) = {
+  var xSortie:Int = 0
+  var ySortie:Int = 0
+  for (x <- 0 to xMax) {
+    for (y <- 0 to yMax) {
+      if (aBiscuit(x,y)) {
+        xSortie = x
+        ySortie = y
+      }
+    }
+  }
+  return (xSortie, ySortie)
+}
+
+def ecritIndications(x:Int, y:Int, xMax:Int, yMax:Int, cnt:Int) {
+  if (getIndication(x, y)>cnt) { //S'il n'y a pas d'indication ou si on a trouvé un plus court chemin,
+                                 //on écrit l'indication.
+    setIndication(x, y, cnt)
+                                 //Puis on regarde où on peut aller :
+    if (y-1>=0) {                //Au nord,
+      aMurNord(x, y) match {       
+        case false => ecritIndications(x, y-1, xMax, yMax, cnt+1)
+        case true  => ()
+      }
+    }
+    
+    if (x-1>=0) {                //à l'ouest,
+      aMurOuest(x, y) match {
+        case false => ecritIndications(x-1, y, xMax, yMax, cnt+1)
+        case true  => ()
+      }
+    }
+    
+    if (y+1<=yMax) {             //au sud,
+      aMurNord(x, y+1) match {
+        case false => ecritIndications(x, y+1, xMax, yMax, cnt+1)
+        case true  => ()
+      }
+    }
+
+    if (x+1<=xMax) {             //et à l'est.
+      aMurOuest(x+1, y) match {
+        case false => ecritIndications(x+1, y, xMax, yMax, cnt+1)
+        case true  => ()
+      }
+    }
+
+  }
+  
+  else {                         //Sinon, on ne fait rien !
+    ()
+  }
+}
+
+def trouveSortie(xMax:Int, yMax:Int) {
+  var distance:Int = getIndication(getX(), getY())
+  var x:Int = getX()
+  var y:Int = getY()
+  
+  while (distance!=0) {          //On regarde si on va en direction de la sortie en allant...
+    
+    if (y-1>=0) {                //... au nord,
+      (!aMurNord(x, y) && getIndication(x, y-1)<distance) match {       
+        case true  => setDirection(Direction.NORTH)
+                      avance()
+                      y = y-1
+                      distance = getIndication(x, y)
+        case false => ()
+      }
+    }
+    
+    if (x-1>=0) {                //à l'ouest,
+      (!aMurOuest(x, y) && getIndication(x-1, y)<distance) match {
+        case true  => setDirection(Direction.WEST)
+                      avance()
+                      x = x-1
+                      distance = getIndication(x, y)
+        case false => ()
+      }
+    }
+    
+    if (y+1<=yMax) {             //au sud,
+      (!aMurNord(x, y+1) && getIndication(x, y+1)<distance) match {
+        case true  => setDirection(Direction.SOUTH)
+                      avance()
+                      y = y+1
+                      distance = getIndication(x, y)
+        case false => ()
+      }
+    }
+
+    if (x+1<=xMax) {             //ou à l'est.
+      (!aMurOuest(x+1, y) && getIndication(x+1, y)<distance) match {
+        case true  => setDirection(Direction.EAST)
+                      avance()
+                      x = x+1
+                      distance = getIndication(x, y)
+        case false => ()
+      }
+    }  
+  }
+}

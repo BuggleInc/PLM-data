@@ -1,0 +1,54 @@
+override def run() {
+  var n:Int = 2*getNombreBases()-1 //Nombre de joueurs.
+  
+  setTrouToOne()
+  
+  for (pos <- 2 to n) {
+    placeNvJoueur(pos, couleurJoueur(pos))
+  }
+}
+
+def couleurJoueur(pos:Int):Int = {
+  return getCouleurJoueur(pos/2, pos%2)
+}
+
+def deplace(pos:Int) {
+  deplace(pos/2, pos%2)
+}
+
+def trouveTrou():Int = {
+  return 2*getTrouBase()+getTrouPosition()
+}
+
+
+def setTrouToOne() { //On amène le trou à la position 1
+  var trou = trouveTrou()
+  
+  if (trou>1) {
+    for (i <- trou-1 to 1 by -1) {
+      deplace(i)
+    }
+  }
+  
+  else if (trou==0) {
+    deplace(1)
+  }
+}
+
+def placeNvJoueur(pos:Int, couleur:Int) {
+  var i:Int = pos-2
+  var compt:Int = 0
+  
+  while (i>=0 && couleurJoueur(i)>couleur) {
+    deplace(i)
+    deplace(i+2)
+    deplace(i+1)
+    deplace(i)    // Si 1 2 4 . 3 alors 1 2 . 3 4
+    compt = compt+1
+    i = i-1
+  }
+  
+  for (j <- 0 to compt) {
+    deplace(trouveTrou()+1)
+  }
+}

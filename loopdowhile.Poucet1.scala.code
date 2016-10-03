@@ -1,0 +1,17 @@
+var baggles:Int = 0
+while (!sortieTrouvee()) {
+  baggles = 0
+  for (compteur <- 1 to 5) {
+    avance()
+    if (estSurBiscuit()) {
+      baggles = baggles+1
+    }
+  }
+  if (baggles>2) {
+    gauche()
+  }
+  else {
+    droite()
+  }
+}
+avance()
