@@ -17,7 +17,7 @@ override def run() {
 def runToNorth():Unit = {
   if(getDirection() == Direction.NORTH)
   {
-    while(!estFaceMur() && !estSurBiscuit())
+    while(!estFaceMur())
     {
       avance();
     }
@@ -30,7 +30,7 @@ def runToNorth():Unit = {
 def keepHandOnSideWall():Unit = {
 	var pasDeMurNord = false;
   
-  while(!pasDeMurNord || !estSurBiscuit())
+  while(!pasDeMurNord && !estSurBiscuit())
   {
    // On v?rifie s'il y a un mur ? gauche
     gauche();
