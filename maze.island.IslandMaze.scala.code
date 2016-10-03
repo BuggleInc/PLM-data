@@ -1,14 +1,12 @@
 override def run() {
 
-	while(!estSurBiscuit())
-  {
-    setDirection(Direction.NORTH);
-    if(estFaceMur()){
-    	droite();
-    	keepHandOnSideWall();
-    }
-    else
-    	runToNorth();
+    val etat = 0;
+    etat match{
+      
+      case 0 => runToNorth(); 
+      					etat = 1;
+      case 1 => keepHandOnSideWall();
+      					etat = 0;
   }
   prendBiscuit();
 
@@ -28,7 +26,9 @@ def runToNorth():Unit = {
 
 // On suit le mur de gauche
 def keepHandOnSideWall():Unit = {
-
+	val pasDeMurNord = false;
+  
+  while(!pasDeMurNord)
    // On v?rifie s'il y a un mur ? gauche
     gauche();
     if(estFaceMur())
@@ -44,4 +44,7 @@ def keepHandOnSideWall():Unit = {
     {
       avance();
     }
+  
+  	pasDeMurNord = (getDirection() == Direction.NORTH && estFaceMur());
+  
 }
