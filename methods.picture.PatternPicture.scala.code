@@ -1,0 +1,37 @@
+def faireP(couleur:Color){
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireU(couleur1:Color,couleur2:Color){
+  gauche();avance()
+  faireP(couleur1)
+  recule();droite();avance()
+  faireP(couleur1)
+  avance()
+  faireP(couleur2)
+  gauche();avance();droite();avance()
+  faireP(couleur2)
+  droite();avance();gauche()
+}
+
+def faireL(couleur1:Color,couleur2:Color){
+  faireU(couleur1,couleur2)
+  avance()
+  faireU(couleur1,couleur2)
+  gauche()
+  for (i <- 1 to 3){avance()}
+  gauche()
+}
+
+override def run() {
+  faireL(Color.red,Color.blue)
+  faireL(Color.green,Color.yellow)
+  gauche()
+  for (i <- 1 to 4){avance()}
+  droite()
+  faireL(Color.red,Color.blue)
+  faireL(Color.green,Color.yellow)
+  for (i <- 1 to 4){avance()}
+}

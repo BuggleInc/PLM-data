@@ -1,0 +1,38 @@
+def deplacerBiscuit(){
+  if (estSurBiscuit){
+    prendBiscuit()
+    while(!estSurBiscuit() && !estFaceMur()){
+      recule()
+    }
+    avance()
+    poseBiscuit()
+    avance()
+  }
+  while(!estSurBiscuit() && !estFaceMur()){
+    avance()
+  }
+  if (!estFaceMur || estSurBiscuit){prendBiscuit()}
+  while(!estSurBiscuit() && porteBiscuit()){
+    recule()
+  }
+  if (!estFaceMur || porteBiscuit()){
+    avance()
+    poseBiscuit()
+    avance()
+  }
+}
+
+/*def est(){
+  while(getDirection() != Direction.EST){
+    gauche()
+  }
+}*/
+
+gauche();gauche()
+while(!estFaceMur()){
+  deplacerBiscuit()
+}
+droite()
+avance()
+gauche()
+avance()

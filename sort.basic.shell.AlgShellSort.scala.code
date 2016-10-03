@@ -1,0 +1,28 @@
+def shellSort() {
+  var length:Int = getNombreValeurs()
+  var v:Int = 0
+  var a:Int = 0
+  var j:Int = 0
+  var i:Int = length/2
+  var ecart:Int = length/2
+  var continuer:Boolean = true
+  while(i<=length - 1){
+    a = i
+    v = getValeur(i)
+    j = 1
+    while(j*ecart<=i && !plusPetitQue(i-(j*ecart),v)){
+      copie(i-(j*ecart),i-(j-1)*ecart)
+      a = i-j*ecart
+      j += 1
+    }
+    if (ecart > 1){
+    	ecart = ecart/2
+    } else if (continuer){
+      i = 1
+      continuer = false
+    }
+    print(i + " " + length + " ")
+    i += 1
+    setValeur(a,v)
+  }
+}

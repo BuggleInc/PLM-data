@@ -1,0 +1,64 @@
+def faireV(){
+  avance()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  avance()
+}
+
+def motifLigne(){
+	for (i <- 1 to 9){
+  	faireV()
+    avance()
+	}
+  recule()
+}
+
+def motifLigneMilieu(){
+  gauche()
+  motifLigne()
+  droite()
+  avance()
+  droite()
+  motifLigne()
+  gauche()
+}
+
+def motifLignesMilieu(){
+  for (j <- 1 to 9){
+    for (i <- 1 to 6){
+      avance()
+    }
+    motifLigneMilieu()
+  }
+  for (i <- 1 to 6){
+    avance()
+  }
+}
+
+
+override def run() {
+	for (j <- 1 to 4){
+    motifLigne()
+    gauche()
+	}
+	motifLignesMilieu()
+  gauche()
+  motifLignesMilieu()
+  gauche()
+  motifLignesMilieu()
+  gauche()
+  motifLignesMilieu()
+  gauche()
+}

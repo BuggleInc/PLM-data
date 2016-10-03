@@ -1,0 +1,116 @@
+def checkMur():Boolean = {
+  gauche()
+  if (estFaceMur()){
+    droite()
+    return true
+  }
+  droite()
+  return false
+}
+
+def checkFinMur():Boolean = {
+  gauche()
+  if(!estFaceMur()){
+    avance()
+    gauche()
+    if(!estFaceMur()){
+      avance()
+      if(!checkMur()){
+        recule()
+        droite()
+        recule()
+        droite()
+      } else {return true}
+    } else {
+      droite()
+      recule()
+      droite()
+    }
+  } else {
+    droite()
+  }
+  return false
+}
+
+def keepHandOnSideWall(a:Int):Int = {
+  var sommeAngle:Int = a
+  if(!estFaceMur()){
+    if (checkMur()){
+      avance()
+    } else {
+      gauche()
+      sommeAngle += 1 //
+      avance()
+      if (!checkMur()){
+        gauche()
+        sommeAngle += 1 //
+        avance()
+        if(!checkMur){
+          recule()
+          droite()
+          sommeAngle += -1 /**/
+          recule()
+          droite()
+          sommeAngle += -1 /**/
+          avance()
+        }
+      }
+    }
+  } else{
+      if (!checkFinMur()){
+      droite()
+      sommeAngle += -1 /**/
+      if(estFaceMur()){
+        gauche();gauche();sommeAngle += 2 //   //
+        if(estFaceMur()){
+          gauche()
+          sommeAngle += 1 //
+          avance()
+        } else {avance()}
+      } else {avance()}
+      return sommeAngle
+    }
+    return 2
+  }
+  return sommeAngle
+}
+
+def estSurMurNord():Boolean = {
+  return getY() == 0
+}
+
+def eviteObstacle(){
+  var sommeAngle:Int = 0
+  var continuer:Boolean = true
+  while (continuer){
+  	sommeAngle = keepHandOnSideWall(sommeAngle)
+    if (sommeAngle >= 4/* || sommeAngle <= -4*/){
+      continuer = false
+    }
+    if (estSurBiscuit()){
+      continuer = false
+      prendBiscuit()
+    }
+  }
+}
+
+def isDirectionFree(dir:Direction):Boolean = {
+  var direct:Direction = getDirection()
+  setDirection(dir)
+  if (estFaceMur()){
+    setDirection(direct)
+    return true
+  }
+  setDirection(direct)
+  return false
+}
+
+override def run() {
+  while (!porteBiscuit()){
+    eviteObstacle()
+    if(!estFaceMur() && !porteBiscuit()){
+      while(!estFaceMur()){avance()}
+    }
+  }
+  print('a')
+}

@@ -1,0 +1,53 @@
+/*def cocktailSort3() {
+  var continuer:Boolean = true
+  var length:Int = getNombreValeurs()
+  while(continuer){
+    continuer = false
+    for (i <- 0 to (length - 2)){
+      if ( i < (length - 1)){
+        if (!plusPetit(i,i+1)){
+          echange(i,i+1)
+          continuer = true
+        }
+      }
+    }
+    for (i <- (length - 2) to 0){
+      if ( i < (length - 1)){
+        if (!plusPetit(i,i+1)){
+          echange(i,i+1)
+          continuer = true
+        }
+      }
+    }
+    length += -1
+  }
+}*/
+
+def cocktailSort3() {
+  var continuer:Boolean = true
+  var continuer2:Boolean = true
+  var length:Int = getNombreValeurs() - 2
+  var debut:Int = 0
+  do{
+    continuer = false
+    continuer2 = false
+    for (i <- debut to length){
+      if (!plusPetit(i,i+1)){
+        echange(i,i+1)
+        continuer = true
+      }
+    }
+    length += -1
+    for (i <- debut to length){
+      if (!plusPetit(length + debut- i,length + debut - i +1)){
+        echange(length + debut - i,length + debut - i + 1)
+        continuer2 = true
+      }
+    }
+    debut += 1
+    if (!continuer || !continuer2){
+      continuer = false
+      continuer2 = false
+    }
+  }while(continuer || continuer2)
+}

@@ -1,0 +1,40 @@
+def posFinale():Boolean = {
+  if (getX() == (getMondeLargeur() - 1) && getY() == (getMondeHauteur() - 1)){
+    return true
+  }
+  return false
+}
+  
+def diago(cpt:Int,a:Int):Int = {
+  ecritMessage(cpt)
+  var diag = a
+	if (diag <= 6){
+    if (getY() != 0){
+      setPos(getX()+1, getY()-1)
+    } else if (diag != 6) {
+      diag += 1
+      setPos(0,diag)
+    } else {
+      diag += 1
+      setPos(diag - 6,6)
+    }
+  } else {
+    if (getX() != 6){
+    	setPos(getX()+1, getY()-1)
+    } else {
+      diag += 1
+      setPos(diag - 6,6)
+    }
+  }
+  return diag
+}
+
+override def run() {
+  var cpt:Int = 0
+  var diag:Int = 0
+  while(!posFinale()){
+    diag = diago(cpt, diag)
+    cpt += 1
+  }
+  ecritMessage(cpt)
+}

@@ -1,0 +1,24 @@
+def posFinale():Boolean = {
+  if (getX() == (getMondeLargeur() - 1) && getY() == (getMondeHauteur() - 1)){
+    return true
+  }
+  return false
+}
+      
+def ligne(cpt:Int) {
+  ecritMessage(cpt)
+  if (getX() != (getMondeLargeur() - 1)){
+    setPos(getX()+1, getY())
+  } else {
+  	setPos(0,(getY() + 1))
+  }
+}
+
+override def run() {
+  var cpt:Int = 0
+  while(!posFinale()){
+    ligne(cpt)
+    cpt += 1
+  }
+  ecritMessage(cpt)
+}

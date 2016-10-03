@@ -1,0 +1,41 @@
+def faireMaison(dim:Double){
+  baisseCrayon()
+  for (i <- 0 to 3){
+    avance(dim)
+    droite(90)
+  }
+  avance(dim)
+  droite(30)
+  for (i <- 0 to 2){
+    avance(dim)
+    droite(120)
+  }
+  gauche(30)
+  recule(dim)
+  leveCrayon()
+}
+
+override def run() {
+  for (i <- 0 to 3){
+    faireMaison(30)
+    droite(90)
+    avance(50)
+    gauche(90)
+  }
+  gauche(90)
+  avance(50)
+  droite(90)
+  avance(75)
+  faireMaison(30)
+  avance(75)
+  for (i <- 0 to 2){
+    faireMaison(30)
+    droite(90)
+    recule(50)
+    gauche(90)
+  }
+  faireMaison(30)
+  recule(75)
+  faireMaison(30)
+  avance(150)
+}

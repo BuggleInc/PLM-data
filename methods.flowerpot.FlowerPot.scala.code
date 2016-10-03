@@ -1,0 +1,51 @@
+def faireP(couleur:Color){
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def Flower(couleur:Color){
+  faireP(couleur)
+  avance()
+  faireP(Color.yellow)
+  gauche()
+  avance()
+  faireP(couleur)
+  recule();recule()
+  faireP(couleur)
+  droite();avance();gauche();avance();droite()
+  faireP(couleur)
+}
+
+def avance(a:Int,b:Boolean){
+  if (b){
+    for (i <- 1 to a){
+      avance()
+    }
+  } else {
+    for (i <- 1 to a){
+      recule()
+    }
+  }
+}
+
+def growFlowers(){
+  Flower(Color.red)
+  avance(2,true)
+  Flower(Color.cyan)
+  droite()
+  avance(4,true)
+  droite()
+  Flower(Color.green)
+  avance(2,true)
+  Flower(Color.pink)
+  avance(4,false)
+  droite()
+  avance(2,true)
+  gauche()
+  Flower(Color.orange)
+  gauche()
+  avance(2,true)
+  gauche()
+  avance(2,false)
+}

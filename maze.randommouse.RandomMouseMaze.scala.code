@@ -1,0 +1,18 @@
+override def run() {
+  var a:Int = 0
+  var continuer:Boolean = true
+  while(continuer){
+    a = random3()
+    if (a == 0 && !estFaceMur()){
+      avance()
+    } else if (a == 1){
+      gauche()
+    } else {
+      droite()
+    }
+    if (estSurBiscuit()){
+      prendBiscuit()
+      continuer = false
+    }
+  }
+}

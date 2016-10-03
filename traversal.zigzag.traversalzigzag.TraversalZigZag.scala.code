@@ -1,0 +1,38 @@
+def posFinale():Boolean = {
+  if (getX() == (getMondeLargeur() - 1) && getY() == (getMondeHauteur() - 1)){
+    return true
+  }
+  return false
+}
+      
+def zigzag(cpt:Int) {
+  ecritMessage(cpt)
+	if (((getY()/2)*2) == getY()){
+    if (getX() != (getMondeLargeur() - 1)){
+      setPos(getX()+1, getY())
+    } else {
+      setPos(getX(),(getY() + 1))
+    }
+  } else {
+    if (getX() != 0){
+    setPos(getX()-1, getY())
+    } else {
+      setPos(getX(),(getY() + 1))
+    }
+  }
+}
+
+override def run() {
+  var cpt:Int = 0
+  while(!posFinale()){
+    zigzag(cpt)
+    cpt += 1
+  }
+  ecritMessage(cpt)
+}
+
+
+
+
+
+
