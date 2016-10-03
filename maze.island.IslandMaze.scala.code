@@ -1,15 +1,12 @@
 override def run() {
 
     var etat = 0;
-  println("test");
   while(!estSurBiscuit())
   {
     etat match{
       
-      case 0 => runToNorth(); 
-      					etat = 1;
-      case 1 => keepHandOnSideWall();
-      					etat = 0;
+      case 0 => runToNorth(); etat = 1;
+      case 1 => keepHandOnSideWall(); etat = 0;
   	}
   }
   prendBiscuit();
