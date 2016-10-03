@@ -1,0 +1,45 @@
+override def run() {
+
+	while(!estSurBiscuit())
+  {
+    setDirection(Direction.NORTH);
+    if(estFaceMur())
+    	keepHandOnSideWall();
+    else
+    	runToNorth();
+  }
+  ramasserBiscuit();
+
+}
+
+// On court vers le nord
+def runToNorth():Unit = {
+  if(getDirection() == Direction.NORTH)
+  {
+    while(!estFaceMur())
+    {
+      avance();
+    }
+  }
+}
+
+
+// On suit le mur de gauche
+def keepHandOnSideWall():Unit = {
+
+   // On v?rifie s'il y a un mur ? gauche
+    gauche();
+    if(estFaceMur())
+    {
+      droite();
+      while(estFaceMur())
+      {
+        droite();
+      }
+      avance();
+    }
+    else
+    {
+      avance();
+    }
+}
