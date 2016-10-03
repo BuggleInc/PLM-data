@@ -1,14 +1,19 @@
 right();
 right();
-while (!isFacingWall()) {
-  do {
+while (!isFacingWall() || isOverBaggle()) {
+  if (isOverBaggle && !isCarryingBaggle) {
+    pickupBaggle();
+    while (!isOverBaggle()) {
+      backward();
+    }
     forward();
-  } while(!isOverBaggle())
-  pickupBaggle();
-  while(!isOverBaggle()) {
-    backward();
+    dropBaggle();
+    forward();
+  } else if (!isOverBaggle) {
+    forward();
   }
-  forward();
-  dropBaggle();
 }
-
+right();
+forward();
+left();
+forward();
