@@ -7,10 +7,12 @@ override def run(){
   init();
 
   for (i<-0 to nbrB-1) {
-		posJB = trouveBaseJoueur(i,nbrB)._1
-		posJP = trouveBaseJoueur(i,nbrB)._2
-    deplaceTrou(posJB,posJP)
-    placeJ(posJB,posJP,i)
+    while (!isBaseSorted(i)) {
+			posJB = trouveBaseJoueur(i,nbrB)._1
+			posJP = trouveBaseJoueur(i,nbrB)._2
+    	deplaceTrou(posJB,posJP)
+    	placeJ(posJB,posJP,i)
+    }
   }
   
 }
