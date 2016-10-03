@@ -4,21 +4,20 @@ def solve() {
   var blancRouge=getTaille()-1
   var avantBlanc=getTaille()-1
   while(estTrie()==false) {
-    if (getCouleur(i)==0) {
+   for (i<-apresBleu to blancRouge) {
+      
+    if (getCouleur(i)==BLUE) {
+      echange(i,apresBleu)
       apresBleu=apresBleu+1
     }
-    else if (getCouleur(i)==2) {
+    else if (getCouleur(i)==RED) {
       echange(i,blancRouge)
       blancRouge=blancRouge-1
-      avantBlanc=avantBlanc-1
+      
     }
-    else {
-      echange(i,avantBlanc)
-      avantBlanc=avantBlanc-1
-    }
-    
-    i=i+1
-  }
   
     
+   }
   }
+    
+}
