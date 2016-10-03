@@ -1,5 +1,6 @@
 override def run() {
   etat(0)
+  var sommeAngle:Int = 0
   
   def etat(e:Int) {
     e match {
@@ -30,21 +31,38 @@ override def run() {
   
   def conditionSuivreMur(droiteTrue:Boolean) {
     if(droiteTrue)
-    	droite()
-    else gauche()
+    	droiteCompte()
+    else gaucheCompte()
     
     if(estFaceMur()) {
       if(droiteTrue)
-        gauche()
-    	else droite()
+        gaucheCompte()
+    	else droiteCompte()
       
       if(!estFaceMur())
       	avance()
       else {
         if(droiteTrue)
-        	gauche()
-    		else droite()
+        	gaucheCompte()
+    		else droiteCompte()
       }
     } else avance()
+  }
+  
+  def isDirectionFree(dir:Direction):Boolean {
+    if((dir == gauche() && sommeAngle == 4) || (dir == droite() && sommeAngle == -4)) {
+      sommeAngle = 0
+    	return False
+    } return True
+  }
+  
+  def gaucheCompte() {
+    gauche()
+    sommeAngle +=1
+  }
+  
+  def droiteCompte() {
+    droite()
+    sommeAngle -= 1
   }
 }
