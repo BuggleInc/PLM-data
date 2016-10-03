@@ -2,6 +2,7 @@ override def run()
 {
   var hauteur = getMondeHauteur();
   var largeur = getMondeLargeur();
+  var compteur = 0;
   
  	for (i<-0 to largeur-1) 
   {
@@ -9,13 +10,28 @@ override def run()
     {
       if (aBiscuit(i,j)== true)
       {
+        
         setIndication(i,j,0);
       	var hauteurDepart = j;
         var largeurDepart = i;
+        testmur(i,j,compteur);
       }
     }
   }
-  
+    
+}
 
+def testmur(int a, int b){
+  
+  if(aMurNord(largeurDepart,hauteurDepart)== false)
+  	{
+      setIndication(i,j,compteur+1);
+      compteur=compteur+1;
+    }
+  if(aMurOuest(largeurDepart,hauteurDepart)== false)
+      {
+        setIndication(i,j,compteur+1);
+        compteur=compteur+1;
+      }
   
 }
