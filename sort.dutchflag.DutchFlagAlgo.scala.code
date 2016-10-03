@@ -3,23 +3,18 @@ def solve() {
   var apresBleu:Int = 0
   var BlancRouge:Int = length
   var avantBlanc:Int = length
-  var continuer:Boolean = true
   while(!estTrie()){
-    continuer = false
     for (i <- apresBleu to BlancRouge){
       if (getCouleur(i) == 0 && i >= apresBleu){
         echange(i, apresBleu)
         apresBleu += 1
-        continuer = true
       }else if (getCouleur(i) == 2 && i <= BlancRouge){
         echange(i, BlancRouge)
         BlancRouge -= 1
         avantBlanc -= 1
-        continuer = true
       }else if (getCouleur(i) == 1 && avantBlanc > apresBleu){
         echange(i, avantBlanc)
         avantBlanc -= 1
-        continuer = true
       }
     }
   }
