@@ -3,17 +3,17 @@ override def run() {
   var height:Int=getWorldHeight()
   var width:Int=getWorldWidth()
   var baggleHeight:Int=0;
-  var test:Int=0;
+  var bWidth:Int=0;
   for (i <- 0 to width-1) {
     for(j <- 0 to getWorldHeight()-1) {
       if(hasBaggle(i,j)) {
         setIndication(i,j,0);
-        test=i;
+        bWidth=i;
         baggleHeight=j
       }
     }
   }
-  wallMark(test,baggleHeight,count)
+  wallMark(bWidth,baggleHeight,count)
 }
 
 def wallMark(x:Int,y:Int,c:Int) {
