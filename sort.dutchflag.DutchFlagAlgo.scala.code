@@ -1,0 +1,26 @@
+def solve() {
+  var apresbleu=0
+  var avantblanc = getSize()-1
+  var blancrouge = getSize()-1
+  
+  while(apresbleu<avantblanc)
+  	{
+      if(getColor(apresbleu)==RED)
+      	{
+          swap(apresbleu,blancrouge)
+          blancrouge = blancrouge-1
+          avantblanc = avantblanc-1
+        }
+      if(getColor(apresbleu)==WHITE)
+      	{
+          swap(apresbleu,avantblanc)
+          avantblanc = avantblanc-1
+        }
+      if(getColor(apresbleu)==BLUE)
+      	{
+          apresbleu=apresbleu+1
+        }
+    }
+  
+  
+}
