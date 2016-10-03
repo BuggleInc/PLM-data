@@ -1,16 +1,14 @@
 override def run() {
 
     var etat = 0;
-  runToNorth();
-  keepHandOnSideWall();
-  /*while(!estSurBiscuit())
+  while(!estSurBiscuit())
   {
     etat match{
       
       case 0 => runToNorth(); etat = 1;
       case 1 => keepHandOnSideWall(); etat = 0;
   	}
-  }*/
+  }
   prendBiscuit();
 
 }
@@ -32,6 +30,7 @@ def keepHandOnSideWall():Unit = {
 	var pasDeMurNord = false;
   
   while(!pasDeMurNord)
+  {
    // On v?rifie s'il y a un mur ? gauche
     gauche();
     if(estFaceMur())
@@ -47,7 +46,7 @@ def keepHandOnSideWall():Unit = {
     {
       avance();
     }
-  
+   
   	pasDeMurNord = (getDirection() == Direction.NORTH && estFaceMur());
-  
+  }
 }
