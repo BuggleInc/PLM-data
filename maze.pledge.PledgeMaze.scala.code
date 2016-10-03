@@ -17,7 +17,8 @@ def isDirectionFree (direction : Direction) : Boolean = {
 }
 
 // ne gere pas le cas si rencontre un Baggle
-def northRunnerMode () = {
+def northRunnerMode (sumTurns:Int) : Int = {
+  var x = sumTurns;
   // auto-positionnement
   while (getDirection() != Direction.NORTH) {
     right();
@@ -25,7 +26,7 @@ def northRunnerMode () = {
   // forward as long as is possible
   while (!isFacingWall()) {
     forward();
-  }
+  } return x;
 }
 
 // convoluted while letting the wall at the left and refresh the sumTurns' variable
@@ -68,10 +69,10 @@ override def run () = {
   var sumTurns = 0;
   var isFirstRun = true;
   while (!isOverBaggle()) {
-  	northRunnerMode();
+  	sumTurns = northRunnerMode(sumTurns);
     // let a wall at the left before calling the leftFollowerMode
     while (!isWallAtLeft()) {
-    	right();
+    	right(); x -= 1;
     }
     sumTurns = leftFollowerMode(sumTurns, isFirstRun);
     isFirstRun = false;
