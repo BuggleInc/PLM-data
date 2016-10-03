@@ -1,5 +1,5 @@
 override def run() {
-  var count:Int=1
+  var count:Int=0
   var height:Int=getWorldHeight()
   var width:Int=getWorldWidth()
   var baggleHeight:Int=0;
@@ -13,7 +13,14 @@ override def run() {
       }
     }
   }
-  wallMark(bWidth,baggleHeight,count)
+  for (i <- 0 to width-1) {
+    for (j <- 0 to height-1) {
+      if (getIndication==count) {
+        wallMark(i,j,count+1)
+        count+=1
+      }
+    }
+  }
 }
 
 def wallMark(x:Int,y:Int,c:Int) {
