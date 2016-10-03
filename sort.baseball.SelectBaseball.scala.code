@@ -6,13 +6,13 @@ override def run(){
   var posJP:Int = 0;
   init();
 
-  for (i<-0 to nbrB-1) {
-    while(!isBaseSorted(i) || getHoleBase()!=i) {
-			posJB = trouveBaseJoueur(i,nbrB)._1
-			posJP = trouveBaseJoueur(i,nbrB)._2
+  for (i<-0 to 2*nbrB-1) {
+    //while(!isBaseSorted(i) || getHoleBase()!=i) {
+			posJB = trouveBaseJoueur(i/2,nbrB)._1
+			posJP = trouveBaseJoueur(i/2,nbrB)._2
     	deplaceTrou(posJB,posJP)
-    	placeJ(posJB,posJP,i)
-    }
+    	placeJ(posJB,posJP,i/2)
+    //}
   }
   
 }
