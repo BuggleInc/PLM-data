@@ -16,24 +16,15 @@ def isDirectionFree (direction : Direction) : Boolean = {
 	return answer;
 }
 
-def northRunnerMode (sumTurns: Int) : Int = {
-	// to pass out the global variuable
-	var x = sumTurns;
-		// put the baggle in the north direction
-		while (getDirection() != Direction.NORTH) {
-			right();
-			x -= 1;
-		}
-		// forward as long is possible 
-		while (!isFacingWall()) {
-			// avoid continuing moving after have been passing over the baggle
-			if (isOverBaggle()) {
-				pickupBaggle(); 
-				return x;
-			} else { forward(); }
-		}
-		return x;
-} 
+def northRunnerMode () = {
+  // auto-positionnement
+  while (getDirection != direction.NORTH) {
+    right();
+  }
+  while (!isFacingWall()) {
+    forward();
+  }
+}
 
 // convoluted while letting the wall at the left and refresh the sumTurns' variable
 def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
@@ -90,5 +81,6 @@ def switcher () = {
 }
 
 override def run () = {
-  switcher();
+  left();
+  northRunnerMode();
 }
