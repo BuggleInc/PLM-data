@@ -2,12 +2,14 @@ override def run() {
   var count:Int=1
   var height:Int=getWorldHeight()
   var width:Int=getWorldWidth()
+  var baggleHeight:Int=0;
+  var baggleWight:Int=0;
   for (i <- 0 to width-1) {
     for(j <- 0 to getWorldHeight()-1) {
       if(hasBaggle(i,j)) {
         setIndication(i,j,0);
-        var baggleHeight:Int=j;
-        var baggleWight:Int=i;
+        baggleWight=i;
+        baggleHeight=j
       }
     }
   }
