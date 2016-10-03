@@ -17,7 +17,9 @@ override def run(){
 def init(){
   var n = getHoleBase()
   for (i<-1 to n) {
-    move(((getHoleBase()-1)%5),0)
+    if (getHoleBase()!=0) {
+      move((getHoleBase()-1),0)
+    }
   }
 }
 def trouveBaseJoueur(base:Int, nbrB:Int):(Int,Int)={
