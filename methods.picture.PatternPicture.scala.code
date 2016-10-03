@@ -4,13 +4,20 @@ override def run() {
     for (j<-1 to 2) {
 
       motif1(Color.RED)
+      avance(2);
       motif2(Color.BLUE)
+      recule(2);
+      gauche();
+      avance(2);
       motif2(Color.YELLOW)
+      avance(2);
       motif1(Color.GREEN)
     }
+    recule(2);
     gauche();
-    avance(5);
+    recule(2);
     droite();
+    avance(5);
   }
 
 }
@@ -31,8 +38,6 @@ def motif1(c:Color) {
 }
 def motif2(c:Color) {
   setCouleurBrosse(c)
-  avance();
-  avance();
   baisseBrosse();
   leveBrosse();
   avance();
@@ -45,7 +50,4 @@ def motif2(c:Color) {
   gauche();
   avance();
   gauche();
-  recule(2);
-  gauche();
-  avance(2);
 }
