@@ -9,12 +9,20 @@ override def run() {
       posBABouger = nbrB-1
     }
     
-    numABouger = longerWay(nbrB, posBABouger)
-    move(posBABouger,numABouger)
   }
   
 }
 
 def trouveBaseJoueur(base:Int, nbrB:Int){
-  for (i<-0 to nbrB)
+  for (i<-0 to nbrB) {
+    if (i!= base) {
+      if (getPlayerColor(i,0)==base) {
+        return (i,0)
+      } 
+      else if (getPlayerColor(i,0)==base) {
+        return (i,1)
+      }
+    }
+  }
+  return (base,0)
 }
