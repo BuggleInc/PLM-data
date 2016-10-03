@@ -1,12 +1,11 @@
+override def run() 
+{
   var hauteur = getMondeHauteur();
   var largeur = getMondeLargeur();
   var compteur = 0;
  	var hauteurDepart=0;
   var largeurDepart=0;
-
-override def run() 
-{
-
+  
  	for (i<-0 to largeur-1) 
   {
     for(j<-0 to hauteur-1)
@@ -21,20 +20,21 @@ override def run()
       }
     }
   }
+  
+    if(aMurNord(largeurDepart,hauteurDepart)== false)
+  	{
+      setIndication(i,j,compteur+1);
+      compteur=compteur+1;
+    }
+  	if(aMurOuest(largeurDepart,hauteurDepart)== false)
+      {
+        setIndication(i,j,compteur+1);
+        compteur=compteur+1;
+      }
     
 }
 
-def testmur(a:Int,b:Int){
+
   
-  if(aMurNord(largeurDepart,hauteurDepart)== false)
-  	{
-      setIndication(a,b,compteur+1);
-      compteur=compteur+1;
-    }
-  if(aMurOuest(largeurDepart,hauteurDepart)== false)
-      {
-        setIndication(a,b,compteur+1);
-        compteur=compteur+1;
-      }
+
   
-}
