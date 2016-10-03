@@ -46,21 +46,23 @@ def deplaceTrou(posJB:Int,posJP:Int){
 
 def placeJ(posJB:Int,posJP:Int,posF:Int) {
   var n = getHoleBase();
+  var posJB2 = posJB; 
+  var posJP2 = posJP;
   var actJB = 0;
   var actJP = 0;
   while (posJB!=posF+1) {
-    if (getHoleBase() < posJB) {
+    if (getHoleBase() < posJB2) {
       actJB = getHoleBase();
       actJP = getHolePosition();
       move(posJB,posJP);
-      posJB = actJB;
-      posJP = actJP;
+      posJB2= actJB;
+      posJP2= actJP;
     }
-    else if (getHoleBase() > posJB){
-      move(posJB,(posJP+1)%2);
+    else if (getHoleBase() > posJB2){
+      move(posJB2,(posJP2+1)%2);
     }
     else {
-      move(posJB-1,0)
+      move(posJB2-1,0)
     }
   }
   
