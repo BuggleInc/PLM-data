@@ -1,9 +1,10 @@
 def solve() {
+  var longueur:Int = getTaillePile() - 2
   for(i <- 0 to getTaillePile() - 1) { 
   	var maxRayon:Int = 0
-  	var posMaxRayon = 0
+  	var posMaxRayon = i
   
-    for(j <- i to getTaillePile() - 1) {
+    for(j <- i + 1 to getTaillePile() + 1) {
       if(getRayonCrepe(j) > maxRayon) {
         maxRayon = getRayonCrepe(j)
         posMaxRayon = j
