@@ -68,13 +68,13 @@ override def run () = {
   var sumTurns = 0;
   var isFirstRun = true;
   while (!isOverBaggle()) {
-    var isFirstRun = false;
   	northRunnerMode();
     // let a wall at the left before calling the leftFollowerMode
-    //while (!isWallAtLeft()) {
-     // right();
-    //}
+    while (!isWallAtLeft()) {
+    	right();
+    }
     sumTurns = leftFollowerMode(sumTurns, isFirstRun);
+    var isFirstRun = false;
     
   }
 }
