@@ -62,23 +62,6 @@ def leftFollowerMode (sumTurns : Int, isFirstRun : Boolean) : Int = {
 	return x;
 }
 
-def switcher () = {
-	var sumTurns = 0;
-  var isFirstRun = true;
-	while (!isOverBaggle()) {
-		// the following functions have an auto-interruption mode if the buggle reach the baggle during the exe
-		sumTurns = northRunnerMode(sumTurns);
-		if (!isOverBaggle()) {
-			// make sure there is a wall at the left before launching the leftFollowerMode()
-			while (!isWallAtLeft()) {
-				right();
-				sumTurns -= 1;
-			}
-			sumTurns = leftFollowerMode(sumTurns, isFirstRun);
-		} else { pickupBaggle(); };
-    isFirstRun = false;
-	}
-}
 
 override def run () = {
   left();
