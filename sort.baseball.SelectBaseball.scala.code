@@ -5,13 +5,13 @@ override def run(){
   var posJB:Int = 0;
   var posJP:Int = 0;
   init();
-  /*
-  for (i<-0 to nbrB) {
+
+  for (i<-0 to nbrB-1) {
 		posJB = trouveBaseJoueur(i,nbrB)._1
 		posJP = trouveBaseJoueur(i,nbrB)._2
     deplaceTrou(posJB,posJP)
   }
-  */
+  
 }
 
 def init(){
@@ -22,15 +22,15 @@ def init(){
     }
   }
 }
-/*
+
 def trouveBaseJoueur(base:Int, nbrB:Int):(Int,Int)={
-  for (i<-0 to nbrB) {
-    if (i!= base) {
-      if (getPlayerColor(i,0)==base) {
-        return (i,0)
+  for (j<-0 to nbrB) {
+    if (j!= base) {
+      if (getPlayerColor(j,0)==base) {
+        return (j,0)
       } 
-      else if (getPlayerColor(i,0)==base) {
-        return (i,1)
+      else if (getPlayerColor(j,1)==base) {
+        return (j,1)
       }
     }
   }
@@ -40,8 +40,8 @@ def trouveBaseJoueur(base:Int, nbrB:Int):(Int,Int)={
 def deplaceTrou(baseJ:Int,posJ:Int){
   var pos = getHoleBase();
   for (i<-pos to baseJ-2){
-    move(i+1,0);
+    move(getHolePos()+1,0);
   }
   move(baseJ-1,0)
     
-} */
+} 
