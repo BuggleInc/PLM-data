@@ -1,9 +1,14 @@
 def solve() {
+  var length:Int = getTaillePile()
+  var max:Int = 0
   while(!estTriee()){
-    retourne(1)
-    retourne(2)
-    retourne(3)
-    retourne(4)
-    retourne(5)
+    for (i <- 0 to length){
+      if (getRayonCrepe(i) > getRayonCrepe(max)){
+        max = i
+      }
+    }
+    retourne(max)
+    retourne(max)
+    length -= 1
   }
 }
