@@ -9,13 +9,17 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     // Fils gauche
     gauche(angle);
     tree(steps-1, length*shrink, angle, shrink);
-		recule(length);
+    leveCrayon();
+		recule(length*shrink);
+    baisseCrayon();
     droite(angle)
     
      // Fils droite
     droite(angle);
     tree(steps-1, length*shrink, angle, shrink);
-    recule(length);
+    leveCrayon();
+    recule(length*shrink);
+    baisseCrayon();
     gauche(angle);
   }
   
