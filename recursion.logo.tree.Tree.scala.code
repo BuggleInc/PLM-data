@@ -1,0 +1,22 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+
+  
+  current(steps);
+  // Notre tronc
+  avance(length);
+  
+  if(steps > 1){
+    // Fils gauche
+    gauche(angle);
+    tree(steps-1, length*shrink, angle, shrink);
+    droite(angle);
+		recule(steps);
+    
+     // Fils droite
+    droite(angle);
+    tree(steps-1, length*shrink, angle, shrink);
+    gauche(angle);
+    recule(steps);
+  }
+  
+}
