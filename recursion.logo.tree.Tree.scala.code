@@ -1,7 +1,25 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 
+  baisseCrayon();
+  avance(length);
   
-  current(steps);
+  if(steps>1)
+  {
+    // Fils gauche
+    gauche(angle);
+    tree(steps-1, length*shrink, angle, shrink);
+
+     // Fils droite
+    droite(angle+angle);
+    tree(steps-1, length*shrink, angle, shrink);
+    gauche(angle);
+  }
+  
+  leverCrayon();
+  recule(length)
+  
+  
+  /*current(steps);
   // Notre tronc
   avance(length);
   
@@ -21,6 +39,6 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     recule(length*shrink);
     baisseCrayon();
     gauche(angle);
-  }
+  }*/
   
 }
