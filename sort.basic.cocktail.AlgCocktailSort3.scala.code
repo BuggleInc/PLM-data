@@ -1,0 +1,51 @@
+def cocktailSort3() {
+  
+  var sorted:Boolean = false;
+  var deb:Int = 0;
+  var fin:Int = getNombreValeurs()-2;
+  
+  do{
+    
+    sorted = false;
+  
+    for(i <- deb to fin){
+
+      if(plusPetit(i+1, i)){
+
+        echange(i, i+1);
+        sorted = true;
+
+      }
+
+    }
+    
+    if(sorted == false){
+
+      return;
+
+    }
+    
+    fin -= 1;
+
+    for(i <- fin to deb by -1){
+
+      if(plusPetit(i+1, i)){
+
+        echange(i, i+1);
+        sorted = true;
+
+      }
+
+    }
+    
+    if(sorted == false){
+
+      return;
+
+    }
+    
+    deb += 1;
+    
+  }while(sorted);
+    
+}
