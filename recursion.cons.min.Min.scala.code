@@ -1,15 +1,20 @@
+def compare(a:Int, b:Int): Int ={
+  
+  if (a<=b)
+  	{
+      return a
+    }
+  else {return b}
+}
+
 def min(l:List[Int]): Int = {
   if(l.tail==Nil) {return l.head}
   else if ((l.tail).tail ==Nil) { 
     var a = l.head
   	var b = (l.tail).head
-    if (a<=b)
-    	{
-        return a
-      }
-    else {return b}
+    return compare(a,b)
   }
   else{
-    return min(l.head,min(l.tail))
+    return compare(l.head,min(l.tail))
   }
 }
