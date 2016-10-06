@@ -1,15 +1,13 @@
-def compare(a:Int,b:Int):Boolean = {
-  
-  return a<=b
-}
 
 def increasing(l:List[Int]): Boolean = {
   if(l==Nil) { return true}
   else { 
-  if (compare(l.head,(l.tail).head))
+  if (l.head<=(l.tail).head)
     {
-      return true
+      increasing(l.tail)
     }
-    else { return increasing(l.tail)}
-  }
+    else{
+      return false
+    }
+}
 }
