@@ -1,0 +1,15 @@
+def min(l:List[Int]): Int = {
+  if(l.tail==Nil) {return l.head}
+  else if ((l.tail).tail ==Nil) { 
+    var a = l.head
+  	var b = (l.tail).head
+    if (a<=b)
+    	{
+        return a
+      }
+    else {return b}
+  }
+  else{
+    return min(l.head,min(l.tail))
+  }
+}
