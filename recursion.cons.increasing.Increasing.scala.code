@@ -1,6 +1,15 @@
+def compare(a,b) {
+  
+  return a<=b
+}
+
 def increasing(l:List[Int]): Boolean = {
   if(l==Nil) {return true}
   else { 
-  return l.head<=increasing(l.tail)
+  if (!compare(l.head,(l.tail).head))
+    {
+      return false
+    }
+    else {return increasing(l.tail)}
   }
 }
