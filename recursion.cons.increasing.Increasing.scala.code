@@ -1,13 +1,17 @@
 
 def increasing(l:List[Int]): Boolean = {
   if(l==Nil) { return true}
+  
   else { 
-  if (l.head<=(l.tail).head)
+  if (l.tail!=Nil && l.head<=(l.tail).head)
     {
       increasing(l.tail)
     }
-    else{
+    else if (l.tail!=Nil && l.head>(l.tail).head) {
       return false
+    }
+    else{
+      return true
     }
 }
 }
