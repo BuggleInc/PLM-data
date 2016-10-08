@@ -6,15 +6,47 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     baisseCrayon()
     avance(length)
     droite(angle)
-    
+    noeud1(steps,length,angle,shrink)
+    recule(length)
+    gauche(2*angle)
    
     tree(steps-1,shrink*length,angle,shrink)
-    recule(length)
-    gauche(2*length)
+    
     //recule(length)
     //gauche(2*length)
     //tree(steps-1,shrink*length,angle,shrink)
 
   }
+}
+
+def noeud1(steps:Int, length:Double, angle:Double, shrink:Double){
+  
+  current(steps)
+  avance(length)
+  droite(angle)
+  noeud2(steps,length,angle,shrink)
+  recule(length)
+  gauche(2*angle)
+  noeud1(steps-1,length,angle,shrink)
+}
+
+def noeud2(steps:Int, length:Double, angle:Double, shrink:Double){
+  
+  current(steps)
+  avance(length)
+  droite(angle)
+  noeud3(steps,length,angle,shrink)
+  recule(length)
+  gauche(2*angle)
+  noeud2(steps-1,length,angle,shrink)
+}
+
+def noeud3(steps:Int, length:Double, angle:Double, shrink:Double){
+  
+  current(steps)
+  avance(length)
+  droite(angle)
+  noeud4(steps,length,angle,shrink)
+  noeud3(steps-1,length,angle,shrink)
 }
 
