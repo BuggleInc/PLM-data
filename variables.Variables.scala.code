@@ -1,5 +1,7 @@
+int nbPas = 0
 while(!estSurBiscuit())
 {
+  nbPas = nbPas + 1
   avance()
 }
 
@@ -8,15 +10,12 @@ if (estSurBiscuit())
   prendBiscuit()
   droite()
   droite()
-  while(!estFaceMur())
+  while(int i = 0; i < nbPas; i++)
   {
-    avance()
+    avance();
   }
   
-  if (porteBiscuit() && estFaceMur())
-  {
-    droite()
-    droite()
-    poseBiscuit()
-  }
+  droite()
+  droite()
+  poseBiscuit()
 }
