@@ -1,27 +1,22 @@
+var fin:Boolean = true
 
 
-def cocktailSort2() {
-  
-var fini:Boolean = true
-var debut = 0
-var fin =getNombreValeurs()-2
+def cocktailSort() {
   
   do{
-    fini = false;
-    for (i <- debut to fin){
+    fin = false;
+    for (i <- 0 to getNombreValeurs()-2){
       if (!plusPetit(i,i+1)){
         echange(i,i+1)
-        fin-=1
-        fini = true;
+        fin = true;
       }
      
-     for (i <-debut to fin by -1) {
+     for (i <-0 to getNombreValeurs()-2 by -1) {
        if (!plusPetit(i,i+1)){
          echange(i,i+1)
-         debut+=1
-         fini = true;
+         fin = true;
        }
      }
     }
-  }while (fini == true)
+  }while (fin == true)
 }
