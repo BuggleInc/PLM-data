@@ -2,12 +2,12 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   if (steps == 0)
   	return ;
   
-  avance(length);
   gauche(angle);
+  avance(length);
   tree(steps-1, length*shrink, angle, shrink);
   droite(2*angle);
     tree(steps-1, length*shrink, angle, shrink);
-  avance(length);
-	recule(length)
+  gauche(angle);
+	recule(length);
 
 }
