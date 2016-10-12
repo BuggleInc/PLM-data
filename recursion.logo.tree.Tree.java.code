@@ -1,0 +1,26 @@
+public void tree(int steps, double length, double angle, double shrink)    {
+    
+  if(steps == 0){
+    
+    return;
+    
+  } else{
+    
+    baisseCrayon();
+    current(steps);
+    avance(length);
+    droite(angle);
+    
+    tree(steps-1, length*shrink, angle, shrink);
+    
+    gauche(angle*2);
+    
+    tree(steps-1, length*shrink, angle, shrink);
+    
+    droite(angle);
+    recule(length);
+    
+    
+  }
+  
+}
