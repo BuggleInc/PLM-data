@@ -1,21 +1,22 @@
 public void run() {
-	faireCarre();
+	faireCarre(false);
   droite(90);
-  faireCarre();
+  faireCarre(false);
   gauche(180);
-  faireCarre();
+  faireCarre(true);
   droite(180);
-  faireCarre();
+  faireCarre(false);
   droite(180);
 }
 
 
-public void faireCarre()
+public void faireCarre(boolean gauche)
 {
   baisseCrayon();
   for(int i = 0; i <= 3; i++)
   {
     avance(100);
-    droite(90);
+    if (!gauche)
+    	droite(90);
   }
 }
