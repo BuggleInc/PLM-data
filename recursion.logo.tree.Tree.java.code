@@ -3,12 +3,18 @@ public void tree(int steps, double length, double angle, double shrink)  {
   else
     {
     current(steps);
-    avance(length);
-    droite(angle);
-    tree(steps-1,length*shrink,angle,shrink);
-    tree(steps-1,length*shrink,-angle,shrink);
     
-    recule(length);
+    // AVANCE
+    avance(length);
+    // ANGLE
+    droite(angle);
+    
+    // BRANCHE DROITE
+    tree(steps-1,length*shrink,angle,shrink);
+    
+    tree(steps-1,length*shrink,angle,shrink);
     gauche(angle);
+    recule(length);
+    
   }
 }
