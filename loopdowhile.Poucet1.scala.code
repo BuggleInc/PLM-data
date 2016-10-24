@@ -1,0 +1,17 @@
+var nbBaggle = 0
+while (!exitReached()) {
+  for (corridor <- 1 to 5) {
+    forward()
+    if (isOverBaggle()) {
+      nbBaggle = nbBaggle + 1
+    }
+  }
+  if (nbBaggle >= 3) {
+    left()
+  } else {
+    right()
+  }
+  nbBaggle=0
+  
+}
+forward()

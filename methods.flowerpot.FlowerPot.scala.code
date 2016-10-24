@@ -1,0 +1,38 @@
+def makeFlowers(c:Color) {
+  setBrushColor(c)
+  brushDown()
+  forward(2)
+  backward()
+  left()
+  forward()
+  backward(2)
+  forward()
+  setBrushColor(Color.yellow)
+  right()
+  brushUp()
+  setBrushColor(c)
+}
+
+def growFlowers() {
+  makeFlowers(Color.red)
+  forward(3)
+  for (i <- 1 to 3) {
+    if (i==1) {
+    	makeFlowers(Color.cyan)
+    	right()
+    	forward(3)
+    } else if (i==2) {
+      	makeFlowers(Color.green)
+    		right()
+    		forward(3)
+    } else if (i==3) {
+      	makeFlowers(Color.pink)
+    		right()
+    		forward(3)
+    }
+  }
+  setPos(3,4)
+  right()
+  makeFlowers(Color.orange)
+  setPos(1,6)
+}

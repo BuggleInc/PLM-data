@@ -1,0 +1,16 @@
+var nbBaggle = 0
+while (!exitReached()) {
+  do {
+    forward()
+    if (isOverBaggle()) {
+      nbBaggle = nbBaggle + 1
+    }
+  } while (!crossing())
+  if (nbBaggle >= 3) {
+    left()
+  } else {
+    right()
+  }
+  nbBaggle = 0
+}
+forward()

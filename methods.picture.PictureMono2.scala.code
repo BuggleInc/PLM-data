@@ -1,0 +1,40 @@
+override def run() {
+  
+def makeV() {
+  forward()
+  brushDown()
+  brushUp()
+  forward()
+  left()
+  forward()
+  brushDown()
+  brushUp()
+  backward()
+  right()
+  forward()
+  brushDown()
+  brushUp()
+}
+  
+def makePattern() {
+  for (i <- 1 to 3) {
+  	for (k <- 1 to 5) {
+      	forward()
+      	makeV()
+      	forward()
+      	forward()
+      	left()
+    }
+    right()
+    forward()
+  }
+  backward(21)
+  left()
+  forward(7)
+  right()
+  
+}
+
+for (n <- 1 to 3)
+	makePattern()
+}
