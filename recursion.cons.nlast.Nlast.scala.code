@@ -1,15 +1,15 @@
 def nlast(l:List[Int], n:Int): List[Int] = {
   nfirst(reverse(l), n)
 }
-def nfirst(l,n) = {
+def nfirst(l:List[Int],n:Int): List[Int] = {
   if (n==0) {return Nil}
   else { return l.head::nfirst(l.tail,n-1)}
   
 }
-def reverse(l) = {
+def reverse(l): List[Int] = {
   reverseh(l, Nil)
 }
-def reverseh(l,acc) = {
+def reverseh(l,acc): List[Int] = {
   if (l==Nil) { return acc}
   else {
     return reversh(l.tail,l.head::acc)
