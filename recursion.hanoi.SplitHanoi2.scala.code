@@ -10,7 +10,7 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(height > 0)
   {
-    splitHanoi(height-1, src, dst2, dist1, other)
+    splitHanoi(height-1, src, dst2, dst1, other)
     move(src, dst2)
     hanoi(getTaillePiquet(other), other, src, dst2)
     hanoi(getTaillePiquet(dst1), dst1, src, other)
