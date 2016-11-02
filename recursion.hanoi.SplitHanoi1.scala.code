@@ -1,20 +1,20 @@
 def hanoi(height:Int, src:Int, other1:Int, other2:Int, dst:Int) {
 	if (height>0)
   {
-  	hanoi(height-2, src, dst, other2, other1)
+  	hanoi(height-1, src, dst, other2, other1)
   	move(src, other2)
     move(src, dst)
     move(other2, dst)
-    hanoi(height-2, other1, other2, src, dst)
+    hanoi(height-1, other1, other2, src, dst)
   }
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
   if(height > 0)
   {
-   	hanoi(height-2, src, dst1, dst2, other)
+   	hanoi(height-1, src, dst1, dst2, other)
     move(src, dst1)
     move(src, dst2)
-    splitHanoi(height-2, other, src, dst1, dst2)
+    splitHanoi(height-1, other, src, dst1, dst2)
   }
 }
