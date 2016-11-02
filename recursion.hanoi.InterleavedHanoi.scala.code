@@ -1,3 +1,14 @@
+def hanoi(height:Int, src:Int, other:Int, dst:Int) {
+	if (height==1)
+  {
+    move(src, dst)
+  }else{
+  	hanoi(height-1, src, dst, other)
+  	move(src, dst)
+    hanoi(height-1, other, src, dst)
+  }
+}
+
 def interleavedHanoi(height:Int, src1:Int, src2:Int, other:Int, dst:Int) {
  if(height == 1)
   {
