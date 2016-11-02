@@ -8,8 +8,11 @@ def hanoi(height:Int, src:Int, other:Int, dst:Int) {
 }
 
 def hanoi_rapide(hauteur:Int, src:Int, libre:Int, plein:Int, dst:Int){
-  move(src, plein)
-	hanoi(getTaillePiquet(src), src, libre, dst)
+  if(hauteur>0)
+  {
+    move(src, plein)
+    hanoi(getTaillePiquet(src), src, libre, dst)
+  }
 }
 
 def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
