@@ -1,0 +1,26 @@
+def hanoi(height:Int, src:Int, other:Int, dst:Int) {
+	if (height==1)
+  {
+    move(src, dst)
+  }else{
+  	hanoi(height-1, src, dst, other)
+  	move(src, dst)
+    hanoi(height-1, other, src, dst)
+  }
+}
+
+def hanoi_rapide(hauteur:Int, src:Int, libre:Int, plein:Int, dst:Int){
+  move(src, plein)
+	hanoi(hauteur-1, src, libre, dst)
+}
+
+def splitHanoi(height:Int, src:Int, other:Int, dst1:Int, dst2:Int) {
+  if(height > 0)
+  {
+    splitHanoi(height-1, src, dst1, dst2, other)
+    move(src, dst1)
+    hanoi_rapide(getTaillePiquet(dst2), dst2, src, other,dst1)
+    move(src, dst2)
+    hanoi_rapide(getTaillePiquet(other), other, src, dst1, dst2)
+  }
+}
