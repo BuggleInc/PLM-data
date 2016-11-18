@@ -1,0 +1,20 @@
+// tells whether the Int is a member of the list
+def isMember(l:List[Int], v:Int): Boolean = {
+  
+  def compute_isMember(v:Int, l:List[Int]): Boolean = {
+    
+    if(l == Nil){
+      return false;
+    }
+    else if(l.head == v){
+      return true;
+    }
+    else {
+      return compute_isMember(v, l.tail);
+    }
+    
+  }
+  return compute_isMember(v,l);  
+  
+  
+}
