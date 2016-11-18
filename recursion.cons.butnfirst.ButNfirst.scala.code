@@ -1,0 +1,14 @@
+
+
+def ButNfirst(l:List[Int], n:Int): List[Int] = {
+  def compute_ButNfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
+    if (n>= 1 && l != Nil){
+      compute_ButNfirst(l.tail, n-1, c);
+    } else if (l != Nil) {
+      compute_ButNfirst(l.tail, 0, c ::: List(l.head));
+    } else {
+      return c;
+    }
+  }
+  compute_ButNfirst(l, n, List())
+}
