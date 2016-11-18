@@ -1,6 +1,6 @@
 def butNlast(l:List[Int], n:Int): List[Int] = {
 
-    // tells the length of the list
+    // tells the length of the list (theta(n))
   def length(l:List[Int]): Int = {
     def compute_length(a:Int, l:List[Int]): Int = {
       if(l == Nil){
@@ -15,6 +15,7 @@ def butNlast(l:List[Int], n:Int): List[Int] = {
 
   }
   
+  // keeps the N first elements of list l
   def nfirst(l:List[Int], n:Int): List[Int] = {
     def compute_nfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
 
@@ -27,6 +28,10 @@ def butNlast(l:List[Int], n:Int): List[Int] = {
     }
   compute_nfirst(l, n, List())
 }
-	val length_list:Int = length(l)
-  return nfirst(l, length_list - n)
+  // to keep the N last elements, we compute the length of the list...
+  // ... then keep the (length - n) first elements of the list.
+  
+	val length_list:Int = length(l) //theta(n)
+  return nfirst(l, length_list - n) // theta(n)
+  //overall : theta(2*n)
 }
