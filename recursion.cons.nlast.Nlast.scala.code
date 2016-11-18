@@ -1,11 +1,11 @@
+// NOTE : je vois pas comment le faire en temps lin?aire avec l.tail et l.head. On aura besoin ? un moment o? ? un autre de la taille de la liste.
+// en utilisant l.init et l.last, on y arrive.
 
 def nlast(l:List[Int], n:Int): List[Int] = {
   def compute_nlast(l:List[Int], n:Int, c:List[Int]):List[Int] = {
     
-  if(n >= 1 && (l != Nil)){
-  	compute_nlast(l.tail, n-1, c);
-  } else if (l != Nil){
-    compute_nlast(l.tail, 0, c ::: List(l.head));
+  if(n >= 1 && (l.isEmpty == false)){
+  	compute_nlast(l.init, n-1, List(l.last) ::: c);
   } else {
     return c;
   }
