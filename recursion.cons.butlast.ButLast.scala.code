@@ -1,32 +1,13 @@
 def butLast(l:List[Int]):List[Int] = {
   
-def nfirst(l:List[Int], n:Int): List[Int] = {
-  def compute_nfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
-    
-  if(n >= 1){
-  	compute_nfirst(l.tail, n-1, c ::: List(l.head));
-  } else {
-    return c;
-  }
-    
-  }
-  compute_nfirst(l, n, List())
-}
-  
-def length(l:List[Int]): Int = {
-  def compute_length(a:Int, l:List[Int]): Int = {
-    if(l == Nil){
-      return a;
-    }
-    else{
-      compute_length(a+1, l.tail);
+	def compute_butLast(l:List[Int], acc:List[Int]):List[Int] = {
+    if(l.tail == Nil){
+      return acc;
+    } else {
+      compute_butLast(l.tail, acc ::: l.head);
     }
     
+    
   }
-  return compute_length(0,l);
-  
-}
-
-return nfirst(l, length(l) - 1);
-  
+  return compute_butLast(l, List())
 }
