@@ -1,0 +1,15 @@
+
+def nlast(l:List[Int], n:Int): List[Int] = {
+  def compute_nlast(l:List[Int], n:Int, c:List[Int]):List[Int] = {
+    
+  if(n >= 1 && (l != Nil)){
+  	compute_nlast(l.tail, n-1, c);
+  } else if (l != Nil){
+    compute_nlast(l.tail, 0, c ::: List(l.head));
+  } else {
+    return c;
+  }
+    
+  }
+  compute_nlast(l, n, List())
+}
