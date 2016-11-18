@@ -1,0 +1,13 @@
+def reverse(l:List[Int]):List[Int] = {
+  
+	def compute_reverse(l:List[Int], acc:List[Int]):List[Int] = {
+    if(l == Nil){
+      return acc;
+    } else {
+      compute_reverse(l.tail, List(l.head) ::: acc);
+    }
+    
+    
+  }
+  return compute_reverse(l, List())
+}
