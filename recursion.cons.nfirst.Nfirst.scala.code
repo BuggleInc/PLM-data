@@ -1,0 +1,12 @@
+def nfirst(l:List[Int], n:Int): List[Int] = {
+  def compute_nfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
+    
+  if(n >= 1){
+  	compute_nfirst(l.tail, n-1, c ::: List(l.head));
+  } else {
+    return c;
+  }
+    
+  }
+  compute_nfirst(l, n, List())
+}
