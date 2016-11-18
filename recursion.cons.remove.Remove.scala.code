@@ -1,0 +1,13 @@
+def remove(l:List[Int], v:Int): List[Int] = {
+  def compute_remove(l:List[Int], v:Int, acc:List[Int]): List[Int] = {
+  	if(l == Nil){
+      return acc;
+    } else if (l.head == v){
+      	compute_remove(l.tail, v, acc);
+    } else {
+      	compute_remove(l.tail, v, acc ::: List(l.head));      
+    }
+    
+  }
+  return compute_remove(l, v, List())
+}
