@@ -1,0 +1,19 @@
+def occurrences(l:List[Int], v:Int): Int = {
+  
+  def compute_occurrences(v:Int, l:List[Int], count:Int): Int = {
+    if(l == Nil){
+      return count;
+    }
+    else if(l.head == v){
+      return compute_occurrences(v, l.tail, (count+1):Int);
+    }
+    else {
+      return compute_occurrences(v, l.tail, count:Int);
+    }
+    
+  }
+  return compute_occurrences(v, l, 0);  
+  
+  
+}
+
