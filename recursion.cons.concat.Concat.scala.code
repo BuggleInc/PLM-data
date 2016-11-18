@@ -1,5 +1,6 @@
 def concat(l1:List[Int], l2:List[Int]): List[Int] = {
   
+  //ajout_droite est en theta(2*n) (je crois)
   def ajout_droite(l:List[Int], v:Int):List[Int]={
     return reverse(v :: reverse(l))
     
@@ -18,6 +19,7 @@ def concat(l1:List[Int], l2:List[Int]): List[Int] = {
   }
   return compute_reverse(l, List())
 	}
+  
   
   if(l2 != Nil){
     concat(ajout_droite(l1, l2.head), l2.tail)
