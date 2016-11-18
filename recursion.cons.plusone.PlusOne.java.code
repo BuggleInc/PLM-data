@@ -1,0 +1,13 @@
+def plusOne(l:List[Int]):List[Int] = {
+  
+	def compute_plusOne(l:List[Int], acc:List[Int]):List[Int] = {
+    if(l == Nil){
+      return acc;
+    } else {
+      compute_butLast(l.tail, acc ::: List(l.head + 1));
+    }
+    
+    
+  }
+  return compute_plusOne(l, List())
+}
