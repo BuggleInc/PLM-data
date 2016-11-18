@@ -1,0 +1,17 @@
+// tells whether the list is increasing or not
+def increasing(l:List[Int]): Boolean = {
+  def compute_increasing(l:List[Int], local:Int):Boolean = {
+    
+    if(l == Nil){
+      return true;
+    }
+    else if(local <= l.head){
+      compute_increasing(l.tail, l.head);
+    }
+    else{
+    	return false;
+    }
+  }
+  return compute_increasing(l, l.head);
+  
+}
