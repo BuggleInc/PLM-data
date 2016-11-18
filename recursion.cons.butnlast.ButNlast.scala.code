@@ -14,8 +14,6 @@ def butNlast(l:List[Int], n:Int): List[Int] = {
     return compute_length(0,l);
 
   }
-
-  length_list = length(l)
   
   def nfirst(l:List[Int], n:Int): List[Int] = {
     def compute_nfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
@@ -27,7 +25,8 @@ def butNlast(l:List[Int], n:Int): List[Int] = {
     }
 
     }
-  compute_nfirst(l, length_list - n, List())
+  compute_nfirst(l, n, List())
 }
-
+	length_list = length(l)
+  return nfirst(l, length_list - n)
 }
