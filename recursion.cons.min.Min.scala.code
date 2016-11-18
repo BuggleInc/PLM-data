@@ -1,0 +1,17 @@
+// tells the minimum of the list
+def min(l:List[Int]): Int = {
+  def compute_min(l:List[Int], min_local:Int):Int = {
+    
+    if(l == Nil){
+      return min_local;
+    }
+    else if(min_local >= l.head){
+      compute_min(l.tail, l.head);
+    }
+    else{
+    	compute_min(l.tail, min_local);
+    }
+  }
+  compute_min(l, l.head);
+  
+}
