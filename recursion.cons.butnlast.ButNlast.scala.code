@@ -1,0 +1,33 @@
+def butNlast(l:List[Int], n:Int): List[Int] = {
+
+    // tells the length of the list
+  def length(l:List[Int]): Int = {
+    def compute_length(a:Int, l:List[Int]): Int = {
+      if(l == Nil){
+        return a;
+      }
+      else{
+        compute_length(a+1, l.tail);
+      }
+
+    }
+    return compute_length(0,l);
+
+  }
+
+  length_list = length(l)
+  
+  def nfirst(l:List[Int], n:Int): List[Int] = {
+    def compute_nfirst(l:List[Int], n:Int, c:List[Int]):List[Int] = {
+
+    if(n >= 1){
+      compute_nfirst(l.tail, n-1, c ::: List(l.head));
+    } else {
+      return c;
+    }
+
+    }
+  compute_nfirst(l, length_list - n, List())
+}
+
+}
