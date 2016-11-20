@@ -1,0 +1,25 @@
+def cocktailSort2() {
+
+
+	var flag:Boolean = true;
+	var index:Int = 0;
+	var j:Int = 0;
+	
+  do{
+		flag = false;
+		for (i <- 0 to getNombreValeurs - 2 - index){
+			if(getValeur(i) > getValeur(i+1)){
+				echange(i,i + 1);
+				flag = true;
+			}
+		}
+		for (i <- index to getNombreValeurs - 2){
+			j = getNombreValeurs - 2 - i;
+			if(getValeur(j + 1) < getValeur(j)){
+				echange(j + 1,j);
+				flag = true;
+			}
+		}
+	index += 1;
+	}while(flag)
+}
