@@ -3,14 +3,18 @@ def gnomeSort() {
   
 	while (gnome < getNombreValeurs() - 1) {
     
-    if ( getValeur(gnome + 1) > getValeur(gnome)) {
+    		if ( getValeur(gnome + 1) > getValeur(gnome)) {
 			gnome += 1;
       
 		} else {
 			echange(gnome, gnome + 1)
 			if (gnome >= 1) {
 				gnome -= 1 ;
+			} else if (gnome == 0) { // si le gnome a ?chang? 0 et 1 et qu'il est en 0, il faut qu'il AVANCE sinon il retestera le couple 0,1 et ?a fera des lectures en trop !!!
+				gnome += 1;
 			}
+
+			
 		}	
 	}
 }
