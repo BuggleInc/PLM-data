@@ -1,13 +1,19 @@
 def nfirst(l:List[Int], n:Int): List[Int] = {
   
-  if(rang > n-1){
-      
-  	return Nil;
-      
-  } else{
-      
-  	return nfirst(l.tail, n, rang+1);
-      
+  def nfirst_helper(l:List[Int], n:Int): List[Int] = {
+
+    if(rang > n-1){
+
+      return Nil;
+
+    } else{
+
+      return nfirst_helper(l.tail, n, rang+1);
+
+    }
+
   }
+  
+  return nfirst(l, n, 0);
   
 }
