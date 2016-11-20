@@ -1,14 +1,14 @@
 def gnomeSort() {
-	var gnome:Int = 1;
+	var gnome:Int = 0;
 
-	while (gnome < getNombreValeurs()) {
-		if (gnome == 0 || (getValeur(gnome) > getValeur(gnome - 1))) {
+	while (gnome < getNombreValeurs() - 1) {
+		if ((getValeur(gnome) < getValeur(gnome + 1))) {
 			gnome += 1;
 		} else {
-			echange(gnome - 1, gnome)
-			gnome -= 1 ;
-		}
-		
+			echange(gnome, gnome + 1)
+			if (gnome >= 1) {
+				gnome -= 1 ;
+			}
+		}	
 	}
-	
 }
