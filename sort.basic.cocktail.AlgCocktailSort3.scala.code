@@ -1,0 +1,32 @@
+def cocktailSort3() {
+
+
+	var flag_croissant:Boolean = true;
+	var flag_decroissant:Boolean = true;
+	var j:Int = 0;
+	var debut:Int = 0;
+	var fin:Int = getNombreValeurs - 2
+	
+  do{
+		flag_croissant = false;
+		flag_decroissant = false;
+		for (i <- debut to fin){
+			if(getValeur(i) > getValeur(i + 1)) {
+				echange(i,i + 1);
+				flag_croissant = true;
+			}
+		}
+		fin -= 1;
+		// si on n'a rien invers? sur le croissant, on ne fait pas le d?croissant
+		if (flag_croissant){
+			for (i <- fin to debut by -1){
+				if(getValeur(i) > getValeur(i + 1) ) {
+					echange(i, i + 1);
+					flag_decroissant = true;
+				}
+			}
+			debut += 1;
+		}
+		
+	}while(flag_croissant && flag_decroissant)
+}
