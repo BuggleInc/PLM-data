@@ -1,0 +1,37 @@
+def min(l:List[Int]): Int = {
+  
+  def last(l:List[Int]): Int = {
+  
+    if(l.tail == Nil){
+
+      return l.head;
+
+    } else{
+
+        return last(l.tail);
+
+    }
+  
+	}
+  
+  def min_helper(l:List[Int], v){
+    
+    if(l.tail == Nil){
+      
+      return v;
+      
+    } else if(l.head < v){
+      
+      				return min_helper(l.tail, l.head);
+      
+    			 } else{
+      
+      				return min_helper(l.tail, v);
+      
+    			 }
+    
+  }
+  
+  return min_helper(l, last(l));
+  
+}
