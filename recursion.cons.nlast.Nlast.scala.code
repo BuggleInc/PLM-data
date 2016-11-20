@@ -1,0 +1,19 @@
+def nlast(l:List[Int], n:Int): List[Int] = {
+  
+  def nlast_helper(l:List[Int], n:Int, rang:Int): List[Int] = {
+
+    if(rang == n-1){
+
+      return Nil;
+
+    } else{
+
+      return l.head::nlast_helper(l.tail, n, rang+1);
+
+    }
+
+  }
+  
+  return nlast_helper(l, n, 0);
+  
+}
