@@ -1,19 +1,5 @@
 def min(l:List[Int]): Int = {
   
-  def last(l:List[Int]): Int = {
-  
-    if(l.tail == Nil){
-
-      return l.head;
-
-    } else{
-
-        return last(l.tail);
-
-    }
-  
-	}
-  
   def min_helper(l:List[Int], v:Int):Int = {
     
     if(l.tail == Nil){
@@ -32,6 +18,6 @@ def min(l:List[Int]): Int = {
     
   }
   
-  return min_helper(l, last(l));
+  return min_helper(l, l.head);
   
 }
