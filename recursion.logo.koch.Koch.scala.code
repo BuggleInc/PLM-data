@@ -1,0 +1,37 @@
+def snowFlake (levels:Int, length:Double) {
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.blue);
+    snowSide(levels, length);
+    right(120);
+    setColor(Color.orange);
+    snowSide(levels, length);
+    right(120);
+}
+def snowSide(levels:Int, length:Double) {
+
+
+/*
+	Dessiner r?cursivement un segment plus petit
+Tourner ? 60 degr?s vers la gauche
+Dessiner r?cursivement un segment plus petit
+Tourner ? 120 degr?s vers la droite
+Dessiner r?cursivement un segment plus petit
+Tourner ? 60 degr?s vers la gauche
+Dessiner r?cursivement un segment plus petit
+	*/
+
+	if (levels == 0) {
+		avance(length);
+	} else {
+	
+	snowSide(levels - 1, length / 3);
+	gauche(60);
+	snowSide(levels - 1, length / 3);
+	droite(120);
+	snowSide(levels - 1, length / 3);
+	gauche(60);
+	snowSide(levels - 1, length / 3);
+	}
+	
+}
