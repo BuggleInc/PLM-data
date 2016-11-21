@@ -1,0 +1,27 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+
+	/*
+		Avancer de la longueur d?sir?e
+Dessiner (r?cursivement) le sous-arbre de droite
+Dessiner (r?cursivement) le sous-arbre de gauche
+Reculer de la longueur d?sir?e pour retourner au point de d?part
+	 */
+	
+	// BIM FIRST TRY OULALA WHOW WHOW WHOW \o/
+	 
+	 if ( steps > 0) {
+	 current(steps); // apparemment ?a change la couleur.
+	 
+	 avance(length);
+	 droite(angle);
+	 tree(steps - 1, length * shrink, angle, shrink);
+	 gauche(angle * 2);
+	 tree(steps - 1, length * shrink, angle, shrink);
+	 leveCrayon();
+	 droite(angle);
+	 recule(length);
+	 baisseCrayon();
+
+	 
+	 }
+}
