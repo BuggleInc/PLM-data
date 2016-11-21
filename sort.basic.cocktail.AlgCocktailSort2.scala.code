@@ -4,14 +4,14 @@ def cocktailSort2() {
   var Swap : Boolean = true
   while (Swap == true) {
     Swap = false
-    for(i <- Start to Stop) {
+    for(i <- Range.inclusive(Start,Stop)) {
       if (!plusPetit(i,i+1)) {
         Swap = true
         echange(i,i+1)
       }
     	Stop-=1
     }
-    for(i <- Stop to Start by -1) {
+    for(i <- Range.inclusive(Stop,Start,-1)) {
       if (!plusPetit(i,i+1)) {
         Swap = true
         echange(i,i+1)
