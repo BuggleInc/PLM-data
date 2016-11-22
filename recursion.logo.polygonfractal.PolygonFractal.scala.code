@@ -5,9 +5,9 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
       droite(360/sides)
     }
     else {
-      gauche(2*360/sides)
+      gauche((sides-2)*180/sides)
       polygonFractal(levels-1,sides,length*shrink,shrink)
-      droite(360/sides*2)
+      droite((sides-2)*180/sides)
     }
   }
 }
