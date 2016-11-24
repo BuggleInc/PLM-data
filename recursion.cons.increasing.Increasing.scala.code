@@ -1,0 +1,23 @@
+def increasing(l:List[Int]): Boolean = {
+  
+  def increasing_helper(l:List[Int], v:Int, estCroissant:Boolean): Boolean = {
+    
+    if(l.tail == Nil || estCroissant == false){
+      
+      return estCroissant;
+      
+    } else if(l.head < v){
+      
+      				return increasing_helper(l, l.head, true);
+      
+    			 } else{
+      
+      				return increasing_helper(l, v, false);
+      
+    			 }
+    
+	}
+  
+  return increasing_helper(l, l.head, true);
+  
+}
