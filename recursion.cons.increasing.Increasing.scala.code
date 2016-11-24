@@ -6,13 +6,13 @@ def increasing(l:List[Int]): Boolean = {
       
       return estCroissant;
       
-    } else if(l.head <= v){
+    } else if(l.head >= v){
       
-      				return increasing_helper(l, l.head, true);
+      				return increasing_helper(l.tail, l.head, true);
       
     			 } else{
       
-      				return increasing_helper(l, v, false);
+      				return increasing_helper(l.tail, v, false);
       
     			 }
     
