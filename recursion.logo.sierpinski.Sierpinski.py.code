@@ -1,0 +1,20 @@
+def sierpinski(level, length):
+  aux (level, length, True)
+  for i in range(2):
+    droite(120)
+    avance(length)
+  
+
+def aux(lvl, l, d):
+  if lvl == 0:
+    avance(l)
+    return
+  aux (lvl-1,l/2,d)
+  droite (60)
+  aux (lvl-1,l/2,not d)
+  droite (120)
+  aux (lvl-1,l/2,not d)
+  droite (60)
+  avance (l)
+  droite (60)
+  avance (l)
