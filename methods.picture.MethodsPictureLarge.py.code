@@ -1,0 +1,37 @@
+def setc():
+	baisseBrosse()
+  leveBrosse()
+
+def col(c):
+  setCouleurBrosse(c)
+  for i in range(5):
+    avance()
+    if i%2 == 0:
+      setc()
+    if not (i % 3 == 0):
+      droite()
+    else:
+      gauche()
+  gauche()
+  avance()
+
+
+def block():
+  for c in [Color.yellow, Color.red, Color.blue, Color.green]:
+    col(c)
+    gauche()
+    
+def av(n):
+  for x in range(n):
+    avance()
+
+#block()
+
+taille = 9
+for j in range(taille):
+  for i in range(taille):
+    block()
+    av(5)
+  gauche()
+  av(5)
+  droite()
