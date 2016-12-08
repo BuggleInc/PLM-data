@@ -1,0 +1,16 @@
+def interleavedHanoi(height, src1,src2, other, dst):
+  hanoi(height-1,src1,other,dst)
+  deplace(src1,dst)
+  hanoi(height-1,src2,dst,src1)
+  deplace(src2,dst)
+  interleavedHanoi(height-1,other,src1,src2,dst)
+	# Your code here
+  
+  
+  
+def hanoi(height, src,other,dst):
+  if height == 0:
+    return
+  hanoi(height-1,src,dst,other)
+  deplace(src,dst)
+  hanoi(height-1,other,src,dst)
