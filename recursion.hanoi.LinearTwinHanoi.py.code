@@ -1,0 +1,26 @@
+def linearTwinHanoi(h, s, m, d):
+  rass (h, s, m, d)
+	# Your code here
+  
+  
+def rass(h, s, m, d):
+  rass (h-1, s, m, d)
+  i=2*(h-1)
+  lh (i, m, s, d)
+  deplace (s, m)
+  lh (i, d, m, s)
+  deplace (d, m)
+  lh (i, s, d, m)
+  
+  
+  
+def lh(height, src,mid,dst):
+  if height == 0:
+    return
+  if abs(dst-src) == 1:
+    lh (height-1,src, dst, mid)
+    deplace(src, dst)
+    lh (height-1,mid, src, dst)
+  else:
+    lh (height, src, dst, mid)
+    lh (height, mid, src, dst)
