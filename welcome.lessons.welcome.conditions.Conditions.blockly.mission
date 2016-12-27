@@ -1,0 +1,105 @@
+
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Instructions conditionnelles</h2>
+
+Les programmes faits d'une simple suite d'instructions comme celui de
+l'exercice pr?c?dent sont bien ennuyeux. Ils font toujours la m?me chose, et
+ne peuvent pas r?agir aux conditions ext?rieurs. Une <b>instruction
+conditionnelle</b> permet au programme de s'adapter en disant quelque chose
+comme <i>S'il pleut, prend un parapluie</i>. 
+
+<p>La syntaxe en  est la suivante :</p>
+
+<pre><code class="code-container">
+<b>aFaireDansTousLesCas()</b></code></pre>
+
+<p>Le mot <code>if</code> signifie ?si? en anglais. Si la condition est vraie,
+alors le code du bloc suivant sera ex?cut?, puis l'ex?cution se poursuivra
+avec la suite du code, apr?s le bloc. Sinon, si la condition est fausse, le
+bloc suivant sera ignor? et l'ex?cution passera directement au code plac?
+apr?s lui. Le bloc conditionnel peut contenir plusieurs instructions. Il
+peut m?me contenir d'autre tests, avec leurs sous-blocs associ?s.</p>
+
+<p>Dans cet exemple, les instructions <code>aFaireSiVraie()</code> et
+<code>aFaireEnsuiteSiVraie()</code> seront ex?cut?e si (et seulement si) la
+condition est vraie tandis que l'instruction
+<code>aFaireDansTousLesCas()</code> sera ex?cut?e que la condition soit
+vraie ou fausse. 
+</p>
+
+<p>En , les blocs sont
+
+
+
+Il est tr?s facile de se perdre dans un code qui n'est pas correctement
+indent?. Il est donc important que vous fassiez en sorte que votre code
+reste clair et lisible pour que le relire et le modifier reste plaisant et
+productif.</p>
+
+
+<p>La condition doit ?tre une expression de type
+<code></code>
+(expression bool?enne).  Le sous-bloc sera ex?cut? seulement si cette
+expression vaut <code></code>
+(vrai), et il sera ignor? si sa valeur est
+<code></code> (faux).
+<code></code> et
+<code></code> sont des constantes
+d?finies directement par , tout comme 0 ou 1 en math?matiques.</p>
+
+<p>La condition peut aussi ?tre une variable bool?enne (nous reviendrons sur
+les variables dans un autre exercice, pas de panique) ou un test
+arithm?tique,comme <code>x == 5</code>, qui teste si la valeur actuelle de
+<tt>x</tt> est 5, ou bien comme <b>!=</b> (teste l'in?galit?, c?d si le
+membre gauche a une valeur diff?rente du membre droit), <b>&lt;</b>
+(inf?rieur ?), <b>&gt;</b> (sup?rieur ?), <b>&lt;=</b> (inf?rieur ou ?gal
+?), <b>&gt;=</b> (sup?rieur ou ?gal ?).</p>
+
+<p>Attention au pi?ge classique, qui consiste ? tester l'?galit? d'une variable
+avec = au lieu de ==. Heureusement,  d?tecte le plus souvent ce
+probl?me et vous le signale, mais pas tout le temps. Si la variable est de
+type bool?en, il peut se faire prendre au pi?ge, et il convient donc d'?tre
+attentif...</p>
+
+<p>La condition peut ?galement ?tre un appel ? certaines m?thodes
+particuli?res, dont le r?sultat est un bool?en. Par exemple, la m?thode
+<tt>estFaceMur()</tt> de la buggle renvoie
+ si la buggle est face ? un mur, et
+ sinon.</p>
+
+<p>Enfin, il est possible de construire une condition compos?e de plusieurs
+sous-conditions reli?es par des op?rations bool?ennes:</p>
+<ul>
+  <li><code>cond1  cond2</code> est vraie si
+<tt>cond1</tt> <b>et</b> <tt>cond2</tt> est vraie (d'ailleurs, si
+<tt>cond1</tt> est fausse, <tt>cond2</tt> n'est m?me pas ?valu?e puisqu'on
+sait d?j? que la conjonction des deux propositions ne peut pas ?tre vraie).</li> 
+  <li><code>cond1  cond2</code> est vraie si
+<tt>cond1</tt> <b>ou</b> <tt>cond2</tt> est vraie (d'ailleurs, si
+<tt>cond1</tt> est vraie, <tt>cond2</tt> n'est m?me pas ?valu?e puisqu'on
+sait d?j? que la disjonction des deux propositions ne peut pas ?tre fausse).</li>
+  <li><code>cond</code> est vraie si
+<tt>cond</tt> ne l'est pas.</li>
+  <li>Quand les expressions deviennent compliqu?es, il est pr?f?rable d'ajouter
+quelques parenth?ses pour lever toute ambigu?t? sur l'ordre
+d'?valuation. N'h?sitez pas ? mettre suffisamment de parenth?ses pour la
+rendre plus lisible.</li>
+</ul> 
+
+<p>Pour finir, il est possible de sp?cifier ce qu'il faut faire quand la
+condition est fausse, en utilisant la syntaxe suivante (?else? signifie
+?sinon? en anglais). Dans ce cas, l'instruction
+<code>aFaireSiLaConditionEstFausse()</code> ne sera ex?cut?e que si la
+condition est fausse.</p>
+ <pre><code class="code-container"></code></pre>
+
+<h3>Objectif de cet exercice</h3><a name="Objectifs"/> Si la buggle est face ? un mur, il faut reculer d'un
+pas; Sinon, il faut avancer d'un pas.
+Pour savoir si on est face ? un mur, il suffit d'utiliser la m?thode
+pr?d?finie des buggles nomm?e <code>estFaceMur()</code>. 
+
+<p>Cet exercice est un peu particulier : il faut que votre programme fonctionne
+pour plusieurs buggles, chacune ?tant dans une situation initiale
+diff?rente. Le m?me code sera utilis? pour chacune d'entre elles.</p>
+
+<p>Quand votre programme fonctionne enfin, passez ? l'exercice suivant.</p>
