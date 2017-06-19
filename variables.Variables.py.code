@@ -1,10 +1,11 @@
-positionInitiale = getY()
+pas=0
 
 while ((not estSurBiscuit()) and (not porteBiscuit())):
 	avance()
+  pas++
 
 if (estSurBiscuit()):
 	prendBiscuit()
 
-while ((porteBiscuit()) and (getY() != positionInitiale)):
-  recule()
+while (porteBiscuit()):
+  recule(pas)
