@@ -1,1 +1,46 @@
-litMessage()
+var fini : Boolean = false
+while (fini == false) {
+  if (estSurMessage()) {
+    var message : Boolean = litMessage()
+    if (message == "R") {
+      droite() ;
+      avance()
+    } else {
+      if (message == "L") {
+        gauche();
+        avance()
+      } else {
+        if (message == "I") {
+          retourne();
+          avance()
+        } else {
+          if (message == "A") {
+            avance()
+          } else {
+            if (message == "B") {
+              avance(2:Int)
+            } else {
+              if (message == "C") {
+                avance (3:Int)
+              } else {
+                if (message == "Z") {
+                  recule()
+                } else {
+                  if (message == "Y") {
+                    recule(2:Int)
+                  } else {
+                    if (message == "X") {
+                      recule(3:Int)
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } else { fini = true
+    
+  }
+}
