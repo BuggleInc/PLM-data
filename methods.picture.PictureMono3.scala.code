@@ -1,0 +1,55 @@
+def faireV() {
+  avance()
+  avance()
+  baisseBrosse
+  leveBrosse()
+  gauche()
+  avance()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  droite()
+  avance()
+  gauche()
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  avance()
+  gauche()
+}
+
+def faireSousMotif() {
+  for (compteur <- 1 to 4) {
+    faireV()
+  }
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+}
+
+def faireMotif() {
+  for (banane <- 1 to 9) {
+    faireSousMotif()
+  }
+  gauche()
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+  avance()
+  droite()
+}
+
+override def run() {
+  for (poire <- 1 to 7) {
+    faireMotif()
+  }
+}
