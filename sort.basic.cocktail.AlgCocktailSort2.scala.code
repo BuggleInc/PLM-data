@@ -1,0 +1,23 @@
+def cocktailSort2() {
+  var l=getValueCount()
+  var end = (l-2)
+  var beg = 0
+  var i=0
+  var k=0
+  while (k!=1){
+    k=1
+    for (i <- beg to end) {
+    	if (isSmaller(i,i+1)==false){
+      	swap(i,i+1)
+        end=end-1
+      	k=0
+    }}
+    for (i <- end to beg by -1){
+      if (isSmaller(i+1,i)==true){
+        swap(i,i+1)
+        beg=beg+1
+        k=0
+      }
+    }
+  }
+}
