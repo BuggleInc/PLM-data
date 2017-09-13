@@ -1,0 +1,18 @@
+def vaChercher() {
+  var nbPas = 0
+  while (!estSurBiscuit()) {
+    avance()
+  }
+  if (estSurBiscuit()) {
+    prendBiscuit()
+  }
+  while (porteBiscuit() && nbPas != 0) {
+    recule()
+  }
+  if (porteBiscuit() && nbPas == 0) {
+    poseBiscuit()
+  }
+}
+
+for (compteur <- 1 to 7) {vaChercher()
+}
