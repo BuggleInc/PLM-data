@@ -1,0 +1,20 @@
+var nbBaggle = 0
+
+while (!sortieTrouvee()) {
+  nbBaggle = 0
+  while (!crossing()) {
+    avance()
+    if (estSurBiscuit()) {
+      nbBaggle = nbBaggle + 1
+    }
+  }
+  if (nbBaggle >= 3) {
+    gauche()
+  } else {
+    droite()
+  }
+}
+
+if (sortieTrouvee()) {
+  avance()
+}
