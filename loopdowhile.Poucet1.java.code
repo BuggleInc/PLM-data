@@ -1,0 +1,21 @@
+var nbBaggle = 0
+
+while (!sortieTrouvee()) {
+  nbBaggle = 0
+  for (compteur <- 1 to 5) {
+    avance()
+    if (estSurBiscuit()) {
+      nbBaggle = nbBaggle + 1
+    }
+  }
+  if (nbBaggle >= 3) {
+    gauche()
+  }
+  else {
+    droite()
+  }
+}
+
+if (sortieTrouvee()) {
+  avance()
+}
