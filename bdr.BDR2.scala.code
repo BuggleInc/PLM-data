@@ -1,0 +1,25 @@
+var finished = false;
+var instruction ="";
+var cpt:Int = 0;
+while (!finished){
+  cpt = 0; 
+  var instruction = readMessage();
+  instruction match{
+    case "R" => right(); forward();
+		case "L" => left(); forward();
+		case "I" => right(); right(); forward();
+    case "A" => forward();
+    case "B" => while (cpt < 2 ){forward(); cpt += 1;}
+    case "C" => while (cpt < 3 ){forward(); cpt += 1;}
+    case "D" => while (cpt < 4 ){forward(); cpt += 1;}
+    case "E" => while (cpt < 5 ){forward(); cpt += 1;}
+    case "F" => while (cpt < 6 ){forward(); cpt += 1;}
+    case "Z" => while (cpt < 1 ){backward(); cpt += 1;}
+    case "Y" => while (cpt < 2 ){backward(); cpt += 1;}
+    case "X" => while (cpt < 3 ){backward(); cpt += 1;}
+    case "W" => while (cpt < 4 ){backward(); cpt += 1;}
+    case "V" => while (cpt < 5 ){backward(); cpt += 1;}
+    case "U" => while (cpt < 6 ){backward(); cpt += 1;}
+   	case _ => finished = true;
+  }
+}
