@@ -1,0 +1,15 @@
+def isFacingTrail():Boolean = {
+  var estVerte = false
+    while (!estSurBiscuit()) {
+      avance()
+      if (getCouleurSol() == Color.green && !estFaceMur()) {
+        estVerte = true
+      } else {
+        estVerte = false
+      }
+      recule()
+      if (estVerte) {
+        avance()
+      }
+    }
+}
