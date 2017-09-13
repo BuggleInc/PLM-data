@@ -1,10 +1,15 @@
-while(true){
-  if(isFacingWall()){
-  	left();
-  	forward();
-  	right();
-  	forward();
-	}else{
-  	forward();
-	}
+while(!isFacingWall()){
+  forward();
+}
+var inStairWay = true;
+while(inStairWay){
+  left();
+  forward();
+  right();
+  forward();
+	inStairWay = isFacingWall();
+}
+
+while(!isFacingWall()){
+  forward();
 }
