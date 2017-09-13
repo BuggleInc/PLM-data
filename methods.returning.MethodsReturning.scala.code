@@ -1,20 +1,16 @@
 def haveBaggle():Boolean = {
   var vuBiscuit = false
-  while (vuBiscuit == false) {
-    for (compteur <- 1 to 6) {
-      avance()
-      if (estSurBiscuit()) {
-        vuBiscuit = true
-      }
-    }
-    for (compteur2 <- 1 to 6) {
-      recule()
-    }
-    if (vuBiscuit == false) {
-      droite()
-    	avance()
-    	gauche()
-    }
+  if (estSurBiscuit()) {
+    vuBiscuit = true
   }
   return vuBiscuit
+}
+
+while (!haveBaggle) {
+  for (compteur <- 1 to 6) {
+    avance()
+  }
+  for (compteur2 <- 1 to 6) {
+    recule()
+  }
 }
