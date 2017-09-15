@@ -1,0 +1,31 @@
+def faireFleur(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  avance()
+  avance()
+  recule()
+  gauche()
+  avance()
+  recule()
+  recule()
+  avance()
+  setCouleurBrosse(Color.YELLOW)
+  leveBrosse()
+  droite()
+  recule()
+}
+
+def ligneFleurs(c1: Color, c2: Color) {
+  faireFleur(c1)
+  avance() ; avance() ; avance()
+  faireFleur(c2)
+  recule() ; recule() ; recule()
+}
+
+def growFlowers() {
+  ligneFleurs(Color.RED,Color.CYAN)
+  droite() ; avance() ; avance() ; gauche() ; avance() ; avance()
+  faireFleur(Color.ORANGE)
+  recule() ; recule() ; droite() ; avance() ; avance() ; gauche()
+  ligneFleurs(Color.PINK,Color.GREEN)
+}
