@@ -1,10 +1,27 @@
 override def run() {
+  for (compteur <- 1 to 4) {
+    faireCarr?()
+    avance()
+    avance()
+    avance()
+    avance()
+  }
+}
+
+def faireLigne(c1: Color, c2: Color) {
+  avance()
+  setCouleurBrosse(c1)
+  baisseBrosse()
+  setCouleurBrosse(c2) 
+  avance()
+  leveBrosse()
+  avance()
+  gauche()
 }
 
 def faireCarr?() {
-  setCouleurBrosse(Color.RED)
-  avance()
-  baisseBrosse()
-  setCouleurBrosse(Color.BLUE)
-  avance()
+	faireLigne(Color.RED,Color.BLUE)
+  faireLigne(Color.BLUE,Color.GREEN)
+  faireLigne(Color.GREEN,Color.YELLOW)
+  faireLigne(Color.YELLOW,Color.RED)
 }
