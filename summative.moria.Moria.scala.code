@@ -1,15 +1,15 @@
 def goAndGet() {
   while (!estSurBiscuit()) {
-    avance()
+    recule()
   }
   if (estSurBiscuit()) {
     prendBiscuit()
   }
   while (porteBiscuit() && !estSurBiscuit()) {
-    recule()
+    avance()
   }
   if (estSurBiscuit() && porteBiscuit()) {
-    avance() ; poseBiscuit()
+    recule() ; poseBiscuit()
   }
 }
 
@@ -17,8 +17,8 @@ def sortir() {
   while (!estFaceMur()) {
     goAndGet()
   }
-  if (estFaceMur()) {
-    droite() ;avance() ; gauche() ; avance()
+  if (estDosMur()) {
+    gauche() ;avance() ; gauche() ; avance()
   }
 }
 
