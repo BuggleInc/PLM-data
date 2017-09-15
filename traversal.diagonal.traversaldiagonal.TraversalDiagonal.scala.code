@@ -5,12 +5,14 @@ override def run() {
   var y = 0
   while (!positionFinale()) {
     ecritMessage(nbCase)
-    diag += 1
-    if (diag <= 6) {
-      for (compteur <- 1 to diag + 1) {
-        setPos(compteur, (diag + 1) - compteur)
-      }
+    if (diag < 6) {
+      diag += 1
+    } else {
+      diag -= 1
     }
+    for (compteur <- 1 to diag + 1) {
+     	setPos(compteur, (diag + 1) - compteur)
+      }
   }
 }
 
