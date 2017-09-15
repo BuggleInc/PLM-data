@@ -4,3 +4,61 @@ override def run() {
     	descendre()
   }   
 }
+
+def faireCase9() {
+  for(y<-0 to 2){
+    for(x<-0 to 2){
+			faireMotif()
+      avancerColonne()
+    }
+    avancerLigne()
+  }
+}
+
+
+def avancerLigne(){
+  gauche()
+  for(i<-0 to 4){
+    avance()
+  }
+  droite()
+}
+
+def avancerColonne(){
+  for(i<-0 to 4){
+    avance()
+  }
+}
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  avance()
+    setCouleurBrosse(Color.YELLOW)
+    faireV()
+    setCouleurBrosse(Color.RED)
+    faireV()
+    setCouleurBrosse(Color.BLUE)
+    faireV()
+    setCouleurBrosse(Color.GREEN)
+    faireV() 
+  recule()
+}
+
+def faireV(){
+  marquerSol()
+  avance()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  droite()
+  avance()
+  marquerSol()
+	avance()
+  gauche()
+  avance()
+}
