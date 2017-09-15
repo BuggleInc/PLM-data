@@ -1,14 +1,14 @@
-def hunt() {
-  
+def hunt() { 
   while(!estSurBiscuit()){
-  	while(isFacingTrail()){
+  	if(isFacingTrail()){
       avance()
       if(estSurBiscuit()){
         prendBiscuit()
       }
       effacerPiste()
+    }else{
+    	gauche()
     }
-    gauche()
 	}
   prendBiscuit()
 }
