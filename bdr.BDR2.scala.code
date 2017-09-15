@@ -1,0 +1,58 @@
+var fini = false
+
+
+while(! fini) {
+
+litMessage() match {
+
+
+	// "R"	Tourner ? droite et avancer d'une case	Right (signifie ?droite? en anglais)
+	case "R" =>  droite();avance();
+
+	// "L"	Tourner ? gauche et avancer d'une case	Left (signifie ?gauche? en anglais)
+	case "L" =>  gauche();avance();
+
+	// "I"	Se retourner (demi-tour) et avancer d'une case	Inverse
+	case "I" =>gauche();gauche();avance();
+
+	// "A"	Avancer d'une case	Premi?re lettre de l'alphabet
+	case "A" => avance();
+	  
+	// "B"	Avancer de deux cases	Deuxi?me lettre de l'alphabet
+	case "B" => avance();avance;
+
+	// "C"	Avancer de trois cases
+	case "C" => avance();avance;avance();
+
+	// "D"	Avancer de quatre cases
+	case "D" => avance();avance;avance();avance;
+
+	// "E"	Avancer de cinq cases
+	case "E" => avance();avance;avance();avance;avance();
+
+	// "F"	Avancer de six cases
+	case "F" => avance();avance;avance();avance;avance();avance;
+
+	// "Z"	Reculer d'une case
+	case "Z" => recule();
+
+	// "Y"	Reculer de deux cases
+	case "Y" => recule();recule();
+
+	// "X"	Reculer de trois cases
+	case "X" => recule();recule();recule();
+
+	// "W"	Reculer de quatre cases
+	case "W" => recule();recule();recule();recule();
+
+	// "V"	Reculer de cinq cases
+	case "V" => recule();recule();recule();recule();recule();
+
+	// "U"	Reculer de six cases
+	case "U" => recule();recule();recule();recule();recule();recule();
+
+	// (n'importe quoi d'autre)	Arr?ter de danser.
+	case _ => fini = true ;
+
+	}
+}
