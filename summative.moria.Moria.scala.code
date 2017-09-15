@@ -1,9 +1,8 @@
 def goAndGet() {
-  var vientDePoser = false
   while (!estSurBiscuit() && !estFaceMur()) {
     recule()
   }
-  if (estSurBiscuit() && !vientDePoser) {
+  if (estSurBiscuit()) {
     prendBiscuit()
     vientDePoser = false
   }
@@ -11,8 +10,7 @@ def goAndGet() {
     avance()
   }
   if (estSurBiscuit() && porteBiscuit()) {
-    recule() ; poseBiscuit()
-    vientDePoser = true
+    recule() ; poseBiscuit() ; recule()
    }
   }
 
