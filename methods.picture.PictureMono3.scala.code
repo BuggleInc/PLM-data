@@ -1,0 +1,64 @@
+override def run() {
+  for(y<-0 to 2){
+    for(x<-0 to 2){
+			faireCase9()
+      avancerColonne()
+    }
+    avancerLigne()
+  }
+}
+
+def faireCase9() {
+  for(y<-0 to 2){
+    for(x<-0 to 2){
+			faireMotif()
+      avancerColonne()
+    }
+    avancerLigne()
+  }
+}
+
+
+def avancerLigne(){
+  droite()
+  for(i<-0 to 6){
+    avance()
+  }
+  gauche()
+}
+
+def avancerColonne(){
+  for(i<-0 to 6){
+    avance()
+  }
+}
+
+def marquerSol(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faireMotif(){
+  avance()
+	for(y<-0 to 3){
+    faireV()
+  }
+  recule()
+}
+
+def faireV(){
+  avance()
+  marquerSol()
+  avance()
+  gauche()
+  avance()
+  marquerSol()
+  recule()
+  droite()
+  avance()
+  marquerSol()
+	avance()
+  avance()
+  gauche()
+  avance()
+}
