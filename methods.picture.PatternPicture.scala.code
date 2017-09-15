@@ -1,10 +1,16 @@
 override def run() {
   for (compteur <- 1 to 4) {
     faireCarr?()
-    avance()
-    avance()
-    avance()
-    avance()
+    if (!estFaceMur()) {
+      avance()
+      avance()
+      avance()
+      avance()
+    } else {
+      recule() ; recule() ; recule() ; recule() ; recule() ; recule() ; recule()
+      gauche()
+      avance() ; avance() ; avance() ; avance() ; droite()
+    }
   }
 }
 
