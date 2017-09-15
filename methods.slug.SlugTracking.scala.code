@@ -3,17 +3,14 @@ def isFacingTrail():Boolean = {
   if (estFaceMur()) {
     estVerte = false
     gauche()
-  }
-  if (!estFaceMur()) {
-  	avance()
-  } 
-  if (getCouleurSol() == Color.green) {
-    estVerte = true
   } else {
-    estVerte = false
+    avance()
+    if (getCouleurSol() == Color.green) {
+      estVerte = true
+    } else {
+      estVerte = false
+    }
+    recule()
   }
-  if (!estFaceMur()) {
-  	recule()
-  }
-  return estVerte
-  }
+  return estVerte 
+}        
