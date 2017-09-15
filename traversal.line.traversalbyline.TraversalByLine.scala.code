@@ -1,0 +1,29 @@
+override def run() {
+  while (!positionFinale()) {
+    serpenter()
+  }
+}
+
+def positionFinale():Boolean = {
+  return(getX() == 6 && getY() == 6)
+}
+
+def serpenter() {
+  var nbCase = 0
+  var x = 0
+  var y = 0
+  while (nbCase != 48) {
+    ecritMessage(nbCase)
+    if (estDosMur()) {
+      x = x - 6
+      y = y + 1
+    } else {
+      x += 1
+    }
+    nbCase += 1
+    setPos(x,y)
+  }
+  if (nbCase == 48) {
+    ecritMessage(48)
+  }
+}
