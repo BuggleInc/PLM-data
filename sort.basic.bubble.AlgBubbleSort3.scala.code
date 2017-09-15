@@ -1,12 +1,14 @@
-def bubbleSort3() { val a = getNombreValeurs() - 1
-                   var ok= true 
-  for (i <- 0 to a) {
+def bubbleSort3() { val a = getNombreValeurs() - 1 
+                   
+                   for (i <- 0 to a) {
                       for (j <- i+1 to a) { 
                          if (plusPetit(j,i)) { echange(i,j)
-                           ok = false } 
-                        
-                       } 
-                      if (ok) return 
-                     }
-}
+                         } 
+                      } 
+                    var ok = false
+                     for (i <- 0 to a) { if (plusPetit(i,i+1)) ok=false else ok = true }
+                     if ok return
+                   }
+                 
+               }
 
