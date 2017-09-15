@@ -1,0 +1,23 @@
+def goAndGet() {
+  while (!estSurbiscuit()) {
+    avance()
+  }
+  if (estSurBiscuit()) {
+    prendBiscuit()
+  }
+  while (porteBiscuit() && !estSurBiscuit()) {
+    recule()
+  }
+  if (estSurBiscuit() && porteBiscuit()) {
+    avance() ; poseBiscuit()
+  }
+}
+
+def sortir() {
+  while (!estFaceMur()) {
+    goAndGet()
+  }
+  if (estFaceMur()) {
+    droite() ;avance() ; gauche() ; avance()
+  }
+}
