@@ -18,6 +18,12 @@ def makeV(){
   forward();forward();left()
 }
 
+def goUp(){
+  left()
+  forward(7)
+  right()
+}
+
 def makePattern(){
  for(i <- 1 to 4){
     makeV()
@@ -28,6 +34,7 @@ def makePattern(){
 
 override def run() {
  for(i <- 1 to 9){
+   if(i%3 == 0) goUp()
    makePattern()
  } 
 }
