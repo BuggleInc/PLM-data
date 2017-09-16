@@ -1,0 +1,24 @@
+def goAndGet() {
+  var step:Int = 0
+  // va jusqu'au biscuit
+  while (!estSurBiscuit()) {
+    avance()
+    step += 1
+  }
+  prendBiscuit()
+  // fait demi-tour et revient
+  gauche()
+  gauche()
+  avance(step)
+  poseBiscuit()
+  gauche()
+  gauche()
+  
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
