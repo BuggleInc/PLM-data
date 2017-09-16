@@ -3,13 +3,11 @@ def clearPath(){
 }
 
 def hunt() {
-  if(isOverBaggle()){
-    pickupBaggle()
-  } else {
+  while(!isOverBaggle()){
     if(isFacingTrail){
       forward()
     } else {
-      /*left()
+      left()
       if(isFacingTrail()){
         forward()
       } else {
@@ -22,11 +20,15 @@ def hunt() {
             forward()
           }
         }
-      }*/
+      }
     }
+    
+    clearPath()
   }
   
-  clearPath()
+  pickupBaggle()
+  
+  
 }
 
 
