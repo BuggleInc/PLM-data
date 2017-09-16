@@ -1,22 +1,25 @@
+def paintTile(){
+  brushDown()
+  brushUp()
+}
+
+
 def makeV(){
-  for(i <- 0 to 2){
-    forward()
-    brushDown()
-    brushUp()
-    backward()
-    right()
-  }
-  right();right()
+  forward();forward()
+  paintTile()
+  forward()
+  left()
+  forward()
+  paintTile()
+  backward()
+  right()
+  forward()
+  paintTile()
+  forward();forward();left()
 }
 
 override def run() {
-  forward()
-  forward()
- 	forward()
-  left();left()
-	makeV()
-  
-  forward();forward();forward();forward();forward();forward()
-  left();left()
-  makeV()
+  for(i <- 1 to 4){
+    makeV()
+  }
 }
