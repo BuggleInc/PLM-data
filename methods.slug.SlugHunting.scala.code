@@ -1,0 +1,36 @@
+def clearPath(){
+  brushDown();brushUp()
+}
+
+def hunt() {
+    clearPath()
+  if(isFacingTrail){
+    forward()
+  } else {
+    left()
+    if(isFacingTrail()){
+      forward()
+    } else {
+      right();right()
+      if(isFacingTrail()){
+        forward()
+      } else {
+        right()
+        if(isFacingTrail()){
+          forward()
+        }
+      }
+    }
+  }
+}
+
+
+def isFacingTrail():Boolean = {
+    var trail: Boolean = false
+  	if(!isFacingWall()){
+      forward()
+      trail = getGroundColor() == Color.green
+    	backward()
+    }
+  return trail
+}
