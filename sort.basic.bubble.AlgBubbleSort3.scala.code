@@ -1,11 +1,8 @@
 def bubbleSort3() {
   var aInverse = false
   val n = getNombreValeurs()
-  var i = n - 1
-  var nbPassage = 0
-  while (nbPassage != n) {
+  for (i <- n - 1 to 1 by -1) {
     aInverse = false
-    i -= 1
     for (j <- 0 to i - 1) {
       if (getValeur(j+1) < getValeur(j)) {
         echange(j+1,j)
@@ -15,6 +12,5 @@ def bubbleSort3() {
     if (!aInverse) {
       return
     }
-    nbPassage += 1
   }
 }
