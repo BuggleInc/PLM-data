@@ -1,0 +1,42 @@
+def paintTile(){
+  brushDown()
+  brushUp()
+}
+
+
+def makeV(c: Color){
+  setBrushColor(c)
+  forward()
+  paintTile()
+  forward()
+  left()
+  forward()
+  paintTile()
+  backward()
+  right()
+  forward()
+  paintTile()
+  forward();left()
+}
+
+def goUp(){
+  left()
+  forward(5)
+  right()
+}
+
+def makePattern(){
+ var couleurs = Array(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW)
+ for(i <- 0 to 3){
+    makeV(couleurs(i))
+  } 
+  forward(5)
+}
+
+
+override def run() {
+ for(i <- 1 to 2*2){
+   makePattern()
+   if(i%2 == 0) goUp()
+ } 
+}
