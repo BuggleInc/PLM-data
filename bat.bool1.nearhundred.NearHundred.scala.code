@@ -1,6 +1,7 @@
 def nearHundred(n:Int): Boolean = {
-  var centaine: Int = n/100
-  if(n%100 > 10) centaine = centaine + 1
+  var m: Int = Math.abs(n)
+  var centaine: Int = m/100
+  if(m%100 > 10) centaine = centaine + 1
   
-	return Math.abs(centaine*100 - n) <= 10
+	return centaine*100 - m <= 10
 }
