@@ -32,9 +32,11 @@ def makePattern(){
 
 
 override def run() {
- for(i <- 1 to 2*2){
-   makePattern()
-   if(i%2 != 0) goUp()
-   else forward(4)
- } 
+  for(i <- 0 to 1){
+    makePattern()
+    forward(4)
+    makePattern()
+    backward(4)
+    goUp()
+  }
 }
