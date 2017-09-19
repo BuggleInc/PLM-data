@@ -1,5 +1,14 @@
-def finalePosition(): Boolean = {
- return false
+def finalePosition(): Boolean ={
+ 	var res: Boolean = false
+  
+  res = isFacingWall() && getDirection() == Direction.EAST
+  if(res){
+    left()
+    res = getDirection() == Direction.NORTH && isFacingWall()
+    left()
+  }
+  
+  return res
 }
 
 def snakeMove(){
