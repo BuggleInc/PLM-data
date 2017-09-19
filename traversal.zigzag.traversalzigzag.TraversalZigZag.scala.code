@@ -17,13 +17,18 @@ def move() = {
   var length: Int = getWorldWidth()
   var height: Int = getWorldHeight()
   
-  if(getX() == length - 1){
-    if((getY())%2 == 0){
+  if(getY()%2 == 0){
+    if(getX() == length - 1){
       setPos(getX(), getY() + 1)
+    } else {
+      setPos(getX() + 1, getY())
     }
-    
   } else {
-    setPos(getX() + 1, getY())
+    if(getX() == 0){
+      setPos(getX(), getY() + 1)
+    } else {
+      setPos(getX() - 1, getY())
+    }
   }
 }
 
