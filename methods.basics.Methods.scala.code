@@ -1,0 +1,25 @@
+/**
+*Avance, r?cup?re le biscuit, et le ramene a la position d'origine
+*
+*Ne v?rifie pas la pr?sence de mru, ? ne pas utiliser en cas de mur
+*
+*
+*/
+def goAndGet() {
+  var i=0
+  var j=0
+  while (!estSurBiscuit()){
+    avance()
+    i+=1
+  }
+  prendBiscuit()
+  for (j <- 1 to i) recule()
+  poseBiscuit()
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
