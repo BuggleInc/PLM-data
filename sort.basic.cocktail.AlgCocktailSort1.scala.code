@@ -1,7 +1,7 @@
 def cocktailSort() {
   val n = getNombreValeurs()
   var aInverse = true
-  while (aInverse == true) {
+  while (aInverse) {
     aInverse = false
     for (i <- 0 to n - 2) {
       if (getValeur(i+1) < getValeur(i)) {
@@ -10,7 +10,7 @@ def cocktailSort() {
       }
     }
     for (j <- n-2 to 0 by -1) {
-      if (getValeur(j) < getValeur(j+1)) {
+      if (getValeur(j+1) < getValeur(j)) {
         echange(j+1,j)
         aInverse = true
 			}
