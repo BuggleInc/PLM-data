@@ -1,0 +1,23 @@
+def cocktailSort3() {
+  var InverseCroissant = true
+  var InverseDecroissant = true
+  var n = getNombreValeur()
+  while (InverseCroissant && InverseDecroissant) {
+    InverseCroissant = false
+    InverseDecroissant = false
+    for (i <- 0 to n - 2) {
+      if (getValeur(i+1) < getValeur(i)) {
+        echange(i+1,i)
+        InverseCroissant = true
+      }
+    }
+    if (InverseCroissant) {
+      for (j <- n - 2 to 0 by -1) {
+        if (getValeur(j+1) < getValeur(j)) {
+          echange(j+1,j)
+          InverseDecroissant = true
+        }
+      }
+    }
+  }
+}
