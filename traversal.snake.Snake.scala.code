@@ -1,9 +1,10 @@
 def finalePosition(): Boolean{
-  var res: Boolean = false
-  res = (getDirection() == Direction.EAST) && isFacingWall()
+ 	var res: Boolean = false
+  
+  res = isFacingWall()
   left()
-  res = res && (getDirection() == Direction.NORTH) && isFacingWall()
-  right()
+  res = res && (getDirection() == NORTH && isFacingWall())
+  left()
   
   return res
 }
