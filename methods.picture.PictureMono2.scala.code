@@ -1,30 +1,41 @@
 override def run() {
   def k=0
+  def l=0
   def unCarre() {
-  var i=0
-  var j=0
-  def faireV(){
-    marquerSol()
-    avance()
+ 	 var i=0
+  	var j=0
+  	def faireV(){
+    	marquerSol()
+    	avance()
+    	gauche()
+   	 avance()
+   	 marquerSol()
+  		recule()
+   	 droite()
+   	 avance()
+   	 marquerSol()
+	  }	
+	  def marquerSol(){
+  	  baisseBrosse()
+  		leveBrosse()
+	  }
+  	for (j<-1 to 4){
+		  for (i<- 1 to 2) avance()
+  		faireV()
+	  	for (i<- 1 to 2) avance()
+  		gauche()}
+	}
+  def uneLigne(){
+    	for (k<- 1 to 3){
+    	unCarre()
+    	avance(7)
+    	unCarre()  
+      }}
+  for (l <- 1 to 3){
+    uneLigne()
     gauche()
-    avance()
-    marquerSol()
-  	recule()
+    avance(7)
     droite()
-    avance()
-    marquerSol()
-  }
-  def marquerSol(){
-    baisseBrosse()
-  	leveBrosse()
-  }
-  for (j<-1 to 4){
-  for (i<- 1 to 2) avance()
-  faireV()
-  for (i<- 1 to 2) avance()
-  gauche()}
-}
-  for (k<- 1 to 5){
     recule()
   }
   gauche()
