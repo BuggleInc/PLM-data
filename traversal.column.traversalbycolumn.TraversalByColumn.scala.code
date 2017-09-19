@@ -1,0 +1,33 @@
+def isFinalePosition(): Boolean = {
+  var res: Boolean = false
+  var length: Int = getWorldWidth()
+	var height: Int = getWorldHeight()
+  
+ 	res = (getX() == length) && (getY() == height)
+	return res
+}
+
+
+def writeNumber(){
+  
+}
+
+
+def move(){
+  var length: Int = getWorldWidth()
+  var height: Int = getWorldHeight()
+  
+  if(getY() == height){
+    setPos(getX() + 1, 0)
+  } else {
+    setPos(getX(), getY() + 1)
+  }
+}
+
+
+override def run() {
+  while(!isFinalePostion()){
+    writeNumber()
+    move()
+  }
+}
