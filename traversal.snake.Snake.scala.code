@@ -1,0 +1,24 @@
+def finalePosition(): Boolean{
+  var res: Boolean = false
+  res = getDirection() == Direction.EAST && isFacingWall()
+  left()
+  res = res && getDirection() == Direction.NORTH && isFacingWall()
+  right()
+}
+
+def snakeMove(){
+  if(!isFacingWall()){
+    forward()
+  } else if(getDirection() == Direction.EAST){
+    left();forward();left()
+  } else {
+    right();forward();right()
+  }
+}
+
+
+override def run() {
+  while(!finalePosition()){
+    snakeMove
+  }
+}
