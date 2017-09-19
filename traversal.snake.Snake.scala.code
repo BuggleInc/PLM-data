@@ -5,7 +5,7 @@ def finalePosition(): Boolean ={
   if(res){
     left()
     res = getDirection() == Direction.NORTH && isFacingWall()
-    left()
+    right()
   }
   
   return res
@@ -23,6 +23,7 @@ def snakeMove(){
 
 
 override def run() {
+  setBrushDown()
   while(!finalePosition()){
     snakeMove()
   }
