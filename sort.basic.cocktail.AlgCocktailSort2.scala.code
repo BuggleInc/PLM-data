@@ -1,0 +1,23 @@
+def cocktailSort2() {
+  var debut:Int=0
+  var fin:Int =0
+  var permutation = false
+  do {
+    permutation=false
+    for (i <- debut to fin){
+      if (plusPetitQue(i,i+1)==false){
+        echange(i,i+1)
+        fin-=1
+        permutation= true
+      }
+     for (i <- fin to debut){
+       if (plusPetitQue(i,i+1)==false){
+         echange(i,i+1)
+         debut+=1
+         permutation=true
+       }
+       
+     }
+    }
+  } while (permutation==true)
+}
