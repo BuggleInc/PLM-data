@@ -3,14 +3,16 @@ override def run() {
       avance()
     }
   var virages = 0
+  gauche()
   while(!estSurBiscuit){
-    gauche(); virages = virages + 1
-    while (!estFaceMur){
-      avance()
-      droite(); virages = virages -1  
+    while (estFaceMur){
+      gauche()
+      }
+    avance()
+    droite()
+    while(!estFaceMur){
+      avance();droite()
     }
-    while(estFaceMur){
-      gauche(); virages = virages + 1
-    }    
   }
+   
 }
