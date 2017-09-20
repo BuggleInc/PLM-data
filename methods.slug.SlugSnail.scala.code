@@ -3,6 +3,13 @@ def hunt(c:Color) {
  }
 
  // here comes your isFacingTrail method
-def isFacingTrail(){
-  
+def isFacingTrail(c:Color):Boolean = {
+  if (estFaceMur()) {
+    return false
+  } else {
+    avance()
+  	var res = getCouleurSol() == c
+  	recule()
+  	return res
+  }
 }
