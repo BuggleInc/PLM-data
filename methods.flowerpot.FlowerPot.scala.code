@@ -1,7 +1,24 @@
 def growFolwers(){
-  
-  
+  avance()
+  for (i <- 1 to 4){
+    var c = i match{
+      case 1 => Color.red
+      case 2 => Color.cyan
+      case 3 => Color.green
+      case 4 => Color.pink
+    }
+    faireFleur(c)
+    allerCentre()
+    if (getCouleurSol() != Color.yellow){
+      faireFleur(Color.yellow)
+    }
+    gauche()
+    
   }
+}
+
+def allerCentre(){
+  avance(2);droite();avance(2);gauche()
 }
 
 def fairePetale(c:Color){
