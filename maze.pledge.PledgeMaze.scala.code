@@ -6,13 +6,18 @@ override def run() {
   gauche()
   while(!estSurBiscuit){
     while (estFaceMur){
-      gauche()
+      gauche(); virages = virages + 1
       }
     avance()
-    droite()
+    droite(): virages = virages - 1
     while(!estFaceMur){
-      avance();droite()
+      avance();droite(); virages = virages - 1
+    }
+    if (getDirection == Direction.NORTH && virages == 0){
+      while(!estFaceMur){
+        avance()
+      }
     }
   }
-   
+  prendBiscuit
 }
