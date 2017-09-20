@@ -1,0 +1,32 @@
+override def run() {
+  for (i <- 1 to 2){
+    for (j <- 1 to 2){
+      for (k in <- 1 to 4){
+        var c = k match {
+          case 1 => Color.red
+          case 2 => Color.Blue
+          case 3 => Color.Green
+          case 4 => Color.Yellow
+        }
+        faireD(c)
+        avance(3)
+        droite()
+      }
+    }
+  }
+}
+
+def faireD(c:Color){
+  
+  gauche()
+  avance()
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+}
