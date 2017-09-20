@@ -2,8 +2,9 @@ def cocktailSort() {
   var x:Int= getNombreValeurs()
   var y:Int=0
   var t:Int=0
+  var r:Int=0
   while (t==0) {
-    for (i<- 0 to x-2) {
+    for (i<- 0 to x-2-y) {
       if (plusPetit(i,i+1)==false) {
         echange(i,i+1)
         t=t+1
@@ -13,7 +14,7 @@ def cocktailSort() {
       t=0
     }
     else return
-    for (j<- x-2 to 0 by -1) {
+    for (j<- x-2-r to 0 by -1) {
       if (plusPetit(j,j+1)==false) {
         echange(j,j+1)
         t=t+1
@@ -22,9 +23,8 @@ def cocktailSort() {
     if (t!=0) {
       t=0
     }
-    else return 
+    else return
+    r=r+1
+    y=y+1
   }
 }
-      
-        
-        
