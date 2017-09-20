@@ -1,19 +1,22 @@
 def cocktailSort() {
-  var lg: Int = getNombreValeurs()-2
-  var echangefait: Int = 0
+  var debut = 0
+  var fin = getNombreValeurs()-2
+  var echangefait=false
   do {
-    echangefait=0
-  	for (i <- 0 to lg){
-  	  if (plusPetitQue(i,i+1)==false){
-   	   echange(i,i+1)
-       echangefait=1
-  	  }
-	  }
-	  for (i <-lg to 0 ){
-	    if (plusPetitQue(i,i+1)==false){
- 	     echange(i,i+1)
-       echangefait=1
-   	 }
-  	}
-  } while (echangefait==1)
+    echangefait=false
+    for (i<- debut to fin){
+      if (plusPetit(i,i+1)==false){
+        echange(i,i+1);
+        echangefait=true;
+        fin-=1;
+      }
+    }
+   for (i<-fin to debut){
+     if (plusPetit(i,i+1)==false){
+       echange(i,i+1);
+       echangefait=true;
+       debut+=1;
+     }
+   }
+  } while (echangefait==true)
 }
