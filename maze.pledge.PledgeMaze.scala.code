@@ -10,6 +10,11 @@ override def run() {
       gauche();
       virages = virages + 1
       }
+    if (getDirection == Direction.NORTH && virages == 0 && !estFaceMur){
+      while(!estFaceMur){
+        avance()
+      }
+    }
     avance()
     droite() 
     virages = virages - 1
@@ -17,12 +22,7 @@ override def run() {
       avance();droite() 
       virages = virages - 1
     }
-    if (getDirection == Direction.NORTH && virages == 0 && !estFaceMur){
-      while(!estFaceMur){
-        avance()
-      }
-      print(virages)
-    }
+
   }
   prendBiscuit
 }
