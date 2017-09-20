@@ -1,9 +1,9 @@
 def combSort() {
   var ecart = getNombreValeurs()
-  var aInverse = true
+  var aInverse = false
   var i = 0
   val n = getNombreValeurs()
-  while ((ecart > 1) || aInverse) {
+  do {
     if (ecart > 1) {
       ecart = (ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
     }
@@ -16,5 +16,5 @@ def combSort() {
         i += 1
       }
     }
-  }
+  } while ((ecart > 1) || aInverse)
 }
