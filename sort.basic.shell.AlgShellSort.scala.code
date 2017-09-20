@@ -1,4 +1,5 @@
 def shellSort()  {
+  val longueur = getNombreValeurs()
   var ecart = getNombreValeurs()
   var i = 0
   var j = 0
@@ -6,14 +7,16 @@ def shellSort()  {
   var valeur = 0
   while (ecart > 0) {
     ecart = (ecart.toDouble / 2).toInt
-    j = i
-    compteur = 0
-    valeur = getValeur(j)
-    while (j - (compteur+1)*ecart > 0 && getValeur(j-((compteur+1)*ecart)) > valeur) {
-      copie(j-((compteur+1)*ecart),j-(compteur*ecart))
-      j -= ecart
-      compteur += 1
+    for (i <- 1 to longueur - 1) {
+    	j = i
+    	compteur = 0
+    	valeur = getValeur(j)
+    	while (j - (compteur+1)*ecart > 0 && getValeur(j-((compteur+1)*ecart)) > valeur) {
+      	copie(j-((compteur+1)*ecart),j-(compteur*ecart))
+      	j -= ecart
+      	compteur += 1
+    	}
+    	setValeur(j,valeur)
     }
-    setValeur(j,valeur)
   }
 }
