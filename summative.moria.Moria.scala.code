@@ -1,6 +1,6 @@
-//isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle()
+var left: Boolean = false
 
-def isFinalePositon(): Boolean = {
+def isFinalePosition(): Boolean = {
   return getGroundColor() == Color.GREEN
 }
 
@@ -26,7 +26,7 @@ def arrangeBaggle() = {
 }
 
 def move() = {
-  if(isFacingWall() && getGroundColor != Color.GREEN){
+  if(isFacingWall()){
     leave()
   } else if(isCarryingBaggle()){
    	arrangeBaggle()
@@ -37,9 +37,10 @@ def move() = {
 
 def leave() = {
   right();forward();left();forward()
+  left = true
 }
 
 right();right()
-while(!isFinalePositon()){
+while(!left){
 	move()
 }
