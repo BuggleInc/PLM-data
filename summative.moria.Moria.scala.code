@@ -2,24 +2,20 @@
 
 def move() = {
  	if(!isCarryingBaggle()){
-   while(getDirection() != Direction.EAST){
-     right()
-   }
    while(!isOverBaggle()){
      forward()
    }
    backward()
    dropBaggle()
    backward()
+   right();right()
   } else {
-   	while(getDirection() != Direction.WEST){
-      right()
-    }
     while(!isOverBaggle()){
       forward()
     }
     pickupBaggle()
     backward()
+    right();right()
   }
 }
 
