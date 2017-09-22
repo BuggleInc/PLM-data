@@ -1,19 +1,26 @@
 //isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle()
+def pickBaggle() = {
+  do{
+    forward()
+  } while(!isOverBaggle())
+  pickupBaggle()
+  right();right()
+}
 
-def move() = {
- 	if(isCarryingBaggle()){
-   do{
+def arrangeBaggle() = {
+  do{
      forward()
    } while(!isOverBaggle())
    backward()
    dropBaggle()
    right();right()
+}
+
+def move() = {
+ 	if(isCarryingBaggle()){
+   	arrangeBaggle()
   } else {
-    do{
-      forward()
-    } while(!isOverBaggle())
-    pickupBaggle()
-    right();right()
+  	pickBaggle()
   }
 }
 
