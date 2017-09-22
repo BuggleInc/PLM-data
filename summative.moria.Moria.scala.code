@@ -7,18 +7,22 @@ def isFinalePositon(): Boolean = {
 def pickBaggle() = {
   do{
     forward()
-  } while(!isOverBaggle())
-  pickupBaggle()
-  right();right()
+  } while(!isOverBaggle() && !isFacingWall())
+  if(isOverBaggle()){
+    pickupBaggle()
+    right();right()
+  }
 }
 
 def arrangeBaggle() = {
   do{
      forward()
-   } while(!isOverBaggle())
-   backward()
-   dropBaggle()
-   right();right()
+   } while(!isOverBaggle() && !isFacingWall())
+  if(isOverBaggle()){
+     backward()
+     dropBaggle()
+     right();right()
+  }
 }
 
 def move() = {
