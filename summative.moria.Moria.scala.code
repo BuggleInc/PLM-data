@@ -2,19 +2,17 @@
 
 def move() = {
  	if(!isCarryingBaggle()){
-   while(!isOverBaggle()){
+   do{
      forward()
-   }
+   } while(!isOverBaggle())
    backward()
    dropBaggle()
-   backward()
    right();right()
   } else {
-    while(!isOverBaggle()){
+    do{
       forward()
-    }
+    } while(!isOverBaggle())
     pickupBaggle()
-    backward()
     right();right()
   }
 }
