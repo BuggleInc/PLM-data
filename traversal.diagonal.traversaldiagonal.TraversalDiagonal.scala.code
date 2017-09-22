@@ -1,0 +1,41 @@
+var diag = 0;
+
+def isFinalePosition(): Boolean = {
+  var res: Boolean = false
+  var length: Int = getWorldWidth()
+	var height: Int = getWorldHeight()
+  
+ 	res = (getX() == length - 1) && (getY() == height - 1)
+	return res
+}
+
+
+def writeNumber(n: Int){
+  writeMessage(n)
+}
+
+
+def move() = {
+  var length: Int = getWorldWidth()
+  var height: Int = getWorldHeight()
+	
+  if(getY() == 0){
+    setPos(0, getY() + 1)
+  } else if(getX == length - 1) {
+    setPos(0, getY() + 1)
+  } else {
+    setPos(getX() + 1, getY() - 1)
+  }
+  
+}
+
+
+override def run() {
+  var compteur: Int = 0
+  while(!isFinalePosition()){
+    writeNumber(compteur)
+    compteur = compteur + 1
+    move()
+  }
+  writeNumber(compteur)
+}
