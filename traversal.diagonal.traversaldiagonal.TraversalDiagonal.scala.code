@@ -19,10 +19,11 @@ def move() = {
  var length: Int = getWorldWidth()
  var height: Int = getWorldHeight()
 
- //setPos(0,getY() + 1)
  if(getY() == 0){
+   	diag = diag + 1
     setPos(0, diag)
   }else if(getX() == length - 1) {
+   	diag = diag + 1
     setPos(diag, height - 1)
   } else {
     setPos(getX() + 1, getY() - 1)
@@ -37,7 +38,6 @@ override def run() {
     writeNumber(compteur)
     compteur = compteur + 1
     move()
-    diag = diag + 1
   }
   writeNumber(compteur)
 }
