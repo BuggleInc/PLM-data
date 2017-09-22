@@ -1,3 +1,5 @@
+var diag:Int = 0
+
 def isFinalePosition(): Boolean = {
   var res: Boolean = false
   var length: Int = getWorldWidth()
@@ -17,31 +19,14 @@ def move() = {
  var length: Int = getWorldWidth()
  var height: Int = getWorldHeight()
 
- setPos(0,getY() + 1)
+ //setPos(0,getY() + 1)
  if(getY() == 0){
-    setPos(0, getY() + 1)
-  }/*else if(getX() == length - 1) {
-    setPos(0, getY() + 1)
+    setPos(0, diag)
+  }else if(getX() == length - 1) {
+    setPos(diag, height - 1)
   } else {
     setPos(getX() + 1, getY() - 1)
-  }*/
-  
-  /*var length: Int = getWorldWidth()
-  var height: Int = getWorldHeight()
-  
-  if(getY()%2 == 0){
-    if(getX() == length - 1){
-      setPos(getX(), getY() + 1)
-    } else {
-      setPos(getX() + 1, getY())
-    }
-  } else {
-    if(getX() == 0){
-      setPos(getX(), getY() + 1)
-    } else {
-      setPos(getX() - 1, getY())
-    }
-  }*/
+  }
   
 }
 
@@ -52,6 +37,7 @@ override def run() {
     writeNumber(compteur)
     compteur = compteur + 1
     move()
+    diag = diag + 1
   }
   writeNumber(compteur)
 }
