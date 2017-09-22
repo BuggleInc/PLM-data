@@ -17,6 +17,9 @@ def arrangeBaggle() = {
 }
 
 def move() = {
+  if(isFacingWall()){
+    leave()
+  }
  	if(isCarryingBaggle()){
    	arrangeBaggle()
   } else {
@@ -28,17 +31,4 @@ def leave() = {
   right();forward();left();forward()
 }
 
-
-
-
-def makeHisWayOut() = {
-  left();left()
-  while(!isFacingWall()){
-    move()
-  }
-  leave()
-}
-
-
-
-makeHisWayOut()
+move()
