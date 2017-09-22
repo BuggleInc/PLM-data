@@ -1,10 +1,26 @@
+//isOverBaggle(), isCarryingBaggle(), pickupBaggle() or dropBaggle()
+
 def move() = {
-  forward()
-}
-
-
-def getRidOfStones() = {
-  
+ 	if(!isCarryingBaggle()){
+   while(getDir() != Direction.EAST){
+     right()
+   }
+   while(!isOverBaggle()){
+     forward()
+   }
+   backward()
+   dropBaggle()
+   backward()
+  } else {
+   	while(getDir() != Direction.WEST){
+      right()
+    }
+    while(!isOverBaggle()){
+      forward()
+    }
+    pickupBaggle()
+    backward()
+  }
 }
 
 def leave() = {
