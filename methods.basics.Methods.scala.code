@@ -1,0 +1,22 @@
+def goAndGet() {
+  var nbPas=0
+	while (!estSurBiscuit()) {
+  	nbPas=nbPas+1
+  	forward()
+	}
+	if (estSurBiscuit()) {
+  	prendBiscuit()
+	}
+	var dejaFait=0
+	for (i <- 0 to nbPas-1) {
+  	backward()
+	}
+	poseBiscuit()
+}
+
+for (i <- 1 to 7) {
+    goAndGet();
+    right();
+    forward();
+    left();
+}
