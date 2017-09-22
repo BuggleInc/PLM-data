@@ -1,4 +1,4 @@
-var leave: Boolean = false
+var hasLeft: Boolean = false
 
 def isFinalePosition(): Boolean = {
   return getGroundColor() == Color.GREEN
@@ -37,10 +37,10 @@ def move() = {
 
 def leave() = {
   right();forward();left();forward()
-  leave = true
+  hasLeft = true
 }
 
 right();right()
-while(!leave){
+while(!hasLeft){
 	move()
 }
