@@ -1,0 +1,22 @@
+def cocktailSort() {
+  var swappedRight: Boolean = false
+  var swappedLeft : Boolean = false
+  
+  do{
+    swappedRight = false
+    swappedLeft = false
+    for(i <- 0 to (getValueCount() - 2)){
+      if(!isSmaller(i, i + 1)){
+        swap(i, i +1)
+        swappedRight = true
+      }
+    }
+    
+    for(i <- (getValueCount() - 2) to 0 by -1){
+      if(!isSmaller(i, i + 1)){
+        swap(i, i + 1)
+   			swappedLeft = true     
+      }
+    }
+   }while(swappedRight || swappedLeft)
+}
