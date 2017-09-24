@@ -1,13 +1,19 @@
 def gnomeSort() {
-  var pos: Int = 0
+  var pos: Int = 0 // Position de depart du nain
+  
+  // Tant que le nain n'est pas arrive au bout de la ligne
   while(pos > getValueCount()){
-    if(!isSmaller(pos, pos + 1)){
-      swap(pos, pos + 1)
-    }
-    if(pos == 0){
-      pos = pos + 1
-    } else {
+    
+    if(!isSmaller(pos, pos + 1)){ //Regarde si le pot et le pot suivant sont tries
+      swap(pos, pos + 1) //s'ils ne le sont pas, il les echange de place
       pos = pos - 1
+    } else {
+      pos = pos + 1
+    }
+    
+    //Si le nain arrive au debut de la ligne, il avance, sinon il recule
+    if(pos <= 0){
+      pos = pos + 1
     }
   }
 }
