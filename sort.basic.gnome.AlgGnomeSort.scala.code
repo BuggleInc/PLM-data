@@ -6,14 +6,12 @@ def gnomeSort() {
     
     if(!isSmaller(pos, pos + 1)){ //Regarde si le pot et le pot suivant sont tries
       swap(pos, pos + 1) //s'ils ne le sont pas, il les echange de place
-      pos = pos - 1
+      if(pos != 0){
+        pos = pos - 1
+      }
     } else {
       pos = pos + 1
     }
-    
-    //Si le nain arrive au debut de la ligne, il avance, sinon il recule
-    if(pos <= 0){
-      pos = pos + 1
-    }
   }
+  
 }
