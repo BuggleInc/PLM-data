@@ -3,20 +3,21 @@ def cocktailSort2() {
   var fin = getNombreValeurs()-2
   var echangefait:Boolean=false
   do {
+    var min=0
     echangefait=false
     for (i<- debut to fin){
       if (!plusPetit(i,i+1)){
         echange(i,i+1);
         echangefait=true;
+        min=i
       }
     }
     
    fin-=1
-   for (i<-fin to debut){
+   for (i<-fin to min){
      if (!plusPetit(i,i+1)){
        echange(i,i+1);
        echangefait=true;
-       debut+=1
     }
    }
 
