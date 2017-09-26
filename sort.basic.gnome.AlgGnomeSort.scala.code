@@ -1,7 +1,13 @@
 def gnomeSort() {
   var lgr=getNombreValeurs()-1
   var k=0
-  while (k<=lgr){
+  while (k<lgr){
+    plusPetit(k,k+1) match {
+      case false => echange(k,k+1) if (k>0){k-=1} else {k+=1}
+		  case true => k+=1
+    }
+    
+    /*
     if (!plusPetit(k,k+1)){
       echange(k,k+1)
       if (k>0){
@@ -16,6 +22,7 @@ def gnomeSort() {
     }
     else if (k==lgr){
       k=lgr+1
-    }
+      
+    }*/
   }
 }
