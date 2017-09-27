@@ -5,9 +5,10 @@ def insertionSort() {
   var k=(-1)
   for(i<- 1 to l){
     v=getValue(i)
-    while((isSmallerThan(getValue(i+k),v)==false) && (i+k!=0)){
-      copy(i-1+k,i+k)
-      k=k-1
-    setValue(i+k,v)}
-  }
+    for (k<- 0 to i){
+      if (isSmallerThan(i-1+k,i+k)==false){
+        setValue(i+k,v)
+      }
+  	}
+	}
 }
