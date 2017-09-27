@@ -9,12 +9,15 @@ override def run() {
     if (estFaceMur()) {
       keepHandOnSideWall()
       keepHandOnSideWall()
+      keepHandOnSideWall()
     }
   }
 }
 
 def keepHandOnSideWall() = {
-  gauche()
+  if (!estFaceMur()) {
+    gauche()
+  }
   while (estFaceMur()) {
     droite()
   }
