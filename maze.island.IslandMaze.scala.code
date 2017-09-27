@@ -6,9 +6,15 @@ override def run() {
     while (!estFaceMur) {
       avance()
     }
-  	while (estFaceMur()) {
-    	droite()
-  	}
-  	avance()
+    while (estFaceMur()) {
+      keepHandOnSideWall()
+    }
   }
+}
+
+def keepHandOnSideWall() = {
+  while (estFaceMur()) {
+    droite()
+  }
+  avance()
 }
