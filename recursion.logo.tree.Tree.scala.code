@@ -1,12 +1,12 @@
 override def tree(steps:Int, length:Double, angle:Double, shrink:Double)    { steps match {
                         case 6 => avance(0)
-                         case _ => {current(step) ; 
+                         case _ => {current(steps) ; 
                                     gauche(45.0) ; 
                                     avance (length) ; 
                                     recule (length) ; 
                                     droite(180-45) ; 
                                     avance (length*shrink) ; 
-                                    tree (step + 1, length *shrink , angle , shrink)
+                                    tree (steps + 1, length *shrink , angle , shrink)
 }
 } 
                                                                             }
