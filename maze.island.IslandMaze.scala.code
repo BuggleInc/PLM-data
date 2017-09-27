@@ -3,9 +3,9 @@ override def run() {
     while (!estFaceMur) {
       avance()
     }
-    while (estFaceMur() && getDirection != Direction.NORTH) {
+    do {
       keepHandOnSideWall()
-    }
+    } while (estFaceMur() && getDirection != Direction.NORTH)
   }
 }
 
@@ -18,3 +18,4 @@ def keepHandOnSideWall() = {
   }
   avance()
 }
+
