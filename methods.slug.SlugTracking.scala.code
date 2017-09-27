@@ -1,16 +1,14 @@
 def isFacingTrail():Boolean = {
- 
-  var buggle=0
-  buggle match{
-   case estFaceMur() => return false
-   case _ => avance()
-   						if (getCouleurSol()==Color.green){
-                recule()
-                return true
-              }
-   						else {
-                recule()
-                return false
-              }
- }
+  if (estFaceMur()){
+    return false
+  }
+  else {
+    avance()
+    if (getCouleurSol()==Color.green){
+      return true
+    }
+    else {
+      return false
+    }
+  }
 }
