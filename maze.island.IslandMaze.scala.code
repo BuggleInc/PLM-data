@@ -13,7 +13,9 @@ override def run() {
 }
 
 def keepHandOnSideWall() = {
-  gauche()
+  if (!estFaceMur()) {
+    gauche()
+  }
   while (estFaceMur()) {
     droite()
   }
