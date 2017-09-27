@@ -1,18 +1,26 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   
   if (steps!=0  ) {
-    if(int(angle)){
+    if(angle%1==0){
     current(steps)
     avance(length*shrink:Double)
     droite(angle:Double)
       return tree(steps-1,length*shrink,angle,shrink)}
     else(
+      var x=0
+      while (angle%1==0){
+        angle=angle/(shrink)
+        x+=1
+      }
+      
+      gauche (angle:Double)
+      recule()
     )
   }
-  else if (steps==0 and angle ==int)
+  else if (steps==0 )
   {gauche(angle:Double)
     recule(length/shrink:Double)
-     }
+     return tree (steps+1,length/shrink,angle*shrink,shrink)}
   
   
   
