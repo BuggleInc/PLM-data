@@ -6,9 +6,10 @@ override def run() {
     }
     if (estFaceMur()) {
       keepHandOnSideWall()
-      while (getDirection() != Direction.NORTH) {
+      if (getDirection() != Direction.NORTH) {
         keepHandOnSideWall()
       }
+      setDirection(Direction.NORTH)
     }
   }
 }
