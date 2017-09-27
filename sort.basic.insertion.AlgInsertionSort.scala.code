@@ -6,13 +6,12 @@ def insertionSort() {
   var m=0
   for(i<- 1 to l-1){
     v=getValue(i)
-    for (j<- 0 to i){
-      if (isSmallerThan(i-1+k,i+k)==false){
-        copy(i+k-1,i+k)
+    while (i+k!=0){
+      if isSmallerThan(i+k-1,i+k){
         m=i+k-1
       }
       k=k-1
-      setValue(m,v)
-  	}
+    }
+   setValue(m,v)
 	}
 }
