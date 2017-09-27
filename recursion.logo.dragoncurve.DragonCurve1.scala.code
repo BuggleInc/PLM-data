@@ -1,0 +1,11 @@
+def dragon(order:Int, x:Double, y:Double, z:Double, t:Double) {
+	if (order ==1) {moveTo(z,t) }
+	else {
+		var u = (x + z)/2 + (t - y)/2
+		var v = (y + t)/2 - (z - x)/2
+		
+		dragon(order-1:Int, x:Double, y:Double, u, v)
+		setPos(u,v)
+		dragon(order-1:Int, v,u, z:Double, t:Double)
+		
+	}
