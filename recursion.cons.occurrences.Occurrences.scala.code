@@ -13,8 +13,11 @@ def isMember(l:List[Int], v:Int): Boolean = {
 def occurrences(l:List[Int], v:Int): Int = {
   if (!isMember(l,v)) {
     return 0
-  } else {
+  } else { if (l.head==v) {
     return 1+occurrences(l.tail,v)
+  } else {
+    return occurrences(l.tail,v)}
+    
   }
 }
 
