@@ -1,0 +1,65 @@
+def faireV()
+	{
+  brushDown();
+  brushUp();
+  left();
+  forward();
+  right();
+  forward();
+  brushDown();
+  brushUp();
+  forward();
+  right();
+  forward();
+  brushDown();
+  brushUp();
+  left();
+	}
+
+	def seMettre()
+	{
+  forward(2);left();forward(2);
+	}
+
+def faireC()
+{
+    
+  forward(2);
+  for (i <-0 to 3)
+  {
+    faireV();
+    seMettre();
+  }
+  backward(2);
+    
+}
+
+def faireL()
+{
+  for (i <-0 to 8)
+  {
+    left();
+    forward(7*i);
+    right();
+    faireC();
+    left();
+    backward(7*i)
+    right();
+    
+  }
+}
+
+
+override def run() 
+{
+  
+  for (j <- 0 to 8)
+  {    
+    forward(7*j);
+    
+    faireL();
+    
+    backward(7*j)
+    
+  }
+}
