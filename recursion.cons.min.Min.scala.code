@@ -1,0 +1,16 @@
+def min(l:List[Int]): Int = {
+  if (l.tail==Nil) {
+    return l.head
+  } else {
+    if (l.head>=l.tail.head) {
+      return min(deuxieme(l))
+    } else {
+      return min(l.tail)
+    }
+  }
+}
+
+
+def deuxieme(l:List[Int]): List[Int] = {
+  return l.head::l.tail.tail
+}
