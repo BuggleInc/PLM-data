@@ -5,3 +5,16 @@ def occurrences(l:List[Int], v:Int): Int = {
     return 1+occurences(l.tail,v)
   }
 }
+
+
+def isMember(l:List[Int], v:Int): Boolean = {
+  if (l==Nil) {
+    return false
+  } else {
+    if (l.head==v) {
+      return true
+    } else {
+      return isMember(l.tail,v)
+    }
+  }
+}
