@@ -11,14 +11,16 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
        var y:Double = angle/shrink
         x+=1 
       }
-      for (i<-0 to x){
-      
+      for (i<-0 to x-1){
+      var e=length/shrink
       gauche (angle:Double)
-      recule(length*shrink:Double)
+      recule(y:Double)
       gauche(angle:Double)
       current (steps)
       avance(length*shrink:Double)
+      
       }
+      return tree(x,y,angle,shrink)
       }
 }
       
