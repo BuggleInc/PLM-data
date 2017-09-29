@@ -1,3 +1,10 @@
 public void spiral(int steps, int angle, int length, int increment)    {
-  
+  if (steps==0){
+    avance(increment+length);
+    fauche(angle);
+  } else {
+    avance(increment+length);
+		gauche(angle);
+    spiral(steps-1, angle, length, increment)
+  }
 }
