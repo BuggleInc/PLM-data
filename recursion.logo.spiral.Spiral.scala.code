@@ -1,6 +1,8 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
-  steps match {
-    Case 0 => gauche(angle); avance(length)
-    Case s => spiral(s-1, angle, length + increment, increment)
+  if (steps == 0) {
+    gauche(angle); avance(length)
+  }
+  else {
+    spirale(steps-1, angle, length + increment, increment)
   }
 }
