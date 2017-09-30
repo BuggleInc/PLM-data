@@ -1,0 +1,10 @@
+def min(l:List[Int]): Int = {
+  def aux(l:List[Int], v:Int): Int = {
+    l match {
+      case Nil => v
+      case h::q if (h<v) => aux(q, h)
+      case _::q => aux(q,v)
+    }
+  }
+  aux(l,l[1])
+}
