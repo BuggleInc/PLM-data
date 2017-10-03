@@ -2,7 +2,8 @@ def reverse(l:List[Int]): List[Int] = {
   def aux(l:List[Int], r:List[Int]): List[Int] = {
     l match {
       case Nil => r
-      case h::q => reverse(q, h::r)
+      case h::q => aux(q, h::r)
     }
   }
+  aux(l,Nil)
 }
