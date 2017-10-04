@@ -6,7 +6,18 @@ def solve() {
   while (!estTrie() && apresBleu < avantBlanc) {
     while (getCouleur(apresBleu) != BLEU) {
       echange(apresBleu,avantBlanc)
-      avantBlanc -= 1
+      if (avantBlanc == 0) {
+        avantBlanc = n -1
+      } else {
+        avantBlanc -= 1
+    }
+    while (getCouleur(blancRouge) != ROUGE) {
+      echange(blancRouge,avantBlanc)
+      if (avantBlanc == 0) {
+        avantBlanc = n -1
+      } else {
+        avantBlanc -= 1
+      }
     }
     apresBleu += 1
   }
