@@ -1,0 +1,13 @@
+def allDifferent(l:List[Int]): Boolean = {
+  def present(l: List[Int], v:Int): Boolean {
+    l match {
+      case Nil => false
+      case h::q if (h==v) => true
+      case _::q => present(q,v)
+    }
+  }
+  l match {
+    case Nil => true
+    case h::q => (!estpresent(q,h))&&allDifferent(q)
+  }
+}
