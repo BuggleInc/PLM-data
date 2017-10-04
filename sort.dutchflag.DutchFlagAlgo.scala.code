@@ -4,15 +4,18 @@ def solve() {
   var blancRouge = n-1
   var avantBlanc = n-1
   while (!estTrie() && apresBleu < avantBlanc) {
-    while (getCouleur(apresBleu) != BLEU) {
-      echange(apresBleu,avantBlanc)
-      if (avantBlanc == 0) {
-        avantBlanc = n -1
-      } else {
+    while (getCouleur(apresBleu) != BLEU && getCouleur(blancRouge) != ROUGE) {
+      if (getCouleur(avantBlanc) == BLEU) {
+        echange(apresBleu,avantBlanc)
+        apresBleu += 1
         avantBlanc -= 1
       }
+      if (getCouleur(avantBlanc) == ROUGE) {
+        echange(avantBlanc,blancRouge)
+        avantBlanc -= 1
+        blancRouge -= 1
+      }
     }
-    apresBleu += 1
   }
 }
 
