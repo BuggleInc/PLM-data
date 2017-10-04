@@ -6,11 +6,10 @@ def allDifferent(l:List[Int]): Boolean = {
       case _::q => present(q,v)
     }
   }
-  def aux(l:List[Int]):Boolean = {
-    l match {
-  		case Nil => true
-  	 	case h::q => (!present(q,h))&&allDifferent(q)
-    }
+  j = l; a = true
+  do {
+    present(j.head,j.tail)
   }
-  aux(l)
+  while (!j==Nil && !a)
+  a
 }
