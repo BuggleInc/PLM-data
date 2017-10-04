@@ -9,14 +9,16 @@ def shellSort()  {
     k=0
     m=i
     v=getValue(i)
-    while ((gap>0)&&(i-(k+1)*gap)>0){
-   		if (isSmaller((i-(k+1)*gap),(i-k*gap))==false){
-       	copy(i-(k+1)*gap,i-k*gap)
-       	m=i-(k+1)*gap
-      }
-    k=k+1
-    setValue(m,v)
-  	}
-  gap=gap/2
-	}  	
+    while (gap>0){
+    	while ((i-(k+1)*gap)>0){
+   			if (isSmaller((i-(k+1)*gap),(i-k*gap))==false){
+       		copy(i-(k+1)*gap,i-k*gap)
+       		m=i-(k+1)*gap
+      	}
+    	k=k+1
+    	setValue(m,v)
+  		}
+  	gap=gap/2
+		}  	
+	}
 }
