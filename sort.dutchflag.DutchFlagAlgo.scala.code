@@ -1,4 +1,14 @@
 def solve() {
-  echange(getTaille()-2, 0)
+  val n = getTaille()
+  var apresBleu = 0
+  var blancRouge = n-1
+  var avantBlanc = n-1
+  while (!estTrie() && apresBleu < avantBlanc) {
+    while (getCouleur(apresBleu) != BLEU) {
+      echange(apresBleu,avantBlanc)
+      avantBlanc -= 1
+    }
+    apresBleu += 1
+  }
 }
 
