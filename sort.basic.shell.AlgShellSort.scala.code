@@ -3,12 +3,25 @@ def shellSort()  {
   var v=0
   var y=0
   var ecart=x/2
-  var j=ecart
+  var t=i
   while (ecart>0){
   for (i<-1 to x-1) {
     y=i
     v=getValeur(i)
-    if (plusPetitQue(i-j,v)==false)
+    while (t>=0) {
+      if (plusPetitQue(t-ecart,getValeur(t))) {
+        setValeur(t,getValeur(t-ecart))
+        t=t-ecart
+        y=t
+      }
+    }
+  setValeur(y,v)
+  }
+        
+      
+      
+    
+
     
     
       
