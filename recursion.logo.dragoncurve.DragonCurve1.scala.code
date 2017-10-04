@@ -1,0 +1,10 @@
+def dragon (order:Int, x:Double, y:Double, z:Double, t:Double) {
+  if (order > 0) {
+    var u = (x - y + z + t) / 2
+    var v = (x + y - z + t) / 2
+    dragon (order - 1, x, y, u, v)
+    dragon (order - 1, u, v, z, t)
+  } else {
+    allerVers (z, t)
+  }
+}
