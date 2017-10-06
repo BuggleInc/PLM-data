@@ -1,0 +1,13 @@
+override def run() {
+	var action: Int = 0
+  do{
+    action = random3()
+    action match{
+      case 0 if(!againstWall()) => forward()
+      case 1 => left()
+      case _ => right()
+    } while(isOverBaggle())
+    
+    pickBaggle()
+  }
+}
