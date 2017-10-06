@@ -1,13 +1,14 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
   
   	if(steps == 0){
-      spiral(steps,angle,length,increment);
       leveCrayon();
     }
 
 		else{
+      avance(length);
+      
       gauche(angle);
-      avance(length+increment);
+      
       spiral((steps-1),angle,(length+increment),increment);		
     }
 }
