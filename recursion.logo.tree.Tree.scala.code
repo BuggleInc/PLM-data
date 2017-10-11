@@ -1,23 +1,21 @@
-def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+def tree(steps:Int, length:Double, angle:Double, shrink:Double) {
   
-  if(steps > 0){
+  if(steps > 0) {
     
-   	current(steps) 
- 	forward(length)
+   	current(steps)
+ 		forward(length)
   
- 	right(angle)  
+ 		right(angle)
 	
- 	tree(steps-1, shrink*length, angle,shrink)
-
+ 		tree(steps-1, shrink*length, angle,shrink)
 
    	left(2*angle)
 
-
-	tree(steps-1, shrink*length, angle,shrink)
+		tree(steps-1, shrink*length, angle,shrink)
   	
-	right(angle)
-	current(steps) 
-	backward(length)
+		right(angle)
+		current(steps)
+		backward(length)
     
   }
   
