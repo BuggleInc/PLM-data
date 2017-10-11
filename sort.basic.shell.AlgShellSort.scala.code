@@ -1,35 +1,22 @@
 def shellSort()  {
-  def insertion(ecart){
-    var lgr=getNombreValeurs()
-    for (i<-1 to lgr ; if i%ecart==0){
-      var v=getValeurs(i)
-      var M=i
+  def triInsertion(gap,debut){
+    var len=getNombreValeurs()
+    for (i<-debut to len ; if i % gap ==0 ){
+      var v=getValeur(i)
+      var M=1
       while (M>0 && !plusPetitQue(M-1,v)){
         copie(M-1,M)
         M-=1
       }
-      setValeur(M,v)
     }
-  }
-  
-  
-  var lgr=getNombreValeurs()
-  var ecart=(lgr/2).toInt
-  while (ecart>0){
-    
+ }
+  var ecart=(getNombreValeurs()/2).toInt
+  while (ecart>1){
+    for (debut<- 0 to ecart-1){
+      triInsertion(ecart,debut)
+    }
+    ecart=(ecart/2).toInt
   }
 }
 
 
-def insertionSort() {
-  var lgr=getNombreValeurs()-1
-  for (i<-1 to lgr){
-    var v=getValeur(i)
-    var M=i
-    while (M>0 && !plusPetitQue(M-1,v)){
-      copie(M-1,M)
-      M-=1
-    }
-    setValeur(M,v)
-  }
-}
