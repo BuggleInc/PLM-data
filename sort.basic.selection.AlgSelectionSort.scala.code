@@ -1,16 +1,16 @@
 def selectionSort() {
   var r = 0
   var debut = 1
-  var len = getNombreValeurs()-1
-  for (i<-1 to len){
+  var len = getNombreValeurs()
+  for (i<-0 to len){
     r=0
-  	  for (i<-debut to len){
-      	if (plusPetitQue(i,r)){
-        	r=i
+  	  for (k<-i+1 to len-1){
+      	if (!plusPetitQue(k,r)){
+        	r=k
       }
     }
   	
-    echange(debut,r)
-    debut+=1
+    echange(i,r)
+    
   }
 }
