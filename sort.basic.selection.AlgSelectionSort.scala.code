@@ -1,20 +1,19 @@
 def selectionSort() {
+  var rangMini=0
+  var r = 0
+  var debut = 1
+  var len = getNombreValeurs()-1
   
-  var mettreLa = 1
-  var len = getNombreValeurs()
+  
   for (i<-1 to len){
-    var r = rangMini(debut)
+    r=0
+  	  for (i<-debut to len){
+      	if (!plusPetitQue(i,r)){
+        	r=i
+      }
+    }
+  	
     echange(debut,r)
     debut+=1
   }
 }
-
-def rangMini(debut){
-    var len=getNombreValeurs()-debut
-    var rangMini=0
-    for (i<-debut to len){
-      if (!plusPetitQue(i,mini)){
-        mini=i
-      }
-    }
-  }
