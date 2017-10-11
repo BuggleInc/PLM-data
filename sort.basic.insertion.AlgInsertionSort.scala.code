@@ -5,15 +5,16 @@ def insertionSort() {
   var lgr=getNombreValeurs()-1
   for( i <- 1 to lgr){
     v= getValeur(i)
-   	n = 0;
+   	n = i;
     t = 0
-  	while(n!=i && t==0 ){
-      		if (!plusPetitQue(i-n,v)){
-            	t=1
-            	setValeur(i-n,v)
+  	while(n!=i && !plusPetitQue(n-1,v)){
+      			copie(n-1,n)
+      			n-=1
+      
+            	
             }
-          else{
-            n+=1
+    setValeur(n,v)
+          
                     }
           }
   }}
