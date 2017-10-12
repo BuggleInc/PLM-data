@@ -4,13 +4,16 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
     for (i<-1 to sides){
       avance(length)
       droite(angle)
+    
     }
+    
   }
   else {
     for (i<- 1 to sides){
       avance(length)
       gauche(180-angle)
       polygonFractal(levels-1,sides,length*shrink,shrink)
+      droite(180-angle)
     }
   }
 }
