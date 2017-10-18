@@ -1,17 +1,15 @@
 def solve() {
-  var len=getTaille()
-  var i=1
-  var dernier_indice=1
-  var premier_indice=len
+  var debut=1
+  var fin=getTaille()
+  
   while (!estTrie()){
-    	if (getCouleur(i)==ROUGE){
-        echange(dernier_indice+1,i)
-        dernier_indice+=1
-        }
-      else if (getCouleur(i)==BLEU){
-      	echange(premier_indice-1,i)
-        premier_indice-=1
-        }
-    i+=1
-  	}
+    if (getCouleur(debut)==ROUGE){
+      echange(debut,fin-1)
+    }
+    if (getCouleur(fin)==BLUE){
+      echange(fin,debut)
+    }
+    debut+=1
+    fin-=1
+  }
 }
