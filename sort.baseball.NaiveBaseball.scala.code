@@ -2,10 +2,6 @@ override def run() {
   var n = getNombreBases()
   var trou = getTrouBase()
   var posJoueur = 1
-  var candidat1 = 0
-  var candidat2 = 0
-  var candidat3 = 0
-  var candidat4 = 0
   while (!estTrie()) {
     trou = getTrouBase()
     if (trou == n-1) {
@@ -13,6 +9,10 @@ override def run() {
     } else {
       n += 1
     }
-    
+    if (abs((getCouleurJoueur(n,0))-trou) > abs((getCouleurJoueur(n,0))-trou)) {
+      deplace(n,0)
+    } else {
+      deplace(n,1)
+    }
   }
 }
