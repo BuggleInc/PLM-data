@@ -1,13 +1,13 @@
 override def run() {
-  var n = getNombreBases()
+  val n = getNombreBases()
   var trou = getTrouBase()
   var posJoueur = 1
   while (!estTrie()) {
     trou = getTrouBase()
     if (trou == n-1) {
-      n = 0
+      trou = 0
     } else {
-      n += 1
+      trou += 1
     }
     if (((getCouleurJoueur(n,0))-trou)*((getCouleurJoueur(n,0))-trou) > ((getCouleurJoueur(n,0))-trou)*((getCouleurJoueur(n,0))-trou)) {
       deplace(n,0)
