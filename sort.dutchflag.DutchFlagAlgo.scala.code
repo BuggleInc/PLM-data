@@ -1,12 +1,12 @@
 def solve() {
   var debut=1
   var fin=getTaille()-1
-  
+  var len=getTaille()
   while (!estTrie()){
-    if (getCouleur(debut)==BLEU){
+    if (getCouleur(debut)==BLEU && debut=<len){
       echange(debut,fin-1)
     }
-    if (getCouleur(fin)==ROUGE){
+    if (getCouleur(fin)==ROUGE && fin>0){
       echange(fin,debut)
     }
     debut+=1
