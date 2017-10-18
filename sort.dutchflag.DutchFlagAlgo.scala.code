@@ -1,10 +1,17 @@
 def solve() {
   var len=getTaille()
-  for (i <-1 to len){
-    	if (getCouleur(i)==blue){
-        for (k<- i to len){
-          
+  var i=1
+  var dernier_indice=1
+  var premier _indice=len
+  while (!estTrie()){
+    	if (getCouleur(i)==BLEU){
+        echange(dernier_indice+1,i)
+        dernier_indice+=1
         }
-      }
-  }
+      else if (getCouleur(i)==ROUGE){
+      	echange(premier_indice-1,i)
+        premier_indice-=1
+        }
+    i+=1
+  	}
 }
