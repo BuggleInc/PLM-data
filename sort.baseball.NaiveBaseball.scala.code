@@ -9,10 +9,16 @@ override def run() {
     } else {
       candidat += 1
     }
-    if (((getCouleurJoueur(candidat,0))-candidat)*((getCouleurJoueur(candidat,0))-candidat) > ((getCouleurJoueur(candidat,0))-candidat)*((getCouleurJoueur(candidat,0))-candidat)) {
-      deplace(candidat,0)
-    } else {
-      deplace(candidat,1)
+    var couleur1 = getCouleurJoueur(candidat,0)
+    var couleur2 = getCouleurJoueur(candidat,1)
+    var distance1 = candidat - couleur1
+    var distance2 = candidat - couleur2
+    if (couleur1 > candidat) {
+      distance1 = candidat - couleur1 + 4
     }
+    if (couleur2 > candidat) {
+      distance1 = candidat - couleur2 + 4
+    }
+    if (distance1 > distance2)
   }
 }
