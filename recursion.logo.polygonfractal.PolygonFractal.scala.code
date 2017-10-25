@@ -1,22 +1,20 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
-	for(j <- 1 to sides) {
+  gauche(180-(360/sides))
+  polygonFractal(levels-1,sides,length*shrink,shrink)
+	for(j <- 1 to sides-2) {
     avance(length)
     faitPoly(levels,sides,length,shrink)
     droite(360/sides)
   }
+  polygonFractal(levels-1,sides,length*shrink,shrink)
+  gauche(180-(360/sides))
 }
 
 def faitPoly(levels:Int, sides:Int, length:Double, shrink:Double) {
     if (levels == 0) {
     avance(length)
   } else {
-    gauche(180-(360/sides))
     polygonFractal(levels-1,sides,length*shrink,shrink)
-    for (i <- 1 to sides-2) {
-      polygonFractal(levels-1,sides,length*shrink,shrink)
-      droite(360/sides)
-    }
-    polygonFractal(levels-1,sides,length*shrink,shrink)
-    gauche(180-(360/sides))
+    droite(360/sides)
   }
 }
