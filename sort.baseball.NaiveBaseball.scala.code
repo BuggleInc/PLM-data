@@ -1,25 +1,25 @@
 override def run() {
-  var n = getNombreBases()
+  var n = getNombreBases() // nombre de bases
   var trou = getTrouBase()
-  var candidat = trou
+  var candidat = trou // va servir ? savoir quel joueur d?placer
   while (!estTrie()) {
-    trou = getTrouBase()
+    trou = getTrouBase() // position du trou ? chaque passage 
     if (trou >= n-1) {
-      candidat = 0
+      candidat = 0 // on g?re le modulo ici
     } else {
       candidat += 1
     }
-    var couleur1 = getCouleurJoueur(candidat,0)
+    var couleur1 = getCouleurJoueur(candidat,0) // on attribue les couleurs aux joueurs
     var couleur2 = getCouleurJoueur(candidat,1)
-    var distance1 = candidat - couleur1
+    var distance1 = candidat - couleur1 // on donne les distances de bases et on va les comparer
     var distance2 = candidat - couleur2
-    if (couleur1 > candidat) {
+    if (couleur1 >= candidat) { // si cette condition est remplie le joueur doit aller sur une base derri?re lui, il doit donc faire un tour
       distance1 = candidat - couleur1 + 4
     }
-    if (couleur2 > candidat) {
+    if (couleur2 >= candidat) { // idem
       distance1 = candidat - couleur2 + 4
     }
-    if (distance1 > distance2) {
+    if (distance1 > distance2) { // on compare les distances et on retient le candidat le plus loin
       deplace(candidat,0)
     } else {
       deplace(candidat,1)
