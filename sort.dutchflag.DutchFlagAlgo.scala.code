@@ -1,24 +1,30 @@
 def solve() {
-  var zonebleue=0
-  var zonerouge=getTaille()-1
-  var zoneblanche=1
-  while (zoneblanche<=zonerouge){
-    if (getCouleur(zonebleue)==ROUGE){
-      for (i<-zonebleue to zonerouge-1){
+  var apresbleu=0
+  var avantblanc=getTaille()-1
+  var blancrouge=getTaille()-1
+  while (estTrie==false){
+    if (getCouleur(apresbleu)==BLEU){
+      apresbleu+=1
+    }
+    if (getCouleur(blancrouge)==ROUGE){
+      blancrouge-=1
+      avantblanc-=1
+    }
+    if (getCouleur(avantblanc-1)==BLANC){
+      avantblanc-=1
+    }
+    if (getCouleur(apresbleu)==ROUGE){
+      for (i<-apresbleu to blancrouge-1){
         echange(i,i+1)
       }
-      zonerouge-=1
+      blancrouge-=1
+      avantblanc-=1
     }
-    if (getCouleur(zonerouge)==BLEU){
-      for (i<-zonerouge to zonebleue+1){
-        echange(i,i-1)
+    if (getCouleur(apresbleu==BLANC)){
+      for (i<-apresbleu to avantblanc-1){
+        echange(i,i+1)
       }
-      zonebleue+=1
+      avantblanc-=1
     }
-    if (getCouleur(zonebleue+1)==BLANC){
-      zoneblanche+=1
-    }
-   
   }
-  
 }
