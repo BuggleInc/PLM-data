@@ -1,17 +1,14 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	def auxi(steps:Int, length:Double, angle:Double, shrink:Double, step:Int){
   	if (steps!=0){
       current(steps)
       penDown()
   		forward(length)
   		right(angle)
-    	auxi(steps-1, length*shrink, angle, shrink, step)
+    	tree(steps-1, length*shrink, angle, shrink)
     	left(2*angle)
-    	auxi(steps-1, length*shrink, angle, shrink, step)
+    	tree(steps-1, length*shrink, angle, shrink)
     	right(angle)
       penUp()
     	backward(length)
- 		 }
-	}
-  auxi(steps, length, angle, shrink, 0)
+ 		}
 }
