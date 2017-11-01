@@ -1,8 +1,9 @@
 def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
-  var angle=360/sides
+  var angle1=360/sides
+  var angle=(180-angle1)/2
   if (levels==1){
     for (i<-1 to sides){
-      gauche(angle)               
+      droite(angle)               
       avance(length)
     }
     
@@ -10,7 +11,7 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
   else {
     for (i<-1 to sides){
       avance(length)
-      droite(angle)
+      gauche(180+angle)
       polygonFractal(levels-1,sides,length*shrink,shrink)
     }
   }
