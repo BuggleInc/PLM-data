@@ -1,3 +1,6 @@
+static char[] test = new char[10];
+	static boolean done = false;
+
 public void bubbleSort()  {
   String[] test = new String[10];
   	for (int i = 0; i < array.length< i++) {
@@ -9,14 +12,59 @@ public void bubbleSort()  {
   
 }
 
-public boolean isSmallerThan(int i, int value){
-  if (i < value) {
-    return true;
-  } else {
-    return false;
-  }
-}
+public static void main(String[] args) {
+		
+		test[0] = 'C';
+		test[1] = 'F';
+		test[2] = 'B';
+		test[3] = 'A';
+		test[4] = 'I';
+		test[5] = 'D';
+		test[6] = 'G';
+		test[7] = 'H';
+		test[8] = 'E';
+		test[9] = 'J';
+		
+		//System.out.println(Boolean.toString(isSmallerThan(test[1],test[1+1])));
+		//System.out.println(getValueCount());
+		printTest();
+		bubbleSort();
+		printTest();
+	}
+	
+	private static void bubbleSort() {
+		if ( !done  ) {
+			for (int i = 0; i < 9; i++) {
+				if (!isSmallerThan(test[i], test[i+1])) {
+					swap(i);
+					bubbleSort();
+				} 
+			}
+			done = true;
+		}
+	}
 
-public void swap(int i) {
-  
-}
+	private static int getValueCount() {
+		return test.length;
+	}
+	
+	private static boolean isSmallerThan( char test2, char test3 ) {
+		if ( test2 < test3 ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	private static void swap( int i) {
+		char tmp = test[i];
+		test[i] = test[i+1];
+		test[i+1] = tmp;
+	}
+	
+	private static void printTest (){
+		for ( int i = 0; i < getValueCount(); i++) {
+			System.out.print(test[i]);
+		}
+		System.out.println("\n");
+	}
