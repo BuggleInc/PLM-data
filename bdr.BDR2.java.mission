@@ -1,0 +1,113 @@
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Buggle Dance Revolution 2 (BDR2)</h2>
+
+
+<p>BDR is cool, but it's a bit chaotic. First, the buggles giggle in any
+directions, and then the code you had to write to let them move is rather
+difficult to read. Here is a new BDR world where the buggle will dance a
+gentle circle. We will benefit this tranquillity to clean up a bit our code
+thanks to the new constructs we will introduce.</p>
+
+<h3><code>switch</code> conditionals</h3>
+
+<p>The hardest part of previous code is certainly the conditional
+cascading. Somewhere in your code, you certainly had something similar to:</p>
+
+<pre><code class="code-container">if (getIndication() == 'R') {
+  right();
+  forward();
+} else if (getIndication() == 'L') {
+  left();
+  forward();
+} else if (getIndication() == 'I') {
+  back();
+  forward();
+<span class="comment">/* other else if */</span>
+} else {
+  finished = true;
+}
+</code></pre>
+
+<p>When you review this code, it may not be clear at the first glance that it
+is simply a choice with 4 branches depending on the value of
+getIndication(). 
+To improve this, we will use a 
+<code>switch</code> construct, which Java syntax is the following:
+</p>
+
+
+
+<pre><code class="code-container">
+switch (<b>expression</b>) {
+  case <b>firstValue</b>: 
+    <b>whatToDoIfExpressionEqualsFirstValue();</b>
+    break;
+  case <b>secondValue</b>: 
+    <b>whatToDoIfExpressionEqualsSecondValue();</b>
+    break;
+  case <b>thirdValue</b>: 
+    <b>whatToDoIfExpressionEqualsThirdValue();</b>
+    break;
+    /* as much similar cases as you want */
+  default: 
+    <b>whatToDoIfExpressionDoesNotEqualsAnySeenValues();</b>
+}</code></pre>
+
+<p>Observe that each branch of a <tt>switch</tt> must be ended by a
+<code>break</code>. If you forget this, the machine keeps going and execute
+the next branch in the list after the branch it jumped to. There is even
+some <b>rare</b> cases where this behavior reveals helpful.</p>
+
+<p>It is then possible to rewrite previous BDR code in a cleaner way using the
+<tt>switch</tt> construct:</p>
+
+<pre><code class="code-container">switch (getIndication()) {
+  case 'R':
+    right(); 
+    forward(); 
+    break;
+  case 'L':
+    left();
+    forward(); 
+    break;
+  case 'I':
+    back();
+    forward();
+    break;
+  default: 
+    return;
+}</code></pre>
+
+
+
+<h3>Exercise goal</h3>
+<p>Apply the improvement we just saw to rewrite your buggle code with the following dance steps. 
+
+Note that we can now move up to 6 cells in one dance step.</p>
+
+<table border="1">
+ <tr><td>Message</td>
+     <td>What to do</td></tr>
+
+ <tr><td>'R'</td><td>Turn right and move one step forward</td></tr>
+ <tr><td>'L'</td><td>Turn left and move one step forward</td></tr>
+ <tr><td>'I'</td><td>Turn back and move one step forward</td></tr>
+
+ <tr><td>'A'</td><td>Move one step forward</td></tr>
+ <tr><td>'B'</td><td>Move two steps forward</td></tr>
+ <tr><td>'C'</td><td>Move three steps forward</td></tr>
+ <tr><td>'D'</td><td>Move four cells forward</td></tr>
+ <tr><td>'E'</td><td>Move five cells forward</td></tr>
+ <tr><td>'F'</td><td>Move six cells forward</td></tr>
+
+ <tr><td>'Z'</td><td>Move one step backward</td></tr>
+ <tr><td>'Y'</td><td>Move two steps backward</td></tr>
+ <tr><td>'X'</td><td>Move three steps backward</td></tr>
+ <tr><td>'W'</td><td>Move four cells backward</td></tr>
+ <tr><td>'V'</td><td>Move five cells backward</td></tr>
+ <tr><td>'U'</td><td>Move six cells backward</td></tr>
+ <tr><td><i>(anything else)</i></td><td>Stop dancing.</td></tr>
+
+</table>
+
+<p>When you program works again, proceed to next exercise.</p>
