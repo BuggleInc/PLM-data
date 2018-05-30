@@ -1,0 +1,27 @@
+public void run() { 
+  int nbBiscuit=0;
+  int nbCase=0;
+  
+  while(!sortieTrouvee()){
+    avance();
+    
+    if (estSurBiscuit()){
+      nbBiscuit++;
+    }
+    
+    nbCase++;
+    
+    if(nbCase == 5 && nbBiscuit>=3){ // gauche
+      gauche();
+      
+    } else if(nbCase==5 && nbBiscuit<=2){ // droite
+      
+      droite();
+    }
+    
+    nbBiscuit = 0;
+    nbCase = 0;
+  }
+  
+  avance();
+}
