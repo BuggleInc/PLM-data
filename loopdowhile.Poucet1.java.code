@@ -11,16 +11,16 @@ public void run() {
     
     	if(nbBiscuit>=3 && nbCase ==5 && !sortieTrouvee()){
       	gauche();
-    	} else {
-        droite();
+    	} else if(nbBiscuit<=2 && nbCase ==5 && !sortieTrouvee()){
+      	droite();
+    	} else if (nbCase ==5 && sortieTrouvee()){
+        if (nbBiscuit<=2){
+          droite();
+        } else {
+          gauche();
+        }
       }
     
-      if(nbBiscuit<=2 && nbCase ==5 && !sortieTrouvee()){
-      	droite();
-    	} else {
-        gauche();
-      } 
-        
     	avance();
     
     	if (nbCase == 5){
