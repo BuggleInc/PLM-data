@@ -8,10 +8,20 @@ public void run() {
     }
     
     if(crossing() && nbBiscuit >=3 && !sortieTrouvee()){
+      gauche();
+      nbBiscuit = 0;
       
     }else if (crossing() && nbBiscuit <=2 && !sortieTrouvee()){
-      
+      droite();
+      nbBiscuit = 0;
     }
+    
+    if(!sortieTrouvee()){
+      avance();
+    } else
+      break;
+    
+    
     
   }while(!crossing())  
   
