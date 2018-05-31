@@ -2,27 +2,29 @@ public void run() {
   int nbBiscuit=0;
   int nbCase=0;
   
-	for (;nbCase<=5;nbCase++){
+  while(!sortieTrouvee()){
+    for (;nbCase<=5;nbCase++){
     
-    if(estSurBiscuit()){
-      nbBiscuit++;
-    }
+    	if(estSurBiscuit()){
+      	nbBiscuit++;
+    	}
     
-		
-    if(nbBiscuit>=3 && nbCase ==5){
-      gauche();
-    } else if(nbBiscuit<=2 && nbCase ==5){
-      droite();
-    }
-    avance();
-    if (nbCase == 5){
-      nbCase = 0;
-      nbBiscuit = 0;
-    }
+    	if(nbBiscuit>=3 && nbCase ==5){
+      	gauche();
+    	} else if(nbBiscuit<=2 && nbCase ==5){
+      	droite();
+    	}
+    
+    	avance();
+    
+    	if (nbCase == 5){
+      	nbCase = 0;
+      	nbBiscuit = 0;
+    	}
+  	}
   }
   
-  
-  
-  
+  droite();
+  avance();
   
 }
