@@ -3,28 +3,26 @@ public void run() {
   int nbCase = 0;
     
   do{
-
-    for (int x = 1;x == 1;x++){
-    	if(estSurBiscuit()){
-      	nbBiscuit++;
-    	}
-      avance();
-    }
-    
-    if(crossing() && nbBiscuit >=3 && !sortieTrouvee()){
-      gauche();
-      nbBiscuit = 0;
-      avance();
-    }else if (crossing() && nbBiscuit <=2 && !sortieTrouvee()){
-      droite();
-      nbBiscuit = 0;
-      avance();
-    }
-    
     if(estSurBiscuit()){
       nbBiscuit++;
     }
     
+    if (nbCase == 0){
+      avance();
+      nbCase = 1;
+    }
+    
+    if(crossing() && nbBiscuit >=3 && !sortieTrouvee()){
+      gauche();
+      nbBiscuit++;
+      avance();
+    }else if (crossing() && nbBiscuit <=2 && !sortieTrouvee()){
+      droite();
+      nbBiscuit++;
+      avance();
+    }
+    
+    nbBiscuit = 0;
 
     
     
