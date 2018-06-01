@@ -1,25 +1,32 @@
-public void run() {
-  int nbBiscuit = 0;
+public void run() { 
+   int nbBiscuit = 0;
   int nbCase = 0;
     
   do{
     
-    if(estSurBiscuit()&&crossing()){
+    for (int x=1;x==1;x++){
+      if(estSurBiscuit()&&crossing()){
       nbBiscuit++;
-    } else if(estSurBiscuit()){
-      nbBiscuit++;
+    	}
     }
     
     avance();
+    
+ 		if(estSurBiscuit()){
+      nbBiscuit++;
+    }
+    
+    
 
-    if(nbBiscuit >=3 && crossing()){
+    if(nbBiscuit >2 && crossing()){
       gauche();
+      nbBiscuit=0;
     } else if(nbBiscuit <=2 && crossing()){
       droite();
+      nbBiscuit=0;
     }
     
     
     
-  }while(!sortieTrouvee()); 
-  
+  }while(!sortieTrouvee());
 }
