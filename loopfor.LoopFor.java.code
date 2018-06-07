@@ -2,14 +2,15 @@ public void run() {
   int nbPas = 0;
   int pasRetour = 0;
   
-	for(;!estSurBiscuit();avance()){ 
-		
-	}
-
-		prendBiscuit();
-
-	for(;estDosMur();recule()){
-    
+  if (!estSurBiscuit()){
+    for(;!estSurBiscuit();nbPas++ ){
+      avance();
+    }
+    	prendBiscuit();
+     
+    for(;nbPas > pasRetour; pasRetour++){
+      recule();
+    }
+    	poseBiscuit();
   }
-		poseBiscuit();
 }
