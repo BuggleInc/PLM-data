@@ -1,12 +1,23 @@
 boolean haveBaggle() {
   boolean vuBiscuit = false;
   
-  if(!vuBiscuit){
-    droite();
-    avance();
-    gauche();
+  for(int x = 0;x<=6;x++){
+    for(int nbPas = 6;nbPas<=6;nbPas++){
+      avance();
+    }
     
-    return false;
-  } else return true;
+    for(int nbPas = 6;nbPas<=6;nbPas++){
+      recule();
+    }
+    if(!vuBiscuit){
+			gauche();
+      avance();
+      droite();
+    	return false;
+      
+  	} else return true;
+  }
+  
+
   
 }
