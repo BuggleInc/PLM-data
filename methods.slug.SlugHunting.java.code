@@ -1,0 +1,20 @@
+public void hunt() {
+    isFacingTrail();
+}
+
+boolean isFacingTrail() {
+	boolean verif = false;
+  
+  avance();
+
+  if(getCouleurSol().equals(Color.green)){
+    if(estFaceMur()){
+      return verif;
+    }
+    recule();
+    verif= true;
+  } else {
+    recule();
+  }
+  return verif;
+}
