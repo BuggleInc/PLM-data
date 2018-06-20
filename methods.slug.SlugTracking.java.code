@@ -1,15 +1,16 @@
 boolean isFacingTrail() {
 	boolean solVert = false;
-  avance();
-  if (getCouleurSol().equals(Color.green)){
-    solVert = true;
+  if (!estFaceMur()){
+  	avance();
+  	if (getCouleurSol().equals(Color.green)){
+	    solVert = true;
+	  }
   }
-  recule();
-  if (solVert == true) {
-    return true;
-  }
-  else {
-    return false;
-  }
-  
+	recule();
+	if (solVert == true) {
+	  return true;
+	}
+	else {
+	  return false;
+	}
 }
