@@ -1,27 +1,32 @@
 boolean haveBaggle() {
-	for (int i=0;i<7;i++){
+	boolean colonne = false;
+  for (int i=0;i<7;i++){
     if (vuBiscuit() == true){
-      return true;
+      colonne = true;
+      break;
     }
-    else {
-      return false;
-    }
+  }
+  if (colonne == true){
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
 boolean vuBiscuit() {
   boolean biscuit = false;
-    gauche();
-    for (int nbPas =0;nbPas<7;nbPas++){
-      avance();
-      if (estSurBiscuit()){
-        biscuit = true;
-      }
-      for (;nbPas>1;nbPas--){
-        recule();
-      }
-     droite(); 
+  gauche();
+  for (int nbPas =0;nbPas<7;nbPas++){
+    avance();
+    if (estSurBiscuit()){
+      biscuit = true;
     }
+    for (;nbPas>1;nbPas--){
+      recule();
+    }
+   droite(); 
+  }
   if(biscuit){
     return true;
   }
