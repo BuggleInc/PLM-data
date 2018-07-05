@@ -1,0 +1,30 @@
+override def run() {
+  def faireV() {
+    avance(2); baisseBrosse(); leveBrosse();
+    gauche(); avance(); droite(); avance(); baisseBrosse(); leveBrosse()
+    avance(); droite(); avance(); baisseBrosse(); leveBrosse();
+    gauche(); avance(2); gauche()
+  }
+  
+  def faireMotif() {
+  	for (i<- 0 to 3) {
+    	faireV()
+  	}
+  }
+  
+  def faireMotifHorizontalement() {
+    for (i<-0 to 8) {
+      faireMotif()
+      avance(7)
+    }
+    recule(9*7)
+    gauche()
+    avance(7)
+    droite()
+  }
+  
+  for(i<-0 to 8) {
+  	faireMotifHorizontalement()
+  }
+
+}
