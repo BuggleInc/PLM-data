@@ -1,0 +1,39 @@
+override def run() {
+  def mettreCouleurOblique(c: Color) {
+    setCouleurBrosse(c)
+    baisseBrosse()
+    leveBrosse()
+    avance()
+    gauche()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    avance()
+  }
+  def faireMotif() {
+    gauche()
+    avance()
+    gauche()
+    gauche()	
+    mettreCouleurOblique(Color.red)
+    mettreCouleurOblique(Color.blue)
+    mettreCouleurOblique(Color.green)
+    mettreCouleurOblique(Color.yellow)
+    avance()
+    gauche()
+    avance(4)
+  }
+  
+  def faireMotifHorizontalement() {
+    faireMotif()
+    faireMotif()
+    recule(8)
+    gauche()
+    avance(4)
+    droite()
+  }
+  
+  faireMotifHorizontalement()
+  faireMotifHorizontalement()
+  
+}
