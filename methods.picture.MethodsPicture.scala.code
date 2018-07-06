@@ -1,0 +1,44 @@
+override def run() {
+  def faireV(c: Color) {
+    setCouleurBrosse(c)
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    avance()
+    gauche()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    recule()
+    droite()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    avance()
+    gauche()
+  }
+  
+  def faireMotif() {
+    faireV(Color.yellow)
+    faireV(Color.red)
+    faireV(Color.blue)
+    faireV(Color.green)
+    avance(5)
+  	}
+  }
+  
+  def faireMotifHorizontalement() {
+    for (i<-1 to 3) {
+      faireMotif()
+    }
+    recule(15)
+    gauche()
+    avance(5)
+    droite()
+  }
+  
+  for(i<-1 to 3) {
+  	faireMotifHorizontalement()
+  }
+
+}
