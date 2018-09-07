@@ -1,0 +1,21 @@
+var vuBiscuit = false
+
+def haveBaggle():Boolean = {
+  for(compteur <- 1 to 7){
+    for(compteur2 <- 1 to 6){
+      avance()
+      if(estSurBiscuit()){
+        vuBiscuit = true
+      }
+    }
+    for(compteur3 <- 1 to 6){
+      recule()
+    }
+    if(vuBiscuit){
+      return oui
+    }
+    droite()
+    avance()
+    gauche()
+  }
+}
