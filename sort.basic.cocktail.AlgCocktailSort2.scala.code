@@ -1,0 +1,21 @@
+var condition = false
+var debut = 0
+var fin = getNombreValeurs() -2
+def cocktailSort2() {
+  do{
+    condition = false
+    for(i <- debut to fin){
+      if(plusPetit(i+1,i)){
+      	echange(i+1,i)
+        condition = true}
+      fin=fin-1
+    }
+    for(j <- fin to debut by -1){
+      if(plusPetit(j+1,j)){
+      	echange(j,j+1)
+      	condition = true}
+      debut=debut+1
+    }
+  }while(condition)
+  return
+}
