@@ -1,0 +1,40 @@
+override def run() {
+  
+  def carreGris(){
+    baisseBrosse() ; leveBrosse()
+  }
+  
+  def faireV(){
+    avance() ; avance()
+    carreGris()
+    avance() ; gauche() ; avance()
+    carreGris()
+    recule() ; droite() ; avance()
+    carreGris()
+    avance() ; avance() ; gauche()
+  }
+  
+  def oneThird(){
+    for (k <- 1 to 4){
+      faireV()
+    }
+    for (k <- 1 to 7){
+      avance()
+    }  
+  }
+  def line(){
+    for (k <- 1 to 9){
+      oneThird()
+    }
+    gauche() 
+    for (k <- 1 to 7){
+      avance()
+    }
+    droite()
+  }
+  
+  for (k <- 1 to 9){
+    line()
+  }
+  
+}
