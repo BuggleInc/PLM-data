@@ -1,6 +1,10 @@
 def isFacingTrail():Boolean = {
     while(!isOverBaggle){
-      forward();
+      if(!isFacingWall()){
+        forward();
+      }else{
+        left();
+      }
       var x= getGroundColor
       if(x!=Color.green){
         backward();
@@ -8,7 +12,7 @@ def isFacingTrail():Boolean = {
         
       }
     }
-  if(isOverBaggle){
+  if(isOverBaggle()){
     pickupBaggle();
   }
 }
