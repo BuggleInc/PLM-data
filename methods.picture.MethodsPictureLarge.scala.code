@@ -1,0 +1,54 @@
+override def run() {
+var x=0
+var y=0
+var z=0
+  for (x<-0 to 8){
+    ligneV();
+    changeLigne();
+  }}
+def fourV(){ 
+  makeV(Color.YELLOW);
+  makeV(Color.RED);
+  makeV(Color.BLUE);
+  makeV(Color.GREEN);
+}
+    
+def makeV(c:Color) {
+    setBrushColor(c:Color);
+    forward();
+  	brushDown();
+    brushUp();
+    left();
+    forward();
+    right();
+    forward();
+    brushDown();
+    brushUp();
+    forward();
+    right();
+    forward();
+    brushDown();
+    brushUp();
+    left();
+    forward();
+    left();
+}
+    
+ def ligneV(){
+   for(z<-0 to 8){
+     fourV();
+     for(x<- 0 to 4){
+       forward();
+     }
+   }
+}
+   
+     
+ def changeLigne(){
+   left();
+   for(y<-0 to 4){
+     forward();
+     }
+   right();
+   
+ }
