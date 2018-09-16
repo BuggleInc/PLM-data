@@ -1,7 +1,32 @@
 def growFlowers(){
+  faitFleur(Color.RED,Color.YELLOW)
+  avance() ; avance()
+  faitFleur(Color.CYAN,Color.YELLOW)
   
+  droite() ; avance() ; avance() ; droite() // placement au centre
+  avance() ; avance() ; avance() ; avance()
+  droite() ; droite()// fin placement au centre
+  
+  faitFleur(Color.ORANGE,Color.YELLOW)
+  avance() ; avance() ; avance()
+  droite() ; avance() ; avance() ; gauche()// en bas ? gauche
+  faitFleur(Color.PINK,Color.YELLOW)
+  
+  avance() ; avance()
+  faitFleur(Color.GREEN,Color.YELLOW)
+  avance()
 }
 
-def test(){
-  avance()
+
+def peintSol(c:Color){ // color une case
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+}
+
+def faitFleur(petale:Color, centre:Color){ //commence ? gauche et finit ? droite
+  peintSol(petale) ; avance() ; peintSol(centre)
+  gauche() ; avance() ; peintSol(petale)
+  recule() ; recule() ; peintSol(petale)
+  avance() ; droite() ; avance() ; peintSol(petale)
 }
