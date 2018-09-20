@@ -7,6 +7,12 @@ def cocktailSort2() {
     aBouger = false
     
     for (k <- debut to fin){
+      if (plusPetit(k, k+1) == false){
+        echange(k,k+1)
+        aBouger = true
+      } fin = fin - 1
+    }
+    for (k <- debut to fin){
       var i : Int = fin - k
       if (plusPetit(i, i+1) == false){
         echange(i,i+1)
@@ -14,14 +20,5 @@ def cocktailSort2() {
       }
      debut = debut + 1
     }
-    
-    for (k <- debut to fin){
-      if (plusPetit(k, k+1) == false){
-        echange(k,k+1)
-        aBouger = true
-      }
-     fin = fin - 1
-    }
-    
   }
 }
