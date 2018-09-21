@@ -2,13 +2,19 @@ def insertionSort() {
   var n: Int = getNombreValeurs()
   var v: Int = 0
   var j: Int = 0
+  var doubleCondition: Boolean = false
   
   for (i <- 1 to n-1){
     v = getValeur(i)
     j = i
-    while ( v > getValeur(j-1)){
-      setValeur(j, getValeur(j-1))
-      j = j - 1
+    while ( doubleCondition == false){
+      doubleCondition == true
+      if (j > 0){
+      	if (v > getValeur(j-1)){
+      		setValeur(j, getValeur(j-1))
+      		j = j - 1
+        }
+      }
     }
     setValeur(j,v)
   }
