@@ -2,21 +2,11 @@ override def run() {
   
   
   while (estSurBiscuit == false){
+    avance()
     gauche()
-    if (estFaceMur() == true){
-      droite()
-      if (estFaceMur() == false){
-        avance()
-        gauche()
-        while (estFaceMur() == false){
-          avance()
-          gauche()
-        droite()
-        }
-      }
-      else{
-        droite()
-      }
+    while(estFaceMur == false){
+      avance()
+      gauche()
     }
   }
   prendBiscuit()
