@@ -1,0 +1,13 @@
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+  if (steps==0)
+  	penUp()
+  else :
+  	forward(length)
+  	right(angle)
+    tree(steps-1,length*shrink,angle,shrink)
+  	backward(length*shrink)
+  	left(2*angle)
+  	tree(steps-1,length*shrink,angle,shrink)
+  	backward(length*shrink)
+  	
+}
