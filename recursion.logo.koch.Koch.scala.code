@@ -9,6 +9,9 @@ def snowFlake (levels:Int, length:Double) {
     right(120);
 }
 def snowSide(levels:Int, length:Double) {
-  forward(length/(levels*2+1));
-
+  while(levels!=0){
+  	forward(length/(levels*2+1));
+  	left(60);
+  	snowside(levels-1,length);
+  }
 }
