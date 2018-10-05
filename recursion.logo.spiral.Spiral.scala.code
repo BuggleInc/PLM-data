@@ -1,10 +1,13 @@
 def spiral(steps:Int, angle:Int, length:Int, increment:Int)    {
   if (steps == 0){
-    avance(0)
+    
   }
   else{
-    spiral(steps-1,angle,length+3,3)
+    avance(length)
+    droite(angle)
+    spiral(steps-1,90,length+3,increment)
+    
   }
 }
 
-spiral(10,90,12,3)
+spiral(10,90,0,3)
