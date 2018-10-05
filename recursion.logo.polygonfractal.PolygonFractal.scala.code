@@ -7,7 +7,7 @@ def polygonFractal (levels:Int, sides:Int, length:Double, shrink:Double) {
   }
   else {
     for (i<-1 to sides){
-      sierpinski(levels-1, length*shrink)
+      polygonFractal(levels-1, sides, length*shrink, shrink)
       avance(length)
       right(360/sides)
     }
