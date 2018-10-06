@@ -1,5 +1,5 @@
 override def run() {
-  faireDess(Color.BLUE)
+  motif()
 }
 
 def dessine(){
@@ -8,16 +8,19 @@ def dessine(){
 }
 
 def faireDess(c:Color){
-  avance(2)
+  avance()
   setCouleurBrosse(c)
   dessine()
   avance()
   left()
   avance()
   dessine()
-  droite()
+}
+
+def motif(){
   avance()
-  droite()
-  avance()
-  left()
+  faireDess(Color.BLUE)
+  faireDess(Color.GREEN)
+  faireDess(Color.YELLOW)
+  faireDess(Colors.RED)
 }
