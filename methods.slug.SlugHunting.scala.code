@@ -1,21 +1,40 @@
-def hunt() {
+def hunt(){
   var bis:Boolean = false
   while(bis==false){
-    if(estSurBiscuit()){
-      bis=true
-      break;
-    	}
-    if(bis==false){
-  		while(isFacingTrail()){
-        	baisseBrosse()
-    			avance()
-    			leveBrosse()
+    if(isFacingTrail()){
+      baisseBrosse()
+      avance()
+      leveBrosse()
+      if(estSurBiscuit()){
+        bis=true
       }
+    }
+    else{
       left()
-  	}
+      if(isFacingTrail()){
+      	baisseBrosse()
+      	avance()
+      	leveBrosse()
+      	if(estSurBiscuit()){
+        	bis=true
+      	}
+      }
+      else{
+        left()
+        left()
+        if(isFacingTrail()){
+      		baisseBrosse()
+      		avance()
+      		leveBrosse()
+      		if(estSurBiscuit()){
+        		bis=true
+      		}
+        }
+      }
+    }
   }
   prendBiscuit()
-	}
+}
 
 def isFacingTrail():Boolean = {
   if(estFaceMur()){
