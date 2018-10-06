@@ -1,0 +1,23 @@
+override def run() {
+  var cpt = 0
+  ecritMessage(cpt.toString)
+  while(!estPosFinale()){
+    if(getX()==6){
+      setPos(0,getY()+1)
+    }
+    else{
+      setPos(getX()+1,getY)
+    }
+    cpt += 1
+    ecritMessage(cpt.toString)
+  }
+}
+
+def estPosFinale():Boolean = {
+  if(getX()==getMondeLargeur()-1 && getY()==getMondeHauteur-1){
+    return true
+  }
+  else{
+    return false
+  }
+}
