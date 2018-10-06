@@ -1,0 +1,19 @@
+override def run() {
+  while(!estPosFinale()){
+    if(getY()==6){
+      setPos(GetX()+1,0)
+    }
+    else{
+      setPos(GetX(),GetY+1)
+    }
+  }
+}
+
+def estPosFinale():Boolean = {
+  if(getX()==getMondeLargeur() && getY()==getMondeHauteur){
+    return true
+  }
+  else{
+    return false
+  }
+}
