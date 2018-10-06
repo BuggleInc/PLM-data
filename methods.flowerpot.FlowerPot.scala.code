@@ -1,0 +1,37 @@
+def growFlowers{
+  avance()
+  Fleur(Color.RED)
+  avance(4)
+  Fleur(Color.CYAN)
+  droite()
+  avance(2)
+  droite()
+  avance(2)
+  Fleur(Color.ORANGE)
+  left()
+  avance(2)
+  left()
+  avance(2)
+  Fleur(Color.GREEN)
+  recule(4)
+  Fleur(Color.PINK)
+  recule()
+  
+}
+
+def dessine(){
+  baisseBrosse()
+  leveBross()
+}
+
+def Fleur(c:Color){
+  setCouleurBrosse(Color.YELLOW)
+  dessine()
+  SetCouleurBrosse(c)
+  for(i <- 1 to 4){
+    avance()
+    dessine()
+    recule()
+    left()
+  }
+}
