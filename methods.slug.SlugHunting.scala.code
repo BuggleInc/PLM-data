@@ -1,16 +1,16 @@
 def hunt() {
-  var bis = 0
   while(bis==0){
-  	while(isFacingTrail()){
-    	baisseBrosse()
-    	avance()
-      if(estSurBiscuit()){
-        bis = 1
-        prendBiscuit()
-      }
-    	leveBrosse()
-  	}
-  	left()
+  while(isFacingTrail()){
+    if(estSurBiscuit()){
+      bis = 1
+      prendBiscuit()
+      return
+    }
+    baisseBrosse()
+    avance()
+    leveBrosse()
+  }
+  left()
   }
 }
 
