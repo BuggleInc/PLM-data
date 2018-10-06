@@ -11,7 +11,7 @@ def hunt(c:Color){
     }
     else{
       left()
-      if(isFacingTrail()){
+      if(isFacingTrail(c)){
       	baisseBrosse()
       	avance()
       	leveBrosse()
@@ -22,7 +22,7 @@ def hunt(c:Color){
       else{
         left()
         left()
-        if(isFacingTrail()){
+        if(isFacingTrail(c)){
       		baisseBrosse()
       		avance()
       		leveBrosse()
@@ -36,7 +36,7 @@ def hunt(c:Color){
   prendBiscuit()
 }
 
-def isFacingTrail(c):Boolean = {
+def isFacingTrail(c:Color):Boolean = {
   if(estFaceMur()){
     return false
   }
