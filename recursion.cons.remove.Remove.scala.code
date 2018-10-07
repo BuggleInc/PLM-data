@@ -3,9 +3,9 @@ def remove(l:List[Int], v:Int): List[Int] = {
     return(Nil);
   }else{
     if (v==0){
-      return((l.tail).tail);
+      return(l.tail);
     }else{
-      return(remove(l.tail,v-1));
+      return(l.head::remove(l.tail,v-1));
     }
   }
 }
