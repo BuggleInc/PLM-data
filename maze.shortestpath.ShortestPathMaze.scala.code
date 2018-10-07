@@ -1,4 +1,8 @@
 override def run() {
+  avance()
+}
+
+def getSortie():Array[Int]={
   var xb = 0
   var yb = 0
   for(x <- 0 to getMondeLargeur-1){
@@ -8,6 +12,37 @@ override def run() {
         yb = y
         setIndication(x,y,0)
       }
+    }
+  }
+  return Array(xb,yb)
+}
+
+def marque(inc:Int,pos:Array[int]){
+  xi = pos[0]
+  yi = pos[1]
+  for(x <- xi-1 to xi+1){
+    for(y <- yi-1 to yi+1){
+      if(x==xi-1 && y==yi-1){
+        if((!aMurNord(xi,yi)&&!aMurOuest(x,y))||(!aMurNord(xi-1,yi)&&!aMurOuest(xi-1,yi))){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi && y==yi-1){
+        if(!aMurNord(xi,yi)){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi+1 && y==yi-1){
+        if((!aMurNord(xi,yi)&&!aMurOuest(xi,y))||(!aMurNord(xi+1,yi)&&!aMurOuest(xi,yi))){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi-1 && y==yi){
+        if(!aMurOuest(x,y)){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi+1 && y==yi)
     }
   }
 }
