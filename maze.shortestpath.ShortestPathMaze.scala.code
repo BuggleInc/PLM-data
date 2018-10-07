@@ -1,5 +1,19 @@
 override def run() {
   var Sortie=getSortie()
+  var all=0
+  while(all==0){
+    all=1
+    for(x <- 0 to getMondeLargeur()-2){
+      for(y <- 0 to getMondeHauteur()-2){
+        if(getIndication(x,y)!=9999){
+          marque(getIndication(x,y),x,y)
+        }
+        else{
+          all=0
+        }
+      }
+    }
+  }
 }
 
 def getSortie():Array[Int]={
