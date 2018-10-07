@@ -1,4 +1,21 @@
-override def run() {
+override def run(){
+  while(getY()!=0){
+    SuivreMurTrouverNord()
+  }
+  SuivreMur()
+}
+
+def SuivreMurTrouverNord(){
+  setDirection(Direction.NORTH)
+  if(estFaceMur()){
+    keepHandOnSideWall()
+  }
+  else{
+    avance()
+  }
+}
+
+def SuivreMur() {
   var bis = 0
   while(bis==0){
     keepHandOnSideWall()
