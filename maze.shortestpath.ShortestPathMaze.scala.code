@@ -42,7 +42,26 @@ def marque(inc:Int,pos:Array[int]){
           setIndication(x,y,inc+1)
         }
       }
-      if(x==xi+1 && y==yi)
+      if(x==xi+1 && y==yi){
+        if(!aMurOuest(xi,yi)){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi-1 && y==yi+1){
+        if((!aMurNord(x,y)&&!aMurOuest(x,yi))||(!aMurOuest(x,y)&&!aMurNord(xi,y))){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi && y=yi+1){
+        if(!aMurNord(x,y)){
+          setIndication(x,y,inc+1)
+        }
+      }
+      if(x==xi+1 && y==yi+1){
+        if((!aMurNord(x,y)&&!aMurOuest(xi,yi))||(!aMurOuest(x-1,y)&&!aMurNord(x-1,y))){
+          setIndication(x,y,inc+1)
+        }
+      }
     }
   }
 }
