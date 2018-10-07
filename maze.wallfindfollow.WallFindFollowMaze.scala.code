@@ -1,0 +1,45 @@
+override def run() {
+  var bis = 0
+  while(bis==0){
+    keepHandOnSideWall()
+    if(estSurBiscuit()){
+      prendBiscuit()
+      bis=1
+    }
+  }
+}
+
+def keepHandOnSideWall(){
+  while(estFaceMur()){
+    droite()
+  }
+  cas() match{
+    case 1 => avance()
+    case 2 => avance();left();avance()
+    case 3 => avance();left();avance();left();avance()
+  }
+}
+
+def cas():Int = {
+  avance()
+  left()
+  if(estFaceMur()){
+    droite()
+    recule()
+    return 1
+  }
+  avance()
+  left()
+  if(estFaceMur()){
+    droite()
+    recule()
+    droite()
+    recule()
+    return 2
+  }
+  droite()
+  recule()
+  droite()
+  recule()
+  return 3
+}
