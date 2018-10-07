@@ -1,10 +1,16 @@
 override def run() {
   var bis=0
+  var a = 0
   while(bis==0){
-    random3() match{
-      case 0 => droite()
-      case 1 => left()
-      case 2 => avance() if(!estFaceMur())
+    a = random3()
+    if(a==0){
+      droite()
+    }
+    if(a==1){
+      gauche()
+    }
+    if(a==2 && !estFaceMur()){
+      avance()
     }
     if(estSurBiscuit()){
       prendBiscuit()
