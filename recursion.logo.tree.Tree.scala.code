@@ -4,8 +4,9 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     forward(length);
     right(angle) ;
     tree(steps-1,length*shrink,angle,shrink);
-    left(angle);
+    left(2*angle);
     backward(length);
+    tree(steps-1,length*shrink,angle,shrink)
    
     
   }
