@@ -1,6 +1,32 @@
 Erreur de compilation :
-Tree:15: error: value - is not a member of Unit
-    tree(current(steps)-1.0, length*shrink, angle, shrink); //faire le sous arbre
-                       ^Tree:20: error: value - is not a member of Unit
-    tree(current(steps)-1.0, length*shrink, angle, shrink);
-                       ^
+Tree:15: error: type mismatch;
+ found   : steps.type (with underlying type Int)
+ required: ?{def -(x$1: ? >: Double(1.0)): ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method int2long in object Int of type (x: Int)Long
+ and method int2float in object Int of type (x: Int)Float
+ are possible conversion functions from steps.type to ?{def -(x$1: ? >: Double(1.0)): ?}
+    tree(steps-1.0, length*shrink, angle, shrink); //faire le sous arbre
+         ^Tree:15: error: overloaded method value - with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Double)
+    tree(steps-1.0, length*shrink, angle, shrink); //faire le sous arbre
+              ^Tree:20: error: type mismatch;
+ found   : steps.type (with underlying type Int)
+ required: ?{def -(x$1: ? >: Double(1.0)): ?}
+Note that implicit conversions are not applicable because they are ambiguous:
+ both method int2long in object Int of type (x: Int)Long
+ and method int2float in object Int of type (x: Int)Float
+ are possible conversion functions from steps.type to ?{def -(x$1: ? >: Double(1.0)): ?}
+    tree(steps-1.0, length*shrink, angle, shrink);
+         ^Tree:20: error: overloaded method value - with alternatives:
+  (x: Int)Int <and>
+  (x: Char)Int <and>
+  (x: Short)Int <and>
+  (x: Byte)Int
+ cannot be applied to (Double)
+    tree(steps-1.0, length*shrink, angle, shrink);
+              ^
