@@ -6,23 +6,26 @@ def retourEnPlace(length:Double, angle:Double) {
   baisseCrayon();
 }
 
-def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+def subTree(steps:Int, length:Double, angle:Double, shrink:Double, gauche:Boolean)    {
+  
 	if (steps==0) {
-    droite(angle);
-    
+    retourEnPlace(length, angle);
   }
-  else{
-    
+  else if (gauche = true){
+    gauche(angle); //viser gauche 
   	avance(length); //tronc
     
-    gauche(angle); //viser gauche 
-    tree(steps-1, length*shrink, angle, shrink); //faire le sous arbre
+    subTree(steps-1, length*shrink, angle, shrink); //faire le sous arbre
+  else {
+    avance(length); //tronc
     
-    droite(2*angle);
-    
-    tree(steps-1, length*shrink, angle, shrink);
-    gauche(angle);
-    
-		retourEnPlace(length,angle);
+    droite(angle); //viser droite 
+    subTree(steps-1, length*shrink, angle, shrink, false); //faire le sous arbre
   }
+
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	subTree(steps, length, angle, shrink, true);
+  subTree(steps, length, angle, shrink, false);
+}
+  
 }
