@@ -1,10 +1,12 @@
 def retourEnPlace(length:Double, angle:Double) {
+  droite(angle);
   leveCrayon();
   gauche(180);
   avance (length);
   gauche(180-angle)
   baisseCrayon();
 }
+
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
 	if (steps!=0) {
   	avance(length);
@@ -14,7 +16,8 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
     droite(angle);
     tree(steps-1, length*shrink, angle, shrink);
 		retourEnPlace(length,angle);
-  } 
-  
-  
+  }
+  else {
+    //rien
+  }
 }
