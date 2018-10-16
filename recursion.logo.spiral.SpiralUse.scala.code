@@ -1,3 +1,22 @@
 override def run() {
-    spiral(100,91,1,2);
+    def retourEnPlace(length:Double, angle:Double) {
+  leveCrayon();
+  gauche(180);
+  avance (length);
+  gauche(180-angle)
+  baisseCrayon();
+}
+def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
+	if (steps!=0) {
+  	avance(length);
+    gauche(angle);
+    tree(steps-1, length*shrink, angle, shrink);
+    retourEnPlace(length, angle);
+    droite(angle);
+    tree(steps-1, length*shrink, angle, shrink);
+		retourEnPlace(length,angle);
+  } 
+  
+  
+};
 }
