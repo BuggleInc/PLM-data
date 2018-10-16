@@ -7,16 +7,16 @@ def retourEnPlace(length:Double, angle:Double) {
 }
 
 def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
-	if (steps!=0) {
+	if (steps==0) {
+    retourEnPlace(length, angle)
+  }
+  else{
     
   	avance(length); //tronc
     
     gauche(angle); //viser gauche 
     tree(steps-1, length*shrink, angle, shrink); //faire le sous arbre
-    droite(angle);
-    retourEnPlace(length, angle);
-    
-    droite(angle);
+    droite(2*angle);    
     tree(steps-1, length*shrink, angle, shrink);
     gauche(angle);
 		retourEnPlace(length,angle);
