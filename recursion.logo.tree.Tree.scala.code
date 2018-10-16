@@ -12,12 +12,12 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   	avance(length); //tronc
     
     gauche(angle); //viser gauche 
-    tree(steps-1, length*shrink, angle, shrink); //faire le sous arbre
+    tree(current(steps)-1, length*shrink, angle, shrink); //faire le sous arbre
     droite(angle);
     retourEnPlace(length, angle);
     
     droite(angle);
-    tree(steps, length*shrink, angle, shrink);
+    tree(current(steps)-1, length*shrink, angle, shrink);
     gauche(angle);
 		retourEnPlace(length,angle);
   }
