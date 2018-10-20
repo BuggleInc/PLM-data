@@ -2,13 +2,12 @@ def tree(steps:Int, length:Double, angle:Double, shrink:Double)    {
   if(steps==0){
     return
   }
-  baisseCrayon()
   current(steps)
   avance(length)
   droite(angle)
-  subtree(steps,length,angle,shrink)
+  tree(steps-1,length*shrink,angle,shrink)
   gauche(angle)
   gauche(angle)
-  subtree(steps,length,angle,shrink)
+  tree(steps-1,length*shrink,angle,shrink)
   recule(length)
 }
