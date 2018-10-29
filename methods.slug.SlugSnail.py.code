@@ -9,14 +9,27 @@ def isFacingTrail(color):
     return cherche()==color
   return False
   
+def devantBiscuit() :
+  avance()
+  if estSurBiscuit() :
+    recule()
+    return True
+  recule()
+ 	return False
+
 def hunt(color) :
   leveBrosse()
-  if isFacingTrail(color) :
-  	avance()
-    baisseBrosse()
+  
+  if not devantBiscuit() :
+  
+  	if isFacingTrail(color) :
+      avance()
+    	baisseBrosse()
+  	else :
+    	left()
+  
   else :
-    left()
-    
+    avance()
     
 # recup premiere couleur :  
 coulTrace=cherche()
