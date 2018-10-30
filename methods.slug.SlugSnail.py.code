@@ -11,11 +11,10 @@ def isFacingTrail(color):
   
 
 def hunt(color) :
+  leveBrosse()
+
   if isFacingTrail(color) :
   	avance()
-    if not estSurBiscuit() :
-      baisseBrosse()
-    	leveBrosse()
   else :
    	left()
     
@@ -23,13 +22,8 @@ def hunt(color) :
 # recup premiere couleur :  
 coulTrace=cherche()
 
-gagne=False
-
-while not gagne :
-  if not estSurBiscuit() :
+while not estSurBiscuit() :
   	hunt(coulTrace)
+    baisseBrosse()
 	else :
-    gagne=True
     prendBiscuit()
-
-
