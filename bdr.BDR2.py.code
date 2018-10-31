@@ -2,29 +2,33 @@ fini=False
 
 while not fini :
 
+  # variable de nombre de pas :
+  pas=0
+  
 	if estSurMessage():
 		msg=litMessage()
 	
-		if msg=="R" :
-			right()
-			avance()
-		if msg=="L" :
-			left()
-			avance()
-		if msg=="I" :
-			droite(2)
-			avance()
-		if msg=="E" :
-			avance(5)
-		if msg=="B" :
-			avance(2)
-		if msg=="C" :
-			avance(3)
-		if msg=="Z" :
-			recule()
-		if msg=="Y" :
-			recule(2)
-		if msg=="X" :
-			recule(3)
+  	if msg in ("R","L","I","A","Z") :
+      pas=1
+    if msg in ("B","Y") :
+      pas=2
+    if msg in ("C","X") :
+      pas=3
+    if msg in ("D","W") :
+      pas=4
+    if msg in ("E","V") :
+      pas=5
+    if msg in ("F","U") :
+      pas=6
+  
+  	if msg in ("A","B","C","D","E"):
+      avance(pas)
+    if msg in ("U","V","W","X","Y","Z") :
+      recule(pas)
+    if msg == "I" :
+      left(2)
+      avance(pas)
+    
+		
 	else :
 		fini=True
