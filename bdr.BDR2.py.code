@@ -1,5 +1,11 @@
-def calcule_pas(msg):
-  	pas=0
+fini=False
+
+while not fini :
+
+  
+	if estSurMessage():
+		msg=litMessage()
+    pas=0
     if msg in ("R","L","I","A","Z") :
         pas=1
       elif msg in ("B","Y") :
@@ -12,20 +18,7 @@ def calcule_pas(msg):
         pas=5
       elif msg in ("F","U") :
         pas=6  
-		return pas
-  
-
-
-
-
-fini=False
-
-while not fini :
-
-  
-	if estSurMessage():
-		msg=litMessage()
-		pas=calcule_pas(msg)
+		
     if msg in ("A","B","C","D","E"):
       avance(pas)
       elif msg in ("U","V","W","X","Y","Z") :
