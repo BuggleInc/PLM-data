@@ -26,11 +26,12 @@ def hunt(color) :
   
 # recup premiere couleur :  
 coulTrace=cherche()
+gagne=False
 
-while not estSurBiscuit() :
+while not estSurBiscuit() or not gagne:
   	hunt(coulTrace)
     if estSurBiscuit() :
-      prendBiscuit()
+      gagne=True
     
 if estSurBiscuit():
   prendBiscuit()
