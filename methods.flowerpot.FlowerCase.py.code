@@ -1,0 +1,65 @@
+def marque(c) :
+  '''
+  Colorie en couleur c
+  '''
+  
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+
+def fleur(petale, centre=Color.YELLOW) :
+  '''
+  Dessine fleur de centre jaune par d?faut
+  '''
+  # relev? position initiale
+  x=getX()
+  y=getY()
+  dir=getDirection()
+  
+  marque(petale)
+  avance()
+  marque(centre)
+  avance()
+  marque(petale)
+  left()
+  avance()
+  left()
+  avance()
+  left()
+  marque(petale)
+  avance()
+  avance()
+  marque(petale)
+  
+  # retour position initiale
+  setPos(x,y)
+  setDirection(dir)
+  
+
+def growFlowers():
+  
+    rouge=Color.RED
+    rose=Color.PINK
+    cyan=Color.CYAN
+    orange=Color.ORANGE
+    vert=Color.GREEN
+    jaune=Color.YELLOW
+		bleu=Color.BLUE
+    
+        
+    setPos(7,4)
+    fleu(bleu)
+    setPos(1,0)
+    fleur(rouge)
+		setPos(5,2)
+    fleur(cyan)
+    setPos(3,4)
+    fleur(orange)
+    setPos(5,6)
+    fleur(vert)
+    setPos(1,6)
+    fleur(rose)
+    
+    
+    
+    
