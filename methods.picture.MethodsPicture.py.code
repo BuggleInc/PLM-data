@@ -1,0 +1,54 @@
+def marquer(couleur):
+  setCouleurBrosse(couleur)
+  baisseBrosse()
+  leveBrosse()
+  
+def faireV(couleur):
+  marquer(couleur)
+  
+  left()
+  avance()
+  right()
+  avance()
+  
+  marquer(couleur)
+  
+  avance()
+  right()
+  avance()
+  
+  marquer(couleur)  
+  left()
+  
+  
+def faireMotif():
+  for i in range(4):
+    for j in range(2):
+      avance()
+    faireV()
+    for j in range(2):
+      avance()
+    left()
+
+
+def ligne(n) :
+  '''
+  repete le motif sur n colonnes
+  '''
+  for j in range(n) :
+    faireMotif()
+    for k in range(7) :
+      avance()
+
+      
+def colonne(n) :
+  '''
+  Repete une ligne n fois
+  '''
+  for i in range(n) :
+  	faireMotif()
+  left()
+  avance(7)
+  right()
+    
+colonne(3)
