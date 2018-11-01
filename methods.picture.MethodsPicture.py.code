@@ -4,6 +4,8 @@ def marquer(couleur):
   leveBrosse()
   
 def faireV(couleur):
+  # ici avance de 1 car 5 de largeur de carr? : minimum
+  avance()
   marquer(couleur)
   
   left()
@@ -19,14 +21,17 @@ def faireV(couleur):
   
   marquer(couleur)  
   left()
+  avance()
+  left()
   
   
 def faireMotif():
-  for i in range(4):
-    avance()
-    faireV(Color.green)
-    avance()
-    left()
+  
+    faireV(Color.YELLOW)
+    faireV(Color.RED)
+    faireV(Color.BLUE)
+  	faireV(Color.GREEN)
+  
 
 
 def ligne(n) :
@@ -39,7 +44,7 @@ def ligne(n) :
       avance()
 
       
-def colonne(n) :
+def carre(n) :
   '''
   Repete une ligne n fois
   '''
@@ -50,4 +55,4 @@ def colonne(n) :
     	avance()
   	right()
     
-colonne(3)
+carre(3)
