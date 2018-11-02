@@ -3,16 +3,19 @@ def ecrit(posY,debut,l,p=True) :
   Fonction qui ecrit le numero de case sur la largeur l ? la ligne posY donn?e
   Si p, on va de gauche ? droite, sinon de droite ? gauche
   '''
+  msg=debut
   
   if p :
     for i in range(l):
       setPos(i,posY)
-      ecritMessage(debut+=1)
+      ecritMessage(msg)
+      msg+=1
 
   else :
     for i in range(6,-1,-1):
       setPos(i,posY)
-      ecritMessage(debut+=1)
+      ecritMessage(msg)
+      msg+=1
 
 
 # Saisie des dimensions de la grille :
