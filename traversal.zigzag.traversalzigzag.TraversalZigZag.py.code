@@ -2,8 +2,8 @@ def arrive(x,y):
   return x==largeur-1 and y==hauteur-1
 
 # Saisie des dimensions de la grille :
-hauteur=getMondeHauteur()
-largeur=getMondeLargeur()
+hauteur = getMondeHauteur()
+largeur = getMondeLargeur()
 
 
 # coordonn?es initiales du buggle :
@@ -18,11 +18,18 @@ if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
   
 
 num_case = 0
+i = 0
 
 while not arrive(getX(),getY()):
-  for i in range(7):
-    for j in range (7) :
+  
+  
+  for j in range (7) :
+    setPos(j,i)
+    ecritMessage(num_case)
+    num_case += 1
+  i+=1
+  for j in range(7,-1):
+    setPos(j,i)
+    ecritMessage(num_case)
+    num_case += 1
     
-    	setPos(j,i)
-      ecritMessage(num_case)
-      num_case += 1
