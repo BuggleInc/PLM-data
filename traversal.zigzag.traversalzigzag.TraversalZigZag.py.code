@@ -1,21 +1,22 @@
-def ecrit(posY,debut,l,p=True) :
+def ecrit(posY,debut,l,inv=False) :
   '''
   Fonction qui ecrit le numero de case sur la largeur l ? la ligne posY donn?e
-  Si p, on va de gauche ? droite, sinon de droite ? gauche
+  Si reverse, on va de droite ? gauche
   '''
   msg=debut
   
-  if p :
-    for i in range(l):
+  if inv :
+    for i in range(l-1,-1,-1):
       setPos(i,posY)
       ecritMessage(msg)
       msg+=1
 
   else :
-    for i in range(l-1,-1,-1):
+    for i in range(l):
       setPos(i,posY)
       ecritMessage(msg)
       msg+=1
+
 
 
 # Saisie des dimensions de la grille :
@@ -35,13 +36,14 @@ if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
   
 
 num_case = 0
-sens=False # sens de parcours
+reverse = False # sens de parcours
 
 for y in range(hauteur) :
-
-	if y%2 == 0 : # parcours gauche vers droite
-    sens=True
+	if y%2 != 0 : # parcours droite vers gauche
+    reverse = True
+  else :
+    reverse = False
   
-  ecrit(y,num_case,largeur, sens)  
+  ecrit(y,num_case,largeur, reverse)  
 	num_case += largeur
 
