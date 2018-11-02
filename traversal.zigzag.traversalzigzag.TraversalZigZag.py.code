@@ -1,8 +1,10 @@
+def arrive(case, taille) :
+  return case==taille
 
 # Saisie des dimensions de la grille :
 hauteur = getMondeHauteur()
 largeur = getMondeLargeur()
-
+maxi = hauteur * largeur -1
 
 # coordonn?es initiales du buggle :
 x_ini = getX()
@@ -18,7 +20,7 @@ if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
 num_case = 0
 i = 0
 
-while num_case < hauteur*largeur - 1:
+while not arrive(num_case, maxi):
   
   
   for j in range (7) :
