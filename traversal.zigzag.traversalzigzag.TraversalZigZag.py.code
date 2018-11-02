@@ -1,22 +1,37 @@
-def ecrit(posY,debut,l,inv=False) :
+def ecrit(posY,num,l,inv=False) :
   '''
   Fonction qui ecrit le numero de case sur la largeur l ? la ligne posY donn?e
   Si reverse, on va de droite ? gauche
   '''
-  msg=debut
+
+  debut=0
+  fin=l
+  pas=1
   
   if inv :
+    debut = l-1
+    fin = -1
+    pas = -1
+  
+  for i in range(debut, fin, pas) :
+    	setPos(i,posY)
+      ecritMessage(num)
+      num+=1
+
+  
+  '''
     for i in range(l-1,-1,-1):
       setPos(i,posY)
-      ecritMessage(msg)
-      msg+=1
+      ecritMessage(num)
+      num+=1
 
   else :
     for i in range(l):
       setPos(i,posY)
-      ecritMessage(msg)
-      msg+=1
-
+      ecritMessage(num)
+      num+=1
+	
+  '''
 
 
 # Saisie des dimensions de la grille :
