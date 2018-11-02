@@ -1,0 +1,28 @@
+# Saisie des dimensions de la grille :
+hauteur=getMondeHauteur()
+largeur=getMondeLargeur()
+
+
+# coordonn?es initiales du buggle :
+x_ini = getX()
+y_ini = getY()
+dir_ini = getDirection()
+
+# placement en position initiale :
+if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
+  setPos(0,0)
+  setDirection(Direction.NORTH)
+  
+  
+num_case = 0
+debut=True
+
+while debut or (getX() != largeur or getY() != hauteur):
+  debut=False
+  for i in range(largeur) :
+    setPos(i,0)
+    for j in range(hauteur) :
+      ecritMessage(num_case)
+      num_case += 1
+      setPos(i,j)
+    
