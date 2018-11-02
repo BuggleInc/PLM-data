@@ -1,6 +1,6 @@
-def ecrit(msg,posY,l,p=True) :
+def ecrit(posY,l,p=True) :
   '''
-  Fonction qui ecrit un message sur la largeur l ? la ligne posY donn?e
+  Fonction qui ecrit le numero de case sur la largeur l ? la ligne posY donn?e
   Si p, on va de gauche ? droite, sinon de droite ? gauche
   '''
   
@@ -36,15 +36,16 @@ if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
   
 
 num_case = 0
+debut=0
 
 for y in range(hauteur) :
 # numero de ligne pair G->D 0 vers largeur
-  if y%2==0 :
-    ecrit(num_case,y,largeur)
+	if y%2==0 :
+    ecrit(y,debut,largeur)
   else :
-    ecrit(num_case,y,largeur,neg)
+    ecrit(y,debut,largeur,neg)
     
-
+	debut+=largeur-1
 
 
 '''
