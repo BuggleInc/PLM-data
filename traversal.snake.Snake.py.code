@@ -2,15 +2,23 @@ def gagne(x,y) :
   return x==0 and y==0 
 
 
-def virage() :
+def virageG() :
   left()
   avance()
   left()
 
+def virageD() :
+  right()
+  avance()
+  right()
+  
 while not gagne(getX(),getY()) :
-	
-  	while not estFaceMur() :
-      avance()
+  baisseBrosse()
+  while not estFaceMur() :
+    avance()
     if estFaceMur() :
-      virage()
+      if getDirection()==Direction.EAST :
+        virageG()
+      else: 
+        virageD()
     
