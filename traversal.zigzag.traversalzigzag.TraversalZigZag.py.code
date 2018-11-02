@@ -1,3 +1,16 @@
+def ecrit(posY,l,p=True) :
+  '''
+  Fonction qui ecrit le numero de case sur la largeur l ? la ligne posY donn?e
+  Si p, on va de gauche ? droite, sinon de droite ? gauche
+  '''
+  if p :
+    for i in range(l):
+      setPos(i,posY)
+  else :
+    for i in range(l-1,-1,-1):
+      setPos(i,PosY)
+
+
 # Saisie des dimensions de la grille :
 hauteur = getMondeHauteur()
 largeur = getMondeLargeur()
@@ -16,7 +29,17 @@ if x_ini !=0 or y_ini !=0 or dir_ini != Direction.NORTH :
 
 num_case = 0
 
+for y in range(hauteur) :
+# numero de ligne pair G->D 0 vers largeur
+  if y%2==0 :
+    ecrit(y,largeur)
+  else :
+    ecrit(y,largeur,neg)
+    
 
+
+
+'''
 i = 0
 while  num_case < maxi - 1:
   for j in range (7) :
@@ -33,5 +56,5 @@ while  num_case < maxi - 1:
     ecritMessage(num_case)
     num_case += 1
   i+=1
-
+'''
   
