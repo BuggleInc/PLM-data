@@ -14,8 +14,28 @@ if x_ini != 0 or y_ini != 0 or dir_ini != Direction.NORTH :
   setDirection(Direction.NORTH)
   
 
+def diagonale(num,pos_ini,inf, sup) :
+  '''
+  Rajouter parametre booleen inverse
+  '''
+  y=pos_ini
+  for x in range(inf,sup) :
+    setPos(x,y)
+    y -= 1
+    ecritMessage(num)
+    num += 1
+    
+  return num
+
+  
 numCase = 0
 
+for maxi in range(hauteur) :
+  case_fin = diagonale(numCase,maxi,0,maxi+1)
+	
+for mini in range(1, largeur) :
+ 	diagonale(case_fin,hauteur-1,mini,largeur)
+'''
 for maxi in range(hauteur) :
   y=maxi
   for x in range(maxi+1) :
@@ -24,6 +44,7 @@ for maxi in range(hauteur) :
     ecritMessage(numCase)
     numCase+=1
 
+
 for mini in range(1,largeur) :
   y=hauteur-1
   for x in range(mini,largeur) :
@@ -31,3 +52,4 @@ for mini in range(1,largeur) :
     y -= 1
     ecritMessage(numCase)
     numCase+=1
+'''
