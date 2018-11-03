@@ -31,26 +31,8 @@ def diagonale(num,pos_ini,inf, sup) :
 numCase = 0
 case_fin=0
 
-for maxi in range(hauteur) :
-  numCase = diagonale(numCase,maxi,0,maxi+1)
+for ligne in range(hauteur) :
+  numCase = diagonale(numCase,ligne,0,ligne+1)
 	
-for mini in range(1, largeur) :
- 	numCase = diagonale(numCase,hauteur-1,mini,largeur)
-'''
-for maxi in range(hauteur) :
-  y=maxi
-  for x in range(maxi+1) :
-    setPos(x,y)
-    y-=1
-    ecritMessage(numCase)
-    numCase+=1
-
-
-for mini in range(1,largeur) :
-  y=hauteur-1
-  for x in range(mini,largeur) :
-    setPos(x,y)
-    y -= 1
-    ecritMessage(numCase)
-    numCase+=1
-'''
+for col in range(1, largeur) :
+ 	numCase = diagonale(numCase,hauteur-1,col,largeur)
