@@ -16,30 +16,20 @@ def cherche():
   '''
   
   setDirection(Direction.EAST)
-  nb_pas=0
+  
   
   while not estSurBiscuit():
     avance()
-    if getCouleurSol()==Color.GREEN :
-      return -1
-  	if estSurBiscuit() :
+    
+  if estSurBiscuit() :
       prendBiscuit()
-    else :
-      nb_pas+=1
+      setDir(Direction.WEST)  		
+    
   
-  return nb_pas
+  
     
     
     
     
-    
-distance =  0
-while distance != -1 :
-  distance = cherche()
-  left()
-  left()
-  avance(distance)
-  recule()
-  poseBiscuit()
-  left()
-  left()
+while not getCouleurSol()==Color.GREEN :
+  cherche()
