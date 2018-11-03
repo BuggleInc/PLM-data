@@ -13,29 +13,41 @@ def cherche():
   
   '''
   va a l'est jusqu'a trouver biscuit
+  fait demi-tour 
+  prend biscuit
   '''
   
   setDirection(Direction.EAST)
-  
-  
   while not estSurBiscuit():
     avance()
-    
   if estSurBiscuit() :
       setDirection(Direction.WEST)  		
     	prendBiscuit()
-  
-  
     
-    
-    
-    
-while not getCouleurSol()==Color.GREEN :
-  cherche()
-  while not estSurBiscuit() :
+ 
+
+def retour_base() :
+  '''
+  d?pose le biscuit ? la base sur un emplacement libre
+  et se place pour repartir
+  '''
+	while not estSurBiscuit() :
     avance()
   if estSurBiscuit():
     recule()
-    setDirection(Direction.EAST)
     poseBiscuit()
-    avance()
+    setDirection(Direction.EAST)
+  
+  
+  
+  
+  
+  
+while not getCouleurSol()==Color.GREEN :
+  cherche()
+  retour_base()
+    
+droite()
+avance()
+left()
+avance()
