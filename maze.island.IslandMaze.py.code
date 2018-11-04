@@ -46,7 +46,23 @@ def cherche_mur() :
   	right()
     
 
-setY(0)
+    
+debut = True
+
+while not estSurBiscuit() :
+  
+  sens= getDirection()
+  if sens == Direction.NORTH :
+    cherche_mur()
+  else :
+    keepHandOnSideWall()
+  
+if estSurBiscuit() :
+  prendBiscuit()
+
+
+    
+    
 '''
     
 debut = True
