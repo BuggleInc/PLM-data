@@ -13,26 +13,27 @@ def surMurG() :
   return ok
   
     
+def cherche() :
+  '''
+  Positionne en face d'un couloir
+  '''
+  
+  while estFaceMur() :
+    right()
+
 
 def keepHandOnSideWall() :
   '''
   Avance d'une case en gardant patte sur mur de gauche
   '''
-  while surMurG() :
-    
+  if surMurG() :
     if estFaceMur() :
-      while estFaceMur() :
-        left()
-   	if not estFaceMur():
-      avance()
-    
-    
-    if not surMurG() :
-      left()
-    
-    
-    
+      cherche()
+      
+    avance()
 
+    
+    
 keepHandOnSideWall()
     
   
