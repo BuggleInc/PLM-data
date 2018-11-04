@@ -27,22 +27,18 @@ def keepHandOnSideWall() :
   Avance d'une case en gardant patte sur mur de gauche
   '''
   if surMurG() :
-    if estFaceMur() :
-      cherche()
+    if not estFaceMur() :
+      avance()
+  	else :
+      right()
       
+  else :
+    left()
+    avance()
+    left()
     avance()
     
-    
-	else :
-    if estFaceMur() :
-      left()
-    else :
-      avance()
-    	left()
-    	avance()
         
     
 while not estSurBiscuit() :
   keepHandOnSideWall()
-    
-  
