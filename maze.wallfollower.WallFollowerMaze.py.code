@@ -1,0 +1,28 @@
+def surMurG() :
+  '''
+  Verifie que mur ? gauche
+  '''
+  ok = False
+  
+  left()
+  
+  if estFaceMur():
+  	ok = True  
+  right()
+  
+  return ok
+  
+    
+
+def keepHandOnSideWall() :
+  '''
+  Avance d'une case en gardant patte sur mur de gauche
+  '''
+  while surMurG() and not estFaceMur():
+    avance()
+    if estFaceMur() :
+      while estFaceMur() :
+        left()
+    
+    
+  
