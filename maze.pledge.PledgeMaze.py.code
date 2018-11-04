@@ -22,16 +22,20 @@ def cherche() :
 def keepHandOnSideWall() :
   '''
   Avance d'une case en gardant patte sur mur de gauche
+  compte les virages effectu?es avec G = 1 et D = -1
   '''
+  
   if surMurG() :
     if not estFaceMur() :
       avance()
   	else :
       right()
+      sommeAngle -= 1
       
   else :
     while not surMurG() :
       left()
+      sommeAngle += 1
     	avance()
     
     
@@ -40,27 +44,43 @@ def cherche_mur() :
   Positionne le robot avec un mur ? suivre ? sa gauche
   '''
 
-  while not estFaceMur() and not surMurG():
+  while not estFaceMur() :
   	avance()
-		if estFaceMur() :
-  		right()
+	if estFaceMur() :
+  	right()
     
 
-debut = False 
+def isDirectionFree(dir) :
+  '''
+  Retourne True si la direction est libre
+  '''
+  dir_courante=getDirection()
+  setDirection(dir)
+  if not estFaceMur() :
+    return True
+  setDirection(dir_courante)
+  return False
+  
 
+'''
+Va vers le Nord (choix arbitraire)
+Quand obstacle: patte G reste sur le mur et 
+								on compte les virages G = +1 et D = -1
+Quand somme des virages = 0, on se tourne vers le Nord
+et on recommence
+'''
+
+global sommeAngle 
+
+    
 while not estSurBiscuit() :
-  if debut :
-    debut=False
-  	sommeAngles=0
-    while not surMurG() :
-      cherche_mur()
-      
-      
-  sens= getDirection()
-  if sens == Direction.NORTH 
-    cherche_mur()
+  
+  if isDirectionFree(Direction.NORTH) and sommeAngle == 0 :
+    avance()
   else :
     keepHandOnSideWall()
+    
   
+
 if estSurBiscuit() :
   prendBiscuit()
