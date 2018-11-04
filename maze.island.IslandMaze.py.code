@@ -1,0 +1,71 @@
+def surMurG() :
+  
+  '''
+  Verifie que mur a gauche
+  '''
+  ok = False
+  left()
+  if estFaceMur():
+    ok = True  
+  right()
+  return ok
+  
+    
+def cherche() :
+  '''
+  Positionne en face d'un couloir
+  '''
+  while estFaceMur() :
+    left()
+
+    
+def keepHandOnSideWall() :
+  '''
+  Avance d'une case en gardant patte sur mur de gauche
+  '''
+  if surMurG() :
+    if not estFaceMur() :
+      avance()
+  	else :
+      right()
+      
+  else :
+    while not surMurG() :
+      left()
+    	avance()
+    
+    
+def cherche_mur() :
+  '''
+  Positionne le robot avec un mur ? suivre ? sa gauche
+  '''
+
+  while not estFaceMur() :
+  	avance()
+	if estFaceMur() :
+  	right()
+    
+
+    
+  
+def chercheMurNord()
+	'''
+  Va vers le mur nord posY=0
+  '''
+  if not surMurG() :
+      cherche_mur()
+  while not getPosY()==0 :
+    keepHandOnSideWall()
+    
+    
+debut = True
+
+while not estSurBiscuit() or debut :
+  if debut :
+    chercheMurNord()
+    debut=False
+    
+  keepHandOnSideWall()
+  
+if estSurBiscuit() :
+  prendBiscuit()
