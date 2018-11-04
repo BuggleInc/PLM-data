@@ -45,10 +45,13 @@ def cherche_mur() :
 	if estFaceMur() :
   	right()
   
-           
-while not estSurBiscuit() :
-  if not surMurG() :
+debut = True
+
+while not estSurBiscuit() or debut :
+  if debut and not surMurG():
     cherche_mur()
+    debut=False
+    
   keepHandOnSideWall()
   
 if estSurBiscuit() :
