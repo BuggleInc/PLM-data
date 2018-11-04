@@ -40,16 +40,27 @@ def cherche_mur() :
   Positionne le robot avec un mur ? suivre ? sa gauche
   '''
 
-  while not estFaceMur() :
+  while not estFaceMur() and not surMurG():
   	avance()
-	if estFaceMur() :
-  	right()
+		if estFaceMur() :
+  		right()
     
 
-    
+debut = False 
+
 while not estSurBiscuit() :
-  sommeAngles=0
-  keepHandOnSideWall()
+  if debut :
+    debut=False
+  	sommeAngles=0
+    while not surMurG() :
+      cherche_mur()
+      
+      
+  sens= getDirection()
+  if sens == Direction.NORTH 
+    cherche_mur()
+  else :
+    keepHandOnSideWall()
   
 if estSurBiscuit() :
   prendBiscuit()
