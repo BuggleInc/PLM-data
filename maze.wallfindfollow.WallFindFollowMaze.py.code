@@ -35,15 +35,20 @@ def keepHandOnSideWall() :
     	avance()
     
     
-    
-while not estFaceMur() :
-  avance()
-if estFaceMur() :
-  right()
-  
+def cherche_mur() :
+  '''
+  Positionne le robot avec un mur ? suivre ? sa gauche
+  '''
 
-               
+  while not estFaceMur() :
+  	avance()
+	if estFaceMur() :
+  	right()
+  
+           
 while not estSurBiscuit() :
+  if not surMurG() :
+    cherche_mur()
   keepHandOnSideWall()
   
 if estSurBiscuit() :
