@@ -8,9 +8,19 @@ public void hunt(Color c) {
   }
  }
 
-boolean isFacingTrail(Color c){
-  return true;
-}
+boolean isFacingTrail(Color c) {
+	boolean resultat=false;
+	if(!estFaceMur()){
+		avance();
+  		if(getCouleurSol().equals(Color.c)){
+  			resultat=true;
+  		}else{
+  			resultat=false;
+  		}
+  		recule();
+	}
+	return resultat;
+}    
 
 void move(int nbPas,boolean versLAvant){
   int i=0;
