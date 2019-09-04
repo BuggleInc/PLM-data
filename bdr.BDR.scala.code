@@ -1,6 +1,26 @@
 var etat : Boolean = false
-while (Boolean == false) {
-  if (litMessage() == "A") {
+while (etat == false) {
+  baisseBrosse()
+  if (litMessage() == "R") {
+    droite()
+  } else  if (litMessage() == "L") {
+    gauche()
+  } else if (litMessage() == "I") {
+    retourne()
     avance()
-	}
+  } else if (litMessage() == "A") {
+    avance()
+  }else if (litMessage() == "B") {
+    avance(2)
+  }else if (litMessage() == "C") {
+    avance(3)
+  }else if (litMessage() == "Z") {
+    recule()
+  }else if (litMessage() == "Y") {
+    recule(2)
+  }else if (litMessage() == "X") {
+    recule(3)
+  }else if (estSurMessage() == false) {
+    etat = true
+  }
 }
