@@ -3,14 +3,14 @@ var baggels: Int = 0
 while (!sortieTrouvee()) {
   do {
 		avance()
-    baggels += 1
+    if (estSurBiscuit()) { baggels += 1 }
   }
   while(!crossing());
   if (baggels>=3) {
-    droite()
+    gauche()
   }
   if (baggels<=2) {
-    gauche()
+    droite()
   }
   baggels = 0
 }
