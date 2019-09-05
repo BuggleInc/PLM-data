@@ -1,14 +1,16 @@
 def cocktailSort2() {
   var lastEchange: Boolean = false
+  var debut: Int = 0
+  var fin: Int = getNombreValeurs()-2
   do {
     lastEchange = false
-    for (i <- 0 to getNombreValeurs()-2) {
+    for (i <- debut to fin) {
       if (plusPetit(i+1, i)) {
         echange(i,i+1)
         lastEchange = true
       }
     }
-    for (i <- getNombreValeurs()-2 to 0 by -1) {
+    for (i <- fin to debut by -1) {
       if (plusPetit(i+1, i)) {
         echange(i, i+1)
         lastEchange = true
