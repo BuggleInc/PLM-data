@@ -1,0 +1,50 @@
+def isFacingTrail():Boolean = {
+  
+    while (isOverBggle==false){
+      
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+        }
+      }
+      
+      right()
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+          left()
+        }
+      }
+      
+      left()
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+          right()
+        }
+      }
+      
+      if (isBackingWall()==false){
+        backward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          forward()
+        }
+      }
+      
+    }
+}
