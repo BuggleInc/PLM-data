@@ -2,7 +2,7 @@ override def run() {
 }
 
 
-def faireMotifV(){
+def dessineMotifV(){
   colorieCase()
   gauche()
   avance()
@@ -16,10 +16,34 @@ def faireMotifV(){
   
 }
 
+ DebutFin()
+  for (i <- 1 to 4){
+    Dessiner()
+    if(i <= 3){
+      faireV()
+    } else{
+      gauche()
+      DebutFin()
+      gauche()
+    }
+  }
+  
+}
 
+
+
+/** 
+* place le buggle correctement en d?but et fin d'algo
+*/
+def DebutFin(){
+  for( i <- 1 to 2){
+    avance()
+  }
+}
+/**
+* colorie uniquement la case ou se trouve le buggle
+*/
 def colorieCase(){
   baisseBrosse()
   leveBrosse()
 }
-
-
