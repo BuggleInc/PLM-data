@@ -1,11 +1,29 @@
 override def run() {
-  setDirection(Direction.NORTH)
+  var etat: Int = 0
   while (!estSurBiscuit()) {
-    if (!estFaceMur() && getDirection() == Direction.NORTH) { 
-      avance() 
-    } else { keepHandOnSideWall() }
+    etat match {
+      case 0 => courrirNord()
+      case 1 => suivreGauche()
+      case _ => println("error")
+    }
   }
   prendBiscuit()
+}
+
+def courrirNord() {
+  setDirection(Direction.NORTH)
+  if (!estFaceMur()) { 
+    avance() 
+  } else {
+    gauche()
+    if (!estFaceMur()) { 
+      avance () 
+    } else { case = 1 }
+  }
+}
+
+def suivreGauche() {
+  keepHandOnSideWall()
 }
 
 def keepHandOnSideWall() {
