@@ -1,0 +1,42 @@
+override def run() {
+  def marquer() {
+    setCouleurBrosse(Color.lightGray)
+    baisseBrosse()
+    leveBrosse()
+  }
+  def faireV() {
+    avance(2)
+    marquer()
+    avance()
+    gauche()
+    avance()
+    marquer()
+    recule()
+    droite()
+    avance()
+    marquer()
+    avance(2)
+    gauche()
+  }
+  def faireMotif(){
+    var nb=0
+    for (nb <- 1 to 4){
+      faireV()
+    }
+    avance(7)
+  }
+  def deplacement(){
+    avance()
+    gauche()
+    avance(7)
+    gauche()
+  }
+  def motifFinal() {
+    faireMotif()
+    deplacement()
+  }
+  var nb2=0
+  for (nb2 <- 1 to 3){
+    motifFinal()
+  }
+}
