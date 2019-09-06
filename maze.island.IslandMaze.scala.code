@@ -1,7 +1,7 @@
 override def run() {
+  setDirection(Direction.NORTH)
   while (!estSurBiscuit()) {
-    setDirection(Direction.NORTH)
-    if (!estFaceMur()) { 
+    if (!estFaceMur() && getDirection() == Direction.NORTH) { 
       avance() 
     } else { keepHandOnSideWall() }
   }
