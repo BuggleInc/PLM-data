@@ -2,7 +2,7 @@ override def run() {
   var etat: Int = 0
   while (!estSurBiscuit()) {
     etat match {
-      case 0 => courrirNord()
+      case 0 => etat = courrirNord()
       case 1 => suivreGauche()
       case _ => println("error")
     }
@@ -18,8 +18,9 @@ def courrirNord() {
     gauche()
     if (!estFaceMur()) { 
       avance () 
-    } else { etat = 1 }
+    } else { return 1 }
   }
+  return 0
 }
 
 def suivreGauche() {
