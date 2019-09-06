@@ -4,15 +4,15 @@ var Biscuit = false
 /** 
 * Avance, r?cup?re le biscuit, et le ram?ne ? la position d'orignie
 */
-def goAndGet() {
-  while (!Biscuit){
-    if (!estSurBiscuit()){
+def goAndGet(){
+  do {
+     if (!estSurBiscuit()){
         avance()
         nbPas = nbPas+1
     } else {
       Biscuit = true
     }
-  }
+  } while (!Biscuit)
   prendBiscuit()
   for ( retour <- 1 to nbPas){
     recule()
