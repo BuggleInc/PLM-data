@@ -1,9 +1,15 @@
 var nbPas = 0
+var Biscuit = false 
 
 def goAndGet() {
-  while (!estSurBiscuit){
-    avance()
+  while (!Biscuit){
+    if (estSurBiscuit()){
+        avance()
     nbPas = nbPas+1
+    } else {
+      Biscuit = true
+    }
+  
   }
   prendBiscuit()
   retourne()
