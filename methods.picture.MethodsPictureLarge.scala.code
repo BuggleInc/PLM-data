@@ -1,0 +1,58 @@
+override def run() {
+  def makeV(c:Color){
+    setBrushColor(c)
+    forward()
+    brushDown()
+    left()
+    brushUp()
+    forward()
+    right()
+    forward()
+    brushDown()
+    right()
+    brushUp()
+    forward()
+    left()
+    forward()
+    brushDown()
+    right()
+    brushUp()
+    left()
+    forward()
+  }
+  def carre(){
+      makeV(Color.YELLOW)
+      left()
+      makeV(Color.RED)
+      left()
+      makeV(Color.BLUE)
+      left()
+      makeV(Color.GREEN)
+      left()
+  }
+  
+  def makePattern(){
+    carre()
+    for (i<- 1 to 5){
+    forward()
+    }
+  }
+  
+  def solution(){
+    for (k<-1 to 9){
+      for (i<- 1 to 9){
+      makePattern()
+    }
+    left()
+    for (i<- 1 to 5){
+    forward()
+    }
+    right() 
+    } 
+  }
+  
+  solution()
+  
+  
+  
+}
