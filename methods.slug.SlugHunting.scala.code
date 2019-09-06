@@ -1,54 +1,37 @@
-def hunt() {
-    def isFacingTrail():Boolean = {
-  
-    while (isOverBaggle()==false){
+def isFacingTrail():Boolean = {
       
-      if (isFacingWall()==false){
+      if (!(isFacingWall())){
         forward()
         if (getGroundColor()==Color.green){
-          isFacingTrail()
-        }
-        else {
           backward()
+          return(true)
+        } else{
+          backward()
+            return(false)
         }
       }
-      
+      return(false)
+    }
+
+def pas() {
+    if (isFacingWall()){
+      forward()
+    }else {
       right()
-      if (isFacingWall()==false){
+      if (isFacingWall()){
         forward()
-        if (getGroundColor()==Color.green){
-          isFacingTrail()
-        }
-        else {
-          backward()
-          left()
-        }
       }
-      
-      left()
-      if (isFacingWall()==false){
+      else{
+        left()
+        left()
         forward()
-        if (getGroundColor()==Color.green){
-          isFacingTrail()
-        }
-        else {
-          backward()
-          right()
-        }
       }
-      
-      if (isBackingWall()==false){
-        backward()
-        if (getGroundColor()==Color.green){
-          isFacingTrail()
-        }
-        else {
-          forward()
-        }
-      }
-      
     }
 }
-}
 
-// Copy your isFacingTrail() here
+
+def hunt(){
+  while(!isOverBaggle()){
+    pas()
+  }
+}
