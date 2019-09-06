@@ -1,0 +1,34 @@
+def pas() {
+    if (isFacingTrail()){
+      brushDown()
+      forward()
+      brushUp()
+    }else {
+      right()
+      if (isFacingTrail()){
+        brushDown()
+        forward()
+        brushUp()
+      }
+      else{
+        left()
+        left()
+        brushDown()
+        forward()
+        brushUp()
+      }
+    }
+}
+
+
+def hunt(){
+  while(!isOverBaggle()){
+    pas()
+  }
+  pickupBaggle()
+}
+
+
+def hunt(c:Color) {
+     // Write your code here
+ }
