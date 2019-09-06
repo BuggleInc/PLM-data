@@ -1,0 +1,54 @@
+def hunt() {
+    def isFacingTrail():Boolean = {
+  
+    while (isOverBaggle()==false){
+      
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+        }
+      }
+      
+      right()
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+          left()
+        }
+      }
+      
+      left()
+      if (isFacingWall()==false){
+        forward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          backward()
+          right()
+        }
+      }
+      
+      if (isBackingWall()==false){
+        backward()
+        if (getGroundColor()==Color.green){
+          isFacingTrail()
+        }
+        else {
+          forward()
+        }
+      }
+      
+    }
+}
+}
+
+// Copy your isFacingTrail() here
