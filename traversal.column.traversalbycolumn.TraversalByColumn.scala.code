@@ -1,13 +1,16 @@
 override def run() {
   def positionFinale():Boolean={
+    var c=0
     while ((getX()!=getWorldWidth()) && getY()==getWorldHeight()){
       if (getX()!=6){
         setPose(getX()+1,getY())
         writeMessage()
+        c=c+1
       }
       if (getX()==6){
         setPose(0,getY()+1)
         writeMessage()
+        c=c+1
       }
     }
   }
