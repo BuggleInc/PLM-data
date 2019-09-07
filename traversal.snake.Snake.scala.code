@@ -1,0 +1,39 @@
+override def run() {
+  
+  def WallBuggle(): Boolean={
+    if (isFacinWall && (getDirection() == Direction.EST)){
+      left()
+      if (isFacinWall()==true){
+        return(true)
+      }
+    }
+    if (isFacinWall && (getDirection() == Direction.OUEST)){
+      right()
+      if (isFacinWall()==true){
+        return(true)
+      }
+    }
+    return(false)
+    
+  }
+  
+  
+  
+def chemin(){
+  brushDown()
+  while(!WallBuggle){
+    for(k<-1 to 6){
+      forward()
+    }
+    left()
+    forward()
+    left()
+    for(k<-1 to 6){
+      forward()
+    }
+    right()
+    forward()
+    right()()
+  }
+  
+}
