@@ -1,0 +1,172 @@
+override def run() {
+}
+
+
+
+
+
+
+def motifCarre(){
+  DessinV()
+  DessineAllonge()
+  DessineDebout()
+  retour()
+}
+
+
+
+// PARTI V
+// -------------------------------------------------------------------------------------
+
+/**
+*dessine tous les v et reviens au depart
+*/
+def DessinV(){
+  for (i <- 1 to 4){
+    droiteV() 
+  }
+}
+
+
+
+/** dessine toute une droite des v
+*/
+def droiteV(){
+  debutV()
+  for (i <- 1 to 3){
+    dessineMotifV()
+    if(i <= 2){
+      cheminPourV
+    } else{
+      finV()
+    }
+  }
+}  
+  
+
+
+
+/**
+*desine le motif v
+*/
+def dessineMotifV(){
+  colorieCase()
+  gauche()
+  avance()
+  droite()
+  avance()
+  colorieCase()
+  avance()
+  droite()
+  avance()
+  colorieCase()
+  
+}
+/**
+*place la buggle pour le dessin
+*
+*ne marche que sur ligne droite
+*/
+def cheminPourV(){
+  gauche()
+  for(j <- 1 to 5){
+    avance()
+  }
+}
+/** 
+* place buggle debut des v 
+*/
+def debutV(){
+  for( i <- 1 to 2){
+    avance()
+  }
+}
+/**
+* place les buggle en fin des v 
+*/
+def finV(){
+      gauche()
+      debutV()
+      gauche()
+}
+
+/**
+* colorie uniquement la case ou se trouve le buggle
+*/
+def colorieCase(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+//-----------------------------------------------------------------------------------
+// PARTI MOTIF ALLONGER
+//-------------------------------------------------------------------------------
+
+
+def DessineAllonge(){
+  initialisation()
+  droiteV()
+  petitPassage()
+  droiteV()
+  grandPassage()
+  droiteV()
+  petitPassage()
+  droiteV() 
+}
+
+def petitPassage(){
+  retourne()
+  avance()
+  droite()
+}
+
+def grandPassage(){
+  for (i <- 1 to 6){
+    avance()
+  }
+  gauche()
+}
+
+def initialisation(){
+  for (i <- 1 to 6){
+    avance()
+  }
+  gauche()
+}
+
+
+// ------------------------------------------------------
+// PARTI MOTIF DEBOUT
+//-----------------------------------------------------
+ 
+def replacage(){
+  for (i <- 1 to 6){
+    avance()
+  }
+  gauche()
+  for (i <- 1 to 6){
+    avance()
+  }
+  gauche()
+} 
+
+def DessineDebout(){
+  replacage()
+  droiteV()
+  petitPassage()
+  droiteV()
+  grandPassage()
+  droiteV()
+  petitPassage()
+  droiteV() 
+}
+
+def retour(){
+  for ( i <- 1 to 14){
+    recule()
+  }
+  droite()
+  for ( i <- 1 to 20){
+    recule()
+  }
+}
