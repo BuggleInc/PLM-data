@@ -1,20 +1,21 @@
 var caseVerte = false
+setCouleurBrosse(Color.green :Color)
 
 def isFacingTrail():Boolean = {
- setCouleurBrosse(Color.green :Color)
  caseVerte=false
- leveBrosse()
  if (estFaceMur()){
     return caseVerte
  } else {
    avance()
    if (getCouleurSol() == Color.green ){
      caseVerte = true
-     baisseBrosse()
-     leveBrosse()
+     colorieCase()
    }
  }
   return caseVerte
 }
 
-
+def colorieCase(){
+  baisseBrosse()
+  leveBrosse()
+}
