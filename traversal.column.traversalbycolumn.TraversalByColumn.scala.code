@@ -1,17 +1,15 @@
 override def run() {
   def positionFinale():Boolean={
     var c=0
-    while ((getX()!=getWorldWidth()-1) && getY()!=getWorldHeight()-1){
+    while ((getX()!=getWorldWidth()-1) || getY()!=getWorldHeight()-1){
       writeMessage(c)
       if (getY()!=6){
         setPos(getX(),getY()+1)
         c=c+1
       }
       else {
-        if (getX()+1<7){
-          setPos(getX()+1,0)
-          c=c+1
-        }
+        setPos(getX()+1,0)
+        c=c+1
       }
     }
     return(true)
