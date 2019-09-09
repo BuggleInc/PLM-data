@@ -1,7 +1,7 @@
 override def run() {
   def positionFinale():Boolean={
     var c=0
-    if ((getX()!=getWorldWidth()-1) || getY()!=getWorldHeight()-1){
+    while ((getX()!=getWorldWidth()-1) || getY()!=getWorldHeight()-1){
       writeMessage(c)
       if (getY()!=6){
         setPos(getX(),getY()+1)
@@ -12,9 +12,7 @@ override def run() {
         c=c+1
       }
     }
-    else {
-      writeMessage(c+1)
-    }
+    writeMessage(c+1)
     return(true)
   }
   
