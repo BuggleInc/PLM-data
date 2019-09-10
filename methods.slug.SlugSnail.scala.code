@@ -1,0 +1,46 @@
+
+var bonChemin = false
+var caseVerte = false
+var biscuit = false
+var fin = false
+
+
+def hunt(c:Color) {
+ setCouleurBrosse(Color.lightGray)
+ fin = porteBiscuit()
+ while(!fin){
+    biscuit = estSurBiscuit()
+    if ( biscuit){
+      prendBiscuit()
+      fin = true
+    }else {
+      bonChemin = isFacingTrail()
+     if(bonChemin){
+       avance()
+       baisseBrosse()
+       leveBrosse()
+     } else {
+       gauche()
+     }  
+    } 
+    
+ }
+
+}
+
+// Copy your isFacingTrail() here
+
+
+def isFacingTrail(c:Color):Boolean = {
+ caseVerte = false
+ if (estFaceMur()){
+    return caseVerte
+ } else {
+   avance()
+   if (getCouleurSol() == c ){
+     caseVerte = true
+   } 
+   recule()
+ }
+ return caseVerte
+}
