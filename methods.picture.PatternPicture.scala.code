@@ -1,5 +1,5 @@
 override def run() {
-  def dessin(c:Color) {
+  def dessin1(c:Color) {
     setCouleurBrosse(c)
     avance()
     baisseBrosse()
@@ -10,8 +10,38 @@ override def run() {
     avance()
     baisseBrosse()
     leveBrosse()
+    gauche()
     avance()
-    gauhce()
+    gauche()
     avance()
   }
+  def dessin2(c:Color) {
+    baisseBrosse()
+    leveBrosse()
+    avance()
+    gauche()
+    avance()
+    baisseBrosse()
+    leveBrosse()
+    gauche()
+    avance()
+    gauche()
+    avance()
+    gauche()
+  }
+  
+val nb=0
+val nb1=0
+for (nb <- 1 to 2){
+  for (nb1 <- 1 to 2){
+    dessin1(Color.red)
+    avance()
+    dessin2(Color.blue)
+    recule(2)
+    gauche()
+    avance(2)
+    droite()
+  }
+}
+  
 }
