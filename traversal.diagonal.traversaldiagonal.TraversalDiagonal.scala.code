@@ -1,18 +1,36 @@
 var diag = 0
 override def run() {
   var c=0
+  var moitie=false
   while ((getX()!=getWorldWidth()-1) && getY()!=getWorldHeight()-1){
 //    writeMessage(c)
-  while (!(getX()==6 && getY()==0)){
-    writeMessage(c)
-      if (getY()!=0){
-        setPos(getX()+1,getY()-1)
+  if (moitie==false){
+    while (!(getX()==6 && getY()==0)){
+      writeMessage(c)
+          if (getY()!=0){
+          setPos(getX()+1,getY()-1)
+        }
+        else{
+          setPos(0,diag+1)
+          diag=diag+1
+        }
+          c=c+1
       }
-      else{
-        setPos(0,diag+1)
-        diag=diag+1
-      }
-        c=c+1
+    moitie=true
     }
+    
+    else{
+      writeMessage(c)
+          if (getX()==6){
+          setPos(getX()+1,getY()-1)
+        }
+        else{
+          setPos(7-diag,6)
+          diag=diag+1
+        }
+          c=c+1
+      }
+    }
+    
 }
 }
