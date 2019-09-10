@@ -1,14 +1,14 @@
 override def run() {
   var c=0
-  var diag = 1
+  var diag = 0
   while ((getX()!=getWorldWidth()-1) || getY()!=getWorldHeight()-1){
     writeMessage(c)
-    if (getX()!=diag-1){
+    if (getX()!=diag){
       setPos(getX()+1,getY()-1)
       c=c+1
     }
     else{
-      setPos(0,diag)
+      setPos(0,diag+1)
       c=c+1
     }
     diag=diag+1
