@@ -1,6 +1,5 @@
 val bonChemin = false
 val caseVerte = false
-val testGauche = false
 val biscuit = false
 
 
@@ -13,10 +12,16 @@ def hunt() {
  biscuit = estSurBiscuit()
  if ( biscuit){
     prendBiscuit()
- } else {
-   bonChemin = isFacingTrail()
-   
+ } 
+ bonChemin = isFacingTrail()
+ if(bonChemin){
+   avance()
+   baisseBrosse()
+   levebrosse()
+  } else {
+    gauche()
  }
+   
 }
 
 
@@ -24,7 +29,6 @@ def hunt() {
 }
 // Copy your isFacingTrail() here
 
-var caseVerte = false
 
 def isFacingTrail():Boolean = {
  caseVerte=false
@@ -38,9 +42,4 @@ def isFacingTrail():Boolean = {
    recule()
  }
  return caseVerte
-}
-
-def colorie()={
-  baisseBrosse()
-  leveBrosse()
 }
