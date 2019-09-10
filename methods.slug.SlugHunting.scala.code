@@ -1,23 +1,28 @@
 var bonChemin = false
 var caseVerte = false
 var biscuit = false
+var fin = false
 
 
 def hunt() {
  setCouleurBrosse(Color.gray)
  leveBrosse()
  biscuit = estSurBiscuit()
- if ( biscuit){
-    prendBiscuit()
- } 
- bonChemin = isFacingTrail()
- if(bonChemin){
-   avance()
-   baisseBrosse()
-   leveBrosse()
-  } else {
-    gauche()
- }  
+ fin = porteBiscuit()
+ while(!fin){
+    if ( biscuit){
+      prendBiscuit()
+    } 
+    bonChemin = isFacingTrail()
+    if(bonChemin){
+      avance()
+      baisseBrosse()
+      leveBrosse()
+    } else {
+      gauche()
+    }  
+ }
+
 }
 
 // Copy your isFacingTrail() here
