@@ -1,14 +1,14 @@
 def hunt() {
   setCouleurBrosse(Color.lightGray)
-  while (!isFacingTrail()) {
-    gauche()
+  while (!estSurBiscuit()) {
+    while (!isFacingTrail()){
+      gauche()
+    }
+    baisseBrosse()
+    avance()
+    leveBrosse()
   }
-  baisseBrosse()
-  avance()
-  leveBrosse()  
-  if (estSurBiscuit()) {
-    prendBiscuit()
-  }
+  prendBiscuit()
     // Write your code here
 }
 
