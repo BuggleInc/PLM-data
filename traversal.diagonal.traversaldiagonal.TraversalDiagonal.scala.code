@@ -5,9 +5,12 @@ override def run() {
     writeMessage(c)
     while (getX()!=6 || getY()!=0){
       writeMessage(c)
-      while (getY()!=0){
+      if (getY()!=0){
         setPos(getX()+1,getY()-1)
         c=c+1
+      }
+      else{
+        setPos(0,diag+1)
       }
     }
 }
