@@ -1,0 +1,31 @@
+override def run() {
+  def dessin(){
+    avance()
+    baisseBrosse()
+    leveBrosse()    
+  }
+  def faireV(c:Color){
+    setCouleurBrosse(c)
+    dessin()
+    avance()
+    gauche()
+    dessin()
+    recule()
+    droite()
+    dessin()
+    avance()
+    gauche()
+  }
+  val nb=0
+  val nb1=0
+  for (nb <-1 to 3) {
+    for (nb1 <- 1 to 3) {
+      faireV(Color.YELLOW)
+      faireV(Color.RED)
+      faireV(Color.BLUE)
+      faireV(Color.GREEN)
+      avance(5)
+    }
+  }
+  
+}
