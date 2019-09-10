@@ -1,3 +1,26 @@
-do {
-  avance()
-}while(crossing() == false)
+var fin = false
+while (fin == false){
+  var nbBiscuit = 0
+  do {
+    avance()
+  }while (crossing() == false) {
+    avance()
+    if (estSurBiscuit == true) {
+      nbBiscuit+=1
+    }
+  }if (sortieTrouvee() == true) {
+    fin = true
+    if (nbBiscuit >= 3) {
+      gauche
+    }else {
+      droite()
+    }
+  }else {
+    if (nbBiscuit >=3) {
+      gauche()
+    }else {
+      droite()
+    }
+  }
+}
+avance()
