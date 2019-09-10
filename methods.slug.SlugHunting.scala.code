@@ -1,35 +1,40 @@
 val bonChemin = false
 val caseVerte = false
 val testGauche = false
-
+val biscuit = false
 
 
 
 
 def hunt() {
-  setCouleurBrosse(Color.gray)
-  testGauche = false
-  leveBrosse()
-  bonChemin = isFacingTrail()
-  
-  while (bonChemin){
-    avance()
-    colorie()
-  }
-    gauche()
-    avance()
-    bocChemin = isFacingTrial()
-  if(bonChemin){
-    colorie()
-  }else {
-    retourne()
-    avance()
-    avance()
-    bonChemin = isFacingTrial()
-    if(bonChemin){
-    colorie()
+ setCouleurBrosse(Color.gray)
+ testGauche = false
+ leveBrosse()
+ biscuit = estSurBiscuit()
+ if ( biscuit){
+    prendBiscuit()
+ } else {
+   bonChemin = isFacingTrail()
+   
+   while (bonChemin){
+     avance()
+     colorie()
    }
-  }
+     gauche()
+     avance()
+     bocChemin = isFacingTrial()
+   if (bonChemin){
+     colorie()
+   } else  {
+     retourne()
+     avance()
+     avance()
+     bonChemin = isFacingTrial()
+     if(bonChemin){
+     colorie()
+      }
+   }
+ }
 }
 
 
