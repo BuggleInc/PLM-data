@@ -1,0 +1,59 @@
+
+
+override def run() {
+  DebutFin()
+  for (i <- 1 to 4){
+    Dessiner()
+    if(i <= 3){
+      faireV()
+    } else{
+      gauche()
+      DebutFin()
+      gauche()
+    }
+  }
+  
+}
+
+
+
+/** 
+* place le buggle correctement en d?but et fin d'algo
+*/
+def DebutFin(){
+  for( i <- 1 to 2){
+    avance()
+  }
+}
+
+
+
+def faireV(){
+  for (i <- 1 to 2){
+  gauche()
+  avance()
+  avance()
+  }
+}
+
+/**
+* colorie uniquement la case ou se trouve la buggle 
+*/
+def colorieCase(){
+  baisseBrosse()
+  leveBrosse()
+}
+
+
+def Dessiner() {
+  colorieCase()
+  gauche()
+  avance()
+  droite()
+  avance()
+  colorieCase()
+  avance()
+  droite()
+  avance()
+  colorieCase()
+}
