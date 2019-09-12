@@ -1,7 +1,22 @@
 def cocktailSort() {
   var echange=true
   var c=0
-  for (i<- valueCount()-2 to 0){
-    
+  while (echange){
+    c=0
+    for (k<- valueCount()-2 to 0){
+      if (!isSmaller(k,k+1)){
+        swap(k+1,k)
+        c=c+1
+      }
+    }
+    for (k<- 0 to valueCount()-2){
+      if (!isSmaller(k,k+1)){
+        swap(k+1,k)
+        c=c+1
+      }
+    }
+    if (c==0){
+      echange=false
+    }
   }
 }
