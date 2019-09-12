@@ -1,0 +1,62 @@
+def growFlowers() {
+  growLineFlowers()
+  droite()
+  avance(8)
+  gauche()
+  growLineFlowers()
+}
+def GrowLineFlowers() {
+  growFiveFlowers()
+  avance(6)
+  droite()
+  avance(2)
+  gauche()
+  faireFleur(color.black)
+  avance(2)
+  gauche()
+  avance(2)
+  droite()
+  growFiveFlowers()
+  gauche();avance();droite()
+  recule(8)
+  droite();avance();gauche()
+}
+
+def growFiveFlowers() {
+  faireFleur(Color.red)
+  avance(4)
+  faireFleur(Color.cyan)
+  recule(2)
+  droite()
+  avance(2)
+  gauche()
+  faireFleur(Color.orange)
+  recule(2)
+	droite()
+  avance(2)
+  gauche()
+  faireFleur(Color.pink)
+	avance(4)
+  faireFleur(Color.green)
+  recule(4)
+}
+
+def faireFleur(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse();leveBrosse()
+  avance()
+  
+  setCouleurBrosse(Color.yellow)
+  baisseBrosse();leveBrosse()
+  setCouleurBrosse(c)
+	
+  gauche();avance()
+  baisseBrosse();leveBrosse()
+  droite();droite();avance()
+  avance()
+  baisseBrosse();leveBrosse()
+  recule()
+  gauche();avance()
+	baisseBrosse();leveBrosse()
+  recule(2)
+}
