@@ -1,0 +1,28 @@
+def hunt() {
+  var Biscuit : Boolean = false
+  while(Biscuit == false) {
+    baisseBrosse()
+    if (isFacingTrail() == true) {
+      avance()
+    }else {
+      gauche()
+    }if (estSurBiscuit() == true) {
+      Biscuit = true
+    }
+  }prendBiscuit()
+}
+
+def isFacingTrail():Boolean = {
+  if (estFaceMur() == true) {
+    return false
+  };else { 
+    avance()
+    var Couleur = getCouleurSol()
+    recule()
+    if (Couleur == Color.green) {
+      return true
+    }else {
+      return false
+    }
+  }
+}
