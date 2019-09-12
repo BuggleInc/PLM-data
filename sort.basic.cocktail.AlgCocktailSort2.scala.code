@@ -1,28 +1,22 @@
-def cocktailSort2() {
+def cocktailSort() {
   var nbValeurs=0
   var fini = 0
   var test = false
-  var debut =0
-  var fin = 0
   nbValeurs=getNombreValeurs()
-  fin = nbValeurs -2
   do {
-      fin=0
-      for (i<- debut to fin){
-         test = plusPetit(i,i+1)
+     fini=0
+     for (i<- 0 to nbValeurs-2){
+        test = plusPetit(i,i+1)
+        if(!test){
+          echange(i,i+1)
+          fini =fini +1
+        }
+     }
+      for(i<- 0 to nbValeurs-2 ){
+         test = plusPetit(nbValeurs -2-i,nbValeurs-1-i)
          if(!test){
-           echange(i,i+1)
-           fini =fini +1
-         }
+           echange(nbValeurs -2-i,nbValeurs-1-i)
+           fini = fini +1
+         }  
       }
-      fin= fin-1
-      for(i<- debut to fin ){
-          test = plusPetit(fin-i,fin+1-i)
-          if(!test){
-            echange(fin-i,fin+1-i)
-            fini = fini +1
-          }  
-       }
-       debut = debut +1 
-  } while(fini !=0)
-}
+   } while(fini !=0)
