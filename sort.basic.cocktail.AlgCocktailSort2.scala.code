@@ -3,21 +3,23 @@ def cocktailSort2() {
   var fini = 0
   var test = false
   var debut = 0
+  var fin = 0
   nbValeurs=getNombreValeurs()
+  fin = nbValeurs-2
   do {
      fini=0
-     for (i<- debut to nbValeurs -2){
+     for (i<- debut to fin){
         test = plusPetit(i,i+1)
         if(!test){
           echange(i,i+1)
           fini =fini +1
         }
      }
-     nbValeurs = nbValeurs -1
-      for (i<- debut to nbValeurs-2 ){
-         test = plusPetit(nbValeurs -2-i,nbValeurs-1-i)
+     fin = fin -1
+      for (i<- debut to fin ){
+         test = plusPetit(fin-i,fin+1-i)
          if(!test){
-           echange(nbValeurs -2-i,nbValeurs-1-i)
+           echange(fin-i,fin+1-i)
            fini = fini +1
          }  
       }
