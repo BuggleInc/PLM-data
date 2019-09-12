@@ -1,0 +1,54 @@
+override def run() {
+  faireToutCouleur(Color.yellow)
+  avance(14)
+  gauche()
+  faireToutCouleur(Color.red)
+  avance(14)
+  gauche()
+  faireToutCouleur(Color.blue)
+  avance(14)
+  gauche()
+  faireToutCouleur(Color.green)
+
+}
+
+
+def faireToutCouleur(c: Color) {
+  faireLigne(c)
+  gauche()
+  avance(5)
+  droite()
+  faireLigne(c)
+  gauche()
+  avance(5)
+  droite()
+  faireLigne(c)
+  droite()
+  avance(10)
+  gauche()
+}
+def faireLigne(c: Color) {
+  avance()
+  faireV(c)
+  avance(3)
+  faireV(c)
+  avance(3)
+  faireV(c)
+  recule(13)
+}
+
+def faireV(c: Color) {
+  setCouleurBrosse(c)
+  baisseBrosse()
+  leveBrosse()
+  avance()
+  gauche()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+  recule()
+  droite()
+  avance()
+  baisseBrosse()
+  leveBrosse()
+}
