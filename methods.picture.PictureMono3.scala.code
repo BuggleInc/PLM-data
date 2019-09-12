@@ -1,21 +1,46 @@
 override def run() {
-  var nbV: Int = 9
-	while (true) {
-    for (compteur <- 1 to 4) {
-      recule(3)
-      for (compteur <- 1 to nbV) {
-        avance(5)
-      	faireV()
-    	}
-      avance(2)
-      gauche()
-    }
-	nbV -= 1
-  }
+
+}
+def fairePartie() {
+ 	faireMotif()
+  recule(14)
+  droite()
+  avance(7)
+  gauche()
+}
+def faireMotif() {
+  faireCase()
+  faireCase()
+  faireCase()
+  recule()
+  gauche()
+	avance(7)
+  faireCase()
+  faireCase()
+  recule()
+  gauche()
+	avance(7)
+  faireCase()
+  faireCase()
+  recule()
+  gauche()
+	avance(7)
+  faireCase()
+  recule()
+  gauche()
+	avance(7)
+  faireCase()
 }
 
+def faireCase() {
+ for (compteur <- 1 to 4){
+   faireV()
+ }
+ avance(7)
+}
 
 def faireV() {
+  avance(2)
   marquerSol()
   avance()
   gauche()
@@ -25,6 +50,8 @@ def faireV() {
   droite()
   avance()
   marquerSol()
+  avance(2)
+  gauche()
 }
 
 def marquerSol() {
