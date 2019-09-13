@@ -1,16 +1,15 @@
 def insertionSort() {
   var lgr = getNombreValeurs()
   var v = 0
-  var test =false
+  var j =1
   var casePourV = 0
   for (i <- 1 to lgr -1){
     v=getValeur(i)
     casePourV = i
-    for (j <-1 to i){
-      test = plusPetitQue(i-j,v)
-      if (!test){
+    while (!plusPetitQue(i-j,v)){
         copie(i-j,i-j+1)
         casePourV = i-j
+        j=j+1
       }
     }
     setValeur(casePourV , v) 
