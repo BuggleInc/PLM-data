@@ -1,14 +1,13 @@
 def insertionSort() {
   var n=getValueCount()
   var v=0
-  var indice=0
   for (i<- 1 to n-1){
     v=getValue(i)
-    indice=i
-    for (k<-1 to i){
-      if (getValue(i-k)>v){
-        setValue(i-k+1,getValue(i-k))
-        indice=i-k
+    var indice=i
+    while (getValue(i-k)>v){
+      setValue(i-k+1,getValue(i-k))
+      indice=i-k
+      k=k+1
       }
     }
     setValue(indice,v)
