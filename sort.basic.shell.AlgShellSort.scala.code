@@ -1,33 +1,29 @@
 def insertionSort(n:Int) {
   var lgr = getNombreValeurs()
   var v = 0
-  var test =false
+  var j =1
   var casePourV = 0
-  var j=1
-  for (i <- n to lgr -1){
+  for (i <- 1 to lgr -1){
     v=getValeur(i)
     casePourV = i
-    while(j*n <=i){
-      test = plusPetitQue(i-j*n,v)
-      if (!test){
+    j =1
+    while (j*n<= i && !plusPetitQue(i-j*n,v)) {
         copie(i-j,i-j+1)
         casePourV = i-j
-      }
-      j=j+1
+        j=j+1
     }
     setValeur(casePourV , v) 
   }
 }
 
 
-
 def shellSort()  {
-  /*var lgr = getNombreValeurs()
+  var lgr = getNombreValeurs()
   var ecart = 0
   ecart = (lgr.toDouble /2).toInt  
   while(ecart >1){
     insertionSort(ecart)
     ecart = (ecart.toDouble/2).toInt
-  }*/
+  }
   insertionSort(1)
 }
