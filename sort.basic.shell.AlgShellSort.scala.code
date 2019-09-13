@@ -1,24 +1,18 @@
-def shellSort()  {
-  var ecart: Int=getNombreValeurs()/2
-  while (ecart>0){
-    insertionSort()
-    ecart/=2
-  }
-}  
+
   
 
-def insertionSort() {
+def shellSort() {
   var ecart: Int=getNombreValeurs()/2
   var n: Int=getNombreValeurs-1
   var v: Int=0
   for (i<- 1 to n){
-  do{
-    v=getValeur(i)
-    var l: Int=i
-    for (j<- i-ecart to 0 by -ecart){
-      if (!plusPetitQue(j,v)){
-        copie(j,j+ecart)
-        l=j
+  	do{
+   	 v=getValeur(i)
+    	var l: Int=i
+    	for (j<- i-ecart to 0 by -ecart){
+      	if (!plusPetitQue(j,v)){
+        	copie(j,j+ecart)
+        	l=j
       }
     }
     setValeur(l,v);ecart=ecart/2
