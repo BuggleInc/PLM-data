@@ -1,12 +1,15 @@
 def insertionSort() {
   var n=getValueCount()
   var v=0
+  var indice=0
   for (i<- 1 to n-1){
     v=getValue(i)
     for (k<-1 to i){
       if (getValue(i-k)>v){
         copy(i-k,i-k+1)
+        indice=i-k+1
       }
     }
+    copy(i,indice)
   }
 }
