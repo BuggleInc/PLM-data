@@ -2,6 +2,7 @@ def combSort() {
   var ecart=getValueCount()
   var echange=true
   do {
+    echange = false
     if (ecart>1){
       ecart=(ecart.asInstanceOf[Double] / 1.3).asInstanceOf[Int]
     }
@@ -10,10 +11,8 @@ def combSort() {
       if (!isSmaller(k,k+1)){
         swap(k+1,k)
         echange=true
-      }else{
-        echange=false
       }
       k=k+1
     }
-  }while (ecart >=1 || echange==true)
+  }while (ecart >=1 || echange)
 }
