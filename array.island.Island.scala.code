@@ -1,16 +1,20 @@
 def island(num:Array[Int]): Int = {
+  var lvl = 0
+  var nbUn = 0
+  var nbDeux = 0
+  var nbTrois = 0 
   var taille = 0
-  while (num(taille)<100) {
+  while (num(taille) < 100) {
     taille += 1
+  }for (i <- 1 to taille) {
+    if (num(i) == 1) {
+      nbUn += 1
+    }else if (num(i) == 2) {
+      nbDeux +=1
+      
+    }else if (num(i) == 3) {
+      nbTrois += 1
+      
+    }return Int(nbUn/2) + Int(nbDeux/2) + Int(nbTrois/2)
   }
-  var lvl =0
-  var compteur = 0
-  while (compteur <= taille) {
-    compteur += 1
-    while (num(lvl+1)>num(lvl)) {
-    lvl+=1
-  }
-  }
-  return lvl
 }
-
