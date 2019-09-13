@@ -1,9 +1,9 @@
 def cocktailSort2() {
-  var conditionArret  = 1
+  var conditionArret  = 0
   var test = false
   var debut = 0
   var fin = getNombreValeurs() -2
-  while(conditionArret !=0){
+  do {
      conditionArret=0
      for (i<- debut to fin){
         test = plusPetit(i,i+1)
@@ -13,13 +13,13 @@ def cocktailSort2() {
         }
      }
      fin = fin -1
-     for (i<- debut to fin ){
-         test = plusPetit(fin -i,fin+1-i)
+     for (i<- fin to debut by -1 ){
+         test = plusPetit(i,i+1)
          if(!test){
-           echange(fin-i,fin+1-i)
+           echange(i,i+1)
            conditionArret = conditionArret +1
          }  
      }
      debut = debut +1 
-   } 
+   } while(conditionArret !=0)
 }
