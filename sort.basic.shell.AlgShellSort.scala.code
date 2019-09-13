@@ -3,15 +3,17 @@ def insertionSort(n:Int) {
   var v = 0
   var test =false
   var casePourV = 0
+  var j=1
   for (i <- n to lgr -1){
     v=getValeur(i)
     casePourV = i
-    for (j <-1 to i){
+    while(j*n <=i){
       test = plusPetitQue(i-j*n,v)
       if (!test){
         copie(i-j,i-j+1)
         casePourV = i-j
       }
+      j=j+1
     }
     setValeur(casePourV , v) 
   }
