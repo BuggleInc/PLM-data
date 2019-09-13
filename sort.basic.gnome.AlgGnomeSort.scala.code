@@ -1,12 +1,16 @@
 def gnomeSort() {
-  var k=1
+  var k=0
   while (k<=getValueCount()-1){
     if (isSmaller(k,k+1)){
       k=k+1
     }
     if(!isSmaller(k,k+1)){
       swap(k,k+1)
-      k=k-1
+      if (k==0){
+        k=k+1
+      } else{
+        k=k-1
+      }
     }
     if (k==0){
       k=k+1
