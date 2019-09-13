@@ -1,19 +1,15 @@
 def island(num:Array[Int]): Int = {
-  var len : Int = longueur(num)
+  var taille = 0
+  while (num(taille)<100) {
+    taille += 1
+  }
+  var lvl =0
   var compteur : Int = 0
-  var lvl = 0
-  while (compteur <= len) {
+  while (compteur <= taille) {
     compteur += 1
     while (num(lvl+1)>num(lvl)) {
     lvl+=1
   }
   }
-}
+};return lvl
 
-
-def longueur(num:Array[Int]): Int = {
-  var taille = 0
-  while (num(taille)<100) {
-    taille += 1
-  }
-};return longueur
