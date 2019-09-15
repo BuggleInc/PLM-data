@@ -1,24 +1,18 @@
 override def run() {
   var n=false
   while (n==false){
-    n=false
     baisseBrosse()
     if (estFaceMur()) {
       if (getDirection() == Direction.OUEST){
         droite()
-        if (estFaceMur()) {
+        if (estFaceMur()){
           gauche()
           n=true
         }
         avance()
         droite()
       }
-      else {
-        avance()
-      }
-    }
-    if (estFaceMur()){
-      if (getDirection() == Direction.EST){
+      else if (getDirection() == Direction.EST){
         gauche()
         if (estFaceMur()) {
           droite()
