@@ -1,16 +1,13 @@
 override def run() {
   def fonctionTest() {
-    if (estFaceMur()) {
-      return true
-    }
-    if (getDirection() == Direction.EST){
+    if (estFaceMur() && getDirection() == Direction.EST) {
       gauche()
-      if (estFaceMur()){
+      if (estFaceMur()) {
         droite()
         return true
-      } 
+      }
     }
-    if (getDirection() == Direction.OUEST){
+    if (estFaceMur() && getDirection() == Direction.OUEST){
       droite()
       if (estFaceMur()){
         gauche()
