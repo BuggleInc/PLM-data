@@ -19,8 +19,7 @@ override def run() {
     }
   }
   
-  while (!fonctionTest()) {
-    baisseBrosse()
+  def serpent() {
     if (estFaceMur()) {
       if (getDirection() == Direction.OUEST){
         droite()
@@ -35,6 +34,11 @@ override def run() {
     }
     else {
       avance()
-    }
+    } 
+  }
+  
+  while (!fonctionTest()) {
+    baisseBrosse()
+    serpent() 
   }
 }
