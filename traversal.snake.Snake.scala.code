@@ -1,38 +1,23 @@
 override def run() {
-  while (!fonctionTest()) {
+  var n=false
+  while (n==false){
     baisseBrosse()
-    serpent() 
-  }
-  
-  def fonctionTest(): Boolean {
-    if (estFaceMur() && getDirection() == Direction.EST) {
-      gauche()
-      if (estFaceMur()) {
-        droite()
-        return true
-      }
-    }
-    if (estFaceMur() && getDirection() == Direction.OUEST){
-      droite()
-      if (estFaceMur()){
-        gauche()
-        return true
-      }
-    }
-    else {
-      return false
-    }
-  }
-  
-  def serpent() {
     if (estFaceMur()) {
       if (getDirection() == Direction.OUEST){
         droite()
+        if (estFaceMur()){
+          gauche()
+          n=true
+        }
         avance()
         droite()
       }
       if (getDirection() == Direction.EST){
         gauche()
+        if (estFaceMur()) {
+          droite()
+          n=true
+        }
         avance()
         gauche()
       }
@@ -41,6 +26,4 @@ override def run() {
       avance()
     } 
   }
-  
-
 }
