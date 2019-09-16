@@ -1,5 +1,6 @@
 while (!estFaceMur()){
   var n=false
+  var m=false
   retourne()
   while (!estSurBiscuit() && n==false){
     avance()
@@ -11,8 +12,11 @@ while (!estFaceMur()){
     prendBiscuit()
     retourne()
   }
-  while (!estSurBiscuit() && n==false){
+  while (!estSurBiscuit() && m==false){
     avance()
+    if (estFaceMur()){
+      m=true
+    }
   }
   if (estSurBiscuit()){
     recule()
