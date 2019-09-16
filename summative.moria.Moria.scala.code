@@ -1,13 +1,17 @@
 while (getCouleurSol!=Color.green){
+  var n=false
   retourne()
-  while (!estSurBiscuit()){
+  while (!estSurBiscuit() && n==false){
     avance()
+    if(estFaceMur()){
+      n=true
+    }
   }
   if (estSurBiscuit()){
     prendBiscuit()
     retourne()
   }
-  while (!estSurBiscuit()){
+  while (!estSurBiscuit() && n==false){
     avance()
   }
   if (estSurBiscuit()){
