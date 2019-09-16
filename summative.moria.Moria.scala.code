@@ -1,10 +1,20 @@
 while (!estFaceMur()){
   retourne()
   while (!estSurBiscuit()){
-    avance()
+    if(estFaceMur()){
+      droite()
+      avance()
+      gauche()
+      avance()
+    }
+    else {
+      avance()
+    }
   }
-  prendBiscuit()
-  retourne()
+  if (estSurBiscuit()){
+    prendBiscuit()
+    retourne()
+  }
   while (!estSurBiscuit()){
     if(estFaceMur()){
       droite()
