@@ -4,7 +4,6 @@ def bubbleSort3() {
   var m=0
   var n=getNombreValeurs()
   for (i <- n-2 to 0 by -1){
-    if (m!=(i+2)){
       m=0
       for (j <- 0 to i){
         if (plusPetit(j+1,j)){
@@ -12,6 +11,9 @@ def bubbleSort3() {
         }
         else {
           m+=1
+        }
+        if (m==i){
+          return
         }
       } 
     }
