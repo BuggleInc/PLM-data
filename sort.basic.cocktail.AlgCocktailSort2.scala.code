@@ -2,17 +2,18 @@ def cocktailSort2() {
   var n=getNombreValeurs()
   var debut=0
   var fin=n-2
-  var m=n-1
-  var o=n-1
-  while (m!=0 || o!=0){
-    m=fin-debut
-    o=fin-debut
+  var m=0
+  var o=0
+  
+  while (m!=fin-debut || o!=fin-debut){
+    m=0
+    o=0
     for (i <- debut to fin){
       if (plusPetit(i+1,i)){
         echange(i,i+1)
       }
       else {
-        m-=1
+        m+=1
       }
     }
     fin-=1
@@ -21,7 +22,7 @@ def cocktailSort2() {
         echange(i,i+1)
       }
       else {
-        o-=1
+        o+=1
       }
     }
     debut+=1
