@@ -1,0 +1,15 @@
+def gnomeSort() {
+  var avance = 0
+  var len = getNombreValeurs()
+  while(avance < len-1) {
+    if (avance == 0) {
+      if ( plusPetit(avance+1,avance)) {
+        echange(avance+1,avance)
+      };avance+=1
+    }
+    plusPetit(avance+1,avance) match {
+      case true => echange(avance+1,avance); avance-=1
+      case false => avance+=1
+    }
+  }
+}
