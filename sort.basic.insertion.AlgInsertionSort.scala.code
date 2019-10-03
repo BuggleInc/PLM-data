@@ -2,10 +2,10 @@ def insertionSort() {
   var N = getNombreValeurs()
   for(i <- 1 to N-1) {
     var v = getValeur(i)
-    for (j<-0 to i) {
-      if(!plusPetitQue(i-j,v)) {
-        copie(i-j,i)
-      }
-    }
+    var j = i
+    while(j>0 && !plusPetitQue(j-1,v) ) {
+      copie(j-1,j)
+      j-=1
+    },setValeur(j,v)
   }
 }
