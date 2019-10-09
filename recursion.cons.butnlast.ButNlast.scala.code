@@ -1,8 +1,8 @@
 def butNlast(l:List[Int], n:Int): List[Int] = {
   def lambda(tl:List[Int], t:Int, c:Int): List[Int] = {
-    if(c < t){
-      return tl.head::lambda(tl, t,c+1);
-    }
+    if(c >= t) return Nil; 
+    return tl.head::lambda(tl.tail, t, c+1);
+    
   }
   return lambda(l, l.size - n, 0)
 }
