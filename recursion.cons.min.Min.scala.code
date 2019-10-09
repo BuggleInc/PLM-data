@@ -3,13 +3,14 @@ def min(l:List[Int]): Int = {
   
         var t = l.tail;
   
-
+	if (l == Nil)
+  return l.head
   if(t.head < l.head)
   return min(l.tail)
   else{
 	t = t.tail
   var a = l.head
-  return min(a::t)
+  return min(t::a)
   }
 
 
