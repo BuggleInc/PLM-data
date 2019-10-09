@@ -1,9 +1,11 @@
 def min(l:List[Int]): Int = {
   def lambda(l:List[Int], tmin:Int): Int = {
+    if(l.tail == Nil) return tmin;
     if(l.head < tmin){
       return lambda(l.tail, l.head);
     }
     return lambda(l.tail, tmin);
   } 
+  
   return lambda(l.tail,l.head);
 }
