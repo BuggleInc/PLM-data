@@ -1,10 +1,12 @@
 def increasing(l:List[Int]): Boolean = {
-  def lambda(l:List[Int], last:Int): Boolean = {
-    if (l.tail == Nil) return true;
-    if (last <= l.head){
-      return lambda(l.tail, l.head);
+  
+  def lambda(tl:List[Int], last:Int): Boolean = {
+    if (tl.tail == Nil) return true;
+    if (last <= tl.head){
+      return lambda(tl.tail, tl.head);
     }
     else return false;
   }
+  
   return lambda(l.tail,l.head);
 }
