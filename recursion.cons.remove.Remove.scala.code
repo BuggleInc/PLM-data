@@ -6,7 +6,15 @@ def remove(l:List[Int], v:Int): List[Int] = {
   }
   else
   {
-    return l :: remove(l.tail, v);
+    if(l.head == v){
+    
+      return l.head :: remove(l.tail.tail, v);
+    
+    }
+    else
+    {
+      return l.head :: remove(l.tail, v);
+    }
   }
   
   
