@@ -1,7 +1,14 @@
 Erreur de compilation :
-Remove:5: error: value :: is not a member of Int
-  l::l.head
-   ^Remove:9: error: not enough arguments for method remove: (l: List[Int], v: Int)List[Int].
-Unspecified value parameter v.
-  return remove(l)
-               ^
+Remove:6: error: type mismatch;
+ found   : List[Int]
+ required: Int
+  return l::remove(l.tail,v)
+          ^Remove:5: error: type mismatch;
+ found   : Unit
+ required: List[Int]
+  if(l.tail!=v)
+  ^Remove:4: error: type mismatch;
+ found   : Unit
+ required: List[Int]
+  if(l.head == v)
+  ^
