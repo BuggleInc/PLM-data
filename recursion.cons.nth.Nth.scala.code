@@ -1,13 +1,4 @@
 def nth(l:List[Int], n:Int): Int = {
-  def lambda(tl:List[Int], tn:Int, count:Int): Int = {    
-    Int ccount=count + 1;
-    if (tl == Nil) return ccount;
-    if(ccount == tn){
-      return tl.head;
-    }
-    else{
-      return lambda(tl.tail, n, ccount);
-    }
-  }
-  return lambda(l,n,0);
+  if (n == 1) return 1;
+  return nth(l.tail, n-1);
 }
