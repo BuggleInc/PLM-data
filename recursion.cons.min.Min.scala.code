@@ -1,5 +1,23 @@
 def min(l:List[Int]): Int = {
-
-  return l.head;
+	
+  t = l.tail;
+  
+  if(t == Nil)
+  {
+    return l.head;
+  }
+  else
+  {
+  	if(t.head < l.head)
+    {
+      return min(t);
+    }
+    else
+    {
+    
+      return(l.head::t.tail);
+      
+    }
+  }
 
 }
