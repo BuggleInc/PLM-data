@@ -1,7 +1,7 @@
 def reverse(l:List[Int]): List[Int] = {
-  if(l==Nil){
-    return Nil;
+  if(l.tail==Nil){
+    return l.head;
   }
   
-  return reverse(l.tail)::l.head;
+  return reverse(l.tail)::List(l.head);
 }
