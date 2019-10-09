@@ -1,15 +1,15 @@
 def allDifferent(l:List[Int]): Boolean = {
-  if(l.tail==Nil){
+  if(l==Nil){
     return true;
   }
   
-  return (!isMember(l,l.head))&&allDifferent(l.tail);
+  return (!isMember(l.tail,l.head))&&allDifferent(l.tail);
   
 }
 
 def isMember(l:List[Int], v:Int): Boolean = {
   if(l==Nil){
-    return true
+    return false
   }
   
   if(l.head==v){
