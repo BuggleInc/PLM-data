@@ -1,0 +1,12 @@
+def nth(l:List[Int], n:Int): Int = {
+  def lambda(tl:List[Int], tn:Int, count:Int): Int = {
+    count++;
+    if(count == tn){
+      return l.head;
+    }
+    else{
+      return lambda(l.tail, n, count);
+    }
+  }
+  return lambda(l,n,0);
+}
