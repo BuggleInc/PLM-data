@@ -1,8 +1,15 @@
 def min(l:List[Int]): Int = {
+ def length(l:List[Int]): Int = {
   if (l == Nil) {
     return 0
-  };else if(l.tail.head>=l.head) {
-      return l.head + min(l.tail)
-    }
-  }
-  
+  };else {
+    
+  };return 1+length(l.tail)
+};if (length(l) == 1) {
+   return l.tail
+ };else if (l.head.tail<=l.tail) {
+   return min(l.tail)
+ };else {
+   return min(l.head::l.tail.tail)
+ }
+}  
