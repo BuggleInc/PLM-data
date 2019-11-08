@@ -27,17 +27,20 @@ def courrirNord() {
 }
 
 def suivreGauche() {
-  if (getDirection()==Direction.NORTH && !estFaceMur()) {
-    etat = 0
-  }
   gauche()
   if (!estFaceMur()) {
     avance()
+    if (getDirection()==Direction.NORTH && !estFaceMur()) {
+    	etat = 0
+  	}
   } else  {
     while (estFaceMur()) {
       droite()
     }
     avance()
+    if (getDirection()==Direction.NORTH && !estFaceMur()) {
+    	etat = 0
+  	}
   }
   etat = 1
 }
