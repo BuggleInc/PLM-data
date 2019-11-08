@@ -1,10 +1,10 @@
 def occurrences(l:List[Int], v:Int): Int = {
-    if (l==Nil) {
+  if (l==Nil) {
     return 0
   }
-  if (v!=l.head) {
-    return occurences(l.tail,v)
-  } else {
+  if (v==l.head) {
     return 1+occurences(l.tail,v)
+  } else {
+    return occurences(l.tail,v)
   }
 }
