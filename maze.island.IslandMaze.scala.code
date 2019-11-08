@@ -2,8 +2,8 @@ override def run() {
   var etat = 0
   while (!estSurBiscuit()) {
     etat match {
-      case 0 => etat=int(courrirNord())
-      case 1 => etat=int(suivreGauche())
+      case 0 => courrirNord()
+      case 1 => suivreGauche()
       case _ => println("error")
     }
   }
@@ -14,19 +14,19 @@ def courrirNord() {
   setDirection(Direction.NORTH)
   if (!estFaceMur()) { 
     avance() 
-    0
+    etat = 0
   } else {
 		while (!estFaceMur()) {
       gauche()
     }
     droite()
-    1
+    etat = 1
   }
 }
 
 def suivreGauche() {
   if (getDirection()==Direction.NORTH && !estFaceMur()) {
-    0
+    etat = 0
   }
   gauche()
   if (!estFaceMur()) {
@@ -37,5 +37,5 @@ def suivreGauche() {
     }
     avance()
   }
-  1
+  etat = 1
 }
