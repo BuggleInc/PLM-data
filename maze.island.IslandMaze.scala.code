@@ -3,7 +3,7 @@ override def run() {
   while (!estSurBiscuit()) {
     etat match {
       case 0 => etat = courrirNord()
-      case 1 => suivreGauche()
+      case 1 => etat = suivreGauche()
       case _ => println("error")
     }
   }
@@ -14,13 +14,10 @@ def courrirNord() {
   setDirection(Direction.NORTH)
   if (!estFaceMur()) { 
     avance() 
+    return 0
   } else {
-    gauche()
-    if (!estFaceMur()) { 
-      avance () 
-    } else { return 1 }
+    return 1
   }
-  return 0
 }
 
 def suivreGauche() {
