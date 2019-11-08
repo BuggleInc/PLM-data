@@ -1,11 +1,11 @@
 def tree(steps:Int, length:Double, angle:Double, shrink:Double){
-  baisseCrayon()
-  current(steps)
-  avance(length)
+  baisseCrayon();
+  current(steps);
+  avance(length);
   droite(angle);
   while (steps!=0){
-    tree(steps-1,length*shrink,2*angle,shrink);
-    tree(steps-1,length*shrink,-2*angle,shrink);
+    tree(steps-1,length*shrink,angle,shrink);
+    tree(steps-1,length*shrink,-angle,shrink);
   }
   
 }
