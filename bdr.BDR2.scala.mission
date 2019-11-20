@@ -1,0 +1,121 @@
+<!-- Please don't translate this file but l10n/missions/plm.pot (see https://github.com/oster/PLM/wiki/Working-on-translations) -->
+<h2>Buggle Dance Revolution 2 (BDR2)</h2>
+
+
+<p>BDR is cool, but it's a bit chaotic. First, the buggles giggle in any
+directions, and then the code you had to write to let them move is rather
+difficult to read. Here is a new BDR world where the buggle will dance a
+gentle circle. We will benefit this tranquillity to clean up a bit our code
+thanks to the new constructs we will introduce.</p>
+
+<h3>Pattern matching</h3>
+
+<p>The hardest part of previous code is certainly the conditional
+cascading. Somewhere in your code, you certainly had something similar to:</p>
+
+<pre><code class="code-container">if (readMessage() == "R") {
+  right();
+  forward();
+} else if (readMessage() == "L") {
+  left();
+  forward();
+} else if (readMessage() == "I") {
+  back();
+  forward();
+<span class="comment">/* other else if */</span>
+} else {
+  finished = true;
+}
+</code></pre>
+
+<p>When you review this code, it may not be clear at the first glance that it
+is simply a choice with 4 branches depending on the value of
+readMessage(). 
+To improve this, we will use a 
+
+ pattern matching, which is a very powerful construct that greatly generalizes 
+the <code>if</code>. It is arguably one of the major advantages of Scala when compared to languages such as Java or python. 
+It is not new either, as other languages such as OCaml or Haskell offer this feature since long, but still. 
+It's really cool!</p>
+
+
+
+
+<pre><code class="code-container"><i>expression</i> <b>match</b> {
+  <b>case</b> <i>possible value</i> <b>=></b> instructions
+  <b>case</b> <i>other value</i>     <b>=></b> other instructions
+  <b>case</b> <i>another value</i> <b>=></b> yet another instructions
+  <b>case _                 =></b> default instructions
+}
+</code></pre>
+<p>The expression provided before the keyword <code>match</code>, and then
+the branches are evaluated one after the other until we find one which value provided 
+between <code>case</code> and <code>=&gt</code> is equal to the expression's value. 
+The <code>_</code> symbol  acts as a wildcard, so the <code>_</code> branch <i>always</i> matches. 
+Here is an example where a variable <code>name</code> is matched.</p>
+<pre><code class="code-container">name match {
+  case "Martin" => println("Hello Martin, how are you?")
+  case "Gerald" => println("Hey Gerald! How are you doing?")
+  case _            => println("Welcome stranger.")
+}</code></pre>
+
+<p>It is possible to have more than one instruction per branch, and merge branches when the values are 
+separated by a | symbol.</p>
+<pre><code class="code-container">name match {
+  case "Martin" | "Gerald" => println("Hello "+name+", how are you?"); openTheDoor()
+  case _                            => println("Hello stranger. Please do not pass."); lockTheDoor()
+}</code></pre>
+
+<p>You can even add guards to your branches. These are extra conditions that must be respected for the branch 
+to get applied. This is handy if you want match on value ranges, as follows.</p>
+<pre><code class="code-container">age match {
+  case i if i&lt;10 => println("Hey kid!")
+  case i if i&lt;20 => println("Hey dude!")
+  case i if i&lt;30 => println("Hello young man")
+  case _           => println("Hello Sir")
+}</code></pre>
+<p>Note that there is no need to check whether the value is higher than 10 on the second line because the first 
+matching branch is used. So, if the second branch gets evaluated, then the first one did not match.</p>
+
+<p>Finally, it is possible also to match several variables in one shoot!</p>
+<pre><code class="code-container">(x,y) match {
+ case (0,0) => println("that's the origin")
+ case (_,0) => println("On the ordinate")
+ case (0,_) => println("On the abscissa")
+ case (_,_) => println("Some random point")
+}</code></pre>
+
+<p>I told you that scala's pattern matching is very powerful! I actually love this feature!</p>
+
+
+<h3>Exercise goal</h3>
+<p>Apply the improvement we just saw to rewrite your buggle code with the following dance steps. 
+
+Note that we can now move up to 6 cells in one dance step.</p>
+
+<table border="1">
+ <tr><td>Message</td>
+     <td>What to do</td></tr>
+
+ <tr><td>"R"</td><td>Turn right and move one step forward</td></tr>
+ <tr><td>"L"</td><td>Turn left and move one step forward</td></tr>
+ <tr><td>"I"</td><td>Turn back and move one step forward</td></tr>
+
+ <tr><td>"A"</td><td>Move one step forward</td></tr>
+ <tr><td>"B"</td><td>Move two steps forward</td></tr>
+ <tr><td>"C"</td><td>Move three steps forward</td></tr>
+ <tr><td>"D"</td><td>Move four cells forward</td></tr>
+ <tr><td>"E"</td><td>Move five cells forward</td></tr>
+ <tr><td>"F"</td><td>Move six cells forward</td></tr>
+
+ <tr><td>"Z"</td><td>Move one step backward</td></tr>
+ <tr><td>"Y"</td><td>Move two steps backward</td></tr>
+ <tr><td>"X"</td><td>Move three steps backward</td></tr>
+ <tr><td>"W"</td><td>Move four cells backward</td></tr>
+ <tr><td>"V"</td><td>Move five cells backward</td></tr>
+ <tr><td>"U"</td><td>Move six cells backward</td></tr>
+ <tr><td><i>(anything else)</i></td><td>Stop dancing.</td></tr>
+
+</table>
+
+<p>When you program works again, proceed to next exercise.</p>
