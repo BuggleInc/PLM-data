@@ -51,7 +51,63 @@ def unContour(){
 }
 
 
+/**
+*
+*motif colonne trace un motif colonne en arrivant en bas
+* orient? vers le haut
+*repart orient? vers le haut
+*/
+
+def motifColonne(){
+  marquage();
+  avance();
+  droite();
+  avance();
+  marquage();
+  for( i <- 1 to 2){recule();}
+  marquage();
+  gauche();
+  avance();
+  marquage();
+  droite();
+  for( i <- 1 to 2){avance();}
+  marquage();
+  gauche();
+  avance();
+  gauche();
+  avance();
+  marquage();
+  droite();
+  
+}
+
+
+/**
+* l'unique but de cette fonction est de trac? les motifs 3"colonnes" 
+* lorsqu'on est plac? exactement tout en bas orient? vers la droite de celle-ci
+* motif colonne:
+*				 O
+*				O	O
+*				O	O
+*				 O 
+*
+*/
+def colonne(){
+  gauche();
+  for( i <- 1 to 5){avance();}
+  motifColonne();
+  for( i <- 1 to 5){avance();}
+  motifColonne();
+  for( i <- 1 to 15){recule();}
+  droite();
+  
+  
+}
+
+
 
 override def run() { 
   for( i <- 1 to 4){unContour();}
+  for( i <- 1 to 3){avance();}
+  colonne();
 }
