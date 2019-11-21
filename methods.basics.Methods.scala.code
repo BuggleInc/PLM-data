@@ -1,0 +1,22 @@
+
+/**
+* on avance jusqu'? trouver le biscuit 
+* tout en ajoutant le nombre de pas ? un compteur
+* ensuite, d?s qu'on l'a trouv?, on le r?cup?re puis 
+* on recule exactement le nombre de pas effectu?
+* on d?pose le biscuit
+*/ 
+
+def goAndGet() {
+  
+  var nbPas: Int=0;
+  while(estSurBiscuit()!=true) {
+    avance();
+    nbPas=nbPas + 1;
+  }
+  
+  prendBiscuit();
+  
+  for( k <- 1 to nbPas){recule();}
+  poseBiscuit();
+}
