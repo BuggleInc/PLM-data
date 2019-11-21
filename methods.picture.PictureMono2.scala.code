@@ -99,8 +99,58 @@ def colonne(){
   for( i <- 1 to 4){avance();}
   motifColonne();
   for( i <- 1 to 15){recule();}
+  droite(); 
+}
+
+/**
+*		 OO
+*		O	 O
+*		 OO
+*
+* on arrive sur la case en bas ? gauche
+* orient? vers le haut
+* on repart sur la case en haut ? gauche
+* orient? vers le haut
+*/
+def motifNuage(){
+  marquage();
   droite();
-  
+  avance();
+  marquage();
+  avance();
+  gauche();
+  avance();
+  marquage();
+  gauche();
+  for( i <- 1 to 3){avance();}
+  marquage();
+  droite();
+  avance();
+  droite();
+  for( i <- 1 to 2){avance();}
+  marquage();
+  recule();
+  marquage();
+  gauche();  
+}
+
+/**
+*But trac? une colonne de nuage en arrivant tout en bas 
+*	SUR LA 2? case des 4 de larges
+*on arrive orient? vers la droite
+*on repart de la m?me case, orient? vers la droite
+*
+*/
+def nuages(){
+  gauche();
+  for( i <- 1 to 2){avance();}
+  motifNuage();
+  for( i <- 1 to 5){avance();}
+  motifNuage();
+  for( i <- 1 to 5){avance();}
+  motifNuage();
+  for( i <- 1 to 5){recule();}
+  droite();
   
 }
 
@@ -110,4 +160,7 @@ override def run() {
   for( i <- 1 to 4){unContour();}
   for( i <- 1 to 3){avance();}
   colonne();
+  for( i <- 1 to 3){avance();}
+  nuages();
+  
 }
