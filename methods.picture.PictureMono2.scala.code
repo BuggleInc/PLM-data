@@ -1,0 +1,56 @@
+/**
+* sert ? marquer la case courante
+*/
+def marquage(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+
+/**
+* faire V se place ? la premi?re case ? gauche
+* en posant le V sur sa base :
+*					OOO
+*			000     OOO
+*      ^
+*      I
+* se place ici
+* orient? vers la droite -->
+* ressort derni?re case ? droite, orient? vers la droite
+*/
+
+def faireV(){
+  marquage();
+  avance();
+  gauche();
+  avance();
+  marquage();
+  recule();
+  droite();
+  avance();
+  marquage();
+}
+
+
+/** le but de unContour est de trac? une bordure
+* on commence en bas ? gauche orient? vers la droite
+* on finit en bas ? droite orient? vers le haut
+* et on a trac? les trois V
+*
+*/
+
+def unContour(){
+  for( i <- 1 to 2){avance();}
+  faireV();
+  for( i <- 1 to 6){avance();}
+  faireV();
+  for( i <- 1 to 6){avance();}
+  faireV();
+  for( i <- 1 to 2){avance();}
+  gauche();
+}
+
+
+
+override def run() {
+}
