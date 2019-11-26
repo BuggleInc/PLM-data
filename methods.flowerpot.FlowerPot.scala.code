@@ -5,4 +5,29 @@ var orange:Color=Color.ORANGE;
 var vert:Color=Color.GREEN;
 var jaune:Color=Color.YELLOW;
 
-def growFlowers(){}
+/**
+se situe au centre, trace la fleur de la couleur ce
+repart du centre, orient? comme au d?but
+
+*/
+def fleur(c:Color){
+  setCouleurBrosse(jaune);
+  baisseBrosse();
+  leveBrosse();
+  setCouleurBrosse(c);
+  for(i <-1 to 4){
+    avance();
+    baisseBrosse();
+    leveBrosse();
+    recule();
+    gauche();
+    
+  }
+  
+  
+}
+
+def growFlowers(){
+  avance();
+  fleur(rouge);
+}
