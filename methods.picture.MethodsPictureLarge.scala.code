@@ -1,0 +1,106 @@
+var jaune:Color=Color.yellow;
+var bleu:Color=Color.blue;
+var vert:Color=Color.green;
+var rouge:Color=Color.red;
+
+
+/**
+faireV permet de faire un V avec la couleur sp?cifi?e
+attention ? l'emplacement, il le fait en avancant
+sur sa gauche
+											O
+exemple:       -->   O O
+										 ^
+                    il commence ici orient? vers la droite
+                    finit deux cases plus loin orient? vers la droite en ayant form? le v 
+                    dans la couleur demand?e
+
+*/
+def faireV(c:Color){
+  setCouleurBrosse(c);
+  baisseBrosse();
+  leveBrosse();
+  avance();
+  gauche();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+  recule();
+  droite();
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+
+// permet de faire un contour en couleur specifi?
+def traceCont(c:Color){
+  avance();
+  faireV(c);
+  for (k <- 1 to 8){
+    for (i <- 1 to 3){avance();}
+		faireV(c);
+  }
+  avance();
+  gauche();
+  
+}
+
+
+//permet de faire les contours dans un premier temps
+def contours(){
+  for(i <- 1 to 4){
+    var coleur:Color=jaune;
+    
+    i match { 
+      case 1 => traceCont(jaune);
+      case 2 => traceCont(rouge);
+      case 3 => traceCont(bleu);
+      case 4 => traceCont(vert);
+    }
+    
+  }
+}
+
+/** comence en bas (orient? vers le haut) avec les v orient?s vers la droite, reviens en bas 
+
+			 O
+			O
+			 O
+       
+       O
+      O
+       O
+       
+       ^    
+*/
+def colonnes(c:Color){
+  avance();
+  faireV(c);
+  for( i <- 1 to 3){avance();}
+  faireV(c);
+  for( i <- 1 to 3){avance();}
+  faireV(c);
+  for( i <- 1 to 13){recule();}
+}
+
+
+def ligne(c:Color){
+  for (i <- 1 to 4){avance();}
+  gauche();
+  colonnes(c);
+  droite();
+  for (i <- 1 to 5){avance();}
+  gauche();
+  colonnes(c);
+  droite();
+  for (i <- 1 to 5){avance();}
+  gauche();
+  
+}
+
+
+
+override def run() {
+  contours();
+  
+}
