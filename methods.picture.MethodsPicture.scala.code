@@ -32,17 +32,35 @@ def faireV(c:Color){
   leveBrosse();
 }
 
+// permet de faire un contour en couleur specifi?
+def traceCont(c:Color){
+  avance();
+  faireV(c);
+  
+  for (i <- 1 to 3){avance();}
+  faireV(c);
+  for (i <- 1 to 3){avance();}
+  faireV(c);
+  avance();
+  gauche();
+  
+}
+
 
 //permet de faire les contours dans un premier temps
 def contours(){
   
+  
   for(i <- 1 to 4){
-    i match{
-      case i 
+    var coleur:Color=jaune;
+    i match { 
+      case 1 <= coleur = jaune
+      case 2 <= coleur = red
+      case 3 <= coleur = bleu
+      case 4 <= coleur = vert
     }
+    traceCont(coleur);
   }
-  avance();
-  faireV(jaune);
   
 }
 
