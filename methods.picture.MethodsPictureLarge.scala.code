@@ -76,11 +76,13 @@ def contours(){
 def colonnes(c:Color){
   avance();
   faireV(c);
-  for( i <- 1 to 3){avance();}
-  faireV(c);
-  for( i <- 1 to 3){avance();}
-  faireV(c);
-  for( i <- 1 to 13){recule();}
+  for(k<-1 to 7){
+    avance();
+    avance();
+    avance();
+    faireV(c);
+  }
+  for(l <-1 to 15){recule();}
 }
 
 
@@ -102,5 +104,9 @@ def ligne(c:Color){
 
 override def run() {
   contours();
+  avance();
+  gauche();
+  colonne(rouge);
+  
   
 }
