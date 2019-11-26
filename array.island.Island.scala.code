@@ -1,11 +1,13 @@
 
-def max(liste:Array[Int]):Int={
+def max(liste:Array[Int]):Array[Int]={
   
-  var max:Int=liste(0);
+  var max:Array[Int]=Array(liste(0),0)
   
   
   for(i <- 1 to liste.length -1){
-   			if( max < liste(i) ){max=liste(i);}
+   			if( max < liste(i) ){
+          max=Array(liste(i),i)}
+    		
   }
   return max;
   
@@ -14,8 +16,12 @@ def max(liste:Array[Int]):Int={
 
 def island(num:Array[Int]): Int = {
 	
-  if ( num.length == 0){return 0}
-  return max(num)
+  if (num.length == 0){return 0}
+  
+    
+    return max(num);
+  
+  
   
   
  
