@@ -1,0 +1,56 @@
+// isFacingTrail annonce si le buggle est face ? une trace
+def isFacingTrail():Boolean = {
+  	
+  	var jui:Boolean=false;
+  
+  	if (estFaceMur()) {
+      
+    }
+  	else{
+      avance();
+      if ( getCouleurSol()==Color.green){
+        jui=true;
+      }
+      recule()
+    }
+ 
+    return jui
+}
+
+// nextStep, est une m?thode qui permet de se d?placer dans le chemin de la limace, sert ? effacer les traces
+// n?cessite d'?tre dans la bonne direction et d'?tre sur qu'on sne se situe pas face ? un mur
+
+def nextStep(){
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+// permet de l'orient? comme il faut
+def choix() {
+  var trouvee:Boolean=false;
+  while(trouvee!=true){
+    if (estFaceMur()){gauche();}
+    else if (isFacingTrail()){trouvee=true;}
+    else {gauche();}
+    } 
+  }
+
+
+def hunt() {
+  
+ 	var estFini:Boolean =false;
+  
+  
+  while( estFini != true){
+    choix();
+    avance();
+    if (estSurBiscuit()){estFini=true();}
+    
+  }
+  
+  prendBiscuit();
+  
+  
+    
+}
+
