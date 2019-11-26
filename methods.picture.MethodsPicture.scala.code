@@ -49,8 +49,6 @@ def traceCont(c:Color){
 
 //permet de faire les contours dans un premier temps
 def contours(){
-  
-  
   for(i <- 1 to 4){
     var coleur:Color=jaune;
     
@@ -62,14 +60,39 @@ def contours(){
     }
     
   }
-  
 }
 
+/** comence en bas (orient? vers le haut) avec les v orient?s vers la droite, reviens en bas 
 
+			 O
+			O
+			 O
+       
+       O
+      O
+       O
+       
+       ^    
+*/
+def colonnes(c:Color){
+  avance();
+  faireV(c),
+  for( i <- 1 to 3){avance();}
+  faireV(c);
+  for( i <- 1 to 3){avance();}
+  faireV();
+  for( i <- 1 to 13){recule();}
+}
 
 
 
 
 override def run() {
   contours();
+  avance();
+  avance();
+  avance();
+  avance();
+  colonnes(red);
+  
 }
