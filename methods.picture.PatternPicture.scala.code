@@ -19,12 +19,23 @@ def coin(c:Color){
   recule();
 
 }
-
-
 def carre(){
+  for (i <-1 to 4){
+    
+    i match{
+      case 1 => coin(rouge)
+      case 2 => coin(bleu)
+      case 3 => coin(vert)
+      case 4 => coin(jaune)
+    }
+    avance();
+    avance();
+    gauche();
+    
+  }
   
 }
 
 override def run() {
-  coin(rouge);
+  carre();
 }
