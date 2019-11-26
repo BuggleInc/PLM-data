@@ -87,26 +87,25 @@ def colonnes(c:Color){
 
 
 def ligne(c:Color){
-  for (i <- 1 to 4){avance();}
+  for(i<- 1 to 4){avance();}
   gauche();
   colonnes(c);
   droite();
-  for (i <- 1 to 5){avance();}
-  gauche();
-  colonnes(c);
-  droite();
-  for (i <- 1 to 5){avance();}
-  gauche();
-  
+  for(k <- 1 to 7){
+    for(i <-1 to 5){avance();}
+    	gauche();
+    	colonnes(c);
+    	droite(); 	
+  }
+  for(i<- 1 to 5){avance();}
+  gauche();  
 }
 
 
 
 override def run() {
   //contours();
-  avance();
-  gauche();
-  colonnes(rouge);
+  ligne(rouge);
   
   
 }
