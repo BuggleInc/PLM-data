@@ -19,10 +19,14 @@ def nextStep(){
 
 def chemin(c:color) {
   var fini:Boolean=false;
+  
   while( fini != true){
+    
     if( estFaceMur()){gauche();}
-    else if (isFacingTrail(c)){fini=true;}
-    else{gauche();}
+    
+    else if ( isFacingTrail(c) ){fini=true;}
+    
+    else{gauche();} 
   }
   
 }
@@ -36,7 +40,7 @@ def chemin(c:color) {
 def hunt(c:Color) {
      // Write your code here
   
-  while( estSurBiscuit()!=true){
+  while( estSurBiscuit() != true){
     chemin(c);
     nextStep();
   }
