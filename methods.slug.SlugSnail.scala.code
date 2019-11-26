@@ -1,0 +1,48 @@
+// permet de savoir si on est bien orient? vers le bon chemin
+def isFacingTrail(c:color):Boolean = {
+  var is:Boolean=false;
+  if (estFaceMur()){return false}
+  else{
+    avance();
+    if ( getCouleurSol()==c){is = true;}
+    recule();
+  }
+  return is
+}
+
+//permet d'avancer commme on veut dans la bonne direction
+def nextStep(){
+  avance();
+  baisseBrosse();
+  leveBrosse();
+}
+
+def chemin(c:color) {
+  var fini:Boolean=false;
+  while( fini != true){
+    if( estFaceMur()){gauche();}
+    else if (isFacingTrail(c)){fini=true;}
+    else{gauche();}
+  }
+  
+}
+
+
+
+
+
+
+
+def hunt(c:Color) {
+     // Write your code here
+  
+  while( estSurBiscuit()!=true){
+    chemin(c);
+    nextStep();
+  }
+  
+  
+  prendBiscuit();
+ }
+
+ // here comes your isFacingTrail method
