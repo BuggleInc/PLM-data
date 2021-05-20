@@ -1,0 +1,49 @@
+/**
+*	R?alise le motif d'un carr? de 7*7 x9 sur une ligne
+*
+*/
+void faireMethode(){
+  for(int i = 0; i < 9; i++){
+  	for (int j = 0; j < 4; j++){
+      avance(2);
+      marqueCase();
+      avance();
+      gauche();
+      avance();
+      marqueCase();
+      retourne();
+      avance();
+      gauche();
+      avance();
+      marqueCase();
+      avance(2);
+      gauche();
+    }
+    avance(7); 
+	}	
+}
+/**
+* Marque la case
+**/
+void marqueCase(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+/**
+*	replace le Buggle
+*/
+void replaceBuggle(){
+  gauche();
+  avance(7);
+  droite();
+}
+
+  
+
+public void run() {
+  for (int i = 0; i < 9; i++){
+    faireMethode();
+    replaceBuggle();
+  }
+}
