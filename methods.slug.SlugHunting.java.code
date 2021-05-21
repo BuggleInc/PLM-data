@@ -21,14 +21,19 @@ void marqueCase(){
 
 public void hunt() {
   for(; !estSurBicuit;){  
-    avance(); 
-    if (getCouleurSol().equals(Color.green)){
-      marqueCase;
+    if(!estFaceMur()){
+      avance(); 
+      if (getCouleurSol().equals(Color.green)){
+        marqueCase;
+      }
+      else{
+        recule();
+        gauche();
+      }
     }
-    else{
-      recule();
-      droite();
-    }
+    else
+      gauche();
+      
   }
   prendBiscuit();
 }
