@@ -1,0 +1,35 @@
+/**
+*	retourne vrai si on est sur le chemin 
+* gere la collision avec les murs
+*/
+boolean isFacingTrail() {
+  boolean trail = false;  
+  if(!estFaceMur()){
+    avance(); 
+  	if (getCouleurSol().equals(Color.green)){
+    	trail = true;
+  	}
+  	recule();
+  }
+  return trail;
+}
+
+void marqueCase(){
+  baisseBrosse();
+  leveBrosse();
+}
+
+public void hunt() {
+  for(; !estSurBicuit;){  
+    avance(); 
+    if (getCouleurSol().equals(Color.green)){
+      marqueCase;
+    }
+    else{
+      recule();
+      droite();
+    }
+  }
+  prendBiscuit();
+}
+
