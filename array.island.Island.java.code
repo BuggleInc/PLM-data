@@ -1,0 +1,13 @@
+int island(int[] num) {
+  int altitudeActuelle = 0, nbrNiveau = 0;
+  for(int i = 0; i < num.length; i++){
+    if (num[i] > altitudeActuelle){
+      nbrNiveau++;
+      altitudeActuelle = num[i];
+    }
+    else{
+      altitudeActuelle = num[i];
+    }
+  }
+  return nbrNiveau;
+}
