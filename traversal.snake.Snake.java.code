@@ -11,13 +11,14 @@ public boolean positionFinale(){
     }
     else{
      droite();
-*/      return false;
-//    }
-//  }
+      return false;
+   }
+  }*/
+  return true;
 }
 
 void avanceSerpent(){
-  while(!estFaceMur()){
+ /* while(!estFaceMur()){
     avance();
   }
   if (getDirection() == Direction.EAST && !positionFinale()){
@@ -29,7 +30,21 @@ void avanceSerpent(){
     droite();
     avance();
     droite();
+  }*/
+  for (int i = 2; i < 8; i++ ){
+    avance(7);
+    if (i%2 == 0){
+      gauche();
+      avance();
+      gauche();
+    }
+    else{
+      droite();
+      avance();
+      droite();
+    }
   }
+  avance(7);
 }
 
 public void run() {
