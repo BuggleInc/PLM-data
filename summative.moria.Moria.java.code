@@ -1,0 +1,39 @@
+/**
+* prends un biscuit et le depose au 1er emplacement ? l'ouest qui est libre
+*/
+void degageRocher(){
+  while (!estSurBiscuit()){
+    avance();
+  }
+  prendBiscuit();
+  retourne();
+  while(!estSurBiscuit()){
+    avance();
+  }
+  recule();
+  poseBiscuit();
+  retourne();
+}
+
+public void run() { 
+	retourne();
+  while (!estFaceMur()){
+		degageRocher();
+  }
+  if (estFaceMur() && estSurBiscuit()){
+    degageRocher();
+    while (!estSurBiscuit()){
+      avance();
+    }
+    droite();
+    avance();
+    gauche();
+    avance();
+  }
+  else{
+    droite();
+    avance();
+    gauche();
+    avance();
+  }
+}
