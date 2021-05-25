@@ -1,0 +1,39 @@
+boolean positionFinale(){
+  if (!estFaceMur())
+    return false;
+  else if (estFaceMur() && getDirection() != Direction.EST)
+    return false;
+  else {
+    gauche();
+    if (estFaceMur()){
+      droite();
+      return true;
+    }
+    else{
+     droite();
+      return false;
+    }
+  }
+}
+
+void avanceSerpent(){
+  while(!estFaceMur()){
+    avance();
+  }
+  if (getDirection() == Direction.EST && !positionFinale()){
+    gauche();
+    avance();
+    gauche();
+  }
+  else if (getDirection() == Direction.OUEST && !positionFinale()){
+    droite();
+    avance();
+    droite();
+  }
+}
+
+public void run() {
+  while (!positionFinale){
+    avanceSerpent();
+  }
+}
