@@ -9,12 +9,12 @@ while trie==False:
   for i in range(fin):
     if plusPetit(i,i+1)==False:
       echange(i,i+1)
-      fin=fin-1
       trie=False
-  fin=n
+    fin=fin-1
   for i in range(fin,debut,-1):
     if plusPetit(i-1,i)==False:
       echange(i-1,i)
       trie=False
+    debut=debut+1
   if trie==True:
     break
