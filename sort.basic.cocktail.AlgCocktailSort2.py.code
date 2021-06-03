@@ -1,0 +1,15 @@
+n=getNombreValeurs()-1
+
+trie=False
+while trie==False:
+  trie=True
+  for i in range(n):
+    if plusPetit(i,i+1)==False:
+      echange(i,i+1)
+      trie=False
+  for i in range(n,0,-1):
+    if plusPetit(i-1,i)==False:
+      echange(i-1,i)
+      trie=False
+  if trie==True:
+    break
