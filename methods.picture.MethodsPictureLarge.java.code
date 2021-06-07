@@ -1,0 +1,56 @@
+/**
+ *  Fait des V
+ */
+void faireV() {
+  avance();
+	marqueCase();
+	avance();
+	gauche();
+	avance();
+  marqueCase();
+	retourne();
+	avance();
+  gauche();
+  avance();
+	marqueCase();
+  avance();
+  gauche();
+}
+
+/**
+ * Marque 1 seule case
+ */
+void marqueCase(){
+	baisseBrosse();
+	leveBrosse();
+}
+public void run() {
+  for (int j = 0; j < 9; j++){
+		for (int i = 0; i < 9; i++){
+			for(int k = 0; k < 4; k++){
+        switch (k){
+        	case 0:
+        		setCouleurBrosse(Color.YELLOW);
+        		faireV();
+        		break;
+        	case 1:
+        		setCouleurBrosse(Color.RED);
+        		faireV();
+        		break;
+        	case 2:
+        		setCouleurBrosse(Color.BLUE);
+        		faireV();
+        		break;
+        	case 3:
+        		setCouleurBrosse(Color.GREEN);
+        		faireV();
+        		break;
+        }
+      }
+      avance(5);
+		}
+    gauche();
+    avance(5);
+    droite();
+  }
+}
