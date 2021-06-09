@@ -1,23 +1,12 @@
 boolean isFacingTrail() {
-while (!getCouleurSol().equals(Color.green) ) {
-  gauche();
-  balayage();
-}
-  return true ;
-}
-
-boolean balayage() {
-  if (! estFaceMur()){
-    droite();
-    avance();
+  if (estFaceMur()){
+    return false;
+  }else{
     if(getCouleurSol().equals(Color.green)){
       return true ;
-    }else{
-      recule();
-      gauche();
     }
-  }else{
-    gauche();
   }
-  return false ;
+
+  
 }
+
