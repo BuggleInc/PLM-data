@@ -1,7 +1,8 @@
 # while I did not find the exit, take the next corridor to decide whether I should turn left or right at the next intersection
 
-not exitReached = True
-while not exitReached:
+exitReached = False
+while not exitReached or not isGroundOrange():
+  exitReached = True
   x=0
   for i in range (5):
     forward()
@@ -11,3 +12,4 @@ while not exitReached:
     left()
   elif x<=2:
     right()
+  
