@@ -1,0 +1,24 @@
+def isFacingTrail():
+  green = False
+  avance()
+  if getCouleurSol() == Color.green:
+    green = True
+  recule()
+  return green 
+
+while estSurBiscuit() == False :
+  if isFacingTrail() == True :
+    avance()
+    baisseBrosse()
+    leveBrosse()
+  else : 
+    gauche()
+    if isFacingTrail() == True :
+      avance()
+      baisseBrosse()
+      leveBrosse()
+    else : 
+      droite()
+      droite()
+  if estFaceMur() == True :
+    gauche()
