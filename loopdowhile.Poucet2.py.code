@@ -1,0 +1,15 @@
+# while I did not find the exit, take the next corridor to decide whether I should turn left or right at the next intersection
+
+firstTime = True
+while firstTime or not crossing():
+  firstTime = False
+  x=0
+  for i in range (5):
+    forward()
+    if isOverBaggle():
+      x=x+1
+  if x>=3:
+    left()
+  elif x<=2:
+    right()
+forward()
