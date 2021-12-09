@@ -1,20 +1,64 @@
-def isFacingTrail():
-  c=0
-  while c==0:
-    if estFaceMur():
-      gauche()
-    else:
-    	avance()
-    	testcolour()
-    	recule()
-    	gauche()
-  droite()
-  
-def testcolour():
-  if getCouleurSol()==Color.green:
-  	c=1
-  
-while estSurBiscuit()==0:
-  isFacingTrail()
-  avance()
-  recule()
+def wall():
+  N=0
+  O=0
+  S=0
+  E=0
+  if estFaceMur():
+    N=1
+  gauche()
+  if estFaceMur():
+    O=1
+  gauche()
+  if estFaceMur():
+    S=1
+  gauche()
+  if estFaceMur():
+    E=1
+  gauche()
+    
+def track():
+  if N==1:
+    avance()
+    x=getCouleurSol()
+    if x==Color.green:
+      S=1
+  gauche()
+  if O==1:
+    avance()
+    x=getCouleurSol()
+    if x==Color.green:
+      S=2
+  gauche()
+  if S==1:
+    avance()
+    x=getCouleurSol()
+    if x==Color.green:
+      S=3
+  gauche()
+  if E==1:
+    avance()
+    x=getCouleurSol()
+    if x==Color.green:
+      S=4
+	gauche()
+      
+def av():
+  if S=1:
+    avance()
+  if S=2:
+    gauche()
+    avance()
+  if S=3:
+    gauche()
+		gauche()
+    avance()
+  if S=4:
+    gauche()
+    gauche()
+    gauche()
+    avance()
+
+for i in range (15):
+  wall()
+  track()
+  av()
