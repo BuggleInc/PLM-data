@@ -1,37 +1,31 @@
 def isFacingTrail(color):
-	#if estSurBiscuit():
-   # return("end")
+	v=True
 	if estFaceMur():
-    return("False")
-	avance()
-	if getCouleurSol()!=color:
-		return("False")
-	recule()
-	return("True")
-  
+		v=False
+	if v==True:
+		avance()
+		if getCouleurSol()!=color:
+			v=False
+		recule()
+		return(v)
+
 def av():
-  avance()
   baisseBrosse()
+  avance()
   leveBrosse()
   
 def hunt(color):
-  #if isFacingTrail(c)==End:
-    #return("End")
-  if isFacingTrail(c)==True:
-		av()
-    return("0")
-	gauche()
-	if isFacingTrail(c)==True:
-		av()
-    return("0")
-	gauche()
-	gauche()
-  av()
-	return("0")
-    
-avance()
-c=getCouleurSol()
-recule()
-x=hunt(c)
-while x==0:
-  x=hunt(c)
+	for i in range(15):
+		if isFacingTrail(color)==True:
+			av()
+		else:
+			gauche()
+			if isFacingTrail(color)==True:
+				av()
+			else:
+				gauche()
+				gauche()
+				if isFacingTrail(color)==True:
+					av()
+	prendBiscuit()
+hunt(color)
