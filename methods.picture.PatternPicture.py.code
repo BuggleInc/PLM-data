@@ -1,19 +1,18 @@
-def onePattern():
-  for i in range (4):
-    forward()
-    brushDown()
-    forward()
-    brushUp()
+def onePattern(color):
+  setBrushColor(color)
+  for i in range (2):
+    forward();
+    brushDown();getBrushColor();brushUp()
+    left()
     forward()
     left()
 
-for i in range (2): #tableau
-  for i in range (2): #1 ligne
-    onePattern()
-    for i in range (4):
-      forward()
-  for i in range (4):
-    backward()
-  left()
-  for i in range (4):
+for i in range (2): #tableau 2x2
+  for i in range (2):#ligne 1x2
+    onePattern(Color.red)
     forward()
+    onePattern(Color.blue)
+    forward()
+    onePattern(Color.green)
+    forward()
+    onePattern(Color.yellow)
