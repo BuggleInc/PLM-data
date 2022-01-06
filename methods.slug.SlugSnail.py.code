@@ -1,0 +1,21 @@
+def isFacingTrail(color):
+  if isFacingWall():
+    isFacingTrail=False
+  else :
+    forward()
+    if getGroundColor()==Color.color:
+      isFacingTrail=True
+    else :
+      isFacingTrail=False
+    backward()
+  return isFacingTrail
+
+def hunt(color):
+while not isCarryingBaggle():
+  if isFacingTrail():
+    brushDown()
+    forward()
+  else:
+    left()
+  if isOverBaggle():
+    pickupBaggle()
