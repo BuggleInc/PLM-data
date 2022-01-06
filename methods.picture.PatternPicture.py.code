@@ -1,4 +1,4 @@
-def onePattern(color):
+def patternOne(color):
   setBrushColor(color)
   for i in range (2):
     forward();
@@ -6,13 +6,27 @@ def onePattern(color):
     left()
     forward()
     left()
+    
+def patternTwo(color):
+  setBrushColor(color)
+  for i in range (2):
+    brushDown();getBrushColor();brushUp()
+    forward()
+    left()
+    forward()
+    left()
+    
 
 for i in range (2): #tableau 2x2
   for i in range (2):#ligne 1x2
-    onePattern(Color.red)
+    patternOne(Color.red)
     forward()
-    onePattern(Color.blue)
+    patternTwo(Color.blue)
+    for i in range (2):
+      backward()
+    left()
+    forward2()
+    patternOne(Color.green)
     forward()
-    onePattern(Color.green)
+    patternTwo(Color.yellow)
     forward()
-    onePattern(Color.yellow)
